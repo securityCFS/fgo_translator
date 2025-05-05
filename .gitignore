@@ -1,0 +1,10 @@
+*.txt
+__pycache__/
+transations*/
+cache/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.json
+*.log
