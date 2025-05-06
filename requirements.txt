@@ -5,5 +5,4 @@ tqdm>=4.66.1
 langdetect>=1.0.9
 pathlib>=1.0.1
 typing>=3.7.4.3
-sqlite3>=2.6.0
 asyncio>=3.4.3

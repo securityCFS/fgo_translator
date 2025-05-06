@@ -12,6 +12,7 @@ import asyncio
 from tqdm import tqdm
 import argparse
 import sys
+import socket
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -19,6 +20,38 @@ logger = logging.getLogger(__name__)
 
 # Disable httpx logging
 logging.getLogger("httpx").setLevel(logging.WARNING)
+
+def is_port_open(host: str = "127.0.0.1", port: int = 7890, timeout: float = 2.0) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(timeout)
+        try:
+            sock.connect((host, port))
+            return True
+        except (socket.timeout, socket.error):
+            return False
+
+def is_proxy_functional(proxy_url: str = "http://127.0.0.1:7890", test_url: str = "http://httpbin.org/ip", timeout: float = 5.0) -> bool:
+
+    proxies = {
+        "http": proxy_url,
+        "https": proxy_url,
+    }
+    try:
+        response = requests.get(test_url, proxies=proxies, timeout=timeout)
+        return response.status_code == 200
+    except requests.RequestException:
+        return False
+
+
+# Check if clash is running (local proxy enabled)
+def is_clash_running():
+    return is_port_open() and is_proxy_functional()
+
+
+if is_clash_running():
+    print("Clash proxy detected")
+    os.environ["http_proxy"] = "http://127.0.0.1:7890"
+    os.environ["https_proxy"] = "http://127.0.0.1:7890"
 
 class GPTTranslationClient:
     """Client for handling GPT API translations with support for different API types."""
