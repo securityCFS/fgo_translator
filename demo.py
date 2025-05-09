@@ -336,6 +336,88 @@ def get_export_path(messages: Dict[str, str], target_lang: str) -> str:
     path = input(messages["export_path"].format(target_lang)).strip()
     return path or default_path
 
+def is_id(input_str: str) -> bool:
+    """Check if the input string is a numeric ID."""
+    return input_str.isdigit()
+
+def handle_war_search(loader: DialogueLoader, messages: Dict[str, str]) -> Tuple[Dict, str]:
+    """Handle war search with ID detection."""
+    while True:
+        war_input = input(f"\n{messages['enter_war']} ").strip()
+        
+        if is_id(war_input):
+            print("\nDetected numeric input. This might be a war ID.")
+            print("1. Use as ID directly")
+            print("2. Search by this number as name")
+            choice = input("Choose an option (1/2): ").strip()
+            
+            if choice == "1":
+                # Use as ID directly
+                return {"id": int(war_input), "name": f"War {war_input}"}, war_input
+        
+        # Search for war
+        print(messages["searching_war"].format(war_input))
+        wars = loader.search_war(war_input)
+        
+        if not wars:
+            print(messages["no_wars"])
+            continue
+        
+        # Display found wars
+        print(f"\n{messages['found_wars']}")
+        for i, war in enumerate(wars, 1):
+            print(f"{i}. {war['name']} (ID: {war['id']})")
+        
+        # Get war selection
+        while True:
+            try:
+                choice = int(input(f"\n{messages['select_war']} ").strip())
+                if 1 <= choice <= len(wars):
+                    return wars[choice-1], war_input
+                else:
+                    print(messages["invalid_choice"])
+            except ValueError:
+                print(messages["enter_valid"])
+
+def handle_quest_search(loader: DialogueLoader, war_id: int, messages: Dict[str, str]) -> Dict:
+    """Handle quest search with ID detection."""
+    while True:
+        quest_input = input(f"\n{messages['enter_quest']} ").strip()
+        
+        if is_id(quest_input):
+            print("\nDetected numeric input. This might be a quest ID.")
+            print("1. Use as ID directly")
+            print("2. Search by this number as name")
+            choice = input("Choose an option (1/2): ").strip()
+            
+            if choice == "1":
+                # Use as ID directly
+                return {"id": int(quest_input), "name": f"Quest {quest_input}"}
+        
+        # Search for quest
+        print(messages["searching_quest"].format(quest_input))
+        quests = loader.search_quest(quest_input, war_id)
+        
+        if not quests:
+            print(messages["no_quests"])
+            continue
+        
+        # Display found quests
+        print(f"\n{messages['found_quests']}")
+        for i, quest in enumerate(quests, 1):
+            print(f"{i}. {quest['name']} (ID: {quest['id']})")
+        
+        # Get quest selection
+        while True:
+            try:
+                choice = int(input(f"\n{messages['select_quest']} ").strip())
+                if 1 <= choice <= len(quests):
+                    return quests[choice-1]
+                else:
+                    print(messages["invalid_choice"])
+            except ValueError:
+                print(messages["enter_valid"])
+
 def process_quests(
     loader: DialogueLoader,
     selected_war: Dict,
@@ -368,29 +450,7 @@ def process_quests(
             )
     else:
         # Let user search for specific quest
-        quest_name = input(f"\n{messages['enter_quest']} ").strip()
-        print(messages["searching_quest"].format(quest_name))
-        
-        quests = loader.search_quest(quest_name, selected_war['id'])
-        if not quests:
-            print(messages["no_quests"])
-            return
-        
-        print(f"\n{messages['found_quests']}")
-        for i, quest in enumerate(quests, 1):
-            print(f"{i}. {quest['name']} (ID: {quest['id']})")
-        
-        while True:
-            try:
-                choice = int(input(f"\n{messages['select_quest']} ").strip())
-                if 1 <= choice <= len(quests):
-                    selected_quest = quests[choice-1]
-                    break
-                else:
-                    print(messages["invalid_choice"])
-            except ValueError:
-                print(messages["enter_valid"])
-        
+        selected_quest = handle_quest_search(loader, selected_war['id'], messages)
         process_single_quest(
             loader, selected_quest, selected_war['name'],
             messages, save_dir, translation_method,
@@ -554,35 +614,10 @@ def main():
         if translation_method == "gpt":
             api_base, api_key, api_type, base_model, auth_type = get_api_config(messages, prefs)
         
-        # Get war name
+        # Get war information
         print(f"\n{messages['enter_war']}")
         print(messages["war_hint"])
-        war_name = input(f"\n{messages['enter_war']} ").strip()
-        
-        # Search for war
-        print(messages["searching_war"].format(war_name))
-        wars = loader.search_war(war_name)
-        
-        if not wars:
-            print(messages["no_wars"])
-            continue
-        
-        # Display found wars
-        print(f"\n{messages['found_wars']}")
-        for i, war in enumerate(wars, 1):
-            print(f"{i}. {war['name']} (ID: {war['id']})")
-        
-        # Get war selection
-        while True:
-            try:
-                choice = int(input(f"\n{messages['select_war']} ").strip())
-                if 1 <= choice <= len(wars):
-                    selected_war = wars[choice-1]
-                    break
-                else:
-                    print(messages["invalid_choice"])
-            except ValueError:
-                print(messages["enter_valid"])
+        selected_war, _ = handle_war_search(loader, messages)
         
         # Get export path
         save_dir = get_export_path(messages, target_lang)

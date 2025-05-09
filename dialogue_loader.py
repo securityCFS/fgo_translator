@@ -13,6 +13,7 @@ from tqdm import tqdm
 import argparse
 import sys
 import socket
+import re
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -337,129 +338,116 @@ class DialogueLoader:
             
     def extract_dialogues(self, script_id: int) -> List[Dict]:
         """
-        Extract dialogues from a script by fetching and parsing the text file.
+        Extract dialogues from a script.
         
         Args:
-            script_id: ID of the script
+            script_id: ID of the script to extract dialogues from
             
         Returns:
-            List of extracted dialogues
+            List of dialogue dictionaries
         """
         try:
-            # Get script data to get the text file URL
-            endpoint = f"{self.db_loader.BASE_URL}/nice/JP/script/{script_id}"
-            script_data = self.db_loader._make_request_with_retry(endpoint)
+            # Get script data
+            script_endpoint = f"script/{script_id}"
+            script_data = self.db_loader._make_request_with_retry(
+                self.db_loader._get_endpoint(script_endpoint)
+            )
             
-            # Get the text file URL
-            text_url = script_data.get('script', '')
-            if not text_url:
-                logger.error(f"No text URL found for script {script_id}")
+            if not script_data:
+                logger.warning(f"No script data found for script ID {script_id}")
                 return []
-                
-            # Fetch the text file content
-            text_content = self._get_text_content(text_url)
+            
+            # Get the raw script text from the script URL
+            script_url = script_data.get('script', '')
+            if not script_url:
+                logger.warning(f"No script URL found for script ID {script_id}")
+                return []
+            
+            # Fetch the raw script text
+            text_content = self._get_text_content(script_url)
             if not text_content:
-                logger.error(f"Failed to fetch text content from {text_url}")
+                logger.warning(f"Failed to fetch script text from {script_url}")
                 return []
             
             dialogues = []
-            current_speaker = None
-            current_text = []
-            current_choices = []
-            is_protagonist_choice = False
             
-            # Process the text content line by line
-            for line in text_content.split('\n'):
-                line = line.strip()
-                if not line:
-                    continue
-                    
-                # Skip lines that start with [ and don't contain @
-                if line.startswith('[') and '@' not in line:
-                    continue
-                    
-                # Check for speaker line
-                if line.startswith('＠'):
-                    # Save previous dialogue if exists
-                    if current_speaker and current_text:
-                        dialogue_content = '\n'.join(current_text)
-                        if current_choices:
-                            dialogue_content += '\n\nChoices:\n' + '\n'.join(current_choices)
-                        dialogues.append({
-                            'speaker': current_speaker,
-                            'content': dialogue_content
-                        })
-                        current_text = []
-                        current_choices = []
-                    
-                    # Extract new speaker
-                    # if line is only @, it means the speaker is narrator
-                    if line.strip() == '＠':
-                        current_speaker = 'Narrator'
-                    else:
-                        current_speaker = line[1:].strip()
-                    is_protagonist_choice = False
-                    continue
-                    
-                # Check for end of dialogue
-                if line == '[k]':
-                    if current_speaker and current_text:
-                        dialogue_content = '\n'.join(current_text)
-                        if current_choices:
-                            dialogue_content += '\n\nChoices:\n' + '\n'.join(current_choices)
-                        dialogues.append({
-                            'speaker': current_speaker,
-                            'content': dialogue_content
-                        })
-                        current_speaker = None
-                        current_text = []
-                        current_choices = []
-                    continue
-                    
-                # Process dialogue text
-                if current_speaker:
-                    # Replace [r] with newline
-                    line = line.replace('[r]', '\n')
-                    
-                    # Check for protagonist choice pattern (？num：text)
-                    if '？' in line and '：' in line:
-                        choice_num = line.split('：')[0].strip()
-                        choice_text = line.split('：')[1].strip()
-                        current_choices.append(f"{choice_num}: {choice_text}")
-                        is_protagonist_choice = True
-                        continue
-                    
-                    # Check for protagonist dialogue (？！)
-                    if line.startswith('？！'):
-                        current_speaker = 'Fujimaru Ritsuka'
-                        line = line[2:].strip()  # Remove the ？！ prefix
-                    
-                    # Remove [] blocks if they are on their own line
-                    if line.startswith('[') and line.endswith(']'):
-                        continue
-                        
-                    # Remove [] blocks that are separated by newlines
-                    if '[' in line and ']' in line:
-                        # Split the line by newlines
-                        parts = line.split('\n')
-                        filtered_parts = []
-                        for part in parts:
-                            part = part.strip()
-                            # Keep the part if it's not a [] block or if it's part of a larger text
-                            if not (part.startswith('[') and part.endswith(']')):
-                                filtered_parts.append(part)
-                        line = '\n'.join(filtered_parts)
-                    
-                    current_text.append(line.strip())
+            # Pattern 1: Regular dialogue with speaker
+            # Format: ＠speaker\ncontent\n[k]
+            pattern1 = r'＠([^\n]*)\n(.*?)\n\[k\]'
             
-            # Save any remaining dialogue
-            if current_speaker and current_text:
-                dialogue_content = '\n'.join(current_text)
-                if current_choices:
-                    dialogue_content += '\n\nChoices:\n' + '\n'.join(current_choices)
+            # Pattern 2: Protagonist choice
+            # Format: ？num：choice\n
+            pattern2 = r'？(\d+)：(.*?)\n'
+            
+            # Pattern 3: Choice ending marker
+            # Format: ？！
+            pattern3 = r'？！'
+            
+            # Find all matches for all patterns
+            matches1 = list(re.finditer(pattern1, text_content, re.DOTALL))
+            matches2 = list(re.finditer(pattern2, text_content, re.DOTALL))
+            matches3 = list(re.finditer(pattern3, text_content, re.DOTALL))
+            
+            # Combine and sort all matches by their position in the text
+            all_matches = []
+            
+            # Process regular dialogues
+            for match in matches1:
+                try:
+                    speaker = match.group(1).strip() or 'Narrator'
+                    content = match.group(2).strip()
+                    if content:  # Only add non-empty dialogues
+                        all_matches.append({
+                            'pos': match.start(),
+                            'type': 'dialogue',
+                            'speaker': speaker,
+                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香')
+                        })
+                except Exception as e:
+                    logger.warning(f"Failed to process dialogue match: {e}")
+                    continue
+            
+            # Process protagonist choices
+            last_choice_num = None
+            for match in matches2:
+                try:
+                    choice_num = match.group(1)
+                    choice_text = match.group(2).strip()
+                    if choice_text:  # Only add non-empty choices
+                        # Pre-process the choice text
+                        processed_text = choice_text.replace('[r]', '\n').replace('[%1]', '藤丸立香')
+                        all_matches.append({
+                            'pos': match.start(),
+                            'type': 'choice',
+                            'speaker': '藤丸立香',
+                            'content': f"Choice {choice_num}: {processed_text}"
+                        })
+                        last_choice_num = choice_num
+                except Exception as e:
+                    logger.warning(f"Failed to process choice match: {e}")
+                    continue
+            
+            # Process choice ending markers
+            for match in matches3:
+                try:
+                    all_matches.append({
+                        'pos': match.start(),
+                        'type': 'choice_ending',
+                        'speaker': 'System',
+                        'content': f'Choice {last_choice_num} Ending' if last_choice_num else 'Choice Ending'
+                    })
+                except Exception as e:
+                    logger.warning(f"Failed to process choice ending match: {e}")
+                    continue
+            
+            # Sort matches by their position in the text
+            all_matches.sort(key=lambda x: x['pos'])
+            
+            # Convert matches to dialogues
+            for match in all_matches:
                 dialogues.append({
-                    'speaker': current_speaker,
-                    'content': dialogue_content
+                    'speaker': match['speaker'],
+                    'content': match['content']
                 })
             
             return dialogues
@@ -560,7 +548,7 @@ Remember to:
             # First, collect all unique speaker names
             speaker_names = set()
             for dialogue in dialogues:
-                if dialogue['speaker'] != 'Narrator':
+                if dialogue['speaker'] not in ['Narrator', 'System']:
                     speaker_names.add(dialogue['speaker'])
             
             # Add speaker names to context if any
@@ -578,6 +566,12 @@ Remember to:
             )
             
             for dialogue in dialogues:
+                # Skip System dialogues
+                if dialogue['speaker'] == 'System':
+                    translated_dialogues.append(dialogue)
+                    pbar.update(1)
+                    continue
+                
                 # Prepare the current dialogue
                 current_dialogue = f"{dialogue['speaker']}:\n{dialogue['content']}"
                 
@@ -655,6 +649,10 @@ Remember to:
         Returns:
             Translated dialogue data
         """
+        # Skip System dialogues
+        if dialogue['speaker'] == 'System':
+            return dialogue
+
         for attempt in range(max_retries):
             try:
                 async with Translator() as translator:
