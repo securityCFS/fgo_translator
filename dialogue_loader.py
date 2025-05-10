@@ -404,7 +404,7 @@ class DialogueLoader:
                             'pos': match.start(),
                             'type': 'dialogue',
                             'speaker': speaker,
-                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——————")
+                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——")
                         })
                 except Exception as e:
                     logger.warning(f"Failed to process dialogue match: {e}")
@@ -418,7 +418,7 @@ class DialogueLoader:
                     choice_text = match.group(2).strip()
                     if choice_text:  # Only add non-empty choices
                         # Pre-process the choice text
-                        processed_text = choice_text.replace('[r]', '\n').replace('[%1]', '藤丸立香')
+                        processed_text = choice_text.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——")
                         all_matches.append({
                             'pos': match.start(),
                             'type': 'choice',
