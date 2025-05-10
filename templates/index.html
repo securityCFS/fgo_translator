@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FGO Dialogue Translator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .loading {
+            display: none;
+        }
+        .loading.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">FGO Dialogue Translator</h1>
+        <!-- War Search Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Search War</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">War Name</label>
+                    <input type="text" id="warName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button onclick="searchWar()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Search
+                </button>
+            </div>
+            <div id="warResultInfo" class="mt-4 text-gray-600"></div>
+            <!-- Sliding bar for war list -->
+            <div class="mb-2">
+                <div class="flex items-center cursor-pointer font-bold text-lg text-blue-800 mb-2" onclick="toggleContainer('warResultList', 'warListArrow')">
+                    War List
+                    <svg id="warListArrow" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div id="warResultList"></div>
+            </div>
+        </div>
+        <!-- Quest Section (初始隐藏) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6" id="questSection" style="display:none;">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Related Quests</h2>
+            <button id="getQuestBtn" onclick="getRelatedQuests()" class="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Get Related Quests</button>
+            <div id="questResultInfo" class="mb-2 text-gray-600"></div>
+            <!-- Sliding bar for quest list -->
+            <div class="mb-2">
+                <div class="flex items-center cursor-pointer font-bold text-lg text-green-800 mb-2" onclick="toggleContainer('questResultList', 'questListArrow')">
+                    Quest List
+                    <svg id="questListArrow" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div id="questResultList"></div>
+            </div>
+        </div>
+        <!-- Translate Section (初始隐藏) -->
+        <div class="bg-white rounded-lg shadow-md p-6" id="translateSection" style="display:none;">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Translation</h2>
+            <div id="translationResults" class="mt-4 space-y-4">
+                <div id="originalText" class="text-black"></div>
+                <div id="translatedText" class="text-blue-600"></div>
+            </div>
+        </div>
+        <!-- Translation Options Section (初始隐藏) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6" id="translationOptions" style="display:none;">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Translation Options</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Translation Method</label>
+                    <select id="translationMethod" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="gpt">GPT</option>
+                        <option value="free">Free</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Target Language</label>
+                    <input type="text" id="targetLanguage" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="Chinese">
+                </div>
+                <button onclick="translateSelectedQuest()" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Translate
+                </button>
+            </div>
+        </div>
+        <!-- Translation Display Section (初始隐藏) -->
+        <div class="bg-white rounded-lg shadow-md p-6" id="translationDisplay" style="display:none;">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Translation Results</h2>
+            <div id="translationResults" class="mt-4 space-y-4"></div>
+        </div>
+        <!-- Add script tabs and progress section -->
+        <div id="scriptTabs" class="hidden mt-4">
+            <div class="flex space-x-2 mb-4 overflow-x-auto">
+                <!-- Script tabs will be added here dynamically -->
+            </div>
+        </div>
+        <div id="progressSection" class="hidden mt-4">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+            <div id="progressText" class="text-sm text-gray-600 mt-2"></div>
+        </div>
+        <!-- Add settings icon and menu for GPT options -->
+        <div class="relative">
+            <button id="settingsBtn" class="absolute right-0 top-0 p-2" onclick="toggleSettings()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+            </button>
+            <div id="settingsMenu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg p-4">
+                <h3 class="text-lg font-semibold mb-2">GPT Settings</h3>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">API Key</label>
+                    <input type="text" id="apiKey" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label class="block text-sm font-medium text-gray-700">API Base</label>
+                    <input type="text" id="apiBase" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label class="block text-sm font-medium text-gray-700">API Type</label>
+                    <select id="apiType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="openai">OpenAI</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <label class="block text-sm font-medium text-gray-700">Base Model</label>
+                    <input type="text" id="baseModel" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label class="block text-sm font-medium text-gray-700">Authentication</label>
+                    <select id="authType" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="bearer">Bearer</option>
+                        <option value="api_key">API Key</option>
+                    </select>
+                    <button onclick="saveSettings()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading fixed inset-0 bg-black bg-opacity-50 items-center justify-center">
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+            <p class="mt-2 text-gray-700">Loading...</p>
+        </div>
+    </div>
+    <script>
+        console.log("JS loaded");
+        function showLoading() {
+            document.getElementById('loading').classList.add('active', 'flex');
+        }
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active', 'flex');
+        }
+        hideLoading(); // 页面加载后立即隐藏
+
+        console.log("Loading index.html");
+        let currentDialogues = [];
+        let selectedWar = null;
+        let warResults = [];
+        let questResults = [];
+        let selectedQuest = null;
+
+        // 搜索 war
+        async function searchWar() {
+            console.log("Starting search");
+            showLoading();
+            const warName = document.getElementById('warName').value;
+            // 清空展示区和quest选择内容
+            document.getElementById('warResultList').innerHTML = '';
+            document.getElementById('questResultList').innerHTML = '';
+            document.getElementById('questResultInfo').innerText = '';
+            document.getElementById('translationResults').innerHTML = '';
+            document.getElementById('scriptTabs').classList.add('hidden');
+            document.getElementById('progressSection').classList.add('hidden');
+            document.getElementById('translateSection').style.display = 'none';
+            document.getElementById('translationOptions').style.display = 'none';
+            document.getElementById('translationDisplay').style.display = 'none';
+            try {
+                // Search for war
+                const warResponse = await fetch('/search_war', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ war_name: warName })
+                });
+                const warData = await warResponse.json();
+                warResults = warData.wars || [];
+                showWarResults(warResults);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('warResultInfo').innerText = 'Error occurred.';
+                document.getElementById('warResultList').innerHTML = '';
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function showWarResults(list) {
+            selectedWar = null;
+            document.getElementById('questSection').style.display = 'none';
+            document.getElementById('translateSection').style.display = 'none';
+            if (list.length === 0) {
+                document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>No results found</span>`;
+                document.getElementById('warResultList').innerHTML = '';
+                return;
+            }
+            document.getElementById('warResultInfo').innerHTML = `Found <b>${list.length}</b> wars. Please select one.`;
+            document.getElementById('warResultList').innerHTML = list.map((w, idx) =>
+                `<div class="result-item selectable group mb-1" data-id="${w.id}" data-idx="${idx}" onclick="selectWar(this, ${w.id})">
+                    <div class="flex items-center cursor-pointer font-semibold text-lg text-blue-900 group-hover:bg-blue-50 rounded px-2 py-1">
+                        <span class="mr-2">[${w.id}]</span> <span>${w.name}</span>
+                    </div>
+                </div>`
+            ).join('');
+        }
+
+        function selectWar(elem, warId) {
+            document.querySelectorAll('.result-item.selectable').forEach(e => e.style.background = '');
+            elem.style.background = '#e3f2fd';
+            selectedWar = warResults.find(w => w.id === warId);
+            document.getElementById('questSection').style.display = '';
+            document.getElementById('translateSection').style.display = 'none';
+            document.getElementById('questResultInfo').innerText = '';
+            document.getElementById('questResultList').innerHTML = '';
+            selectedQuest = null;
+        }
+
+        // 获取相关 quest
+        async function getRelatedQuests() {
+            if (!selectedWar) return;
+            showLoading();
+            document.getElementById('questResultList').innerHTML = '';
+            document.getElementById('questResultInfo').innerText = '';
+            document.getElementById('translationResults').innerHTML = '';
+            document.getElementById('scriptTabs').classList.add('hidden');
+            document.getElementById('progressSection').classList.add('hidden');
+            document.getElementById('translateSection').style.display = 'none';
+            document.getElementById('translationOptions').style.display = 'none';
+            document.getElementById('translationDisplay').style.display = 'none';
+            try {
+                const questResponse = await fetch('/search_quest', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ war_id: selectedWar.id })
+                });
+                const questData = await questResponse.json();
+                questResults = questData.quests || [];
+                showQuestResults(questResults);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('questResultInfo').innerText = 'Error occurred.';
+                document.getElementById('questResultList').innerHTML = '';
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function showQuestResults(list) {
+            selectedQuest = null;
+            document.getElementById('translateSection').style.display = 'none';
+            if (list.length === 0) {
+                document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>No quests found</span>`;
+                document.getElementById('questResultList').innerHTML = '';
+                return;
+            }
+            document.getElementById('questResultInfo').innerHTML = `Found <b>${list.length}</b> quests. Please select one.`;
+            document.getElementById('questResultList').innerHTML = list.map((q, idx) =>
+                `<div class="result-item selectable group mb-1" data-id="${q.id}" data-idx="${idx}" onclick="selectQuest(this, '${q.id}', ${idx})">
+                    <div class="flex items-center cursor-pointer font-medium text-base text-green-900 group-hover:bg-green-50 rounded px-2 py-1">
+                        <span class="mr-2">(${q.id})</span> <span>${q.name}</span>
+                    </div>
+                </div>`
+            ).join('');
+        }
+
+        function selectQuest(elem, questId, idx) {
+            document.querySelectorAll('#questResultList .result-item.selectable').forEach(e => e.style.background = '');
+            elem.style.background = '#e3f2fd';
+            // 通过 idx 或 questId 精确赋值
+            if (typeof idx !== 'undefined') {
+                selectedQuest = questResults[idx];
+            } else {
+                selectedQuest = questResults.find(q => q.id == questId);
+            }
+            document.getElementById('translateSection').style.display = '';
+            // Show translation options and display interface
+            document.getElementById('translationOptions').style.display = '';
+            document.getElementById('translationDisplay').style.display = '';
+        }
+
+        // Add animation for progress bar
+        function animateProgressBar(targetWidth, duration = 1000) {
+            const progressBar = document.getElementById('progressBar');
+            const startWidth = parseInt(progressBar.style.width) || 0;
+            const startTime = performance.now();
+            
+            function updateProgress(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const currentWidth = startWidth + (targetWidth - startWidth) * progress;
+                progressBar.style.width = `${currentWidth}%`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateProgress);
+                }
+            }
+            
+            requestAnimationFrame(updateProgress);
+        }
+
+        // Create script tab
+        function createScriptTab(scriptId, isActive = false) {
+            const tab = document.createElement('button');
+            tab.className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isActive ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`;
+            tab.textContent = `Script ${scriptId}`;
+            tab.dataset.scriptId = scriptId;
+            tab.onclick = () => switchScriptTab(scriptId);
+            return tab;
+        }
+
+        // Switch between script tabs
+        function switchScriptTab(scriptId) {
+            document.querySelectorAll('#scriptTabs button').forEach(tab => {
+                tab.classList.toggle('bg-blue-600', tab.dataset.scriptId === scriptId.toString());
+                tab.classList.toggle('text-white', tab.dataset.scriptId === scriptId.toString());
+                tab.classList.toggle('bg-gray-100', tab.dataset.scriptId !== scriptId.toString());
+                tab.classList.toggle('text-gray-700', tab.dataset.scriptId !== scriptId.toString());
+            });
+            
+            document.querySelectorAll('.script-content').forEach(content => {
+                content.classList.toggle('hidden', content.dataset.scriptId !== scriptId.toString());
+            });
+        }
+
+        async function translateSelectedQuest() {
+            console.log('translateSelectedQuest called');
+            if (!selectedQuest) {
+                console.log('No quest selected');
+                return;
+            }
+            // Show progress section
+            document.getElementById('progressSection').classList.remove('hidden');
+            document.getElementById('scriptTabs').classList.remove('hidden');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const scriptTabsContainer = document.querySelector('#scriptTabs .flex');
+            scriptTabsContainer.innerHTML = '';
+            document.getElementById('translationResults').innerHTML = '';
+            try {
+                console.log('Step 1: Fetching quest detail');
+                progressText.textContent = 'Getting quest data...';
+                animateProgressBar(20);
+                const questResponse = await fetch('/get_quest_detail', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ quest_id: selectedQuest.id })
+                });
+                const questData = await questResponse.json();
+                if (questData.error) throw new Error(questData.error);
+                console.log('Quest detail loaded', questData);
+                // Extract script IDs
+                const scriptIds = [];
+                const phaseScripts = questData.phaseScripts || [];
+                for (const phase of phaseScripts) {
+                    const scripts = phase.scripts || [];
+                    for (const script of scripts) {
+                        const scriptId = script.scriptId || 0;
+                        if (scriptId !== 0) {
+                            scriptIds.push(scriptId);
+                        }
+                    }
+                }
+                if (scriptIds.length === 0) {
+                    throw new Error('No scripts found for this quest');
+                }
+                console.log('Script IDs:', scriptIds);
+                progressText.textContent = `Found ${scriptIds.length} scripts`;
+                animateProgressBar(40);
+                // Create tabs for each script
+                scriptIds.forEach((scriptId, index) => {
+                    const tab = createScriptTab(scriptId, index === 0);
+                    scriptTabsContainer.appendChild(tab);
+                });
+                // Process each script
+                const allDialogues = [];
+                const scriptDialogueCounts = [];
+                for (let i = 0; i < scriptIds.length; i++) {
+                    const scriptId = scriptIds[i];
+                    progressText.textContent = `Processing script ${scriptId} (${i + 1}/${scriptIds.length})`;
+                    animateProgressBar(40 + (i / scriptIds.length) * 20);
+                    console.log('Fetching dialogues for script', scriptId);
+                    // Extract dialogues
+                    const extractResponse = await fetch('/extract_dialogues', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ script_id: scriptId })
+                    });
+                    const extractData = await extractResponse.json();
+                    if (extractData.error) throw new Error(extractData.error);
+                    console.log('Dialogues for script', scriptId, extractData.dialogues);
+                    // Create content container for this script
+                    const contentContainer = document.createElement('div');
+                    contentContainer.className = `script-content ${i === 0 ? '' : 'hidden'}`;
+                    contentContainer.dataset.scriptId = scriptId;
+                    // 用表格方式对齐原文和译文，并可折叠
+                    contentContainer.innerHTML = `
+                        <div class="flex items-center cursor-pointer font-semibold text-base text-purple-900 mb-2" onclick="toggleScriptCollapse('${scriptId}')">
+                            <span>Script ${scriptId}</span>
+                            <svg id="script-arrow-${scriptId}" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </div>
+                        <div id="script-table-wrap-${scriptId}">
+                            <table class="w-full mt-2 border-separate" style="border-spacing:0 8px;">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1/2 text-left text-gray-700">Original</th>
+                                        <th class="w-1/2 text-left text-gray-700">Translation</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dialogueTableBody-${scriptId}"></tbody>
+                            </table>
+                            <button class="mt-2 bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-900" onclick="downloadScript('${scriptId}')">Download</button>
+                        </div>
+                    `;
+                    document.getElementById('translationResults').appendChild(contentContainer);
+                    scriptDialogueCounts.push(extractData.dialogues.length);
+                    allDialogues.push(...extractData.dialogues);
+                }
+                console.log('All dialogues:', allDialogues);
+                // Translate all dialogues
+                progressText.textContent = 'Translating dialogues...';
+                animateProgressBar(60);
+                console.log('Sending to /translate', allDialogues);
+                const translateResponse = await fetch('/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        dialogues: allDialogues,
+                        translation_method: document.getElementById('translationMethod').value,
+                        target_language: document.getElementById('targetLanguage').value
+                    })
+                });
+                const translateData = await translateResponse.json();
+                if (translateData.error) throw new Error(translateData.error);
+                console.log('Translation result:', translateData);
+                // 表格方式严格对齐显示
+                let dialogueIndex = 0;
+                for (let s = 0; s < scriptIds.length; s++) {
+                    const scriptId = scriptIds[s];
+                    const tableBody = document.getElementById(`dialogueTableBody-${scriptId}`);
+                    const count = scriptDialogueCounts[s];
+                    const scriptOriginals = allDialogues.slice(dialogueIndex, dialogueIndex + count);
+                    const scriptTranslations = translateData.translated_dialogues.slice(dialogueIndex, dialogueIndex + count);
+                    for (let j = 0; j < count; j++) {
+                        const orig = scriptOriginals[j] || {};
+                        const trans = scriptTranslations[j] || {};
+                        const formattedOriginal = `<span class='font-bold text-blue-700 mr-2'>${orig.speaker || ''}</span>` + (orig.content || '').replace(/\[(.*?)\]/g, '<span class="text-purple-600">[$1]</span>');
+                        const formattedTranslated = `<span class='font-bold text-green-700 mr-2'>${trans.speaker || ''}</span>` + (trans.translated_content || '').replace(/\[(.*?)\]/g, '<span class="text-purple-600">[$1]</span>');
+                        tableBody.innerHTML += `
+                            <tr>
+                                <td class="align-top bg-gray-100 text-gray-800 p-2 rounded">${formattedOriginal}</td>
+                                <td class="align-top bg-green-50 text-green-800 p-2 rounded">${formattedTranslated}</td>
+                            </tr>
+                        `;
+                    }
+                    dialogueIndex += count;
+                }
+                progressText.textContent = 'Translation completed!';
+                animateProgressBar(100);
+            } catch (error) {
+                console.error('translateSelectedQuest error:', error);
+                progressText.textContent = `Error: ${error.message}`;
+                animateProgressBar(0);
+                alert('Error during translation: ' + error.message);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function toggleSettings() {
+            const settingsMenu = document.getElementById('settingsMenu');
+            settingsMenu.classList.toggle('hidden');
+        }
+
+        function saveSettings() {
+            const apiKey = document.getElementById('apiKey').value;
+            const apiBase = document.getElementById('apiBase').value;
+            const apiType = document.getElementById('apiType').value;
+            const baseModel = document.getElementById('baseModel').value;
+            const authType = document.getElementById('authType').value;
+            // Save settings logic here
+            alert('Settings saved!');
+            toggleSettings();
+        }
+
+        // Check for user_preferences.db and load settings
+        async function loadUserPreferences() {
+            try {
+                const response = await fetch('/get_preferences');
+                if (response.ok) {
+                    const preferences = await response.json();
+                    // Set default values if preferences are empty
+                    const defaultValues = {
+                        api_key: '',
+                        api_base: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+                        api_type: 'openai',
+                        base_model: 'deepseek-v3',
+                        auth_type: 'api_key'
+                    };
+
+                    // Update input fields with preferences or default values
+                    document.getElementById('apiKey').value = preferences.api_key || defaultValues.api_key;
+                    document.getElementById('apiBase').value = preferences.api_base || defaultValues.api_base;
+                    document.getElementById('apiType').value = preferences.api_type || defaultValues.api_type;
+                    document.getElementById('baseModel').value = preferences.base_model || defaultValues.base_model;
+                    document.getElementById('authType').value = preferences.auth_type || defaultValues.auth_type;
+
+                    // Also update the placeholders to show default values
+                    document.getElementById('apiBase').placeholder = defaultValues.api_base;
+                    document.getElementById('baseModel').placeholder = defaultValues.base_model;
+                }
+            } catch (error) {
+                console.error('Error loading user preferences:', error);
+                // Set default values if loading fails
+                document.getElementById('apiBase').value = 'https://dashscope.aliyuncs.com/compatible-mode/v1';
+                document.getElementById('apiType').value = 'openai';
+                document.getElementById('baseModel').value = 'deepseek-v3';
+                document.getElementById('authType').value = 'api_key';
+            }
+        }
+
+        // Call loadUserPreferences when the page loads
+        document.addEventListener('DOMContentLoaded', loadUserPreferences);
+
+        // 翻译展示区可折叠
+        function toggleScriptCollapse(scriptId) {
+            const content = document.getElementById(`script-table-wrap-${scriptId}`);
+            const arrow = document.getElementById(`script-arrow-${scriptId}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                arrow.style.transform = '';
+            }
+        }
+
+        // 下载按钮功能
+        function downloadScript(scriptId) {
+            const tableBody = document.getElementById(`dialogueTableBody-${scriptId}`);
+            if (!tableBody) return;
+            let text = '';
+            for (const row of tableBody.children) {
+                const orig = row.children[0].innerText;
+                const trans = row.children[1].innerText;
+                text += `${orig}\n${trans}\n\n`;
+            }
+            const blob = new Blob([text], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `script_${scriptId}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // war/quest container折叠
+        function toggleContainer(containerId, arrowId) {
+            const container = document.getElementById(containerId);
+            const arrow = document.getElementById(arrowId);
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                container.classList.add('hidden');
+                if (arrow) arrow.style.transform = '';
+            }
+        }
+
+        // 在翻译选项区增加目标语言设置按钮
+        function showLanguageSelector() {
+            const langInput = document.getElementById('targetLanguage');
+            langInput.focus();
+        }
+    </script>
+</body>
+</html> 

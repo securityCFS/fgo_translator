@@ -110,10 +110,10 @@ fgo_translator/
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Acknowledgments
 
 - [Atlas Academy](https://apps.atlasacademy.io/) for providing the FGO database
 - OpenAI for GPT API
 - Google Translate API
 - [Cursor](https://www.cursor.com/) for providing the AI code assistant
+
