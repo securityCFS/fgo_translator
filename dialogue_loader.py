@@ -404,7 +404,7 @@ class DialogueLoader:
                             'pos': match.start(),
                             'type': 'dialogue',
                             'speaker': speaker,
-                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香')
+                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——————")
                         })
                 except Exception as e:
                     logger.warning(f"Failed to process dialogue match: {e}")
@@ -603,7 +603,7 @@ class DialogueLoader:
             context = [
                 {
                     "role": "system",
-                    "content": f"""You are a professional translator specializing in game dialogue translation.\nThe text you are translating is from game \"Fate/Grand Order\".\nYour task is to translate Japanese game dialogue to {target_language}.\n..."""
+                    "content": f"""You are a professional translator specializing in game dialogue translation.\nThe text you are translating is from game \"Fate/Grand Order\".\nYour task is to translate Japanese game dialogue to {target_language}.\nPreserve tone, character speech style, and terminology. \nUse standard transliterations for names (e.g., キリエライト → Mash Kyrielight, 藤丸立香 → Ritsuka Fujimaru). \nOnly return the translated sentence in {target_language}, no extra text or formatting...."""
                 }
             ]
             speaker_names = set()
