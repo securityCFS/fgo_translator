@@ -10,3 +10,5 @@ langdetect>=1.0.9
 pathlib>=1.0.1
 typing>=3.7.4.3
 asyncio>=3.4.3
+socketio>=5.7.3
+flask-socketio>=5.3.4

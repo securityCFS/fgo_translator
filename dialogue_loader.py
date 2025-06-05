@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Callable
 import logging
 import requests
 import os
@@ -142,24 +142,37 @@ class GPTTranslationClient:
     def translate(
         self,
         messages: List[Dict],
-        temperature: float = 0.7
+        temperature: float = 0.7,
+        target_language: str = 'Chinese'
     ) -> str:
         """
         Translate text using GPT API.
-        
         Args:
             messages: List of message dictionaries
             temperature: Temperature for generation
-            
+            target_language: Target language for translation
         Returns:
             Translated text
         """
         for attempt in range(self.max_retries):
             try:
+                system_prompt = f"""You are a professional translator for game dialogue.\nTranslate Japanese text from the game \"Fate/Grand Order\" into {target_language}.\nPreserve tone, character speech style, and terminology. Use standard transliterations for names (e.g., キリエライト → Mash Kyrielight/玛修·基列莱特, 藤丸立香 → Ritsuka Fujimaru/藤丸立香).\nOnly return the translated sentence in {target_language}, no extra text or formatting.\n"""
+                formatted_messages = [
+                    {
+                        "role": "system",
+                        "content": system_prompt
+                    }
+                ]
+                if isinstance(messages, list) and len(messages) > 0:
+                    dialogue = messages[0]
+                    formatted_messages.append({
+                        "role": "user",
+                        "content": f"Translate this dialogue:\nSpeaker: {dialogue.get('speaker', '')}\nContent: {dialogue.get('content', '')}"
+                    })
                 if self.api_type == "openai":
-                    return self._make_openai_request(messages, temperature)
+                    return self._make_openai_request(formatted_messages, temperature)
                 else:
-                    return self._make_custom_request(messages, temperature)
+                    return self._make_custom_request(formatted_messages, temperature)
             except Exception as e:
                 if attempt < self.max_retries - 1:
                     logger.warning(f"Translation attempt {attempt + 1} failed: {e}. Retrying in {self.retry_delay} seconds...")
@@ -211,6 +224,25 @@ class DialogueLoader:
         Returns:
             List of matching war data with detailed information
         """
+        # If name is a number, search for war by id
+        if name.isdigit():
+            detailed_matches = []
+            try:
+                war_id = name
+                nice_endpoint = f"{self.db_loader.BASE_URL}/nice/JP/war/{war_id}"
+                raw_endpoint = f"{self.db_loader.BASE_URL}/raw/JP/war/{war_id}"
+                
+                nice_war = self.db_loader._make_request_with_retry(nice_endpoint)
+                raw_war = self.db_loader._make_request_with_retry(raw_endpoint)
+                
+                detailed_matches.append({**nice_war, 'raw': raw_war})
+            except Exception as e:
+                logger.error(f"Failed to get detailed data for war {war_id}: {e}")
+                detailed_matches.append(war)  # Keep basic data if detailed fetch fails
+                
+            return detailed_matches
+
+
         try:
             # First get basic war info
             search_region = self.db_loader._get_search_region(name)
@@ -372,6 +404,9 @@ class DialogueLoader:
                 logger.warning(f"Failed to fetch script text from {script_url}")
                 return []
             
+            text_content = text_content.replace('[%1]', '藤丸立香').replace('[line 3]', "——").replace(
+                '[line 6]', "——").replace('[line 18]', "——")
+                        
             dialogues = []
             
             # Pattern 1: Regular dialogue with speaker
@@ -404,7 +439,7 @@ class DialogueLoader:
                             'pos': match.start(),
                             'type': 'dialogue',
                             'speaker': speaker,
-                            'content': content.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——")
+                            'content': content.replace('[r]', '\n')
                         })
                 except Exception as e:
                     logger.warning(f"Failed to process dialogue match: {e}")
@@ -418,7 +453,7 @@ class DialogueLoader:
                     choice_text = match.group(2).strip()
                     if choice_text:  # Only add non-empty choices
                         # Pre-process the choice text
-                        processed_text = choice_text.replace('[r]', '\n').replace('[%1]', '藤丸立香').replace('[line 3]', "——")
+                        processed_text = choice_text.replace('[r]', '\n') #.replace('[%1]', '藤丸立香').replace('[line 3]', "——")
                         all_matches.append({
                             'pos': match.start(),
                             'type': 'choice',
@@ -512,159 +547,36 @@ class DialogueLoader:
     async def free_translate(
         self,
         dialogues: List[Dict],
-        target_language: str,
-        max_retries: int = 3,
-        retry_delay: int = 2
+        target_language: str = 'Chinese',
+        progress_callback: Callable = None
     ) -> List[Dict]:
-        """
-        Translate dialogues using free translation service (Google Translate).
-        Ensures every returned dict has translated_content,且顺序与输入一致。
-        """
-        try:
-            tasks = [
-                self._translate_single_dialogue(
+        """Translate dialogues using free translation service."""
+        total = len(dialogues)
+        translated = []
+        pbar = tqdm(total=total, desc="Translating (free)", unit="dialogue")
+        
+        for i, dialogue in enumerate(dialogues, 1):
+            try:
+                speaker = dialogue.get('speaker', '')
+                # 始终显示 tqdm，同时有回调也调用
+                if progress_callback:
+                    await progress_callback(i, total, speaker)
+                pbar.update(1)
+                pbar.set_postfix({'speaker': speaker})
+                # 原有的翻译逻辑
+                translated_dialogue = await self._translate_single_dialogue(
                     dialogue,
-                    target_language,
-                    max_retries,
-                    retry_delay
+                    target_language
                 )
-                for dialogue in dialogues
-            ]
-            # 恢复进度条
-            pbar = tqdm(total=len(tasks), desc="Translating dialogues (free)", unit="dialogue")
-            translated_dialogues = []
-            for coro in asyncio.as_completed(tasks):
-                result = await coro
-                if 'translated_content' not in result:
-                    result['translated_content'] = result.get('content', '')
-                translated_dialogues.append(result)
-                pbar.update(1)
-                pbar.set_postfix({
-                    'speaker': result['speaker'],
-                    'status': 'success' if result['translated_content'] != result['content'] else 'failed'
+                translated.append(translated_dialogue)
+            except Exception as e:
+                logger.error(f"Failed to translate dialogue {i}: {e}")
+                translated.append({
+                    'speaker': dialogue.get('speaker', ''),
+                    'translated_content': f"[Translation Error: {str(e)}]"
                 })
-            pbar.close()
-            # 由于 as_completed 顺序乱，需还原顺序
-            translated_dialogues_sorted = [None] * len(tasks)
-            for i, t in enumerate(tasks):
-                for d in translated_dialogues:
-                    if d['speaker'] == dialogues[i]['speaker'] and d['content'] == dialogues[i]['content']:
-                        translated_dialogues_sorted[i] = d
-                        break
-            for i, d in enumerate(translated_dialogues_sorted):
-                if d is None:
-                    translated_dialogues_sorted[i] = {
-                        'speaker': dialogues[i]['speaker'],
-                        'content': dialogues[i]['content'],
-                        'translated_content': dialogues[i]['content']
-                    }
-            return translated_dialogues_sorted
-        except Exception as e:
-            logger.error(f"Failed to translate dialogues: {e}")
-            return [
-                {
-                    'speaker': d['speaker'],
-                    'content': d['content'],
-                    'translated_content': d['content']
-                } for d in dialogues
-            ]
-
-    def gpt_dialogue_translate(
-        self,
-        dialogues: List[Dict],
-        api_base: str,
-        api_key: str,
-        target_language: str,
-        base_model: str = "gpt-4",
-        max_context_size: int = 8,
-        temperature: float = 0.7,
-        max_retries: int = 8,
-        timeout: int = 30,
-        retry_delay: int = 10,
-        api_type: str = "openai",
-        auth_type: str = "bearer"
-    ) -> List[Dict]:
-        """
-        Translate dialogues using GPT API, one dialogue at a time with context awareness.
-        保证所有返回dict都有 translated_content 字段。
-        """
-        try:
-            client = GPTTranslationClient(
-                api_base=api_base,
-                api_key=api_key,
-                api_type=api_type,
-                auth_type=auth_type,
-                base_model=base_model,
-                timeout=timeout,
-                max_retries=max_retries,
-                retry_delay=retry_delay
-            )
-            translated_dialogues = []
-            context = [
-                {
-                    "role": "system",
-                    "content": f"""You are a professional translator specializing in game dialogue translation.\nThe text you are translating is from game \"Fate/Grand Order\".\nYour task is to translate Japanese game dialogue to {target_language}.\nPreserve tone, character speech style, and terminology. \nUse standard transliterations for names (e.g., キリエライト → Mash Kyrielight, 藤丸立香 → Ritsuka Fujimaru). \nOnly return the translated sentence in {target_language}, no extra text or formatting...."""
-                }
-            ]
-            speaker_names = set()
-            for dialogue in dialogues:
-                if dialogue['speaker'] not in ['Narrator', 'System']:
-                    speaker_names.add(dialogue['speaker'])
-            if speaker_names:
-                context.append({
-                    "role": "system",
-                    "content": f"Important character names to keep consistent: {', '.join(speaker_names)}"
-                })
-            # 恢复进度条
-            pbar = tqdm(total=len(dialogues), desc="Translating dialogues (gpt)", unit="dialogue")
-            for dialogue in dialogues:
-                if dialogue['speaker'] == 'System':
-                    translated_dialogues.append({
-                        'speaker': dialogue['speaker'],
-                        'content': dialogue['content'],
-                        'translated_content': dialogue['content']
-                    })
-                    pbar.update(1)
-                    continue
-                current_dialogue = f"{dialogue['speaker']}:\n{dialogue['content']}"
-                context.append({
-                    "role": "user",
-                    "content": f"Please translate this dialogue, with translated speaker name '{dialogue['speaker']}' at beginning:\n{current_dialogue}"
-                })
-                try:
-                    translated_text = client.translate(context, temperature)
-                    translated_content = translated_text.strip()
-                except Exception as e:
-                    logger.error(f"Failed to translate dialogue: {e}")
-                    translated_content = dialogue['content']
-                translated_dialogues.append({
-                    'speaker': dialogue['speaker'],
-                    'content': dialogue['content'],
-                    'translated_content': translated_content
-                })
-                context.append({
-                    "role": "assistant",
-                    "content": translated_content
-                })
-                while len(context) > max_context_size + 2:
-                    context.pop(2)
-                    context.pop(2)
-                pbar.update(1)
-                pbar.set_postfix({
-                    'speaker': dialogue['speaker'],
-                    'status': 'success' if translated_content != dialogue['content'] else 'failed'
-                })
-            pbar.close()
-            return translated_dialogues
-        except Exception as e:
-            logger.error(f"Failed to translate dialogues: {e}")
-            return [
-                {
-                    'speaker': d['speaker'],
-                    'content': d['content'],
-                    'translated_content': d['content']
-                } for d in dialogues
-            ]
+        pbar.close()
+        return translated
 
     def save_dialogues(
         self,
@@ -717,8 +629,7 @@ class DialogueLoader:
                     dialogues = asyncio.run(self.free_translate(
                         dialogues,
                         translate_kwargs.get('target_language', 'en'),
-                        max_retries=translate_kwargs.get('max_retries', 3),
-                        retry_delay=translate_kwargs.get('retry_delay', 2)
+                        progress_callback=translate_kwargs.get('progress_callback')
                     ))
                 else:
                     logger.error(f"Unknown translation method: {translation_method}")
@@ -741,6 +652,59 @@ class DialogueLoader:
             
         except Exception as e:
             logger.error(f"Failed to save dialogues: {e}")
+
+    def gpt_dialogue_translate(
+        self,
+        dialogues: List[Dict],
+        api_base: str = None,
+        api_key: str = None,
+        target_language: str = 'Chinese',
+        base_model: str = 'deepseek-v3',
+        api_type: str = 'openai',
+        auth_type: str = 'api_key',
+        progress_callback: Callable = None
+    ) -> List[Dict]:
+        """Translate dialogues using GPT."""
+        if not api_key:
+            raise ValueError("API key is required for GPT translation")
+        
+        total = len(dialogues)
+        translated = []
+        pbar = tqdm(total=total, desc="Translating (gpt)", unit="dialogue")
+        
+        for i, dialogue in enumerate(dialogues, 1):
+            try:
+                speaker = dialogue.get('speaker', '')
+                # 始终显示 tqdm，同时有回调也调用
+                if progress_callback:
+                    progress_callback(i, total, speaker)
+                pbar.update(1)
+                pbar.set_postfix({'speaker': speaker})
+                # 用 target_language 传递给 translate
+                client = GPTTranslationClient(
+                    api_base=api_base,
+                    api_key=api_key,
+                    api_type=api_type,
+                    auth_type=auth_type,
+                    base_model=base_model,
+                    timeout=30,
+                    max_retries=8,
+                    retry_delay=10
+                )
+                translated_content = client.translate([dialogue], 0.7, target_language=target_language)
+                translated.append({
+                    'speaker': dialogue['speaker'],
+                    'content': dialogue['content'],
+                    'translated_content': translated_content
+                })
+            except Exception as e:
+                logger.error(f"Failed to translate dialogue {i}: {e}")
+                translated.append({
+                    'speaker': dialogue.get('speaker', ''),
+                    'translated_content': f"[Translation Error: {str(e)}]"
+                })
+        pbar.close()
+        return translated
 
 # Test cases
 if __name__ == "__main__":

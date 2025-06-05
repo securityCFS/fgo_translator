@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FGO Dialogue Translator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -158,11 +159,25 @@
         let questResults = [];
         let selectedQuest = null;
 
+        // 初始化 Socket.IO
+        const socket = io();
+        let currentTranslationSession = null;
+
+        // 监听翻译进度更新
+        socket.on('translation_progress', function(data) {
+            if (data.session_id === currentTranslationSession) {
+                const progressBar = document.getElementById('progressBar');
+                const progressText = document.getElementById('progressText');
+                progressBar.style.width = `${data.progress}%`;
+                progressText.textContent = `Translating: ${data.current}/${data.total} (${data.progress}%) - ${data.speaker || ''}`;
+            }
+        });
+
         // 搜索 war
         async function searchWar() {
             console.log("Starting search");
             showLoading();
-            const warName = document.getElementById('warName').value;
+            const warName = document.getElementById('warName').value.trim();
             // 清空展示区和quest选择内容
             document.getElementById('warResultList').innerHTML = '';
             document.getElementById('questResultList').innerHTML = '';
@@ -174,7 +189,24 @@
             document.getElementById('translationOptions').style.display = 'none';
             document.getElementById('translationDisplay').style.display = 'none';
             try {
-                // Search for war
+                // 检查是否为纯数字
+                if (/^\d+$/.test(warName)) {
+                    const useId = window.confirm('检测到输入为数字，是否以ID检索？\n点击"确定"以ID检索，点击"取消"以名称模糊搜索。');
+                    if (useId) {
+                        // 以ID检索，直接用id字符串请求
+                        const warResponse = await fetch('/search_war', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ war_name: warName })
+                        });
+                        const warData = await warResponse.json();
+                        warResults = warData.wars || [];
+                        showWarResults(warResults);
+                        return;
+                    }
+                    // 否则继续走名称模糊搜索
+                }
+                // Search for war（原有逻辑）
                 const warResponse = await fetch('/search_war', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -242,6 +274,10 @@
                 });
                 const questData = await questResponse.json();
                 questResults = questData.quests || [];
+                // 如果有错误信息，显示在结果上方
+                if (questData.error) {
+                    document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>${questData.error}</span>`;
+                }
                 showQuestResults(questResults);
             } catch (error) {
                 console.error('Error:', error);
@@ -429,13 +465,16 @@
                 progressText.textContent = 'Translating dialogues...';
                 animateProgressBar(60);
                 console.log('Sending to /translate', allDialogues);
+                // 生成新的会话ID
+                currentTranslationSession = Date.now().toString();
                 const translateResponse = await fetch('/translate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         dialogues: allDialogues,
                         translation_method: document.getElementById('translationMethod').value,
-                        target_language: document.getElementById('targetLanguage').value
+                        target_language: document.getElementById('targetLanguage').value,
+                        session_id: currentTranslationSession
                     })
                 });
                 const translateData = await translateResponse.json();
