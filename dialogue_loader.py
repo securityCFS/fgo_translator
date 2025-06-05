@@ -168,6 +168,7 @@ class GPTTranslationClient:
 6. For choices, translate both the choice number and content
 7. For system messages, keep them as is
 8. Use standard transliterations for character names (e.g., ライネス → Lainess/莱尼斯, グレイ → Gray/格雷)
+9. For katakana words (e.g., オーディール・コール), translate them to English (e.g., Order Call) and keep the English in the translation
 
 Example format:
 1:
