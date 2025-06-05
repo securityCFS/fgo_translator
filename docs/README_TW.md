@@ -8,6 +8,8 @@
 
 提供了一個簡單的命令列示範腳本 `demo.py`，詳細用法見 `demo.ipynb`。核心實作請參考 `dialogue_loader.py` 和 `db_loader.py`。
 
+我們還提供了一個基於`Flask`的WebUI，通過`app.py`提供服務。你可以通過Google Colab運行`run_colab.ipynb`來在線啟動服務。
+
 ## 功能
 
 - 將 FGO 對話從日語翻譯為：

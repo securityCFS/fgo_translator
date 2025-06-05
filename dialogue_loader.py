@@ -144,7 +144,7 @@ class GPTTranslationClient:
         messages: List[Dict],
         temperature: float = 0.7,
         target_language: str = 'Chinese'
-    ) -> str:
+    ) -> List[str]:
         """
         Translate text using GPT API.
         Args:
@@ -152,27 +152,95 @@ class GPTTranslationClient:
             temperature: Temperature for generation
             target_language: Target language for translation
         Returns:
-            Translated text
+            List of translated texts
         """
         for attempt in range(self.max_retries):
             try:
                 system_prompt = f"""You are a professional translator for game dialogue.\nTranslate Japanese text from the game \"Fate/Grand Order\" into {target_language}.\nPreserve tone, character speech style, and terminology. Use standard transliterations for names (e.g., キリエライト → Mash Kyrielight/玛修·基列莱特, 藤丸立香 → Ritsuka Fujimaru/藤丸立香).\nOnly return the translated sentence in {target_language}, no extra text or formatting.\n"""
+                
+                # 构建包含多个对话的提示
+                dialogue_prompt = f"""Please translate the following dialogues into {target_language}. You MUST follow these rules:
+1. Translate ALL dialogues
+2. For each dialogue, write its number followed by a colon (e.g., "1:", "2:", etc.)
+3. Write the translation on the next line
+4. Keep the translations in the same order as the original dialogues
+5. Translate both the speaker's name and their dialogue content
+6. For choices, translate both the choice number and content
+7. For system messages, keep them as is
+8. Use standard transliterations for character names (e.g., ライネス → Lainess/莱尼斯, グレイ → Gray/格雷)
+
+Example format:
+1:
+[Translated Speaker Name]: [Translation of first dialogue]
+2:
+[Translated Speaker Name]: [Translation of second dialogue]
+
+Here are the dialogues to translate:
+
+"""
+                for i, dialogue in enumerate(messages, 1):
+                    dialogue_prompt += f"{i}:\nSpeaker: {dialogue.get('speaker', '')}\nContent: {dialogue.get('content', '')}\n\n"
+                
+                dialogue_prompt += "\nRemember to translate ALL dialogues and maintain the exact format shown in the example."
+                
                 formatted_messages = [
                     {
                         "role": "system",
                         "content": system_prompt
+                    },
+                    {
+                        "role": "user",
+                        "content": dialogue_prompt
                     }
                 ]
-                if isinstance(messages, list) and len(messages) > 0:
-                    dialogue = messages[0]
-                    formatted_messages.append({
-                        "role": "user",
-                        "content": f"Translate this dialogue:\nSpeaker: {dialogue.get('speaker', '')}\nContent: {dialogue.get('content', '')}"
-                    })
+                
                 if self.api_type == "openai":
-                    return self._make_openai_request(formatted_messages, temperature)
+                    response = self._make_openai_request(formatted_messages, temperature)
                 else:
-                    return self._make_custom_request(formatted_messages, temperature)
+                    response = self._make_custom_request(formatted_messages, temperature)
+                
+                # 解析响应，提取每个对话的翻译
+                translations = []
+                current_translation = []
+                current_dialogue_num = None
+                
+                for line in response.split('\n'):
+                    line = line.strip()
+                    if not line:
+                        continue
+                        
+                    # 检查是否是新的对话标记
+                    dialogue_match = re.match(r'^(\d+):', line)
+                    if dialogue_match:
+                        # 保存之前的翻译
+                        if current_translation:
+                            translations.append('\n'.join(current_translation))
+                            current_translation = []
+                        current_dialogue_num = int(dialogue_match.group(1))
+                    elif current_dialogue_num is not None:
+                        current_translation.append(line)
+                
+                # 添加最后一个翻译
+                if current_translation:
+                    translations.append('\n'.join(current_translation))
+                
+                # 验证翻译数量
+                if len(translations) != len(messages):
+                    logger.warning(f"Translation count mismatch: got {len(translations)}, expected {len(messages)}")
+                    # 如果解析失败，尝试直接按行分割
+                    if not translations:
+                        lines = [line.strip() for line in response.split('\n') if line.strip()]
+                        translations = [line for line in lines if not re.match(r'^\d+:', line)]
+                    
+                    # 如果仍然没有足够的翻译，补充缺失的翻译
+                    while len(translations) < len(messages):
+                        translations.append("[Translation Error: Missing translation]")
+                    # 如果翻译太多，只取需要的数量
+                    translations = translations[:len(messages)]
+                
+                # 返回所有翻译
+                return translations
+                
             except Exception as e:
                 if attempt < self.max_retries - 1:
                     logger.warning(f"Translation attempt {attempt + 1} failed: {e}. Retrying in {self.retry_delay} seconds...")
@@ -672,37 +740,51 @@ class DialogueLoader:
         translated = []
         pbar = tqdm(total=total, desc="Translating (gpt)", unit="dialogue")
         
-        for i, dialogue in enumerate(dialogues, 1):
+        # 创建翻译客户端
+        client = GPTTranslationClient(
+            api_base=api_base,
+            api_key=api_key,
+            api_type=api_type,
+            auth_type=auth_type,
+            base_model=base_model,
+            timeout=30,
+            max_retries=8,
+            retry_delay=10
+        )
+        
+        # 批量处理对话，每批最多10个对话
+        batch_size = 10
+        for i in range(0, total, batch_size):
+            batch = dialogues[i:i + batch_size]
             try:
-                speaker = dialogue.get('speaker', '')
-                # 始终显示 tqdm，同时有回调也调用
+                # 更新进度条
                 if progress_callback:
-                    progress_callback(i, total, speaker)
-                pbar.update(1)
-                pbar.set_postfix({'speaker': speaker})
-                # 用 target_language 传递给 translate
-                client = GPTTranslationClient(
-                    api_base=api_base,
-                    api_key=api_key,
-                    api_type=api_type,
-                    auth_type=auth_type,
-                    base_model=base_model,
-                    timeout=30,
-                    max_retries=8,
-                    retry_delay=10
-                )
-                translated_content = client.translate([dialogue], 0.7, target_language=target_language)
-                translated.append({
-                    'speaker': dialogue['speaker'],
-                    'content': dialogue['content'],
-                    'translated_content': translated_content
-                })
+                    progress_callback(i + 1, total, f"Batch {i//batch_size + 1}")
+                pbar.update(len(batch))
+                pbar.set_postfix({'batch': f"{i//batch_size + 1}/{(total + batch_size - 1)//batch_size}"})
+                
+                # 批量翻译
+                translations = client.translate(batch, 0.7, target_language=target_language)
+                
+                # 添加翻译结果
+                for dialogue, translation in zip(batch, translations):
+                    translated.append({
+                        'speaker': dialogue['speaker'],
+                        'content': dialogue['content'],
+                        'translated_content': translation,
+                        'dialogue_number': i + 1  # 添加对话编号以便追踪
+                    })
+                    
             except Exception as e:
-                logger.error(f"Failed to translate dialogue {i}: {e}")
-                translated.append({
-                    'speaker': dialogue.get('speaker', ''),
-                    'translated_content': f"[Translation Error: {str(e)}]"
-                })
+                logger.error(f"Failed to translate batch starting at dialogue {i}: {e}")
+                # 为失败的批次添加错误信息
+                for dialogue in batch:
+                    translated.append({
+                        'speaker': dialogue['speaker'],
+                        'content': dialogue['content'],
+                        'translated_content': f"[Translation Error: {str(e)}]"
+                    })
+        
         pbar.close()
         return translated
 

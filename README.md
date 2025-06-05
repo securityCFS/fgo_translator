@@ -8,6 +8,8 @@ The scripts data are extracted from [Atlas Academy](https://apps.atlasacademy.io
 
 A simple command-line demo is provided in `demo.py`. Detailed usage is shown in `demo.ipynb`. For detailed implementation, please refer to `dialogue_loader.py` and `db_loader.py`.
 
+A web demo is provided in `app.py`. Detailed usage is shown in `run_colab.ipynb`.
+
 ## Features
 
 - Translate FGO dialogues from Japanese to:
