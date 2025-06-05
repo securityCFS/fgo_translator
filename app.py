@@ -169,6 +169,44 @@ def get_preferences():
     preferences = load_user_preferences()
     return jsonify(preferences)
 
+@app.route('/save_preferences', methods=['POST'])
+def save_preferences():
+    try:
+        data = request.json
+        # 验证必要的字段
+        required_fields = ['api_key', 'api_base', 'api_type', 'base_model', 'auth_type']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({'error': f'Missing required field: {field}'}), 400
+        
+        # 保存到数据库
+        with sqlite3.connect('user_preferences.db') as conn:
+            # 创建表（如果不存在）
+            conn.execute('''
+                CREATE TABLE IF NOT EXISTS preferences (
+                    key TEXT PRIMARY KEY,
+                    value TEXT
+                )
+            ''')
+            
+            # 保存每个设置
+            for key, value in data.items():
+                conn.execute('INSERT OR REPLACE INTO preferences (key, value) VALUES (?, ?)',
+                           (key, value))
+            
+            conn.commit()
+        
+        # 重新加载用户偏好
+        global user_preferences
+        user_preferences = load_user_preferences()
+        
+        return jsonify({
+            'message': 'Preferences saved successfully',
+            'preferences': user_preferences  # 返回更新后的偏好设置
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/get_quest_detail', methods=['POST'])
 def get_quest_detail():
     quest_id = str(request.json.get('quest_id'))

@@ -525,9 +525,47 @@
             const apiType = document.getElementById('apiType').value;
             const baseModel = document.getElementById('baseModel').value;
             const authType = document.getElementById('authType').value;
-            // Save settings logic here
-            alert('Settings saved!');
-            toggleSettings();
+
+            // 显示加载状态
+            showLoading();
+
+            // 发送设置到后端
+            fetch('/save_preferences', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    api_key: apiKey,
+                    api_base: apiBase,
+                    api_type: apiType,
+                    base_model: baseModel,
+                    auth_type: authType
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                if (data.error) {
+                    alert('Error saving settings: ' + data.error);
+                } else {
+                    // 更新UI显示
+                    if (data.preferences) {
+                        document.getElementById('apiKey').value = data.preferences.api_key || '';
+                        document.getElementById('apiBase').value = data.preferences.api_base || '';
+                        document.getElementById('apiType').value = data.preferences.api_type || 'openai';
+                        document.getElementById('baseModel').value = data.preferences.base_model || '';
+                        document.getElementById('authType').value = data.preferences.auth_type || 'api_key';
+                    }
+                    alert('Settings saved successfully!');
+                    toggleSettings();
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                console.error('Error:', error);
+                alert('Error saving settings: ' + error.message);
+            });
         }
 
         // Check for user_preferences.db and load settings
