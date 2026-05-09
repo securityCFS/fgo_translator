@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Union, Callable
+from typing import Dict, List, Optional, Union, Callable, Any
 import logging
 import requests
 import os
@@ -53,6 +53,87 @@ if is_clash_running():
     print("Clash proxy detected")
     os.environ["http_proxy"] = "http://127.0.0.1:7890"
     os.environ["https_proxy"] = "http://127.0.0.1:7890"
+
+def _build_translation_messages(dialogues: List[Dict], target_language: str) -> List[Dict]:
+    """Build a shared numbered translation prompt for LLM clients."""
+    system_prompt = f"""You are a professional translator for game dialogue.
+Translate Japanese text from the game "Fate/Grand Order" into {target_language}.
+Preserve tone, character speech style, and terminology.
+Only return the translated sentence in {target_language}, no extra text or formatting.
+"""
+
+    dialogue_prompt = f"""Please translate the following dialogues into {target_language}. You MUST follow these rules:
+1. Translate ALL dialogues
+2. For each dialogue, write its number followed by a colon (e.g., "1:", "2:", etc.)
+3. Write the translation on the next line
+4. Keep the translations in the same order as the original dialogues
+5. Translate both the speaker's name and their dialogue content
+6. For choices, translate both the choice number and content
+7. For system messages, keep them as is
+8. For katakana words, translate them to English and keep the English in the translation
+
+Example format:
+1:
+[Translated Speaker Name]: [Translation of first dialogue]
+2:
+[Translated Speaker Name]: [Translation of second dialogue]
+
+Here are the dialogues to translate:
+
+"""
+    for i, dialogue in enumerate(dialogues, 1):
+        dialogue_prompt += f"{i}:\nSpeaker: {dialogue.get('speaker', '')}\nContent: {dialogue.get('content', '')}\n\n"
+
+    dialogue_prompt += "\nRemember to translate ALL dialogues and maintain the exact format shown in the example."
+
+    return [
+        {
+            "role": "system",
+            "content": system_prompt
+        },
+        {
+            "role": "user",
+            "content": dialogue_prompt
+        }
+    ]
+
+def _parse_numbered_translation_response(response: str, expected_count: int) -> List[str]:
+    """Parse numbered translations and pad/truncate to match the requested count."""
+    translations = []
+    current_translation = []
+    current_dialogue_num = None
+
+    for line in response.split('\n'):
+        line = line.strip()
+        if not line:
+            continue
+
+        dialogue_match = re.match(r'^(\d+):\s*(.*)$', line)
+        if dialogue_match:
+            if current_translation:
+                translations.append('\n'.join(current_translation))
+                current_translation = []
+            current_dialogue_num = int(dialogue_match.group(1))
+            inline_translation = dialogue_match.group(2).strip()
+            if inline_translation:
+                current_translation.append(inline_translation)
+        elif current_dialogue_num is not None:
+            current_translation.append(line)
+
+    if current_translation:
+        translations.append('\n'.join(current_translation))
+
+    if len(translations) != expected_count:
+        logger.warning(f"Translation count mismatch: got {len(translations)}, expected {expected_count}")
+        if not translations:
+            lines = [line.strip() for line in response.split('\n') if line.strip()]
+            translations = [line for line in lines if not re.match(r'^\d+:', line)]
+
+        while len(translations) < expected_count:
+            translations.append("[Translation Error: Missing translation]")
+        translations = translations[:expected_count]
+
+    return translations
 
 class GPTTranslationClient:
     """Client for handling GPT API translations with support for different API types."""
@@ -249,6 +330,145 @@ Here are the dialogues to translate:
                 else:
                     raise
 
+class GeminiTranslationClient:
+    """Client for Google Gemini translations using the official google-genai SDK.
+
+    Mirrors the request style used by Google AI Studio "Get code" snippets:
+    https://ai.google.dev/gemini-api/docs/quickstart#python
+    """
+
+    DEFAULT_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
+    DEFAULT_MODEL = "gemini-2.5-flash"
+
+    def __init__(
+        self,
+        api_base: Optional[str],
+        api_key: str,
+        base_model: Optional[str] = None,
+        timeout: int = 30,
+        max_retries: int = 3,
+        retry_delay: int = 2
+    ):
+        try:
+            from google import genai  # type: ignore
+            from google.genai import types  # type: ignore
+        except ImportError as exc:
+            raise ImportError(
+                "google-genai SDK is not installed. Run `pip install google-genai`."
+            ) from exc
+
+        self._genai = genai
+        self._genai_types = types
+        self.api_base = (api_base or self.DEFAULT_API_BASE).rstrip("/") if api_base else None
+        self.api_key = api_key
+        # Strip optional `models/` prefix; SDK adds it back internally.
+        model = base_model or self.DEFAULT_MODEL
+        self.base_model = model[len("models/"):] if model.startswith("models/") else model
+        self.timeout = timeout
+        self.max_retries = max_retries
+        self.retry_delay = retry_delay
+
+        http_options_kwargs: Dict[str, Any] = {"timeout": timeout * 1000}
+        if self.api_base:
+            http_options_kwargs["base_url"] = self.api_base
+        http_options = types.HttpOptions(**http_options_kwargs)
+
+        self.client = genai.Client(api_key=api_key, http_options=http_options)
+
+    def _make_gemini_request(self, messages: List[Dict], temperature: float = 0.7) -> str:
+        """Call generate_content via google-genai with system + user instructions."""
+        types = self._genai_types
+        system_text = "\n\n".join(
+            message.get("content", "")
+            for message in messages
+            if message.get("role") == "system"
+        ).strip()
+        user_text = "\n\n".join(
+            message.get("content", "")
+            for message in messages
+            if message.get("role") != "system"
+        ).strip()
+
+        config_kwargs: Dict[str, Any] = {"temperature": temperature}
+        if system_text:
+            config_kwargs["system_instruction"] = system_text
+
+        response = self.client.models.generate_content(
+            model=self.base_model,
+            contents=user_text,
+            config=types.GenerateContentConfig(**config_kwargs),
+        )
+
+        text = (getattr(response, "text", None) or "").strip()
+        if text:
+            return text
+
+        # Fallback when .text is empty (e.g. blocked) — surface a helpful error.
+        candidates = getattr(response, "candidates", None) or []
+        if not candidates:
+            feedback = getattr(response, "prompt_feedback", None)
+            block_reason = getattr(feedback, "block_reason", None) if feedback else None
+            raise ValueError(
+                f"Gemini returned no candidates{f' (blocked: {block_reason})' if block_reason else ''}"
+            )
+        # Try to extract text from candidate parts manually.
+        parts = getattr(candidates[0].content, "parts", []) if getattr(candidates[0], "content", None) else []
+        joined = "".join(getattr(part, "text", "") or "" for part in parts).strip()
+        if not joined:
+            raise ValueError("Gemini response did not contain text")
+        return joined
+
+    def translate(
+        self,
+        messages: List[Dict],
+        temperature: float = 0.7,
+        target_language: str = 'Chinese'
+    ) -> List[str]:
+        """Translate text using Gemini API."""
+        for attempt in range(self.max_retries):
+            try:
+                formatted_messages = _build_translation_messages(messages, target_language)
+                response = self._make_gemini_request(formatted_messages, temperature)
+                return _parse_numbered_translation_response(response, len(messages))
+            except Exception as e:
+                if attempt < self.max_retries - 1:
+                    logger.warning(f"Gemini translation attempt {attempt + 1} failed: {e}. Retrying in {self.retry_delay} seconds...")
+                    time.sleep(self.retry_delay)
+                else:
+                    raise
+
+def create_translation_client(
+    api_base: Optional[str],
+    api_key: str,
+    api_type: str = "openai",
+    auth_type: str = "bearer",
+    base_model: str = "gpt-4",
+    timeout: int = 30,
+    max_retries: int = 3,
+    retry_delay: int = 2
+):
+    api_type_normalized = (api_type or "openai").lower()
+    if api_type_normalized == "gemini":
+        return GeminiTranslationClient(
+            api_base=api_base,
+            api_key=api_key,
+            base_model=base_model,
+            timeout=timeout,
+            max_retries=max_retries,
+            retry_delay=retry_delay
+        )
+
+    return GPTTranslationClient(
+        api_base=api_base,
+        api_key=api_key,
+        api_type=api_type_normalized,
+        auth_type=auth_type,
+        base_model=base_model,
+        timeout=timeout,
+        max_retries=max_retries,
+        retry_delay=retry_delay
+    )
+
 class DialogueLoader:
     """Class to handle loading and extracting dialogues from FGO quests."""
     
@@ -281,83 +501,273 @@ class DialogueLoader:
         except Exception as e:
             logger.error(f"Failed to fetch text content from {url}: {e}")
             return ""
-            
-    def search_war(self, name: str) -> List[Dict]:
+
+    def normalize_region(self, region: Optional[str] = None) -> str:
+        """Normalize Atlas Academy region names used by the public API."""
+        normalized = (region or "JP").upper()
+        supported_regions = {"JP", "NA", "CN", "TW", "KR"}
+        if normalized not in supported_regions:
+            raise ValueError(f"Unsupported region: {region}")
+        return normalized
+
+    def list_latest_tasks(self, region: str = "JP", limit: int = 50) -> List[Dict]:
         """
-        Search for a war by name.
-        First gets basic war info, then fetches both nice and raw data.
-        
-        Args:
-            name: Name of the war to search for
-            
-        Returns:
-            List of matching war data with detailed information
+        List the newest quest tasks exposed by the Atlas server.
+
+        This uses the latestEnemyData query so users can pick current tasks
+        directly instead of searching war -> quest manually.
         """
-        # If name is a number, search for war by id
+        try:
+            region = self.normalize_region(region)
+            limit = max(1, min(int(limit or 50), 200))
+            endpoint = f"{self.db_loader.BASE_URL}/basic/{region}/quest/phase/latestEnemyData"
+            tasks = self.db_loader._make_request_with_retry(endpoint)
+            if not isinstance(tasks, list):
+                return []
+
+            normalized_tasks = []
+            for task in tasks[:limit]:
+                if not isinstance(task, dict):
+                    continue
+                normalized_tasks.append({
+                    "itemKind": "task",
+                    "id": str(task.get("id", "")),
+                    "name": task.get("name", ""),
+                    "region": region,
+                    "type": task.get("type", ""),
+                    "phase": task.get("phase"),
+                    "warId": task.get("warId"),
+                    "warLongName": task.get("warLongName", ""),
+                    "spotId": task.get("spotId"),
+                    "spotName": task.get("spotName", ""),
+                    "consumeType": task.get("consumeType", ""),
+                    "consume": task.get("consume"),
+                    "noticeAt": task.get("noticeAt"),
+                    "openedAt": task.get("openedAt"),
+                    "closedAt": task.get("closedAt"),
+                    "priority": task.get("priority")
+                })
+            return normalized_tasks
+        except Exception as e:
+            logger.error(f"Failed to list latest tasks: {e}")
+            return []
+
+    def _normalize_event_activity(self, event: Dict, region: str) -> Dict:
+        return {
+            "itemKind": "event",
+            "id": str(event.get("id", "")),
+            "name": event.get("name", ""),
+            "region": region,
+            "type": event.get("type", ""),
+            "noticeAt": event.get("noticeAt"),
+            "startedAt": event.get("startedAt"),
+            "endedAt": event.get("endedAt"),
+            "finishedAt": event.get("finishedAt"),
+            "warIds": [str(war_id) for war_id in event.get("warIds", [])],
+            "banner": event.get("banner") or "",
+            "noticeBanner": event.get("noticeBanner") or "",
+            "icon": event.get("icon") or "",
+        }
+
+    def _normalize_war_activity(self, war: Dict, region: str) -> Dict:
+        return {
+            "itemKind": "war",
+            "id": str(war.get("id", "")),
+            "name": war.get("name", ""),
+            "longName": war.get("longName", ""),
+            "region": region,
+            "age": war.get("age", ""),
+            "flags": war.get("flags", []),
+            "eventId": war.get("eventId", 0),
+            "eventName": war.get("eventName", ""),
+            "startedAt": war.get("startedAt"),
+            "endedAt": war.get("endedAt"),
+            "banner": war.get("banner") or "",
+            "headerImage": war.get("headerImage") or "",
+        }
+
+    def list_latest_activities(
+        self,
+        region: str = "JP",
+        activity_type: str = "war",
+        limit: int = 50,
+        with_wars: bool = True
+    ) -> List[Dict]:
+        """List latest activity-level entries as events or wars."""
+        try:
+            region = self.normalize_region(region)
+            activity_type = (activity_type or "war").lower()
+            limit = max(1, min(int(limit or 50), 200))
+
+            if activity_type == "war":
+                war_endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_war.json"
+                wars = self.db_loader._make_request_with_retry(war_endpoint)
+                if not isinstance(wars, list):
+                    return []
+
+                # Build eventId -> startedAt map so wars can be ordered chronologically.
+                event_started_by_id: Dict[int, int] = {}
+                event_ended_by_id: Dict[int, int] = {}
+                try:
+                    event_endpoint = f"{self.db_loader.BASE_URL}/export/{region}/basic_event.json"
+                    events = self.db_loader._make_request_with_retry(event_endpoint)
+                    if isinstance(events, list):
+                        for ev in events:
+                            ev_id = ev.get("id")
+                            ts = ev.get("startedAt") or ev.get("noticeAt")
+                            if ev_id is not None and ts:
+                                event_started_by_id[int(ev_id)] = int(ts)
+                            ended = ev.get("endedAt")
+                            if ev_id is not None and ended:
+                                event_ended_by_id[int(ev_id)] = int(ended)
+                except Exception as e:
+                    logger.warning(f"Could not load basic_event for war ordering: {e}")
+
+                # Annotate wars with their event's start/end so the UI can show timestamps.
+                for war in wars:
+                    ev_id = war.get("eventId") or 0
+                    if ev_id:
+                        if ev_id in event_started_by_id and "startedAt" not in war:
+                            war["startedAt"] = event_started_by_id[int(ev_id)]
+                        if ev_id in event_ended_by_id and "endedAt" not in war:
+                            war["endedAt"] = event_ended_by_id[int(ev_id)]
+
+                def _war_sort_key(war: Dict):
+                    ev_id = war.get("eventId") or 0
+                    ts = event_started_by_id.get(int(ev_id), 0) if ev_id else 0
+                    return (ts, int(war.get("id", 0)))
+
+                wars = sorted(wars, key=_war_sort_key, reverse=True)
+                return [self._normalize_war_activity(war, region) for war in wars[:limit]]
+
+            endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_event.json"
+            events = self.db_loader._make_request_with_retry(endpoint)
+            if not isinstance(events, list):
+                return []
+            if with_wars:
+                events = [event for event in events if event.get("warIds")]
+            events = sorted(
+                events,
+                key=lambda event: event.get("startedAt") or event.get("noticeAt") or event.get("id", 0),
+                reverse=True
+            )
+            return [self._normalize_event_activity(event, region) for event in events[:limit]]
+        except Exception as e:
+            logger.error(f"Failed to list latest activities: {e}")
+            return []
+
+    def search_event(self, name: str, region: str = "JP", limit: int = 50) -> List[Dict]:
+        """Search activity-level events by name or ID."""
+        try:
+            region = self.normalize_region(region)
+            limit = max(1, min(int(limit or 50), 200))
+            name = (name or "").strip()
+
+            if name.isdigit():
+                endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/event/{name}"
+                event = self.db_loader._make_request_with_retry(endpoint)
+                return [self._normalize_event_activity(event, region)] if event else []
+
+            endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_event.json"
+            events = self.db_loader._make_request_with_retry(endpoint)
+            if not isinstance(events, list):
+                return []
+
+            name_lower = name.lower()
+            if name_lower:
+                events = [event for event in events if name_lower in event.get("name", "").lower()]
+            else:
+                # Default empty-search behavior: prefer events that have wars (translatable content).
+                events = [event for event in events if event.get("warIds")]
+
+            events = sorted(
+                events,
+                key=lambda event: event.get("startedAt") or event.get("noticeAt") or event.get("id", 0),
+                reverse=True
+            )
+            return [self._normalize_event_activity(event, region) for event in events[:limit]]
+        except Exception as e:
+            logger.error(f"Failed to search for event: {e}")
+            return []
+            
+    def search_war(self, name: str, region: Optional[str] = None, limit: int = 50) -> List[Dict]:
+        """Search for a war by name or ID and return list-friendly metadata.
+
+        Uses the bulk nice_war.json export so banners/headerImages are included
+        without N+1 detail fetches. Empty queries return the latest ``limit``
+        wars instead of every war ever made.
+        """
+        search_region = self.normalize_region(region) if region else None
+        limit = max(1, min(int(limit or 50), 200))
+
+        # If name is a number, search for war by id directly.
         if name.isdigit():
             detailed_matches = []
             try:
                 war_id = name
-                nice_endpoint = f"{self.db_loader.BASE_URL}/nice/JP/war/{war_id}"
-                raw_endpoint = f"{self.db_loader.BASE_URL}/raw/JP/war/{war_id}"
-                
+                search_region = search_region or "JP"
+                nice_endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/war/{war_id}"
                 nice_war = self.db_loader._make_request_with_retry(nice_endpoint)
-                raw_war = self.db_loader._make_request_with_retry(raw_endpoint)
-                
-                detailed_matches.append({**nice_war, 'raw': raw_war})
+                if nice_war:
+                    detailed_matches.append(self._normalize_war_activity(nice_war, search_region))
             except Exception as e:
-                logger.error(f"Failed to get detailed data for war {war_id}: {e}")
-                detailed_matches.append(war)  # Keep basic data if detailed fetch fails
-                
+                logger.error(f"Failed to get detailed data for war {name}: {e}")
             return detailed_matches
-
 
         try:
-            # First get basic war info
-            search_region = self.db_loader._get_search_region(name)
-            endpoint = f"{self.db_loader.BASE_URL}/export/{search_region}/basic_war.json"
+            search_region = search_region or (self.db_loader._get_search_region(name) if name else "JP")
+            endpoint = f"{self.db_loader.BASE_URL}/export/{search_region}/nice_war.json"
             wars = self.db_loader._make_request_with_retry(endpoint)
-            
-            # Search for matches
-            name_lower = name.lower()
-            if name_lower != '':
-                basic_matches = [
+            if not isinstance(wars, list):
+                wars = []
+
+            # Filter by name (or take everything when empty).
+            name_lower = (name or '').lower()
+            if name_lower:
+                matches = [
                     war for war in wars
-                    if name_lower in war['name'].lower() or 
-                    name_lower in war.get('longName', '').lower()
+                    if name_lower in (war.get('name') or '').lower()
+                    or name_lower in (war.get('longName') or '').lower()
+                    or name_lower in (war.get('eventName') or '').lower()
                 ]
             else:
-                basic_matches = wars
-            
-            if not basic_matches:
-                # If no matches found in export data, try API search
-                logger.info("No matches found in export data, trying API search...")
-                api_endpoint = f"war/search?name={name}"
-                basic_matches = self.db_loader._make_request_with_retry(
-                    self.db_loader._get_endpoint(api_endpoint)
-                )
-            
-            # Get detailed data for each match
-            detailed_matches = []
-            for war in basic_matches:
-                try:
-                    war_id = war['id']
-                    # Get both nice and raw war data
-                    nice_endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/war/{war_id}"
-                    raw_endpoint = f"{self.db_loader.BASE_URL}/raw/{search_region}/war/{war_id}"
-                    
-                    nice_war = self.db_loader._make_request_with_retry(nice_endpoint)
-                    raw_war = self.db_loader._make_request_with_retry(raw_endpoint)
-                    
-                    # Combine nice and raw data
-                    detailed_war = {**nice_war, 'raw': raw_war}
-                    detailed_matches.append(detailed_war)
-                except Exception as e:
-                    logger.error(f"Failed to get detailed data for war {war['id']}: {e}")
-                    detailed_matches.append(war)  # Keep basic data if detailed fetch fails
-            
-            return detailed_matches
-            
+                matches = list(wars)
+
+            # Order matches by associated event start time (desc), falling back to id desc.
+            event_started_by_id: Dict[int, int] = {}
+            event_ended_by_id: Dict[int, int] = {}
+            try:
+                event_endpoint = f"{self.db_loader.BASE_URL}/export/{search_region}/basic_event.json"
+                events = self.db_loader._make_request_with_retry(event_endpoint)
+                if isinstance(events, list):
+                    for ev in events:
+                        ev_id = ev.get("id")
+                        ts = ev.get("startedAt") or ev.get("noticeAt")
+                        if ev_id is not None and ts:
+                            event_started_by_id[int(ev_id)] = int(ts)
+                        ended = ev.get("endedAt")
+                        if ev_id is not None and ended:
+                            event_ended_by_id[int(ev_id)] = int(ended)
+            except Exception as e:
+                logger.warning(f"Could not load basic_event for war search ordering: {e}")
+
+            for war in matches:
+                ev_id = war.get("eventId") or 0
+                if ev_id:
+                    if "startedAt" not in war and ev_id in event_started_by_id:
+                        war["startedAt"] = event_started_by_id[int(ev_id)]
+                    if "endedAt" not in war and ev_id in event_ended_by_id:
+                        war["endedAt"] = event_ended_by_id[int(ev_id)]
+
+            def _war_sort_key(war: Dict):
+                ev_id = war.get("eventId") or 0
+                ts = event_started_by_id.get(int(ev_id), 0) if ev_id else 0
+                return (ts, int(war.get("id", 0)))
+
+            matches = sorted(matches, key=_war_sort_key, reverse=True)
+            matches = matches[:limit]
+
+            return [self._normalize_war_activity(war, search_region) for war in matches]
         except Exception as e:
             logger.error(f"Failed to search for war: {e}")
             return []
@@ -421,18 +831,19 @@ class DialogueLoader:
             logger.error(f"Failed to search for quest: {e}")
             return []
             
-    def get_quest_scripts(self, quest_id: str) -> List[Dict]:
+    def get_quest_scripts(self, quest_id: str, region: str = "JP") -> List[Dict]:
         """
         Get all phase scripts for a quest.
         
         Args:
             quest_id: ID of the quest
+            region: Atlas Academy region
             
         Returns:
             List of phase scripts
         """
         try:
-            search_region = 'JP'  # Always use JP region for scripts
+            search_region = self.normalize_region(region)
             endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/quest/{quest_id}"
             quest_data = self.db_loader._make_request_with_retry(endpoint)
             return quest_data.get('phaseScripts', [])
@@ -440,22 +851,22 @@ class DialogueLoader:
             logger.error(f"Failed to get quest scripts: {e}")
             return []
             
-    def extract_dialogues(self, script_id: str) -> List[Dict]:
+    def extract_dialogues(self, script_id: str, region: str = "JP") -> List[Dict]:
         """
         Extract dialogues from a script.
         
         Args:
             script_id: ID of the script to extract dialogues from
+            region: Atlas Academy region
             
         Returns:
             List of dialogue dictionaries
         """
         try:
             # Get script data
-            script_endpoint = f"script/{script_id}"
-            script_data = self.db_loader._make_request_with_retry(
-                self.db_loader._get_endpoint(script_endpoint)
-            )
+            search_region = self.normalize_region(region)
+            script_endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/script/{script_id}"
+            script_data = self.db_loader._make_request_with_retry(script_endpoint)
             
             if not script_data:
                 logger.warning(f"No script data found for script ID {script_id}")
@@ -733,16 +1144,16 @@ class DialogueLoader:
         auth_type: str = 'api_key',
         progress_callback: Callable = None
     ) -> List[Dict]:
-        """Translate dialogues using GPT."""
+        """Translate dialogues using the configured LLM client."""
         if not api_key:
-            raise ValueError("API key is required for GPT translation")
+            raise ValueError("API key is required for LLM translation")
         
         total = len(dialogues)
         translated = []
         pbar = tqdm(total=total, desc="Translating (gpt)", unit="dialogue")
         
         # 创建翻译客户端
-        client = GPTTranslationClient(
+        client = create_translation_client(
             api_base=api_base,
             api_key=api_key,
             api_type=api_type,
@@ -754,7 +1165,7 @@ class DialogueLoader:
         )
         
         # 批量处理对话，每批最多10个对话
-        batch_size = 10
+        batch_size = 30
         for i in range(0, total, batch_size):
             batch = dialogues[i:i + batch_size]
             try:
