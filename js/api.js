@@ -271,13 +271,20 @@ const AA = (() => {
 
     /**
      * Parse raw script text into dialogue lines (plain extraction, no visual framing).
+     * IMPORTANT: This must produce the same number of entries that
+     * parseScriptVisual counts via dialogueIdx, otherwise gaming.html's choice
+     * popup will read mismatched translations. The shared rule (mirrors Python
+     * extract_dialogues regex) is: trim + [r]->\n; if non-empty, count/push.
+     * Tag-only content (e.g. [se voice]) is NOT stripped here — it is still
+     * counted, even though its cleaned form is empty.
      */
     function parseDialogues(raw, scriptId = '') {
         const lines = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
         const dialogues = [];
-        const SPEAKER_RE = /^＠(.+)/;
+        const SPEAKER_RE = /^＠(.*)/;          // allow empty speaker
         const CHOICE_RE  = /^？(\d+)：(.+)/;
         const END_RE     = /^？！/;
+        let lastChoiceNum = null;
         let i = 0;
         while (i < lines.length) {
             const line = lines[i].trim();
@@ -287,7 +294,7 @@ const AA = (() => {
             if (sm) {
                 const speakerRaw = sm[1].trim();
                 const slotM = /^([A-Z])：(.+)$/.exec(speakerRaw);
-                const speaker = slotM ? slotM[2].trim() : speakerRaw;
+                const speaker = slotM ? slotM[2].trim() : (speakerRaw || 'Narrator');
                 const parts = [];
                 while (i < lines.length) {
                     const cl = lines[i].trim(); i++;
@@ -298,18 +305,28 @@ const AA = (() => {
                     }
                     if (cl) parts.push(cl);
                 }
-                const content = cleanText(parts.join('\n'));
-                if (content) dialogues.push({ speaker, content, scriptId });
+                // Use raw-trim (with [r]->\n) for emptiness — matches the
+                // Python extract_dialogues regex semantics. Tag content is
+                // preserved for the LLM prompt.
+                const rawContent = parts.join('\n').replace(/\[r\]/g, '\n').trim();
+                if (rawContent) dialogues.push({ speaker, content: rawContent, scriptId });
                 continue;
             }
             const cm = CHOICE_RE.exec(line);
             if (cm) {
-                const txt = cleanText(cm[2].trim());
-                if (txt) dialogues.push({ speaker: `Choice ${cm[1]}`, content: txt, scriptId });
+                const txt = cm[2].trim().replace(/\[r\]/g, '\n');
+                if (txt) {
+                    lastChoiceNum = cm[1];
+                    dialogues.push({ speaker: '藤丸立香', content: `Choice ${cm[1]}: ${txt}`, scriptId });
+                }
                 continue;
             }
             if (END_RE.test(line)) {
-                dialogues.push({ speaker: 'Choice Ending', content: '（選択終わり）', scriptId });
+                dialogues.push({
+                    speaker: 'System',
+                    content: lastChoiceNum ? `Choice ${lastChoiceNum} Ending` : 'Choice Ending',
+                    scriptId,
+                });
             }
         }
         return dialogues;
@@ -360,6 +377,11 @@ const AA = (() => {
         }
 
         // ---- pre-scan choice groups to know dialogueIdx of every ？N and ？！ ----
+        // The dialogueIdx must align with parseDialogues' indices, so we use
+        // the SAME emptiness rule: raw content (post [r]->\n + trim) is non-empty.
+        function rawNonEmpty(s) {
+            return s.replace(/\[r\]/g, '\n').trim() !== '';
+        }
         function scanChoiceGroups() {
             let idx = 0;
             const groups = [];
@@ -368,24 +390,57 @@ const AA = (() => {
             while (j < lines.length) {
                 const ln = lines[j].trim();
                 if (ln.startsWith('＠')) {
-                    let jj = j + 1;
-                    while (jj < lines.length) {
-                        if (lines[jj].includes('[k]')) { jj++; break; }
-                        jj++;
+                    // Collect content lines through [k] just like the main pass,
+                    // so we can decide whether this ＠ block contributes to idx.
+                    const rawAfter = ln.slice(1);
+                    let initial = '';
+                    if (rawAfter && rawAfter[0] !== ' ') {
+                        const sp = rawAfter.trim().split(/\s+/, 2);
+                        if (sp.length === 2) initial = rawAfter.trim().slice(sp[0].length).trim();
+                    } else {
+                        initial = rawAfter.trim();
                     }
-                    idx++;
-                    j = jj;
+                    const parts = [];
+                    let consumedK = false;
+                    if (initial) {
+                        if (initial.includes('[k]')) {
+                            const pre = initial.slice(0, initial.indexOf('[k]')).trim();
+                            if (pre) parts.push(pre);
+                            consumedK = true;
+                        } else {
+                            parts.push(initial);
+                        }
+                    }
+                    let jj = j + 1;
+                    if (!consumedK) {
+                        while (jj < lines.length) {
+                            const cl = lines[jj].trim();
+                            if (cl.includes('[k]')) {
+                                const pre = cl.slice(0, cl.indexOf('[k]')).trim();
+                                if (pre) parts.push(pre);
+                                jj++;
+                                break;
+                            }
+                            if (cl) parts.push(cl);
+                            jj++;
+                        }
+                    }
+                    if (rawNonEmpty(parts.join('\n'))) idx++;
+                    j = consumedK ? j + 1 : jj;
                     continue;
                 }
                 const cm = /^？(\d+)：(.+)/.exec(ln);
                 if (cm) {
+                    const txt = cm[2].trim().replace(/\[r\]/g, '\n');
                     if (cur === null) cur = { firstLine: j, choices: [], endDialogueIdx: null, endLine: null };
-                    cur.choices.push({
-                        num: parseInt(cm[1], 10),
-                        text: cleanText(cm[2].trim()),
-                        dialogueIdx: idx,
-                    });
-                    idx++;
+                    if (txt) {
+                        cur.choices.push({
+                            num: parseInt(cm[1], 10),
+                            text: cleanText(cm[2].trim()),
+                            dialogueIdx: idx,
+                        });
+                        idx++;
+                    }
                     j++;
                     continue;
                 }
@@ -499,15 +554,18 @@ const AA = (() => {
                     if (initialContent.includes('[k]')) {
                         const beforeK = initialContent.slice(0, initialContent.indexOf('[k]')).trim();
                         if (beforeK) contentParts.push(beforeK);
-                        const content = cleanText(contentParts.join('\n'));
-                        if (content) {
-                            frames.push({
-                                type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
-                                speaker, text: content, dialogueIdx, branchId: currentBranch,
-                                effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
-                            });
+                        const rawJoined = contentParts.join('\n');
+                        if (rawNonEmpty(rawJoined)) {
+                            const content = cleanText(rawJoined);
+                            if (content) {
+                                frames.push({
+                                    type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
+                                    speaker, text: content, dialogueIdx, branchId: currentBranch,
+                                    effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
+                                });
+                            }
+                            dialogueIdx++;
                         }
-                        dialogueIdx++;
                         emittedFromInitial = true;
                     } else {
                         contentParts.push(initialContent);
@@ -524,20 +582,24 @@ const AA = (() => {
                     }
                     if (cl) contentParts.push(cl);
                 }
-                const content = cleanText(contentParts.join('\n'));
-                if (content) {
-                    frames.push({
-                        type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
-                        speaker, text: content, dialogueIdx, branchId: currentBranch,
-                        effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
-                    });
+                const rawJoined = contentParts.join('\n');
+                if (rawNonEmpty(rawJoined)) {
+                    const content = cleanText(rawJoined);
+                    if (content) {
+                        frames.push({
+                            type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
+                            speaker, text: content, dialogueIdx, branchId: currentBranch,
+                            effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
+                        });
+                    }
+                    dialogueIdx++;
                 }
-                dialogueIdx++;
                 continue;
             }
 
             if (m = /^？(\d+)：(.+)/.exec(line)) {
                 const num = parseInt(m[1], 10);
+                const txt = m[2].trim().replace(/\[r\]/g, '\n');
                 if (currentGroup === null) {
                     let grp = groupByFirstLine.get(lineIdx) || null;
                     if (!grp) {
@@ -559,14 +621,14 @@ const AA = (() => {
                     }
                 }
                 currentBranch = num;
-                dialogueIdx++; // ？N consumes one translation slot
+                if (txt) dialogueIdx++; // ？N consumes one slot only when text non-empty
                 continue;
             }
 
             if (line.startsWith('？！')) {
                 currentGroup = null;
                 currentBranch = null;
-                dialogueIdx++; // ？！ consumes one translation slot ("Choice N Ending")
+                dialogueIdx++; // always consumes one slot ("Choice N Ending")
                 continue;
             }
 
