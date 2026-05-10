@@ -802,7 +802,7 @@
                 }
                 dialogueIndex += count;
             }
-            prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues || []);
+            prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues || [], scriptDialogueCounts);
             progressText.textContent = 'Translation completed!';
             animateProgressBar(100);
         } catch (error) {
@@ -814,10 +814,11 @@
     }
 
     // ── Gaming Mode ───────────────────────────────────────────────────────────
-    let _gmTranslations = {}, _gmScriptIds = [], _gmWindow = null, _gmLoading = false;
+    let _gmTranslations = {}, _gmScriptIds = [], _gmScriptDialogueCounts = [], _gmWindow = null, _gmLoading = false;
 
-    function prepareGamingMode(scriptIds, allOrigDialogues, allTransDialogues) {
+    function prepareGamingMode(scriptIds, allOrigDialogues, allTransDialogues, scriptDialogueCounts) {
         _gmScriptIds = scriptIds;
+        _gmScriptDialogueCounts = scriptDialogueCounts || [];
         _gmTranslations = {};
         allTransDialogues.forEach((t, i) => {
             const orig = allOrigDialogues[i] || {};
@@ -843,19 +844,47 @@
             const allFrames = [];
             let dialogueOffset = 0;
             const svtData = {};
-            for (const d of results) {
+            results.forEach((d, scriptIndex) => {
                 region = d.region || region;
                 Object.assign(svtData, d.svtData || {});
                 (d.frames || []).forEach(fr => {
                     const f = Object.assign({}, fr);
                     if (typeof f.dialogueIdx === 'number') f.dialogueIdx += dialogueOffset;
+                    if (typeof f.endDialogueIdx === 'number') f.endDialogueIdx += dialogueOffset;
+                    if (Array.isArray(f.choices)) {
+                        f.choices = f.choices.map(c => ({
+                            ...c,
+                            dialogueIdx: typeof c.dialogueIdx === 'number' ? c.dialogueIdx + dialogueOffset : c.dialogueIdx,
+                        }));
+                    }
                     allFrames.push(f);
                 });
-                const dCount = (d.frames || []).filter(f => f.type === 'dialogue').length
-                    + (d.frames || []).filter(f => f.type === 'choice')
-                        .reduce((s, f) => s + (f.choices || []).length, 0);
+                // Use the authoritative parseDialogues count we collected during
+                // extraction so the offset for the next script lines up exactly
+                // with the TRANSLATIONS array (whose linear index keys come
+                // straight from parseDialogues output). Falling back to a
+                // frame-derived count is fragile because it would miss ？！
+                // end-markers (which consume a dialogueIdx slot but emit no frame).
+                let dCount = _gmScriptDialogueCounts[scriptIndex];
+                if (typeof dCount !== 'number') {
+                    // Fallback: derive from frames including ？！ slots inferred
+                    // from each choice frame's endDialogueIdx (= last choice
+                    // option idx + 1 in this script).
+                    let maxIdx = -1;
+                    for (const f of d.frames || []) {
+                        if (f.type === 'dialogue' && typeof f.dialogueIdx === 'number') {
+                            maxIdx = Math.max(maxIdx, f.dialogueIdx);
+                        } else if (f.type === 'choice') {
+                            (f.choices || []).forEach(c => {
+                                if (typeof c.dialogueIdx === 'number') maxIdx = Math.max(maxIdx, c.dialogueIdx);
+                            });
+                            if (typeof f.endDialogueIdx === 'number') maxIdx = Math.max(maxIdx, f.endDialogueIdx);
+                        }
+                    }
+                    dCount = maxIdx + 1;
+                }
                 dialogueOffset += dCount;
-            }
+            });
             const payload = { frames: allFrames, svtData, translations: _gmTranslations, scriptIds: _gmScriptIds, region };
             sessionStorage.setItem('fgoGamingData', JSON.stringify(payload));
             const w = Math.min(1280, Math.floor(window.screen.availWidth * 0.85));
