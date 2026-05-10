@@ -6,8 +6,26 @@
     <title>FGO Gaming Mode</title>
     <style>
         /* CSS Reset & Base */
-        html, body { margin:0; padding:0; height:100%; overflow:hidden; background:#000; font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif; user-select: none; }
-        
+        :root {
+            --font-original: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+            --font-translated: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+            --font-scale: 1;
+        }
+        html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000; font-family: var(--font-original); user-select: none; display:flex; align-items:center; justify-content:center; }
+
+        /* 16:9 scene container — letterboxed inside the window */
+        #sceneWrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* Enforce 16:9: shrink to fit whichever axis is limiting */
+            max-width: calc(100vh * 16 / 9);
+            max-height: calc(100vw * 9 / 16);
+            overflow: hidden;
+            background: #000;
+            container-type: size;  /* enable cqh/cqw units for children */
+        }
+
         /* Background & Stage */
         #bgImg { position:absolute; inset:0; width:100%; height:100%; object-fit: cover; object-position: center; transition: opacity 0.6s ease; }
         #bgImg.fading { opacity: 0; }
@@ -30,7 +48,12 @@
         @keyframes flashKf { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 0; } }
 
         .sprite-wrap {
-            position: absolute; bottom: 22vh; transform: translateX(-50%);
+            position: absolute;
+            /* Anchor characters to the bottom of the scene stage — full body
+               visible from head to feet; the dialogue box overlays the lower
+               portion of the sprite (FGO standard layout). */
+            bottom: 0;
+            transform: translateX(-50%);
             transition: opacity 0.45s ease, filter 0.4s ease, left 0.6s cubic-bezier(.4,.2,.2,1), transform 0.45s ease;
             will-change: opacity, filter; opacity: 0;
         }
@@ -48,6 +71,10 @@
 
         /* FGO Style UI Overlay */
         #uiLayer { position: absolute; inset: 0; z-index: 100; pointer-events: none; }
+
+        /* Choices overlay must be scoped inside sceneWrap */
+        #choicesWrap { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 150; pointer-events: auto; }
+        #choicesWrap.show { display: flex; }
 
         /* Top Right Skip Button */
         #topRightControls { position: absolute; top: 15px; right: 15px; pointer-events: auto; }
@@ -102,13 +129,47 @@
         /* Text Layout */
         .text-container { width: 85%; }
         #originalText {
-            color: #94a3b8; font-size: 19px; line-height: 1.5; font-weight: 500;
+            color: #94a3b8; font-size: calc(19px * var(--font-scale)); line-height: 1.5; font-weight: 500;
             margin: 0 0 10px 0; white-space: pre-wrap; text-shadow: 1px 1px 0 #000;
+            font-family: var(--font-original);
         }
         #translatedText {
-            color: #fff; font-size: 22px; line-height: 1.5; font-weight: bold;
+            color: #fff; font-size: calc(22px * var(--font-scale)); line-height: 1.5; font-weight: bold;
             margin: 0; white-space: pre-wrap; text-shadow: 1px 1px 3px rgba(0,0,0,1);
             letter-spacing: 0.05em;
+            font-family: var(--font-translated);
+        }
+
+        /* Inline glyph image (e.g. [image berserker_language_9]). FGO uses
+           these as stand-ins for special glyphs that aren't in any font, so
+           they should sit on the text baseline at roughly the surrounding
+           font height — NOT block-sized. */
+        .fmt-mark {
+            display: inline-block;
+            height: 1.1em;
+            width: auto;
+            vertical-align: -0.18em;   /* nudge to baseline */
+            margin: 0 0.08em;
+            object-fit: contain;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.7));
+        }
+        #originalText .fmt-mark { height: 1em; vertical-align: -0.15em; }
+        .hist-orig .fmt-mark, .hist-trans .fmt-mark { height: 1em; vertical-align: -0.15em; }
+
+        /* Ruby (furigana) — readings sit above the base glyphs.
+           Add top padding so the rt row doesn't get clipped by the line-box. */
+        ruby { ruby-position: over; }
+        rt {
+            font-size: 0.55em;
+            color: inherit;
+            opacity: 0.95;
+            letter-spacing: 0.02em;
+            line-height: 1;
+            font-weight: normal;
+            text-shadow: 1px 1px 0 #000;
+        }
+        #originalText, #translatedText, .hist-orig, .hist-trans, .choice-trans, .choice-orig {
+            padding-top: 0.6em;   /* give furigana headroom */
         }
 
         /* Right Side Controls (LOG, AUTO) */
@@ -131,9 +192,7 @@
         }
         @keyframes bounce-pulse { 0%, 100% { transform: translateY(0); opacity: 0.8; } 50% { transform: translateY(6px); opacity: 1; } }
 
-        /* Choices Style Overhaul */
-        #choicesWrap { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 150; pointer-events: auto; }
-        #choicesWrap.show { display: flex; }
+        /* Choices Style */
         #choicesList { display: flex; flex-direction: column; gap: 16px; width: 80%; max-width: 600px; }
         .choice-btn {
             background: linear-gradient(180deg, rgba(25, 45, 80, 0.95) 0%, rgba(10, 20, 40, 0.95) 100%);
@@ -147,8 +206,9 @@
         .choice-btn::before { left: 16px; }
         .choice-btn::after { right: 16px; }
         .choice-btn:hover { background: linear-gradient(180deg, rgba(40, 70, 120, 0.95) 0%, rgba(15, 30, 60, 0.95) 100%); border-color: #8ba8d8; }
-        .choice-trans { display: block; font-weight: bold; font-size: 18px; margin-bottom: 4px; }
-        .choice-orig { display: block; color: #94a3b8; font-size: 13px; }
+        /* Choice text slightly smaller than main dialogue text (22px) */
+        .choice-trans { display: block; font-weight: bold; font-size: calc(20px * var(--font-scale)); margin-bottom: 5px; font-family: var(--font-translated); }
+        .choice-orig { display: block; color: #94a3b8; font-size: calc(15px * var(--font-scale)); font-family: var(--font-original); }
 
         /* Exit/Debug Info (Minimalist now) */
         #devInfo { position: absolute; top: 15px; left: 15px; color: rgba(255,255,255,0.4); font-size: 10px; pointer-events: auto; }
@@ -185,8 +245,8 @@
         .hist-row { padding: 10px 0; border-bottom: 1px solid rgba(74, 111, 165, 0.25); }
         .hist-row:last-child { border-bottom: none; }
         .hist-speaker { color: #8ba8d8; font-weight: 700; font-size: 14px; margin-bottom: 4px; }
-        .hist-orig { color: #94a3b8; font-size: 16px; line-height: 1.5; margin-bottom: 4px; white-space: pre-wrap; }
-        .hist-trans { color: #fff; font-size: 17px; line-height: 1.5; white-space: pre-wrap; }
+        .hist-orig { color: #94a3b8; font-size: 16px; line-height: 1.5; margin-bottom: 4px; white-space: pre-wrap; font-family: var(--font-original); }
+        .hist-trans { color: #fff; font-size: 17px; line-height: 1.5; white-space: pre-wrap; font-family: var(--font-translated); }
         #historyClose {
             position: absolute; top: 14px; right: 18px; background: none; border: 1px solid rgba(255,255,255,0.3);
             color: #fff; padding: 4px 14px; border-radius: 4px; cursor: pointer; font-size: 13px;
@@ -194,6 +254,7 @@
     </style>
 </head>
 <body>
+    <div id="sceneWrap">
     <img id="bgImg" alt="" src="">
     <div id="spriteStage"></div>
     <div id="cameraTint"></div>
@@ -259,7 +320,7 @@
             <img class="fou-gif" src="https://media.tenor.com/8COMw5dtF9YAAAAj/fou-fgo.gif" alt="Fou">
             <div class="loading-text">Now Loading<span class="dots"></span></div>
         </div>
-    </div>
+    </div><!-- /sceneWrap -->
 
 <script>
 // ============================================================================
@@ -275,6 +336,7 @@ let IDX = 0;
 let AUTO = false;
 let AUTO_TIMER = null;
 let IS_TRANSITIONING = false;
+let SELECTED_BRANCH = null;  // active choice branch number (e.g. 1, 2) — frames with branchId !== this are skipped
 const COLOR_TINT = {
     darkred: 'rgba(170, 30, 30, 1)',
     red: 'rgba(220, 40, 40, 1)',
@@ -287,11 +349,96 @@ const FACE_DEFAULT = 256;
 const FIGURE_DEFAULT_H = 1024;
 const FIGURE_PAGE_W = 1024;
 const FIGURE_PAGE_H = 1024;
-const BODY_VH = 78;
-const BODY_MAX_PX = 720;
+const BODY_VH = 100;  /* % of scene container height — sprite fills full scene height (top to bottom) */
+const BODY_MAX_PX = 99999;
+const BODY_UNIT = 'cqh'; /* container-query height units, relative to #sceneWrap */
 
 function escapeHtml(s) {
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Render FGO script formatting tags into safe HTML.
+//   [line N]                     -> N em-dashes
+//   [align center]...[align]     -> centered block (also: left/right)
+//   [f x-large]text              -> font-size span (large/x-large/xx-large/small)
+//   [image name]                 -> <img> from /Marks/<name>.png
+//   [r] / \n                     -> <br>
+// Anything else bracketed is dropped.
+function formatScriptText(s, regionHint) {
+    if (!s) return '';
+    const region = regionHint || (window.DATA && window.DATA.region) || 'JP';
+    const SIZE_MAP = { 'xx-large': '2.0em', 'x-large': '1.6em', 'large': '1.25em', 'small': '0.85em' };
+
+    // Pre-tokenize while still escaping arbitrary text. We swap recognised
+    // tags to placeholder tokens, escape everything, then swap placeholders
+    // back to real HTML — so injected HTML in the source can never leak.
+    const tokens = [];
+    const placeholder = (html) => {
+        const tok = `\u0000T${tokens.length}\u0000`;
+        tokens.push(html);
+        return tok;
+    };
+
+    // [r] -> newline (so it gets converted to <br> below)
+    s = s.replace(/\[r\]/g, '\n');
+
+    // [#base:reading] -> <ruby>base<rt>reading</rt></ruby> (Japanese furigana)
+    s = s.replace(/\[#([^\[\]:]+):([^\[\]]+)\]/g, (_, base, reading) =>
+        placeholder(`<ruby>${escapeHtml(base)}<rt>${escapeHtml(reading)}</rt></ruby>`));
+
+    // [line N] -> N em-dashes
+    s = s.replace(/\[line\s+(\d+)\]/gi, (_, n) => {
+        const k = Math.max(1, Math.min(40, parseInt(n, 10) || 1));
+        return '—'.repeat(k);
+    });
+
+    // [image name] -> <img>
+    s = s.replace(/\[image\s+([\w-]+)\]/gi, (_, name) => {
+        const url = `https://static.atlasacademy.io/${region}/Marks/${encodeURIComponent(name)}.png`;
+        return placeholder(`<img src="${url}" alt="${escapeHtml(name)}" class="fmt-mark">`);
+    });
+
+    // [f size]...  (no explicit close in FGO scripts — apply to rest of segment)
+    s = s.replace(/\[f\s+([\w-]+)\]/gi, (_, sz) => {
+        const size = SIZE_MAP[sz.toLowerCase()] || '1em';
+        return placeholder(`<span style="font-size:${size}">`);
+    });
+    s = s.replace(/\[\/f\]/gi, () => placeholder('</span>'));
+
+    // [align dir]...[align]
+    s = s.replace(/\[align\s+(\w+)\]/gi, (_, dir) => {
+        const d = dir.toLowerCase();
+        if (!['left','right','center'].includes(d)) return '';
+        return placeholder(`<div style="text-align:${d}">`);
+    });
+    s = s.replace(/\[align\]/gi, () => placeholder('</div>'));
+
+    // Drop any other bracketed commands silently
+    s = s.replace(/\[[^\[\]]+\]/g, '');
+
+    // Escape everything else, then restore placeholders, then \n -> <br>
+    s = escapeHtml(s);
+    s = s.replace(/\u0000T(\d+)\u0000/g, (_, idx) => tokens[+idx] || '');
+    s = s.replace(/\n/g, '<br>');
+
+    // Auto-close any opened spans/divs missing their close (best-effort).
+    const opens = (s.match(/<span[\s>]/g) || []).length;
+    const closes = (s.match(/<\/span>/g) || []).length;
+    for (let k = 0; k < opens - closes; k++) s += '</span>';
+    const dOpens = (s.match(/<div[\s>]/g) || []).length;
+    const dCloses = (s.match(/<\/div>/g) || []).length;
+    for (let k = 0; k < dOpens - dCloses; k++) s += '</div>';
+    return s;
+}
+
+// Translation provider returns content prefixed with the translated speaker
+// name like "旁白：内容" or "Narrator: content". Split it off so we can show
+// the translated speaker in the tag and only the body in the text area.
+function splitTranslatedSpeaker(translated, origSpeaker) {
+    if (!translated) return { speaker: '', body: '' };
+    const m = translated.match(/^\s*([^\n：:]{1,40})\s*[：:]\s*([\s\S]*)$/);
+    if (m) return { speaker: m[1].trim(), body: m[2] };
+    return { speaker: '', body: translated };
 }
 
 function loadData() {
@@ -313,6 +460,18 @@ async function init() {
     SVT = DATA.svtData || {};
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
+
+    // Apply user-configured fonts (set in /settings).
+    try {
+        const prefs = await fetch('/get_preferences').then(r => r.json()).catch(() => ({}));
+        const root = document.documentElement.style;
+        if (prefs.font_original) root.setProperty('--font-original', prefs.font_original);
+        if (prefs.font_translated) root.setProperty('--font-translated', prefs.font_translated);
+        if (prefs.font_size_scale) {
+            const v = parseFloat(prefs.font_size_scale);
+            if (!isNaN(v) && v > 0) root.setProperty('--font-scale', String(v));
+        }
+    } catch (e) { /* offline / popup-isolated — fall back to defaults */ }
 
     // Fou-loading flourish before first frame
     setTimeout(() => {
@@ -550,7 +709,7 @@ function renderSprites(sprites) {
             wrap.style.zIndex = sp.talking ? '4' : '3';
             const img = document.createElement('img');
             img.className = 'sprite-img';
-            img.style.height = `min(${BODY_VH}vh, ${BODY_MAX_PX}px)`;
+            img.style.height = `min(${BODY_VH}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
             wrap.appendChild(img);
             stage.appendChild(wrap);
             node = { wrap, img, sp: null, lastCompositeKey: null };
@@ -677,22 +836,40 @@ function showDialogue(f) {
         speakerEl.style.display = 'none';
     }
     
-    document.getElementById('originalText').textContent = f.text || '';
-    document.getElementById('translatedText').textContent = trans.translated_content || '';
+    // Translated speaker name may be embedded as "Name: body" — split it out.
+    const split = splitTranslatedSpeaker(trans.translated_content || '', f.speaker || '');
+    if (split.speaker && speakerEl.style.display !== 'none') {
+        speakerEl.textContent = split.speaker;
+    }
+    document.getElementById('originalText').innerHTML = formatScriptText(f.text || '');
+    document.getElementById('translatedText').innerHTML = formatScriptText(split.body || trans.translated_content || '');
 }
 
 function hideDialogue() { document.getElementById('dialogueSystem').classList.remove('show'); }
+
+function stripChoicePrefix(s) {
+    if (!s) return s;
+    // Remove leading "Choice 1:" / "选项1：" / "選項1:" / "選択肢1：" etc.
+    return String(s).replace(/^\s*(?:choice|选项|選項|選択肢|选择|選擇)\s*[０-９0-9]+\s*[:：.\-、]?\s*/i, '');
+}
 
 function showChoices(f) {
     const wrap = document.getElementById('choicesWrap');
     const list = document.getElementById('choicesList');
     list.innerHTML = '';
     (f.choices || []).forEach((ch, ci) => {
-        const trans = TRANSLATIONS[f.dialogueIdx + ci] || {};
+        const trans = TRANSLATIONS[ch.dialogueIdx != null ? ch.dialogueIdx : (f.dialogueIdx + ci)] || {};
         const btn = document.createElement('div');
         btn.className = 'choice-btn';
-        btn.innerHTML = `<span class="choice-trans">${escapeHtml(trans.translated_content || ch.text)}</span><span class="choice-orig">${escapeHtml(ch.text)}</span>`;
-        btn.onclick = () => { hideChoices(); nextFrame(); };
+        const cSplit = splitTranslatedSpeaker(trans.translated_content || '', '');
+        const transText = stripChoicePrefix(cSplit.body || trans.translated_content || ch.text);
+        const origText = stripChoicePrefix(ch.text);
+        btn.innerHTML = `<span class="choice-trans">${formatScriptText(transText)}</span><span class="choice-orig">${formatScriptText(origText)}</span>`;
+        btn.onclick = () => {
+            SELECTED_BRANCH = ch.num;
+            hideChoices();
+            nextFrame();
+        };
         list.appendChild(btn);
     });
     wrap.classList.add('show');
@@ -702,14 +879,41 @@ function hideChoices() { document.getElementById('choicesWrap').classList.remove
 function isChoicesOpen() { return document.getElementById('choicesWrap').classList.contains('show'); }
 
 function nextFrame() {
-    if (IDX < FRAMES.length - 1) { IDX++; renderFrame(); }
-    else {
-        // At last frame: clicking again closes the window
-        if (AUTO) toggleAuto();
-        closeWindow();
+    while (IDX < FRAMES.length - 1) {
+        IDX++;
+        const f = FRAMES[IDX];
+        // Reset branch when leaving choice block (encountering a non-branch frame)
+        if (f.branchId == null) {
+            SELECTED_BRANCH = null;
+            renderFrame();
+            return;
+        }
+        // Skip frames belonging to a different branch
+        if (SELECTED_BRANCH != null && f.branchId === SELECTED_BRANCH) {
+            renderFrame();
+            return;
+        }
+        if (SELECTED_BRANCH == null) {
+            // No branch selected yet but frame is branch-tagged: skip safely
+            continue;
+        }
+        // branch mismatch: continue loop
     }
+    // Reached end
+    if (AUTO) toggleAuto();
+    closeWindow();
 }
-function prevFrame() { if (IDX > 0) { IDX--; renderFrame(); } }
+function prevFrame() {
+    while (IDX > 0) {
+        IDX--;
+        const f = FRAMES[IDX];
+        if (f.branchId == null || f.branchId === SELECTED_BRANCH) {
+            renderFrame();
+            return;
+        }
+    }
+    renderFrame();
+}
 
 // History log — built from all dialogue/choice frames up to current IDX
 function showHistory() {
@@ -717,21 +921,25 @@ function showHistory() {
     list.innerHTML = '';
     for (let i = 0; i <= IDX && i < FRAMES.length; i++) {
         const f = FRAMES[i];
+        // Don't include branch dialogues from non-selected branches in history
+        if (f.branchId != null && SELECTED_BRANCH != null && f.branchId !== SELECTED_BRANCH) continue;
         if (f.type === 'dialogue') {
             const trans = TRANSLATIONS[f.dialogueIdx] || {};
             const row = document.createElement('div'); row.className = 'hist-row';
-            const sp = trans.speaker || f.speaker || '';
+            const split = splitTranslatedSpeaker(trans.translated_content || '', f.speaker || '');
+            const sp = split.speaker || trans.speaker || f.speaker || '';
             row.innerHTML = (sp ? `<div class="hist-speaker">${escapeHtml(sp)}</div>` : '')
-                + `<div class="hist-orig">${escapeHtml(f.text || '')}</div>`
-                + (trans.translated_content ? `<div class="hist-trans">${escapeHtml(trans.translated_content)}</div>` : '');
+                + `<div class="hist-orig">${formatScriptText(f.text || '')}</div>`
+                + ((split.body || trans.translated_content) ? `<div class="hist-trans">${formatScriptText(split.body || trans.translated_content)}</div>` : '');
             list.appendChild(row);
         } else if (f.type === 'choice') {
             (f.choices || []).forEach((ch, ci) => {
-                const trans = TRANSLATIONS[f.dialogueIdx + ci] || {};
+                const trans = TRANSLATIONS[ch.dialogueIdx != null ? ch.dialogueIdx : (f.dialogueIdx + ci)] || {};
                 const row = document.createElement('div'); row.className = 'hist-row';
+                const cSplit = splitTranslatedSpeaker(trans.translated_content || '', '');
                 row.innerHTML = `<div class="hist-speaker">[选项 ${ch.num}]</div>`
-                    + `<div class="hist-orig">${escapeHtml(ch.text)}</div>`
-                    + (trans.translated_content ? `<div class="hist-trans">${escapeHtml(trans.translated_content)}</div>` : '');
+                    + `<div class="hist-orig">${formatScriptText(ch.text)}</div>`
+                    + ((cSplit.body || trans.translated_content) ? `<div class="hist-trans">${formatScriptText(cSplit.body || trans.translated_content)}</div>` : '');
                 list.appendChild(row);
             });
         }

@@ -77,6 +77,62 @@
                 </div>
             </div>
         </div>
+
+        <!-- Display Fonts (used by Gaming Mode) -->
+        <div class="bg-white rounded-xl shadow-2xl p-8 border border-gray-200 mt-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2 flex items-center gap-2 border-b pb-4">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7V4h16v3M9 20h6M12 4v16"></path></svg>
+                Display Fonts (Gaming Mode)
+            </h2>
+            <p class="text-xs text-gray-500 mb-6">CSS <code>font-family</code> stacks. The first font installed on your system will be used. Click a preset to fill the field.</p>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 uppercase tracking-wider mb-2">Original Text Font (Japanese)</label>
+                    <input type="text" id="fontOriginal" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none font-mono text-sm" placeholder="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">
+                    <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontOriginal" data-value="'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif">System JP</button>
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontOriginal" data-value="'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif">JP Mincho</button>
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontOriginal" data-value="'M PLUS Rounded 1c', 'Hiragino Sans', sans-serif">Rounded JP</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 uppercase tracking-wider mb-2">Translated Text Font</label>
+                    <input type="text" id="fontTranslated" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none font-mono text-sm" placeholder="'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif">
+                    <div class="mt-2 flex flex-wrap gap-2 text-xs">
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontTranslated" data-value="'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif">CN Sans</button>
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontTranslated" data-value="'Source Han Serif SC', 'Noto Serif SC', serif">CN Serif</button>
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontTranslated" data-value="'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif">TC Sans</button>
+                        <button type="button" class="font-preset px-2 py-1 bg-gray-100 hover:bg-blue-100 rounded border border-gray-300" data-target="fontTranslated" data-value="'Inter', 'Helvetica Neue', Arial, sans-serif">EN Sans</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 uppercase tracking-wider mb-2">Font Size Scale</label>
+                        <div class="flex items-center gap-3">
+                            <input type="range" id="fontSizeScale" min="0.7" max="1.6" step="0.05" value="1" class="flex-1">
+                            <span id="fontSizeScaleVal" class="text-sm font-mono text-gray-700 w-12 text-right">1.00×</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Multiplies dialogue text size in Gaming Mode.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Preview</div>
+                    <div id="fontPreviewOrig" class="text-base text-gray-500 mb-1">激務が続いていた君に、こんな事を言うのは心苦しくあるが……</div>
+                    <div id="fontPreviewTrans" class="text-lg text-gray-900 font-bold">对于一直忙于繁重工作的你来说，说这种话让我于心有愧……</div>
+                </div>
+
+                <div class="pt-6 mt-2 border-t border-gray-200 flex justify-end">
+                    <button onclick="saveSettings()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path></svg>
+                        Save Fonts
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -103,7 +159,17 @@
                 if(prefs.apiBase) document.getElementById('apiBase').value = prefs.apiBase;
                 if(prefs.apiKey) document.getElementById('apiKey').value = prefs.apiKey;
                 if(prefs.authType) document.getElementById('authType').value = prefs.authType;
+                // Also accept snake_case keys (saveSettings stores them as such)
+                if(prefs.api_type) document.getElementById('apiType').value = prefs.api_type;
+                if(prefs.base_model) document.getElementById('baseModel').value = prefs.base_model;
+                if(prefs.api_base) document.getElementById('apiBase').value = prefs.api_base;
+                if(prefs.api_key) document.getElementById('apiKey').value = prefs.api_key;
+                if(prefs.auth_type) document.getElementById('authType').value = prefs.auth_type;
+                if(prefs.font_original) document.getElementById('fontOriginal').value = prefs.font_original;
+                if(prefs.font_translated) document.getElementById('fontTranslated').value = prefs.font_translated;
+                if(prefs.font_size_scale) document.getElementById('fontSizeScale').value = prefs.font_size_scale;
                 applyApiTypeDefaults();
+                updateFontPreview();
             } catch(e) { console.error('Failed to load settings', e); }
         }
 
@@ -118,7 +184,10 @@
                 base_model: document.getElementById('baseModel').value,
                 api_base: document.getElementById('apiBase').value,
                 api_key: document.getElementById('apiKey').value,
-                auth_type: document.getElementById('authType').value
+                auth_type: document.getElementById('authType').value,
+                font_original: document.getElementById('fontOriginal').value.trim(),
+                font_translated: document.getElementById('fontTranslated').value.trim(),
+                font_size_scale: document.getElementById('fontSizeScale').value
             };
 
             try {
@@ -146,7 +215,32 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadSettings();
             document.getElementById('apiType').addEventListener('change', applyApiTypeDefaults);
+            document.querySelectorAll('.font-preset').forEach(b => {
+                b.addEventListener('click', () => {
+                    document.getElementById(b.dataset.target).value = b.dataset.value;
+                    updateFontPreview();
+                });
+            });
+            ['fontOriginal', 'fontTranslated'].forEach(id =>
+                document.getElementById(id).addEventListener('input', updateFontPreview));
+            const scale = document.getElementById('fontSizeScale');
+            scale.addEventListener('input', updateFontPreview);
         });
+
+        function updateFontPreview() {
+            const orig = document.getElementById('fontOriginal').value.trim()
+                || "'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif";
+            const trans = document.getElementById('fontTranslated').value.trim()
+                || "'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif";
+            const scale = parseFloat(document.getElementById('fontSizeScale').value) || 1;
+            document.getElementById('fontSizeScaleVal').textContent = scale.toFixed(2) + '×';
+            const po = document.getElementById('fontPreviewOrig');
+            const pt = document.getElementById('fontPreviewTrans');
+            po.style.fontFamily = orig;
+            po.style.fontSize = (16 * scale) + 'px';
+            pt.style.fontFamily = trans;
+            pt.style.fontSize = (20 * scale) + 'px';
+        }
     </script>
 </body>
 </html>

@@ -328,19 +328,38 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     text = re.sub(r'\[\s*\n\s*', '[', text)
     text = re.sub(r'\n\s*(?=[^\[＠？\n])', ' ', text)
     text = text.replace('[%1]', '藤丸立香').replace('[r]', '\n')
-    # [line N] -> em-dash repeated (any N)
-    text = re.sub(r'\[line\s+\d+\]', '——', text)
+    # Note: formatting tags [line N], [align ...], [f ...], [image ...] are
+    # preserved here and rendered by the frontend (gaming.html / index.html).
     lines = text.splitlines()
 
     def clean_text(s: str) -> str:
-        # Ruby/furigana: [#base:reading] -> base, [#text] -> text
-        s = re.sub(r'\[#([^\[\]:]+):[^\[\]]+\]', r'\1', s)
-        s = re.sub(r'\[#([^\[\]]+)\]', r'\1', s)
-        # [base:reading] (no leading #) -> base
-        s = re.sub(r'\[([^\[\]:]+):([^\[\]]+)\]', r'\1', s)
-        # Strip any remaining bracketed commands (e.g. [se ...], [wt 30], etc.)
-        s = re.sub(r'\[[^\[\]]+\]', '', s)
-        return s.strip()
+        # Preserve ruby/furigana ([#base:reading]) and renderable formatting
+        # tags; strip every other bracketed command (e.g. [se ...], [wt 30],
+        # [charaFace ...], etc.). Ruby with no reading ([#text]) is unwrapped.
+        s = re.sub(r'\[#([^\[\]:]+)\](?!:)', r'\1', s)
+        _PRESERVE = re.compile(
+            r'\[(?:'
+            r'#[^\[\]:]+:[^\[\]]+'              # [#base:reading] ruby
+            r'|align(?:\s+\w+)?'
+            r'|line\s+\d+'
+            r'|f\s+[\w-]+'
+            r'|/f'
+            r'|image\s+[\w-]+'
+            r')\]',
+            re.IGNORECASE,
+        )
+        out = []
+        last = 0
+        for m in _PRESERVE.finditer(s):
+            chunk = s[last:m.start()]
+            chunk = re.sub(r'\[[^\[\]]+\]', '', chunk)
+            out.append(chunk)
+            out.append(m.group(0))
+            last = m.end()
+        tail = s[last:]
+        tail = re.sub(r'\[[^\[\]]+\]', '', tail)
+        out.append(tail)
+        return ''.join(out).strip()
 
     state = {
         'bg': '',
@@ -351,9 +370,67 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     }
     frames = []
     dialogue_idx = 0
-    pending_choices = []
     pending_effects = []
     entity_ids = set()
+
+    # Pre-scan choice groups so we can emit the choice popup BEFORE any branch
+    # response dialogues, and tag branch dialogues with their branchId.
+    # The translation list (built in dialogue_loader) enumerates entries in
+    # textual order: each ＠..[k] block, each ？N：text, and each ？！ each
+    # consume one index. We mirror that count here to compute the dialogueIdx
+    # of each ？N choice and the trailing ？！ end marker.
+    def _scan_choice_groups():
+        idx = 0
+        groups = []  # [{ 'first_line': i, 'end_line': i, 'choices': [{num,text,dialogueIdx}], 'end_dialogueIdx': int }]
+        cur = None
+        j = 0
+        while j < len(lines):
+            ln = lines[j].strip()
+            if ln.startswith('＠'):
+                # consume until [k]
+                jj = j + 1
+                while jj < len(lines):
+                    if '[k]' in lines[jj]:
+                        jj += 1
+                        break
+                    jj += 1
+                idx += 1
+                j = jj
+                continue
+            cm = re.match(r'？(\d+)：(.+)', ln)
+            if cm:
+                if cur is None:
+                    cur = {'first_line': j, 'choices': [], 'end_dialogueIdx': None, 'end_line': None}
+                cur['choices'].append({
+                    'num': int(cm.group(1)),
+                    'text': clean_text(cm.group(2).strip()),
+                    'dialogueIdx': idx,
+                })
+                idx += 1
+                j += 1
+                continue
+            if ln.startswith('？！'):
+                if cur is not None:
+                    cur['end_dialogueIdx'] = idx
+                    cur['end_line'] = j
+                    groups.append(cur)
+                    cur = None
+                idx += 1
+                j += 1
+                continue
+            j += 1
+        # Trailing unclosed group (no ？！) — close it anyway
+        if cur is not None:
+            cur['end_dialogueIdx'] = idx
+            cur['end_line'] = len(lines)
+            groups.append(cur)
+        return groups
+
+    choice_groups = _scan_choice_groups()
+    # Map from line index -> group for fast lookup at first ？N
+    group_by_first_line = {g['first_line']: g for g in choice_groups}
+    current_group = None       # active group while between ？1 and ？！
+    current_branch = None      # selected branch number for tagging dialogues
 
     def take_effects():
         nonlocal pending_effects
@@ -375,23 +452,6 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     'talking': (slot == state['talker']),
                 })
         return result
-
-    def flush_choices():
-        nonlocal pending_choices, dialogue_idx
-        if not pending_choices:
-            return
-        frames.append({
-            'type': 'choice',
-            'bg': state['bg'],
-            'sprites': snapshot_sprites(),
-            'choices': list(pending_choices),
-            'dialogueIdx': dialogue_idx,
-            'effects': take_effects(),
-            'cameraFilter': state['cameraFilter'],
-            'bgm': state['bgm'],
-        })
-        dialogue_idx += len(pending_choices)
-        pending_choices = []
 
     i = 0
     while i < len(lines):
@@ -465,18 +525,60 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             continue
 
         if line.startswith('＠'):
-            flush_choices()
-            speaker_raw = line[1:].strip()
-            slot_prefix = re.match(r'^([A-Z])：(.+)$', speaker_raw)
-            if slot_prefix:
-                speaker_slot = slot_prefix.group(1)
-                speaker = slot_prefix.group(2).strip()
-                if speaker_slot in state['sprites']:
-                    state['talker'] = speaker_slot
+            # In FGO scripts the speaker name immediately follows ＠ with NO space:
+            #   ＠ゴルドルフ          → speaker "ゴルドルフ", content on next line
+            #   ＠F：マシュ           → slot-prefixed speaker
+            #   ＠                    → empty speaker (narration)
+            # Preprocessing collapses content lines: ＠\ncontent → ＠ content
+            # (space inserted). So ＠ followed by a space means EMPTY speaker and
+            # content that was on the next line has been collapsed in.
+            raw_after = line[1:]   # everything after ＠, NOT stripped
+            if raw_after == '' or raw_after[0] == ' ':
+                # Empty speaker — collapsed content (if any) follows after the space
+                speaker = ''
+                initial_content = raw_after.strip()
             else:
-                speaker = speaker_raw
+                # Speaker name or slot prefix starts immediately after ＠
+                speaker_raw = raw_after.strip()
+                initial_content = ''
+                sp_split = speaker_raw.split(None, 1)
+                if len(sp_split) == 2:
+                    speaker_raw = sp_split[0]
+                    initial_content = sp_split[1]
+                slot_prefix = re.match(r'^([A-Z])：(.+)$', speaker_raw)
+                if slot_prefix:
+                    speaker_slot = slot_prefix.group(1)
+                    speaker = slot_prefix.group(2).strip()
+                    if speaker_slot in state['sprites']:
+                        state['talker'] = speaker_slot
+                else:
+                    speaker = speaker_raw
 
             content_parts = []
+            if initial_content:
+                # initial_content may already contain `[k]`; split there
+                if '[k]' in initial_content:
+                    before_k = initial_content[:initial_content.index('[k]')].strip()
+                    if before_k:
+                        content_parts.append(before_k)
+                    content = '\n'.join(content_parts).strip()
+                    content = clean_text(content)
+                    if content:
+                        frames.append({
+                            'type': 'dialogue',
+                            'bg': state['bg'],
+                            'sprites': snapshot_sprites(),
+                            'speaker': speaker,
+                            'text': content,
+                            'dialogueIdx': dialogue_idx,
+                            'branchId': current_branch,
+                            'effects': take_effects(),
+                            'cameraFilter': state['cameraFilter'],
+                            'bgm': state['bgm'],
+                        })
+                    dialogue_idx += 1
+                    continue
+                content_parts.append(initial_content)
             while i < len(lines):
                 cline = lines[i].strip()
                 i += 1
@@ -497,23 +599,54 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     'speaker': speaker,
                     'text': content,
                     'dialogueIdx': dialogue_idx,
+                    'branchId': current_branch,
                     'effects': take_effects(),
                     'cameraFilter': state['cameraFilter'],
                     'bgm': state['bgm'],
                 })
-                dialogue_idx += 1
+            # Always advance index whether or not we emitted (mirror the
+            # translation list which counts every ＠..[k] block).
+            dialogue_idx += 1
             continue
 
         m = re.match(r'？(\d+)：(.+)', line)
         if m:
-            num, text_c = m.group(1), m.group(2).strip()
-            text_c = clean_text(text_c)
-            if text_c:
-                pending_choices.append({'num': int(num), 'text': text_c})
+            num = int(m.group(1))
+            # Determine which group this choice belongs to (by line index of first ？N).
+            # i was already advanced past this line, so the line index is i-1.
+            line_idx = i - 1
+            if current_group is None:
+                # First ？N of a new group: emit the choice popup BEFORE branch dialogues.
+                # Find the group whose first_line is at or before this position.
+                # In practice the first ？N is the group's first_line.
+                grp = group_by_first_line.get(line_idx)
+                if grp is None:
+                    # Fallback: scan groups for one containing this line
+                    for g in choice_groups:
+                        if g['first_line'] <= line_idx <= (g['end_line'] or len(lines)):
+                            grp = g
+                            break
+                if grp is not None:
+                    current_group = grp
+                    frames.append({
+                        'type': 'choice',
+                        'bg': state['bg'],
+                        'sprites': snapshot_sprites(),
+                        'choices': list(grp['choices']),
+                        'dialogueIdx': grp['choices'][0]['dialogueIdx'] if grp['choices'] else dialogue_idx,
+                        'endDialogueIdx': grp['end_dialogueIdx'],
+                        'effects': take_effects(),
+                        'cameraFilter': state['cameraFilter'],
+                        'bgm': state['bgm'],
+                    })
+            current_branch = num
+            dialogue_idx += 1  # ？N consumes one translation slot
             continue
 
         if line.startswith('？！'):
-            flush_choices()
+            current_group = None
+            current_branch = None
+            dialogue_idx += 1  # ？！ consumes one translation slot ("Choice N Ending")
             continue
 
         # ----- Visual effect commands (accumulated until next visible frame) -----
@@ -564,7 +697,6 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             state['bgm'] = None
             continue
 
-    flush_choices()
     return frames, list(entity_ids)
 
 
