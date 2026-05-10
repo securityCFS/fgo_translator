@@ -116,6 +116,18 @@ const Translator = (() => {
         'french': 'fr', 'german': 'de', 'spanish': 'es', 'russian': 'ru',
     };
 
+    // Translate a single Japanese string via Google Translate's public endpoint.
+    // Returns the translated text, or the original on failure.
+    async function _freeTranslateString(text, tl) {
+        const t = (text || '').trim();
+        if (!t) return text || '';
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(text)}`;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const data = await r.json();
+        return (data?.[0] || []).map(seg => seg[0] || '').join('') || text;
+    }
+
     async function _freeTranslateOne(dialogue, targetLanguage) {
         const speaker = dialogue.speaker || '';
         const content = dialogue.content || '';
@@ -123,19 +135,52 @@ const Translator = (() => {
             return { speaker, content, translated_content: content };
         }
         const tl = _LANG_MAP[(targetLanguage || '').toLowerCase()] || 'zh-CN';
-        const { stripped, tags } = _stripFormatTags(content);
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(stripped)}`;
         try {
-            const r = await fetch(url);
-            if (!r.ok) throw new Error(`HTTP ${r.status}`);
-            const data = await r.json();
-            // data[0] is array of [translatedSegment, originalSegment, ...]
-            const translated = (data?.[0] || []).map(seg => seg[0] || '').join('');
-            const restored = _restoreFormatTags(translated, tags);
-            return { speaker, content, translated_content: restored || content };
+            // Split the dialogue on FGO formatting tags so Google Translate only
+            // ever sees plain Japanese text segments. The tags themselves
+            // (e.g. [image berserkerLang09], [line 3], [r], [/f]) are passed
+            // through untouched; placeholder-based protection isn't reliable
+            // against Google Translate because it freely "translates"/splits
+            // CJK bracket pairs and ASCII tokens alike.
+            //
+            // We DO translate the visible reading half of ruby tags
+            // [#漢字:かな] by splitting them into their parts.
+            const segments = _splitForFreeTranslate(content);
+            const out = [];
+            for (const seg of segments) {
+                if (seg.type === 'tag') {
+                    out.push(seg.value);
+                } else {
+                    out.push(await _freeTranslateString(seg.value, tl));
+                }
+            }
+            return { speaker, content, translated_content: out.join('') || content };
         } catch (e) {
             return { speaker, content, translated_content: `[Translation Error: ${e.message}]` };
         }
+    }
+
+    // Tokenise a dialogue body into [{type:'text'|'tag', value}] segments. Tags
+    // matched by _TAG_STRIP_RE (and the [#kanji:reading] ruby tag, where we
+    // keep only the visible kanji) are emitted as 'tag' segments and sent
+    // through the translator verbatim. Everything else is translatable text.
+    function _splitForFreeTranslate(text) {
+        const RE = /\[image\s+[\w-]+\]|\[line\s+\d+\]|\[align(?:\s+\w+)?\]|\[f\s+[\w-]+\]|\[\/f\]|\[r\]|\[#([^\]:]+):[^\]]*\]/gi;
+        const out = [];
+        let last = 0, m;
+        while ((m = RE.exec(text)) !== null) {
+            if (m.index > last) out.push({ type: 'text', value: text.slice(last, m.index) });
+            if (m[0].startsWith('[#') && m[1]) {
+                // Ruby furigana: keep the visible kanji as plain text so it
+                // gets translated; drop the reading.
+                out.push({ type: 'text', value: m[1] });
+            } else {
+                out.push({ type: 'tag', value: m[0] });
+            }
+            last = m.index + m[0].length;
+        }
+        if (last < text.length) out.push({ type: 'text', value: text.slice(last) });
+        return out;
     }
 
     async function _translateChunk(dialogues, lang, apiType, apiKey, apiBase, baseModel) {
