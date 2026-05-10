@@ -138,7 +138,11 @@ const Translator = (() => {
             // OpenAI-compatible
             const base = apiBase || 'https://api.openai.com';
             const model = baseModel || 'gpt-4o-mini';
-            const url = `${base.replace(/\/+$/, '')}/v1/chat/completions`;
+            // Build chat completions URL; tolerate apiBase that already includes "/v1"
+            const trimmed = base.replace(/\/+$/, '');
+            const url = /\/v\d+$/.test(trimmed)
+                ? `${trimmed}/chat/completions`
+                : `${trimmed}/v1/chat/completions`;
             const authHeader = `Bearer ${apiKey}`;
             const body = {
                 model,
@@ -156,7 +160,16 @@ const Translator = (() => {
                     body: JSON.stringify(body),
                 });
             } catch (e) {
-                throw new Error(`Network/CORS error calling ${url}. Many OpenAI-compatible endpoints block browser requests (no CORS). Try Gemini instead, or use a CORS-enabled endpoint. Original: ${e.message}`);
+                throw new Error(
+                    `Network/CORS error calling ${url}. ` +
+                    `Most OpenAI-compatible endpoints (DashScope/通义千问, OpenAI, DeepSeek, Moonshot, etc.) block browser requests (no CORS headers). ` +
+                    `Workarounds:\n` +
+                    `  1. Use the "Gemini" engine — Google's API has CORS enabled and works directly from browsers.\n` +
+                    `  2. Use the "Free Engine" — Google Translate public endpoint, no key needed.\n` +
+                    `  3. Self-host a tiny CORS proxy (e.g. Cloudflare Worker) and point API Base at it.\n` +
+                    `  4. Run the original Flask version locally (python app.py) when you need DashScope/etc.\n` +
+                    `Original error: ${e.message}`
+                );
             }
             if (!r.ok) {
                 const txt = await r.text();
