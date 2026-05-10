@@ -261,12 +261,124 @@ const AA = (() => {
      */
     async function extractDialogues(scriptId, region = 'JP') {
         region = norm(region);
+        if (region === 'NA') {
+            const rayshift = await tryRayshiftDialogues(scriptId);
+            if (rayshift) return { dialogues: rayshift };
+        }
+        const { raw } = await fetchScriptText(scriptId, region);
+        return { dialogues: parseDialogues(raw, scriptId) };
+    }
+
+    async function fetchScriptText(scriptId, region = 'JP') {
+        region = norm(region);
         const meta = await get(`${BASE}/nice/${region}/script/${scriptId}`);
         const rawUrl = meta.script;
         if (!rawUrl) throw new Error(`No script URL for ${scriptId}`);
         const rawResp = await fetch(rawUrl);
+        if (!rawResp.ok) throw new Error(`Script text HTTP ${rawResp.status}: ${rawUrl}`);
         const raw = await rawResp.text();
-        return { dialogues: parseDialogues(raw, scriptId) };
+        return { meta, raw, scriptUrl: rawUrl };
+    }
+
+    function cleanTranslatedScriptText(text) {
+        return String(text || '')
+            .replace(/\[%1\]/g, '\u85e4\u4e38\u7acb\u9999')
+            .replace(/\[line 3\]/g, '\u2014')
+            .replace(/\[line 6\]/g, '\u2014')
+            .replace(/\[line 18\]/g, '\u2014');
+    }
+
+    async function rayshiftAvailable(scriptId) {
+        const url = `https://rayshift.io/api/v1/translate/check-ingame/${encodeURIComponent(scriptId)}`;
+        try {
+            const head = await fetch(url, { method: 'HEAD' });
+            if (head.ok) return true;
+        } catch {}
+        try {
+            const resp = await fetch(url);
+            return resp.ok;
+        } catch {
+            return false;
+        }
+    }
+
+    async function tryRayshiftDialogues(scriptId) {
+        try {
+            if (!await rayshiftAvailable(scriptId)) return null;
+            const jp = await fetchScriptText(scriptId, 'JP');
+            const rsUrl = `https://rayshift.io/api/v1/translate/script-ingame/${encodeURIComponent(scriptId)}`;
+            const rsResp = await fetch(rsUrl);
+            if (!rsResp.ok) return null;
+            const rsRaw = await rsResp.text();
+            const jpDialogues = parseDialogues(cleanTranslatedScriptText(jp.raw), scriptId);
+            const rsDialogues = parseDialogues(cleanTranslatedScriptText(rsRaw), scriptId);
+            if (!jpDialogues.length || !rsDialogues.length) return null;
+            return jpDialogues.map((jpLine, idx) => ({
+                speaker: jpLine.speaker || '',
+                content: jpLine.content || '',
+                scriptId: String(scriptId),
+                translated_content: (rsDialogues[idx] && rsDialogues[idx].content) || '',
+                rayshift: true,
+            }));
+        } catch (e) {
+            console.warn('Rayshift fetch failed:', scriptId, e);
+            return null;
+        }
+    }
+
+    async function checkAtlasTranslations(questId) {
+        questId = String(questId || '');
+        if (!questId) throw new Error('quest_id required');
+        const regions = ['NA', 'CN', 'TW', 'KR'];
+        const availability = {};
+        await Promise.all(regions.map(async region => {
+            try {
+                const resp = await fetch(`${BASE}/basic/${region}/quest/${encodeURIComponent(questId)}`);
+                if (!resp.ok) {
+                    availability[region] = false;
+                    return;
+                }
+                const data = await resp.json();
+                availability[region] = !!(data && data.id);
+            } catch {
+                availability[region] = false;
+            }
+        }));
+
+        let hasRayshift = false;
+        try {
+            const phase = await get(`${BASE}/nice/JP/quest/${encodeURIComponent(questId)}/1`);
+            const firstScriptId = String((phase.scripts || [])[0]?.scriptId || '');
+            if (firstScriptId) hasRayshift = await rayshiftAvailable(firstScriptId);
+        } catch {
+            hasRayshift = false;
+        }
+        if (hasRayshift) availability.NA = true;
+        availability.rayshift = hasRayshift;
+        return availability;
+    }
+
+    async function getAtlasDialogues(scriptIds = [], targetRegion = 'NA') {
+        const allowed = new Set(['NA', 'CN', 'TW', 'KR']);
+        targetRegion = String(targetRegion || 'NA').toUpperCase();
+        if (!Array.isArray(scriptIds) || scriptIds.length === 0) throw new Error('script_ids required');
+        if (!allowed.has(targetRegion)) throw new Error('target_region must be one of CN, KR, NA, TW');
+
+        const allDialogues = [];
+        for (const scriptId of scriptIds) {
+            const data = await extractDialogues(String(scriptId), targetRegion);
+            allDialogues.push(...(data.dialogues || []));
+        }
+        const translated = allDialogues.map(d => ({
+            speaker: d.speaker || '',
+            translated_content: d.translated_content || d.content || '',
+            rayshift: !!d.rayshift,
+        }));
+        return {
+            translated_dialogues: translated,
+            source_region: targetRegion,
+            rayshift: allDialogues.some(d => d.rayshift),
+        };
     }
 
     /**
@@ -689,6 +801,7 @@ const AA = (() => {
         latestWars, latestEvents, latestTasks,
         getWarQuests, getEventQuests,
         getQuestScripts, extractDialogues, parseDialogues,
+        checkAtlasTranslations, getAtlasDialogues,
         parseScriptVisual, fetchSvtScripts,
         CDN,
     };
