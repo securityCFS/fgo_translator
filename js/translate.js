@@ -68,6 +68,46 @@ const Translator = (() => {
         return results;
     }
 
+    // ── Formatting-tag protection ────────────────────────────────────────────
+    // FGO scripts contain bracketed control tags (e.g. [image berserkerLang09],
+    // [line 3], [align center], [f xxl], [/f], [r]) that LLMs love to "translate"
+    // — turning [image berserkerLang09] into [image beserker_language_9] etc.,
+    // which then 404s when gaming.html builds the asset URL.
+    //
+    // We strip those tags out before the LLM sees the text and splice them back
+    // into the translated string at the same relative positions. Tags that
+    // contain readable text (e.g. ruby furigana [#漢字:かな]) are left as-is so
+    // the LLM can still translate the visible characters.
+    const _TAG_STRIP_RE = /\[image\s+[\w-]+\]|\[line\s+\d+\]|\[align(?:\s+\w+)?\]|\[f\s+[\w-]+\]|\[\/f\]|\[r\]/gi;
+    function _stripFormatTags(text) {
+        const tags = [];
+        const stripped = (text || '').replace(_TAG_STRIP_RE, m => {
+            const i = tags.length;
+            tags.push(m);
+            // Use a token unlikely to be touched by translation models. Keep it
+            // ASCII so byte-level tokenisers don't split it; surround with a
+            // unicode bracket pair that LLMs reliably copy verbatim.
+            return `〘FT${i}〙`;
+        });
+        return { stripped, tags };
+    }
+    function _restoreFormatTags(translated, tags) {
+        if (!tags.length) return translated;
+        let out = translated || '';
+        // Restore using a forgiving regex: tolerate stray spaces, half-width
+        // brackets, or case shifts the LLM may introduce.
+        for (let i = 0; i < tags.length; i++) {
+            const re = new RegExp(`[〘\\[【]\\s*F\\s*T\\s*${i}\\s*[〙\\]】]`, 'i');
+            if (re.test(out)) {
+                out = out.replace(re, tags[i]);
+            } else {
+                // Token went missing — append at end so the asset still loads.
+                out += tags[i];
+            }
+        }
+        return out;
+    }
+
     // Map UI language names → Google Translate codes
     const _LANG_MAP = {
         'chinese': 'zh-CN', 'chinese simplified': 'zh-CN', '简体中文': 'zh-CN', '中文': 'zh-CN',
@@ -83,25 +123,34 @@ const Translator = (() => {
             return { speaker, content, translated_content: content };
         }
         const tl = _LANG_MAP[(targetLanguage || '').toLowerCase()] || 'zh-CN';
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(content)}`;
+        const { stripped, tags } = _stripFormatTags(content);
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(stripped)}`;
         try {
             const r = await fetch(url);
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
             const data = await r.json();
             // data[0] is array of [translatedSegment, originalSegment, ...]
             const translated = (data?.[0] || []).map(seg => seg[0] || '').join('');
-            return { speaker, content, translated_content: translated || content };
+            const restored = _restoreFormatTags(translated, tags);
+            return { speaker, content, translated_content: restored || content };
         } catch (e) {
             return { speaker, content, translated_content: `[Translation Error: ${e.message}]` };
         }
     }
 
     async function _translateChunk(dialogues, lang, apiType, apiKey, apiBase, baseModel) {
+        // Pre-strip formatting tags from each dialogue so the LLM doesn't mangle
+        // them (e.g. rewriting [image berserkerLang09] → [image beserker_language_9]
+        // and breaking the asset URL). Tags are spliced back into each
+        // translated_content via _restoreFormatTags after parsing.
+        const tagLists = dialogues.map(d => _stripFormatTags(d.content || ''));
+        const sanitized = dialogues.map((d, i) => ({ speaker: d.speaker || '', content: tagLists[i].stripped }));
+
         // Build canonical numbered translation prompt (matches Python backend)
         const systemPrompt = `You are a professional translator for game dialogue.\nTranslate Japanese text from the game "Fate/Grand Order" into ${lang}.\nPreserve tone, character speech style, and terminology. Use standard transliterations for names (e.g., キリエライト → Mash Kyrielight/玛修·基列莱特, 藤丸立香 → Ritsuka Fujimaru/藤丸立香).\nOnly return the translated sentence in ${lang}, no extra text or formatting.\n`;
 
-        let dialoguePrompt = `Please translate the following dialogues into ${lang}. You MUST follow these rules:\n1. Translate ALL dialogues\n2. For each dialogue, write its number followed by a colon (e.g., "1:", "2:", etc.)\n3. Write the translation on the next line\n4. Keep the translations in the same order as the original dialogues\n5. Translate both the speaker's name and their dialogue content\n6. For choices, translate both the choice number and content\n7. For system messages, keep them as is\n8. Use standard transliterations for character names (e.g., ライネス → Lainess/莱尼斯, グレイ → Gray/格雷)\n9. For katakana words (e.g., オーディール・コール), translate them to English (e.g., Order Call) and keep the English in the translation\n\nExample format:\n1:\n[Translated Speaker Name]: [Translation of first dialogue]\n2:\n[Translated Speaker Name]: [Translation of second dialogue]\n\nHere are the dialogues to translate:\n\n`;
-        dialogues.forEach((d, i) => {
+        let dialoguePrompt = `Please translate the following dialogues into ${lang}. You MUST follow these rules:\n1. Translate ALL dialogues\n2. For each dialogue, write its number followed by a colon (e.g., "1:", "2:", etc.)\n3. Write the translation on the next line\n4. Keep the translations in the same order as the original dialogues\n5. Translate both the speaker's name and their dialogue content\n6. For choices, translate both the choice number and content\n7. For system messages, keep them as is\n8. Use standard transliterations for character names (e.g., ライネス → Lainess/莱尼斯, グレイ → Gray/格雷)\n9. For katakana words (e.g., オーディール・コール), translate them to English (e.g., Order Call) and keep the English in the translation\n10. Tokens that look like 〘FT0〙, 〘FT1〙, … are placeholders for game formatting tags. Copy each one verbatim into the translation at the equivalent position. Do NOT translate, renumber, remove, or alter the digits inside.\n\nExample format:\n1:\n[Translated Speaker Name]: [Translation of first dialogue]\n2:\n[Translated Speaker Name]: [Translation of second dialogue]\n\nHere are the dialogues to translate:\n\n`;
+        sanitized.forEach((d, i) => {
             dialoguePrompt += `${i + 1}:\nSpeaker: ${d.speaker || ''}\nContent: ${d.content || ''}\n\n`;
         });
         dialoguePrompt += '\nRemember to translate ALL dialogues and maintain the exact format shown in the example.';
@@ -184,7 +233,10 @@ const Translator = (() => {
         return dialogues.map((d, i) => ({
             speaker: d.speaker || '',
             content: d.content || '',
-            translated_content: parsed[i] || '[Translation Error: Missing translation]',
+            translated_content: _restoreFormatTags(
+                parsed[i] || '[Translation Error: Missing translation]',
+                tagLists[i].tags,
+            ),
         }));
     }
 
