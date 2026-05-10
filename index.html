@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FGO Dialogue Translator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .loading { display: none; }
+        .loading.active { display: flex; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col text-slate-800">
+
+    <!-- Top Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-20">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                <h1 class="text-xl font-bold text-slate-900 tracking-tight">FGO Translator</h1>
+            </div>
+            <button id="settingsBtn" type="button" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors" onclick="toggleSettings()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start">
+
+        <!-- Left Sidebar: Discovery Tools -->
+        <aside class="w-full lg:w-[360px] flex-shrink-0 bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden sticky top-24">
+            <div class="border-b border-slate-200 bg-slate-50/50">
+                <nav class="flex" aria-label="Tabs">
+                    <button onclick="switchDiscoveryTab('searchPanel', this)" class="discovery-tab flex-1 py-3 px-4 text-sm font-medium text-indigo-600 border-b-2 border-indigo-600 bg-white">Search</button>
+                    <button onclick="switchDiscoveryTab('latestActPanel', this)" class="discovery-tab flex-1 py-3 px-4 text-sm font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700 hover:border-slate-300">Latest Act</button>
+                    <button onclick="switchDiscoveryTab('latestTaskPanel', this)" class="discovery-tab flex-1 py-3 px-4 text-sm font-medium text-slate-500 border-b-2 border-transparent hover:text-slate-700 hover:border-slate-300">Tasks</button>
+                </nav>
+            </div>
+            <div class="p-5">
+                <!-- Search Panel -->
+                <div id="searchPanel" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Server</label>
+                        <select id="activityRegion" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                            <option value="JP">Japan (JP)</option><option value="NA">North America (NA)</option><option value="CN">China (CN)</option><option value="TW">Taiwan (TW)</option><option value="KR">Korea (KR)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Type</label>
+                        <select id="activitySearchType" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                            <option value="war" selected>War</option><option value="event">Event</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Name or ID</label>
+                        <input type="text" id="warName" placeholder="e.g. 奏章 or 405" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                    </div>
+                    <button onclick="searchActivity()" class="w-full mt-2 bg-indigo-600 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500/20 active:scale-[0.98] transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        Search
+                    </button>
+                </div>
+
+                <!-- Latest Activities Panel -->
+                <div id="latestActPanel" class="space-y-4 hidden">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Server</label>
+                        <select id="latestActivityRegion" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                            <option value="JP">Japan (JP)</option><option value="NA">North America (NA)</option><option value="CN">China (CN)</option><option value="TW">Taiwan (TW)</option><option value="KR">Korea (KR)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Type</label>
+                        <select id="latestActivityType" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                            <option value="war" selected>War</option><option value="event">Event</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Limit</label>
+                        <input type="number" id="latestActivityLimit" min="1" max="200" value="50" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                    </div>
+                    <button onclick="loadLatestActivities()" class="w-full mt-2 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 focus:ring-4 focus:ring-slate-500/20 active:scale-[0.98] transition-all">
+                        Load Activities
+                    </button>
+                    <div id="latestActivityInfo" class="text-xs text-slate-500 mt-2 text-center"></div>
+                </div>
+
+                <!-- Latest Tasks Panel -->
+                <div id="latestTaskPanel" class="space-y-4 hidden">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Server</label>
+                        <select id="latestTaskRegion" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                            <option value="JP">Japan (JP)</option><option value="NA">North America (NA)</option><option value="CN">China (CN)</option><option value="TW">Taiwan (TW)</option><option value="KR">Korea (KR)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Limit</label>
+                        <input type="number" id="latestTaskLimit" min="1" max="200" value="50" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                    </div>
+                    <button onclick="loadLatestTasks()" class="w-full mt-2 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 focus:ring-4 focus:ring-slate-500/20 active:scale-[0.98] transition-all">
+                        Load Tasks
+                    </button>
+                    <div id="latestTaskInfo" class="text-xs text-slate-500 mt-2 text-center"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Workspace -->
+        <div class="flex-1 w-full flex flex-col space-y-6 min-w-0">
+
+            <!-- Activity Results -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="px-5 py-4 flex items-center justify-between border-b border-slate-100 bg-slate-50/50 cursor-pointer" onclick="toggleContainer('warResultList', 'warListArrow')">
+                    <div>
+                        <h2 class="text-base font-semibold text-slate-800">Activity Selection</h2>
+                        <div id="warResultInfo" class="text-sm text-slate-500 mt-0.5">Awaiting search...</div>
+                    </div>
+                    <svg id="warListArrow" class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div id="warResultList" class="max-h-[600px] overflow-y-auto p-2 bg-slate-50/30 space-y-1"></div>
+            </div>
+
+            <!-- Quest Results -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" id="questSection" style="display:none;">
+                <div class="px-5 py-4 flex items-center justify-between border-b border-slate-100 bg-slate-50/50 cursor-pointer" onclick="toggleContainer('questResultList', 'questListArrow')">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <h2 id="questSectionTitle" class="text-base font-semibold text-slate-800">Related Quests</h2>
+                            <div id="questResultInfo" class="text-sm text-slate-500 mt-0.5"></div>
+                        </div>
+                        <button id="getQuestBtn" onclick="event.stopPropagation(); getRelatedQuests()" class="text-xs bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-3 py-1.5 rounded-md font-medium transition-colors">
+                            Fetch Quests
+                        </button>
+                    </div>
+                    <svg id="questListArrow" class="w-5 h-5 text-slate-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div id="questActivityBanner" class="hidden"></div>
+                <div id="questResultList" class="max-h-[520px] overflow-y-auto p-3 bg-slate-50/30 space-y-3"></div>
+            </div>
+
+            <!-- Translation Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden" id="translateSection" style="display:none;">
+                <div id="phasePicker" class="hidden p-5 border-b border-slate-100 bg-slate-50/50"></div>
+                <div id="translationOptions" class="p-5 border-b border-slate-100 bg-slate-50/50" style="display:none;">
+                    <h2 class="text-base font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        Translation Settings
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Engine</label>
+                            <select id="translationMethod" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none">
+                                <option value="gpt">API (Gemini / OpenAI)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Target Language</label>
+                            <input type="text" id="targetLanguage" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none" value="Chinese">
+                        </div>
+                        <button onclick="translateSelectedQuest()" class="w-full bg-emerald-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-500/20 active:scale-[0.98] transition-all h-[38px]">
+                            Start Translation
+                        </button>
+                    </div>
+                </div>
+                <div id="progressSection" class="hidden px-5 py-4 border-b border-slate-100 bg-emerald-50/50">
+                    <div class="w-full bg-emerald-200/50 rounded-full h-1.5 overflow-hidden">
+                        <div id="progressBar" class="bg-emerald-500 h-1.5 rounded-full transition-all duration-300 relative shadow-[0_0_10px_rgba(16,185,129,0.4)]" style="width: 0%"></div>
+                    </div>
+                    <div id="progressText" class="text-xs font-medium text-emerald-700 mt-2 text-center tracking-wide">Initializing...</div>
+                </div>
+                <div id="translationDisplay" class="p-5" style="display:none;">
+                    <div id="scriptTabs" class="hidden mb-4">
+                        <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-thin"></div>
+                    </div>
+                    <div id="gamingModeBar" class="hidden mb-4 flex items-center justify-between bg-indigo-50 border border-indigo-200 rounded-lg px-4 py-2.5">
+                        <span class="text-sm text-indigo-800 font-medium">View in Gaming Mode — immersive VN-style playback</span>
+                        <button onclick="openGamingMode()" class="flex items-center gap-1.5 bg-indigo-600 text-white text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-indigo-700 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Gaming Mode
+                        </button>
+                    </div>
+                    <div id="translationResults" class="space-y-6"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-2xl flex flex-col items-center max-w-sm w-full mx-4">
+            <div class="animate-spin rounded-full h-10 w-10 border-4 border-indigo-100 border-t-indigo-600 mb-4"></div>
+            <p class="text-slate-800 font-medium text-lg">Processing</p>
+            <p class="text-slate-500 text-sm mt-1">Please wait a moment...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/translate.js"></script>
+    <script>
+    // ── Utilities ─────────────────────────────────────────────────────────────
+    function showLoading() { document.getElementById('loading').classList.add('active', 'flex'); }
+    function hideLoading() { document.getElementById('loading').classList.remove('active', 'flex'); }
+    hideLoading();
+
+    function escapeHtml(v) {
+        return String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+    }
+    function formatUnixTime(v) {
+        if (!v) return '';
+        const d = new Date(Number(v) * 1000);
+        return isNaN(d.getTime()) ? '' : d.toLocaleString();
+    }
+
+    // ── State ─────────────────────────────────────────────────────────────────
+    let currentDialogues = [];
+    let selectedWar = null, selectedActivity = null;
+    let warResults = [], questResults = [];
+    let selectedQuest = null;
+    let selectedPhaseScripts = [];
+    let _phaseScriptsMap = {};
+    let currentQuestRegion = 'JP';
+    let questResultLabel = 'quests';
+    const questCache = new Map();
+
+    // ── Static API wrappers (replace Flask endpoints) ─────────────────────────
+
+    async function _apiLatestActivities({ region, activity_type, limit }) {
+        const activities = activity_type === 'event'
+            ? await AA.latestEvents(region, limit)
+            : await AA.latestWars(region, limit);
+        return { activities, region: AA.norm(region) };
+    }
+
+    async function _apiLatestTasks({ region, limit }) {
+        const tasks = await AA.latestTasks(region, limit);
+        return { tasks, region: AA.norm(region) };
+    }
+
+    async function _apiSearchWar({ war_name, region, limit }) {
+        const wars = await AA.searchWar(war_name || '', region, limit);
+        return { wars };
+    }
+
+    async function _apiSearchEvent({ event_name, region, limit }) {
+        const events = await AA.searchEvent(event_name || '', region, limit);
+        return { events, region: AA.norm(region) };
+    }
+
+    async function _apiSearchQuest({ war_id, event_id, region }) {
+        if (event_id) {
+            return AA.getEventQuests(event_id, region);
+        }
+        const { quests, warInfo } = await AA.getWarQuests(war_id, region);
+        return { quests, wars: warInfo ? [warInfo] : [], activity: null };
+    }
+
+    async function _apiGetQuestDetail({ quest_id, region }) {
+        return AA.getQuestScripts(quest_id, region);
+    }
+
+    async function _apiExtractDialogues({ script_id, region }) {
+        return AA.extractDialogues(script_id, region); // returns {dialogues:[...]}
+    }
+
+    async function _apiTranslate({ dialogues, target_language }) {
+        const prefs = Translator.loadPrefs();
+        const apiType  = prefs.apiType  || prefs.api_type  || 'gemini';
+        const apiKey   = prefs.apiKey   || prefs.api_key   || '';
+        const apiBase  = prefs.apiBase  || prefs.api_base  || '';
+        const baseModel= prefs.baseModel|| prefs.base_model|| '';
+        const authType = prefs.authType || prefs.auth_type || 'api_key';
+
+        if (!apiKey) throw new Error('API key not set. Please configure it in Settings (gear icon).');
+
+        const translated = await Translator.translateDialogues(
+            dialogues,
+            { targetLanguage: target_language || 'Chinese', apiType, apiKey, apiBase, baseModel, authType },
+            (current, total, speaker) => {
+                const pct = total > 0 ? Math.round((current / total) * 100) : 0;
+                animateProgressBar(60 + pct * 0.4);
+                document.getElementById('progressText').textContent =
+                    `Translating: ${current}/${total} (${pct}%)${speaker ? ' — ' + speaker : ''}`;
+            }
+        );
+        return { translated_dialogues: translated };
+    }
+
+    async function _apiParseScriptVisual({ script_id, region }) {
+        region = AA.norm(region || 'JP');
+        const meta = await fetch(`https://api.atlasacademy.io/nice/${region}/script/${script_id}`).then(r => {
+            if (!r.ok) throw new Error(`Script meta ${r.status}`);
+            return r.json();
+        });
+        const rawUrl = meta.script;
+        if (!rawUrl) throw new Error('No script URL found');
+        const raw = await fetch(rawUrl).then(r => r.text());
+        const { frames, entityIds } = AA.parseScriptVisual(raw, region);
+        const svtData = await AA.fetchSvtScripts(entityIds, region);
+        return { frames, svtData, region, scriptId: script_id };
+    }
+
+    function _apiSavePrefs(obj) {
+        // Map Flask snake_case keys to camelCase
+        const map = { api_key:'apiKey', api_base:'apiBase', api_type:'apiType', base_model:'baseModel', auth_type:'authType' };
+        const mapped = {};
+        for (const [k, v] of Object.entries(obj)) mapped[map[k] || k] = v;
+        Translator.savePrefs(mapped);
+        return { preferences: obj };
+    }
+
+    function _apiGetPrefs() {
+        const p = Translator.loadPrefs();
+        return {
+            api_key:    p.apiKey    || p.api_key    || '',
+            api_base:   p.apiBase   || p.api_base   || '',
+            api_type:   p.apiType   || p.api_type   || 'openai',
+            base_model: p.baseModel || p.base_model || '',
+            auth_type:  p.authType  || p.auth_type  || 'api_key',
+        };
+    }
+
+    // ── Discovery ─────────────────────────────────────────────────────────────
+
+    function resetTranslationState() {
+        document.getElementById('translationResults').innerHTML = '';
+        document.getElementById('scriptTabs').classList.add('hidden');
+        document.getElementById('progressSection').classList.add('hidden');
+        document.getElementById('translateSection').style.display = 'none';
+        document.getElementById('translationOptions').style.display = 'none';
+        document.getElementById('translationDisplay').style.display = 'none';
+        selectedQuest = null;
+    }
+
+    async function loadLatestActivities() {
+        showLoading();
+        resetTranslationState();
+        selectedWar = null; selectedActivity = null; warResults = [];
+        currentQuestRegion = document.getElementById('latestActivityRegion').value || 'JP';
+        const activityType = document.getElementById('latestActivityType').value || 'war';
+        document.getElementById('warResultList').innerHTML = '';
+        document.getElementById('warResultInfo').innerText = '';
+        document.getElementById('questResultList').innerHTML = '';
+        document.getElementById('questResultInfo').innerText = '';
+        document.getElementById('latestActivityInfo').innerText = '';
+        const rawLimit = parseInt(document.getElementById('latestActivityLimit').value, 10);
+        const limit = Number.isFinite(rawLimit) ? Math.min(Math.max(rawLimit, 1), 200) : 50;
+        try {
+            const data = await _apiLatestActivities({ region: currentQuestRegion, activity_type: activityType, limit });
+            warResults = data.activities || [];
+            currentQuestRegion = data.region || currentQuestRegion;
+            document.getElementById('latestActivityInfo').innerHTML =
+                `Loaded <b>${warResults.length}</b> latest ${escapeHtml(activityType)} from ${escapeHtml(currentQuestRegion)}.`;
+            showActivityResults(warResults, activityType === 'event' ? 'events' : 'wars');
+        } catch (error) {
+            console.error('loadLatestActivities error:', error);
+            document.getElementById('latestActivityInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+        } finally { hideLoading(); }
+    }
+
+    async function loadLatestTasks() {
+        showLoading();
+        resetTranslationState();
+        selectedWar = null; selectedActivity = null; questResults = [];
+        currentQuestRegion = document.getElementById('latestTaskRegion').value || 'JP';
+        questResultLabel = 'tasks';
+        document.getElementById('questSectionTitle').textContent = 'Latest Tasks';
+        document.getElementById('getQuestBtn').style.display = 'none';
+        document.getElementById('questSection').style.display = '';
+        document.getElementById('questResultList').innerHTML = '';
+        document.getElementById('questResultInfo').innerText = '';
+        document.getElementById('latestTaskInfo').innerText = '';
+        renderActivityBanner(null, []);
+        const rawLimit = parseInt(document.getElementById('latestTaskLimit').value, 10);
+        const limit = Number.isFinite(rawLimit) ? Math.min(Math.max(rawLimit, 1), 200) : 50;
+        try {
+            const data = await _apiLatestTasks({ region: currentQuestRegion, limit });
+            questResults = data.tasks || [];
+            currentQuestRegion = data.region || currentQuestRegion;
+            document.getElementById('latestTaskInfo').innerHTML =
+                `Loaded <b>${questResults.length}</b> latest tasks from ${escapeHtml(currentQuestRegion)}.`;
+            showQuestResults(questResults, 'tasks');
+        } catch (error) {
+            console.error('loadLatestTasks error:', error);
+            document.getElementById('latestTaskInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+        } finally { hideLoading(); }
+    }
+
+    async function searchActivity() {
+        showLoading();
+        const activityName = document.getElementById('warName').value.trim();
+        const activityType = document.getElementById('activitySearchType').value || 'war';
+        currentQuestRegion = document.getElementById('activityRegion').value || 'JP';
+        questResultLabel = 'quests';
+        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('getQuestBtn').style.display = '';
+        document.getElementById('latestActivityInfo').innerText = '';
+        document.getElementById('latestTaskInfo').innerText = '';
+        selectedWar = null; selectedActivity = null;
+        document.getElementById('warResultList').innerHTML = '';
+        document.getElementById('questResultList').innerHTML = '';
+        document.getElementById('questResultInfo').innerText = '';
+        resetTranslationState();
+        try {
+            let results, label;
+            if (activityType === 'event') {
+                const d = await _apiSearchEvent({ event_name: activityName, region: currentQuestRegion, limit: 50 });
+                results = d.events || [];
+                label = 'events';
+            } else {
+                const d = await _apiSearchWar({ war_name: activityName, region: currentQuestRegion, limit: 50 });
+                results = d.wars || [];
+                label = 'wars';
+            }
+            warResults = results;
+            showActivityResults(warResults, label);
+        } catch (error) {
+            console.error('searchActivity error:', error);
+            document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+        } finally { hideLoading(); }
+    }
+
+    function showActivityResults(list, label = 'activities') {
+        selectedWar = null; selectedActivity = null;
+        document.getElementById('questSection').style.display = 'none';
+        document.getElementById('translateSection').style.display = 'none';
+        if (list.length === 0) {
+            document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>No results found</span>`;
+            document.getElementById('warResultList').innerHTML = '';
+            return;
+        }
+        document.getElementById('warResultInfo').innerHTML = `Found <b>${list.length}</b> ${escapeHtml(label)}. Please select one.`;
+        document.getElementById('warResultList').innerHTML = list.map((activity, idx) => {
+            const kind = activity.itemKind || 'war';
+            const meta = kind === 'event'
+                ? [activity.region, activity.type,
+                   activity.startedAt ? `Start: ${formatUnixTime(activity.startedAt)}` : '',
+                   activity.endedAt   ? `End: ${formatUnixTime(activity.endedAt)}`   : '',
+                   activity.warIds && activity.warIds.length ? `${activity.warIds.length} wars` : 'No war map'
+                  ].filter(Boolean).map(escapeHtml).join(' | ')
+                : [activity.region, activity.longName, activity.eventName, activity.age,
+                   activity.startedAt ? `Start: ${formatUnixTime(activity.startedAt)}` : '',
+                   activity.endedAt   ? `End: ${formatUnixTime(activity.endedAt)}`   : ''
+                  ].filter(Boolean).map(escapeHtml).join(' | ');
+            const bannerUrl = activity.banner || activity.noticeBanner || activity.headerImage || activity.icon || '';
+            const thumbHtml = bannerUrl
+                ? `<img src="${escapeHtml(bannerUrl)}" alt="" loading="lazy" class="w-full h-auto max-h-28 object-contain rounded-md border border-slate-200 bg-slate-100" onerror="this.style.display='none'"/>`
+                : '';
+            return `<div class="result-item selectable group mb-2" data-id="${escapeHtml(activity.id)}" data-idx="${idx}" onclick="selectActivity(this, ${idx})">
+                <div class="cursor-pointer group-hover:bg-blue-50 rounded-lg px-2 py-2 border border-transparent group-hover:border-blue-200 transition-colors">
+                    ${thumbHtml ? `<div class="mb-2">${thumbHtml}</div>` : ''}
+                    <div class="font-semibold text-base text-blue-900 leading-snug">
+                        <span class="text-xs font-mono text-slate-400 mr-1.5">[${escapeHtml(kind)}:${escapeHtml(activity.id)}]</span><span>${escapeHtml(activity.name || activity.longName || '')}</span>
+                    </div>
+                    ${meta ? `<div class="text-xs text-gray-500 mt-0.5">${meta}</div>` : ''}
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function selectActivity(elem, idx) {
+        document.querySelectorAll('.result-item.selectable').forEach(e => e.style.background = '');
+        elem.style.background = '#e3f2fd';
+        selectedActivity = warResults[idx];
+        selectedWar = selectedActivity;
+        currentQuestRegion = (selectedActivity && selectedActivity.region) || 'JP';
+        questResultLabel = 'quests';
+        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('getQuestBtn').style.display = '';
+        document.getElementById('questSection').style.display = '';
+        document.getElementById('translateSection').style.display = 'none';
+        document.getElementById('questResultInfo').innerText = '';
+        document.getElementById('questResultList').innerHTML = '';
+        selectedQuest = null; selectedPhaseScripts = [];
+        const cacheKey = `${selectedActivity.itemKind || 'war'}_${selectedActivity.id}_${currentQuestRegion}`;
+        if (questCache.has(cacheKey)) {
+            const cached = questCache.get(cacheKey);
+            questResults = cached.quests;
+            renderActivityBanner(cached.activity, cached.wars);
+            showQuestResults(cached.quests, 'quests', cached.wars);
+            document.getElementById('questResultInfo').innerHTML =
+                `<b>${cached.quests.length}</b> quests loaded (cached) — click <em>Fetch Quests</em> to refresh.`;
+        }
+    }
+
+    async function getRelatedQuests() {
+        if (!selectedActivity) return;
+        showLoading();
+        questResultLabel = 'quests';
+        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('getQuestBtn').style.display = '';
+        document.getElementById('questResultList').innerHTML = '';
+        document.getElementById('questResultInfo').innerText = '';
+        resetTranslationState();
+        renderActivityBanner(null, []);
+        try {
+            const query = { region: currentQuestRegion };
+            if (selectedActivity.itemKind === 'event') {
+                query.event_id = selectedActivity.id;
+            } else {
+                query.war_id = selectedActivity.id;
+            }
+            const questData = await _apiSearchQuest(query);
+            questResults = questData.quests || [];
+            renderActivityBanner(questData.activity, questData.wars || []);
+            if (questData.error) {
+                document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(questData.error)}</span>`;
+            }
+            showQuestResults(questResults, 'quests', questData.wars || []);
+            const cacheKey = `${selectedActivity.itemKind || 'war'}_${selectedActivity.id}_${currentQuestRegion}`;
+            questCache.set(cacheKey, { quests: questResults, wars: questData.wars || [], activity: questData.activity || null });
+        } catch (error) {
+            console.error('getRelatedQuests error:', error);
+            document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+        } finally { hideLoading(); }
+    }
+
+    function showQuestResults(list, label = questResultLabel, wars = []) {
+        selectedQuest = null;
+        questResultLabel = label;
+        document.getElementById('translateSection').style.display = 'none';
+        const listEl = document.getElementById('questResultList');
+        if (list.length === 0) {
+            document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>No ${escapeHtml(label)} found</span>`;
+            listEl.innerHTML = '';
+            return;
+        }
+        document.getElementById('questResultInfo').innerHTML = `Found <b>${list.length}</b> ${escapeHtml(label)}. Please select one.`;
+        const indexById = new Map();
+        list.forEach((q, i) => indexById.set(String(q.id), i));
+        const groups = new Map();
+        list.forEach(q => {
+            const key = String(q.warId || '0');
+            if (!groups.has(key)) groups.set(key, { warId: key, warName: q.warName || '', quests: [] });
+            groups.get(key).quests.push(q);
+        });
+        const warOrder = wars && wars.length ? wars.map(w => String(w.id)) : Array.from(groups.keys());
+        const warMetaById = new Map((wars || []).map(w => [String(w.id), w]));
+        const sectionHtml = warOrder.filter(wid => groups.has(wid)).map(wid => {
+            const group = groups.get(wid);
+            const meta = warMetaById.get(wid) || {};
+            const showHeader = warOrder.length > 1 || !!(meta.banner || meta.mapImage);
+            const headerHtml = showHeader ? `
+                <div class="flex items-center gap-3 px-3 py-2 bg-gradient-to-r from-indigo-50 to-slate-50 border border-slate-200 rounded-lg">
+                    ${meta.banner ? `<img src="${escapeHtml(meta.banner)}" alt="" class="h-10 rounded shadow-sm border border-white/60" loading="lazy" onerror="this.style.display='none'"/>` : ''}
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-semibold text-slate-800 truncate">${escapeHtml(meta.name || group.warName || `War ${wid}`)}</div>
+                        ${meta.longName && meta.longName !== meta.name ? `<div class="text-xs text-slate-500 truncate">${escapeHtml(meta.longName)}</div>` : ''}
+                    </div>
+                    <span class="text-xs font-medium text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">${group.quests.length} quests</span>
+                </div>` : '';
+            const itemsHtml = group.quests.map(q => {
+                const idx = indexById.get(String(q.id));
+                const tags = [];
+                if (q.type) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-1.5 py-0.5 rounded">${escapeHtml(q.type)}</span>`);
+                if (q.region) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">${escapeHtml(q.region)}</span>`);
+                const subParts = [];
+                if (q.spotName) subParts.push(escapeHtml(q.spotName));
+                if (q.openedAt) subParts.push(`Open: ${escapeHtml(formatUnixTime(q.openedAt))}`);
+                return `<div class="result-item selectable group" data-id="${escapeHtml(q.id)}" data-idx="${idx}" onclick="selectQuest(this, '${escapeHtml(q.id)}', ${idx})">
+                    <div class="cursor-pointer group-hover:bg-emerald-50/70 rounded-lg px-3 py-2 border border-transparent group-hover:border-emerald-200 transition-colors">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="font-mono text-[11px] text-slate-400">#${escapeHtml(q.id)}</span>
+                                    ${tags.join('')}
+                                </div>
+                                <div class="font-medium text-sm text-slate-900 mt-0.5 truncate">${escapeHtml(q.name || '(unnamed)')}</div>
+                                ${subParts.length ? `<div class="text-xs text-slate-500 mt-0.5 truncate">${subParts.join(' · ')}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+            return `<section class="bg-white border border-slate-200 rounded-xl overflow-hidden">${headerHtml}<div class="divide-y divide-slate-100">${itemsHtml}</div></section>`;
+        }).join('');
+        listEl.innerHTML = sectionHtml;
+    }
+
+    function renderActivityBanner(activity, wars) {
+        const el = document.getElementById('questActivityBanner');
+        if (!el) return;
+        if (!activity && (!wars || wars.length === 0)) { el.classList.add('hidden'); el.innerHTML = ''; return; }
+        let bannerUrl = '', title = '', subtitle = '';
+        if (activity) {
+            bannerUrl = activity.banner || activity.noticeBanner || '';
+            title = activity.name || '';
+            const dateParts = [];
+            if (activity.startedAt) dateParts.push(`Start ${formatUnixTime(activity.startedAt)}`);
+            if (activity.endedAt)   dateParts.push(`End ${formatUnixTime(activity.endedAt)}`);
+            subtitle = dateParts.join(' · ');
+        }
+        if (!bannerUrl && wars && wars.length) {
+            const w = wars.find(w => w.banner) || wars[0];
+            bannerUrl = w.banner || w.mapImage || '';
+            if (!title) title = w.name || w.longName || '';
+        }
+        if (!bannerUrl && !title) { el.classList.add('hidden'); el.innerHTML = ''; return; }
+        el.classList.remove('hidden');
+        el.innerHTML = `<div class="relative bg-slate-900 overflow-hidden">
+            ${bannerUrl ? `<img src="${escapeHtml(bannerUrl)}" alt="" class="w-full max-h-52 object-cover" loading="lazy" onerror="this.parentElement.classList.add('hidden')"/>` : ''}
+            ${title ? `<div class="absolute bottom-0 left-0 right-0 px-4 py-2.5 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+                <div class="text-base font-semibold drop-shadow-sm">${escapeHtml(title)}</div>
+                ${subtitle ? `<div class="text-xs text-white/80">${escapeHtml(subtitle)}</div>` : ''}
+            </div>` : ''}
+        </div>`;
+    }
+
+    async function selectQuest(elem, questId, idx) {
+        document.querySelectorAll('#questResultList .result-item.selectable').forEach(e => e.style.background = '');
+        elem.style.background = '#e3f2fd';
+        selectedQuest = (typeof idx !== 'undefined') ? questResults[idx] : questResults.find(q => q.id == questId);
+        currentQuestRegion = (selectedQuest && selectedQuest.region) || currentQuestRegion || 'JP';
+        selectedPhaseScripts = [];
+        const phasePickerEl = document.getElementById('phasePicker');
+        phasePickerEl.classList.remove('hidden');
+        phasePickerEl.innerHTML = `<div class="flex items-center gap-3 text-slate-500 text-sm">
+            <svg class="animate-spin w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>Loading quest phases…</div>`;
+        document.getElementById('translationOptions').style.display = 'none';
+        document.getElementById('translationDisplay').style.display = 'none';
+        document.getElementById('progressSection').classList.add('hidden');
+        document.getElementById('translateSection').style.display = '';
+        try {
+            const questDetail = await _apiGetQuestDetail({ quest_id: selectedQuest.id, region: currentQuestRegion });
+            const phaseScripts = questDetail.phaseScripts || [];
+            const phasesNoBattle = new Set(questDetail.phasesNoBattle || []);
+            const phasesWithEnemies = new Set(questDetail.phasesWithEnemies || []);
+            if (phaseScripts.length === 0) {
+                phasePickerEl.innerHTML = `<p class="text-sm text-slate-500 italic">No phase scripts found for this quest.</p>`;
+                return;
+            }
+            const questName = escapeHtml(questDetail.name || selectedQuest.name || `Quest ${selectedQuest.id}`);
+            _phaseScriptsMap = {};
+            phaseScripts.forEach(ps => { _phaseScriptsMap[ps.phase] = ps.scripts || []; });
+            const phaseButtonsHtml = phaseScripts.map(ps => {
+                const ph = ps.phase, scriptCount = (ps.scripts || []).length;
+                const hasBattle = phasesWithEnemies.has(ph), noBattle = phasesNoBattle.has(ph);
+                const tag = hasBattle
+                    ? `<span class="ml-1.5 text-[9px] uppercase tracking-wide font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded">battle</span>`
+                    : noBattle
+                        ? `<span class="ml-1.5 text-[9px] uppercase tracking-wide font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-1 rounded">story</span>`
+                        : '';
+                return `<button id="phaseBtn-${ph}" onclick="selectPhase(${ph})"
+                    class="flex flex-col items-center gap-1 px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-indigo-50 hover:border-indigo-300 transition-colors text-sm font-medium text-slate-700 min-w-[80px]">
+                    <span class="text-base font-bold text-indigo-700">Phase ${ph}</span>
+                    <span class="text-[10px] text-slate-400">${scriptCount} script${scriptCount !== 1 ? 's' : ''}</span>
+                    ${tag}
+                </button>`;
+            }).join('');
+            phasePickerEl.innerHTML = `
+                <div class="mb-3"><p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Quest</p>
+                <p class="text-sm font-medium text-slate-800">${questName}</p></div>
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Select a Phase to Translate</p>
+                <div class="flex flex-wrap gap-2">${phaseButtonsHtml}</div>`;
+        } catch (err) {
+            phasePickerEl.innerHTML = `<p class="text-sm text-red-600">Failed to load phases: ${escapeHtml(err.message)}</p>`;
+        }
+    }
+
+    function selectPhase(phase) {
+        selectedPhaseScripts = _phaseScriptsMap[phase] || [];
+        document.querySelectorAll('[id^="phaseBtn-"]').forEach(btn => {
+            btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+            btn.classList.add('bg-white', 'text-slate-700', 'border-slate-200');
+        });
+        const activeBtn = document.getElementById(`phaseBtn-${phase}`);
+        if (activeBtn) {
+            activeBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+            activeBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+        }
+        document.getElementById('translationOptions').style.display = '';
+        document.getElementById('translationDisplay').style.display = '';
+        document.getElementById('translationResults').innerHTML = '';
+        document.getElementById('scriptTabs').classList.add('hidden');
+        document.getElementById('progressSection').classList.add('hidden');
+    }
+
+    function animateProgressBar(targetWidth, duration = 800) {
+        const progressBar = document.getElementById('progressBar');
+        const startWidth = parseFloat(progressBar.style.width) || 0;
+        const startTime = performance.now();
+        function update(now) {
+            const t = Math.min((now - startTime) / duration, 1);
+            progressBar.style.width = (startWidth + (targetWidth - startWidth) * t) + '%';
+            if (t < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+    }
+
+    function createScriptTab(scriptId, isActive = false) {
+        const tab = document.createElement('button');
+        tab.className = `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`;
+        tab.textContent = `Script ${scriptId}`;
+        tab.dataset.scriptId = scriptId;
+        tab.onclick = () => switchScriptTab(scriptId);
+        return tab;
+    }
+
+    function switchScriptTab(scriptId) {
+        document.querySelectorAll('#scriptTabs button').forEach(tab => {
+            const active = tab.dataset.scriptId === scriptId.toString();
+            tab.classList.toggle('bg-blue-600', active);
+            tab.classList.toggle('text-white', active);
+            tab.classList.toggle('bg-gray-100', !active);
+            tab.classList.toggle('text-gray-700', !active);
+        });
+        document.querySelectorAll('.script-content').forEach(c =>
+            c.classList.toggle('hidden', c.dataset.scriptId !== scriptId.toString()));
+    }
+
+    // ── Translation ───────────────────────────────────────────────────────────
+
+    async function translateSelectedQuest() {
+        if (!selectedQuest) return;
+        if (!selectedPhaseScripts || selectedPhaseScripts.length === 0) {
+            alert('Please select a phase first.'); return;
+        }
+        document.getElementById('progressSection').classList.remove('hidden');
+        document.getElementById('scriptTabs').classList.remove('hidden');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const scriptTabsContainer = document.querySelector('#scriptTabs .flex');
+        scriptTabsContainer.innerHTML = '';
+        document.getElementById('translationResults').innerHTML = '';
+        document.getElementById('gamingModeBar').classList.add('hidden');
+        progressBar.style.width = '0%';
+        try {
+            const scriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
+            if (scriptIds.length === 0) throw new Error('No scripts found for this phase');
+            progressText.textContent = `Found ${scriptIds.length} script${scriptIds.length !== 1 ? 's' : ''}`;
+            animateProgressBar(20);
+            scriptIds.forEach((sid, i) => scriptTabsContainer.appendChild(createScriptTab(sid, i === 0)));
+
+            const allDialogues = [], scriptDialogueCounts = [];
+            for (let i = 0; i < scriptIds.length; i++) {
+                const scriptId = scriptIds[i];
+                progressText.textContent = `Extracting script ${scriptId} (${i + 1}/${scriptIds.length})…`;
+                animateProgressBar(20 + (i / scriptIds.length) * 35);
+                const extractData = await _apiExtractDialogues({ script_id: scriptId, region: currentQuestRegion });
+                const dialogues = extractData.dialogues || [];
+                const contentContainer = document.createElement('div');
+                contentContainer.className = `script-content ${i === 0 ? '' : 'hidden'}`;
+                contentContainer.dataset.scriptId = scriptId;
+                contentContainer.innerHTML = `
+                    <div class="flex items-center cursor-pointer font-semibold text-base text-purple-900 mb-2" onclick="toggleScriptCollapse('${scriptId}')">
+                        <span>Script ${scriptId}</span>
+                        <svg id="script-arrow-${scriptId}" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div id="script-table-wrap-${scriptId}">
+                        <table class="w-full mt-2 border-separate" style="border-spacing:0 8px;">
+                            <thead><tr>
+                                <th class="w-1/2 text-left text-gray-700">Original</th>
+                                <th class="w-1/2 text-left text-gray-700">Translation</th>
+                            </tr></thead>
+                            <tbody id="dialogueTableBody-${scriptId}"></tbody>
+                        </table>
+                        <button class="mt-2 bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-900" onclick="downloadScript('${scriptId}')">Download</button>
+                    </div>`;
+                document.getElementById('translationResults').appendChild(contentContainer);
+                scriptDialogueCounts.push(dialogues.length);
+                allDialogues.push(...dialogues);
+            }
+
+            progressText.textContent = 'Translating dialogues…';
+            animateProgressBar(60);
+            const translateData = await _apiTranslate({
+                dialogues: allDialogues,
+                translation_method: document.getElementById('translationMethod').value,
+                target_language: document.getElementById('targetLanguage').value,
+            });
+
+            let dialogueIndex = 0;
+            for (let s = 0; s < scriptIds.length; s++) {
+                const scriptId = scriptIds[s];
+                const tableBody = document.getElementById(`dialogueTableBody-${scriptId}`);
+                const count = scriptDialogueCounts[s];
+                const origSlice  = allDialogues.slice(dialogueIndex, dialogueIndex + count);
+                const transSlice = (translateData.translated_dialogues || []).slice(dialogueIndex, dialogueIndex + count);
+                for (let j = 0; j < count; j++) {
+                    const orig  = origSlice[j]  || {};
+                    const trans = transSlice[j] || {};
+                    const fmtOrig  = `<span class='font-bold text-blue-700 mr-2'>${escapeHtml(orig.speaker || '')}</span>`
+                        + escapeHtml(orig.content || '').replace(/\[(.*?)\]/g, '<span class="text-purple-600">[$1]</span>');
+                    const fmtTrans = `<span class='font-bold text-green-700 mr-2'>${escapeHtml(trans.speaker || '')}</span>`
+                        + escapeHtml(trans.translated_content || '');
+                    tableBody.innerHTML += `<tr>
+                        <td class="align-top bg-gray-100 text-gray-800 p-2 rounded">${fmtOrig}</td>
+                        <td class="align-top bg-green-50 text-green-800 p-2 rounded">${fmtTrans}</td>
+                    </tr>`;
+                }
+                dialogueIndex += count;
+            }
+            prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues || []);
+            progressText.textContent = 'Translation completed!';
+            animateProgressBar(100);
+        } catch (error) {
+            console.error('translateSelectedQuest error:', error);
+            document.getElementById('progressText').textContent = `Error: ${error.message}`;
+            animateProgressBar(0);
+            alert('Translation error: ' + error.message);
+        } finally { hideLoading(); }
+    }
+
+    // ── Gaming Mode ───────────────────────────────────────────────────────────
+    let _gmTranslations = {}, _gmScriptIds = [], _gmWindow = null, _gmLoading = false;
+
+    function prepareGamingMode(scriptIds, allOrigDialogues, allTransDialogues) {
+        _gmScriptIds = scriptIds;
+        _gmTranslations = {};
+        allTransDialogues.forEach((t, i) => {
+            const orig = allOrigDialogues[i] || {};
+            _gmTranslations[i] = {
+                speaker: t.speaker || orig.speaker || '',
+                translated_content: t.translated_content || '',
+                original_content: orig.content || '',
+            };
+        });
+        document.getElementById('gamingModeBar').classList.remove('hidden');
+    }
+
+    async function openGamingMode() {
+        if (_gmScriptIds.length === 0) return;
+        if (_gmLoading) return;
+        _gmLoading = true;
+        const btn = document.querySelector('#gamingModeBar button');
+        const origHtml = btn ? btn.innerHTML : '';
+        if (btn) { btn.disabled = true; btn.innerHTML = 'Preparing scene…'; }
+        try {
+            let region = currentQuestRegion || 'JP';
+            const results = await Promise.all(_gmScriptIds.map(sid => _apiParseScriptVisual({ script_id: sid, region })));
+            const allFrames = [];
+            let dialogueOffset = 0;
+            const svtData = {};
+            for (const d of results) {
+                region = d.region || region;
+                Object.assign(svtData, d.svtData || {});
+                (d.frames || []).forEach(fr => {
+                    const f = Object.assign({}, fr);
+                    if (typeof f.dialogueIdx === 'number') f.dialogueIdx += dialogueOffset;
+                    allFrames.push(f);
+                });
+                const dCount = (d.frames || []).filter(f => f.type === 'dialogue').length
+                    + (d.frames || []).filter(f => f.type === 'choice')
+                        .reduce((s, f) => s + (f.choices || []).length, 0);
+                dialogueOffset += dCount;
+            }
+            const payload = { frames: allFrames, svtData, translations: _gmTranslations, scriptIds: _gmScriptIds, region };
+            sessionStorage.setItem('fgoGamingData', JSON.stringify(payload));
+            const w = Math.min(1280, Math.floor(window.screen.availWidth * 0.85));
+            const h = Math.min(720, Math.floor(window.screen.availHeight * 0.85));
+            const left = Math.floor((window.screen.availWidth - w) / 2);
+            const top  = Math.floor((window.screen.availHeight - h) / 2);
+            _gmWindow = window.open('gaming.html', 'fgoGaming',
+                `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=no`);
+            if (!_gmWindow) alert('Popup blocked — please allow popups for this site.');
+        } catch (e) {
+            alert('Gaming Mode error: ' + e.message);
+        } finally {
+            _gmLoading = false;
+            if (btn) { btn.disabled = false; btn.innerHTML = origHtml; }
+        }
+    }
+
+    // ── Settings ──────────────────────────────────────────────────────────────
+    const apiTypeDefaults = {
+        openai: { api_base: 'https://dashscope.aliyuncs.com/compatible-mode/v1', base_model: 'deepseek-v3', auth_type: 'api_key' },
+        custom: { api_base: 'https://api.openai.com', base_model: 'gpt-4', auth_type: 'bearer' },
+        gemini: { api_base: 'https://generativelanguage.googleapis.com/v1beta', base_model: 'gemini-2.5-flash', auth_type: 'api_key' },
+    };
+    function getApiDefaults(t) { return apiTypeDefaults[t] || apiTypeDefaults.openai; }
+    function syncApiPlaceholders(t) {
+        const d = getApiDefaults(t);
+        document.getElementById('apiBase').placeholder  = d.api_base;
+        document.getElementById('baseModel').placeholder = d.base_model;
+    }
+    function applyApiTypeDefaults() {
+        const t = document.getElementById('apiType').value;
+        const d = getApiDefaults(t);
+        const knownBases  = Object.values(apiTypeDefaults).map(x => x.api_base);
+        const knownModels = Object.values(apiTypeDefaults).map(x => x.base_model);
+        const apiBase = document.getElementById('apiBase');
+        const baseModel = document.getElementById('baseModel');
+        if (!apiBase.value || knownBases.includes(apiBase.value))   apiBase.value  = d.api_base;
+        if (!baseModel.value || knownModels.includes(baseModel.value)) baseModel.value = d.base_model;
+        document.getElementById('authType').value = d.auth_type;
+        syncApiPlaceholders(t);
+    }
+    function toggleSettings() {
+        const m = document.getElementById('settingsMenu');
+        const willOpen = m.classList.contains('hidden');
+        m.classList.toggle('hidden');
+        if (willOpen) loadUserPreferences();
+    }
+    function saveSettings() {
+        const data = _apiSavePrefs({
+            api_key:    document.getElementById('apiKey').value,
+            api_base:   document.getElementById('apiBase').value,
+            api_type:   document.getElementById('apiType').value,
+            base_model: document.getElementById('baseModel').value,
+            auth_type:  document.getElementById('authType').value,
+        });
+        alert('Settings saved!');
+        toggleSettings();
+    }
+    function loadUserPreferences() {
+        try {
+            const p = _apiGetPrefs();
+            const selType = p.api_type || 'openai';
+            const def = getApiDefaults(selType);
+            document.getElementById('apiKey').value    = p.api_key    || '';
+            document.getElementById('apiBase').value   = p.api_base   || def.api_base;
+            document.getElementById('apiType').value   = selType;
+            document.getElementById('baseModel').value = p.base_model || def.base_model;
+            document.getElementById('authType').value  = p.auth_type  || def.auth_type;
+            syncApiPlaceholders(selType);
+        } catch (e) {
+            console.error('loadUserPreferences error:', e);
+            const def = getApiDefaults('openai');
+            document.getElementById('apiBase').value  = def.api_base;
+            document.getElementById('apiType').value  = 'openai';
+            document.getElementById('baseModel').value = def.base_model;
+            syncApiPlaceholders('openai');
+        }
+    }
+
+    // ── Misc helpers ──────────────────────────────────────────────────────────
+    function toggleScriptCollapse(scriptId) {
+        const content = document.getElementById(`script-table-wrap-${scriptId}`);
+        const arrow   = document.getElementById(`script-arrow-${scriptId}`);
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden'); arrow.style.transform = 'rotate(180deg)';
+        } else {
+            content.classList.add('hidden'); arrow.style.transform = '';
+        }
+    }
+    function downloadScript(scriptId) {
+        const tableBody = document.getElementById(`dialogueTableBody-${scriptId}`);
+        if (!tableBody) return;
+        let text = '';
+        for (const row of tableBody.children) {
+            text += `${row.children[0].innerText}\n${row.children[1].innerText}\n\n`;
+        }
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+        a.download = `script_${scriptId}.txt`;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+    function toggleContainer(containerId, arrowId) {
+        const c = document.getElementById(containerId), a = document.getElementById(arrowId);
+        if (c.classList.contains('hidden')) {
+            c.classList.remove('hidden'); if (a) a.style.transform = 'rotate(180deg)';
+        } else {
+            c.classList.add('hidden'); if (a) a.style.transform = '';
+        }
+    }
+    function switchDiscoveryTab(panelId, btnElement) {
+        ['searchPanel', 'latestActPanel', 'latestTaskPanel'].forEach(id =>
+            document.getElementById(id).classList.add('hidden'));
+        document.getElementById(panelId).classList.remove('hidden');
+        document.querySelectorAll('.discovery-tab').forEach(el => {
+            el.classList.replace('text-indigo-600', 'text-slate-500');
+            el.classList.replace('border-indigo-600', 'border-transparent');
+            el.classList.remove('bg-white');
+        });
+        btnElement.classList.replace('text-slate-500', 'text-indigo-600');
+        btnElement.classList.replace('border-transparent', 'border-indigo-600');
+        btnElement.classList.add('bg-white');
+    }
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        loadUserPreferences();
+        // Show a friendly hint in the quest section on first load
+        document.getElementById('questSection').style.display = '';
+        document.getElementById('questSectionTitle').textContent = 'Quests';
+        document.getElementById('getQuestBtn').style.display = 'none';
+        document.getElementById('questResultInfo').innerHTML =
+            '<span class="text-slate-400 text-sm">Search for a war/event on the left, or use the <b>Tasks</b> tab to browse recent quests.</span>';
+        document.getElementById('apiType').addEventListener('change', applyApiTypeDefaults);
+    });
+    </script>
+
+    <!-- Settings Modal -->
+    <div id="settingsMenu" class="hidden fixed inset-0 z-50">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onclick="toggleSettings()"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                <h3 class="text-lg font-bold text-slate-800">API Settings</h3>
+                <button onclick="toggleSettings()" class="text-slate-400 hover:text-slate-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">API Type</label>
+                    <select id="apiType" onchange="applyApiTypeDefaults()" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                        <option value="openai">OpenAI Compatible</option>
+                        <option value="custom">Custom</option>
+                        <option value="gemini">Gemini (google-genai)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">API Key</label>
+                    <input type="password" id="apiKey" placeholder="sk-..." class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none font-mono">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">API Base URL</label>
+                    <input type="text" id="apiBase" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none font-mono">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Base Model</label>
+                        <input type="text" id="baseModel" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Authentication</label>
+                        <select id="authType" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                            <option value="bearer">Bearer</option>
+                            <option value="api_key">API Key</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400">Settings are stored locally in your browser (localStorage). Your API key never leaves your device.</p>
+            </div>
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end gap-2">
+                <button onclick="toggleSettings()" class="text-slate-600 font-medium py-2 px-4 rounded-lg hover:bg-slate-100 transition-colors">Cancel</button>
+                <button onclick="saveSettings()" class="bg-indigo-600 text-white font-medium py-2 px-6 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500/20 active:scale-[0.98] transition-all">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

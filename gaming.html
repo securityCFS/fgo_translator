@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FGO Gaming Mode</title>
+    <style>
+        /* CSS Reset & Base */
+        html, body { margin:0; padding:0; height:100%; overflow:hidden; background:#000; font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif; user-select: none; }
+        
+        /* Background & Stage */
+        #bgImg { position:absolute; inset:0; width:100%; height:100%; object-fit: cover; object-position: center; transition: opacity 0.6s ease; }
+        #bgImg.fading { opacity: 0; }
+        #spriteStage { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+
+        /* Camera filter overlay (e.g. cameraFilter darkred) */
+        #cameraTint { position:absolute; inset:0; pointer-events:none; opacity:0; transition: opacity 0.6s ease, background 0.6s ease; z-index: 70; mix-blend-mode: multiply; }
+        #cameraTint.show { opacity: 0.55; }
+
+        /* Screen shake */
+        .shake-anim { animation: shakeAction 0.45s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shakeAction {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-9px) translateY(-4px); }
+            20%, 40%, 60%, 80% { transform: translateX(9px) translateY(4px); }
+        }
+        /* Flash overlay */
+        #flashLayer { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; z-index: 85; }
+        #flashLayer.flash { animation: flashKf 0.5s ease-out; }
+        @keyframes flashKf { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 0; } }
+
+        .sprite-wrap {
+            position: absolute; bottom: 22vh; transform: translateX(-50%);
+            transition: opacity 0.45s ease, filter 0.4s ease, left 0.6s cubic-bezier(.4,.2,.2,1), transform 0.45s ease;
+            will-change: opacity, filter; opacity: 0;
+        }
+        .sprite-wrap.dimmed { filter: brightness(0.55) saturate(0.7); }
+        .sprite-wrap.in { opacity: 1; }
+        .sprite-wrap.dimmed.in { opacity: 0.85; }
+        .sprite-wrap.out { opacity: 0 !important; transform: translateX(-50%) translateY(30px); }
+        .sprite-img { display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); user-select: none; -webkit-user-drag: none; transition: opacity 0.3s; }
+        
+        /* Fade Layer (color-aware: black/white) */
+        #fadeLayer { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease, background-color 0.2s; z-index: 80; }
+        #fadeLayer.show { opacity: 1; }
+        #fadeLayer.white { background: #fff; }
+        #clickOverlay { position:absolute; inset:0; cursor: pointer; z-index: 5; }
+
+        /* FGO Style UI Overlay */
+        #uiLayer { position: absolute; inset: 0; z-index: 100; pointer-events: none; }
+
+        /* Top Right Skip Button */
+        #topRightControls { position: absolute; top: 15px; right: 15px; pointer-events: auto; }
+        .fgo-btn-skip { 
+            background: rgba(10, 20, 40, 0.7); border: 1px solid #4a6fa5; color: #fff; 
+            font-size: 14px; padding: 4px 16px 4px 12px; border-radius: 20px; 
+            cursor: pointer; display: flex; align-items: center; gap: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5); font-weight: bold; letter-spacing: 1px;
+        }
+        .fgo-btn-skip::after { content: '▶▶'; font-size: 10px; color: #8ba8d8; }
+        .fgo-btn-skip:active { background: rgba(20, 40, 80, 0.8); }
+
+        /* Dialogue System */
+        #dialogueSystem {
+            position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column;
+            pointer-events: none; opacity: 0; transform: translateY(18px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        #dialogueSystem.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        
+        /* Speaker Tag (The slanted FGO style) */
+        #speakerTagWrap { padding-left: 5vw; margin-bottom: -1px; z-index: 2; position: relative; }
+        #speakerTag {
+            display: inline-block;
+            background: linear-gradient(to bottom, #1e5ab8, #0a2d69);
+            color: #fff; font-weight: 700; font-size: 18px;
+            padding: 6px 35px 6px 20px;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%);
+            border-left: 3px solid #8ba8d8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+            min-width: 120px;
+            box-sizing: border-box;
+        }
+
+        /* Dialogue Box */
+        #dialogueBox {
+            background: rgba(4, 11, 29, 0.88);
+            border-top: 2px solid #5a82c4;
+            border-bottom: 2px solid #5a82c4;
+            padding: 20px 5vw 25px 5vw;
+            min-height: 20vh;
+            position: relative;
+            box-shadow: inset 0 20px 50px rgba(0,0,0,0.5), 0 -4px 10px rgba(0,0,0,0.4);
+            /* Subtle diamond pattern overlay typical of FGO */
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), 
+                              linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02));
+            background-size: 8px 8px;
+            background-position: 0 0, 4px 4px;
+        }
+
+        /* Text Layout */
+        .text-container { width: 85%; }
+        #originalText {
+            color: #94a3b8; font-size: 19px; line-height: 1.5; font-weight: 500;
+            margin: 0 0 10px 0; white-space: pre-wrap; text-shadow: 1px 1px 0 #000;
+        }
+        #translatedText {
+            color: #fff; font-size: 22px; line-height: 1.5; font-weight: bold;
+            margin: 0; white-space: pre-wrap; text-shadow: 1px 1px 3px rgba(0,0,0,1);
+            letter-spacing: 0.05em;
+        }
+
+        /* Right Side Controls (LOG, AUTO) */
+        #rightControls { position: absolute; right: 2vw; bottom: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .fgo-btn-side {
+            background: rgba(10, 20, 40, 0.6); border: 1px solid #4a6fa5; color: #a3b8cc;
+            width: 44px; height: 44px; border-radius: 4px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; font-size: 10px; font-weight: bold;
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .fgo-btn-side.active { background: rgba(30, 90, 180, 0.8); color: #fff; border-color: #8ba8d8; box-shadow: 0 0 10px rgba(139, 168, 216, 0.5); }
+        .fgo-btn-side:active { transform: scale(0.95); }
+        .fgo-btn-icon { width: 18px; height: 18px; background-color: currentColor; clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); margin-bottom: 2px;}
+
+        /* Click Indicator Triangle */
+        #clickHint {
+            position: absolute; right: 10vw; bottom: 25px;
+            width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 12px solid #8ba8d8;
+            animation: bounce-pulse 1.2s infinite; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+        }
+        @keyframes bounce-pulse { 0%, 100% { transform: translateY(0); opacity: 0.8; } 50% { transform: translateY(6px); opacity: 1; } }
+
+        /* Choices Style Overhaul */
+        #choicesWrap { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 150; pointer-events: auto; }
+        #choicesWrap.show { display: flex; }
+        #choicesList { display: flex; flex-direction: column; gap: 16px; width: 80%; max-width: 600px; }
+        .choice-btn {
+            background: linear-gradient(180deg, rgba(25, 45, 80, 0.95) 0%, rgba(10, 20, 40, 0.95) 100%);
+            border: 2px solid #5a82c4; border-radius: 4px; color: #fff; padding: 16px 24px; text-align: center; cursor: pointer;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.6); position: relative;
+        }
+        .choice-btn::before, .choice-btn::after {
+            content: ''; position: absolute; top: 50%; transform: translateY(-50%) rotate(45deg);
+            width: 8px; height: 8px; background: #8ba8d8;
+        }
+        .choice-btn::before { left: 16px; }
+        .choice-btn::after { right: 16px; }
+        .choice-btn:hover { background: linear-gradient(180deg, rgba(40, 70, 120, 0.95) 0%, rgba(15, 30, 60, 0.95) 100%); border-color: #8ba8d8; }
+        .choice-trans { display: block; font-weight: bold; font-size: 18px; margin-bottom: 4px; }
+        .choice-orig { display: block; color: #94a3b8; font-size: 13px; }
+
+        /* Exit/Debug Info (Minimalist now) */
+        #devInfo { position: absolute; top: 15px; left: 15px; color: rgba(255,255,255,0.4); font-size: 10px; pointer-events: auto; }
+        .exit-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; cursor: pointer; margin-right: 8px; font-size: 12px;}
+
+        /* Loading (Fou run) */
+        #loadingScreen {
+            position: absolute; inset: 0; background: #000; z-index: 200; pointer-events: auto;
+            display: flex; align-items: flex-end; justify-content: flex-end; padding: 30px 40px;
+            transition: opacity 0.5s ease;
+        }
+        #loadingScreen.hide { opacity: 0; pointer-events: none; }
+        .loading-content { display: flex; flex-direction: column; align-items: flex-end; }
+        .fou-gif { width: 140px; height: auto; image-rendering: auto; margin-bottom: 6px; margin-right: 4px; filter: drop-shadow(0 0 12px rgba(255,255,255,0.25)); }
+        .loading-text { font-family: 'Arial', sans-serif; color: #fff; font-style: italic; font-weight: 900; font-size: 18px; letter-spacing: 2px; }
+        .loading-text .dots::after { content: '...'; animation: dotsBlink 1.5s infinite steps(4, end); }
+        @keyframes dotsBlink { 0% { clip-path: inset(0 100% 0 0); } 100% { clip-path: inset(0 0 0 0); } }
+
+        /* History Log overlay */
+        #historyOverlay {
+            position: absolute; inset: 0; background: rgba(4, 11, 29, 0.95);
+            z-index: 180; display: none; flex-direction: column;
+            pointer-events: auto; padding: 50px 8vw 30px 8vw; box-sizing: border-box;
+        }
+        #historyOverlay.show { display: flex; }
+        #historyOverlay h3 {
+            color: #8ba8d8; font-size: 14px; letter-spacing: 3px; margin: 0 0 16px 0;
+            font-weight: 600; text-transform: uppercase; border-bottom: 1px solid #4a6fa5;
+            padding-bottom: 8px;
+        }
+        #historyList { flex: 1; overflow-y: auto; padding-right: 12px; }
+        #historyList::-webkit-scrollbar { width: 8px; }
+        #historyList::-webkit-scrollbar-thumb { background: #4a6fa5; border-radius: 4px; }
+        .hist-row { padding: 10px 0; border-bottom: 1px solid rgba(74, 111, 165, 0.25); }
+        .hist-row:last-child { border-bottom: none; }
+        .hist-speaker { color: #8ba8d8; font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+        .hist-orig { color: #94a3b8; font-size: 16px; line-height: 1.5; margin-bottom: 4px; white-space: pre-wrap; }
+        .hist-trans { color: #fff; font-size: 17px; line-height: 1.5; white-space: pre-wrap; }
+        #historyClose {
+            position: absolute; top: 14px; right: 18px; background: none; border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; padding: 4px 14px; border-radius: 4px; cursor: pointer; font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <img id="bgImg" alt="" src="">
+    <div id="spriteStage"></div>
+    <div id="cameraTint"></div>
+    <div id="fadeLayer"></div>
+    <div id="flashLayer"></div>
+    <div id="clickOverlay"></div>
+
+    <div id="uiLayer">
+        <!-- Dev/Debug Info -->
+        <div id="devInfo">
+            <button class="exit-btn" onclick="closeWindow()">Exit</button>
+            <span id="scriptLabel"></span> (<span id="frameProgress"></span>)
+        </div>
+
+        <!-- Top Right SKIP -->
+        <div id="topRightControls">
+            <button class="fgo-btn-skip" onclick="skipToNextChoice()">SKIP</button>
+        </div>
+
+        <!-- Dialogue System -->
+        <div id="dialogueSystem">
+            <div id="speakerTagWrap">
+                <div id="speakerTag" style="display:none"></div>
+            </div>
+            
+            <div id="dialogueBox">
+                <div class="text-container">
+                    <div id="originalText"></div>
+                    <div id="translatedText"></div>
+                </div>
+                
+                <div id="clickHint"></div>
+                
+                <div id="rightControls">
+                    <button class="fgo-btn-side" onclick="prevFrame()" title="Back">
+                        <div class="fgo-btn-icon" style="clip-path: polygon(100% 50%, 0 0, 0 100%);"></div>
+                        BACK
+                    </button>
+                    <button class="fgo-btn-side" id="autoBtn" onclick="toggleAuto()">
+                        <div class="fgo-btn-icon" style="clip-path: circle(50% at 50% 50%);"></div>
+                        AUTO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Choices overlay -->
+    <div id="choicesWrap">
+        <div id="choicesList"></div>
+    </div>
+
+    <!-- History log overlay -->
+    <div id="historyOverlay">
+        <button id="historyClose" onclick="hideHistory()">Close</button>
+        <h3>Dialogue History</h3>
+        <div id="historyList"></div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loadingScreen">
+        <div class="loading-content">
+            <img class="fou-gif" src="https://media.tenor.com/8COMw5dtF9YAAAAj/fou-fgo.gif" alt="Fou">
+            <div class="loading-text">Now Loading<span class="dots"></span></div>
+        </div>
+    </div>
+
+<script>
+// ============================================================================
+// FGO Gaming Mode Logic (UI Bindings Updated)
+// ============================================================================
+
+let DATA = null;
+let FRAMES = [];
+let TRANSLATIONS = {};
+let SVT = {};
+let IMG_SIZE = {};
+let IDX = 0;
+let AUTO = false;
+let AUTO_TIMER = null;
+let IS_TRANSITIONING = false;
+const COLOR_TINT = {
+    darkred: 'rgba(170, 30, 30, 1)',
+    red: 'rgba(220, 40, 40, 1)',
+    blue: 'rgba(40, 70, 160, 1)',
+    green: 'rgba(40, 120, 60, 1)',
+    sepia: 'rgba(180, 140, 80, 1)',
+};
+
+const FACE_DEFAULT = 256;
+const FIGURE_DEFAULT_H = 1024;
+const FIGURE_PAGE_W = 1024;
+const FIGURE_PAGE_H = 1024;
+const BODY_VH = 78;
+const BODY_MAX_PX = 720;
+
+function escapeHtml(s) {
+    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function loadData() {
+    try {
+        const raw = sessionStorage.getItem('fgoGamingData');
+        if (!raw) return null;
+        return JSON.parse(raw);
+    } catch (e) { return null; }
+}
+
+async function init() {
+    DATA = loadData();
+    if (!DATA || !DATA.frames || DATA.frames.length === 0) {
+        document.getElementById('loadingScreen').textContent = 'No scene data found. Please launch from the main page.';
+        return;
+    }
+    FRAMES = DATA.frames;
+    TRANSLATIONS = DATA.translations || {};
+    SVT = DATA.svtData || {};
+    document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
+    document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
+
+    // Fou-loading flourish before first frame
+    setTimeout(() => {
+        const loader = document.getElementById('loadingScreen');
+        loader.classList.add('hide');
+        setTimeout(() => { loader.style.display = 'none'; renderFrame(); }, 500);
+    }, 900);
+
+    document.getElementById('clickOverlay').addEventListener('click', advanceClick);
+    document.getElementById('dialogueSystem').addEventListener('click', (e) => {
+        if (e.target.closest('.fgo-btn-side') || e.target.closest('button')) return;
+        advanceClick();
+    });
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('wheel', onWheel, { passive: true });
+
+    // Browsers block autoplay until first gesture: kick BGM on first click/key.
+    const unlockAudio = () => {
+        if (BGM_AUDIO && BGM_AUDIO.paused && CURRENT_BGM) {
+            BGM_AUDIO.play().catch(() => {});
+        }
+        window.removeEventListener('click', unlockAudio, true);
+        window.removeEventListener('keydown', unlockAudio, true);
+    };
+    window.addEventListener('click', unlockAudio, true);
+    window.addEventListener('keydown', unlockAudio, true);
+}
+
+function advanceClick() {
+    if (IS_TRANSITIONING) return;
+    if (isHistoryOpen()) { hideHistory(); return; }
+    if (isChoicesOpen()) return;
+    nextFrame();
+}
+
+const ATLAS_CACHE = {};
+function loadAtlas(eid, url) {
+    if (ATLAS_CACHE[eid]) return ATLAS_CACHE[eid];
+    ATLAS_CACHE[eid] = new Promise((resolve, reject) => {
+        const img = new Image(); img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img); img.onerror = () => reject(new Error('atlas load failed')); img.src = url;
+    });
+    return ATLAS_CACHE[eid];
+}
+
+const COMPOSITE_CACHE = {};
+async function compositeSprite(sp) {
+    const key = `${sp.entityId}:${sp.face || 0}`;
+    if (COMPOSITE_CACHE[key]) return COMPOSITE_CACHE[key];
+
+    const img = await loadAtlas(sp.entityId, sp.url);
+    const meta = SVT[String(sp.entityId)] || {};
+    const ext = meta.extendData || {};
+    const atlasW = img.naturalWidth, atlasH = img.naturalHeight;
+    const fw = ext.faceSizeRect ? ext.faceSizeRect[0] : (ext.faceSize || FACE_DEFAULT);
+    const fh = ext.faceSizeRect ? ext.faceSizeRect[1] : (ext.faceSize || FACE_DEFAULT);
+
+    // Standard FGO charaFigure layout: body occupies the top region
+    // (full atlas width × figureHeight), face strip rows underneath.
+    // Atlas may be tall, square, or wider-than-tall — body is always on top.
+    const bodyW = atlasW;
+    let bodyH = ext.figureHeight ? ext.figureHeight : (atlasH - fh);
+    if (bodyH <= 0 || bodyH > atlasH) bodyH = Math.max(1, atlasH - fh);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = bodyW; canvas.height = bodyH;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, bodyW, bodyH, 0, 0, bodyW, bodyH);
+
+    if (sp.face && sp.face > 0) {
+        const face = sp.face - 1;
+        // Face strip is laid out as rows of cells starting at y=bodyH.
+        // Row width is the atlas width; column count = floor(atlasW / fw).
+        const perRow = Math.max(1, Math.floor(atlasW / fw));
+        const col = face % perRow, row = Math.floor(face / perRow);
+        const srcX = col * fw;
+        const srcY = bodyH + row * fh;
+        if (srcX >= 0 && srcY >= 0 && srcX + fw <= atlasW && srcY + fh <= atlasH) {
+            ctx.drawImage(img, srcX, srcY, fw, fh, meta.faceX || 0, meta.faceY || 0, fw, fh);
+        }
+    }
+
+    let dataUrl = sp.url;
+    try { dataUrl = canvas.toDataURL('image/png'); } catch (e) { }
+    COMPOSITE_CACHE[key] = dataUrl; return dataUrl;
+}
+
+function triggerShake() {
+    const stage = document.getElementById('spriteStage');
+    const bg = document.getElementById('bgImg');
+    [stage, bg].forEach(el => {
+        el.classList.remove('shake-anim');
+        void el.offsetWidth;
+        el.classList.add('shake-anim');
+    });
+}
+
+function triggerFlash() {
+    const fl = document.getElementById('flashLayer');
+    fl.classList.remove('flash');
+    void fl.offsetWidth;
+    fl.classList.add('flash');
+}
+
+function applyCameraFilter(color) {
+    const tint = document.getElementById('cameraTint');
+    if (!color) {
+        tint.classList.remove('show');
+        return;
+    }
+    tint.style.background = COLOR_TINT[color] || color;
+    tint.classList.add('show');
+}
+
+function processEffects(effects) {
+    if (!effects) return;
+    for (const ef of effects) {
+        if (ef.type === 'shake') triggerShake();
+        else if (ef.type === 'flash') triggerFlash();
+        else if (ef.type === 'cameraFilter') applyCameraFilter(ef.color);
+        // fadeIn/fadeOut handled in renderFrame via overlay (per frame)
+    }
+}
+
+function renderFrame() {
+    if (FRAMES.length === 0) return;
+    const f = FRAMES[IDX];
+    document.getElementById('frameProgress').textContent = `${IDX+1}/${FRAMES.length}`;
+
+    // Sync persistent camera tint state from this frame (overrides only if set)
+    if (f.cameraFilter !== undefined) applyCameraFilter(f.cameraFilter);
+
+    // Drive BGM (only changes when fileName differs from current)
+    setBgm(f.bgm || null);
+
+    // Process per-frame effects
+    processEffects(f.effects);
+
+    // Apply fadeIn overlay if present (overlay was shown by previous transition;
+    // here we fade it back out)
+    const fadeIn = (f.effects || []).find(e => e.type === 'fadeIn');
+    if (fadeIn) {
+        const fade = document.getElementById('fadeLayer');
+        fade.classList.toggle('white', fadeIn.color === 'white');
+        fade.classList.add('show');
+        // Then immediately fade out over the specified duration
+        const dur = Math.max(0.2, Math.min(2.5, fadeIn.dur || 1.0));
+        fade.style.transition = `opacity ${dur}s ease`;
+        requestAnimationFrame(() => { fade.classList.remove('show'); });
+        setTimeout(() => { fade.style.transition = ''; }, dur * 1000 + 50);
+    }
+
+    const bg = document.getElementById('bgImg');
+    if (f.bg && bg.src !== f.bg) {
+        bg.classList.add('fading');
+        const tmp = new Image();
+        tmp.onload = () => { bg.src = f.bg; bg.classList.remove('fading'); };
+        tmp.src = f.bg;
+    }
+
+    renderSprites(f.sprites || []);
+
+    if (f.type === 'dialogue') {
+        showDialogue(f); hideChoices();
+    } else if (f.type === 'choice') {
+        hideDialogue(); showChoices(f);
+    } else if (f.type === 'transition') {
+        IS_TRANSITIONING = true;
+        hideDialogue(); hideChoices();
+        const fadeOutEf = (f.effects || []).find(e => e.type === 'fadeOut');
+        const color = fadeOutEf && fadeOutEf.color === 'white' ? 'white' : 'black';
+        const dur = (fadeOutEf && fadeOutEf.dur) || 0.5;
+        const fade = document.getElementById('fadeLayer');
+        fade.classList.toggle('white', color === 'white');
+        fade.style.transition = `opacity ${Math.max(0.2, Math.min(2, dur))}s ease`;
+        fade.classList.add('show');
+        const total = Math.max(400, Math.min(1500, dur * 700));
+        setTimeout(() => {
+            IS_TRANSITIONING = false;
+            fade.style.transition = '';
+            if (FRAMES[IDX] === f) nextFrame();
+        }, total);
+    }
+}
+
+// Continuous sprite manager: keep DOM nodes alive across frames, only fade
+// out characters that left the scene and fade in genuinely new ones.
+// Existing characters get their face/talking/position updated in place.
+const SPRITE_NODES = new Map(); // entityId -> { wrap, img, sp, lastCompositeKey }
+
+function renderSprites(sprites) {
+    const stage = document.getElementById('spriteStage');
+    sprites = sprites || [];
+
+    // Dedupe by entityId — if multiple slots show the same character, keep one
+    // (preferring the talking one).
+    const seen = new Map();
+    for (const sp of sprites) {
+        const key = String(sp.entityId);
+        const existing = seen.get(key);
+        if (!existing) seen.set(key, sp);
+        else if (sp.talking && !existing.talking) seen.set(key, sp);
+    }
+    const unique = Array.from(seen.values());
+
+    // Compute on-screen positions
+    const positions = unique.length === 0 ? []
+        : unique.length === 1 ? ['50%']
+        : unique.length === 2 ? ['32%', '68%']
+        : unique.length === 3 ? ['22%', '50%', '78%']
+        : unique.map((_, i) => `${15 + (i * 70 / (unique.length - 1))}%`);
+
+    const wantedIds = new Set(unique.map(sp => String(sp.entityId)));
+    const myFrameIdx = IDX;
+
+    // 1. Remove sprites that are no longer present (animate out, then drop)
+    for (const [eid, node] of Array.from(SPRITE_NODES.entries())) {
+        if (!wantedIds.has(eid)) {
+            const w = node.wrap;
+            w.classList.remove('in');
+            w.classList.add('out');
+            SPRITE_NODES.delete(eid);
+            setTimeout(() => { if (w.parentNode) w.parentNode.removeChild(w); }, 480);
+        }
+    }
+
+    // 2. Add or update remaining sprites
+    unique.forEach((sp, idx) => {
+        const eid = String(sp.entityId);
+        let node = SPRITE_NODES.get(eid);
+        if (!node) {
+            const wrap = document.createElement('div');
+            wrap.className = 'sprite-wrap' + (sp.talking ? '' : ' dimmed');
+            wrap.style.left = positions[idx];
+            wrap.style.zIndex = sp.talking ? '4' : '3';
+            const img = document.createElement('img');
+            img.className = 'sprite-img';
+            img.style.height = `min(${BODY_VH}vh, ${BODY_MAX_PX}px)`;
+            wrap.appendChild(img);
+            stage.appendChild(wrap);
+            node = { wrap, img, sp: null, lastCompositeKey: null };
+            SPRITE_NODES.set(eid, node);
+        }
+
+        // Update position / talking state (smooth transitions via CSS)
+        node.wrap.style.left = positions[idx];
+        node.wrap.style.zIndex = sp.talking ? '4' : '3';
+        node.wrap.classList.toggle('dimmed', !sp.talking);
+
+        const key = `${sp.entityId}:${sp.face || 0}`;
+        if (node.lastCompositeKey !== key) {
+            node.lastCompositeKey = key;
+            compositeSprite(sp).then(dataUrl => {
+                if (IDX !== myFrameIdx) return;
+                if (SPRITE_NODES.get(eid) !== node) return;
+                // Cross-fade the image without blanking the wrapper
+                if (node.img.src && node.img.complete) {
+                    // Brief fade on the img element only (wrapper stays visible)
+                    node.img.style.opacity = '0.7';
+                    const fresh = new Image();
+                    fresh.onload = () => {
+                        node.img.src = dataUrl;
+                        node.img.style.opacity = '1';
+                    };
+                    fresh.src = dataUrl;
+                } else {
+                    node.img.onload = () => {
+                        node.img.style.opacity = '1';
+                        requestAnimationFrame(() => node.wrap.classList.add('in'));
+                    };
+                    node.img.src = dataUrl;
+                }
+            }).catch(() => {
+                node.img.src = sp.url;
+                node.img.style.opacity = '1';
+                requestAnimationFrame(() => node.wrap.classList.add('in'));
+            });
+        }
+        // Ensure visible state if already loaded
+        if (node.img.complete && node.img.naturalWidth > 0) {
+            requestAnimationFrame(() => node.wrap.classList.add('in'));
+        }
+
+        node.sp = sp;
+    });
+}
+
+// =========================================================================
+// BGM playback (Atlas Academy CDN serves CORS-friendly mp3s)
+// =========================================================================
+let CURRENT_BGM = null;
+let BGM_AUDIO = null;
+const BGM_VOLUME = 0.45;
+
+function bgmUrl(name) {
+    if (!name) return null;
+    const region = (DATA && DATA.region) || 'JP';
+    return `https://static.atlasacademy.io/${region}/Audio/Bgm/${name}/${name}.mp3`;
+}
+
+function ensureBgmAudio() {
+    if (BGM_AUDIO) return BGM_AUDIO;
+    BGM_AUDIO = document.createElement('audio');
+    BGM_AUDIO.loop = true;
+    BGM_AUDIO.volume = 0;
+    BGM_AUDIO.preload = 'auto';
+    document.body.appendChild(BGM_AUDIO);
+    return BGM_AUDIO;
+}
+
+function fadeAudioVolume(audio, target, ms) {
+    if (!audio) return;
+    const start = audio.volume;
+    const t0 = performance.now();
+    const step = (now) => {
+        const k = Math.min(1, (now - t0) / ms);
+        audio.volume = start + (target - start) * k;
+        if (k < 1) requestAnimationFrame(step);
+        else if (target === 0) { try { audio.pause(); } catch (e) {} }
+    };
+    requestAnimationFrame(step);
+}
+
+function setBgm(name) {
+    if (CURRENT_BGM === name) return;
+    CURRENT_BGM = name;
+    const audio = ensureBgmAudio();
+    if (!name) {
+        fadeAudioVolume(audio, 0, 600);
+        return;
+    }
+    const url = bgmUrl(name);
+    if (audio.src === url && !audio.paused) return;
+    // Fade out current, then swap & fade in
+    const swapAndPlay = () => {
+        audio.src = url;
+        audio.volume = 0;
+        const playPromise = audio.play();
+        if (playPromise && playPromise.catch) {
+            playPromise.catch(() => { /* autoplay blocked until user gesture */ });
+        }
+        fadeAudioVolume(audio, BGM_VOLUME, 800);
+    };
+    if (audio.src && !audio.paused) {
+        fadeAudioVolume(audio, 0, 350);
+        setTimeout(swapAndPlay, 380);
+    } else {
+        swapAndPlay();
+    }
+}
+
+function showDialogue(f) {
+    const sys = document.getElementById('dialogueSystem');
+    sys.classList.add('show');
+    const trans = TRANSLATIONS[f.dialogueIdx] || {};
+    const speakerName = trans.speaker || f.speaker || '';
+    const speakerEl = document.getElementById('speakerTag');
+    
+    if (speakerName) {
+        speakerEl.textContent = speakerName; speakerEl.style.display = 'inline-block';
+    } else {
+        speakerEl.style.display = 'none';
+    }
+    
+    document.getElementById('originalText').textContent = f.text || '';
+    document.getElementById('translatedText').textContent = trans.translated_content || '';
+}
+
+function hideDialogue() { document.getElementById('dialogueSystem').classList.remove('show'); }
+
+function showChoices(f) {
+    const wrap = document.getElementById('choicesWrap');
+    const list = document.getElementById('choicesList');
+    list.innerHTML = '';
+    (f.choices || []).forEach((ch, ci) => {
+        const trans = TRANSLATIONS[f.dialogueIdx + ci] || {};
+        const btn = document.createElement('div');
+        btn.className = 'choice-btn';
+        btn.innerHTML = `<span class="choice-trans">${escapeHtml(trans.translated_content || ch.text)}</span><span class="choice-orig">${escapeHtml(ch.text)}</span>`;
+        btn.onclick = () => { hideChoices(); nextFrame(); };
+        list.appendChild(btn);
+    });
+    wrap.classList.add('show');
+}
+
+function hideChoices() { document.getElementById('choicesWrap').classList.remove('show'); }
+function isChoicesOpen() { return document.getElementById('choicesWrap').classList.contains('show'); }
+
+function nextFrame() {
+    if (IDX < FRAMES.length - 1) { IDX++; renderFrame(); }
+    else {
+        // At last frame: clicking again closes the window
+        if (AUTO) toggleAuto();
+        closeWindow();
+    }
+}
+function prevFrame() { if (IDX > 0) { IDX--; renderFrame(); } }
+
+// History log — built from all dialogue/choice frames up to current IDX
+function showHistory() {
+    const list = document.getElementById('historyList');
+    list.innerHTML = '';
+    for (let i = 0; i <= IDX && i < FRAMES.length; i++) {
+        const f = FRAMES[i];
+        if (f.type === 'dialogue') {
+            const trans = TRANSLATIONS[f.dialogueIdx] || {};
+            const row = document.createElement('div'); row.className = 'hist-row';
+            const sp = trans.speaker || f.speaker || '';
+            row.innerHTML = (sp ? `<div class="hist-speaker">${escapeHtml(sp)}</div>` : '')
+                + `<div class="hist-orig">${escapeHtml(f.text || '')}</div>`
+                + (trans.translated_content ? `<div class="hist-trans">${escapeHtml(trans.translated_content)}</div>` : '');
+            list.appendChild(row);
+        } else if (f.type === 'choice') {
+            (f.choices || []).forEach((ch, ci) => {
+                const trans = TRANSLATIONS[f.dialogueIdx + ci] || {};
+                const row = document.createElement('div'); row.className = 'hist-row';
+                row.innerHTML = `<div class="hist-speaker">[选项 ${ch.num}]</div>`
+                    + `<div class="hist-orig">${escapeHtml(ch.text)}</div>`
+                    + (trans.translated_content ? `<div class="hist-trans">${escapeHtml(trans.translated_content)}</div>` : '');
+                list.appendChild(row);
+            });
+        }
+    }
+    document.getElementById('historyOverlay').classList.add('show');
+    // Scroll to bottom (most recent)
+    requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
+}
+function hideHistory() { document.getElementById('historyOverlay').classList.remove('show'); }
+function isHistoryOpen() { return document.getElementById('historyOverlay').classList.contains('show'); }
+
+function skipToNextChoice() {
+    // Basic skip logic: jump to next choice or end
+    while(IDX < FRAMES.length - 1 && FRAMES[IDX].type !== 'choice') { IDX++; }
+    renderFrame();
+}
+
+function toggleAuto() {
+    AUTO = !AUTO;
+    const btn = document.getElementById('autoBtn');
+    if (AUTO) {
+        btn.classList.add('active'); scheduleAuto();
+    } else {
+        btn.classList.remove('active'); clearTimeout(AUTO_TIMER);
+    }
+}
+
+function scheduleAuto() {
+    clearTimeout(AUTO_TIMER);
+    AUTO_TIMER = setTimeout(() => {
+        if (!AUTO) return;
+        if (!isChoicesOpen()) nextFrame();
+        scheduleAuto();
+    }, 2800);
+}
+
+function onKey(e) {
+    if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowRight') {
+        e.preventDefault(); advanceClick();
+    } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        if (isHistoryOpen()) hideHistory();
+        else prevFrame();
+    } else if (e.code === 'Escape') {
+        if (isHistoryOpen()) hideHistory();
+        else closeWindow();
+    } else if (e.key === 'a' || e.key === 'A') {
+        toggleAuto();
+    } else if (e.key === 'h' || e.key === 'H') {
+        if (isHistoryOpen()) hideHistory(); else showHistory();
+    }
+}
+
+let wheelCooldown = 0;
+function onWheel(e) {
+    const now = Date.now();
+    if (now - wheelCooldown < 250) return;
+    if (e.deltaY < -10) {
+        // Scroll up -> open history (or let history scroll naturally if already open)
+        if (!isHistoryOpen()) { wheelCooldown = now; showHistory(); }
+    } else if (e.deltaY > 10) {
+        // Scroll down -> close history if open, else advance one frame
+        if (isHistoryOpen()) {
+            const list = document.getElementById('historyList');
+            // Only close when already scrolled to bottom
+            if (list.scrollTop + list.clientHeight >= list.scrollHeight - 4) {
+                wheelCooldown = now; hideHistory();
+            }
+        } else {
+            wheelCooldown = now;
+            if (!isChoicesOpen()) nextFrame();
+        }
+    }
+}
+
+function closeWindow() {
+    try { if (BGM_AUDIO) { BGM_AUDIO.pause(); BGM_AUDIO.src = ''; } } catch(e) {}
+    try { window.close(); } catch(e) {}
+    document.getElementById('loadingScreen').style.display = 'flex';
+    document.getElementById('loadingScreen').textContent = 'Session closed. You may close this tab.';
+}
+
+let resizeT; window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(renderFrame, 150); });
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
