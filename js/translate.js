@@ -80,7 +80,7 @@ const Translator = (() => {
         const speaker = dialogue.speaker || '';
         const content = dialogue.content || '';
         if (speaker === 'System' || !content.trim()) {
-            return { speaker, translated_content: content };
+            return { speaker, content, translated_content: content };
         }
         const tl = _LANG_MAP[(targetLanguage || '').toLowerCase()] || 'zh-CN';
         const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(content)}`;
@@ -90,30 +90,32 @@ const Translator = (() => {
             const data = await r.json();
             // data[0] is array of [translatedSegment, originalSegment, ...]
             const translated = (data?.[0] || []).map(seg => seg[0] || '').join('');
-            return { speaker, translated_content: translated || content };
+            return { speaker, content, translated_content: translated || content };
         } catch (e) {
-            return { speaker, translated_content: `[Translation Error: ${e.message}]` };
+            return { speaker, content, translated_content: `[Translation Error: ${e.message}]` };
         }
     }
 
     async function _translateChunk(dialogues, lang, apiType, apiKey, apiBase, baseModel) {
-        const lines = dialogues.map(d =>
-            d.speaker ? `${d.speaker}：${d.content}` : d.content
-        ).join('\n');
+        // Build canonical numbered translation prompt (matches Python backend)
+        const systemPrompt = `You are a professional translator for game dialogue.\nTranslate Japanese text from the game "Fate/Grand Order" into ${lang}.\nPreserve tone, character speech style, and terminology. Use standard transliterations for names (e.g., キリエライト → Mash Kyrielight/玛修·基列莱特, 藤丸立香 → Ritsuka Fujimaru/藤丸立香).\nOnly return the translated sentence in ${lang}, no extra text or formatting.\n`;
 
-        const systemPrompt = `You are a professional translator for the mobile game Fate/Grand Order. Translate the following Japanese dialogue lines into ${lang}. Preserve speaker names, honorifics, and game-specific terms. Output ONLY the translated lines in the same order, one per line, in the format "Speaker：Translation" or just "Translation" if there is no speaker. Do not add explanations.`;
-
-        const userPrompt = lines;
+        let dialoguePrompt = `Please translate the following dialogues into ${lang}. You MUST follow these rules:\n1. Translate ALL dialogues\n2. For each dialogue, write its number followed by a colon (e.g., "1:", "2:", etc.)\n3. Write the translation on the next line\n4. Keep the translations in the same order as the original dialogues\n5. Translate both the speaker's name and their dialogue content\n6. For choices, translate both the choice number and content\n7. For system messages, keep them as is\n8. Use standard transliterations for character names (e.g., ライネス → Lainess/莱尼斯, グレイ → Gray/格雷)\n9. For katakana words (e.g., オーディール・コール), translate them to English (e.g., Order Call) and keep the English in the translation\n\nExample format:\n1:\n[Translated Speaker Name]: [Translation of first dialogue]\n2:\n[Translated Speaker Name]: [Translation of second dialogue]\n\nHere are the dialogues to translate:\n\n`;
+        dialogues.forEach((d, i) => {
+            dialoguePrompt += `${i + 1}:\nSpeaker: ${d.speaker || ''}\nContent: ${d.content || ''}\n\n`;
+        });
+        dialoguePrompt += '\nRemember to translate ALL dialogues and maintain the exact format shown in the example.';
 
         let rawTranslated = '';
 
         if (apiType === 'gemini') {
-            const model = baseModel || 'gemini-2.0-flash';
+            const model = baseModel || 'gemini-2.5-flash';
             const base = apiBase || 'https://generativelanguage.googleapis.com/v1beta';
-            const url = `${base}/models/${model}:generateContent?key=${apiKey}`;
+            const url = `${base.replace(/\/+$/, '')}/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
             const body = {
-                contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
-                generationConfig: { temperature: 0.3, maxOutputTokens: 4096 },
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                contents: [{ role: 'user', parts: [{ text: dialoguePrompt }] }],
+                generationConfig: { temperature: 0.7 },
             };
             let r;
             try {
@@ -126,7 +128,12 @@ const Translator = (() => {
                 throw new Error(`Gemini error ${r.status}: ${txt.slice(0, 300)}`);
             }
             const data = await r.json();
-            rawTranslated = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+            const cand = data.candidates?.[0];
+            rawTranslated = (cand?.content?.parts || []).map(p => p.text || '').join('');
+            if (!rawTranslated) {
+                const block = data.promptFeedback?.blockReason;
+                throw new Error(`Gemini returned no text${block ? ` (blocked: ${block})` : ''}`);
+            }
         } else {
             // OpenAI-compatible
             const base = apiBase || 'https://api.openai.com';
@@ -137,10 +144,9 @@ const Translator = (() => {
                 model,
                 messages: [
                     { role: 'system', content: systemPrompt },
-                    { role: 'user', content: userPrompt },
+                    { role: 'user', content: dialoguePrompt },
                 ],
-                temperature: 0.3,
-                max_tokens: 4096,
+                temperature: 0.7,
             };
             let r;
             try {
@@ -160,16 +166,55 @@ const Translator = (() => {
             rawTranslated = data.choices?.[0]?.message?.content || '';
         }
 
-        // Parse translated lines back to {speaker, translated_content}
-        const outLines = rawTranslated.split('\n').filter(l => l.trim());
-        return dialogues.map((d, i) => {
-            const tLine = outLines[i] || '';
-            const colonIdx = tLine.indexOf('：');
-            if (colonIdx > 0) {
-                return { speaker: tLine.slice(0, colonIdx).trim(), translated_content: tLine.slice(colonIdx + 1).trim() };
+        // Parse numbered translations (matches Python _parse_numbered_translation_response)
+        const parsed = _parseNumberedTranslations(rawTranslated, dialogues.length);
+        return dialogues.map((d, i) => ({
+            speaker: d.speaker || '',
+            content: d.content || '',
+            translated_content: parsed[i] || '[Translation Error: Missing translation]',
+        }));
+    }
+
+    /**
+     * Parse a numbered LLM response of the form:
+     *   1:
+     *   [Speaker]: translated text
+     *   2:
+     *   [Speaker]: translated text
+     * Returns an array of length expectedCount (padded/truncated).
+     */
+    function _parseNumberedTranslations(response, expectedCount) {
+        const translations = [];
+        let current = [];
+        let currentNum = null;
+        for (let line of response.split('\n')) {
+            line = line.trim();
+            if (!line) continue;
+            const m = line.match(/^(\d+):\s*(.*)$/);
+            if (m) {
+                if (current.length) {
+                    translations.push(current.join('\n'));
+                    current = [];
+                }
+                currentNum = parseInt(m[1], 10);
+                if (m[2].trim()) current.push(m[2].trim());
+            } else if (currentNum !== null) {
+                current.push(line);
             }
-            return { speaker: d.speaker || '', translated_content: tLine.trim() || d.content };
-        });
+        }
+        if (current.length) translations.push(current.join('\n'));
+
+        if (translations.length !== expectedCount) {
+            console.warn(`Translation count mismatch: got ${translations.length}, expected ${expectedCount}`);
+            if (!translations.length) {
+                // Fallback: take all non-numbered lines
+                const lines = response.split('\n').map(l => l.trim()).filter(l => l && !/^\d+:/.test(l));
+                translations.push(...lines);
+            }
+            while (translations.length < expectedCount) translations.push('[Translation Error: Missing translation]');
+            translations.length = expectedCount;
+        }
+        return translations;
     }
 
     return { loadPrefs, savePrefs, getPref, translateDialogues };
