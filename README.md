@@ -2,120 +2,154 @@
 
 [English](README.md) | [简体中文](docs/README_CN.md) | [繁體中文](docs/README_TW.md)
 
-A Python tool for translating Fate/Grand Order (FGO) dialogues from Japanese to other languages using GPT or Google Translate. This tool is mainly created by `Cursor`, therefore some parts like search function is not optimized. However, this tool is still useful for simple translation.
+**Live demo → [securitycfs.github.io/fgo_translator](https://securitycfs.github.io/fgo_translator/)**
 
-The scripts data are extracted from [Atlas Academy](https://apps.atlasacademy.io/db). To search for war names, you can go to [this page](https://apps.atlasacademy.io/db/JP/wars).
+A fully client-side web tool for translating Fate/Grand Order (FGO) story dialogues from Japanese. Runs entirely in your browser — no server required, no data leaves your machine. Script data is fetched directly from [Atlas Academy](https://apps.atlasacademy.io/db).
 
-A simple command-line demo is provided in `demo.py`. Detailed usage is shown in `demo.ipynb`. For detailed implementation, please refer to `dialogue_loader.py` and `db_loader.py`.
+Also includes a Python / Flask backend (`app.py`) for local use with APIs that block cross-origin browser requests (e.g. DashScope / 通义千问).
 
-A web demo is provided in `app.py`. Detailed usage is shown in `run_colab.ipynb`.
+---
 
-## Features
+## Quick Start (Web)
 
-- Translate FGO dialogues from Japanese to:
-  - English
-  - Simplified Chinese
-  - Traditional Chinese
-- Support for both GPT and Google Translate
-- Interactive command-line interface
-- Automatic quest and script detection
-- Saves user preferences (API keys, language settings)
-- Customizable export directory
-- Multi-language interface
+1. Open the [live demo](https://securitycfs.github.io/fgo_translator/)
+2. Search for a war / event name (e.g. `奏章Ⅳ`, `ネロ祭`, `Camelot`)
+3. Pick a quest and phase
+4. Choose a translation engine (see below), click **Start Translation**
+5. Click **Gaming Mode** to read the story with a visual-novel-style UI
 
-## Requirements
+---
 
-- Python 3.8 or higher
-- pip (Python package installer)
+## Translation Engines
 
-## Installation
+### Free Engine — Google Translate (no key required)
+Select **Free Engine (Google Translate)** in the Engine dropdown. No configuration needed. Quality is lower than LLM-based translation but instant and free.
 
-1. Clone the repository:
+### Gemini (recommended for browser use)
+Google's API supports cross-origin requests from browsers.
+
+1. Get a free API key at [Google AI Studio](https://aistudio.google.com/)
+2. Open **Settings** (⚙ icon) → API Type: `Gemini` → paste key → Save
+3. Default model: `gemini-2.5-flash` (fast and free-tier eligible)
+
+| Field | Value |
+|---|---|
+| API Type | Gemini |
+| API Key | your key from AI Studio |
+| API Base URL | `https://generativelanguage.googleapis.com/v1beta` |
+| Model | `gemini-2.5-flash` |
+
+### DeepSeek
+DeepSeek's API is OpenAI-compatible but **blocks browser requests (no CORS)**. Use it with a local server or Cloudflare Worker proxy.
+
+- Docs: [api-docs.deepseek.com](https://api-docs.deepseek.com/zh-cn/)
+- Console: [platform.deepseek.com](https://platform.deepseek.com/)
+
+| Field | Value |
+|---|---|
+| API Type | OpenAI Compatible |
+| API Base URL | `https://api.deepseek.com` |
+| Model | `deepseek-chat` |
+
+### 通义千问 / DashScope (Aliyun)
+Also OpenAI-compatible, also CORS-blocked in browsers. Use local Flask server (`python app.py`).
+
+- Console: [bailian.console.aliyun.com](https://bailian.console.aliyun.com/)
+- Docs: [help.aliyun.com/zh/model-studio](https://help.aliyun.com/zh/model-studio/developer-reference/use-qwen-by-calling-api)
+
+| Field | Value |
+|---|---|
+| API Base URL | `https://dashscope.aliyuncs.com/compatible-mode/v1` |
+| Model | `qwen-plus` |
+
+### Moonshot (Kimi)
+- Console: [platform.moonshot.cn](https://platform.moonshot.cn/)
+- Docs: [platform.moonshot.cn/docs](https://platform.moonshot.cn/docs/api/chat)
+
+| Field | Value |
+|---|---|
+| API Base URL | `https://api.moonshot.cn/v1` |
+| Model | `moonshot-v1-8k` |
+
+### OpenAI
+- Console: [platform.openai.com](https://platform.openai.com/)
+
+| Field | Value |
+|---|---|
+| API Base URL | `https://api.openai.com/v1` |
+| Model | `gpt-4o-mini` |
+
+> **Note:** All non-Gemini APIs block browser requests due to CORS. For those, either run the local Flask server (`python app.py`) or set up a [Cloudflare Worker](https://developers.cloudflare.com/workers/) proxy.
+
+---
+
+## CORS workarounds for OpenAI-compatible APIs
+
+If you see a *Network/CORS error* in the browser:
+
+1. **Use Gemini** — Google's API has CORS enabled, works in browsers directly.
+2. **Use Free Engine** — Google Translate public endpoint, no key needed.
+3. **Run `python app.py` locally** — Flask proxies all API calls server-side.
+4. **Cloudflare Worker proxy** — Deploy a tiny worker that forwards requests and adds CORS headers.
+
+---
+
+## Local Flask server
+
 ```bash
-git clone https://github.com/yourusername/fgo_translator.git
+git clone https://github.com/securityCFS/fgo_translator.git
 cd fgo_translator
-```
-
-2. Create a virtual environment (recommended):
-```bash
-# Windows
-python -m venv venv
-.\venv\Scripts\activate
-
-# Linux/Mac
-python3 -m venv venv
-source venv/bin/activate
-```
-
-3. Install required packages:
-```bash
 pip install -r requirements.txt
+python app.py
+# open http://localhost:5000
 ```
 
-## Usage
+Requires Python 3.8+. Works with any API provider.
 
-1. Run the demo script:
-```bash
-python demo.py
-```
+---
 
-2. Follow the interactive prompts:
-   - Select target language
-   - Choose translation method (GPT or Google Translate)
-   - If using GPT:
-     - Enter API base URL (default: https://api.openai.com/v1)
-     - Enter API key
-     - Choose API type (OpenAI or Custom)
-     - Enter base model name (default: gpt-4)
-     - Select authentication type
-   - Enter war name (find at https://apps.atlasacademy.io/db/JP/wars)
-   - Choose whether to translate all quests or search for specific ones
-   - Specify export directory (optional)
+## Gaming Mode
 
-3. The translated dialogues will be saved in the specified directory.
+After translation, click **Gaming Mode** to open an immersive visual-novel reader:
+- Character sprites and portraits from Atlas Academy CDN
+- Choice branches with translated options
+- History panel (H key)
+- Auto-advance (A key), Skip (S key)
+- FGO-style formatting: ruby text, size tags, inline images
 
-## Configuration
-
-The tool saves your preferences in a SQLite database (`user_preferences.db`), including:
-- Selected language
-- API configurations
-- Translation method
-
-You can use these saved settings in future sessions or update them as needed.
-
-## Translation Methods
-
-### GPT Translation
-- Requires OpenAI API key (Supporting all OpenAI/requests compatible APIs, recommend to use [aliyun](https://bailian.console.aliyun.com/) for free tokens)
-- Supports custom API endpoints
-- Configurable model and authentication
-
-### Google Translate
-- Free to use
-- No API key required
-- Limited to Google Translate's capabilities
+---
 
 ## Directory Structure
 
 ```
 fgo_translator/
-├── demo.py              # Main demo script
-├── dialogue_loader.py   # Core translation functionality
-├── db_loader.py         # Database interaction
-├── requirements.txt     # Python dependencies
-├── README.md           # This file
-└── docs/               # Documentation
-    ├── README_CN.md    # Simplified Chinese documentation
-    └── README_TW.md    # Traditional Chinese documentation
+├── index.html           # Static web app entry point
+├── gaming.html          # Gaming mode visual-novel UI
+├── js/
+│   ├── api.js           # Atlas Academy API helpers + script parser
+│   └── translate.js     # Translation engine (Gemini / OpenAI / Free)
+├── app.py               # Flask backend (local use)
+├── dialogue_loader.py   # Core script parsing logic
+├── db_loader.py         # Atlas Academy data fetching
+├── notebooks/           # Colab / Jupyter demos
+└── docs/                # Translated READMEs
 ```
+
+---
+
+## Data Source
+
+All script data is fetched live from [Atlas Academy](https://apps.atlasacademy.io/). No game files are bundled. Character sprites and portraits are loaded directly from `static.atlasacademy.io`.
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License
+
 ## Acknowledgments
 
-- [Atlas Academy](https://apps.atlasacademy.io/) for providing the FGO database
-- OpenAI for GPT API
-- Google Translate API
-- [Cursor](https://www.cursor.com/) for providing the AI code assistant
+- [Atlas Academy](https://apps.atlasacademy.io/) for the FGO database and CDN
+- Google — Gemini API & Google Translate
+- [Cursor](https://www.cursor.com/) / GitHub Copilot — AI coding assistants
 
