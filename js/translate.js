@@ -37,7 +37,20 @@ const Translator = (() => {
             apiKey        = getPref('apiKey', ''),
             apiBase       = getPref('apiBase', ''),
             baseModel     = getPref('baseModel', ''),
+            method        = 'gpt',
         } = opts;
+
+        // Free engine: Google Translate public endpoint (no API key, CORS-enabled)
+        if (method === 'free') {
+            const results = [];
+            for (let i = 0; i < dialogues.length; i++) {
+                if (onProgress) onProgress(i, dialogues.length, dialogues[i].speaker || '');
+                const t = await _freeTranslateOne(dialogues[i], targetLanguage);
+                results.push(t);
+            }
+            if (onProgress) onProgress(dialogues.length, dialogues.length, '');
+            return results;
+        }
 
         if (!apiKey) throw new Error('API key not set. Please configure it in Settings.');
 
@@ -53,6 +66,34 @@ const Translator = (() => {
         }
         if (onProgress) onProgress(dialogues.length, dialogues.length, '');
         return results;
+    }
+
+    // Map UI language names → Google Translate codes
+    const _LANG_MAP = {
+        'chinese': 'zh-CN', 'chinese simplified': 'zh-CN', '简体中文': 'zh-CN', '中文': 'zh-CN',
+        'chinese traditional': 'zh-TW', '繁體中文': 'zh-TW', '繁体中文': 'zh-TW',
+        'english': 'en', 'japanese': 'ja', 'korean': 'ko',
+        'french': 'fr', 'german': 'de', 'spanish': 'es', 'russian': 'ru',
+    };
+
+    async function _freeTranslateOne(dialogue, targetLanguage) {
+        const speaker = dialogue.speaker || '';
+        const content = dialogue.content || '';
+        if (speaker === 'System' || !content.trim()) {
+            return { speaker, translated_content: content };
+        }
+        const tl = _LANG_MAP[(targetLanguage || '').toLowerCase()] || 'zh-CN';
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=${tl}&dt=t&q=${encodeURIComponent(content)}`;
+        try {
+            const r = await fetch(url);
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            const data = await r.json();
+            // data[0] is array of [translatedSegment, originalSegment, ...]
+            const translated = (data?.[0] || []).map(seg => seg[0] || '').join('');
+            return { speaker, translated_content: translated || content };
+        } catch (e) {
+            return { speaker, translated_content: `[Translation Error: ${e.message}]` };
+        }
     }
 
     async function _translateChunk(dialogues, lang, apiType, apiKey, apiBase, baseModel) {
@@ -74,10 +115,15 @@ const Translator = (() => {
                 contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
                 generationConfig: { temperature: 0.3, maxOutputTokens: 4096 },
             };
-            const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+            let r;
+            try {
+                r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+            } catch (e) {
+                throw new Error(`Network/CORS error calling Gemini at ${base}. Check your API Base URL in Settings (should be https://generativelanguage.googleapis.com/v1beta) and your network. Original: ${e.message}`);
+            }
             if (!r.ok) {
                 const txt = await r.text();
-                throw new Error(`Gemini error ${r.status}: ${txt.slice(0, 200)}`);
+                throw new Error(`Gemini error ${r.status}: ${txt.slice(0, 300)}`);
             }
             const data = await r.json();
             rawTranslated = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
@@ -85,9 +131,8 @@ const Translator = (() => {
             // OpenAI-compatible
             const base = apiBase || 'https://api.openai.com';
             const model = baseModel || 'gpt-4o-mini';
-            const url = `${base}/v1/chat/completions`;
-            const authHeader = getPref('authType', 'api_key') === 'bearer'
-                ? `Bearer ${apiKey}` : `Bearer ${apiKey}`;
+            const url = `${base.replace(/\/+$/, '')}/v1/chat/completions`;
+            const authHeader = `Bearer ${apiKey}`;
             const body = {
                 model,
                 messages: [
@@ -97,14 +142,19 @@ const Translator = (() => {
                 temperature: 0.3,
                 max_tokens: 4096,
             };
-            const r = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Authorization': authHeader },
-                body: JSON.stringify(body),
-            });
+            let r;
+            try {
+                r = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': authHeader },
+                    body: JSON.stringify(body),
+                });
+            } catch (e) {
+                throw new Error(`Network/CORS error calling ${url}. Many OpenAI-compatible endpoints block browser requests (no CORS). Try Gemini instead, or use a CORS-enabled endpoint. Original: ${e.message}`);
+            }
             if (!r.ok) {
                 const txt = await r.text();
-                throw new Error(`API error ${r.status}: ${txt.slice(0, 200)}`);
+                throw new Error(`API error ${r.status}: ${txt.slice(0, 300)}`);
             }
             const data = await r.json();
             rawTranslated = data.choices?.[0]?.message?.content || '';
