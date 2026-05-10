@@ -317,32 +317,107 @@ const AA = (() => {
 
     /**
      * Parse raw script into visual frames for gaming mode.
-     * Mirrors Python _parse_fgo_script exactly.
+     * Faithful port of Python _parse_fgo_script in app.py.
+     * Notable:
+     *  - Two-pass: pre-scan choice groups so popup is emitted BEFORE branches
+     *  - Each branch dialogue tagged with branchId; choice frame carries endDialogueIdx
+     *  - dialogueIdx is incremented for ＠..[k], ？N：text, AND ？！
+     *  - clean_text PRESERVES formatting tags ([#base:reading], [align ...],
+     *    [line N], [f xxx]/[/f], [image xxx]) for the frontend to render.
      */
     function parseScriptVisual(raw, region = 'JP') {
         region = norm(region);
-        const CDN_R = CDN;
-        const BG_BASE = id => `${CDN_R}/${region}/Back/back${id}.png`;
-        const FIG_BASE = eid => `${CDN_R}/${region}/CharaFigure/${eid}/${eid}.png`;
+        const BG_BASE = id => `${CDN}/${region}/Back/back${id}.png`;
+        const FIG_BASE = eid => `${CDN}/${region}/CharaFigure/${eid}/${eid}.png`;
 
         let text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
         text = text.replace(/\[\s*\n\s*/g, '[');
-        text = text.replace(/\n(?=[^\[＠？\n])/g, ' ');
+        text = text.replace(/\n\s*(?=[^\[＠？\n])/g, ' ');
         text = text.replace(/\[%1\]/g, '藤丸立香').replace(/\[r\]/g, '\n');
-        text = text.replace(/\[line\s+\d+\]/g, '——');
+        // NOTE: do NOT pre-replace [line N] here; gaming.html renders it.
         const lines = text.split('\n');
 
+        // Strip every bracketed command except those the frontend renders.
+        const _PRESERVE = /\[(?:#[^\[\]:]+:[^\[\]]+|align(?:\s+\w+)?|line\s+\d+|f\s+[\w-]+|\/f|image\s+[\w-]+)\]/gi;
         function cleanText(s) {
-            s = s.replace(/\[#([^\[\]:]+):[^\[\]]+\]/g, '$1');
-            s = s.replace(/\[#([^\[\]]+)\]/g, '$1');
-            s = s.replace(/\[([^\[\]:]+):([^\[\]]+)\]/g, '$1');
-            s = s.replace(/\[[^\[\]]+\]/g, '');
-            return s.trim();
+            // [#text] (no reading) -> text  (ruby with no reading: unwrap)
+            s = s.replace(/\[#([^\[\]:]+)\](?!:)/g, '$1');
+            const out = [];
+            let last = 0;
+            _PRESERVE.lastIndex = 0;
+            let m;
+            while ((m = _PRESERVE.exec(s)) !== null) {
+                let chunk = s.slice(last, m.index);
+                chunk = chunk.replace(/\[[^\[\]]+\]/g, '');
+                out.push(chunk);
+                out.push(m[0]);
+                last = m.index + m[0].length;
+            }
+            let tail = s.slice(last);
+            tail = tail.replace(/\[[^\[\]]+\]/g, '');
+            out.push(tail);
+            return out.join('').trim();
         }
+
+        // ---- pre-scan choice groups to know dialogueIdx of every ？N and ？！ ----
+        function scanChoiceGroups() {
+            let idx = 0;
+            const groups = [];
+            let cur = null;
+            let j = 0;
+            while (j < lines.length) {
+                const ln = lines[j].trim();
+                if (ln.startsWith('＠')) {
+                    let jj = j + 1;
+                    while (jj < lines.length) {
+                        if (lines[jj].includes('[k]')) { jj++; break; }
+                        jj++;
+                    }
+                    idx++;
+                    j = jj;
+                    continue;
+                }
+                const cm = /^？(\d+)：(.+)/.exec(ln);
+                if (cm) {
+                    if (cur === null) cur = { firstLine: j, choices: [], endDialogueIdx: null, endLine: null };
+                    cur.choices.push({
+                        num: parseInt(cm[1], 10),
+                        text: cleanText(cm[2].trim()),
+                        dialogueIdx: idx,
+                    });
+                    idx++;
+                    j++;
+                    continue;
+                }
+                if (ln.startsWith('？！')) {
+                    if (cur !== null) {
+                        cur.endDialogueIdx = idx;
+                        cur.endLine = j;
+                        groups.push(cur);
+                        cur = null;
+                    }
+                    idx++;
+                    j++;
+                    continue;
+                }
+                j++;
+            }
+            if (cur !== null) {
+                cur.endDialogueIdx = idx;
+                cur.endLine = lines.length;
+                groups.push(cur);
+            }
+            return groups;
+        }
+
+        const choiceGroups = scanChoiceGroups();
+        const groupByFirstLine = new Map(choiceGroups.map(g => [g.firstLine, g]));
+        let currentGroup = null;
+        let currentBranch = null;
 
         const state = { bg: '', sprites: {}, talker: null, cameraFilter: null, bgm: null };
         const frames = [], entityIds = new Set();
-        let dialogueIdx = 0, pendingChoices = [], pendingEffects = [];
+        let dialogueIdx = 0, pendingEffects = [];
 
         function takeEffects() { const e = pendingEffects; pendingEffects = []; return e; }
 
@@ -356,17 +431,9 @@ const AA = (() => {
                 }));
         }
 
-        function flushChoices() {
-            if (!pendingChoices.length) return;
-            frames.push({ type: 'choice', bg: state.bg, sprites: snapshotSprites(),
-                choices: [...pendingChoices], dialogueIdx,
-                effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm });
-            dialogueIdx += pendingChoices.length;
-            pendingChoices = [];
-        }
-
         let i = 0;
         while (i < lines.length) {
+            const lineIdx = i;
             const line = lines[i++].trim();
             if (!line) continue;
 
@@ -383,7 +450,7 @@ const AA = (() => {
                 if (state.sprites[m[1]]) state.sprites[m[1]].face = parseInt(m[2]); continue;
             }
             if (m = /^\[charaTalk\s+(\w+)\]/.exec(line)) {
-                state.talker = ['off','depthOff','on'].includes(m[1]) ? null : m[1]; continue;
+                state.talker = ['off', 'depthOff', 'on'].includes(m[1]) ? null : m[1]; continue;
             }
             if (m = /^\[charaFadein\s+(\w)/.exec(line)) {
                 if (state.sprites[m[1]]) state.sprites[m[1]].visible = true; continue;
@@ -396,36 +463,112 @@ const AA = (() => {
             }
 
             if (line.startsWith('＠')) {
-                flushChoices();
-                const speakerRaw = line.slice(1).trim();
-                const slotM = /^([A-Z])：(.+)$/.exec(speakerRaw);
-                let speaker;
-                if (slotM) {
-                    state.talker = state.sprites[slotM[1]] ? slotM[1] : state.talker;
-                    speaker = slotM[2].trim();
-                } else { speaker = speakerRaw; }
-                const parts = [];
+                // Match Python parsing: distinguish "＠speaker" (no space, content
+                // on next line) from "＠ collapsed-content" (empty speaker, body
+                // collapsed onto same line by preprocessing).
+                const rawAfter = lines[lineIdx].replace(/^.*?＠/, '').replace(/^＠/, '');
+                // The above is overkill; lines[lineIdx] starts with ＠ before trim
+                // — but we already trimmed `line`, so re-derive from line:
+                const rawAfter2 = line.slice(1); // includes leading space if any
+                let speaker = '';
+                let initialContent = '';
+                if (rawAfter2 === '' || rawAfter2[0] === ' ') {
+                    speaker = '';
+                    initialContent = rawAfter2.trim();
+                } else {
+                    let speakerRaw = rawAfter2.trim();
+                    const sp = speakerRaw.split(/\s+/, 2);
+                    if (sp.length === 2) {
+                        speakerRaw = sp[0];
+                        // recover the rest after first whitespace
+                        initialContent = rawAfter2.trim().slice(sp[0].length).trim();
+                    }
+                    const slotPrefix = /^([A-Z])：(.+)$/.exec(speakerRaw);
+                    if (slotPrefix) {
+                        const speakerSlot = slotPrefix[1];
+                        speaker = slotPrefix[2].trim();
+                        if (state.sprites[speakerSlot]) state.talker = speakerSlot;
+                    } else {
+                        speaker = speakerRaw;
+                    }
+                }
+
+                const contentParts = [];
+                let emittedFromInitial = false;
+                if (initialContent) {
+                    if (initialContent.includes('[k]')) {
+                        const beforeK = initialContent.slice(0, initialContent.indexOf('[k]')).trim();
+                        if (beforeK) contentParts.push(beforeK);
+                        const content = cleanText(contentParts.join('\n'));
+                        if (content) {
+                            frames.push({
+                                type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
+                                speaker, text: content, dialogueIdx, branchId: currentBranch,
+                                effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
+                            });
+                        }
+                        dialogueIdx++;
+                        emittedFromInitial = true;
+                    } else {
+                        contentParts.push(initialContent);
+                    }
+                }
+                if (emittedFromInitial) continue;
+
                 while (i < lines.length) {
                     const cl = lines[i++].trim();
-                    if (cl.includes('[k]')) { const pre = cl.slice(0, cl.indexOf('[k]')).trim(); if (pre) parts.push(pre); break; }
-                    if (cl) parts.push(cl);
+                    if (cl.includes('[k]')) {
+                        const beforeK = cl.slice(0, cl.indexOf('[k]')).trim();
+                        if (beforeK) contentParts.push(beforeK);
+                        break;
+                    }
+                    if (cl) contentParts.push(cl);
                 }
-                const content = cleanText(parts.join('\n'));
+                const content = cleanText(contentParts.join('\n'));
                 if (content) {
-                    frames.push({ type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
-                        speaker, text: content, dialogueIdx,
-                        effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm });
+                    frames.push({
+                        type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
+                        speaker, text: content, dialogueIdx, branchId: currentBranch,
+                        effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
+                    });
                 }
                 dialogueIdx++;
                 continue;
             }
 
             if (m = /^？(\d+)：(.+)/.exec(line)) {
-                const txt = cleanText(m[2].trim());
-                if (txt) pendingChoices.push({ num: parseInt(m[1]), text: txt });
+                const num = parseInt(m[1], 10);
+                if (currentGroup === null) {
+                    let grp = groupByFirstLine.get(lineIdx) || null;
+                    if (!grp) {
+                        for (const g of choiceGroups) {
+                            if (g.firstLine <= lineIdx && lineIdx <= (g.endLine ?? lines.length)) {
+                                grp = g; break;
+                            }
+                        }
+                    }
+                    if (grp) {
+                        currentGroup = grp;
+                        frames.push({
+                            type: 'choice', bg: state.bg, sprites: snapshotSprites(),
+                            choices: grp.choices.map(c => ({ ...c })),
+                            dialogueIdx: grp.choices.length ? grp.choices[0].dialogueIdx : dialogueIdx,
+                            endDialogueIdx: grp.endDialogueIdx,
+                            effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
+                        });
+                    }
+                }
+                currentBranch = num;
+                dialogueIdx++; // ？N consumes one translation slot
                 continue;
             }
-            if (line.startsWith('？！')) { flushChoices(); continue; }
+
+            if (line.startsWith('？！')) {
+                currentGroup = null;
+                currentBranch = null;
+                dialogueIdx++; // ？！ consumes one translation slot ("Choice N Ending")
+                continue;
+            }
 
             // Effects
             if (m = /^\[fadeout\s+(\w+)(?:\s+([\d.]+))?\s*\]/.exec(line)) {
@@ -450,7 +593,6 @@ const AA = (() => {
             if (m = /^\[bgm\s+(\w+)/.exec(line)) { state.bgm = m[1]; continue; }
             if (/^\[bgmStop\b/.test(line)) { state.bgm = null; continue; }
         }
-        flushChoices();
         return { frames, entityIds: [...entityIds] };
     }
 
