@@ -10,6 +10,8 @@
             --font-original: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
             --font-translated: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
             --font-scale: 1;
+            --gm-vw: 100vw;
+            --gm-vh: 100vh;
         }
         html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000; font-family: var(--font-original); user-select: none; display:flex; align-items:center; justify-content:center; }
 
@@ -94,7 +96,46 @@
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
         #dialogueSystem.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        
+        #dialogueSystem.show:not(.force-hidden) { transform: translateY(0) !important; }
+        /* Drag-down to hide subtitle bar */
+        #dialogueSystem.force-hidden { transform: translateY(110%) !important; opacity: 0 !important; pointer-events: none !important; }
+
+        /* Full-screen overlay shown ONLY when subtitle bar is hidden — catches the
+           tap/click to restore it. Sits above everything except modals. */
+        #subRestoreOverlay {
+            position: absolute; inset: 0; z-index: 140;
+            cursor: pointer; display: none;
+            background: transparent;
+        }
+        #subRestoreOverlay.active { display: block; }
+
+        /* Subtitle restore hint — appears when bar is hidden */
+        #subRestoreHint {
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            z-index: 6; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        #subRestoreHint.show { opacity: 1; }
+        #subRestoreHint .hint-arrow {
+            width: 0; height: 0;
+            border-left: 8px solid transparent; border-right: 8px solid transparent;
+            border-bottom: 12px solid rgba(139,168,216,0.85);
+            animation: bounce-pulse 1.2s infinite;
+        }
+        #subRestoreHint .hint-text {
+            font-size: 11px; color: rgba(139,168,216,0.85); letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* Translator credit badge */
+        #translatorBadge {
+            position: absolute; right: 8px; bottom: 8px; z-index: 110;
+            color: rgba(163,179,204,0.7); font-size: 10px; letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.9); pointer-events: none;
+            display: none;
+        }
+
         /* Speaker Tag (The slanted FGO style) */
         #speakerTagWrap { padding-left: 5vw; margin-bottom: -1px; z-index: 2; position: relative; }
         #speakerTag {
@@ -118,6 +159,7 @@
             padding: 20px 5vw 25px 5vw;
             min-height: 20vh;
             position: relative;
+            box-sizing: border-box;
             box-shadow: inset 0 20px 50px rgba(0,0,0,0.5), 0 -4px 10px rgba(0,0,0,0.4);
             /* Subtle diamond pattern overlay typical of FGO */
             background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), 
@@ -251,6 +293,117 @@
             position: absolute; top: 14px; right: 18px; background: none; border: 1px solid rgba(255,255,255,0.3);
             color: #fff; padding: 4px 14px; border-radius: 4px; cursor: pointer; font-size: 13px;
         }
+
+        @media (max-width: 900px), (max-height: 500px) {
+            html, body {
+                width: 100dvw;
+                height: 100dvh;
+                overscroll-behavior: none;
+            }
+            #sceneWrap {
+                width: var(--gm-vw);
+                height: var(--gm-vh);
+                max-width: none;
+                max-height: none;
+            }
+            #topRightControls { top: clamp(6px, 2cqh, 12px); right: clamp(8px, 2cqw, 14px); }
+            .fgo-btn-skip {
+                min-height: 28px;
+                font-size: clamp(10px, 2.8cqh, 13px);
+                padding: 3px 12px 3px 10px;
+            }
+            #devInfo {
+                top: clamp(6px, 2cqh, 12px);
+                left: clamp(7px, 2cqw, 12px);
+                font-size: clamp(8px, 2.2cqh, 10px);
+            }
+            .exit-btn {
+                min-height: 26px;
+                padding: 2px 7px;
+                font-size: clamp(9px, 2.3cqh, 11px);
+            }
+            #speakerTagWrap {
+                padding-left: clamp(14px, 5cqw, 34px);
+            }
+            #speakerTag {
+                min-width: clamp(76px, 19cqw, 120px);
+                font-size: clamp(12px, 3.4cqh, 17px);
+                padding: clamp(4px, 1.4cqh, 6px) clamp(22px, 5cqw, 32px) clamp(4px, 1.4cqh, 6px) clamp(12px, 3cqw, 18px);
+            }
+            #dialogueBox {
+                min-height: clamp(92px, 25cqh, 145px);
+                padding: clamp(8px, 2.5cqh, 16px) clamp(58px, 13cqw, 92px) clamp(10px, 3cqh, 18px) clamp(18px, 5cqw, 36px);
+            }
+            .text-container {
+                width: 100%;
+            }
+            #originalText {
+                font-size: calc(clamp(10px, 3.1cqh, 16px) * var(--font-scale));
+                line-height: 1.32;
+                margin-bottom: clamp(3px, 1cqh, 7px);
+            }
+            #translatedText {
+                font-size: calc(clamp(13px, 4cqh, 19px) * var(--font-scale));
+                line-height: 1.35;
+                letter-spacing: 0;
+            }
+            #rightControls {
+                right: clamp(8px, 2cqw, 14px);
+                bottom: clamp(8px, 2.4cqh, 16px);
+                gap: clamp(4px, 1.6cqh, 8px);
+            }
+            .fgo-btn-side {
+                width: clamp(32px, 8cqh, 42px);
+                height: clamp(32px, 8cqh, 42px);
+                font-size: clamp(7px, 2cqh, 9px);
+            }
+            .fgo-btn-icon {
+                width: clamp(13px, 3.8cqh, 17px);
+                height: clamp(13px, 3.8cqh, 17px);
+            }
+            #clickHint {
+                right: clamp(66px, 13cqw, 110px);
+                bottom: clamp(14px, 4cqh, 24px);
+                border-left-width: 6px;
+                border-right-width: 6px;
+                border-top-width: 9px;
+            }
+            #choicesList {
+                width: min(86%, 560px);
+                gap: clamp(7px, 2cqh, 13px);
+            }
+            .choice-btn {
+                padding: clamp(9px, 2.6cqh, 14px) clamp(28px, 7cqw, 42px);
+            }
+            .choice-trans {
+                font-size: calc(clamp(13px, 3.7cqh, 18px) * var(--font-scale));
+            }
+            .choice-orig {
+                font-size: calc(clamp(10px, 2.8cqh, 14px) * var(--font-scale));
+            }
+            #historyOverlay {
+                padding: clamp(34px, 9cqh, 48px) clamp(20px, 6cqw, 48px) clamp(16px, 5cqh, 26px);
+            }
+            .hist-orig { font-size: calc(clamp(11px, 3cqh, 15px) * var(--font-scale)); }
+            .hist-trans { font-size: calc(clamp(12px, 3.3cqh, 16px) * var(--font-scale)); }
+            #loadingScreen {
+                padding: clamp(16px, 5cqh, 28px) clamp(20px, 5cqw, 36px);
+            }
+            .fou-gif { width: clamp(78px, 24cqh, 128px); }
+            .loading-text { font-size: clamp(12px, 3.4cqh, 17px); }
+        }
+
+        @media (orientation: portrait) and (max-width: 900px) {
+            #sceneWrap {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: var(--gm-vh);
+                height: var(--gm-vw);
+                transform: translate(-50%, -50%) rotate(90deg);
+                transform-origin: center center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -307,7 +460,19 @@
         <div id="choicesList"></div>
     </div>
 
-    <!-- History log overlay -->
+    <!-- Subtitle restore hint (shown when dialogue bar is dragged down) -->
+    <div id="subRestoreHint">
+        <div class="hint-arrow"></div>
+        <div class="hint-text">TAP TO RESTORE</div>
+    </div>
+
+    <!-- Restore overlay — only visible while subtitle bar is hidden, catches tap to restore -->
+    <div id="subRestoreOverlay"></div>
+
+    <!-- Translator credit badge -->
+    <div id="translatorBadge"></div>
+
+    <!-- History Log overlay -->
     <div id="historyOverlay">
         <button id="historyClose" onclick="hideHistory()">Close</button>
         <h3>Dialogue History</h3>
@@ -449,7 +614,32 @@ function loadData() {
     } catch (e) { return null; }
 }
 
+function isMobileScene() {
+    return window.matchMedia('(pointer: coarse), (max-width: 900px), (max-height: 500px)').matches;
+}
+
+function updateViewportVars() {
+    const root = document.documentElement.style;
+    root.setProperty('--gm-vw', `${window.innerWidth}px`);
+    root.setProperty('--gm-vh', `${window.innerHeight}px`);
+}
+
+async function requestLandscapeMode() {
+    if (!isMobileScene()) return;
+    try {
+        if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+            await document.documentElement.requestFullscreen({ navigationUI: 'hide' });
+        }
+    } catch (e) { }
+    try {
+        if (screen.orientation && screen.orientation.lock) {
+            await screen.orientation.lock('landscape');
+        }
+    } catch (e) { }
+}
+
 async function init() {
+    updateViewportVars();
     DATA = loadData();
     if (!DATA || !DATA.frames || DATA.frames.length === 0) {
         document.getElementById('loadingScreen').textContent = 'No scene data found. Please launch from the main page.';
@@ -473,6 +663,9 @@ async function init() {
         }
     } catch (e) { /* offline / popup-isolated — fall back to defaults */ }
 
+    requestLandscapeMode();
+    document.addEventListener('pointerdown', requestLandscapeMode, { once: true });
+
     // Fou-loading flourish before first frame
     setTimeout(() => {
         const loader = document.getElementById('loadingScreen');
@@ -488,6 +681,12 @@ async function init() {
     window.addEventListener('keydown', onKey);
     window.addEventListener('wheel', onWheel, { passive: true });
 
+    // ---------- Drag subtitle bar down to hide it ----------
+    initSubtitleDrag();
+
+    // ---------- Translator badge ----------
+    updateTranslatorBadge();
+
     // Browsers block autoplay until first gesture: kick BGM on first click/key.
     const unlockAudio = () => {
         if (BGM_AUDIO && BGM_AUDIO.paused && CURRENT_BGM) {
@@ -498,6 +697,89 @@ async function init() {
     };
     window.addEventListener('click', unlockAudio, true);
     window.addEventListener('keydown', unlockAudio, true);
+}
+
+// ============================================================================
+// Drag-down to hide subtitle bar
+// ============================================================================
+function initSubtitleDrag() {
+    const sys = document.getElementById('dialogueSystem');
+    const hint = document.getElementById('subRestoreHint');
+    const restoreOverlay = document.getElementById('subRestoreOverlay');
+    const DRAG_THRESHOLD = 60;  // pixels down to trigger hide
+    let dragStartY = null;
+    let dragging = false;
+
+    function hideBar() {
+        sys.classList.add('force-hidden');
+        hint.classList.add('show');
+        restoreOverlay.classList.add('active');
+    }
+    function showBar() {
+        sys.classList.remove('force-hidden');
+        hint.classList.remove('show');
+        restoreOverlay.classList.remove('active');
+    }
+    // Expose for external use (e.g. when frame changes restore bar implicitly)
+    window._fgoShowSubBar = showBar;
+
+    function onDragStart(y, target) {
+        if (target && (target.closest('button') || target.closest('.fgo-btn-side'))) return;
+        if (!sys.classList.contains('show') || sys.classList.contains('force-hidden')) return;
+        dragStartY = y;
+        dragging = true;
+    }
+    function onDragMove(y) {
+        if (!dragging || dragStartY === null) return;
+        if (y - dragStartY > DRAG_THRESHOLD) {
+            hideBar();
+            dragging = false;
+            dragStartY = null;
+        }
+    }
+    function onDragEnd() { dragging = false; dragStartY = null; }
+
+    // Touch — listen on dialogue bar
+    sys.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientY, e.target), { passive: true });
+    sys.addEventListener('touchmove',  (e) => onDragMove(e.touches[0].clientY), { passive: true });
+    sys.addEventListener('touchend', onDragEnd, { passive: true });
+    sys.addEventListener('touchcancel', onDragEnd, { passive: true });
+
+    // Mouse fallback (desktop)
+    sys.addEventListener('mousedown', (e) => onDragStart(e.clientY, e.target));
+    window.addEventListener('mousemove', (e) => onDragMove(e.clientY));
+    window.addEventListener('mouseup', onDragEnd);
+
+    // Restore overlay — tap anywhere to restore bar
+    function restoreHandler(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        showBar();
+    }
+    restoreOverlay.addEventListener('click', restoreHandler);
+    restoreOverlay.addEventListener('touchend', restoreHandler);
+}
+
+// ============================================================================
+// Translator credit badge
+// ============================================================================
+function updateTranslatorBadge() {
+    const badge = document.getElementById('translatorBadge');
+    if (!DATA) return;
+    const region = DATA.sourceRegion || DATA.source_region || null;
+    const method = DATA.translationMethod || DATA.translation_method || null;
+    let label = '';
+    if (region && region !== 'JP') {
+        const REGION_LABELS = { NA: 'Atlas Academy · NA', CN: 'Atlas Academy · CN', TW: 'Atlas Academy · TW', KR: 'Atlas Academy · KR' };
+        label = REGION_LABELS[region] || `Atlas Academy · ${region}`;
+        if (DATA.rayshift) label += ' / RayShift';
+    } else if (method && method !== 'LLM') {
+        label = method;
+    }
+    if (label) {
+        badge.textContent = label;
+        badge.style.display = 'block';
+    }
 }
 
 function advanceClick() {
@@ -1022,7 +1304,13 @@ function closeWindow() {
     document.getElementById('loadingScreen').textContent = 'Session closed. You may close this tab.';
 }
 
-let resizeT; window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(renderFrame, 150); });
+let resizeT; window.addEventListener('resize', () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => {
+        updateViewportVars();
+        renderFrame();
+    }, 150);
+});
 document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>

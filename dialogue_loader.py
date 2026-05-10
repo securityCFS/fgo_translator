@@ -851,6 +851,45 @@ class DialogueLoader:
             logger.error(f"Failed to get quest scripts: {e}")
             return []
             
+    def _parse_script_dialogues(self, text_content: str) -> List[Dict]:
+        """Parse an already-fetched and cleaned FGO raw script text into dialogue dicts."""
+        all_matches = []
+        last_choice_num = None
+
+        # Pattern 1: Regular dialogue with speaker — ＠speaker\ncontent\n[k]
+        for match in re.finditer(r'＠([^\n]*)\n(.*?)\n\[k\]', text_content, re.DOTALL):
+            speaker = match.group(1).strip() or 'Narrator'
+            content = match.group(2).strip()
+            if content:
+                all_matches.append({
+                    'pos': match.start(), 'type': 'dialogue',
+                    'speaker': speaker,
+                    'content': content.replace('[r]', '\n'),
+                })
+
+        # Pattern 2: Protagonist choice — ？num：choice\n
+        for match in re.finditer(r'？(\d+)：(.*?)\n', text_content, re.DOTALL):
+            choice_num = match.group(1)
+            choice_text = match.group(2).strip()
+            if choice_text:
+                all_matches.append({
+                    'pos': match.start(), 'type': 'choice',
+                    'speaker': '藤丸立香',
+                    'content': f"Choice {choice_num}: {choice_text.replace('[r]', chr(10))}",
+                })
+                last_choice_num = choice_num
+
+        # Pattern 3: Choice ending marker — ？！
+        for match in re.finditer(r'？！', text_content, re.DOTALL):
+            all_matches.append({
+                'pos': match.start(), 'type': 'choice_ending',
+                'speaker': 'System',
+                'content': f'Choice {last_choice_num} Ending' if last_choice_num else 'Choice Ending',
+            })
+
+        all_matches.sort(key=lambda x: x['pos'])
+        return [{'speaker': m['speaker'], 'content': m['content']} for m in all_matches]
+
     def extract_dialogues(self, script_id: str, region: str = "JP") -> List[Dict]:
         """
         Extract dialogues from a script.
@@ -865,6 +904,48 @@ class DialogueLoader:
         try:
             # Get script data
             search_region = self.normalize_region(region)
+
+            # For NA region, try Rayshift FIRST — it covers JP-only scripts that
+            # don't exist in Atlas NA, and provides higher-quality translations than
+            # the official Atlas NA text.
+            if search_region == 'NA':
+                try:
+                    import requests as _req
+                    rs_check_url = f"https://rayshift.io/api/v1/translate/check-ingame/{script_id}"
+                    rs_head = _req.head(rs_check_url, timeout=8)
+                    if rs_head.status_code == 200:
+                        # Fetch JP original from Atlas JP
+                        jp_endpoint = f"{self.db_loader.BASE_URL}/nice/JP/script/{script_id}"
+                        jp_data = self.db_loader._make_request_with_retry(jp_endpoint)
+                        jp_url = str(jp_data.get('script', '')) if jp_data else ''
+                        jp_text = self._get_text_content(jp_url) if jp_url else ''
+                        # Fetch Rayshift English text
+                        rs_resp = _req.get(
+                            f"https://rayshift.io/api/v1/translate/script-ingame/{script_id}",
+                            timeout=15
+                        )
+                        rayshift_text = rs_resp.text if rs_resp.status_code == 200 else ''
+                        if jp_text and rayshift_text:
+                            def _clean(t):
+                                return t.replace('[%1]', '藤丸立香').replace('[line 3]', '——').replace(
+                                    '[line 6]', '——').replace('[line 18]', '——')
+                            jp_dialogues = self._parse_script_dialogues(_clean(jp_text))
+                            rayshift_dialogues = self._parse_script_dialogues(_clean(rayshift_text))
+                            paired = []
+                            for i, jp_d in enumerate(jp_dialogues):
+                                en_content = rayshift_dialogues[i]['content'] if i < len(rayshift_dialogues) else ''
+                                paired.append({
+                                    'speaker': jp_d['speaker'],
+                                    'content': jp_d['content'],
+                                    'translated_content': en_content,
+                                    'rayshift': True,
+                                })
+                            logger.info(f"Paired {len(paired)} Rayshift dialogues for script {script_id}")
+                            return paired
+                except Exception as e:
+                    logger.warning(f"Rayshift fetch failed for {script_id}, falling back to Atlas NA: {e}")
+                # Rayshift unavailable — fall through to Atlas NA below
+
             script_endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/script/{script_id}"
             script_data = self.db_loader._make_request_with_retry(script_endpoint)
             
@@ -873,12 +954,12 @@ class DialogueLoader:
                 return []
             
             # Get the raw script text from the script URL
-            script_url = script_data.get('script', '')
+            script_url = str(script_data.get('script', ''))
             if not script_url:
                 logger.warning(f"No script URL found for script ID {script_id}")
                 return []
-            
-            # Fetch the raw script text
+
+            # Fetch the raw script text (Atlas region text)
             text_content = self._get_text_content(script_url)
             if not text_content:
                 logger.warning(f"Failed to fetch script text from {script_url}")

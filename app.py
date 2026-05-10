@@ -837,5 +837,108 @@ def get_quest_detail():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/check_atlas_translations', methods=['POST'])
+def check_atlas_translations():
+    """Check which Atlas Academy regions have this quest (NA/CN/TW/KR) and whether Rayshift has it."""
+    data = request.get_json() or {}
+    quest_id = str(data.get('quest_id', ''))
+    if not quest_id:
+        return jsonify({'error': 'quest_id required'}), 400
+
+    REGIONS_TO_CHECK = ['NA', 'CN', 'TW', 'KR']
+
+    def check_region(region):
+        try:
+            import requests as req
+            url = f"{loader.db_loader.BASE_URL}/basic/{region}/quest/{quest_id}"
+            r = req.get(url, timeout=8)
+            if r.status_code == 200:
+                j = r.json()
+                return region, bool(j and 'id' in j)
+            return region, False
+        except Exception:
+            return region, False
+
+    def check_rayshift():
+        """Check Rayshift availability via the JP quest's first phase/script."""
+        try:
+            import requests as req
+            # Get JP quest phase 1 to find the first script ID
+            phase_url = f"{loader.db_loader.BASE_URL}/nice/JP/quest/{quest_id}/1"
+            r = req.get(phase_url, timeout=8)
+            if r.status_code != 200:
+                return False
+            scripts = r.json().get('scripts', [])
+            if not scripts:
+                return False
+            first_script_id = str(scripts[0].get('scriptId', ''))
+            if not first_script_id:
+                return False
+            rs = req.head(
+                f"https://rayshift.io/api/v1/translate/check-ingame/{first_script_id}",
+                timeout=8
+            )
+            return rs.status_code == 200
+        except Exception:
+            return False
+
+    availability = {}
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        region_futures = [executor.submit(check_region, r) for r in REGIONS_TO_CHECK]
+        rayshift_future = executor.submit(check_rayshift)
+        for future in region_futures:
+            region, available = future.result()
+            availability[region] = available
+        has_rayshift = rayshift_future.result()
+
+    # If Rayshift has a translation, mark NA as available (Rayshift provides English)
+    if has_rayshift:
+        availability['NA'] = True
+    availability['rayshift'] = has_rayshift
+
+    return jsonify(availability)
+
+
+@app.route('/get_atlas_dialogues', methods=['POST'])
+def get_atlas_dialogues():
+    """Return dialogues from a specific Atlas Academy region as pre-translated text."""
+    data = request.get_json() or {}
+    script_ids = data.get('script_ids', [])
+    target_region = str(data.get('target_region', 'NA')).upper()
+
+    if not script_ids:
+        return jsonify({'error': 'script_ids required'}), 400
+
+    ALLOWED_REGIONS = {'NA', 'CN', 'TW', 'KR'}
+    if target_region not in ALLOWED_REGIONS:
+        return jsonify({'error': f'target_region must be one of {sorted(ALLOWED_REGIONS)}'}), 400
+
+    try:
+        all_dialogues = []
+        for script_id in script_ids:
+            dialogues = loader.extract_dialogues(str(script_id), region=target_region)
+            all_dialogues.extend(dialogues)
+
+        translated = [
+            {
+                'speaker': d.get('speaker', ''),
+                # If extract_dialogues already paired a Rayshift translation, use it
+                # directly; otherwise fall back to the raw 'content' field.
+                'translated_content': d.get('translated_content', d.get('content', '')),
+                'rayshift': d.get('rayshift', False),
+            }
+            for d in all_dialogues
+        ]
+
+        has_rayshift = any(d.get('rayshift') for d in all_dialogues)
+        return jsonify({
+            'translated_dialogues': translated,
+            'source_region': target_region,
+            'rayshift': has_rayshift,
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     socketio.run(app, debug=True, allow_unsafe_werkzeug=True) 
