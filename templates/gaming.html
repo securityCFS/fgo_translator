@@ -155,11 +155,12 @@
 
         /* Dialogue Box */
         #dialogueBox {
+            --dialogue-fit: 1;
             background: rgba(4, 11, 29, 0.88);
             border-top: 2px solid #5a82c4;
             border-bottom: 2px solid #5a82c4;
             padding: 20px 5vw 25px 5vw;
-            height: clamp(150px, 22vh, 210px);
+            height: clamp(170px, 26vh, 240px);
             position: relative;
             box-sizing: border-box;
             overflow: hidden;
@@ -180,7 +181,7 @@
             flex-direction: column;
         }
         #originalText {
-            color: #94a3b8; font-size: calc(19px * var(--font-scale)); line-height: 1.5; font-weight: 500;
+            color: #94a3b8; font-size: calc(19px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.5; font-weight: 500;
             margin: 0 0 10px 0; white-space: pre-wrap; text-shadow: 1px 1px 0 #000;
             font-family: var(--font-original);
             flex: 0 0 auto;
@@ -188,7 +189,7 @@
             overflow-wrap: anywhere;
         }
         #translatedText {
-            color: #fff; font-size: calc(22px * var(--font-scale)); line-height: 1.5; font-weight: bold;
+            color: #fff; font-size: calc(22px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.5; font-weight: bold;
             margin: 0; white-space: pre-wrap; text-shadow: 1px 1px 3px rgba(0,0,0,1);
             letter-spacing: 0.05em;
             font-family: var(--font-translated);
@@ -346,22 +347,25 @@
                 padding: clamp(4px, 1.4cqh, 6px) clamp(22px, 5cqw, 32px) clamp(4px, 1.4cqh, 6px) clamp(12px, 3cqw, 18px);
             }
             #dialogueBox {
-                height: clamp(98px, 25cqh, 145px);
+                height: clamp(136px, 37cqh, 190px);
                 min-height: 0;
-                padding: clamp(8px, 2.5cqh, 16px) clamp(58px, 13cqw, 92px) clamp(10px, 3cqh, 18px) clamp(18px, 5cqw, 36px);
+                padding: clamp(7px, 2.2cqh, 14px) clamp(58px, 13cqw, 92px) clamp(9px, 2.5cqh, 16px) clamp(18px, 5cqw, 36px);
             }
             .text-container {
                 width: 100%;
             }
             #originalText {
-                font-size: calc(clamp(10px, 3.1cqh, 16px) * var(--font-scale));
-                line-height: 1.32;
+                font-size: calc(clamp(10px, 2.8cqh, 14px) * var(--font-scale) * var(--dialogue-fit));
+                line-height: 1.25;
                 margin-bottom: clamp(3px, 1cqh, 7px);
             }
             #translatedText {
-                font-size: calc(clamp(13px, 4cqh, 19px) * var(--font-scale));
-                line-height: 1.35;
+                font-size: calc(clamp(12px, 3.45cqh, 17px) * var(--font-scale) * var(--dialogue-fit));
+                line-height: 1.28;
                 letter-spacing: 0;
+            }
+            #originalText, #translatedText {
+                padding-top: 0.35em;
             }
             #rightControls {
                 right: clamp(8px, 2cqw, 14px);
@@ -1173,6 +1177,22 @@ function setBgm(name) {
     }
 }
 
+function fitDialogueText() {
+    const box = document.getElementById('dialogueBox');
+    const text = box ? box.querySelector('.text-container') : null;
+    const original = document.getElementById('originalText');
+    const translated = document.getElementById('translatedText');
+    if (!box || !text || !original || !translated) return;
+    box.style.setProperty('--dialogue-fit', '1');
+    const hasOverflow = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
+    const fits = () => !hasOverflow(text) && !hasOverflow(original) && !hasOverflow(translated);
+    if (fits()) return;
+    for (const scale of [0.94, 0.9, 0.86, 0.82, 0.78]) {
+        box.style.setProperty('--dialogue-fit', String(scale));
+        if (fits()) return;
+    }
+}
+
 function showDialogue(f) {
     const sys = document.getElementById('dialogueSystem');
     sys.classList.add('show');
@@ -1193,6 +1213,8 @@ function showDialogue(f) {
     }
     document.getElementById('originalText').innerHTML = formatScriptText(f.text || '');
     document.getElementById('translatedText').innerHTML = formatScriptText(split.body || trans.translated_content || '');
+    fitDialogueText();
+    requestAnimationFrame(fitDialogueText);
 }
 
 function hideDialogue() { document.getElementById('dialogueSystem').classList.remove('show'); }
