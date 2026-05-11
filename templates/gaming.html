@@ -69,7 +69,7 @@
         #fadeLayer { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease, background-color 0.2s; z-index: 80; }
         #fadeLayer.show { opacity: 1; }
         #fadeLayer.white { background: #fff; }
-        #clickOverlay { position:absolute; inset:0; cursor: pointer; z-index: 5; }
+        #clickOverlay { position:absolute; inset:0; cursor: pointer; z-index: 5; touch-action: none; }
 
         /* FGO Style UI Overlay */
         #uiLayer { position: absolute; inset: 0; z-index: 100; pointer-events: none; }
@@ -94,6 +94,7 @@
             position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column;
             pointer-events: none; opacity: 0; transform: translateY(18px);
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            touch-action: none;
         }
         #dialogueSystem.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
         #dialogueSystem.show:not(.force-hidden) { transform: translateY(0) !important; }
@@ -106,6 +107,7 @@
             position: absolute; inset: 0; z-index: 140;
             cursor: pointer; display: none;
             background: transparent;
+            touch-action: none;
         }
         #subRestoreOverlay.active { display: block; }
 
@@ -157,9 +159,10 @@
             border-top: 2px solid #5a82c4;
             border-bottom: 2px solid #5a82c4;
             padding: 20px 5vw 25px 5vw;
-            min-height: 20vh;
+            height: clamp(150px, 22vh, 210px);
             position: relative;
             box-sizing: border-box;
+            overflow: hidden;
             box-shadow: inset 0 20px 50px rgba(0,0,0,0.5), 0 -4px 10px rgba(0,0,0,0.4);
             /* Subtle diamond pattern overlay typical of FGO */
             background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)), 
@@ -169,17 +172,29 @@
         }
 
         /* Text Layout */
-        .text-container { width: 85%; }
+        .text-container {
+            width: 85%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
         #originalText {
             color: #94a3b8; font-size: calc(19px * var(--font-scale)); line-height: 1.5; font-weight: 500;
             margin: 0 0 10px 0; white-space: pre-wrap; text-shadow: 1px 1px 0 #000;
             font-family: var(--font-original);
+            flex: 0 0 auto;
+            overflow: hidden;
+            overflow-wrap: anywhere;
         }
         #translatedText {
             color: #fff; font-size: calc(22px * var(--font-scale)); line-height: 1.5; font-weight: bold;
             margin: 0; white-space: pre-wrap; text-shadow: 1px 1px 3px rgba(0,0,0,1);
             letter-spacing: 0.05em;
             font-family: var(--font-translated);
+            flex: 1 1 auto;
+            overflow: hidden;
+            overflow-wrap: anywhere;
         }
 
         /* Inline glyph image (e.g. [image berserker_language_9]). FGO uses
@@ -331,7 +346,8 @@
                 padding: clamp(4px, 1.4cqh, 6px) clamp(22px, 5cqw, 32px) clamp(4px, 1.4cqh, 6px) clamp(12px, 3cqw, 18px);
             }
             #dialogueBox {
-                min-height: clamp(92px, 25cqh, 145px);
+                height: clamp(98px, 25cqh, 145px);
+                min-height: 0;
                 padding: clamp(8px, 2.5cqh, 16px) clamp(58px, 13cqw, 92px) clamp(10px, 3cqh, 18px) clamp(18px, 5cqw, 36px);
             }
             .text-container {
@@ -704,51 +720,101 @@ async function init() {
 // ============================================================================
 function initSubtitleDrag() {
     const sys = document.getElementById('dialogueSystem');
+    const clickOverlay = document.getElementById('clickOverlay');
     const hint = document.getElementById('subRestoreHint');
     const restoreOverlay = document.getElementById('subRestoreOverlay');
-    const DRAG_THRESHOLD = 60;  // pixels down to trigger hide
-    let dragStartY = null;
-    let dragging = false;
+    const SWIPE_THRESHOLD = isMobileScene() ? 42 : 60;
+    let startPoint = null;
+    let startTarget = null;
 
     function hideBar() {
         sys.classList.add('force-hidden');
         hint.classList.add('show');
         restoreOverlay.classList.add('active');
+        blockNextSyntheticClick();
     }
     function showBar() {
         sys.classList.remove('force-hidden');
         hint.classList.remove('show');
         restoreOverlay.classList.remove('active');
+        blockNextSyntheticClick();
     }
     // Expose for external use (e.g. when frame changes restore bar implicitly)
     window._fgoShowSubBar = showBar;
 
-    function onDragStart(y, target) {
-        if (target && (target.closest('button') || target.closest('.fgo-btn-side'))) return;
-        if (!sys.classList.contains('show') || sys.classList.contains('force-hidden')) return;
-        dragStartY = y;
-        dragging = true;
+    function blockNextSyntheticClick() {
+        window._fgoGestureBlockClickUntil = Date.now() + 450;
     }
-    function onDragMove(y) {
-        if (!dragging || dragStartY === null) return;
-        if (y - dragStartY > DRAG_THRESHOLD) {
-            hideBar();
-            dragging = false;
-            dragStartY = null;
+    function isInteractiveTarget(target) {
+        return !!(target && target.closest('button, .fgo-btn-side, .choice-btn, #choicesWrap, #historyOverlay'));
+    }
+    function isPortraitRotatedScene() {
+        return isMobileScene() && window.matchMedia('(orientation: portrait) and (max-width: 900px)').matches;
+    }
+    function toVisualDelta(point) {
+        const dx = point.x - startPoint.x;
+        const dy = point.y - startPoint.y;
+        if (isPortraitRotatedScene()) return { dx: dy, dy: -dx };
+        return { dx, dy };
+    }
+    function onGestureStart(point, target) {
+        if (isInteractiveTarget(target)) return;
+        startPoint = point;
+        startTarget = target;
+    }
+    function onGestureMove(point, event) {
+        if (!startPoint) return;
+        const delta = toVisualDelta(point);
+        if (Math.abs(delta.dy) > 10 && Math.abs(delta.dy) > Math.abs(delta.dx)) {
+            event?.preventDefault?.();
         }
     }
-    function onDragEnd() { dragging = false; dragStartY = null; }
+    function onGestureEnd(point, event) {
+        if (!startPoint) return;
+        const delta = toVisualDelta(point);
+        const startedOnDialogue = !!(startTarget && startTarget.closest('#dialogueSystem'));
+        startPoint = null;
+        startTarget = null;
+        if (Math.abs(delta.dy) < SWIPE_THRESHOLD || Math.abs(delta.dy) < Math.abs(delta.dx) * 1.1) return;
+        event?.preventDefault?.();
+        if (delta.dy > 0 && startedOnDialogue && sys.classList.contains('show') && !sys.classList.contains('force-hidden')) {
+            hideBar();
+        } else if (delta.dy < 0 && !isHistoryOpen() && !isChoicesOpen()) {
+            blockNextSyntheticClick();
+            showHistory();
+        }
+    }
 
     // Touch — listen on dialogue bar
-    sys.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientY, e.target), { passive: true });
-    sys.addEventListener('touchmove',  (e) => onDragMove(e.touches[0].clientY), { passive: true });
-    sys.addEventListener('touchend', onDragEnd, { passive: true });
-    sys.addEventListener('touchcancel', onDragEnd, { passive: true });
-
-    // Mouse fallback (desktop)
-    sys.addEventListener('mousedown', (e) => onDragStart(e.clientY, e.target));
-    window.addEventListener('mousemove', (e) => onDragMove(e.clientY));
-    window.addEventListener('mouseup', onDragEnd);
+    const gestureTargets = [clickOverlay, sys].filter(Boolean);
+    if (window.PointerEvent) {
+        gestureTargets.forEach(el => {
+            el.addEventListener('pointerdown', (e) => {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                try { el.setPointerCapture(e.pointerId); } catch (_) {}
+                onGestureStart({ x: e.clientX, y: e.clientY }, e.target);
+            });
+            el.addEventListener('pointermove', (e) => onGestureMove({ x: e.clientX, y: e.clientY }, e));
+            el.addEventListener('pointerup', (e) => onGestureEnd({ x: e.clientX, y: e.clientY }, e));
+            el.addEventListener('pointercancel', () => { startPoint = null; startTarget = null; });
+        });
+    } else {
+        gestureTargets.forEach(el => {
+            el.addEventListener('touchstart', (e) => {
+                const t = e.changedTouches[0];
+                if (t) onGestureStart({ x: t.clientX, y: t.clientY }, e.target);
+            }, { passive: false });
+            el.addEventListener('touchmove', (e) => {
+                const t = e.changedTouches[0];
+                if (t) onGestureMove({ x: t.clientX, y: t.clientY }, e);
+            }, { passive: false });
+            el.addEventListener('touchend', (e) => {
+                const t = e.changedTouches[0];
+                if (t) onGestureEnd({ x: t.clientX, y: t.clientY }, e);
+            }, { passive: false });
+            el.addEventListener('touchcancel', () => { startPoint = null; startTarget = null; }, { passive: true });
+        });
+    }
 
     // Restore overlay — tap anywhere to restore bar
     function restoreHandler(e) {
@@ -758,6 +824,7 @@ function initSubtitleDrag() {
     }
     restoreOverlay.addEventListener('click', restoreHandler);
     restoreOverlay.addEventListener('touchend', restoreHandler);
+    restoreOverlay.addEventListener('pointerup', restoreHandler);
 }
 
 // ============================================================================
@@ -783,6 +850,7 @@ function updateTranslatorBadge() {
 }
 
 function advanceClick() {
+    if (Date.now() < (window._fgoGestureBlockClickUntil || 0)) return;
     if (IS_TRANSITIONING) return;
     if (isHistoryOpen()) { hideHistory(); return; }
     if (isChoicesOpen()) return;

@@ -1221,6 +1221,30 @@
             const origBtnHtml = btn ? btn.innerHTML : '';
             if (btn) { btn.disabled = true; btn.innerHTML = 'Preparing scene…'; }
             try {
+                const gamingUrl = '/gaming';
+                const isMobileGaming = window.matchMedia('(pointer: coarse), (max-width: 767px)').matches;
+                if (isMobileGaming) {
+                    _gmWindow = window.open('', 'fgoGamingMobile');
+                } else {
+                    const w = Math.min(1280, Math.floor(window.screen.availWidth * 0.85));
+                    const h = Math.min(720, Math.floor(window.screen.availHeight * 0.85));
+                    const left = Math.floor((window.screen.availWidth - w) / 2);
+                    const top = Math.floor((window.screen.availHeight - h) / 2);
+                    _gmWindow = window.open(
+                        '',
+                        'fgoGaming',
+                        `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=no`
+                    );
+                }
+                if (!_gmWindow) {
+                    alert('Popup blocked. Please allow popups for this site.');
+                    return;
+                }
+                try {
+                    _gmWindow.document.title = 'Preparing Gaming Mode';
+                    _gmWindow.document.body.style.cssText = 'margin:0;background:#000;color:#fff;font:16px system-ui;display:flex;align-items:center;justify-content:center;height:100vh;';
+                    _gmWindow.document.body.textContent = 'Preparing scene...';
+                } catch {}
                 // Fetch visual frames for each script in parallel and concatenate
                 let region = currentQuestRegion || 'JP';
                 const responses = await Promise.all(_gmScriptIds.map(sid =>
@@ -1260,27 +1284,17 @@
                     translationMethod: _gmMeta.translationMethod || null,
                     rayshift: _gmMeta.rayshift || false,
                 };
-                sessionStorage.setItem('fgoGamingData', JSON.stringify(payload));
+                _gmWindow.sessionStorage.setItem('fgoGamingData', JSON.stringify(payload));
+                _gmWindow.location.replace(gamingUrl);
 
                 // Open popup window — sized to a 16:9 visual novel feel
-                const isMobileGaming = window.matchMedia('(pointer: coarse), (max-width: 767px)').matches;
-                if (isMobileGaming) {
-                    _gmWindow = window.open('/gaming', 'fgoGamingMobile');
-                } else {
-                    const w = Math.min(1280, Math.floor(window.screen.availWidth * 0.85));
-                    const h = Math.min(720, Math.floor(window.screen.availHeight * 0.85));
-                    const left = Math.floor((window.screen.availWidth - w) / 2);
-                    const top = Math.floor((window.screen.availHeight - h) / 2);
-                    _gmWindow = window.open(
-                        '/gaming',
-                        'fgoGaming',
-                        `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=no`
-                    );
-                }
                 if (!_gmWindow) {
                     alert('Popup blocked — please allow popups for this site.');
                 }
             } catch (e) {
+                try {
+                    if (_gmWindow && !_gmWindow.closed) _gmWindow.document.body.textContent = 'Gaming Mode error: ' + e.message;
+                } catch {}
                 alert('Gaming Mode error: ' + e.message);
             } finally {
                 _gmLoading = false;
