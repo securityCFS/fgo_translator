@@ -8,6 +8,15 @@ import sqlite3
 import asyncio
 from flask_socketio import SocketIO, emit
 from concurrent.futures import ThreadPoolExecutor
+from translation_cache import (
+    TranslationCacheClient,
+    TranslationCacheConfig,
+    TranslationCacheEntry,
+    TranslationCacheKey,
+    canonical_source_hash,
+    normalize_provider,
+    normalize_target_language,
+)
 
 # In-memory cache for svtScript metadata (entityId -> dict)
 _SVT_SCRIPT_CACHE = {}
@@ -32,6 +41,8 @@ def load_user_preferences():
 
 # Load user preferences
 user_preferences = load_user_preferences()
+translation_cache_config = TranslationCacheConfig.from_env()
+translation_cache_client = TranslationCacheClient(translation_cache_config)
 
 @app.route('/')
 def index():
@@ -709,12 +720,73 @@ def gaming_mode():
     return response
 
 
+def _split_dialogues_by_script_counts(dialogues, script_ids, script_dialogue_counts):
+    if not script_ids or not script_dialogue_counts:
+        return {}
+    if len(script_ids) != len(script_dialogue_counts):
+        return {}
+
+    result = {}
+    offset = 0
+    try:
+        for script_id, raw_count in zip(script_ids, script_dialogue_counts):
+            count = int(raw_count)
+            if count < 0:
+                return {}
+            result[str(script_id)] = dialogues[offset:offset + count]
+            offset += count
+    except (TypeError, ValueError):
+        return {}
+
+    if offset != len(dialogues):
+        return {}
+    return result
+
+
+def _merge_script_translations(script_ids, translations_by_script):
+    merged = []
+    for script_id in script_ids:
+        merged.extend(translations_by_script.get(str(script_id), []))
+    return merged
+
+
+def _has_translation_errors(translations):
+    return any("[Translation Error:" in str(item.get("translated_content", "")) for item in translations)
+
+
+def _cache_key_for_script(script_id, source_region, source_dialogues, target_language, api_type, base_model):
+    return TranslationCacheKey(
+        script_id=str(script_id),
+        source_region=source_region,
+        source_hash=canonical_source_hash(source_dialogues),
+        target_language=normalize_target_language(target_language),
+        provider=normalize_provider(api_type, base_model),
+        model=base_model,
+        prompt_version=translation_cache_config.prompt_version,
+    )
+
+
+def _entry_translations_with_source(entry, source_dialogues):
+    return [
+        {
+            'speaker': cached.get('speaker') or source.get('speaker', ''),
+            'content': source.get('content', ''),
+            'translated_content': cached.get('translated_content', ''),
+        }
+        for source, cached in zip(source_dialogues, entry.translations)
+    ]
+
+
 @app.route('/translate', methods=['POST'])
 def translate():
-    data = request.json
+    data = request.json or {}
     dialogues = data.get('dialogues')
     translation_method = data.get('translation_method', 'gpt')
     target_language = data.get('target_language', 'Chinese')
+    script_ids = [str(script_id) for script_id in data.get('script_ids', []) if str(script_id)]
+    script_dialogue_counts = data.get('script_dialogue_counts', [])
+    source_region = loader.normalize_region(data.get('source_region', 'JP'))
+    script_dialogues = _split_dialogues_by_script_counts(dialogues or [], script_ids, script_dialogue_counts)
     session_id = data.get('session_id')  # 用于标识翻译会话
     
     if not dialogues:
@@ -743,16 +815,91 @@ def translate():
                 api_key = user_preferences.get('api_key') or os.getenv('API_KEY')
                 base_model = user_preferences.get('base_model') or os.getenv('BASE_MODEL', 'deepseek-v3')
 
-            translated = loader.gpt_dialogue_translate(
-                dialogues,
-                api_base=api_base,
-                api_key=api_key,
-                target_language=target_language,
-                base_model=base_model,
-                api_type=api_type,
-                auth_type=user_preferences.get('auth_type', 'api_key'),
-                progress_callback=progress_callback
-            )
+            translated = None
+            if script_dialogues:
+                translations_by_script = {}
+                miss_script_ids = []
+                miss_dialogues = []
+                miss_cache_keys = {}
+                miss_sources = {}
+                processed_count = 0
+
+                for script_id in script_ids:
+                    client_source = script_dialogues.get(script_id, [])
+                    cache_source = []
+                    try:
+                        server_source = loader.extract_dialogues(script_id, region=source_region)
+                        if len(server_source) == len(client_source):
+                            cache_source = server_source
+                    except Exception as cache_source_error:
+                        print(f"Failed to re-extract script {script_id} for cache: {cache_source_error}")
+
+                    key = None
+                    if translation_cache_config.enabled and cache_source:
+                        key = _cache_key_for_script(
+                            script_id,
+                            source_region,
+                            cache_source,
+                            target_language,
+                            api_type,
+                            base_model,
+                        )
+                        entry = translation_cache_client.read(key, expected_dialogue_count=len(cache_source))
+                        if entry:
+                            translations_by_script[script_id] = _entry_translations_with_source(entry, client_source)
+                            processed_count += len(client_source)
+                            progress_callback(min(processed_count, len(dialogues)), len(dialogues), f"Cache {script_id}")
+                            continue
+
+                    source_for_translation = cache_source or client_source
+                    miss_script_ids.append(script_id)
+                    miss_sources[script_id] = source_for_translation
+                    if key:
+                        miss_cache_keys[script_id] = key
+                    miss_dialogues.extend(source_for_translation)
+
+                if miss_dialogues:
+                    def miss_progress_callback(current, total, speaker=None):
+                        progress_callback(min(processed_count + current, len(dialogues)), len(dialogues), speaker)
+
+                    miss_translated = loader.gpt_dialogue_translate(
+                        miss_dialogues,
+                        api_base=api_base,
+                        api_key=api_key,
+                        target_language=target_language,
+                        base_model=base_model,
+                        api_type=api_type,
+                        auth_type=user_preferences.get('auth_type', 'api_key'),
+                        progress_callback=miss_progress_callback
+                    )
+
+                    offset = 0
+                    for script_id in miss_script_ids:
+                        source = miss_sources.get(script_id, [])
+                        translated_slice = miss_translated[offset:offset + len(source)]
+                        offset += len(source)
+                        translations_by_script[script_id] = translated_slice
+                        key = miss_cache_keys.get(script_id)
+                        if key and len(translated_slice) == len(source) and not _has_translation_errors(translated_slice):
+                            translation_cache_client.write(TranslationCacheEntry(
+                                key=key,
+                                dialogue_count=len(source),
+                                translations=translated_slice,
+                            ))
+
+                translated = _merge_script_translations(script_ids, translations_by_script)
+
+            if translated is None:
+                translated = loader.gpt_dialogue_translate(
+                    dialogues,
+                    api_base=api_base,
+                    api_key=api_key,
+                    target_language=target_language,
+                    base_model=base_model,
+                    api_type=api_type,
+                    auth_type=user_preferences.get('auth_type', 'api_key'),
+                    progress_callback=progress_callback
+                )
         else:
             # 为免费翻译也添加进度回调，支持 speaker
             async def progress_callback(current, total, speaker=None):

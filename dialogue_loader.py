@@ -7,7 +7,6 @@ import os
 import openai
 from db_loader import AtlasDBLoader
 import time
-from googletrans import Translator
 import asyncio
 from tqdm import tqdm
 import argparse
@@ -482,7 +481,6 @@ class DialogueLoader:
         self.db_loader = AtlasDBLoader(cache_dir)
         self.cache_dir = cache_dir or Path("cache")
         self.cache_dir.mkdir(exist_ok=True)
-        self.translator = Translator()
         
     def _get_text_content(self, url: str) -> str:
         """
@@ -1076,6 +1074,8 @@ class DialogueLoader:
 
         for attempt in range(max_retries):
             try:
+                from googletrans import Translator
+
                 async with Translator() as translator:
                     result = await translator.translate(
                         dialogue['content'],
