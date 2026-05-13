@@ -294,6 +294,7 @@
 
     <!-- Scripts -->
     <script src="js/api.js"></script>
+    <script src="js/translation-cache.js"></script>
     <script src="js/translate.js"></script>
     <script>
     // ── Utilities ─────────────────────────────────────────────────────────────
@@ -422,6 +423,37 @@
             }
         );
         return { translated_dialogues: translated };
+    }
+
+    async function tryReadCachedScripts(scriptIds, scriptDialogueCounts, allDialogues, targetLanguage) {
+        if (!window.TranslationCache) return null;
+        const prefs = Translator.loadPrefs();
+        const apiType = prefs.apiType || prefs.api_type || 'gemini';
+        const model = prefs.baseModel || prefs.base_model || '';
+        const merged = [];
+        let offset = 0;
+
+        for (let i = 0; i < scriptIds.length; i++) {
+            const count = scriptDialogueCounts[i];
+            const source = allDialogues.slice(offset, offset + count);
+            offset += count;
+            const cached = await TranslationCache.readScript({
+                scriptId: scriptIds[i],
+                sourceRegion: currentQuestRegion || 'JP',
+                dialogues: source,
+                targetLanguage,
+                apiType,
+                model,
+            });
+            if (!cached) return null;
+            merged.push(...cached.map((t, idx) => ({
+                speaker: t.speaker || source[idx]?.speaker || '',
+                content: source[idx]?.content || '',
+                translated_content: t.translated_content || '',
+            })));
+        }
+
+        return { translated_dialogues: merged, cache_hit: true };
     }
 
     async function _apiParseScriptVisual({ script_id, region }) {
@@ -947,11 +979,14 @@
             } else {
                 progressText.textContent = 'Translating dialogues...';
                 animateProgressBar(60);
-                translateData = await _apiTranslate({
-                    dialogues: allDialogues,
-                    translation_method: document.getElementById('translationMethod').value,
-                    target_language: targetLangValue,
-                });
+                translateData = await tryReadCachedScripts(scriptIds, scriptDialogueCounts, allDialogues, targetLangValue);
+                if (!translateData) {
+                    translateData = await _apiTranslate({
+                        dialogues: allDialogues,
+                        translation_method: document.getElementById('translationMethod').value,
+                        target_language: targetLangValue,
+                    });
+                }
             }
 
             let dialogueIndex = 0;
