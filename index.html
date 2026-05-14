@@ -456,6 +456,25 @@
         return { translated_dialogues: merged, cache_hit: true };
     }
 
+    async function tryUploadCachedScripts(scriptIds, scriptDialogueCounts, allDialogues, translatedDialogues, targetLanguage) {
+        if (!window.TranslationCache || !TranslationCache.uploadScripts) return;
+        const prefs = Translator.loadPrefs();
+        const apiType = prefs.apiType || prefs.api_type || 'gemini';
+        const model = prefs.baseModel || prefs.base_model || '';
+        const results = await TranslationCache.uploadScripts({
+            scriptIds,
+            scriptDialogueCounts,
+            allDialogues,
+            translatedDialogues,
+            sourceRegion: currentQuestRegion || 'JP',
+            targetLanguage,
+            apiType,
+            model,
+        });
+        const uploaded = results.filter(item => item.ok).length;
+        if (uploaded) console.info(`Saved ${uploaded}/${results.length} translated script(s) to shared cache.`);
+    }
+
     async function _apiParseScriptVisual({ script_id, region }) {
         region = AA.norm(region || 'JP');
         const meta = await fetch(`https://api.atlasacademy.io/nice/${region}/script/${script_id}`).then(r => {
@@ -986,6 +1005,13 @@
                         translation_method: document.getElementById('translationMethod').value,
                         target_language: targetLangValue,
                     });
+                    await tryUploadCachedScripts(
+                        scriptIds,
+                        scriptDialogueCounts,
+                        allDialogues,
+                        translateData.translated_dialogues || [],
+                        targetLangValue
+                    );
                 }
             }
 

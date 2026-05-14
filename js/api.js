@@ -283,9 +283,9 @@ const AA = (() => {
     function cleanTranslatedScriptText(text) {
         return String(text || '')
             .replace(/\[%1\]/g, '\u85e4\u4e38\u7acb\u9999')
-            .replace(/\[line 3\]/g, '\u2014')
-            .replace(/\[line 6\]/g, '\u2014')
-            .replace(/\[line 18\]/g, '\u2014');
+            .replace(/\[line 3\]/g, '\u2014\u2014')
+            .replace(/\[line 6\]/g, '\u2014\u2014')
+            .replace(/\[line 18\]/g, '\u2014\u2014');
     }
 
     async function rayshiftAvailable(scriptId) {
@@ -391,7 +391,7 @@ const AA = (() => {
      * counted, even though its cleaned form is empty.
      */
     function parseDialogues(raw, scriptId = '') {
-        const lines = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+        const lines = cleanTranslatedScriptText(raw).replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
         const dialogues = [];
         const SPEAKER_RE = /^＠(.*)/;          // allow empty speaker
         const CHOICE_RE  = /^？(\d+)：(.+)/;
@@ -405,8 +405,7 @@ const AA = (() => {
             const sm = SPEAKER_RE.exec(line);
             if (sm) {
                 const speakerRaw = sm[1].trim();
-                const slotM = /^([A-Z])：(.+)$/.exec(speakerRaw);
-                const speaker = slotM ? slotM[2].trim() : (speakerRaw || 'Narrator');
+                const speaker = speakerRaw || 'Narrator';
                 const parts = [];
                 while (i < lines.length) {
                     const cl = lines[i].trim(); i++;

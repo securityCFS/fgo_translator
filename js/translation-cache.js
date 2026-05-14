@@ -1,5 +1,6 @@
 window.TranslationCache = (() => {
     const DEFAULT_PROMPT_VERSION = 'fgo-v1';
+    const DEFAULT_UPLOAD_URL = 'https://fgo-translator-cache.710244487.workers.dev/upload';
 
     function loadPrefs() {
         try {
@@ -17,6 +18,16 @@ window.TranslationCache = (() => {
             prefs.translation_cache_base_url ||
             ''
         ).replace(/\/+$/, '');
+    }
+
+    function getUploadUrl() {
+        const prefs = loadPrefs();
+        return String(
+            window.TRANSLATION_CACHE_UPLOAD_URL ||
+            prefs.translationCacheUploadUrl ||
+            prefs.translation_cache_upload_url ||
+            DEFAULT_UPLOAD_URL
+        ).trim();
     }
 
     function sanitizePathSegment(value) {
@@ -129,10 +140,80 @@ window.TranslationCache = (() => {
         }
     }
 
+    function normalizeTranslations(translations, sourceDialogues) {
+        if (!Array.isArray(translations) || translations.length !== sourceDialogues.length) return null;
+        const cleaned = [];
+        for (let i = 0; i < translations.length; i++) {
+            const item = translations[i] || {};
+            const text = String(item.translated_content || '').trim();
+            if (!text || text.includes('[Translation Error:')) return null;
+            cleaned.push({
+                speaker: String(item.speaker || sourceDialogues[i]?.speaker || '').trim(),
+                translated_content: text,
+            });
+        }
+        return cleaned;
+    }
+
+    async function uploadScript({scriptId, sourceRegion, dialogues, translations, targetLanguage, apiType, model, promptVersion = DEFAULT_PROMPT_VERSION}) {
+        const uploadUrl = getUploadUrl();
+        if (!uploadUrl || !Array.isArray(dialogues) || !dialogues.length || !model) return null;
+        const cleanedTranslations = normalizeTranslations(translations, dialogues);
+        if (!cleanedTranslations) return null;
+        const sourceHash = await canonicalSourceHash(dialogues);
+        const payload = {
+            script_id: String(scriptId),
+            source_region: String(sourceRegion || 'JP').toUpperCase(),
+            source_hash: sourceHash,
+            target_language: targetLanguage,
+            api_type: apiType || 'openai',
+            model,
+            prompt_version: promptVersion,
+            translations: cleanedTranslations,
+        };
+        try {
+            const response = await fetch(uploadUrl, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload),
+            });
+            if (!response.ok) return null;
+            return await response.json();
+        } catch {
+            return null;
+        }
+    }
+
+    async function uploadScripts({scriptIds, scriptDialogueCounts, allDialogues, translatedDialogues, sourceRegion, targetLanguage, apiType, model, promptVersion = DEFAULT_PROMPT_VERSION}) {
+        if (!Array.isArray(scriptIds) || !Array.isArray(scriptDialogueCounts)) return [];
+        const results = [];
+        let offset = 0;
+        for (let i = 0; i < scriptIds.length; i++) {
+            const count = Number(scriptDialogueCounts[i] || 0);
+            const source = (allDialogues || []).slice(offset, offset + count);
+            const translated = (translatedDialogues || []).slice(offset, offset + count);
+            offset += count;
+            const result = await uploadScript({
+                scriptId: scriptIds[i],
+                sourceRegion,
+                dialogues: source,
+                translations: translated,
+                targetLanguage,
+                apiType,
+                model,
+                promptVersion,
+            });
+            results.push({scriptId: String(scriptIds[i]), ok: !!result, result});
+        }
+        return results;
+    }
+
     return {
         canonicalSourceHash,
         normalizeProvider,
         normalizeTargetLanguage,
         readScript,
+        uploadScript,
+        uploadScripts,
     };
 })();

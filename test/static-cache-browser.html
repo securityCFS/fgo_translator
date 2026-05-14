@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Static Cache Browser Contract</title>
+<pre id="result" data-testid="result">running</pre>
+<script>
+window.TRANSLATION_CACHE_BASE_URL = 'https://raw.githubusercontent.com/securityCFS/translator_cache_repo/main';
+</script>
+<script src="../js/api.js"></script>
+<script src="../js/translation-cache.js"></script>
+<script>
+(async () => {
+    const data = await AA.extractDialogues('9415571810', 'JP');
+    const hash = await TranslationCache.canonicalSourceHash(data.dialogues);
+    const cached = await TranslationCache.readScript({
+        scriptId: '9415571810',
+        sourceRegion: 'JP',
+        dialogues: data.dialogues,
+        targetLanguage: 'Chinese (Simplified)',
+        apiType: 'openai',
+        model: 'deepseek-v4-flash',
+    });
+    document.getElementById('result').textContent = JSON.stringify({
+        count: data.dialogues.length,
+        hash,
+        hit: !!cached,
+        cachedCount: cached && cached.length,
+        first: cached && cached[0],
+    }, null, 2);
+})().catch((error) => {
+    document.getElementById('result').textContent = `ERROR ${error && error.stack || error}`;
+});
+</script>
