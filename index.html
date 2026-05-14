@@ -258,6 +258,13 @@
                             Start Translation
                         </button>
                     </div>
+                    <div id="translationCachePanel" class="mt-3 hidden">
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Shared Cache</label>
+                        <select id="translationCacheSelect" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none" onchange="onTranslationCacheChange()">
+                            <option value="">Use API/model settings</option>
+                        </select>
+                        <div id="translationCacheStatus" class="text-xs text-slate-500 mt-1.5"></div>
+                    </div>
                     <div id="atlasStatus" class="text-xs mt-2 hidden"></div>
                 </div>
                 <div id="progressSection" class="hidden px-4 py-4 sm:px-5 border-b border-slate-100 bg-emerald-50/50">
@@ -351,6 +358,8 @@
     let _phaseScriptsMap = {};
     let currentQuestRegion = 'JP';
     let questResultLabel = 'quests';
+    let translationCacheOptions = [];
+    let translationCacheRequestSeq = 0;
     const questCache = new Map();
 
     // ── Static API wrappers (replace Flask endpoints) ─────────────────────────
@@ -444,6 +453,35 @@
                 targetLanguage,
                 apiType,
                 model,
+            });
+            if (!cached) return null;
+            merged.push(...cached.map((t, idx) => ({
+                speaker: t.speaker || source[idx]?.speaker || '',
+                content: source[idx]?.content || '',
+                translated_content: t.translated_content || '',
+            })));
+        }
+
+        return { translated_dialogues: merged, cache_hit: true };
+    }
+
+    async function tryReadSelectedCachedScripts(scriptIds, scriptDialogueCounts, allDialogues, targetLanguage, option) {
+        if (!window.TranslationCache || !option) return null;
+        const merged = [];
+        let offset = 0;
+
+        for (let i = 0; i < scriptIds.length; i++) {
+            const count = scriptDialogueCounts[i];
+            const source = allDialogues.slice(offset, offset + count);
+            offset += count;
+            const cached = await TranslationCache.readScriptVersion({
+                scriptId: scriptIds[i],
+                sourceRegion: currentQuestRegion || 'JP',
+                dialogues: source,
+                targetLanguage,
+                provider: option.provider,
+                model: option.model,
+                promptVersion: option.promptVersion,
             });
             if (!cached) return null;
             merged.push(...cached.map((t, idx) => ({
@@ -883,6 +921,7 @@
         document.getElementById('progressSection').classList.add('hidden');
         scrollSectionIntoView('translationOptions');
         checkAtlasAvailability();
+        loadTranslationCacheOptions();
     }
 
     function animateProgressBar(targetWidth, duration = 800) {
@@ -920,6 +959,135 @@
 
     // ── Translation ───────────────────────────────────────────────────────────
 
+    function getSelectedPhaseScriptIds() {
+        return (selectedPhaseScripts || []).map(s => s.scriptId).filter(id => id && id !== '0' && id !== 0);
+    }
+
+    function hasConfiguredApiKey() {
+        const prefs = Translator.loadPrefs();
+        return Boolean((prefs.apiKey || prefs.api_key || '').trim());
+    }
+
+    function getSelectedTranslationCacheOption() {
+        const select = document.getElementById('translationCacheSelect');
+        if (!select || select.value === '') return null;
+        return translationCacheOptions[Number(select.value)] || null;
+    }
+
+    function onTranslationCacheChange() {
+        const option = getSelectedTranslationCacheOption();
+        const statusEl = document.getElementById('translationCacheStatus');
+        if (!statusEl) return;
+        if (option) {
+            statusEl.className = 'text-xs text-emerald-600 mt-1.5';
+            statusEl.textContent = `Using shared cache: ${option.label}`;
+        } else if (translationCacheOptions.length > 0) {
+            statusEl.className = 'text-xs text-slate-500 mt-1.5';
+            statusEl.textContent = 'Shared cache is available, or use API/model settings.';
+        }
+    }
+
+    function resetTranslationCacheOptions(message = '') {
+        translationCacheOptions = [];
+        const panel = document.getElementById('translationCachePanel');
+        const select = document.getElementById('translationCacheSelect');
+        const statusEl = document.getElementById('translationCacheStatus');
+        if (!panel || !select || !statusEl) return;
+        select.innerHTML = '<option value="">Use API/model settings</option>';
+        select.disabled = true;
+        if (message) {
+            panel.classList.remove('hidden');
+            statusEl.className = 'text-xs text-slate-500 mt-1.5';
+            statusEl.textContent = message;
+        } else {
+            panel.classList.add('hidden');
+            statusEl.textContent = '';
+        }
+    }
+
+    async function loadTranslationCacheOptions() {
+        const scriptIds = getSelectedPhaseScriptIds();
+        const targetLangValue = document.getElementById('targetLanguage').value;
+        const panel = document.getElementById('translationCachePanel');
+        const select = document.getElementById('translationCacheSelect');
+        const statusEl = document.getElementById('translationCacheStatus');
+        if (!panel || !select || !statusEl) return;
+
+        if (!window.TranslationCache || !scriptIds.length || targetLangValue.startsWith('__atlas_')) {
+            resetTranslationCacheOptions();
+            return;
+        }
+
+        const requestSeq = ++translationCacheRequestSeq;
+        panel.classList.remove('hidden');
+        select.disabled = true;
+        select.innerHTML = '<option value="">Checking shared cache...</option>';
+        statusEl.className = 'text-xs text-slate-500 mt-1.5';
+        statusEl.textContent = 'Looking for hosted translations for this phase and language...';
+
+        try {
+            let commonIds = null;
+            const optionsById = new Map();
+            let totalDialogues = 0;
+
+            for (const scriptId of scriptIds) {
+                const extractData = await _apiExtractDialogues({ script_id: scriptId, region: currentQuestRegion });
+                const dialogues = extractData.dialogues || [];
+                totalDialogues += dialogues.length;
+                const options = await TranslationCache.listOptions({
+                    scriptId,
+                    sourceRegion: currentQuestRegion || 'JP',
+                    dialogues,
+                    targetLanguage: targetLangValue,
+                });
+                const ids = new Set(options.map(option => option.id));
+                commonIds = commonIds === null ? ids : new Set([...commonIds].filter(id => ids.has(id)));
+                options.forEach(option => {
+                    if (!optionsById.has(option.id)) optionsById.set(option.id, option);
+                });
+            }
+
+            if (requestSeq !== translationCacheRequestSeq) return;
+            translationCacheOptions = [...(commonIds || [])]
+                .map(id => optionsById.get(id))
+                .filter(Boolean)
+                .map(option => ({ ...option, scriptCount: scriptIds.length, dialogueCount: totalDialogues }))
+                .sort((a, b) => a.label.localeCompare(b.label));
+
+            if (translationCacheOptions.length === 0) {
+                select.innerHTML = '<option value="">No shared cache available</option>';
+                select.disabled = true;
+                statusEl.className = 'text-xs text-slate-400 mt-1.5';
+                statusEl.textContent = 'No hosted translation found for this exact script version and language.';
+                return;
+            }
+
+            select.disabled = false;
+            select.innerHTML = '<option value="">Use API/model settings</option>';
+            translationCacheOptions.forEach((option, index) => {
+                const opt = document.createElement('option');
+                opt.value = String(index);
+                opt.textContent = option.label;
+                select.appendChild(opt);
+            });
+            if (!hasConfiguredApiKey()) {
+                select.value = '0';
+                statusEl.className = 'text-xs text-emerald-600 mt-1.5';
+                statusEl.textContent = 'No API key detected; selected the hosted translation automatically.';
+            } else {
+                statusEl.className = 'text-xs text-emerald-600 mt-1.5';
+                statusEl.textContent = `${translationCacheOptions.length} hosted translation version${translationCacheOptions.length === 1 ? '' : 's'} available.`;
+            }
+        } catch (error) {
+            if (requestSeq !== translationCacheRequestSeq) return;
+            translationCacheOptions = [];
+            select.innerHTML = '<option value="">Shared cache unavailable</option>';
+            select.disabled = true;
+            statusEl.className = 'text-xs text-amber-600 mt-1.5';
+            statusEl.textContent = `Shared cache check failed: ${error.message}`;
+        }
+    }
+
     async function translateSelectedQuest() {
         if (!selectedQuest) return;
         if (!selectedPhaseScripts || selectedPhaseScripts.length === 0) {
@@ -927,6 +1095,7 @@
         }
         const targetLangValue = document.getElementById('targetLanguage').value;
         const isAtlasMode = targetLangValue.startsWith('__atlas_');
+        const selectedCacheOption = isAtlasMode ? null : getSelectedTranslationCacheOption();
         const atlasRegion = isAtlasMode ? targetLangValue.replace('__atlas_', '').replace('__', '') : '';
         const atlasLabelMap = {
             NA: 'English (Atlas / RayShift)',
@@ -934,7 +1103,9 @@
             TW: 'Chinese Traditional (Atlas / TW)',
             KR: 'Korean (Atlas / KR)',
         };
-        const transHeader = isAtlasMode ? (atlasLabelMap[atlasRegion] || 'Atlas Translation') : 'Translation';
+        const transHeader = isAtlasMode
+            ? (atlasLabelMap[atlasRegion] || 'Atlas Translation')
+            : (selectedCacheOption ? `Shared Cache: ${selectedCacheOption.provider} / ${selectedCacheOption.model}` : 'Translation');
         document.getElementById('progressSection').classList.remove('hidden');
         document.getElementById('scriptTabs').classList.remove('hidden');
         const progressBar = document.getElementById('progressBar');
@@ -945,7 +1116,7 @@
         document.getElementById('gamingModeBar').classList.add('hidden');
         progressBar.style.width = '0%';
         try {
-            const scriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
+            const scriptIds = getSelectedPhaseScriptIds();
             if (scriptIds.length === 0) throw new Error('No scripts found for this phase');
             progressText.textContent = `Found ${scriptIds.length} script${scriptIds.length !== 1 ? 's' : ''}`;
             animateProgressBar(20);
@@ -995,6 +1166,17 @@
                     atlasList.push({ speaker: '', translated_content: '' });
                 }
                 translateData.translated_dialogues = atlasList;
+            } else if (selectedCacheOption) {
+                progressText.textContent = `Loading shared cache: ${selectedCacheOption.label}`;
+                animateProgressBar(60);
+                translateData = await tryReadSelectedCachedScripts(
+                    scriptIds,
+                    scriptDialogueCounts,
+                    allDialogues,
+                    targetLangValue,
+                    selectedCacheOption
+                );
+                if (!translateData) throw new Error(`Cached translation not found: ${selectedCacheOption.label}`);
             } else {
                 progressText.textContent = 'Translating dialogues...';
                 animateProgressBar(60);
@@ -1038,7 +1220,9 @@
             }
             prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues || [], scriptDialogueCounts, {
                 sourceRegion: isAtlasMode ? atlasRegion : null,
-                translationMethod: isAtlasMode ? 'Atlas' : document.getElementById('translationMethod').value,
+                translationMethod: isAtlasMode
+                    ? 'Atlas'
+                    : (selectedCacheOption ? `Shared Cache (${selectedCacheOption.provider}/${selectedCacheOption.model})` : document.getElementById('translationMethod').value),
                 rayshift: translateData.rayshift || false,
             });
             progressText.textContent = 'Translation completed!';
@@ -1267,6 +1451,11 @@
         const val = document.getElementById('targetLanguage').value;
         const isAtlas = val.startsWith('__atlas_');
         document.getElementById('engineRow').style.display = isAtlas ? 'none' : '';
+        if (isAtlas) {
+            resetTranslationCacheOptions();
+        } else {
+            loadTranslationCacheOptions();
+        }
     }
     async function checkAtlasAvailability() {
         const statusEl = document.getElementById('atlasStatus');

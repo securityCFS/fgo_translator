@@ -26,6 +26,11 @@ globalThis.eval(apiSource);
 const cacheSource = await readFile(path.join(root, "js", "translation-cache.js"), "utf8");
 globalThis.eval(cacheSource);
 
+const indexSource = await readFile(path.join(root, "index.html"), "utf8");
+assert.match(indexSource, /id="translationCacheSelect"/);
+assert.match(indexSource, /loadTranslationCacheOptions\(\)/);
+assert.match(indexSource, /readScriptVersion/);
+
 const rawFixture = [
   "＠キャスター",
   "[%1]の同行者として[r]警戒されている彼女は避けたかった。[k]",
@@ -97,6 +102,69 @@ const batchResult = await globalThis.TranslationCache.uploadScripts({
 assert.equal(batchResult.length, 2);
 assert.equal(uploadCalls.length, 2);
 assert.deepEqual(uploadCalls.map((call) => call.body.script_id), ["111", "222"]);
+globalThis.fetch = originalFetch;
+
+const fixtureHash = await globalThis.TranslationCache.canonicalSourceHash(fixtureDialogues);
+const optionPayload = {
+  schema_version: 1,
+  script_id: "1",
+  source_region: "JP",
+  source_hash: fixtureHash,
+  target_language: "zh-CN",
+  provider: "deepseek",
+  model: "deepseek-v4-flash",
+  prompt_version: "fgo-v1",
+  dialogue_count: fixtureDialogues.length,
+  trusted_generation: true,
+  generator: { generated_at: "2026-05-14T00:00:00Z" },
+  translations: fixtureDialogues.map((dialogue, index) => ({
+    speaker: dialogue.speaker || "",
+    translated_content: `cached line ${index + 1}`,
+  })),
+};
+
+globalThis.fetch = async (url) => {
+  const textUrl = String(url);
+  const basePath = `/contents/v1/JP/1/${fixtureHash}/zh-CN`;
+  if (textUrl.includes(basePath) && !textUrl.includes("/deepseek")) {
+    return new Response(JSON.stringify([{ type: "dir", name: "deepseek" }]), { status: 200 });
+  }
+  if (textUrl.includes(`${basePath}/deepseek`) && !textUrl.includes("/deepseek-v4-flash")) {
+    return new Response(JSON.stringify([{ type: "dir", name: "deepseek-v4-flash" }]), { status: 200 });
+  }
+  if (textUrl.includes(`${basePath}/deepseek/deepseek-v4-flash`)) {
+    return new Response(JSON.stringify([
+      { type: "file", name: "fgo-v1.json", download_url: "https://raw.example/fgo-v1.json" },
+    ]), { status: 200 });
+  }
+  if (textUrl === "https://raw.example/fgo-v1.json") {
+    return new Response(JSON.stringify(optionPayload), { status: 200 });
+  }
+  if (textUrl.includes(`/v1/JP/1/${fixtureHash}/zh-CN/deepseek/deepseek-v4-flash/fgo-v1.json`)) {
+    return new Response(JSON.stringify(optionPayload), { status: 200 });
+  }
+  return new Response("not found", { status: 404 });
+};
+
+const options = await globalThis.TranslationCache.listOptions({
+  scriptId: "1",
+  sourceRegion: "JP",
+  dialogues: fixtureDialogues,
+  targetLanguage: "Chinese (Simplified)",
+});
+assert.equal(options.length, 1);
+assert.equal(options[0].label, "deepseek / deepseek-v4-flash / fgo-v1");
+
+const chosenCached = await globalThis.TranslationCache.readScriptVersion({
+  scriptId: "1",
+  sourceRegion: "JP",
+  dialogues: fixtureDialogues,
+  targetLanguage: "Chinese (Simplified)",
+  provider: "deepseek",
+  model: "deepseek-v4-flash",
+  promptVersion: "fgo-v1",
+});
+assert.equal(chosenCached.length, fixtureDialogues.length);
 globalThis.fetch = originalFetch;
 
 if (process.env.RUN_LIVE_CACHE_CONTRACT === "1") {

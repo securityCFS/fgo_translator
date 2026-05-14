@@ -30,6 +30,64 @@ window.TranslationCache = (() => {
         ).trim();
     }
 
+    function getRepoInfo() {
+        const prefs = loadPrefs();
+        const configuredRepo = String(
+            window.TRANSLATION_CACHE_REPO ||
+            prefs.translationCacheRepo ||
+            prefs.translation_cache_repo ||
+            ''
+        ).trim();
+        const configuredBranch = String(
+            window.TRANSLATION_CACHE_BRANCH ||
+            prefs.translationCacheBranch ||
+            prefs.translation_cache_branch ||
+            'main'
+        ).trim() || 'main';
+        if (configuredRepo) {
+            return { repo: configuredRepo, branch: configuredBranch };
+        }
+
+        const match = getBaseUrl().match(/^https:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)(?:\/|$)/);
+        if (!match) return null;
+        return {
+            repo: `${match[1]}/${match[2]}`,
+            branch: decodeURIComponent(match[3]),
+        };
+    }
+
+    function encodeGitHubPath(path) {
+        return String(path || '').split('/').map(part => encodeURIComponent(part)).join('/');
+    }
+
+    async function listGitHubDirectory(path) {
+        const repoInfo = getRepoInfo();
+        if (!repoInfo) return [];
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${repoInfo.repo}/contents/${encodeGitHubPath(path)}?ref=${encodeURIComponent(repoInfo.branch)}`,
+                { cache: 'force-cache' }
+            );
+            if (!response.ok) return [];
+            const data = await response.json();
+            return Array.isArray(data) ? data.filter(item => item && typeof item === 'object') : [];
+        } catch {
+            return [];
+        }
+    }
+
+    async function readJsonUrl(url) {
+        if (!url) return null;
+        try {
+            const response = await fetch(url, { cache: 'force-cache' });
+            if (!response.ok) return null;
+            const data = await response.json();
+            return data && typeof data === 'object' ? data : null;
+        } catch {
+            return null;
+        }
+    }
+
     function sanitizePathSegment(value) {
         const safe = String(value || '')
             .trim()
@@ -118,26 +176,99 @@ window.TranslationCache = (() => {
         return data.translations;
     }
 
-    async function readScript({scriptId, sourceRegion, dialogues, targetLanguage, apiType, model, promptVersion = DEFAULT_PROMPT_VERSION}) {
+    async function readByKey(key, expectedDialogueCount) {
         const baseUrl = getBaseUrl();
         if (!baseUrl) return null;
-        const sourceHash = await canonicalSourceHash(dialogues);
-        const key = {
-            scriptId: String(scriptId),
-            sourceRegion: String(sourceRegion || 'JP').toUpperCase(),
-            sourceHash,
-            targetLanguage: normalizeTargetLanguage(targetLanguage),
-            provider: normalizeProvider(apiType, model),
-            model: model || 'unknown',
-            promptVersion,
-        };
         try {
             const response = await fetch(`${baseUrl}/${relativePath(key)}`, {cache: 'force-cache'});
             if (!response.ok) return null;
-            return validate(await response.json(), key, dialogues.length);
+            return validate(await response.json(), key, expectedDialogueCount);
         } catch {
             return null;
         }
+    }
+
+    async function readScript({scriptId, sourceRegion, dialogues, targetLanguage, apiType, model, promptVersion = DEFAULT_PROMPT_VERSION}) {
+        return readScriptVersion({
+            scriptId,
+            sourceRegion,
+            dialogues,
+            targetLanguage,
+            provider: normalizeProvider(apiType, model),
+            model: model || 'unknown',
+            promptVersion,
+        });
+    }
+
+    async function readScriptVersion({scriptId, sourceRegion, dialogues, targetLanguage, provider, model, promptVersion = DEFAULT_PROMPT_VERSION}) {
+        if (!Array.isArray(dialogues)) return null;
+        const key = {
+            scriptId: String(scriptId),
+            sourceRegion: String(sourceRegion || 'JP').toUpperCase(),
+            sourceHash: await canonicalSourceHash(dialogues),
+            targetLanguage: normalizeTargetLanguage(targetLanguage),
+            provider: provider || 'unknown',
+            model: model || 'unknown',
+            promptVersion,
+        };
+        return readByKey(key, dialogues.length);
+    }
+
+    async function listOptions({scriptId, sourceRegion, dialogues, targetLanguage, promptVersion}) {
+        if (!Array.isArray(dialogues) || !dialogues.length) return [];
+        const sourceHash = await canonicalSourceHash(dialogues);
+        const normalizedTarget = normalizeTargetLanguage(targetLanguage);
+        const basePath = [
+            'v1',
+            sanitizePathSegment(String(sourceRegion || 'JP').toUpperCase()),
+            sanitizePathSegment(scriptId),
+            sanitizePathSegment(sourceHash),
+            sanitizePathSegment(normalizedTarget),
+        ].join('/');
+        const options = [];
+
+        for (const providerItem of await listGitHubDirectory(basePath)) {
+            if (providerItem.type !== 'dir') continue;
+            const providerDir = providerItem.name || '';
+            const providerPath = `${basePath}/${providerDir}`;
+            for (const modelItem of await listGitHubDirectory(providerPath)) {
+                if (modelItem.type !== 'dir') continue;
+                const modelDir = modelItem.name || '';
+                const modelPath = `${providerPath}/${modelDir}`;
+                for (const promptItem of await listGitHubDirectory(modelPath)) {
+                    const name = String(promptItem.name || '');
+                    if (promptItem.type !== 'file' || !name.endsWith('.json')) continue;
+                    const payload = await readJsonUrl(promptItem.download_url);
+                    if (!payload) continue;
+                    const provider = String(payload.provider || providerDir);
+                    const model = String(payload.model || modelDir);
+                    const resolvedPrompt = String(payload.prompt_version || name.slice(0, -5));
+                    if (promptVersion && resolvedPrompt !== String(promptVersion)) continue;
+                    const key = {
+                        scriptId: String(scriptId),
+                        sourceRegion: String(sourceRegion || 'JP').toUpperCase(),
+                        sourceHash,
+                        targetLanguage: normalizedTarget,
+                        provider,
+                        model,
+                        promptVersion: resolvedPrompt,
+                    };
+                    const translations = validate(payload, key, dialogues.length);
+                    if (!translations) continue;
+                    options.push({
+                        id: `${provider}||${model}||${resolvedPrompt}`,
+                        provider,
+                        model,
+                        promptVersion: resolvedPrompt,
+                        label: `${provider} / ${model} / ${resolvedPrompt}`,
+                        dialogueCount: translations.length,
+                        generatedAt: payload.generator?.generated_at || '',
+                    });
+                }
+            }
+        }
+
+        return options.sort((a, b) => a.label.localeCompare(b.label));
     }
 
     function normalizeTranslations(translations, sourceDialogues) {
@@ -212,7 +343,9 @@ window.TranslationCache = (() => {
         canonicalSourceHash,
         normalizeProvider,
         normalizeTargetLanguage,
+        listOptions,
         readScript,
+        readScriptVersion,
         uploadScript,
         uploadScripts,
     };
