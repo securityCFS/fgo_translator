@@ -58,6 +58,13 @@ def settings():
     response.headers['Content-Type'] = 'text/html; charset=utf-8'
     return response
 
+@app.route('/docs/<path:filename>')
+def docs(filename):
+    response = make_response(send_from_directory('docs', filename))
+    if filename.lower().endswith('.md'):
+        response.headers['Content-Type'] = 'text/markdown; charset=utf-8'
+    return response
+
 @app.route('/search_war', methods=['POST'])
 def search_war():
     print("Entering search_war")
@@ -176,11 +183,38 @@ def search_quest():
                         quest_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/quest/{quest_id}"
                         quest_data = loader.db_loader._make_request_with_retry(quest_endpoint)
                         if quest_data:
+                            phase_scripts = []
+                            script_ids = []
+                            for phase_script in quest_data.get('phaseScripts', []) or []:
+                                scripts = []
+                                for script in phase_script.get('scripts', []) or []:
+                                    script_id = str(script.get('scriptId') or script.get('id') or '')
+                                    if not script_id or script_id == '0':
+                                        continue
+                                    scripts.append({
+                                        'scriptId': script_id,
+                                        'script': script.get('script', ''),
+                                    })
+                                    if script_id not in script_ids:
+                                        script_ids.append(script_id)
+                                if scripts:
+                                    phase_scripts.append({
+                                        'phase': phase_script.get('phase'),
+                                        'scripts': scripts,
+                                    })
                             quest_list.append({
                                 'id': quest_id,
                                 'name': quest_data.get('name', ''),
                                 'type': quest_data.get('type', ''),
                                 'spotName': quest_data.get('spotName', '') or spot_lookup.get(qraw.get('spotId'), ''),
+                                'spotId': quest_data.get('spotId') or qraw.get('spotId'),
+                                'phases': quest_data.get('phases', []),
+                                'phasesNoBattle': quest_data.get('phasesNoBattle', []),
+                                'phasesWithEnemies': quest_data.get('phasesWithEnemies', []),
+                                'phaseScripts': phase_scripts,
+                                'scriptIds': script_ids,
+                                'scriptCount': len(script_ids),
+                                'hasDialogueScript': bool(script_ids),
                                 'openedAt': quest_data.get('openedAt'),
                                 'closedAt': quest_data.get('closedAt'),
                                 'region': region,
@@ -214,7 +248,14 @@ def latest_tasks():
         region = loader.normalize_region(data.get('region', 'JP'))
         limit = int(data.get('limit', 50))
         tasks = loader.list_latest_tasks(region=region, limit=limit)
-        return jsonify({'tasks': tasks, 'region': region})
+        hidden_no_script_count = max((int(task.get('hiddenNoScriptCount', 0) or 0) for task in tasks), default=0)
+        scanned_count = max((int(task.get('scannedCount', 0) or 0) for task in tasks), default=0)
+        return jsonify({
+            'tasks': tasks,
+            'region': region,
+            'hiddenNoScriptCount': hidden_no_script_count,
+            'scannedCount': scanned_count,
+        })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -775,6 +816,147 @@ def _entry_translations_with_source(entry, source_dialogues):
         }
         for source, cached in zip(source_dialogues, entry.translations)
     ]
+
+
+def _cache_option_key(option):
+    return (option.provider, option.model, option.prompt_version)
+
+
+def _common_cache_options_for_scripts(script_sources, source_region, target_language, cache_client=None):
+    cache_client = cache_client or translation_cache_client
+    if not script_sources:
+        return []
+
+    common_keys = None
+    options_by_key = {}
+    total_dialogues = 0
+
+    for script_id, source_dialogues in script_sources.items():
+        total_dialogues += len(source_dialogues)
+        source_hash = canonical_source_hash(source_dialogues)
+        options = cache_client.list_options(
+            script_id=str(script_id),
+            source_region=source_region,
+            source_hash=source_hash,
+            target_language=target_language,
+            expected_dialogue_count=len(source_dialogues),
+        )
+        keyed = {_cache_option_key(option): option for option in options}
+        if common_keys is None:
+            common_keys = set(keyed.keys())
+        else:
+            common_keys &= set(keyed.keys())
+        for key, option in keyed.items():
+            options_by_key.setdefault(key, option)
+
+    result = []
+    for key in sorted(common_keys or set()):
+        option = options_by_key[key]
+        result.append({
+            'id': '||'.join(key),
+            'provider': option.provider,
+            'model': option.model,
+            'prompt_version': option.prompt_version,
+            'label': option.label,
+            'script_count': len(script_sources),
+            'dialogue_count': total_dialogues,
+            'generated_at': option.generated_at,
+        })
+    return result
+
+
+def _extract_script_sources(script_ids, source_region):
+    sources = {}
+    for script_id in script_ids:
+        sources[str(script_id)] = loader.extract_dialogues(str(script_id), region=source_region)
+    return sources
+
+
+@app.route('/translation_cache_options', methods=['POST'])
+def translation_cache_options():
+    data = request.get_json() or {}
+    script_ids = [str(script_id) for script_id in data.get('script_ids', []) if str(script_id)]
+    source_region = loader.normalize_region(data.get('source_region', 'JP'))
+    target_language = data.get('target_language', 'Chinese (Simplified)')
+
+    if not script_ids:
+        return jsonify({'error': 'script_ids required'}), 400
+    if not translation_cache_config.repo:
+        return jsonify({
+            'options': [],
+            'enabled': False,
+            'reason': 'Translation cache repository is not configured.',
+        })
+
+    try:
+        script_sources = _extract_script_sources(script_ids, source_region)
+        options = _common_cache_options_for_scripts(script_sources, source_region, target_language)
+        return jsonify({
+            'options': options,
+            'enabled': True,
+            'target_language': normalize_target_language(target_language),
+            'scripts': [
+                {
+                    'script_id': script_id,
+                    'dialogue_count': len(source),
+                    'source_hash': canonical_source_hash(source),
+                }
+                for script_id, source in script_sources.items()
+            ],
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/translate_cached', methods=['POST'])
+def translate_cached():
+    data = request.get_json() or {}
+    script_ids = [str(script_id) for script_id in data.get('script_ids', []) if str(script_id)]
+    source_region = loader.normalize_region(data.get('source_region', 'JP'))
+    target_language = normalize_target_language(data.get('target_language', 'Chinese (Simplified)'))
+    provider = str(data.get('provider', '')).strip()
+    model = str(data.get('model', '')).strip()
+    prompt_version = str(data.get('prompt_version', '')).strip() or translation_cache_config.prompt_version
+
+    if not script_ids:
+        return jsonify({'error': 'script_ids required'}), 400
+    if not (provider and model):
+        return jsonify({'error': 'provider and model required'}), 400
+    if not translation_cache_config.enabled:
+        return jsonify({'error': 'Translation cache is not configured'}), 503
+
+    try:
+        script_sources = _extract_script_sources(script_ids, source_region)
+        translations_by_script = {}
+        original_dialogues = []
+
+        for script_id in script_ids:
+            source_dialogues = script_sources.get(script_id, [])
+            original_dialogues.extend(source_dialogues)
+            key = TranslationCacheKey(
+                script_id=script_id,
+                source_region=source_region,
+                source_hash=canonical_source_hash(source_dialogues),
+                target_language=target_language,
+                provider=provider,
+                model=model,
+                prompt_version=prompt_version,
+            )
+            entry = translation_cache_client.read(key, expected_dialogue_count=len(source_dialogues))
+            if not entry:
+                return jsonify({'error': f'Cached translation not found for script {script_id}'}), 404
+            translations_by_script[script_id] = _entry_translations_with_source(entry, source_dialogues)
+
+        return jsonify({
+            'original_dialogues': original_dialogues,
+            'translated_dialogues': _merge_script_translations(script_ids, translations_by_script),
+            'cache_hit': True,
+            'cache_provider': provider,
+            'cache_model': model,
+            'cache_prompt_version': prompt_version,
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/translate', methods=['POST'])

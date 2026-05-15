@@ -193,6 +193,16 @@ class TranslationCacheEntry:
             return None
 
 
+@dataclass(frozen=True)
+class TranslationCacheOption:
+    provider: str
+    model: str
+    prompt_version: str
+    label: str
+    dialogue_count: int
+    generated_at: str = ""
+
+
 @dataclass
 class TranslationCacheConfig:
     base_url: str = ""
@@ -226,6 +236,53 @@ class TranslationCacheClient:
         self.config = config
         self.session = session or requests.Session()
 
+    def _github_headers(self) -> Dict[str, str]:
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+        }
+        if self.config.token:
+            headers["Authorization"] = f"Bearer {self.config.token}"
+        return headers
+
+    def _github_contents_url(self, path: str) -> str:
+        return f"https://api.github.com/repos/{self.config.repo}/contents/{quote(path)}"
+
+    def _list_github_directory(self, path: str) -> List[Dict]:
+        if not self.config.repo:
+            return []
+        try:
+            response = self.session.get(
+                self._github_contents_url(path),
+                headers=self._github_headers(),
+                params={"ref": self.config.branch},
+                timeout=15,
+            )
+            if response.status_code == 404:
+                return []
+            response.raise_for_status()
+            data = response.json()
+            if not isinstance(data, list):
+                return []
+            return [item for item in data if isinstance(item, dict)]
+        except Exception as exc:
+            logger.warning("Translation cache list failed for %s: %s", path, exc)
+            return []
+
+    def _read_json_url(self, url: str) -> Optional[Dict]:
+        if not url:
+            return None
+        try:
+            response = self.session.get(url, timeout=10)
+            if response.status_code == 404:
+                return None
+            response.raise_for_status()
+            data = response.json()
+            return data if isinstance(data, dict) else None
+        except Exception as exc:
+            logger.warning("Translation cache metadata read failed for %s: %s", url, exc)
+            return None
+
     def read(self, key: TranslationCacheKey, expected_dialogue_count: int) -> Optional[TranslationCacheEntry]:
         if not self.config.base_url:
             return None
@@ -240,16 +297,82 @@ class TranslationCacheClient:
             logger.warning("Translation cache read failed for %s: %s", key.relative_path(), exc)
             return None
 
+    def list_options(
+        self,
+        script_id: str,
+        source_region: str,
+        source_hash: str,
+        target_language: str,
+        expected_dialogue_count: int,
+    ) -> List[TranslationCacheOption]:
+        if not self.config.repo:
+            return []
+
+        source_region = sanitize_path_segment(str(source_region).upper())
+        target_language = normalize_target_language(target_language)
+        base_path = "/".join([
+            "v1",
+            source_region,
+            sanitize_path_segment(script_id),
+            sanitize_path_segment(source_hash),
+            sanitize_path_segment(target_language),
+        ])
+        options: List[TranslationCacheOption] = []
+
+        for provider_item in self._list_github_directory(base_path):
+            if provider_item.get("type") != "dir":
+                continue
+            provider_dir = provider_item.get("name", "")
+            provider_path = f"{base_path}/{provider_dir}"
+            for model_item in self._list_github_directory(provider_path):
+                if model_item.get("type") != "dir":
+                    continue
+                model_dir = model_item.get("name", "")
+                model_path = f"{provider_path}/{model_dir}"
+                for prompt_item in self._list_github_directory(model_path):
+                    name = str(prompt_item.get("name", ""))
+                    if prompt_item.get("type") != "file" or not name.endswith(".json"):
+                        continue
+                    prompt_version = name[:-5]
+                    payload = self._read_json_url(prompt_item.get("download_url", ""))
+                    if not payload:
+                        continue
+                    provider = str(payload.get("provider") or provider_dir)
+                    model = str(payload.get("model") or model_dir)
+                    prompt_version = str(payload.get("prompt_version") or prompt_version)
+                    key = TranslationCacheKey(
+                        script_id=str(script_id),
+                        source_region=source_region,
+                        source_hash=source_hash,
+                        target_language=target_language,
+                        provider=provider,
+                        model=model,
+                        prompt_version=prompt_version,
+                    )
+                    entry = TranslationCacheEntry.from_json(payload, key, expected_dialogue_count)
+                    if not entry:
+                        continue
+                    generated_at = ""
+                    generator = payload.get("generator")
+                    if isinstance(generator, dict):
+                        generated_at = str(generator.get("generated_at", ""))
+                    options.append(TranslationCacheOption(
+                        provider=provider,
+                        model=model,
+                        prompt_version=prompt_version,
+                        label=f"{provider} / {model} / {prompt_version}",
+                        dialogue_count=entry.dialogue_count,
+                        generated_at=generated_at,
+                    ))
+
+        return sorted(options, key=lambda item: (item.provider, item.model, item.prompt_version))
+
     def write(self, entry: TranslationCacheEntry) -> bool:
         if not (self.config.write_enabled and self.config.repo and self.config.token):
             return False
         path = entry.key.relative_path()
-        get_url = f"https://api.github.com/repos/{self.config.repo}/contents/{quote(path)}"
-        headers = {
-            "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {self.config.token}",
-            "X-GitHub-Api-Version": "2022-11-28",
-        }
+        get_url = self._github_contents_url(path)
+        headers = self._github_headers()
         try:
             existing = self.session.get(get_url, headers=headers, params={"ref": self.config.branch}, timeout=15)
             if existing.status_code == 200:

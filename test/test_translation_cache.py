@@ -6,6 +6,7 @@ from translation_cache import (
     TranslationCacheEntry,
     TranslationCacheKey,
     TranslationCacheClient,
+    TranslationCacheOption,
     canonical_source_hash,
     normalize_provider,
     normalize_target_language,
@@ -136,8 +137,65 @@ class TranslationCacheClientTests(unittest.TestCase):
         put_url = session.put.call_args.args[0]
         self.assertIn("/repos/owner/repo/contents/v1/JP/1/hash/zh-CN/gemini/gemini/fgo-v1.json", put_url)
 
+    def test_list_options_discovers_github_cache_versions(self):
+        payload = {
+            "schema_version": 1,
+            "script_id": "1",
+            "source_region": "JP",
+            "source_hash": "hash",
+            "target_language": "zh-CN",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "prompt_version": "fgo-v1",
+            "dialogue_count": 1,
+            "trusted_generation": True,
+            "translations": [{"speaker": "A", "translated_content": "hello"}],
+        }
 
-from app import _merge_script_translations, _split_dialogues_by_script_counts
+        def fake_get(url, **kwargs):
+            if url.endswith("/contents/v1/JP/1/hash/zh-CN"):
+                return Mock(status_code=200, json=Mock(return_value=[
+                    {"type": "dir", "name": "deepseek"},
+                ]))
+            if url.endswith("/contents/v1/JP/1/hash/zh-CN/deepseek"):
+                return Mock(status_code=200, json=Mock(return_value=[
+                    {"type": "dir", "name": "deepseek-v4-flash"},
+                ]))
+            if url.endswith("/contents/v1/JP/1/hash/zh-CN/deepseek/deepseek-v4-flash"):
+                return Mock(status_code=200, json=Mock(return_value=[
+                    {"type": "file", "name": "fgo-v1.json", "download_url": "https://raw.example/fgo-v1.json"},
+                ]))
+            if url == "https://raw.example/fgo-v1.json":
+                return Mock(status_code=200, json=Mock(return_value=payload))
+            return Mock(status_code=404, json=Mock(return_value={}))
+
+        session = Mock()
+        session.get.side_effect = fake_get
+        client = TranslationCacheClient(
+            TranslationCacheConfig(
+                base_url="https://example.github.io/cache",
+                repo="owner/repo",
+                branch="main",
+            ),
+            session=session,
+        )
+
+        options = client.list_options(
+            script_id="1",
+            source_region="JP",
+            source_hash="hash",
+            target_language="Chinese (Simplified)",
+            expected_dialogue_count=1,
+        )
+
+        self.assertEqual(len(options), 1)
+        self.assertEqual(options[0].provider, "deepseek")
+        self.assertEqual(options[0].model, "deepseek-v4-flash")
+        self.assertEqual(options[0].prompt_version, "fgo-v1")
+        self.assertEqual(options[0].label, "deepseek / deepseek-v4-flash / fgo-v1")
+
+
+from app import _common_cache_options_for_scripts, _merge_script_translations, _split_dialogues_by_script_counts
 
 
 class TranslationRouteHelperTests(unittest.TestCase):
@@ -163,6 +221,43 @@ class TranslationRouteHelperTests(unittest.TestCase):
         )
 
         self.assertEqual([item["translated_content"] for item in result], ["one", "two"])
+
+    def test_common_cache_options_require_every_script(self):
+        common = TranslationCacheOption(
+            provider="deepseek",
+            model="deepseek-v4-flash",
+            prompt_version="fgo-v1",
+            label="deepseek / deepseek-v4-flash / fgo-v1",
+            dialogue_count=1,
+        )
+        only_first = TranslationCacheOption(
+            provider="gemini",
+            model="gemini-2.5-flash",
+            prompt_version="fgo-v1",
+            label="gemini / gemini-2.5-flash / fgo-v1",
+            dialogue_count=1,
+        )
+
+        class FakeCacheClient:
+            def list_options(self, script_id, source_region, source_hash, target_language, expected_dialogue_count):
+                if script_id == "s1":
+                    return [common, only_first]
+                return [common]
+
+        options = _common_cache_options_for_scripts(
+            {
+                "s1": [{"speaker": "A", "content": "one"}],
+                "s2": [{"speaker": "B", "content": "two"}],
+            },
+            source_region="JP",
+            target_language="Chinese (Simplified)",
+            cache_client=FakeCacheClient(),
+        )
+
+        self.assertEqual(len(options), 1)
+        self.assertEqual(options[0]["provider"], "deepseek")
+        self.assertEqual(options[0]["script_count"], 2)
+        self.assertEqual(options[0]["dialogue_count"], 2)
 
 
 if __name__ == "__main__":

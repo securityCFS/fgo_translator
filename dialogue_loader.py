@@ -513,8 +513,74 @@ class DialogueLoader:
         List the newest quest tasks exposed by the Atlas server.
 
         This uses the latestEnemyData query so users can pick current tasks
-        directly instead of searching war -> quest manually.
+        directly instead of searching war -> quest manually, then joins back
+        to nice war quest data so battle-only tasks without dialogue scripts
+        can be filtered out before they reach the UI.
         """
+        def normalize_phase_scripts(phase_scripts):
+            normalized = []
+            for phase_script in phase_scripts or []:
+                scripts = []
+                for script in phase_script.get("scripts", []) or []:
+                    script_id = str(script.get("scriptId") or script.get("id") or "")
+                    if not script_id or script_id == "0":
+                        continue
+                    scripts.append({
+                        "scriptId": script_id,
+                        "script": script.get("script", ""),
+                    })
+                if scripts:
+                    normalized.append({
+                        "phase": phase_script.get("phase"),
+                        "scripts": scripts,
+                    })
+            return normalized
+
+        def script_ids_from_phase_scripts(phase_scripts):
+            seen = set()
+            script_ids = []
+            for phase_script in phase_scripts:
+                for script in phase_script.get("scripts", []):
+                    script_id = str(script.get("scriptId", ""))
+                    if script_id and script_id not in seen:
+                        seen.add(script_id)
+                        script_ids.append(script_id)
+            return script_ids
+
+        def normalize_quest(quest, spot, war, task=None):
+            phase_scripts = normalize_phase_scripts(quest.get("phaseScripts", []))
+            script_ids = script_ids_from_phase_scripts(phase_scripts)
+            return {
+                "itemKind": "task",
+                "id": str(quest.get("id") or (task or {}).get("id", "")),
+                "name": quest.get("name") or (task or {}).get("name", ""),
+                "region": region,
+                "type": quest.get("type") or (task or {}).get("type", ""),
+                "phase": (task or {}).get("phase"),
+                "latestPhase": (task or {}).get("phase"),
+                "phases": quest.get("phases", []),
+                "phasesNoBattle": quest.get("phasesNoBattle", []),
+                "phasesWithEnemies": quest.get("phasesWithEnemies", []),
+                "phaseScripts": phase_scripts,
+                "scriptIds": script_ids,
+                "scriptCount": len(script_ids),
+                "hasDialogueScript": bool(script_ids),
+                "warId": str(quest.get("warId") or war.get("id") or (task or {}).get("warId", "")),
+                "warName": war.get("name") or war.get("longName", ""),
+                "warLongName": quest.get("warLongName") or war.get("longName", ""),
+                "spotId": quest.get("spotId") or spot.get("id") or (task or {}).get("spotId"),
+                "spotName": quest.get("spotName") or spot.get("name", "") or (task or {}).get("spotName", ""),
+                "mapId": spot.get("mapId"),
+                "spotX": spot.get("x"),
+                "spotY": spot.get("y"),
+                "consumeType": quest.get("consumeType") or (task or {}).get("consumeType", ""),
+                "consume": quest.get("consume", (task or {}).get("consume")),
+                "noticeAt": quest.get("noticeAt", (task or {}).get("noticeAt")),
+                "openedAt": quest.get("openedAt", (task or {}).get("openedAt")),
+                "closedAt": quest.get("closedAt", (task or {}).get("closedAt")),
+                "priority": quest.get("priority", (task or {}).get("priority")),
+            }
+
         try:
             region = self.normalize_region(region)
             limit = max(1, min(int(limit or 50), 200))
@@ -523,28 +589,82 @@ class DialogueLoader:
             if not isinstance(tasks, list):
                 return []
 
-            normalized_tasks = []
-            for task in tasks[:limit]:
+            unique_tasks = []
+            seen_task_ids = set()
+            for task in tasks:
                 if not isinstance(task, dict):
                     continue
-                normalized_tasks.append({
-                    "itemKind": "task",
-                    "id": str(task.get("id", "")),
-                    "name": task.get("name", ""),
-                    "region": region,
-                    "type": task.get("type", ""),
-                    "phase": task.get("phase"),
-                    "warId": task.get("warId"),
-                    "warLongName": task.get("warLongName", ""),
-                    "spotId": task.get("spotId"),
-                    "spotName": task.get("spotName", ""),
-                    "consumeType": task.get("consumeType", ""),
-                    "consume": task.get("consume"),
-                    "noticeAt": task.get("noticeAt"),
-                    "openedAt": task.get("openedAt"),
-                    "closedAt": task.get("closedAt"),
-                    "priority": task.get("priority")
-                })
+                task_id = str(task.get("id", ""))
+                if not task_id or task_id in seen_task_ids:
+                    continue
+                seen_task_ids.add(task_id)
+                unique_tasks.append(task)
+
+            war_ids = sorted({str(task.get("warId", "")) for task in unique_tasks if task.get("warId")})
+            quest_by_id = {}
+            for war_id in war_ids:
+                try:
+                    war_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/war/{war_id}"
+                    war = self.db_loader._make_request_with_retry(war_endpoint)
+                    if not war:
+                        continue
+                    for spot in war.get("spots", []) or []:
+                        for quest in spot.get("quests", []) or []:
+                            quest_by_id[str(quest.get("id", ""))] = normalize_quest(quest, spot, war)
+                except Exception as e:
+                    logger.warning(f"Failed to enrich latest task war {war_id}: {e}")
+
+            normalized_tasks = []
+            hidden_no_script_count = 0
+            for task in unique_tasks:
+                quest = quest_by_id.get(str(task.get("id", "")))
+                if not quest:
+                    hidden_no_script_count += 1
+                    continue
+                quest["phase"] = task.get("phase")
+                quest["latestPhase"] = task.get("phase")
+                quest["latestOpenedAt"] = task.get("openedAt")
+                if not quest.get("hasDialogueScript"):
+                    hidden_no_script_count += 1
+                    continue
+                normalized_tasks.append(quest)
+                if len(normalized_tasks) >= limit:
+                    break
+
+            if len(normalized_tasks) < limit:
+                seen_story_ids = {str(task.get("id", "")) for task in normalized_tasks}
+                for war in self.list_latest_activities(region=region, activity_type="war", limit=20):
+                    if len(normalized_tasks) >= limit:
+                        break
+                    war_id = str(war.get("id", ""))
+                    if not war_id:
+                        continue
+                    try:
+                        war_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/war/{war_id}"
+                        nice_war = self.db_loader._make_request_with_retry(war_endpoint)
+                        if not nice_war:
+                            continue
+                        fill_candidates = []
+                        for spot in nice_war.get("spots", []) or []:
+                            for quest in spot.get("quests", []) or []:
+                                story_task = normalize_quest(quest, spot, nice_war)
+                                if not story_task.get("hasDialogueScript"):
+                                    continue
+                                if story_task["id"] in seen_story_ids:
+                                    continue
+                                fill_candidates.append(story_task)
+                        fill_candidates.sort(key=lambda q: q.get("openedAt") or 0, reverse=True)
+                        for story_task in fill_candidates:
+                            if len(normalized_tasks) >= limit:
+                                break
+                            seen_story_ids.add(story_task["id"])
+                            normalized_tasks.append(story_task)
+                    except Exception as e:
+                        logger.warning(f"Failed to fill latest task stories from war {war_id}: {e}")
+
+            for task in normalized_tasks:
+                task["hiddenNoScriptCount"] = hidden_no_script_count
+                task["scannedCount"] = len(unique_tasks)
             return normalized_tasks
         except Exception as e:
             logger.error(f"Failed to list latest tasks: {e}")
