@@ -84,6 +84,65 @@
             border-color: rgba(255, 255, 255, 0.35);
             color: #fff;
         }
+        .tutorial-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 45;
+            display: none;
+            pointer-events: none;
+        }
+        .tutorial-overlay.active {
+            display: block;
+        }
+        .tutorial-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.48);
+            pointer-events: auto;
+        }
+        .tutorial-highlight {
+            position: absolute;
+            border: 2px solid rgba(99, 102, 241, 0.95);
+            border-radius: 14px;
+            box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.48), 0 18px 50px rgba(79, 70, 229, 0.24);
+            transition: all 180ms ease;
+            pointer-events: none;
+        }
+        .tutorial-card {
+            position: absolute;
+            width: min(360px, calc(100vw - 32px));
+            max-height: min(420px, calc(100dvh - 32px));
+            overflow-y: auto;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+            pointer-events: auto;
+        }
+        .tutorial-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #cbd5e1;
+        }
+        .tutorial-dot.active {
+            width: 18px;
+            background: #4f46e5;
+        }
+        @media (max-width: 767px) {
+            .tutorial-card {
+                position: fixed;
+                left: max(0.75rem, env(safe-area-inset-left)) !important;
+                right: max(0.75rem, env(safe-area-inset-right)) !important;
+                bottom: max(0.75rem, env(safe-area-inset-bottom)) !important;
+                top: auto !important;
+                width: auto;
+                max-height: min(50dvh, 390px);
+                border-radius: 16px;
+            }
+            .tutorial-highlight {
+                opacity: 0.92;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col text-slate-800">
@@ -95,9 +154,13 @@
                 <svg class="w-7 h-7 sm:w-8 sm:h-8 text-indigo-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
                 <h1 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight truncate">FGO Translator</h1>
             </div>
-            <button id="settingsBtn" type="button" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors" onclick="toggleSettings()">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            </button>
+            <div class="flex items-center gap-1.5">
+                <button id="uiLangBtn" type="button" class="h-9 min-h-0 rounded-full border border-slate-200 bg-white px-3 text-xs font-bold text-slate-600 shadow-sm transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700" onclick="toggleUiLanguage()" aria-label="Switch language" title="Switch language">中文</button>
+                <button id="tutorialBtn" type="button" class="h-9 w-9 min-h-0 rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-600 shadow-sm transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700" onclick="startTutorial(true)" aria-label="Open tutorial" title="Open tutorial">?</button>
+                <button id="settingsBtn" type="button" class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors" onclick="toggleSettings()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -179,7 +242,7 @@
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Limit</label>
-                        <input type="number" id="latestTaskLimit" min="1" max="200" value="50" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        <input type="number" id="latestTaskLimit" min="1" max="200" value="5" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
                     </div>
                     <button onclick="loadLatestTasks()" class="w-full mt-2 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 focus:ring-4 focus:ring-slate-500/20 active:scale-[0.98] transition-all">
                         Load Tasks
@@ -271,7 +334,7 @@
                         <div class="-mx-4 sm:mx-0 px-4 sm:px-0 flex gap-2 overflow-x-auto pb-2 scrollbar-thin"></div>
                     </div>
                     <div id="gamingModeBar" class="hidden mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-indigo-50 border border-indigo-200 rounded-lg px-4 py-3 sm:py-2.5">
-                        <span class="text-sm text-indigo-800 font-medium">View in Gaming Mode — immersive VN-style playback</span>
+                        <span class="text-sm text-indigo-800 font-medium">View in Gaming Mode - immersive VN-style playback</span>
                         <button onclick="openGamingMode()" class="w-full sm:w-auto flex justify-center items-center gap-1.5 bg-indigo-600 text-white text-sm font-medium px-4 py-2 sm:py-1.5 rounded-lg hover:bg-indigo-700 transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             Gaming Mode
@@ -283,6 +346,31 @@
         </div>
     </main>
 
+    <!-- Guided Tutorial -->
+    <div id="tutorialOverlay" class="tutorial-overlay" aria-hidden="true">
+        <div class="tutorial-backdrop" onclick="skipTutorial()"></div>
+        <div id="tutorialHighlight" class="tutorial-highlight"></div>
+        <section id="tutorialCard" class="tutorial-card p-5" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle" aria-describedby="tutorialBody">
+            <div class="flex items-center justify-between gap-3 mb-3">
+                <span id="tutorialStepCount" class="text-xs font-bold uppercase tracking-wider text-indigo-600"></span>
+                <button id="tutorialCloseBtn" type="button" class="h-8 w-8 min-h-0 rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors" onclick="skipTutorial()" aria-label="Close tutorial" title="Close tutorial">
+                    <svg class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <h3 id="tutorialTitle" class="text-lg font-bold text-slate-900 mb-2"></h3>
+            <p id="tutorialBody" class="text-sm leading-6 text-slate-600"></p>
+            <button id="tutorialActionBtn" type="button" class="hidden mt-4 w-full rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-2.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-100 transition-colors" onclick="runTutorialAction()"></button>
+            <div id="tutorialDots" class="mt-4 flex items-center gap-1.5"></div>
+            <div class="mt-5 flex items-center justify-between gap-2">
+                <button id="tutorialSkipBtn" type="button" class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-colors" onclick="skipTutorial()">Skip</button>
+                <div class="flex items-center gap-2">
+                    <button id="tutorialPrevBtn" type="button" class="rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-colors" onclick="prevTutorialStep()">Back</button>
+                    <button id="tutorialNextBtn" type="button" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors" onclick="nextTutorialStep()">Next</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Loading Overlay -->
     <div id="loading" class="loading fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 items-center justify-center">
         <div class="bg-white p-6 rounded-xl shadow-2xl flex flex-col items-center max-w-sm w-full mx-4">
@@ -293,7 +381,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/api.js"></script>
+    <script src="js/api.js?v=20260515-timeout"></script>
     <script src="js/translate.js"></script>
     <script>
     // ── Utilities ─────────────────────────────────────────────────────────────
@@ -303,6 +391,446 @@
 
     function escapeHtml(v) {
         return String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+    }
+
+    const UI_I18N = {
+        en: {
+            appTitle: 'FGO Dialogue Translator',
+            switchButton: '中文',
+            switchTitle: 'Switch to Chinese interface',
+            search: 'Search',
+            latestAct: 'Latest Act',
+            tasks: 'Tasks',
+            activities: 'activities',
+            wars: 'wars',
+            events: 'events',
+            quests: 'quests',
+            noResults: '<span style="color:#c00">No results found</span>',
+            noItems: '<span style="color:#c00">No {label} found</span>',
+            foundSelect: 'Found <b>{count}</b> {label}. Please select one.',
+            foundSelectPage: 'Found <b>{count}</b> {label}. Please select one. Showing <b>{start}-{end}</b>.',
+            loadedLatest: 'Loaded <b>{count}</b> latest {label} from {region}.',
+            loadedTasks: 'Loaded <b>{count}</b> story {taskWord} from {region}.{note}',
+            filteredTasks: ' <span class="text-slate-400">Filtered {count} battle-only {taskWord}.</span>',
+            cachedQuests: '<b>{count}</b> quests loaded (cached) - click <em>Fetch Quests</em> to refresh.',
+            initialHint: '<span class="text-slate-400 text-sm">Search for a war/event on the left, or use the <b>Tasks</b> tab to browse recent quests.</span>',
+            latestTasksHeading: 'Latest Tasks',
+            relatedQuestsHeading: 'Related Quests',
+            questsHeading: 'Quests',
+            startLabel: 'Start',
+            endLabel: 'End',
+            noWarMap: 'No war map',
+            shown: 'shown',
+            openLabel: 'Open',
+            latestPhase: 'Latest phase',
+            loadingPhases: 'Loading quest phases...',
+            noPhaseScripts: 'No phase scripts found for this quest.',
+            questLabel: 'Quest',
+            selectPhase: 'Select a Phase to Translate',
+            phase: 'Phase',
+            script: 'script',
+            scripts: 'scripts',
+            battle: 'battle',
+            story: 'story',
+            failedPhases: 'Failed to load phases: {message}',
+            prev: 'Prev',
+            next: 'Next',
+            page: 'Page {page} / {total}',
+            selectPhaseFirst: 'Please select a phase first.',
+            noScriptsPhase: 'No scripts found for this phase',
+            foundScripts: 'Found {count} {scriptWord}',
+            extractingScript: 'Extracting script {scriptId} ({current}/{total})...',
+            fetchingAtlas: 'Fetching {label} translation...',
+            translatingDialogues: 'Translating dialogues...',
+            translatingProgress: 'Translating: {current}/{total} ({pct}%){speaker}',
+            translationCompleted: 'Translation completed!',
+            translationError: 'Translation error: {message}',
+            original: 'Original',
+            translation: 'Translation',
+            atlasTranslation: 'Atlas Translation',
+            downloadTxt: 'Download TXT',
+            preparingScene: 'Preparing scene...',
+            preparingGamingTitle: 'Preparing Gaming Mode',
+            popupBlocked: 'Popup blocked. Please allow popups for this site.',
+            gamingError: 'Gaming Mode error: {message}',
+            settingsSaved: 'Settings saved!',
+            checkingAtlas: 'Checking Atlas Academy for pre-translated regions...',
+            atlasCheckFailed: 'Atlas check failed: {message}',
+            atlasAvailable: 'Atlas pre-translation available: {regions}',
+            atlasUnavailable: 'No Atlas pre-translation available for this quest. Use AI translation.',
+            atlasCheckError: 'Atlas check error: {message}',
+            preTranslatedGroup: 'Pre-Translated (Atlas Academy)',
+            atlasRequestTimeout: 'Atlas Academy request timed out after {seconds}s. Please try again.',
+            operationTimeout: 'This request timed out after {seconds}s. Please try again.',
+            tutorialButtonTitle: 'Open tutorial',
+            tutorialClose: 'Close tutorial',
+            tutorialSkip: 'Skip',
+            tutorialBack: 'Back',
+            tutorialNext: 'Next',
+            tutorialDone: 'Done',
+            tutorialStep: 'Step {current} / {total}',
+            tutorialWelcomeTitle: 'Welcome to FGO Translator',
+            tutorialWelcomeBody: 'This tour follows the real workflow: load a few recent story tasks, open one script, translate it, then optionally play it back in Gaming Mode.',
+            tutorialSettingsTitle: 'Configure your API if needed',
+            tutorialSettingsBody: 'Use the gear in the top-right to set your own Gemini or OpenAI-compatible endpoint. Without an API, you can still use Google Translate or pick Atlas/user-translated scripts when they are available.',
+            tutorialLanguageTitle: 'Switch interface language',
+            tutorialLanguageBody: 'Use this button to switch the UI between English and Chinese. It only changes the interface text, not the source game data request.',
+            tutorialDiscoveryTitle: 'Start from search or tasks',
+            tutorialDiscoveryBody: 'Search by war, event, name, or ID, or open the Tasks tab to browse recent story quests. On mobile, this whole panel can fold away.',
+            tutorialTasksTitle: 'Load 5 recent story tasks',
+            tutorialTasksBody: 'The Tasks tab defaults to 5 latest story tasks, which keeps the first request fast and gives you real scripts to try. Use the button below to load a demo task and jump to its script phase.',
+            tutorialDemoAction: 'Load demo task and phase',
+            tutorialDemoLoading: 'Loading demo task...',
+            tutorialDemoFailed: 'Demo task failed: {message}',
+            tutorialResultsTitle: 'Pick a quest',
+            tutorialResultsBody: 'Quest results appear here. In the demo flow, the first available story task is selected automatically so the translation controls are no longer empty.',
+            tutorialPhaseTitle: 'Choose a phase',
+            tutorialPhaseBody: 'After selecting a quest, pick the phase you want. The latest-task path already filters out tasks without dialogue scripts where possible.',
+            tutorialTranslateTitle: 'Translate and download',
+            tutorialTranslateBody: 'Set the target language and engine, then start translation. If this script has Atlas data, choose the Atlas option under Target Language and Start Translation will load that script-specific pre-translation without using your API.',
+            tutorialAtlasAction: 'Load Atlas translation if available',
+            tutorialAtlasLoading: 'Loading Atlas translation...',
+            tutorialAtlasUnavailable: 'No Atlas translation is available for this selected script yet. You can use API translation or the Free Engine instead.',
+            tutorialAtlasFailed: 'Atlas translation failed: {message}',
+            tutorialGamingTitle: 'Use Gaming Mode',
+            tutorialGamingBody: 'After a real script is translated, this bar opens a visual novel style player. On phones it uses a fixed dialogue box designed for tapping and scrolling history.',
+        },
+        zh: {
+            appTitle: 'FGO 剧情翻译器',
+            switchButton: 'EN',
+            switchTitle: '切换到英文界面',
+            search: '搜索',
+            latestAct: '最新活动',
+            tasks: '任务',
+            activities: '活动',
+            wars: '主线/地图',
+            events: '活动',
+            quests: '关卡',
+            noResults: '<span style="color:#c00">没有找到结果</span>',
+            noItems: '<span style="color:#c00">没有找到{label}</span>',
+            foundSelect: '找到 <b>{count}</b> 个{label}，请选择一个。',
+            foundSelectPage: '找到 <b>{count}</b> 个{label}，请选择一个。当前显示 <b>{start}-{end}</b>。',
+            loadedLatest: '已从 {region} 加载 <b>{count}</b> 个最新{label}。',
+            loadedTasks: '已从 {region} 加载 <b>{count}</b> 个剧情任务。{note}',
+            filteredTasks: ' <span class="text-slate-400">已过滤 {count} 个纯战斗任务。</span>',
+            cachedQuests: '已载入 <b>{count}</b> 个关卡（缓存）- 点击 <em>获取关卡</em> 可刷新。',
+            initialHint: '<span class="text-slate-400 text-sm">在左侧搜索主线/活动，或使用 <b>任务</b> 标签浏览近期关卡。</span>',
+            latestTasksHeading: '最新任务',
+            relatedQuestsHeading: '相关关卡',
+            questsHeading: '关卡',
+            startLabel: '开始',
+            endLabel: '结束',
+            noWarMap: '无地图',
+            shown: '已显示',
+            openLabel: '开放',
+            latestPhase: '最新阶段',
+            loadingPhases: '正在加载关卡阶段...',
+            noPhaseScripts: '这个关卡没有可用脚本。',
+            questLabel: '关卡',
+            selectPhase: '选择要翻译的阶段',
+            phase: '阶段',
+            script: '脚本',
+            scripts: '脚本',
+            battle: '战斗',
+            story: '剧情',
+            failedPhases: '阶段加载失败：{message}',
+            prev: '上一页',
+            next: '下一页',
+            page: '第 {page} / {total} 页',
+            selectPhaseFirst: '请先选择阶段。',
+            noScriptsPhase: '这个阶段没有找到脚本',
+            foundScripts: '找到 {count} 个{scriptWord}',
+            extractingScript: '正在提取脚本 {scriptId}（{current}/{total}）...',
+            fetchingAtlas: '正在获取 {label} 翻译...',
+            translatingDialogues: '正在翻译对白...',
+            translatingProgress: '翻译中：{current}/{total}（{pct}%）{speaker}',
+            translationCompleted: '翻译完成！',
+            translationError: '翻译出错：{message}',
+            original: '原文',
+            translation: '译文',
+            atlasTranslation: 'Atlas 翻译',
+            downloadTxt: '下载 TXT',
+            preparingScene: '正在准备场景...',
+            preparingGamingTitle: '正在准备游戏模式',
+            popupBlocked: '弹窗被拦截，请允许本站弹窗。',
+            gamingError: '游戏模式出错：{message}',
+            settingsSaved: '设置已保存！',
+            checkingAtlas: '正在检查 Atlas Academy 预翻译区域...',
+            atlasCheckFailed: 'Atlas 检查失败：{message}',
+            atlasAvailable: 'Atlas 预翻译可用：{regions}',
+            atlasUnavailable: '这个关卡没有 Atlas 预翻译，可以使用 AI 翻译。',
+            atlasCheckError: 'Atlas 检查出错：{message}',
+            preTranslatedGroup: '预翻译（Atlas Academy）',
+            atlasRequestTimeout: 'Atlas Academy 请求超过 {seconds} 秒未响应，请稍后重试。',
+            operationTimeout: '本次请求超过 {seconds} 秒未响应，请稍后重试。',
+            tutorialButtonTitle: '打开新手教程',
+            tutorialClose: '关闭教程',
+            tutorialSkip: '跳过',
+            tutorialBack: '上一步',
+            tutorialNext: '下一步',
+            tutorialDone: '完成',
+            tutorialStep: '第 {current} / {total} 步',
+            tutorialWelcomeTitle: '欢迎使用 FGO 翻译器',
+            tutorialWelcomeBody: '这次引导会按真实流程走：加载几个近期剧情任务、打开一个脚本、开始翻译，最后也可以进入游戏模式播放。',
+            tutorialSettingsTitle: '按需配置自己的 API',
+            tutorialSettingsBody: '右上角齿轮可以配置 Gemini 或 OpenAI 兼容接口。如果不配置 API，也可以使用 Google Translate 免费引擎，或在可用时读取 Atlas / 其他用户已经翻译过的脚本。',
+            tutorialLanguageTitle: '切换界面语言',
+            tutorialLanguageBody: '这里可以在中文和英文界面之间切换。它只影响界面文字，不会改变源游戏数据的请求地址。',
+            tutorialDiscoveryTitle: '从搜索或任务开始',
+            tutorialDiscoveryBody: '可以按主线、活动、名称或 ID 搜索，也可以打开任务标签浏览近期剧情关卡。手机端这个区域可以折叠。',
+            tutorialTasksTitle: '加载 5 个近期剧情任务',
+            tutorialTasksBody: '任务标签默认只取 5 个最新剧情任务，这样第一次请求更快，也能直接拿到真实脚本试用。点下面的按钮可以加载示例任务并跳到脚本阶段。',
+            tutorialDemoAction: '加载示例任务和阶段',
+            tutorialDemoLoading: '正在加载示例任务...',
+            tutorialDemoFailed: '示例任务加载失败：{message}',
+            tutorialResultsTitle: '选择关卡',
+            tutorialResultsBody: '关卡结果会显示在这里。示例流程会自动选择第一个可用剧情任务，让后面的翻译控件不再是空状态。',
+            tutorialPhaseTitle: '选择剧情阶段',
+            tutorialPhaseBody: '选中关卡后，再选择想翻译的阶段。最新任务入口会尽量过滤掉没有对白脚本的任务。',
+            tutorialTranslateTitle: '翻译和下载',
+            tutorialTranslateBody: '设置目标语言和引擎后即可开始翻译。如果当前 script 有 Atlas 数据，在目标语言里选择 Atlas 选项后点击开始翻译，就会直接加载这个脚本对应的预翻译，不消耗你的 API。',
+            tutorialAtlasAction: '有 Atlas 时加载预翻译',
+            tutorialAtlasLoading: '正在加载 Atlas 预翻译...',
+            tutorialAtlasUnavailable: '当前选中的脚本暂时没有可用的 Atlas 翻译。可以改用 API 翻译或免费引擎。',
+            tutorialAtlasFailed: 'Atlas 翻译加载失败：{message}',
+            tutorialGamingTitle: '使用游戏模式',
+            tutorialGamingBody: '真实脚本翻译完成后，这里会出现视觉小说式播放入口。手机端使用固定字幕框，并支持点击推进和上翻历史。',
+        },
+    };
+    UI_I18N.en.static = {
+        appName: 'FGO Translator',
+        discovery: 'Discovery',
+        search: 'Search',
+        latestAct: 'Latest Act',
+        tasks: 'Tasks',
+        server: 'Server',
+        type: 'Type',
+        nameOrId: 'Name or ID',
+        namePlaceholder: 'e.g. 濂忕珷 or 405',
+        war: 'War',
+        event: 'Event',
+        limit: 'Limit',
+        loadActivities: 'Load Activities',
+        loadTasks: 'Load Tasks',
+        activitySelection: 'Activity Selection',
+        awaitingSearch: 'Awaiting search...',
+        relatedQuests: 'Related Quests',
+        fetchQuests: 'Fetch Quests',
+        translationSettings: 'Translation Settings',
+        engine: 'Engine',
+        apiEngine: 'API (Gemini / OpenAI)',
+        freeEngine: 'Free Engine (Google Translate)',
+        targetLanguage: 'Target Language',
+        aiTranslation: 'AI Translation',
+        chineseSimplified: 'Chinese (Simplified)',
+        chineseTraditional: 'Chinese (Traditional)',
+        english: 'English',
+        korean: 'Korean',
+        french: 'French',
+        spanish: 'Spanish',
+        vietnamese: 'Vietnamese',
+        thai: 'Thai',
+        indonesian: 'Indonesian',
+        startTranslation: 'Start Translation',
+        initializing: 'Initializing...',
+        gamingPitch: 'View in Gaming Mode - immersive VN-style playback',
+        gamingMode: 'Gaming Mode',
+        processing: 'Processing',
+        pleaseWait: 'Please wait a moment...',
+        apiSettings: 'API Settings',
+        apiType: 'API Type',
+        openaiCompatible: 'OpenAI Compatible',
+        custom: 'Custom',
+        apiKey: 'API Key',
+        apiBaseUrl: 'API Base URL',
+        baseModel: 'Base Model',
+        authentication: 'Authentication',
+        settingsLocal: 'Settings are stored locally in your browser (localStorage). Your API key never leaves your device.',
+        apiProviders: 'API Providers',
+        projectNotice: 'Project Notes',
+        projectNoticeBody: 'This translator uses public Atlas Academy data, local browser credentials, public visual assets, and shared translation cache storage.',
+        projectNoticeAtlas: 'Atlas open data + optional VLM/LLM translation',
+        projectNoticePrivacy: 'Auth tokens stay in browser localStorage',
+        projectNoticeCache: 'Translated scripts may sync to the GitHub-hosted cache',
+        projectNoticeAssets: 'No unpacking, game modification, or client interaction',
+        projectNoticeSupport: 'Please support Fate/Grand Order',
+        projectNoticeLink: 'Open full Markdown notice',
+        cancel: 'Cancel',
+        saveChanges: 'Save Changes',
+    };
+    UI_I18N.zh.static = {
+        appName: 'FGO 翻译器',
+        discovery: '发现',
+        search: '搜索',
+        latestAct: '最新活动',
+        tasks: '任务',
+        server: '服务器',
+        type: '类型',
+        nameOrId: '名称或 ID',
+        namePlaceholder: '例如：奏章 或 405',
+        war: '主线/地图',
+        event: '活动',
+        limit: '数量',
+        loadActivities: '加载活动',
+        loadTasks: '加载任务',
+        activitySelection: '活动选择',
+        awaitingSearch: '等待搜索...',
+        relatedQuests: '相关关卡',
+        fetchQuests: '获取关卡',
+        translationSettings: '翻译设置',
+        engine: '引擎',
+        apiEngine: 'API（Gemini / OpenAI）',
+        freeEngine: '免费引擎（Google 翻译）',
+        targetLanguage: '目标语言',
+        aiTranslation: 'AI 翻译',
+        chineseSimplified: '简体中文',
+        chineseTraditional: '繁体中文',
+        english: '英文',
+        korean: '韩文',
+        french: '法文',
+        spanish: '西班牙文',
+        vietnamese: '越南文',
+        thai: '泰文',
+        indonesian: '印尼文',
+        startTranslation: '开始翻译',
+        initializing: '初始化...',
+        gamingPitch: '用游戏模式查看 - 沉浸式 VN 回放',
+        gamingMode: '游戏模式',
+        processing: '处理中',
+        pleaseWait: '请稍等...',
+        apiSettings: 'API 设置',
+        apiType: 'API 类型',
+        openaiCompatible: 'OpenAI 兼容',
+        custom: '自定义',
+        apiKey: 'API 密钥',
+        apiBaseUrl: 'API Base URL',
+        baseModel: '基础模型',
+        authentication: '认证方式',
+        settingsLocal: '设置会保存在当前浏览器本地（localStorage），API 密钥不会离开你的设备。',
+        apiProviders: 'API 服务商',
+        projectNotice: '项目说明',
+        projectNoticeBody: '本翻译器使用 Atlas Academy 公开数据、本地浏览器凭据、公开可访问素材，以及共享翻译缓存。',
+        projectNoticeAtlas: '基于 Atlas 开放数据，可选 VLM/LLM 实时翻译',
+        projectNoticePrivacy: 'Auth token 仅保存在浏览器 localStorage',
+        projectNoticeCache: '翻译后的脚本可能同步到 GitHub 托管缓存',
+        projectNoticeAssets: '不提供解包、游戏修改或客户端交互功能',
+        projectNoticeSupport: '希望各位支持 Fate/Grand Order',
+        projectNoticeLink: '打开完整 Markdown 说明',
+        cancel: '取消',
+        saveChanges: '保存修改',
+    };
+    let UI_LANG = (() => {
+        const saved = localStorage.getItem('fgoUiLang');
+        if (saved === 'zh' || saved === 'en') return saved;
+        return (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    })();
+    function t(key, vars = {}) {
+        const table = UI_I18N[UI_LANG] || UI_I18N.en;
+        let text = table[key] ?? UI_I18N.en[key] ?? key;
+        Object.entries(vars).forEach(([name, value]) => {
+            text = text.replaceAll(`{${name}}`, String(value ?? ''));
+        });
+        return text;
+    }
+    function itemLabel(label) {
+        return t(label) || label;
+    }
+    function scriptWord(count) {
+        if (UI_LANG === 'en') return count === 1 ? t('script') : t('scripts');
+        return t('scripts');
+    }
+    function taskWord(count) {
+        if (UI_LANG === 'en') return count === 1 ? 'task' : 'tasks';
+        return '任务';
+    }
+    function userFacingError(error) {
+        if (error && error.code === 'ATLAS_TIMEOUT') {
+            return t('atlasRequestTimeout', { seconds: Math.round((error.timeoutMs || 30000) / 1000) });
+        }
+        if (error && error.code === 'OPERATION_TIMEOUT') {
+            return t('operationTimeout', { seconds: Math.round((error.timeoutMs || 45000) / 1000) });
+        }
+        return error && error.message ? error.message : String(error || 'Error');
+    }
+    function withOperationTimeout(promise, timeoutMs = 45000) {
+        let timeoutId;
+        const timeout = new Promise((_, reject) => {
+            timeoutId = window.setTimeout(() => {
+                const err = new Error(t('operationTimeout', { seconds: Math.round(timeoutMs / 1000) }));
+                err.code = 'OPERATION_TIMEOUT';
+                err.timeoutMs = timeoutMs;
+                reject(err);
+            }, timeoutMs);
+        });
+        return Promise.race([promise, timeout]).finally(() => window.clearTimeout(timeoutId));
+    }
+    function translateExactStatic(root = document.body) {
+        if (!root) return;
+        const source = UI_LANG === 'zh' ? UI_I18N.en.static : UI_I18N.zh.static;
+        const target = UI_LANG === 'zh' ? UI_I18N.zh.static : UI_I18N.en.static;
+        const map = new Map(Object.keys(source).map(key => [source[key], target[key]]));
+        const translateValue = (value) => {
+            if (!value) return value;
+            const leading = value.match(/^\s*/)?.[0] || '';
+            const trailing = value.match(/\s*$/)?.[0] || '';
+            const trimmed = value.trim();
+            return map.has(trimmed) ? `${leading}${map.get(trimmed)}${trailing}` : value;
+        };
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+                const parent = node.parentElement;
+                if (!parent || ['SCRIPT', 'STYLE'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(node => { node.nodeValue = translateValue(node.nodeValue); });
+        const elements = root.nodeType === Node.ELEMENT_NODE ? [root, ...root.querySelectorAll('*')] : [...root.querySelectorAll('*')];
+        elements.forEach(el => {
+            ['placeholder', 'title', 'aria-label', 'label', 'data-label'].forEach(attr => {
+                if (el.hasAttribute?.(attr)) el.setAttribute(attr, translateValue(el.getAttribute(attr)));
+            });
+        });
+    }
+    function applyI18n(root = document.body) {
+        document.documentElement.lang = UI_LANG === 'zh' ? 'zh-CN' : 'en';
+        document.title = t('appTitle');
+        translateExactStatic(root);
+        const btn = document.getElementById('uiLangBtn');
+        if (btn) {
+            btn.textContent = t('switchButton');
+            btn.title = t('switchTitle');
+            btn.setAttribute('aria-label', t('switchTitle'));
+        }
+        const tutorialBtn = document.getElementById('tutorialBtn');
+        if (tutorialBtn) {
+            tutorialBtn.title = t('tutorialButtonTitle');
+            tutorialBtn.setAttribute('aria-label', t('tutorialButtonTitle'));
+        }
+        const tutorialCloseBtn = document.getElementById('tutorialCloseBtn');
+        if (tutorialCloseBtn) {
+            tutorialCloseBtn.title = t('tutorialClose');
+            tutorialCloseBtn.setAttribute('aria-label', t('tutorialClose'));
+        }
+        if (tutorialActive) renderTutorialStep();
+    }
+    function toggleUiLanguage() {
+        UI_LANG = UI_LANG === 'zh' ? 'en' : 'zh';
+        localStorage.setItem('fgoUiLang', UI_LANG);
+        applyI18n();
+        const activePanel = document.querySelector('#discoveryBody > div:not(.hidden)');
+        const panelId = activePanel ? activePanel.id : 'searchPanel';
+        const labels = { searchPanel: t('search'), latestActPanel: t('latestAct'), latestTaskPanel: t('tasks') };
+        updateDiscoverySummary(labels[panelId] || t('search'));
+        if (questResultsView?.list?.length) {
+            renderQuestResultsPage();
+        } else if (!selectedQuest) {
+            const titleEl = document.getElementById('questSectionTitle');
+            const infoEl = document.getElementById('questResultInfo');
+            if (titleEl) titleEl.textContent = t('questsHeading');
+            if (infoEl) infoEl.innerHTML = t('initialHint');
+        }
     }
     function formatUnixTime(v) {
         if (!v) return '';
@@ -330,7 +858,7 @@
     }
     function updateDiscoverySummary(label) {
         const summary = document.getElementById('discoverySummary');
-        if (summary) summary.textContent = label || 'Search';
+        if (summary) summary.textContent = label || t('search');
     }
     function toggleDiscoveryPanel() {
         const card = document.getElementById('discoveryCard');
@@ -339,6 +867,273 @@
     }
     function collapseDiscoveryOnMobile() {
         setDiscoveryCollapsed(true);
+    }
+
+    const TUTORIAL_STORAGE_KEY = 'fgoTutorialSeen';
+    const TUTORIAL_STEPS = [
+        { target: 'header', title: 'tutorialWelcomeTitle', body: 'tutorialWelcomeBody' },
+        { target: '#settingsBtn', title: 'tutorialSettingsTitle', body: 'tutorialSettingsBody' },
+        { target: '#uiLangBtn', title: 'tutorialLanguageTitle', body: 'tutorialLanguageBody' },
+        { target: '#discoveryCard', title: 'tutorialDiscoveryTitle', body: 'tutorialDiscoveryBody', before: () => setDiscoveryCollapsed(false) },
+        { target: '#latestTaskPanel', title: 'tutorialTasksTitle', body: 'tutorialTasksBody', before: prepareTutorialTaskPanel, actionLabel: 'tutorialDemoAction', action: loadTutorialDemoTask },
+        { target: '#questSection', title: 'tutorialResultsTitle', body: 'tutorialResultsBody' },
+        { target: '#phasePicker', title: 'tutorialPhaseTitle', body: 'tutorialPhaseBody' },
+        { target: '#translationOptions', title: 'tutorialTranslateTitle', body: 'tutorialTranslateBody', actionLabel: 'tutorialAtlasAction', action: loadTutorialAtlasTranslation },
+        { target: '#gamingModeBar', title: 'tutorialGamingTitle', body: 'tutorialGamingBody' },
+    ];
+    let tutorialActive = false;
+    let tutorialStepIndex = 0;
+    let tutorialRestoreState = null;
+    let tutorialPositionTimer = null;
+    let tutorialActionRunning = false;
+
+    function getActiveDiscoveryPanelId() {
+        const panel = document.querySelector('#discoveryBody > div:not(.hidden)');
+        return panel ? panel.id : 'searchPanel';
+    }
+    function getDiscoveryTabButton(panelId) {
+        return document.querySelector(`.discovery-tab[onclick*="${panelId}"]`);
+    }
+    function captureTutorialState() {
+        const card = document.getElementById('discoveryCard');
+        tutorialRestoreState = {
+            panelId: getActiveDiscoveryPanelId(),
+            discoveryCollapsed: !!card?.classList.contains('discovery-collapsed'),
+        };
+    }
+    function restoreTutorialState() {
+        if (!tutorialRestoreState) return;
+        const tab = getDiscoveryTabButton(tutorialRestoreState.panelId);
+        if (tab) switchDiscoveryTab(tutorialRestoreState.panelId, tab);
+        setDiscoveryCollapsed(tutorialRestoreState.discoveryCollapsed);
+        tutorialRestoreState = null;
+    }
+    function isElementVisible(el) {
+        if (!el) return false;
+        const style = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+    }
+    function getTutorialTarget(step) {
+        const el = step?.target ? document.querySelector(step.target) : null;
+        return isElementVisible(el) ? el : null;
+    }
+    function startTutorial(force = false) {
+        if (!force && localStorage.getItem(TUTORIAL_STORAGE_KEY) === '1') return;
+        captureTutorialState();
+        tutorialActive = true;
+        tutorialStepIndex = 0;
+        const overlay = document.getElementById('tutorialOverlay');
+        if (overlay) {
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+        }
+        renderTutorialStep();
+    }
+    function closeTutorial(markSeen = true) {
+        if (markSeen) localStorage.setItem(TUTORIAL_STORAGE_KEY, '1');
+        tutorialActive = false;
+        window.clearTimeout(tutorialPositionTimer);
+        const overlay = document.getElementById('tutorialOverlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+        restoreTutorialState();
+    }
+    function skipTutorial() {
+        closeTutorial(true);
+    }
+    function prepareTutorialTaskPanel() {
+        setDiscoveryCollapsed(false);
+        const limit = document.getElementById('latestTaskLimit');
+        if (limit) limit.value = '5';
+        const tab = document.querySelector('.discovery-tab[onclick*="latestTaskPanel"]');
+        if (tab) switchDiscoveryTab('latestTaskPanel', tab);
+    }
+    async function loadTutorialDemoTask() {
+        prepareTutorialTaskPanel();
+        if (questResultLabel !== 'tasks' || !questResults.length) {
+            await loadLatestTasks();
+        }
+        const quest = questResults.find(q =>
+            Array.isArray(q.phaseScripts)
+                ? q.phaseScripts.some(ps => (ps.scripts || []).length)
+                : q && q.id
+        );
+        if (!quest) throw new Error(t('noItems', { label: itemLabel('tasks') }).replace(/<[^>]+>/g, ''));
+        localStorage.setItem('fgoTutorialDemoTask', JSON.stringify({
+            id: quest.id,
+            name: quest.name || '',
+            region: quest.region || currentQuestRegion || 'JP',
+        }));
+        const idx = questResults.indexOf(quest);
+        const elem = document.querySelector(`#questResultList .result-item[data-idx="${idx}"]`);
+        await selectQuest(elem, quest.id, idx);
+        const phase = Object.keys(_phaseScriptsMap).find(ph => (_phaseScriptsMap[ph] || []).length);
+        if (phase) selectPhase(Number(phase));
+        const nextIndex = TUTORIAL_STEPS.findIndex(step => step.target === '#translationOptions');
+        if (nextIndex >= 0) tutorialStepIndex = nextIndex;
+    }
+    function getFirstAtlasOption() {
+        return document.querySelector('#targetLanguage optgroup[data-atlas] option');
+    }
+    async function waitForAtlasOption() {
+        let option = getFirstAtlasOption();
+        if (option) return option;
+        await checkAtlasAvailability();
+        for (let i = 0; i < 12; i += 1) {
+            option = getFirstAtlasOption();
+            if (option) return option;
+            await new Promise(resolve => window.setTimeout(resolve, 250));
+        }
+        return null;
+    }
+    async function loadTutorialAtlasTranslation() {
+        if (!selectedQuest || !selectedPhaseScripts?.length) {
+            await loadTutorialDemoTask();
+        }
+        const option = await waitForAtlasOption();
+        if (!option) throw new Error(t('tutorialAtlasUnavailable'));
+        const select = document.getElementById('targetLanguage');
+        select.value = option.value;
+        onTargetLanguageChange();
+        await translateSelectedQuest();
+        const nextIndex = TUTORIAL_STEPS.findIndex(step => step.target === '#gamingModeBar');
+        if (nextIndex >= 0) tutorialStepIndex = nextIndex;
+    }
+    async function runTutorialAction() {
+        if (!tutorialActive || tutorialActionRunning) return;
+        const step = TUTORIAL_STEPS[tutorialStepIndex];
+        if (!step?.action) return;
+        const btn = document.getElementById('tutorialActionBtn');
+        const body = document.getElementById('tutorialBody');
+        tutorialActionRunning = true;
+        if (btn) {
+            btn.disabled = true;
+                btn.textContent = step.actionLabel === 'tutorialAtlasAction' ? t('tutorialAtlasLoading') : t('tutorialDemoLoading');
+            btn.classList.add('opacity-70', 'cursor-wait');
+        }
+        try {
+            await step.action();
+            renderTutorialStep();
+        } catch (error) {
+            const key = step.actionLabel === 'tutorialAtlasAction' ? 'tutorialAtlasFailed' : 'tutorialDemoFailed';
+            if (body) body.textContent = t(key, { message: userFacingError(error) });
+        } finally {
+            tutorialActionRunning = false;
+            if (btn) {
+                btn.disabled = false;
+                btn.classList.remove('opacity-70', 'cursor-wait');
+                if (step.actionLabel) btn.textContent = t(step.actionLabel);
+            }
+        }
+    }
+    function nextTutorialStep() {
+        if (!tutorialActive) return;
+        if (tutorialStepIndex >= TUTORIAL_STEPS.length - 1) {
+            closeTutorial(true);
+            return;
+        }
+        tutorialStepIndex += 1;
+        renderTutorialStep();
+    }
+    function prevTutorialStep() {
+        if (!tutorialActive || tutorialStepIndex === 0) return;
+        tutorialStepIndex -= 1;
+        renderTutorialStep();
+    }
+    function renderTutorialStep() {
+        if (!tutorialActive) return;
+        const step = TUTORIAL_STEPS[tutorialStepIndex];
+        if (!step) return;
+        step.before?.();
+        const total = TUTORIAL_STEPS.length;
+        const title = document.getElementById('tutorialTitle');
+        const body = document.getElementById('tutorialBody');
+        const count = document.getElementById('tutorialStepCount');
+        const skip = document.getElementById('tutorialSkipBtn');
+        const prev = document.getElementById('tutorialPrevBtn');
+        const next = document.getElementById('tutorialNextBtn');
+        const dots = document.getElementById('tutorialDots');
+        const action = document.getElementById('tutorialActionBtn');
+        if (title) title.textContent = t(step.title);
+        if (body) body.textContent = t(step.body);
+        if (count) count.textContent = t('tutorialStep', { current: tutorialStepIndex + 1, total });
+        if (skip) skip.textContent = t('tutorialSkip');
+        if (action) {
+            action.classList.toggle('hidden', !step.actionLabel);
+            action.textContent = step.actionLabel ? t(step.actionLabel) : '';
+            action.disabled = tutorialActionRunning;
+        }
+        if (prev) {
+            prev.textContent = t('tutorialBack');
+            prev.disabled = tutorialStepIndex === 0;
+            prev.classList.toggle('opacity-40', tutorialStepIndex === 0);
+            prev.classList.toggle('cursor-not-allowed', tutorialStepIndex === 0);
+        }
+        if (next) next.textContent = tutorialStepIndex === total - 1 ? t('tutorialDone') : t('tutorialNext');
+        if (dots) {
+            dots.innerHTML = TUTORIAL_STEPS.map((_, idx) =>
+                `<span class="tutorial-dot${idx === tutorialStepIndex ? ' active' : ''}" aria-hidden="true"></span>`
+            ).join('');
+        }
+        positionTutorial(true);
+    }
+    function positionTutorial(shouldScroll = false) {
+        if (!tutorialActive) return;
+        window.clearTimeout(tutorialPositionTimer);
+        const step = TUTORIAL_STEPS[tutorialStepIndex];
+        const target = getTutorialTarget(step);
+        if (target && shouldScroll === true) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+        }
+        tutorialPositionTimer = window.setTimeout(() => {
+            const card = document.getElementById('tutorialCard');
+            const highlight = document.getElementById('tutorialHighlight');
+            if (!card || !highlight) return;
+            const currentTarget = getTutorialTarget(step);
+            const margin = 16;
+            if (!currentTarget) {
+                highlight.style.display = 'none';
+                if (!isMobileViewport()) {
+                    const cardWidth = card.offsetWidth || 360;
+                    const cardHeight = card.offsetHeight || 280;
+                    card.style.left = `${Math.max(margin, (window.innerWidth - cardWidth) / 2)}px`;
+                    card.style.top = `${Math.max(margin, (window.innerHeight - cardHeight) / 2)}px`;
+                    card.style.right = 'auto';
+                    card.style.bottom = 'auto';
+                }
+                return;
+            }
+            const rect = currentTarget.getBoundingClientRect();
+            const pad = 8;
+            highlight.style.display = 'block';
+            highlight.style.left = `${Math.max(6, rect.left - pad)}px`;
+            highlight.style.top = `${Math.max(6, rect.top - pad)}px`;
+            highlight.style.width = `${Math.min(window.innerWidth - 12, rect.width + pad * 2)}px`;
+            highlight.style.height = `${Math.min(window.innerHeight - 12, rect.height + pad * 2)}px`;
+            if (isMobileViewport()) return;
+
+            const cardWidth = card.offsetWidth || 360;
+            const cardHeight = card.offsetHeight || 280;
+            let left = rect.right + margin;
+            if (left + cardWidth > window.innerWidth - margin) left = rect.left - cardWidth - margin;
+            if (left < margin) left = Math.min(window.innerWidth - cardWidth - margin, margin);
+            let top = rect.top;
+            if (top + cardHeight > window.innerHeight - margin) top = rect.bottom - cardHeight;
+            if (top < margin) top = margin;
+            card.style.left = `${left}px`;
+            card.style.top = `${top}px`;
+            card.style.right = 'auto';
+            card.style.bottom = 'auto';
+        }, target && shouldScroll === true ? 220 : 20);
+    }
+    function handleTutorialKeydown(event) {
+        if (!tutorialActive) return;
+        if (event.key === 'Escape') skipTutorial();
+        if (event.key === 'ArrowRight') nextTutorialStep();
+        if (event.key === 'ArrowLeft') prevTutorialStep();
     }
 
     // ── State ─────────────────────────────────────────────────────────────────
@@ -350,6 +1145,7 @@
     let _phaseScriptsMap = {};
     let currentQuestRegion = 'JP';
     let questResultLabel = 'quests';
+    let questResultsView = { list: [], label: 'quests', wars: [], page: 1, pageSize: 24 };
     const questCache = new Map();
 
     // ── Static API wrappers (replace Flask endpoints) ─────────────────────────
@@ -362,8 +1158,13 @@
     }
 
     async function _apiLatestTasks({ region, limit }) {
-        const tasks = await AA.latestTasks(region, limit);
-        return { tasks, region: AA.norm(region) };
+        const result = await AA.latestTasks(region, limit);
+        return {
+            tasks: result.tasks || [],
+            region: AA.norm(region),
+            hiddenNoScriptCount: result.hiddenNoScriptCount || 0,
+            scannedCount: result.scannedCount || 0,
+        };
     }
 
     async function _apiSearchWar({ war_name, region, limit }) {
@@ -417,8 +1218,12 @@
             (current, total, speaker) => {
                 const pct = total > 0 ? Math.round((current / total) * 100) : 0;
                 animateProgressBar(60 + pct * 0.4);
-                document.getElementById('progressText').textContent =
-                    `Translating: ${current}/${total} (${pct}%)${speaker ? ' — ' + speaker : ''}`;
+                document.getElementById('progressText').textContent = t('translatingProgress', {
+                    current,
+                    total,
+                    pct,
+                    speaker: speaker ? ` - ${speaker}` : '',
+                });
             }
         );
         return { translated_dialogues: translated };
@@ -488,17 +1293,23 @@
         document.getElementById('questResultInfo').innerText = '';
         document.getElementById('latestActivityInfo').innerText = '';
         const rawLimit = parseInt(document.getElementById('latestActivityLimit').value, 10);
-        const limit = Number.isFinite(rawLimit) ? Math.min(Math.max(rawLimit, 1), 200) : 50;
+        const limit = Number.isFinite(rawLimit) ? Math.min(Math.max(rawLimit, 1), 200) : 5;
         try {
-            const data = await _apiLatestActivities({ region: currentQuestRegion, activity_type: activityType, limit });
+            const data = await withOperationTimeout(
+                _apiLatestActivities({ region: currentQuestRegion, activity_type: activityType, limit }),
+                45000
+            );
             warResults = data.activities || [];
             currentQuestRegion = data.region || currentQuestRegion;
-            document.getElementById('latestActivityInfo').innerHTML =
-                `Loaded <b>${warResults.length}</b> latest ${escapeHtml(activityType)} from ${escapeHtml(currentQuestRegion)}.`;
+            document.getElementById('latestActivityInfo').innerHTML = t('loadedLatest', {
+                count: warResults.length,
+                label: itemLabel(activityType === 'event' ? 'events' : 'wars'),
+                region: escapeHtml(currentQuestRegion),
+            });
             showActivityResults(warResults, activityType === 'event' ? 'events' : 'wars');
         } catch (error) {
             console.error('loadLatestActivities error:', error);
-            document.getElementById('latestActivityInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+            document.getElementById('latestActivityInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(userFacingError(error))}</span>`;
         } finally {
             hideLoading();
             collapseDiscoveryOnMobile();
@@ -511,7 +1322,7 @@
         selectedWar = null; selectedActivity = null; questResults = [];
         currentQuestRegion = document.getElementById('latestTaskRegion').value || 'JP';
         questResultLabel = 'tasks';
-        document.getElementById('questSectionTitle').textContent = 'Latest Tasks';
+        document.getElementById('questSectionTitle').textContent = t('latestTasksHeading');
         document.getElementById('getQuestBtn').style.display = 'none';
         document.getElementById('questSection').style.display = '';
         document.getElementById('questResultList').innerHTML = '';
@@ -521,18 +1332,28 @@
         const rawLimit = parseInt(document.getElementById('latestTaskLimit').value, 10);
         const limit = Number.isFinite(rawLimit) ? Math.min(Math.max(rawLimit, 1), 200) : 50;
         try {
-            const data = await _apiLatestTasks({ region: currentQuestRegion, limit });
+            const data = await withOperationTimeout(
+                _apiLatestTasks({ region: currentQuestRegion, limit }),
+                60000
+            );
             questResults = data.tasks || [];
             currentQuestRegion = data.region || currentQuestRegion;
-            document.getElementById('latestTaskInfo').innerHTML =
-                `Loaded <b>${questResults.length}</b> latest tasks from ${escapeHtml(currentQuestRegion)}.`;
+            const hiddenNote = data.hiddenNoScriptCount
+                ? t('filteredTasks', { count: escapeHtml(data.hiddenNoScriptCount), taskWord: taskWord(data.hiddenNoScriptCount) })
+                : '';
+            document.getElementById('latestTaskInfo').innerHTML = t('loadedTasks', {
+                count: questResults.length,
+                taskWord: taskWord(questResults.length),
+                region: escapeHtml(currentQuestRegion),
+                note: hiddenNote,
+            });
             showQuestResults(questResults, 'tasks');
         } catch (error) {
             console.error('loadLatestTasks error:', error);
-            document.getElementById('latestTaskInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+            document.getElementById('latestTaskInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(userFacingError(error))}</span>`;
         } finally {
             hideLoading();
-            collapseDiscoveryOnMobile();
+            if (!tutorialActive) collapseDiscoveryOnMobile();
         }
     }
 
@@ -542,7 +1363,7 @@
         const activityType = document.getElementById('activitySearchType').value || 'war';
         currentQuestRegion = document.getElementById('activityRegion').value || 'JP';
         questResultLabel = 'quests';
-        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('questSectionTitle').textContent = t('relatedQuestsHeading');
         document.getElementById('getQuestBtn').style.display = '';
         document.getElementById('latestActivityInfo').innerText = '';
         document.getElementById('latestTaskInfo').innerText = '';
@@ -554,11 +1375,17 @@
         try {
             let results, label;
             if (activityType === 'event') {
-                const d = await _apiSearchEvent({ event_name: activityName, region: currentQuestRegion, limit: 50 });
+                const d = await withOperationTimeout(
+                    _apiSearchEvent({ event_name: activityName, region: currentQuestRegion, limit: 50 }),
+                    45000
+                );
                 results = d.events || [];
                 label = 'events';
             } else {
-                const d = await _apiSearchWar({ war_name: activityName, region: currentQuestRegion, limit: 50 });
+                const d = await withOperationTimeout(
+                    _apiSearchWar({ war_name: activityName, region: currentQuestRegion, limit: 50 }),
+                    45000
+                );
                 results = d.wars || [];
                 label = 'wars';
             }
@@ -566,7 +1393,7 @@
             showActivityResults(warResults, label);
         } catch (error) {
             console.error('searchActivity error:', error);
-            document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+            document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(userFacingError(error))}</span>`;
         } finally {
             hideLoading();
             collapseDiscoveryOnMobile();
@@ -578,22 +1405,22 @@
         document.getElementById('questSection').style.display = 'none';
         document.getElementById('translateSection').style.display = 'none';
         if (list.length === 0) {
-            document.getElementById('warResultInfo').innerHTML = `<span style='color:#c00'>No results found</span>`;
+            document.getElementById('warResultInfo').innerHTML = t('noResults');
             document.getElementById('warResultList').innerHTML = '';
             return;
         }
-        document.getElementById('warResultInfo').innerHTML = `Found <b>${list.length}</b> ${escapeHtml(label)}. Please select one.`;
+        document.getElementById('warResultInfo').innerHTML = t('foundSelect', { count: list.length, label: itemLabel(label) });
         document.getElementById('warResultList').innerHTML = list.map((activity, idx) => {
             const kind = activity.itemKind || 'war';
             const meta = kind === 'event'
                 ? [activity.region, activity.type,
-                   activity.startedAt ? `Start: ${formatUnixTime(activity.startedAt)}` : '',
-                   activity.endedAt   ? `End: ${formatUnixTime(activity.endedAt)}`   : '',
-                   activity.warIds && activity.warIds.length ? `${activity.warIds.length} wars` : 'No war map'
+                   activity.startedAt ? `${t('startLabel')}: ${formatUnixTime(activity.startedAt)}` : '',
+                   activity.endedAt   ? `${t('endLabel')}: ${formatUnixTime(activity.endedAt)}`   : '',
+                   activity.warIds && activity.warIds.length ? `${activity.warIds.length} ${t('wars')}` : t('noWarMap')
                   ].filter(Boolean).map(escapeHtml).join(' | ')
                 : [activity.region, activity.longName, activity.eventName, activity.age,
-                   activity.startedAt ? `Start: ${formatUnixTime(activity.startedAt)}` : '',
-                   activity.endedAt   ? `End: ${formatUnixTime(activity.endedAt)}`   : ''
+                   activity.startedAt ? `${t('startLabel')}: ${formatUnixTime(activity.startedAt)}` : '',
+                   activity.endedAt   ? `${t('endLabel')}: ${formatUnixTime(activity.endedAt)}`   : ''
                   ].filter(Boolean).map(escapeHtml).join(' | ');
             const bannerUrl = activity.banner || activity.noticeBanner || activity.headerImage || activity.icon || '';
             const thumbHtml = bannerUrl
@@ -618,7 +1445,7 @@
         selectedWar = selectedActivity;
         currentQuestRegion = (selectedActivity && selectedActivity.region) || 'JP';
         questResultLabel = 'quests';
-        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('questSectionTitle').textContent = t('relatedQuestsHeading');
         document.getElementById('getQuestBtn').style.display = '';
         document.getElementById('questSection').style.display = '';
         document.getElementById('translateSection').style.display = 'none';
@@ -632,7 +1459,7 @@
             renderActivityBanner(cached.activity, cached.wars);
             showQuestResults(cached.quests, 'quests', cached.wars);
             document.getElementById('questResultInfo').innerHTML =
-                `<b>${cached.quests.length}</b> quests loaded (cached) — click <em>Fetch Quests</em> to refresh.`;
+                t('cachedQuests', { count: cached.quests.length });
         }
     }
 
@@ -640,7 +1467,7 @@
         if (!selectedActivity) return;
         showLoading();
         questResultLabel = 'quests';
-        document.getElementById('questSectionTitle').textContent = 'Related Quests';
+        document.getElementById('questSectionTitle').textContent = t('relatedQuestsHeading');
         document.getElementById('getQuestBtn').style.display = '';
         document.getElementById('questResultList').innerHTML = '';
         document.getElementById('questResultInfo').innerText = '';
@@ -653,7 +1480,7 @@
             } else {
                 query.war_id = selectedActivity.id;
             }
-            const questData = await _apiSearchQuest(query);
+            const questData = await withOperationTimeout(_apiSearchQuest(query), 60000);
             questResults = questData.quests || [];
             renderActivityBanner(questData.activity, questData.wars || []);
             if (questData.error) {
@@ -664,21 +1491,21 @@
             questCache.set(cacheKey, { quests: questResults, wars: questData.wars || [], activity: questData.activity || null });
         } catch (error) {
             console.error('getRelatedQuests error:', error);
-            document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(error.message)}</span>`;
+            document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>${escapeHtml(userFacingError(error))}</span>`;
         } finally { hideLoading(); }
     }
 
-    function showQuestResults(list, label = questResultLabel, wars = []) {
+    function renderQuestResultsUnpaged(list, label = questResultLabel, wars = []) {
         selectedQuest = null;
         questResultLabel = label;
         document.getElementById('translateSection').style.display = 'none';
         const listEl = document.getElementById('questResultList');
         if (list.length === 0) {
-            document.getElementById('questResultInfo').innerHTML = `<span style='color:#c00'>No ${escapeHtml(label)} found</span>`;
+            document.getElementById('questResultInfo').innerHTML = t('noItems', { label: itemLabel(label) });
             listEl.innerHTML = '';
             return;
         }
-        document.getElementById('questResultInfo').innerHTML = `Found <b>${list.length}</b> ${escapeHtml(label)}. Please select one.`;
+        document.getElementById('questResultInfo').innerHTML = t('foundSelect', { count: list.length, label: itemLabel(label) });
         const indexById = new Map();
         list.forEach((q, i) => indexById.set(String(q.id), i));
         const groups = new Map();
@@ -700,7 +1527,7 @@
                         <div class="text-sm font-semibold text-slate-800 truncate">${escapeHtml(meta.name || group.warName || `War ${wid}`)}</div>
                         ${meta.longName && meta.longName !== meta.name ? `<div class="text-xs text-slate-500 truncate">${escapeHtml(meta.longName)}</div>` : ''}
                     </div>
-                    <span class="text-xs font-medium text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">${group.quests.length} quests</span>
+                    <span class="text-xs font-medium text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">${group.quests.length} ${t('quests')}</span>
                 </div>` : '';
             const itemsHtml = group.quests.map(q => {
                 const idx = indexById.get(String(q.id));
@@ -709,7 +1536,7 @@
                 if (q.region) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">${escapeHtml(q.region)}</span>`);
                 const subParts = [];
                 if (q.spotName) subParts.push(escapeHtml(q.spotName));
-                if (q.openedAt) subParts.push(`Open: ${escapeHtml(formatUnixTime(q.openedAt))}`);
+                if (q.openedAt) subParts.push(`${t('openLabel')}: ${escapeHtml(formatUnixTime(q.openedAt))}`);
                 return `<div class="result-item selectable group" data-id="${escapeHtml(q.id)}" data-idx="${idx}" onclick="selectQuest(this, '${escapeHtml(q.id)}', ${idx})">
                     <div class="cursor-pointer group-hover:bg-emerald-50/70 rounded-lg px-3 py-2 border border-transparent group-hover:border-emerald-200 transition-colors">
                         <div class="flex items-start justify-between gap-3">
@@ -730,6 +1557,108 @@
         listEl.innerHTML = sectionHtml;
     }
 
+    function getQuestPageSize(label) {
+        return label === 'tasks' ? 20 : 30;
+    }
+
+    function setQuestResultsPage(page) {
+        questResultsView.page = page;
+        renderQuestResultsPage();
+        scrollSectionIntoView('questResultList');
+    }
+
+    function renderQuestPager(totalPages, page) {
+        if (totalPages <= 1) return '';
+        return `<div class="flex items-center justify-between gap-3 px-1 py-2">
+            <button type="button" ${page <= 1 ? 'disabled' : ''} onclick="setQuestResultsPage(${page - 1})"
+                class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 disabled:cursor-not-allowed disabled:opacity-40 hover:bg-slate-50">${t('prev')}</button>
+            <span class="text-xs font-medium text-slate-500">${t('page', { page, total: totalPages })}</span>
+            <button type="button" ${page >= totalPages ? 'disabled' : ''} onclick="setQuestResultsPage(${page + 1})"
+                class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 disabled:cursor-not-allowed disabled:opacity-40 hover:bg-slate-50">${t('next')}</button>
+        </div>`;
+    }
+
+    function renderQuestResultsPage() {
+        const { list, label, wars, pageSize } = questResultsView;
+        const listEl = document.getElementById('questResultList');
+        if (!list || list.length === 0) {
+            document.getElementById('questResultInfo').innerHTML = t('noItems', { label: itemLabel(label) });
+            listEl.innerHTML = '';
+            return;
+        }
+        const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+        const page = Math.min(Math.max(questResultsView.page || 1, 1), totalPages);
+        questResultsView.page = page;
+        const start = (page - 1) * pageSize;
+        const pageItems = list.slice(start, start + pageSize);
+        document.getElementById('questResultInfo').innerHTML = totalPages > 1
+            ? t('foundSelectPage', { count: list.length, label: itemLabel(label), start: start + 1, end: start + pageItems.length })
+            : t('foundSelect', { count: list.length, label: itemLabel(label) });
+
+        const groups = new Map();
+        pageItems.forEach((q, localIdx) => {
+            const key = String(q.warId || '0');
+            if (!groups.has(key)) groups.set(key, { warId: key, warName: q.warName || '', items: [] });
+            groups.get(key).items.push({ quest: q, idx: start + localIdx });
+        });
+        const warOrder = wars && wars.length ? wars.map(w => String(w.id)) : Array.from(groups.keys());
+        const warMetaById = new Map((wars || []).map(w => [String(w.id), w]));
+        const sectionHtml = warOrder.filter(wid => groups.has(wid)).map(wid => {
+            const group = groups.get(wid);
+            const meta = warMetaById.get(wid) || {};
+            const showHeader = warOrder.length > 1 || !!(meta.banner || meta.mapImage);
+            const headerHtml = showHeader ? `
+                <div class="flex items-center gap-3 px-3 py-2 bg-gradient-to-r from-indigo-50 to-slate-50 border border-slate-200 rounded-lg">
+                    ${meta.banner ? `<img src="${escapeHtml(meta.banner)}" alt="" class="h-10 rounded shadow-sm border border-white/60" loading="lazy" onerror="this.style.display='none'"/>` : ''}
+                    <div class="flex-1 min-w-0">
+                        <div class="text-sm font-semibold text-slate-800 truncate">${escapeHtml(meta.name || group.warName || `War ${wid}`)}</div>
+                        ${meta.longName && meta.longName !== meta.name ? `<div class="text-xs text-slate-500 truncate">${escapeHtml(meta.longName)}</div>` : ''}
+                    </div>
+                    <span class="text-xs font-medium text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">${group.items.length} ${t('shown')}</span>
+                </div>` : '';
+            const itemsHtml = group.items.map(({ quest: q, idx }) => {
+                const tags = [];
+                if (q.type) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-1.5 py-0.5 rounded">${escapeHtml(q.type)}</span>`);
+                if (q.region) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">${escapeHtml(q.region)}</span>`);
+                if (q.scriptCount) tags.push(`<span class="inline-block text-[10px] uppercase tracking-wide font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-1.5 py-0.5 rounded">${escapeHtml(q.scriptCount)} ${scriptWord(q.scriptCount)}</span>`);
+                const subParts = [];
+                if (q.spotName) subParts.push(escapeHtml(q.spotName));
+                if (q.latestPhase) subParts.push(`${t('latestPhase')}: ${escapeHtml(q.latestPhase)}`);
+                if (q.openedAt) subParts.push(`${t('openLabel')}: ${escapeHtml(formatUnixTime(q.openedAt))}`);
+                return `<div class="result-item selectable group" data-id="${escapeHtml(q.id)}" data-idx="${idx}" onclick="selectQuest(this, '${escapeHtml(q.id)}', ${idx})">
+                    <div class="cursor-pointer group-hover:bg-emerald-50/70 rounded-lg px-3 py-2 border border-transparent group-hover:border-emerald-200 transition-colors">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="font-mono text-[11px] text-slate-400">#${escapeHtml(q.id)}</span>
+                                    ${tags.join('')}
+                                </div>
+                                <div class="font-medium text-sm text-slate-900 mt-0.5 truncate">${escapeHtml(q.name || '(unnamed)')}</div>
+                                ${subParts.length ? `<div class="text-xs text-slate-500 mt-0.5 truncate">${subParts.join(' | ')}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+            return `<section class="bg-white border border-slate-200 rounded-xl overflow-hidden">${headerHtml}<div class="divide-y divide-slate-100">${itemsHtml}</div></section>`;
+        }).join('');
+        listEl.innerHTML = `${sectionHtml}${renderQuestPager(totalPages, page)}`;
+    }
+
+    function showQuestResults(list, label = questResultLabel, wars = [], page = 1) {
+        selectedQuest = null;
+        questResultLabel = label;
+        questResultsView = {
+            list: list || [],
+            label,
+            wars: wars || [],
+            page,
+            pageSize: getQuestPageSize(label),
+        };
+        document.getElementById('translateSection').style.display = 'none';
+        renderQuestResultsPage();
+    }
+
     function renderActivityBanner(activity, wars) {
         const el = document.getElementById('questActivityBanner');
         if (!el) return;
@@ -739,8 +1668,8 @@
             bannerUrl = activity.banner || activity.noticeBanner || '';
             title = activity.name || '';
             const dateParts = [];
-            if (activity.startedAt) dateParts.push(`Start ${formatUnixTime(activity.startedAt)}`);
-            if (activity.endedAt)   dateParts.push(`End ${formatUnixTime(activity.endedAt)}`);
+            if (activity.startedAt) dateParts.push(`${t('startLabel')} ${formatUnixTime(activity.startedAt)}`);
+            if (activity.endedAt)   dateParts.push(`${t('endLabel')} ${formatUnixTime(activity.endedAt)}`);
             subtitle = dateParts.join(' · ');
         }
         if (!bannerUrl && wars && wars.length) {
@@ -761,7 +1690,7 @@
 
     async function selectQuest(elem, questId, idx) {
         document.querySelectorAll('#questResultList .result-item.selectable').forEach(e => e.style.background = '');
-        elem.style.background = '#e3f2fd';
+        if (elem) elem.style.background = '#e3f2fd';
         selectedQuest = (typeof idx !== 'undefined') ? questResults[idx] : questResults.find(q => q.id == questId);
         currentQuestRegion = (selectedQuest && selectedQuest.region) || currentQuestRegion || 'JP';
         selectedPhaseScripts = [];
@@ -771,46 +1700,56 @@
             <svg class="animate-spin w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-            </svg>Loading quest phases…</div>`;
+            </svg>${t('loadingPhases')}</div>`;
         document.getElementById('translationOptions').style.display = 'none';
         document.getElementById('translationDisplay').style.display = 'none';
         document.getElementById('progressSection').classList.add('hidden');
         document.getElementById('translateSection').style.display = '';
         scrollSectionIntoView('translateSection');
         try {
-            const questDetail = await _apiGetQuestDetail({ quest_id: selectedQuest.id, region: currentQuestRegion });
+            const hasCachedPhaseScripts = selectedQuest && Array.isArray(selectedQuest.phaseScripts);
+            const questDetail = hasCachedPhaseScripts ? {
+                name: selectedQuest.name || '',
+                questId: String(selectedQuest.id),
+                phaseScripts: selectedQuest.phaseScripts || [],
+                phasesNoBattle: selectedQuest.phasesNoBattle || [],
+                phasesWithEnemies: selectedQuest.phasesWithEnemies || [],
+            } : await withOperationTimeout(
+                _apiGetQuestDetail({ quest_id: selectedQuest.id, region: currentQuestRegion }),
+                45000
+            );
             const phaseScripts = questDetail.phaseScripts || [];
             const phasesNoBattle = new Set(questDetail.phasesNoBattle || []);
             const phasesWithEnemies = new Set(questDetail.phasesWithEnemies || []);
             if (phaseScripts.length === 0) {
-                phasePickerEl.innerHTML = `<p class="text-sm text-slate-500 italic">No phase scripts found for this quest.</p>`;
+                phasePickerEl.innerHTML = `<p class="text-sm text-slate-500 italic">${t('noPhaseScripts')}</p>`;
                 return;
             }
-            const questName = escapeHtml(questDetail.name || selectedQuest.name || `Quest ${selectedQuest.id}`);
+            const questName = escapeHtml(questDetail.name || selectedQuest.name || `${t('questLabel')} ${selectedQuest.id}`);
             _phaseScriptsMap = {};
             phaseScripts.forEach(ps => { _phaseScriptsMap[ps.phase] = ps.scripts || []; });
             const phaseButtonsHtml = phaseScripts.map(ps => {
                 const ph = ps.phase, scriptCount = (ps.scripts || []).length;
                 const hasBattle = phasesWithEnemies.has(ph), noBattle = phasesNoBattle.has(ph);
                 const tag = hasBattle
-                    ? `<span class="phase-tag text-[9px] uppercase tracking-wide font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded">battle</span>`
+                    ? `<span class="phase-tag text-[9px] uppercase tracking-wide font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded">${t('battle')}</span>`
                     : noBattle
-                        ? `<span class="phase-tag text-[9px] uppercase tracking-wide font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-1 rounded">story</span>`
+                        ? `<span class="phase-tag text-[9px] uppercase tracking-wide font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-1 rounded">${t('story')}</span>`
                         : '';
                 return `<button id="phaseBtn-${ph}" onclick="selectPhase(${ph})"
                     class="w-full sm:w-auto flex flex-col items-center justify-center gap-1 px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-indigo-50 hover:border-indigo-300 transition-colors text-sm font-medium text-slate-700 min-w-[80px]">
-                    <span class="phase-title text-base font-bold text-indigo-700">Phase ${ph}</span>
-                    <span class="phase-meta text-[10px] text-slate-400">${scriptCount} script${scriptCount !== 1 ? 's' : ''}</span>
+                    <span class="phase-title text-base font-bold text-indigo-700">${t('phase')} ${ph}</span>
+                    <span class="phase-meta text-[10px] text-slate-400">${scriptCount} ${scriptWord(scriptCount)}</span>
                     ${tag}
                 </button>`;
             }).join('');
             phasePickerEl.innerHTML = `
-                <div class="mb-3"><p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Quest</p>
+                <div class="mb-3"><p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">${t('questLabel')}</p>
                 <p class="text-sm font-medium text-slate-800">${questName}</p></div>
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Select a Phase to Translate</p>
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">${t('selectPhase')}</p>
                 <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">${phaseButtonsHtml}</div>`;
         } catch (err) {
-            phasePickerEl.innerHTML = `<p class="text-sm text-red-600">Failed to load phases: ${escapeHtml(err.message)}</p>`;
+            phasePickerEl.innerHTML = `<p class="text-sm text-red-600">${t('failedPhases', { message: escapeHtml(err.message) })}</p>`;
         }
     }
 
@@ -849,7 +1788,7 @@
     function createScriptTab(scriptId, isActive = false) {
         const tab = document.createElement('button');
         tab.className = `flex-shrink-0 whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`;
-        tab.textContent = `Script ${scriptId}`;
+        tab.textContent = `${t('script')} ${scriptId}`;
         tab.dataset.scriptId = scriptId;
         tab.onclick = () => switchScriptTab(scriptId);
         return tab;
@@ -872,7 +1811,7 @@
     async function translateSelectedQuest() {
         if (!selectedQuest) return;
         if (!selectedPhaseScripts || selectedPhaseScripts.length === 0) {
-            alert('Please select a phase first.'); return;
+            alert(t('selectPhaseFirst')); return;
         }
         const targetLangValue = document.getElementById('targetLanguage').value;
         const isAtlasMode = targetLangValue.startsWith('__atlas_');
@@ -883,7 +1822,7 @@
             TW: 'Chinese Traditional (Atlas / TW)',
             KR: 'Korean (Atlas / KR)',
         };
-        const transHeader = isAtlasMode ? (atlasLabelMap[atlasRegion] || 'Atlas Translation') : 'Translation';
+        const transHeader = isAtlasMode ? (atlasLabelMap[atlasRegion] || t('atlasTranslation')) : t('translation');
         document.getElementById('progressSection').classList.remove('hidden');
         document.getElementById('scriptTabs').classList.remove('hidden');
         const progressBar = document.getElementById('progressBar');
@@ -895,15 +1834,15 @@
         progressBar.style.width = '0%';
         try {
             const scriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
-            if (scriptIds.length === 0) throw new Error('No scripts found for this phase');
-            progressText.textContent = `Found ${scriptIds.length} script${scriptIds.length !== 1 ? 's' : ''}`;
+            if (scriptIds.length === 0) throw new Error(t('noScriptsPhase'));
+            progressText.textContent = t('foundScripts', { count: scriptIds.length, scriptWord: scriptWord(scriptIds.length) });
             animateProgressBar(20);
             scriptIds.forEach((sid, i) => scriptTabsContainer.appendChild(createScriptTab(sid, i === 0)));
 
             const allDialogues = [], scriptDialogueCounts = [];
             for (let i = 0; i < scriptIds.length; i++) {
                 const scriptId = scriptIds[i];
-                progressText.textContent = `Extracting script ${scriptId} (${i + 1}/${scriptIds.length})…`;
+                progressText.textContent = t('extractingScript', { scriptId, current: i + 1, total: scriptIds.length });
                 animateProgressBar(20 + (i / scriptIds.length) * 35);
                 const extractData = await _apiExtractDialogues({ script_id: scriptId, region: currentQuestRegion });
                 const dialogues = extractData.dialogues || [];
@@ -911,19 +1850,24 @@
                 contentContainer.className = `script-content ${i === 0 ? '' : 'hidden'}`;
                 contentContainer.dataset.scriptId = scriptId;
                 contentContainer.innerHTML = `
-                    <div class="flex items-center cursor-pointer font-semibold text-base text-purple-900 mb-2" onclick="toggleScriptCollapse('${scriptId}')">
-                        <span>Script ${scriptId}</span>
-                        <svg id="script-arrow-${scriptId}" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <div class="mb-2 flex items-center justify-between gap-2">
+                        <button type="button" class="flex min-w-0 flex-1 items-center bg-transparent text-left font-semibold text-base text-purple-900 transition-colors hover:text-purple-700" onclick="toggleScriptCollapse('${scriptId}')">
+                            <span class="truncate">${t('script')} ${scriptId}</span>
+                            <svg id="script-arrow-${scriptId}" class="ml-2 h-4 w-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <button type="button" class="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50" onclick="downloadScript('${scriptId}')">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v10m0 0l4-4m-4 4L8 9m-4 8h16"/></svg>
+                            <span>${t('downloadTxt')}</span>
+                        </button>
                     </div>
                     <div id="script-table-wrap-${scriptId}">
                         <table class="dialogue-table w-full mt-2 border-separate table-fixed" style="border-spacing:0 8px;">
                             <thead><tr>
-                                <th class="w-1/2 text-left text-sm text-gray-700">Original</th>
+                                <th class="w-1/2 text-left text-sm text-gray-700">${t('original')}</th>
                                 <th class="w-1/2 text-left text-sm text-gray-700">${transHeader}</th>
                             </tr></thead>
                             <tbody id="dialogueTableBody-${scriptId}"></tbody>
                         </table>
-                        <button class="w-full sm:w-auto mt-2 bg-gray-700 text-white px-3 py-2 sm:py-1 rounded hover:bg-gray-900" onclick="downloadScript('${scriptId}')">Download</button>
                     </div>`;
                 document.getElementById('translationResults').appendChild(contentContainer);
                 scriptDialogueCounts.push(dialogues.length);
@@ -932,7 +1876,7 @@
 
             let translateData;
             if (isAtlasMode) {
-                progressText.textContent = `Fetching ${atlasLabelMap[atlasRegion] || 'Atlas'} translation...`;
+                progressText.textContent = t('fetchingAtlas', { label: atlasLabelMap[atlasRegion] || 'Atlas' });
                 animateProgressBar(60);
                 translateData = await _apiGetAtlasDialogues({
                     script_ids: scriptIds,
@@ -945,7 +1889,7 @@
                 }
                 translateData.translated_dialogues = atlasList;
             } else {
-                progressText.textContent = 'Translating dialogues...';
+                progressText.textContent = t('translatingDialogues');
                 animateProgressBar(60);
                 translateData = await _apiTranslate({
                     dialogues: allDialogues,
@@ -969,8 +1913,8 @@
                     const fmtTrans = `<span class='font-bold text-green-700 mr-2'>${escapeHtml(trans.speaker || '')}</span>`
                         + escapeHtml(trans.translated_content || '');
                     tableBody.innerHTML += `<tr>
-                        <td data-label="Original" class="align-top bg-gray-100 text-gray-800 p-2 rounded break-words">${fmtOrig}</td>
-                        <td data-label="Translation" class="align-top bg-green-50 text-green-800 p-2 rounded break-words">${fmtTrans.replace(/\[(.*?)\]/g, '<span class="text-purple-600">[$1]</span>')}</td>
+                        <td data-label="${t('original')}" class="align-top bg-gray-100 text-gray-800 p-2 rounded break-words">${fmtOrig}</td>
+                        <td data-label="${t('translation')}" class="align-top bg-green-50 text-green-800 p-2 rounded break-words">${fmtTrans.replace(/\[(.*?)\]/g, '<span class="text-purple-600">[$1]</span>')}</td>
                     </tr>`;
                 }
                 dialogueIndex += count;
@@ -980,13 +1924,13 @@
                 translationMethod: isAtlasMode ? 'Atlas' : document.getElementById('translationMethod').value,
                 rayshift: translateData.rayshift || false,
             });
-            progressText.textContent = 'Translation completed!';
+            progressText.textContent = t('translationCompleted');
             animateProgressBar(100);
         } catch (error) {
             console.error('translateSelectedQuest error:', error);
             document.getElementById('progressText').textContent = `Error: ${error.message}`;
             animateProgressBar(0);
-            alert('Translation error: ' + error.message);
+            alert(t('translationError', { message: error.message }));
         } finally { hideLoading(); }
     }
 
@@ -1015,7 +1959,7 @@
         _gmLoading = true;
         const btn = document.querySelector('#gamingModeBar button');
         const origHtml = btn ? btn.innerHTML : '';
-        if (btn) { btn.disabled = true; btn.innerHTML = 'Preparing scene…'; }
+        if (btn) { btn.disabled = true; btn.innerHTML = t('preparingScene'); }
         try {
             const gamingUrl = 'gaming.html';
             const isMobileGaming = window.matchMedia('(pointer: coarse), (max-width: 767px)').matches;
@@ -1030,15 +1974,15 @@
                     `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=no`);
             }
             if (!_gmWindow) {
-                alert('Popup blocked. Please allow popups for this site.');
+                alert(t('popupBlocked'));
                 _gmLoading = false;
                 if (btn) { btn.disabled = false; btn.innerHTML = origHtml; }
                 return;
             }
             try {
-                _gmWindow.document.title = 'Preparing Gaming Mode';
+                _gmWindow.document.title = t('preparingGamingTitle');
                 _gmWindow.document.body.style.cssText = 'margin:0;background:#000;color:#fff;font:16px system-ui;display:flex;align-items:center;justify-content:center;height:100vh;';
-                _gmWindow.document.body.textContent = 'Preparing scene...';
+                _gmWindow.document.body.textContent = t('preparingScene');
             } catch {}
             let region = currentQuestRegion || 'JP';
             const results = await Promise.all(_gmScriptIds.map(sid => _apiParseScriptVisual({ script_id: sid, region })));
@@ -1095,15 +2039,16 @@
                 sourceRegion: _gmMeta.sourceRegion || null,
                 translationMethod: _gmMeta.translationMethod || null,
                 rayshift: _gmMeta.rayshift || false,
+                uiLang: UI_LANG,
             };
             _gmWindow.sessionStorage.setItem('fgoGamingData', JSON.stringify(payload));
             _gmWindow.location.replace(gamingUrl);
-            if (!_gmWindow) alert('Popup blocked — please allow popups for this site.');
+            if (!_gmWindow) alert(t('popupBlocked'));
         } catch (e) {
             try {
-                if (_gmWindow && !_gmWindow.closed) _gmWindow.document.body.textContent = 'Gaming Mode error: ' + e.message;
+                if (_gmWindow && !_gmWindow.closed) _gmWindow.document.body.textContent = t('gamingError', { message: e.message });
             } catch {}
-            alert('Gaming Mode error: ' + e.message);
+            alert(t('gamingError', { message: e.message }));
         } finally {
             _gmLoading = false;
             if (btn) { btn.disabled = false; btn.innerHTML = origHtml; }
@@ -1148,7 +2093,7 @@
             base_model: document.getElementById('baseModel').value,
             auth_type:  document.getElementById('authType').value,
         });
-        alert('Settings saved!');
+        alert(t('settingsSaved'));
         toggleSettings();
     }
     function loadUserPreferences() {
@@ -1222,7 +2167,7 @@
         if (statusEl) {
             statusEl.classList.remove('hidden');
             statusEl.className = 'text-xs text-slate-500 mt-1.5';
-            statusEl.textContent = 'Checking Atlas Academy for pre-translated regions...';
+            statusEl.textContent = t('checkingAtlas');
         }
 
         try {
@@ -1230,7 +2175,7 @@
             if (data.error) {
                 if (statusEl) {
                     statusEl.className = 'text-xs text-amber-600 mt-1.5';
-                    statusEl.textContent = `Atlas check failed: ${data.error}`;
+                    statusEl.textContent = t('atlasCheckFailed', { message: data.error });
                 }
                 return;
             }
@@ -1243,7 +2188,7 @@
 
             if (atlasOptions.length > 0) {
                 const group = document.createElement('optgroup');
-                group.label = 'Pre-Translated (Atlas Academy)';
+                group.label = t('preTranslatedGroup');
                 group.dataset.atlas = '1';
                 atlasOptions.forEach(opt => {
                     const option = document.createElement('option');
@@ -1255,17 +2200,17 @@
                 if (statusEl) {
                     statusEl.className = 'text-xs text-emerald-600 mt-1.5';
                     const regions = atlasOptions.map(o => o.value.replace('__atlas_', '').replace('__', '')).join(', ');
-                    statusEl.textContent = `Atlas pre-translation available: ${regions}`;
+                    statusEl.textContent = t('atlasAvailable', { regions });
                 }
             } else if (statusEl) {
                 statusEl.className = 'text-xs text-slate-400 mt-1.5';
-                statusEl.textContent = 'No Atlas pre-translation available for this quest. Use AI translation.';
+                statusEl.textContent = t('atlasUnavailable');
             }
         } catch (e) {
             console.warn('Atlas availability check failed:', e);
             if (statusEl) {
                 statusEl.className = 'text-xs text-amber-600 mt-1.5';
-                statusEl.textContent = `Atlas check error: ${e.message}`;
+                statusEl.textContent = t('atlasCheckError', { message: e.message });
             }
         }
     }
@@ -1273,8 +2218,8 @@
         ['searchPanel', 'latestActPanel', 'latestTaskPanel'].forEach(id =>
             document.getElementById(id).classList.add('hidden'));
         document.getElementById(panelId).classList.remove('hidden');
-        const labels = { searchPanel: 'Search', latestActPanel: 'Latest Act', latestTaskPanel: 'Tasks' };
-        updateDiscoverySummary(labels[panelId] || 'Search');
+        const labels = { searchPanel: t('search'), latestActPanel: t('latestAct'), latestTaskPanel: t('tasks') };
+        updateDiscoverySummary(labels[panelId] || t('search'));
         document.querySelectorAll('.discovery-tab').forEach(el => {
             el.classList.replace('text-indigo-600', 'text-slate-500');
             el.classList.replace('border-indigo-600', 'border-transparent');
@@ -1288,16 +2233,20 @@
     // ── Init ──────────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
         loadUserPreferences();
-        updateDiscoverySummary('Search');
+        applyI18n();
+        updateDiscoverySummary(t('search'));
         setDiscoveryCollapsed(isMobileViewport());
         window.addEventListener('resize', () => setDiscoveryCollapsed(document.getElementById('discoveryCard')?.classList.contains('discovery-collapsed')));
+        window.addEventListener('resize', positionTutorial);
+        window.addEventListener('scroll', positionTutorial, { passive: true });
+        document.addEventListener('keydown', handleTutorialKeydown);
         // Show a friendly hint in the quest section on first load
         document.getElementById('questSection').style.display = '';
-        document.getElementById('questSectionTitle').textContent = 'Quests';
+        document.getElementById('questSectionTitle').textContent = t('questsHeading');
         document.getElementById('getQuestBtn').style.display = 'none';
-        document.getElementById('questResultInfo').innerHTML =
-            '<span class="text-slate-400 text-sm">Search for a war/event on the left, or use the <b>Tasks</b> tab to browse recent quests.</span>';
+        document.getElementById('questResultInfo').innerHTML = t('initialHint');
         document.getElementById('apiType').addEventListener('change', applyApiTypeDefaults);
+        window.setTimeout(() => startTutorial(false), 650);
     });
     </script>
 
@@ -1380,6 +2329,22 @@
                         </a>
                     </div>
                     <p class="mt-2 text-xs text-amber-600">⚠ Only Gemini works directly in browser. Other APIs require a local server or proxy due to CORS.</p>
+                </div>
+                <div class="rounded-lg border border-indigo-100 bg-indigo-50/60 p-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-xs font-semibold text-indigo-700 uppercase tracking-wider mb-1">Project Notes</p>
+                            <p class="text-xs leading-5 text-slate-600">This translator uses public Atlas Academy data, local browser credentials, public visual assets, and shared translation cache storage.</p>
+                        </div>
+                        <a href="docs/project-notice.md" target="_blank" rel="noopener" class="shrink-0 text-xs font-semibold text-indigo-700 hover:text-indigo-900 hover:underline">Open full Markdown notice</a>
+                    </div>
+                    <ul class="mt-3 grid list-disc gap-1.5 pl-4 text-xs leading-5 text-slate-600">
+                        <li>Atlas open data + optional VLM/LLM translation</li>
+                        <li>Auth tokens stay in browser localStorage</li>
+                        <li>Translated scripts may sync to the GitHub-hosted cache</li>
+                        <li>No unpacking, game modification, or client interaction</li>
+                        <li><span>Please support Fate/Grand Order</span>: <a href="https://www.fate-go.jp/" target="_blank" rel="noopener" class="font-semibold text-indigo-700 hover:underline">fate-go.jp</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col-reverse sm:flex-row sm:justify-end gap-2">

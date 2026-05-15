@@ -79,7 +79,7 @@
         #choicesWrap.show { display: flex; }
 
         /* Top Right Skip Button */
-        #topRightControls { position: absolute; top: 15px; right: 15px; pointer-events: auto; }
+        #topRightControls { position: absolute; top: 15px; right: 15px; pointer-events: auto; display: flex; gap: 8px; align-items: center; }
         .fgo-btn-skip { 
             background: rgba(10, 20, 40, 0.7); border: 1px solid #4a6fa5; color: #fff; 
             font-size: 14px; padding: 4px 16px 4px 12px; border-radius: 20px; 
@@ -88,6 +88,12 @@
         }
         .fgo-btn-skip::after { content: '▶▶'; font-size: 10px; color: #8ba8d8; }
         .fgo-btn-skip:active { background: rgba(20, 40, 80, 0.8); }
+        .fgo-btn-guide {
+            background: rgba(10, 20, 40, 0.7); border: 1px solid rgba(139,168,216,0.7); color: #dbeafe;
+            font-size: 12px; padding: 5px 12px; border-radius: 18px;
+            cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.5); font-weight: bold; letter-spacing: 0.8px;
+        }
+        .fgo-btn-guide:active { background: rgba(20, 40, 80, 0.8); }
 
         /* Dialogue System */
         #dialogueSystem {
@@ -159,8 +165,8 @@
             background: rgba(4, 11, 29, 0.88);
             border-top: 2px solid #5a82c4;
             border-bottom: 2px solid #5a82c4;
-            padding: 20px 5vw 25px 5vw;
-            height: clamp(170px, 26vh, 240px);
+            padding: 18px 5vw 22px 5vw;
+            height: clamp(210px, 31vh, 290px);
             position: relative;
             box-sizing: border-box;
             overflow: hidden;
@@ -181,7 +187,7 @@
             flex-direction: column;
         }
         #originalText {
-            color: #94a3b8; font-size: calc(19px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.5; font-weight: 500;
+            color: #94a3b8; font-size: calc(19px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.38; font-weight: 500;
             margin: 0 0 10px 0; white-space: pre-wrap; text-shadow: 1px 1px 0 #000;
             font-family: var(--font-original);
             flex: 0 0 auto;
@@ -189,7 +195,7 @@
             overflow-wrap: anywhere;
         }
         #translatedText {
-            color: #fff; font-size: calc(22px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.5; font-weight: bold;
+            color: #fff; font-size: calc(22px * var(--font-scale) * var(--dialogue-fit)); line-height: 1.34; font-weight: bold;
             margin: 0; white-space: pre-wrap; text-shadow: 1px 1px 3px rgba(0,0,0,1);
             letter-spacing: 0.05em;
             font-family: var(--font-translated);
@@ -310,6 +316,42 @@
             color: #fff; padding: 4px 14px; border-radius: 4px; cursor: pointer; font-size: 13px;
         }
 
+        /* First-run guide */
+        #gameGuideOverlay {
+            position: absolute; inset: 0; z-index: 230; display: none;
+            align-items: flex-end; justify-content: center;
+            background: rgba(0,0,0,0.42); pointer-events: auto;
+            padding: clamp(14px, 4cqw, 28px); box-sizing: border-box;
+        }
+        #gameGuideOverlay.show { display: flex; }
+        #gameGuideCard {
+            width: min(440px, 100%);
+            background: rgba(7, 18, 43, 0.96);
+            border: 1px solid rgba(139,168,216,0.55);
+            border-radius: 14px;
+            color: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+            padding: 18px;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        #gameGuideStep {
+            color: #93c5fd; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        #gameGuideTitle { margin: 8px 0 8px; font-size: 18px; line-height: 1.25; }
+        #gameGuideBody { margin: 0; color: #dbeafe; font-size: 14px; line-height: 1.65; }
+        .game-guide-dots { display: flex; gap: 6px; margin-top: 14px; }
+        .game-guide-dot { width: 7px; height: 7px; border-radius: 999px; background: rgba(148,163,184,0.65); }
+        .game-guide-dot.active { width: 20px; background: #93c5fd; }
+        .game-guide-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 16px; }
+        .game-guide-btn {
+            min-height: 36px; border-radius: 9px; border: 1px solid rgba(139,168,216,0.45);
+            padding: 7px 12px; cursor: pointer; font-weight: 700; font-size: 13px;
+            background: rgba(15, 23, 42, 0.8); color: #dbeafe;
+        }
+        .game-guide-btn.primary { background: #2563eb; border-color: #60a5fa; color: #fff; min-width: 86px; }
+        .game-guide-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
         @media (max-width: 900px), (max-height: 500px) {
             html, body {
                 width: 100dvw;
@@ -327,6 +369,11 @@
                 min-height: 28px;
                 font-size: clamp(10px, 2.8cqh, 13px);
                 padding: 3px 12px 3px 10px;
+            }
+            .fgo-btn-guide {
+                min-height: 28px;
+                font-size: clamp(9px, 2.5cqh, 12px);
+                padding: 3px 9px;
             }
             #devInfo {
                 top: clamp(6px, 2cqh, 12px);
@@ -404,6 +451,11 @@
             #historyOverlay {
                 padding: clamp(34px, 9cqh, 48px) clamp(20px, 6cqw, 48px) clamp(16px, 5cqh, 26px);
             }
+            #gameGuideCard {
+                padding: clamp(12px, 3.2cqh, 18px);
+            }
+            #gameGuideTitle { font-size: clamp(14px, 4cqh, 18px); }
+            #gameGuideBody { font-size: clamp(11px, 3cqh, 14px); line-height: 1.5; }
             .hist-orig { font-size: calc(clamp(11px, 3cqh, 15px) * var(--font-scale)); }
             .hist-trans { font-size: calc(clamp(12px, 3.3cqh, 16px) * var(--font-scale)); }
             #loadingScreen {
@@ -444,6 +496,7 @@
 
         <!-- Top Right SKIP -->
         <div id="topRightControls">
+            <button id="gameGuideBtn" class="fgo-btn-guide" onclick="startGameGuide(true)">GUIDE</button>
             <button class="fgo-btn-skip" onclick="skipToNextChoice()">SKIP</button>
         </div>
 
@@ -499,6 +552,23 @@
         <div id="historyList"></div>
     </div>
 
+    <!-- First-run guide -->
+    <div id="gameGuideOverlay" aria-hidden="true">
+        <section id="gameGuideCard" role="dialog" aria-modal="true" aria-labelledby="gameGuideTitle" aria-describedby="gameGuideBody">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                <span id="gameGuideStep"></span>
+                <button class="game-guide-btn" type="button" onclick="closeGameGuide(true)" id="gameGuideClose">Skip</button>
+            </div>
+            <h2 id="gameGuideTitle"></h2>
+            <p id="gameGuideBody"></p>
+            <div id="gameGuideDots" class="game-guide-dots"></div>
+            <div class="game-guide-actions">
+                <button id="gameGuidePrev" class="game-guide-btn" type="button" onclick="prevGameGuideStep()">Back</button>
+                <button id="gameGuideNext" class="game-guide-btn primary" type="button" onclick="nextGameGuideStep()">Next</button>
+            </div>
+        </section>
+    </div>
+
     <!-- Loading -->
     <div id="loadingScreen">
         <div class="loading-content">
@@ -528,6 +598,40 @@ const COLOR_TINT = {
     blue: 'rgba(40, 70, 160, 1)',
     green: 'rgba(40, 120, 60, 1)',
     sepia: 'rgba(180, 140, 80, 1)',
+};
+
+const GAME_GUIDE_KEY = 'fgoGamingTutorialSeen';
+const GAME_GUIDE_COPY = {
+    en: {
+        guide: 'GUIDE',
+        skip: 'Skip',
+        back: 'Back',
+        next: 'Next',
+        done: 'Done',
+        step: 'Step {current} / {total}',
+        steps: [
+            { title: 'Advance the story', body: 'Tap or click the scene or dialogue box to advance one line. The small arrow in the dialogue box means the next line is ready.' },
+            { title: 'Hide and restore subtitles', body: 'Drag or swipe down on the dialogue box to hide it. When it is hidden, tap the restore hint near the bottom to bring it back.' },
+            { title: 'Review history', body: 'Swipe up, scroll up, or press H to open dialogue history. Tap, press Esc, or use Close to return to the scene.' },
+            { title: 'Playback controls', body: 'BACK rewinds one line, AUTO plays forward automatically, and SKIP jumps to the next choice or the ending.' },
+            { title: 'Mobile layout', body: 'On phones, the player tries to enter fullscreen landscape. If the browser blocks it, rotate the device manually and the fixed dialogue box will adapt.' },
+        ],
+    },
+    zh: {
+        guide: '引导',
+        skip: '跳过',
+        back: '上一步',
+        next: '下一步',
+        done: '完成',
+        step: '第 {current} / {total} 步',
+        steps: [
+            { title: '推进剧情', body: '点击画面或字幕框即可推进一句对白。字幕框右下的小箭头表示下一句已经可以继续。' },
+            { title: '隐藏和恢复字幕框', body: '在字幕框上向下拖动或滑动可以隐藏字幕框；隐藏后点击底部的恢复提示即可重新显示。' },
+            { title: '查看历史记录', body: '向上滑动、鼠标滚轮上滚，或按 H 可以打开对白历史。点击画面、按 Esc，或点 Close 可以回到当前场景。' },
+            { title: '播放控制', body: 'BACK 可以回退一句，AUTO 会自动播放，右上角 SKIP 会跳到下一个选项或结尾。' },
+            { title: '手机横屏', body: '手机端会尝试进入全屏横屏。如果浏览器拦截，请手动旋转设备；固定字幕框会随横屏布局自适应。' },
+        ],
+    },
 };
 
 const FACE_DEFAULT = 256;
@@ -634,6 +738,74 @@ function loadData() {
     } catch (e) { return null; }
 }
 
+function gameGuideLang() {
+    const lang = (DATA && DATA.uiLang) || localStorage.getItem('fgoUiLang') || navigator.language || 'en';
+    return String(lang).toLowerCase().startsWith('zh') ? 'zh' : 'en';
+}
+function gameGuideText() {
+    return GAME_GUIDE_COPY[gameGuideLang()] || GAME_GUIDE_COPY.en;
+}
+let GAME_GUIDE_INDEX = 0;
+function isGameGuideOpen() {
+    return document.getElementById('gameGuideOverlay')?.classList.contains('show');
+}
+function applyGameGuideLabels() {
+    const copy = gameGuideText();
+    const btn = document.getElementById('gameGuideBtn');
+    if (btn) btn.textContent = copy.guide;
+}
+function startGameGuide(force = false) {
+    if (!force && localStorage.getItem(GAME_GUIDE_KEY) === '1') return;
+    GAME_GUIDE_INDEX = 0;
+    const overlay = document.getElementById('gameGuideOverlay');
+    if (overlay) {
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden', 'false');
+    }
+    renderGameGuide();
+}
+function closeGameGuide(markSeen = true) {
+    if (markSeen) localStorage.setItem(GAME_GUIDE_KEY, '1');
+    const overlay = document.getElementById('gameGuideOverlay');
+    if (overlay) {
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+    }
+}
+function nextGameGuideStep() {
+    const steps = gameGuideText().steps;
+    if (GAME_GUIDE_INDEX >= steps.length - 1) {
+        closeGameGuide(true);
+        return;
+    }
+    GAME_GUIDE_INDEX += 1;
+    renderGameGuide();
+}
+function prevGameGuideStep() {
+    if (GAME_GUIDE_INDEX === 0) return;
+    GAME_GUIDE_INDEX -= 1;
+    renderGameGuide();
+}
+function renderGameGuide() {
+    const copy = gameGuideText();
+    const steps = copy.steps;
+    const step = steps[GAME_GUIDE_INDEX] || steps[0];
+    const current = GAME_GUIDE_INDEX + 1;
+    const total = steps.length;
+    document.getElementById('gameGuideStep').textContent = copy.step.replace('{current}', current).replace('{total}', total);
+    document.getElementById('gameGuideTitle').textContent = step.title;
+    document.getElementById('gameGuideBody').textContent = step.body;
+    document.getElementById('gameGuideClose').textContent = copy.skip;
+    const prev = document.getElementById('gameGuidePrev');
+    prev.textContent = copy.back;
+    prev.disabled = GAME_GUIDE_INDEX === 0;
+    document.getElementById('gameGuideNext').textContent = GAME_GUIDE_INDEX === total - 1 ? copy.done : copy.next;
+    document.getElementById('gameGuideDots').innerHTML = steps.map((_, idx) =>
+        `<span class="game-guide-dot${idx === GAME_GUIDE_INDEX ? ' active' : ''}" aria-hidden="true"></span>`
+    ).join('');
+    applyGameGuideLabels();
+}
+
 function isMobileScene() {
     return window.matchMedia('(pointer: coarse), (max-width: 900px), (max-height: 500px)').matches;
 }
@@ -670,6 +842,7 @@ async function init() {
     SVT = DATA.svtData || {};
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
+    applyGameGuideLabels();
 
     // Apply user-configured fonts (set in /settings).
     try {
@@ -690,7 +863,11 @@ async function init() {
     setTimeout(() => {
         const loader = document.getElementById('loadingScreen');
         loader.classList.add('hide');
-        setTimeout(() => { loader.style.display = 'none'; renderFrame(); }, 500);
+        setTimeout(() => {
+            loader.style.display = 'none';
+            renderFrame();
+            window.setTimeout(() => startGameGuide(false), 350);
+        }, 500);
     }, 900);
 
     document.getElementById('clickOverlay').addEventListener('click', advanceClick);
@@ -750,7 +927,7 @@ function initSubtitleDrag() {
         window._fgoGestureBlockClickUntil = Date.now() + 450;
     }
     function isInteractiveTarget(target) {
-        return !!(target && target.closest('button, .fgo-btn-side, .choice-btn, #choicesWrap, #historyOverlay'));
+        return !!(target && target.closest('button, .fgo-btn-side, .choice-btn, #choicesWrap, #historyOverlay, #gameGuideOverlay'));
     }
     function isPortraitRotatedScene() {
         return isMobileScene() && window.matchMedia('(orientation: portrait) and (max-width: 900px)').matches;
@@ -1187,10 +1364,11 @@ function fitDialogueText() {
     const hasOverflow = (el) => el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1;
     const fits = () => !hasOverflow(text) && !hasOverflow(original) && !hasOverflow(translated);
     if (fits()) return;
-    for (const scale of [0.94, 0.9, 0.86, 0.82, 0.78]) {
+    for (const scale of [0.96, 0.92, 0.88, 0.84, 0.8, 0.76, 0.72, 0.68, 0.64, 0.6]) {
         box.style.setProperty('--dialogue-fit', String(scale));
         if (fits()) return;
     }
+    box.style.setProperty('--dialogue-fit', '0.58');
 }
 
 function showDialogue(f) {
@@ -1349,6 +1527,13 @@ function scheduleAuto() {
 }
 
 function onKey(e) {
+    if (isGameGuideOpen()) {
+        if (e.code === 'Escape') closeGameGuide(true);
+        else if (e.code === 'ArrowRight' || e.code === 'Enter' || e.code === 'Space') nextGameGuideStep();
+        else if (e.code === 'ArrowLeft') prevGameGuideStep();
+        e.preventDefault();
+        return;
+    }
     if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowRight') {
         e.preventDefault(); advanceClick();
     } else if (e.code === 'ArrowLeft') {

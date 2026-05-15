@@ -2,9 +2,9 @@
 
 [English](README.md) | [简体中文](docs/README_CN.md) | [繁體中文](docs/README_TW.md)
 
-**Live demo → [securitycfs.github.io/fgo_translator](https://securitycfs.github.io/fgo_translator/)**
+**Live demo:** [securitycfs.github.io/fgo_translator](https://securitycfs.github.io/fgo_translator/)
 
-A fully client-side web tool for translating Fate/Grand Order (FGO) story dialogues from Japanese. Runs entirely in your browser — no server required, no data leaves your machine. Script data is fetched directly from [Atlas Academy](https://apps.atlasacademy.io/db).
+A static web tool for translating Fate/Grand Order (FGO) story dialogues from Japanese. It runs without an app server for normal browser use; Atlas data, translation requests, and optional cache lookups are made directly from the browser. API keys remain in local browser storage. Script data is fetched directly from [Atlas Academy](https://apps.atlasacademy.io/db).
 
 Also includes a Python / Flask backend (`app.py`) for local use with APIs that block cross-origin browser requests (e.g. DashScope / 通义千问).
 
@@ -13,10 +13,23 @@ Also includes a Python / Flask backend (`app.py`) for local use with APIs that b
 ## Quick Start (Web)
 
 1. Open the [live demo](https://securitycfs.github.io/fgo_translator/)
-2. Search for a war / event name (e.g. `奏章Ⅳ`, `ネロ祭`, `Camelot`)
+2. Search for a war, event, or quest name (for example: `奏章Ⅳ`, `ネロ祭`, `Camelot`, or `Snowfield`)
 3. Pick a quest and phase
 4. Choose a translation engine (see below), click **Start Translation**
 5. Click **Gaming Mode** to read the story with a visual-novel-style UI
+
+---
+
+## Recent UI and workflow updates
+
+- First-run guided tutorial with skip/replay support.
+- English/Chinese interface toggle.
+- Settings guidance for configuring your own API endpoint and token.
+- Default recent-task discovery now loads 5 tasks for a faster first search.
+- Task search filters out entries that do not contain dialogue scripts.
+- Atlas official/synchronized translations can be loaded when available for the selected script.
+- Translated scripts can be reused from the GitHub-hosted cache.
+- Gaming Mode includes mobile gestures, fixed-height dialogue history, responsive text fitting, and a small in-game guide.
 
 ---
 
@@ -132,7 +145,7 @@ fgo_translator/
 ├── dialogue_loader.py   # Core script parsing logic
 ├── db_loader.py         # Atlas Academy data fetching
 ├── notebooks/           # Colab / Jupyter demos
-└── docs/                # Translated READMEs
+└── docs/                # Translated READMEs and project notice
 ```
 
 ---
@@ -140,6 +153,15 @@ fgo_translator/
 ## Data Source
 
 All script data is fetched live from [Atlas Academy](https://apps.atlasacademy.io/). No game files are bundled. Character sprites and portraits are loaded directly from `static.atlasacademy.io`.
+
+## Privacy and project scope
+
+- API keys and auth tokens are stored only in browser local storage.
+- Translated scripts may be synchronized to the project's GitHub-hosted cache so other users can reuse them.
+- Official/synchronized translations from CN/TW/other servers are shown when Atlas exposes them for a script.
+- This project does not unpack game files, modify the game client, or provide game modification features.
+- Please support the official Fate/Grand Order project: [fate-go.jp](https://www.fate-go.jp/).
+- A short Chinese project notice is available at [`docs/project-notice.md`](docs/project-notice.md).
 
 ---
 

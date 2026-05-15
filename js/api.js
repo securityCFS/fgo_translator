@@ -4,6 +4,7 @@
 const AA = (() => {
     const BASE = 'https://api.atlasacademy.io';
     const CDN  = 'https://static.atlasacademy.io';
+    const DEFAULT_TIMEOUT_MS = 30000;
 
     const REGIONS = ['JP','NA','CN','TW','KR'];
     function norm(r) { return REGIONS.includes((r||'').toUpperCase()) ? r.toUpperCase() : 'JP'; }
@@ -12,11 +13,34 @@ const AA = (() => {
     const _cache = new Map();
     async function get(url, opts = {}) {
         if (_cache.has(url)) return _cache.get(url);
-        const r = await fetch(url, { signal: opts.signal });
-        if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
-        const data = await r.json();
-        _cache.set(url, data);
-        return data;
+        const timeoutMs = opts.timeoutMs || DEFAULT_TIMEOUT_MS;
+        const ctrl = new AbortController();
+        let abortFromCaller;
+        const timeoutId = window.setTimeout(() => ctrl.abort(), timeoutMs);
+        if (opts.signal) {
+            abortFromCaller = () => ctrl.abort();
+            if (opts.signal.aborted) ctrl.abort();
+            else opts.signal.addEventListener('abort', abortFromCaller, { once: true });
+        }
+        try {
+            const r = await fetch(url, { signal: ctrl.signal });
+            if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
+            const data = await r.json();
+            _cache.set(url, data);
+            return data;
+        } catch (e) {
+            if (e && e.name === 'AbortError') {
+                const err = new Error(`Atlas Academy request timed out after ${Math.round(timeoutMs / 1000)}s.`);
+                err.code = 'ATLAS_TIMEOUT';
+                err.url = url;
+                err.timeoutMs = timeoutMs;
+                throw err;
+            }
+            throw e;
+        } finally {
+            window.clearTimeout(timeoutId);
+            if (opts.signal && abortFromCaller) opts.signal.removeEventListener('abort', abortFromCaller);
+        }
     }
 
     // ── Search ──────────────────────────────────────────────────────────────
@@ -126,7 +150,7 @@ const AA = (() => {
             return sorted.slice(0, limit).map(w => _normalizeWar(w, region));
         } catch (e) {
             console.warn('latestWars export failed:', e);
-            return [];
+            throw e;
         }
     }
 
@@ -144,8 +168,66 @@ const AA = (() => {
             return sorted.slice(0, limit).map(e => _normalizeEvent(e, region));
         } catch (e) {
             console.warn('latestEvents export failed:', e);
-            return [];
+            throw e;
         }
+    }
+
+    function _normalizePhaseScripts(phaseScripts = []) {
+        return (phaseScripts || []).map(ps => ({
+            phase: ps.phase,
+            scripts: (ps.scripts || []).map(s => ({
+                scriptId: String(s.scriptId || s.id || s),
+                script: s.script || '',
+            })).filter(s => s.scriptId && s.scriptId !== '0'),
+        })).filter(ps => ps.scripts.length > 0);
+    }
+
+    function _scriptIdsFromPhaseScripts(phaseScripts = []) {
+        const seen = new Set();
+        const ids = [];
+        for (const ps of phaseScripts || []) {
+            for (const script of ps.scripts || []) {
+                const id = String(script.scriptId || script.id || script || '');
+                if (!id || id === '0' || seen.has(id)) continue;
+                seen.add(id);
+                ids.push(id);
+            }
+        }
+        return ids;
+    }
+
+    function _normalizeQuest(q, spot, war, region, mapById = new Map()) {
+        const phaseScripts = _normalizePhaseScripts(q.phaseScripts || []);
+        const scriptIds = _scriptIdsFromPhaseScripts(phaseScripts);
+        const mapId = spot && spot.mapId != null ? String(spot.mapId) : '';
+        const map = mapById.get(mapId) || {};
+        return {
+            id: String(q.id),
+            name: q.name || '',
+            type: q.type || '',
+            flags: q.flags || [],
+            phases: q.phases || [],
+            phasesNoBattle: q.phasesNoBattle || [],
+            phasesWithEnemies: q.phasesWithEnemies || [],
+            phaseScripts,
+            scriptIds,
+            scriptCount: scriptIds.length,
+            hasDialogueScript: scriptIds.length > 0,
+            spotId: String(q.spotId || (spot && spot.id) || ''),
+            spotName: q.spotName || (spot && spot.name) || '',
+            mapId,
+            mapImage: map.mapImage || '',
+            spotX: spot && spot.x,
+            spotY: spot && spot.y,
+            openedAt: q.openedAt,
+            closedAt: q.closedAt,
+            consumeType: q.consumeType || '',
+            consume: q.consume,
+            region,
+            warId: String(q.warId || war.id || ''),
+            warName: war.name || war.longName || '',
+            warLongName: q.warLongName || war.longName || war.name || '',
+        };
     }
 
     /**
@@ -154,19 +236,71 @@ const AA = (() => {
     async function latestTasks(region = 'JP', limit = 50) {
         region = norm(region);
         try {
-            // Grab recent war IDs from export, then batch-fetch quest lists
-            const wars = await latestWars(region, 20);
-            const allQuests = [];
-            await Promise.all(wars.slice(0, 10).map(async w => {
+            limit = Math.min(Math.max(limit || 50, 1), 200);
+            const latestRows = await get(`${BASE}/basic/${region}/quest/phase/latestEnemyData`);
+            const uniqueRows = [];
+            const seenQuestIds = new Set();
+            for (const row of Array.isArray(latestRows) ? latestRows : []) {
+                const id = String(row && row.id || '');
+                if (!id || seenQuestIds.has(id)) continue;
+                seenQuestIds.add(id);
+                uniqueRows.push(row);
+            }
+
+            const warIds = [...new Set(uniqueRows.map(row => String(row.warId || '')).filter(Boolean))];
+            const warQuestById = new Map();
+            await Promise.all(warIds.map(async warId => {
                 try {
-                    const { quests } = await getWarQuests(w.id, region);
-                    allQuests.push(...quests);
-                } catch { /* skip on error */ }
+                    const { quests } = await getWarQuests(warId, region);
+                    quests.forEach(q => warQuestById.set(String(q.id), q));
+                } catch (e) { console.warn('latestTasks war lookup failed:', warId, e); }
             }));
-            return allQuests
-                .sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0))
-                .slice(0, limit);
-        } catch (e) { console.error('latestTasks', e); return []; }
+
+            let hiddenNoScriptCount = 0;
+            const tasks = [];
+            for (const row of uniqueRows) {
+                const quest = warQuestById.get(String(row.id));
+                if (!quest || !quest.hasDialogueScript) {
+                    hiddenNoScriptCount += 1;
+                    continue;
+                }
+                tasks.push({
+                    ...quest,
+                    itemKind: 'task',
+                    latestPhase: row.phase,
+                    latestOpenedAt: row.openedAt,
+                    openedAt: quest.openedAt || row.openedAt,
+                });
+            }
+
+            if (tasks.length < limit) {
+                const seen = new Set(tasks.map(q => String(q.id)));
+                const wars = await latestWars(region, 20);
+                for (const war of wars) {
+                    if (tasks.length >= limit) break;
+                    try {
+                        const { quests } = await getWarQuests(war.id, region);
+                        quests
+                            .filter(q => q.hasDialogueScript && !seen.has(String(q.id)))
+                            .sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0))
+                            .forEach(q => {
+                                if (tasks.length >= limit) return;
+                                seen.add(String(q.id));
+                                tasks.push({ ...q, itemKind: 'task' });
+                            });
+                    } catch (e) { console.warn('latestTasks fill failed:', war.id, e); }
+                }
+            }
+
+            return {
+                tasks: tasks.slice(0, limit),
+                hiddenNoScriptCount,
+                scannedCount: uniqueRows.length,
+            };
+        } catch (e) {
+            console.error('latestTasks', e);
+            throw e;
+        }
     }
 
     // ── Quest detail ─────────────────────────────────────────────────────────
@@ -179,18 +313,21 @@ const AA = (() => {
         // Use nice war which has full quest list and phase info
         const url = `${BASE}/nice/${region}/war/${warId}`;
         const war = await get(url);
-        const quests = (war.spots || []).flatMap(sp => (sp.quests || []).map(q => ({
-            id: String(q.id),
-            name: q.name || '',
-            type: q.type || '',
-            spotName: sp.name || '',
-            openedAt: q.openedAt,
-            closedAt: q.closedAt,
-            region,
-            warId: String(warId),
-            warName: war.name || war.longName || '',
-        })));
-        return { quests, warInfo: { id: String(warId), name: war.name || '', longName: war.longName || '', banner: war.banner || '' } };
+        const maps = war.maps || [];
+        const mapById = new Map(maps.map(m => [String(m.id), m]));
+        const quests = (war.spots || []).flatMap(sp => (sp.quests || []).map(q =>
+            _normalizeQuest(q, sp, war, region, mapById)
+        ));
+        return {
+            quests,
+            warInfo: {
+                id: String(warId),
+                name: war.name || '',
+                longName: war.longName || '',
+                banner: war.banner || '',
+                mapImage: (maps[0] && maps[0].mapImage) || '',
+            }
+        };
     }
 
     /**
@@ -229,6 +366,15 @@ const AA = (() => {
     async function getQuestScripts(questId, region = 'JP') {
         region = norm(region);
         const quest = await get(`${BASE}/nice/${region}/quest/${questId}`);
+        if (Array.isArray(quest.phaseScripts)) {
+            return {
+                name: quest.name || '',
+                questId: String(questId),
+                phaseScripts: _normalizePhaseScripts(quest.phaseScripts),
+                phasesNoBattle: quest.phasesNoBattle || [],
+                phasesWithEnemies: quest.phasesWithEnemies || [],
+            };
+        }
         const phases = quest.phases || [];
         const phaseScripts = [];
         const phasesNoBattle = [];
