@@ -11,3 +11,4 @@ cache/
 templates/gaming_ref.html
 templates/index.before_layout.html
 templates/demo.html
+demo_recordings/

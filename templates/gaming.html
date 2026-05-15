@@ -650,6 +650,7 @@ function escapeHtml(s) {
 //   [line N]                     -> N em-dashes
 //   [align center]...[align]     -> centered block (also: left/right)
 //   [f x-large]text              -> font-size span (large/x-large/xx-large/small)
+//   [RRGGBB]text[-]              -> colored text
 //   [image name]                 -> <img> from /Marks/<name>.png
 //   [r] / \n                     -> <br>
 // Anything else bracketed is dropped.
@@ -670,6 +671,12 @@ function formatScriptText(s, regionHint) {
 
     // [r] -> newline (so it gets converted to <br> below)
     s = s.replace(/\[r\]/g, '\n');
+
+    // [RRGGBB]...[-] -> colored text. FGO scripts use this for system
+    // messages and speaker labels.
+    s = s.replace(/\[([0-9a-fA-F]{6})\]/g, (_, color) =>
+        placeholder(`<span style="color:#${color.toLowerCase()}">`));
+    s = s.replace(/\[-\]/g, () => placeholder('</span>'));
 
     // [#base:reading] -> <ruby>base<rt>reading</rt></ruby> (Japanese furigana)
     s = s.replace(/\[#([^\[\]:]+):([^\[\]]+)\]/g, (_, base, reading) =>
@@ -728,6 +735,10 @@ function splitTranslatedSpeaker(translated, origSpeaker) {
     const m = translated.match(/^\s*([^\n：:]{1,40})\s*[：:]\s*([\s\S]*)$/);
     if (m) return { speaker: m[1].trim(), body: m[2] };
     return { speaker: '', body: translated };
+}
+
+function formatSpeakerName(s) {
+    return formatScriptText(s || '').replace(/<br>/g, ' ');
 }
 
 function loadData() {
@@ -1379,7 +1390,7 @@ function showDialogue(f) {
     const speakerEl = document.getElementById('speakerTag');
     
     if (speakerName) {
-        speakerEl.textContent = speakerName; speakerEl.style.display = 'inline-block';
+        speakerEl.innerHTML = formatSpeakerName(speakerName); speakerEl.style.display = 'inline-block';
     } else {
         speakerEl.style.display = 'none';
     }
@@ -1387,7 +1398,7 @@ function showDialogue(f) {
     // Translated speaker name may be embedded as "Name: body" — split it out.
     const split = splitTranslatedSpeaker(trans.translated_content || '', f.speaker || '');
     if (split.speaker && speakerEl.style.display !== 'none') {
-        speakerEl.textContent = split.speaker;
+        speakerEl.innerHTML = formatSpeakerName(split.speaker);
     }
     document.getElementById('originalText').innerHTML = formatScriptText(f.text || '');
     document.getElementById('translatedText').innerHTML = formatScriptText(split.body || trans.translated_content || '');
@@ -1478,7 +1489,7 @@ function showHistory() {
             const row = document.createElement('div'); row.className = 'hist-row';
             const split = splitTranslatedSpeaker(trans.translated_content || '', f.speaker || '');
             const sp = split.speaker || trans.speaker || f.speaker || '';
-            row.innerHTML = (sp ? `<div class="hist-speaker">${escapeHtml(sp)}</div>` : '')
+            row.innerHTML = (sp ? `<div class="hist-speaker">${formatSpeakerName(sp)}</div>` : '')
                 + `<div class="hist-orig">${formatScriptText(f.text || '')}</div>`
                 + ((split.body || trans.translated_content) ? `<div class="hist-trans">${formatScriptText(split.body || trans.translated_content)}</div>` : '');
             list.appendChild(row);
