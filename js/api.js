@@ -5,6 +5,9 @@ const AA = (() => {
     const BASE = 'https://api.atlasacademy.io';
     const CDN  = 'https://static.atlasacademy.io';
     const DEFAULT_TIMEOUT_MS = 30000;
+    const BULK_EXPORT_TIMEOUT_MS = 90000;
+    const DETAIL_TIMEOUT_MS = 45000;
+    const ACTIVITY_ENRICH_LIMIT = 12;
 
     const REGIONS = ['JP','NA','CN','TW','KR'];
     function norm(r) { return REGIONS.includes((r||'').toUpperCase()) ? r.toUpperCase() : 'JP'; }
@@ -93,6 +96,72 @@ const AA = (() => {
         };
     }
 
+    async function _eventTimeline(region) {
+        const started = {};
+        const ended = {};
+        try {
+            const evs = await get(`${BASE}/export/${region}/basic_event.json`, { timeoutMs: BULK_EXPORT_TIMEOUT_MS });
+            if (Array.isArray(evs)) {
+                evs.forEach(e => {
+                    if (e.id && (e.startedAt || e.noticeAt)) started[e.id] = e.startedAt || e.noticeAt;
+                    if (e.id && e.endedAt) ended[e.id] = e.endedAt;
+                });
+            }
+        } catch {}
+        return { started, ended };
+    }
+
+    function _applyWarTimeline(war, timeline) {
+        const evId = war.eventId || 0;
+        if (!evId) return { ...war };
+        return {
+            ...war,
+            startedAt: war.startedAt || timeline.started[evId],
+            endedAt: war.endedAt || timeline.ended[evId],
+        };
+    }
+
+    async function _mapLimit(items, limit, mapper) {
+        const results = [];
+        for (let i = 0; i < items.length; i += limit) {
+            const chunk = items.slice(i, i + limit);
+            results.push(...await Promise.all(chunk.map(mapper)));
+        }
+        return results;
+    }
+
+    async function _enrichWarForDisplay(war, region) {
+        let enriched = war;
+        try {
+            const detail = await get(`${BASE}/nice/${region}/war/${war.id}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+            enriched = {
+                ...war,
+                ...detail,
+                eventName: war.eventName || detail.eventName,
+                startedAt: war.startedAt || detail.startedAt,
+                endedAt: war.endedAt || detail.endedAt,
+            };
+        } catch (e) {
+            console.warn('war detail enrichment failed:', war.id, e);
+        }
+        if (!enriched.banner && !enriched.noticeBanner && war.eventId) {
+            try {
+                const event = await get(`${BASE}/nice/${region}/event/${war.eventId}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+                enriched = {
+                    ...enriched,
+                    eventName: enriched.eventName || event.name,
+                    banner: event.banner || event.noticeBanner || enriched.banner || '',
+                    noticeBanner: event.noticeBanner || enriched.noticeBanner || '',
+                    startedAt: enriched.startedAt || event.startedAt || event.noticeAt,
+                    endedAt: enriched.endedAt || event.endedAt,
+                };
+            } catch (e) {
+                console.warn('event detail enrichment failed:', war.eventId, e);
+            }
+        }
+        return enriched;
+    }
+
     /**
      * Search events by name or ID.
      * Uses the bulk export endpoint and filters locally.
@@ -135,19 +204,19 @@ const AA = (() => {
     async function latestWars(region = 'JP', limit = 50) {
         region = norm(region);
         try {
-            const wars = await get(`${BASE}/export/${region}/nice_war.json`);
+            const wars = await get(`${BASE}/export/${region}/basic_war.json`, { timeoutMs: BULK_EXPORT_TIMEOUT_MS });
             if (!Array.isArray(wars)) return [];
-            let evStart = {};
-            try {
-                const evs = await get(`${BASE}/export/${region}/basic_event.json`);
-                if (Array.isArray(evs)) evs.forEach(e => { if (e.id && e.startedAt) evStart[e.id] = e.startedAt; });
-            } catch {}
-            const sorted = [...wars].sort((a, b) => {
-                const ta = evStart[a.eventId] || a.startedAt || a.id || 0;
-                const tb = evStart[b.eventId] || b.startedAt || b.id || 0;
+            const timeline = await _eventTimeline(region);
+            const sorted = wars.map(w => _applyWarTimeline(w, timeline)).sort((a, b) => {
+                const ta = a.startedAt || a.id || 0;
+                const tb = b.startedAt || b.id || 0;
                 return tb - ta;
             });
-            return sorted.slice(0, limit).map(w => _normalizeWar(w, region));
+            const selected = sorted.slice(0, limit);
+            const enriched = await Promise.all(selected.map((war, idx) =>
+                idx < ACTIVITY_ENRICH_LIMIT ? _enrichWarForDisplay(war, region) : war
+            ));
+            return enriched.map(w => _normalizeWar(w, region));
         } catch (e) {
             console.warn('latestWars export failed:', e);
             throw e;
@@ -312,7 +381,13 @@ const AA = (() => {
         region = norm(region);
         // Use nice war which has full quest list and phase info
         const url = `${BASE}/nice/${region}/war/${warId}`;
-        const war = await get(url);
+        let war;
+        try {
+            war = await get(url);
+        } catch (e) {
+            console.warn('nice war lookup failed, trying latest quest fallback:', warId, e);
+            return getWarQuestsFromLatestRows(warId, region, e);
+        }
         const maps = war.maps || [];
         const mapById = new Map(maps.map(m => [String(m.id), m]));
         const quests = (war.spots || []).flatMap(sp => (sp.quests || []).map(q =>
@@ -330,12 +405,71 @@ const AA = (() => {
         };
     }
 
+    async function getWarQuestsFromLatestRows(warId, region = 'JP', originalError = null) {
+        const warKey = String(warId);
+        let basicWar = {};
+        try {
+            basicWar = await get(`${BASE}/basic/${region}/war/${encodeURIComponent(warKey)}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+        } catch (e) {
+            console.warn('basic war fallback failed:', warId, e);
+        }
+        const latestRows = await get(`${BASE}/basic/${region}/quest/phase/latestEnemyData`, { timeoutMs: BULK_EXPORT_TIMEOUT_MS });
+        const byQuestId = new Map();
+        for (const row of Array.isArray(latestRows) ? latestRows : []) {
+            if (String(row && row.warId || '') !== warKey) continue;
+            const questId = String(row.id || '');
+            if (!questId || byQuestId.has(questId)) continue;
+            byQuestId.set(questId, row);
+        }
+        if (!byQuestId.size) {
+            throw originalError || new Error(`No fallback quests found for war ${warKey}`);
+        }
+
+        const fallbackWar = {
+            id: basicWar.id || warKey,
+            name: basicWar.name || '',
+            longName: basicWar.longName || basicWar.name || '',
+            banner: basicWar.banner || '',
+            eventName: basicWar.eventName || '',
+        };
+        const quests = [];
+        await _mapLimit([...byQuestId.entries()], 6, async ([questId, row]) => {
+            try {
+                const quest = await get(`${BASE}/nice/${region}/quest/${encodeURIComponent(questId)}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+                quests.push(_normalizeQuest(quest, {
+                    id: row.spotId,
+                    name: row.spotName,
+                    mapId: row.mapId,
+                }, fallbackWar, region, new Map()));
+            } catch (e) {
+                console.warn('latest quest fallback detail failed:', questId, e);
+            }
+        });
+        quests.sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0) || Number(b.id) - Number(a.id));
+        return {
+            quests,
+            warInfo: {
+                id: warKey,
+                name: fallbackWar.name || `War ${warKey}`,
+                longName: fallbackWar.longName || fallbackWar.name || '',
+                banner: fallbackWar.banner || '',
+                mapImage: '',
+            }
+        };
+    }
+
     /**
      * Get quests belonging to an event (resolves event → warIds → quests).
      */
     async function getEventQuests(eventId, region = 'JP') {
         region = norm(region);
-        const ev = await get(`${BASE}/nice/${region}/event/${eventId}`);
+        let ev;
+        try {
+            ev = await get(`${BASE}/nice/${region}/event/${eventId}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+        } catch (e) {
+            console.warn('nice event lookup failed, trying basic event fallback:', eventId, e);
+            ev = await get(`${BASE}/basic/${region}/event/${eventId}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+        }
         const warIds = ev.warIds || [];
         const allQuests = [], wars = [];
         await Promise.all(warIds.map(async wid => {
