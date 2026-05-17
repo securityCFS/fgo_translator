@@ -103,7 +103,7 @@ def search_quest():
         if event_id:
             try:
                 nice_event_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/event/{event_id}"
-                event = loader.db_loader._make_request_with_retry(nice_event_endpoint)
+                event = loader.db_loader._make_request_with_retry(nice_event_endpoint, max_retries=1)
                 war_ids = [str(w) for w in event.get('warIds', [])]
                 activity_info = {
                     'kind': 'event',
@@ -156,7 +156,7 @@ def search_quest():
                 # Fetch nice war for banner/map image (best-effort, cached by retry layer)
                 try:
                     nice_war_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/war/{current_war_id}"
-                    nice_war = loader.db_loader._make_request_with_retry(nice_war_endpoint)
+                    nice_war = loader.db_loader._make_request_with_retry(nice_war_endpoint, max_retries=1)
                     if nice_war:
                         war_meta['name'] = nice_war.get('name', war_meta['name'])
                         war_meta['longName'] = nice_war.get('longName', war_meta['longName'])

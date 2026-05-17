@@ -718,7 +718,7 @@ class DialogueLoader:
             limit = max(1, min(int(limit or 50), 200))
 
             if activity_type == "war":
-                war_endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_war.json"
+                war_endpoint = f"{self.db_loader.BASE_URL}/export/{region}/basic_war.json"
                 wars = self.db_loader._make_request_with_retry(war_endpoint)
                 if not isinstance(wars, list):
                     return []
@@ -756,7 +756,35 @@ class DialogueLoader:
                     return (ts, int(war.get("id", 0)))
 
                 wars = sorted(wars, key=_war_sort_key, reverse=True)
-                return [self._normalize_war_activity(war, region) for war in wars[:limit]]
+                enriched_wars = []
+                for idx, war in enumerate(wars[:limit]):
+                    display_war = dict(war)
+                    if idx < 12:
+                        try:
+                            detail_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/war/{war.get('id')}"
+                            detail = self.db_loader._make_request_with_retry(detail_endpoint, max_retries=1)
+                            if isinstance(detail, dict):
+                                merged = {**display_war, **detail}
+                                for key in ("eventName", "startedAt", "endedAt"):
+                                    if display_war.get(key) and not merged.get(key):
+                                        merged[key] = display_war[key]
+                                display_war = merged
+                        except Exception as e:
+                            logger.warning(f"Could not enrich latest war {war.get('id')}: {e}")
+                        if not (display_war.get("banner") or display_war.get("noticeBanner")) and war.get("eventId"):
+                            try:
+                                event_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/event/{war.get('eventId')}"
+                                event = self.db_loader._make_request_with_retry(event_endpoint, max_retries=1)
+                                if isinstance(event, dict):
+                                    display_war["eventName"] = display_war.get("eventName") or event.get("name")
+                                    display_war["banner"] = event.get("banner") or event.get("noticeBanner") or display_war.get("banner", "")
+                                    display_war["noticeBanner"] = event.get("noticeBanner") or display_war.get("noticeBanner", "")
+                                    display_war["startedAt"] = display_war.get("startedAt") or event.get("startedAt") or event.get("noticeAt")
+                                    display_war["endedAt"] = display_war.get("endedAt") or event.get("endedAt")
+                            except Exception as e:
+                                logger.warning(f"Could not enrich latest war event {war.get('eventId')}: {e}")
+                    enriched_wars.append(self._normalize_war_activity(display_war, region))
+                return enriched_wars
 
             endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_event.json"
             events = self.db_loader._make_request_with_retry(endpoint)
