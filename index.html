@@ -328,6 +328,7 @@
                         <div id="progressBar" class="bg-emerald-500 h-1.5 rounded-full transition-all duration-300 relative shadow-[0_0_10px_rgba(16,185,129,0.4)]" style="width: 0%"></div>
                     </div>
                     <div id="progressText" class="text-xs font-medium text-emerald-700 mt-2 text-center tracking-wide">Initializing...</div>
+                    <div id="wakeLockStatus" class="hidden mt-1.5 text-center text-[11px] font-medium text-emerald-700"></div>
                 </div>
                 <div id="translationDisplay" class="p-4 sm:p-5" style="display:none;">
                     <div id="scriptTabs" class="hidden mb-4">
@@ -449,6 +450,8 @@
             translatingDialogues: 'Translating dialogues...',
             translatingProgress: 'Translating: {current}/{total} ({pct}%){speaker}',
             translationCompleted: 'Translation completed!',
+            wakeLockActive: 'Screen wake lock is active during translation. Keep this tab open until it finishes.',
+            wakeLockUnavailable: 'Your browser may pause translation if the screen locks. Keep the screen awake until translation finishes.',
             cacheUploadDone: 'Translation completed. Shared cache: {written} uploaded, {skipped} skipped.',
             cacheUploadPartial: 'Translation completed. Shared cache upload had {count} issue(s).',
             translationError: 'Translation error: {message}',
@@ -557,6 +560,8 @@
             translatingDialogues: '正在翻译对白...',
             translatingProgress: '翻译中：{current}/{total}（{pct}%）{speaker}',
             translationCompleted: '翻译完成！',
+            wakeLockActive: '翻译期间已保持屏幕常亮，请保持这个页面打开直到完成。',
+            wakeLockUnavailable: '当前浏览器可能会在息屏后暂停翻译，请在翻译完成前保持屏幕常亮。',
             cacheUploadDone: '翻译完成。共享缓存：已上传 {written} 个，跳过 {skipped} 个。',
             cacheUploadPartial: '翻译完成。共享缓存上传遇到 {count} 个问题。',
             translationError: '翻译出错：{message}',
@@ -2007,6 +2012,68 @@
     }
 
     // ── Translation ───────────────────────────────────────────────────────────
+    let translationWakeLock = null;
+    let translationWakeLockWanted = false;
+
+    function setTranslationWakeLockStatus(messageKey, isWarning = false) {
+        const status = document.getElementById('wakeLockStatus');
+        if (!status) return;
+        status.textContent = t(messageKey);
+        status.className = `mt-1.5 text-center text-[11px] font-medium ${isWarning ? 'text-amber-700' : 'text-emerald-700'}`;
+    }
+
+    function clearTranslationWakeLockStatus() {
+        const status = document.getElementById('wakeLockStatus');
+        if (!status) return;
+        status.textContent = '';
+        status.classList.add('hidden');
+    }
+
+    async function acquireTranslationWakeLock() {
+        translationWakeLockWanted = true;
+
+        if (!('wakeLock' in navigator) || !navigator.wakeLock || !navigator.wakeLock.request) {
+            setTranslationWakeLockStatus('wakeLockUnavailable', true);
+            console.warn('Screen Wake Lock API is unavailable; mobile browsers may pause translation when the screen locks.');
+            return false;
+        }
+
+        try {
+            if (translationWakeLock && !translationWakeLock.released) return true;
+            translationWakeLock = await navigator.wakeLock.request('screen');
+            translationWakeLock.addEventListener('release', () => {
+                translationWakeLock = null;
+            }, { once: true });
+            setTranslationWakeLockStatus('wakeLockActive');
+            return true;
+        } catch (error) {
+            setTranslationWakeLockStatus('wakeLockUnavailable', true);
+            console.warn('Screen wake lock request failed:', error);
+            return false;
+        }
+    }
+
+    async function restoreTranslationWakeLock() {
+        if (document.visibilityState !== 'visible' || !translationWakeLockWanted) return;
+        if (translationWakeLock && !translationWakeLock.released) return;
+        await acquireTranslationWakeLock();
+    }
+
+    async function releaseTranslationWakeLock() {
+        translationWakeLockWanted = false;
+        const lock = translationWakeLock;
+        translationWakeLock = null;
+        if (lock && !lock.released) {
+            try {
+                await lock.release();
+            } catch (error) {
+                console.warn('Screen wake lock release failed:', error);
+            }
+        }
+        clearTranslationWakeLockStatus();
+    }
+
+    document.addEventListener('visibilitychange', restoreTranslationWakeLock);
 
     async function translateSelectedQuest() {
         if (!selectedQuest) return;
@@ -2032,6 +2099,7 @@
         document.getElementById('translationResults').innerHTML = '';
         document.getElementById('gamingModeBar').classList.add('hidden');
         progressBar.style.width = '0%';
+        await acquireTranslationWakeLock();
         try {
             const scriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
             if (scriptIds.length === 0) throw new Error(t('noScriptsPhase'));
@@ -2158,7 +2226,10 @@
             document.getElementById('progressText').textContent = `Error: ${error.message}`;
             animateProgressBar(0);
             alert(t('translationError', { message: error.message }));
-        } finally { hideLoading(); }
+        } finally {
+            await releaseTranslationWakeLock();
+            hideLoading();
+        }
     }
 
     // ── Gaming Mode ───────────────────────────────────────────────────────────
