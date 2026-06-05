@@ -237,8 +237,14 @@ def search_quest():
                                 'id': quest_id,
                                 'name': quest_data.get('name', ''),
                                 'type': quest_data.get('type', ''),
+                                'afterClear': quest_data.get('afterClear', ''),
                                 'spotName': quest_data.get('spotName', '') or spot_lookup.get(qraw.get('spotId'), ''),
                                 'spotId': quest_data.get('spotId') or qraw.get('spotId'),
+                                'spotImage': '',
+                                'questOfsX': None,
+                                'questOfsY': None,
+                                'nameOfsX': None,
+                                'nameOfsY': None,
                                 'mapId': None,
                                 'mapImage': '',
                                 'mapImageW': None,
@@ -269,6 +275,11 @@ def search_quest():
                             added['mapImageH'] = map_meta.get('mapImageH')
                             added['spotX'] = nice_spot.get('x')
                             added['spotY'] = nice_spot.get('y')
+                            added['spotImage'] = nice_spot.get('image') or ''
+                            added['questOfsX'] = nice_spot.get('questOfsX')
+                            added['questOfsY'] = nice_spot.get('questOfsY')
+                            added['nameOfsX'] = nice_spot.get('nameOfsX')
+                            added['nameOfsY'] = nice_spot.get('nameOfsY')
                     except Exception as e:
                         error_msg = f"Failed to get quest {quest_id}: {str(e)}"
                         print(error_msg)
