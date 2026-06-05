@@ -437,6 +437,7 @@
         let currentQuestRegion = 'JP';
         let questResultLabel = 'quests';
         let questResultsView = { list: [], label: 'quests', wars: [], page: 1, pageSize: 24 };
+        let showFreeQuests = false;
         let translationCacheOptions = [];
         let translationCacheRequestSeq = 0;
         const questCache = new Map();    // key: `${kind}_${id}_${region}` → {quests, wars, activity}
@@ -498,6 +499,11 @@
                 endLabel: 'End',
                 noWarMap: 'No war map',
                 shown: 'shown',
+                atlasMap: 'Atlas map',
+                spots: 'spots',
+                hiddenFreeQuests: ' <span class="text-slate-400">Hidden {count} free {questWord}.</span>',
+                showAllQuests: 'Show all quests',
+                storyOnly: 'Story only',
                 openLabel: 'Open',
                 latestPhase: 'Latest phase',
                 loadingPhases: 'Loading quest phases...',
@@ -595,9 +601,14 @@
                 questsHeading: '关卡',
                 startLabel: '开始',
                 endLabel: '结束',
-                noWarMap: '无地图',
-                shown: '已显示',
-                openLabel: '开放',
+            noWarMap: '无地图',
+            shown: '已显示',
+            atlasMap: 'Atlas 地图',
+            spots: '地点',
+            hiddenFreeQuests: ' <span class="text-slate-400">已隐藏 {count} 个 free 本。</span>',
+            showAllQuests: '显示全部关卡',
+            storyOnly: '仅剧情本',
+            openLabel: '开放',
                 latestPhase: '最新阶段',
                 loadingPhases: '正在加载关卡阶段...',
                 noPhaseScripts: '这个关卡没有可用脚本。',
@@ -1620,6 +1631,79 @@
             listEl.innerHTML = sectionHtml;
         }
 
+        function isFreeQuest(q) {
+            return String(q && q.type || '').toLowerCase() === 'free';
+        }
+
+        function visibleQuestEntries(list) {
+            return (list || [])
+                .map((quest, idx) => ({ quest, idx }))
+                .filter(({ quest }) => showFreeQuests || !isFreeQuest(quest));
+        }
+
+        function resultInfoHtml(count, label, hiddenFreeCount, range = null) {
+            const base = range
+                ? t('foundSelectPage', { count, label: itemLabel(label), start: range.start, end: range.end })
+                : t('foundSelect', { count, label: itemLabel(label) });
+            const hidden = hiddenFreeCount && !showFreeQuests
+                ? t('hiddenFreeQuests', { count: hiddenFreeCount, questWord: hiddenFreeCount === 1 ? 'quest' : 'quests' })
+                : '';
+            const toggle = hiddenFreeCount ? ` <button type="button" class="ml-1 text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:underline" onclick="setShowFreeQuests(${showFreeQuests ? 'false' : 'true'})">${showFreeQuests ? t('storyOnly') : t('showAllQuests')}</button>` : '';
+            return `${base}${hidden}${toggle}`;
+        }
+
+        function setShowFreeQuests(value) {
+            showFreeQuests = !!value;
+            renderQuestResultsPage();
+        }
+
+        function renderAtlasQuestMap(meta, entries) {
+            const first = (entries || []).map(item => item.quest).find(q => q.mapImage) || {};
+            const mapImage = meta.mapImage || first.mapImage || '';
+            if (!mapImage) return '';
+            const mapW = Number(meta.mapImageW || first.mapImageW || 2048);
+            const mapH = Number(meta.mapImageH || first.mapImageH || 2048);
+            const spots = new Map();
+            for (const item of entries || []) {
+                const q = item.quest;
+                const x = Number(q.spotX), y = Number(q.spotY);
+                if (!Number.isFinite(x) || !Number.isFinite(y) || x < 0 || y < 0 || x >= 90000 || y >= 90000) continue;
+                const key = `${q.spotId || ''}:${Math.round(x)}:${Math.round(y)}`;
+                if (!spots.has(key)) spots.set(key, { ...item, x, y, quests: [] });
+                spots.get(key).quests.push(q);
+            }
+            const title = meta.longName || meta.name || first.warLongName || first.warName || t('atlasMap');
+            const spotButtons = [...spots.values()].map(spot => {
+                const left = Math.max(0, Math.min(100, (spot.x / mapW) * 100));
+                const top = Math.max(0, Math.min(100, (spot.y / mapH) * 100));
+                const q = spot.quest;
+                const label = q.spotName || q.name || `#${q.id}`;
+                const count = spot.quests.length > 1 ? `<span class="ml-1 rounded-full bg-white/95 px-1 text-[10px] text-indigo-700">${spot.quests.length}</span>` : '';
+                return `<button type="button" class="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/90 bg-indigo-600/90 px-2 py-1 text-[11px] font-semibold text-white shadow-lg ring-2 ring-indigo-200/70 transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-300" style="left:${left.toFixed(2)}%;top:${top.toFixed(2)}%" title="${escapeHtml(label)}" onclick="selectQuestFromMap(event, ${spot.idx})"><span class="inline-block max-w-[6.5rem] truncate align-bottom sm:max-w-[10rem]">${escapeHtml(label)}</span>${count}</button>`;
+            }).join('');
+            return `<div class="border-t border-slate-100 bg-slate-950">
+                <div class="flex items-center justify-between gap-3 px-3 py-2 text-white">
+                    <div class="min-w-0">
+                        <div class="text-xs font-semibold uppercase tracking-wide text-indigo-200">${t('atlasMap')}</div>
+                        <div class="truncate text-sm font-semibold">${escapeHtml(title)}</div>
+                    </div>
+                    <span class="shrink-0 rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-xs text-white/80">${spots.size} ${t('spots')}</span>
+                </div>
+                <div class="relative mx-auto max-h-[520px] overflow-hidden bg-black" style="aspect-ratio:${mapW}/${mapH}">
+                    <img src="${escapeHtml(mapImage)}" alt="" class="h-full w-full object-contain" loading="lazy">
+                    ${spotButtons}
+                </div>
+            </div>`;
+        }
+
+        function selectQuestFromMap(event, idx) {
+            if (event) event.stopPropagation();
+            const quest = questResults[idx];
+            if (!quest) return;
+            const item = document.querySelector(`#questResultList .result-item[data-idx="${idx}"]`);
+            selectQuest(item, quest.id, idx);
+        }
+
         function getQuestPageSize(label) {
             return label === 'tasks' ? 20 : 30;
         }
@@ -1644,25 +1728,27 @@
         function renderQuestResultsPage() {
             const { list, label, wars, pageSize } = questResultsView;
             const listEl = document.getElementById('questResultList');
-            if (!list || list.length === 0) {
+            const hiddenFreeCount = (list || []).filter(isFreeQuest).length;
+            const entries = visibleQuestEntries(list || []);
+            if (!entries.length) {
                 document.getElementById('questResultInfo').innerHTML = t('noItems', { label: itemLabel(label) });
                 listEl.innerHTML = '';
                 return;
             }
-            const totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+            const totalPages = Math.max(1, Math.ceil(entries.length / pageSize));
             const page = Math.min(Math.max(questResultsView.page || 1, 1), totalPages);
             questResultsView.page = page;
             const start = (page - 1) * pageSize;
-            const pageItems = list.slice(start, start + pageSize);
+            const pageItems = entries.slice(start, start + pageSize);
             document.getElementById('questResultInfo').innerHTML = totalPages > 1
-                ? t('foundSelectPage', { count: list.length, label: itemLabel(label), start: start + 1, end: start + pageItems.length })
-                : t('foundSelect', { count: list.length, label: itemLabel(label) });
+                ? resultInfoHtml(entries.length, label, hiddenFreeCount, { start: start + 1, end: start + pageItems.length })
+                : resultInfoHtml(entries.length, label, hiddenFreeCount);
 
             const groups = new Map();
-            pageItems.forEach((q, localIdx) => {
+            pageItems.forEach(({ quest: q, idx }) => {
                 const key = String(q.warId || '0');
                 if (!groups.has(key)) groups.set(key, { warId: key, warName: q.warName || '', items: [] });
-                groups.get(key).items.push({ quest: q, idx: start + localIdx });
+                groups.get(key).items.push({ quest: q, idx });
             });
             const warOrder = wars && wars.length ? wars.map(w => String(w.id)) : Array.from(groups.keys());
             const warMetaById = new Map((wars || []).map(w => [String(w.id), w]));
@@ -1671,7 +1757,8 @@
                 .map(wid => {
                     const group = groups.get(wid);
                     const meta = warMetaById.get(wid) || {};
-                    const showHeader = warOrder.length > 1 || !!(meta.banner || meta.mapImage);
+                    const mapHtml = renderAtlasQuestMap(meta, group.items);
+                    const showHeader = warOrder.length > 1 || !!(meta.banner || meta.mapImage) || !!mapHtml;
                     const headerHtml = showHeader ? `
                         <div class="flex items-center flex-wrap gap-3 px-3 py-2 bg-gradient-to-r from-indigo-50 to-slate-50 border border-slate-200 rounded-lg">
                             ${meta.banner ? `<img src="${escapeHtml(meta.banner)}" alt="" class="h-9 sm:h-10 max-w-[45%] object-contain rounded shadow-sm border border-white/60" loading="lazy" onerror="this.style.display='none'"/>` : ''}
@@ -1710,6 +1797,7 @@
                     return `
                         <section class="bg-white border border-slate-200 rounded-lg sm:rounded-xl overflow-hidden">
                             ${headerHtml}
+                            ${mapHtml}
                             <div class="divide-y divide-slate-100">${itemsHtml}</div>
                         </section>`;
                 }).join('');
@@ -1718,6 +1806,7 @@
 
         function showQuestResults(list, label = questResultLabel, wars = [], page = 1) {
             selectedQuest = null;
+            showFreeQuests = false;
             questResultLabel = label;
             questResultsView = {
                 list: list || [],

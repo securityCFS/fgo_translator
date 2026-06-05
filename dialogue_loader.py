@@ -495,7 +495,7 @@ class DialogueLoader:
         try:
             response = requests.get(url)
             response.raise_for_status()
-            return response.text
+            return response.content.decode("utf-8", errors="replace")
         except Exception as e:
             logger.error(f"Failed to fetch text content from {url}: {e}")
             return ""
@@ -584,7 +584,10 @@ class DialogueLoader:
                         script_ids.append(script_id)
             return script_ids
 
-        def normalize_quest(quest, spot, war, task=None):
+        def normalize_quest(quest, spot, war, task=None, map_by_id=None):
+            map_by_id = map_by_id or {}
+            map_id = spot.get("mapId")
+            map_meta = map_by_id.get(str(map_id), {})
             phase_scripts = normalize_phase_scripts(quest.get("phaseScripts", []))
             script_ids = script_ids_from_phase_scripts(phase_scripts)
             return {
@@ -607,7 +610,10 @@ class DialogueLoader:
                 "warLongName": quest.get("warLongName") or war.get("longName", "") or (task or {}).get("warLongName", ""),
                 "spotId": quest.get("spotId") or spot.get("id") or (task or {}).get("spotId"),
                 "spotName": quest.get("spotName") or spot.get("name", "") or (task or {}).get("spotName", ""),
-                "mapId": spot.get("mapId"),
+                "mapId": map_id,
+                "mapImage": map_meta.get("mapImage", ""),
+                "mapImageW": map_meta.get("mapImageW"),
+                "mapImageH": map_meta.get("mapImageH"),
                 "spotX": spot.get("x"),
                 "spotY": spot.get("y"),
                 "consumeType": quest.get("consumeType") or (task or {}).get("consumeType", ""),
@@ -645,9 +651,13 @@ class DialogueLoader:
                     war = self.db_loader._make_request_with_retry(war_endpoint)
                     if not war:
                         continue
+                    map_by_id = {
+                        str(item.get("id")): item
+                        for item in war.get("maps", []) or []
+                    }
                     for spot in war.get("spots", []) or []:
                         for quest in spot.get("quests", []) or []:
-                            quest_by_id[str(quest.get("id", ""))] = normalize_quest(quest, spot, war)
+                            quest_by_id[str(quest.get("id", ""))] = normalize_quest(quest, spot, war, map_by_id=map_by_id)
                 except Exception as e:
                     logger.warning(f"Failed to enrich latest task war {war_id}: {e}")
 
@@ -681,10 +691,14 @@ class DialogueLoader:
                         nice_war = self.db_loader._make_request_with_retry(war_endpoint)
                         if not nice_war:
                             continue
+                        map_by_id = {
+                            str(item.get("id")): item
+                            for item in nice_war.get("maps", []) or []
+                        }
                         fill_candidates = []
                         for spot in nice_war.get("spots", []) or []:
                             for quest in spot.get("quests", []) or []:
-                                story_task = normalize_quest(quest, spot, nice_war)
+                                story_task = normalize_quest(quest, spot, nice_war, map_by_id=map_by_id)
                                 if not story_task.get("hasDialogueScript"):
                                     continue
                                 if story_task["id"] in seen_story_ids:

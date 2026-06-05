@@ -176,6 +176,9 @@ def search_quest():
                 if resolved_war_id != requested_war_id:
                     war_meta['shortcutId'] = requested_war_id
                 # Fetch nice war for banner/map image (best-effort, cached by retry layer)
+                nice_war = None
+                map_lookup = {}
+                nice_spot_lookup = {}
                 try:
                     nice_war_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/war/{resolved_war_id}"
                     nice_war = loader.db_loader._make_request_with_retry(nice_war_endpoint, max_retries=1)
@@ -186,6 +189,13 @@ def search_quest():
                         maps = nice_war.get('maps') or []
                         if maps:
                             war_meta['mapImage'] = maps[0].get('mapImage') or ''
+                            war_meta['mapImageW'] = maps[0].get('mapImageW')
+                            war_meta['mapImageH'] = maps[0].get('mapImageH')
+                        map_lookup = {str(m.get('id')): m for m in maps or []}
+                        nice_spot_lookup = {
+                            str(sp.get('id')): sp
+                            for sp in nice_war.get('spots', []) or []
+                        }
                 except Exception as e:
                     print(f"Failed to fetch nice war {resolved_war_id}: {e}")
 
@@ -229,6 +239,12 @@ def search_quest():
                                 'type': quest_data.get('type', ''),
                                 'spotName': quest_data.get('spotName', '') or spot_lookup.get(qraw.get('spotId'), ''),
                                 'spotId': quest_data.get('spotId') or qraw.get('spotId'),
+                                'mapId': None,
+                                'mapImage': '',
+                                'mapImageW': None,
+                                'mapImageH': None,
+                                'spotX': None,
+                                'spotY': None,
                                 'phases': quest_data.get('phases', []),
                                 'phasesNoBattle': quest_data.get('phasesNoBattle', []),
                                 'phasesWithEnemies': quest_data.get('phasesWithEnemies', []),
@@ -242,6 +258,17 @@ def search_quest():
                                 'warId': resolved_war_id,
                                 'warName': war_meta['name'],
                             })
+                            added = quest_list[-1]
+                            nice_spot = nice_spot_lookup.get(str(added.get('spotId'))) or {}
+                            map_id = nice_spot.get('mapId')
+                            map_meta = map_lookup.get(str(map_id)) or {}
+                            added['spotName'] = added.get('spotName') or nice_spot.get('name', '')
+                            added['mapId'] = str(map_id) if map_id is not None else ''
+                            added['mapImage'] = map_meta.get('mapImage') or ''
+                            added['mapImageW'] = map_meta.get('mapImageW')
+                            added['mapImageH'] = map_meta.get('mapImageH')
+                            added['spotX'] = nice_spot.get('x')
+                            added['spotY'] = nice_spot.get('y')
                     except Exception as e:
                         error_msg = f"Failed to get quest {quest_id}: {str(e)}"
                         print(error_msg)
@@ -333,7 +360,9 @@ def parse_script_visual():
         if not script_url:
             return jsonify({'error': 'No script URL found'}), 404
         import requests as req
-        raw = req.get(script_url, timeout=15).text
+        raw_resp = req.get(script_url, timeout=15)
+        raw_resp.raise_for_status()
+        raw = raw_resp.content.decode('utf-8', errors='replace')
         frames, entity_ids = _parse_fgo_script(raw, region)
         svt_data = _fetch_svt_scripts_parallel(region, entity_ids)
         return jsonify({
@@ -512,6 +541,15 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         pending_effects = []
         return e
 
+    def is_renderable_sprite(entity_id, name=''):
+        label = str(name or '')
+        entity_id = str(entity_id or '')
+        return (
+            entity_id != '98115000'
+            and 'エフェクト用' not in label
+            and '初期化用ダミー' not in label
+        )
+
     def set_sprite_visible(slot, visible):
         if slot in state['sprites']:
             state['sprites'][slot]['visible'] = visible
@@ -525,7 +563,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     def snapshot_sprites():
         result = []
         for slot, sp in state['sprites'].items():
-            if sp.get('visible') and sp.get('entityId'):
+            if sp.get('visible') and sp.get('entityId') and sp.get('renderable') is not False:
                 eid = sp['entityId']
                 result.append({
                     'slot': slot,
@@ -569,7 +607,13 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         m = re.match(r'\[charaSet\s+(\w)\s+(\d+)\s+(\d+)\s*(.*?)\]', line)
         if m:
             slot, eid, face, name = m.group(1), m.group(2), int(m.group(3)), m.group(4).strip()
-            state['sprites'][slot] = {'entityId': eid, 'name': name, 'face': face, 'visible': False}
+            state['sprites'][slot] = {
+                'entityId': eid,
+                'name': name,
+                'face': face,
+                'visible': False,
+                'renderable': is_renderable_sprite(eid, name),
+            }
             entity_ids.add(eid)
             continue
 
@@ -618,6 +662,10 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot, eid = m.group(1), m.group(2)
             if slot in state['sprites']:
                 state['sprites'][slot]['entityId'] = eid
+                state['sprites'][slot]['renderable'] = is_renderable_sprite(
+                    eid,
+                    state['sprites'][slot].get('name', '')
+                )
                 entity_ids.add(eid)
             continue
 
