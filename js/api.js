@@ -376,6 +376,8 @@ const AA = (() => {
             spotName: q.spotName || (spot && spot.name) || '',
             mapId,
             mapImage: map.mapImage || '',
+            mapImageW: map.mapImageW,
+            mapImageH: map.mapImageH,
             spotX: spot && spot.x,
             spotY: spot && spot.y,
             openedAt: q.openedAt,
@@ -966,6 +968,13 @@ const AA = (() => {
         let dialogueIdx = 0, pendingEffects = [];
 
         function takeEffects() { const e = pendingEffects; pendingEffects = []; return e; }
+        function isRenderableSprite(entityId, name = '') {
+            const label = String(name || '');
+            const id = String(entityId || '');
+            return id !== '98115000'
+                && !label.includes('エフェクト用')
+                && !label.includes('初期化用ダミー');
+        }
         function setSpriteVisible(slot, visible) {
             if (!state.sprites[slot]) return;
             state.sprites[slot].visible = visible;
@@ -977,7 +986,7 @@ const AA = (() => {
 
         function snapshotSprites() {
             return Object.entries(state.sprites)
-                .filter(([, sp]) => sp.visible && sp.entityId)
+                .filter(([, sp]) => sp.visible && sp.entityId && sp.renderable !== false)
                 .map(([slot, sp]) => ({
                     slot, entityId: sp.entityId, name: sp.name || '',
                     face: sp.face || 1, url: FIG_BASE(sp.entityId),
@@ -997,7 +1006,14 @@ const AA = (() => {
             if (m = /^\[imageSet\s+\w\s+back(\d+)/.exec(line)) { if (!state.bg) state.bg = BG_BASE(m[1]); continue; }
 
             if (m = /^\[charaSet\s+(\w)\s+(\d+)\s+(\d+)\s*(.*?)\]/.exec(line)) {
-                state.sprites[m[1]] = { entityId: m[2], name: m[4].trim(), face: parseInt(m[3]), visible: false };
+                const name = m[4].trim();
+                state.sprites[m[1]] = {
+                    entityId: m[2],
+                    name,
+                    face: parseInt(m[3]),
+                    visible: false,
+                    renderable: isRenderableSprite(m[2], name),
+                };
                 entityIds.add(m[2]); continue;
             }
             if (m = /^\[charaFace\s+(\w)\s+(\d+)\]/.exec(line)) {
@@ -1027,7 +1043,12 @@ const AA = (() => {
                 continue;
             }
             if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)/.exec(line)) {
-                if (state.sprites[m[1]]) { state.sprites[m[1]].entityId = m[2]; entityIds.add(m[2]); } continue;
+                if (state.sprites[m[1]]) {
+                    state.sprites[m[1]].entityId = m[2];
+                    state.sprites[m[1]].renderable = isRenderableSprite(m[2], state.sprites[m[1]].name);
+                    entityIds.add(m[2]);
+                }
+                continue;
             }
             if (m = /^\[subRenderFadeout\w*\s+(#[A-Z])/.exec(line)) {
                 hideSubLayer(m[1]); continue;
