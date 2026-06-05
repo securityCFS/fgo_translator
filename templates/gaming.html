@@ -390,11 +390,11 @@
             }
             #speakerTag {
                 min-width: clamp(76px, 19cqw, 120px);
-                font-size: clamp(12px, 3.4cqh, 17px);
+                font-size: clamp(14px, 3.8cqh, 19px);
                 padding: clamp(4px, 1.4cqh, 6px) clamp(22px, 5cqw, 32px) clamp(4px, 1.4cqh, 6px) clamp(12px, 3cqw, 18px);
             }
             #dialogueBox {
-                height: clamp(136px, 37cqh, 190px);
+                height: clamp(152px, 40cqh, 214px);
                 min-height: 0;
                 padding: clamp(7px, 2.2cqh, 14px) clamp(58px, 13cqw, 92px) clamp(9px, 2.5cqh, 16px) clamp(18px, 5cqw, 36px);
             }
@@ -402,12 +402,12 @@
                 width: 100%;
             }
             #originalText {
-                font-size: calc(clamp(10px, 2.8cqh, 14px) * var(--font-scale) * var(--dialogue-fit));
+                font-size: calc(clamp(12px, 3.1cqh, 16px) * var(--font-scale) * var(--dialogue-fit));
                 line-height: 1.25;
                 margin-bottom: clamp(3px, 1cqh, 7px);
             }
             #translatedText {
-                font-size: calc(clamp(12px, 3.45cqh, 17px) * var(--font-scale) * var(--dialogue-fit));
+                font-size: calc(clamp(15px, 4cqh, 21px) * var(--font-scale) * var(--dialogue-fit));
                 line-height: 1.28;
                 letter-spacing: 0;
             }
@@ -456,8 +456,8 @@
             }
             #gameGuideTitle { font-size: clamp(14px, 4cqh, 18px); }
             #gameGuideBody { font-size: clamp(11px, 3cqh, 14px); line-height: 1.5; }
-            .hist-orig { font-size: calc(clamp(11px, 3cqh, 15px) * var(--font-scale)); }
-            .hist-trans { font-size: calc(clamp(12px, 3.3cqh, 16px) * var(--font-scale)); }
+            .hist-orig { font-size: calc(clamp(12px, 3.2cqh, 16px) * var(--font-scale)); }
+            .hist-trans { font-size: calc(clamp(14px, 3.6cqh, 18px) * var(--font-scale)); }
             #loadingScreen {
                 padding: clamp(16px, 5cqh, 28px) clamp(20px, 5cqw, 36px);
             }
@@ -1180,7 +1180,7 @@ function renderFrame() {
         showDialogue(f); hideChoices();
     } else if (f.type === 'choice') {
         hideDialogue(); showChoices(f);
-    } else if (f.type === 'transition') {
+    } else if (f.type === 'transition' || f.type === 'movie') {
         IS_TRANSITIONING = true;
         hideDialogue(); hideChoices();
         const fadeOutEf = (f.effects || []).find(e => e.type === 'fadeOut');
@@ -1190,7 +1190,7 @@ function renderFrame() {
         fade.classList.toggle('white', color === 'white');
         fade.style.transition = `opacity ${Math.max(0.2, Math.min(2, dur))}s ease`;
         fade.classList.add('show');
-        const total = Math.max(400, Math.min(1500, dur * 700));
+        const total = f.type === 'movie' ? 1200 : Math.max(400, Math.min(1500, dur * 700));
         setTimeout(() => {
             IS_TRANSITIONING = false;
             fade.style.transition = '';

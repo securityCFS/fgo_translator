@@ -140,22 +140,44 @@ def search_quest():
         seen_quest_ids = set()
         for current_war_id in war_ids:
             try:
+                requested_war_id = str(current_war_id)
                 war_endpoint = f"{loader.db_loader.BASE_URL}/raw/{region}/war/{current_war_id}"
                 war = loader.db_loader._make_request_with_retry(war_endpoint)
                 if not war:
                     errors.append(f"War {current_war_id} not found")
                     continue
 
+                quests = war.get('mstQuest', [])
+                resolved_war_id = str(current_war_id)
+                try:
+                    numeric_war_id = int(str(current_war_id))
+                except ValueError:
+                    numeric_war_id = 0
+                if not quests and numeric_war_id >= 10000 and str(current_war_id).endswith('01'):
+                    parent_war_id = str(numeric_war_id // 100)
+                    try:
+                        parent_endpoint = f"{loader.db_loader.BASE_URL}/raw/{region}/war/{parent_war_id}"
+                        parent_war = loader.db_loader._make_request_with_retry(parent_endpoint, max_retries=1)
+                        if parent_war and parent_war.get('mstQuest'):
+                            print(f"Resolved area-board shortcut war {current_war_id} -> {parent_war_id}")
+                            war = parent_war
+                            quests = war.get('mstQuest', [])
+                            resolved_war_id = parent_war_id
+                    except Exception as e:
+                        print(f"Failed to resolve shortcut war {current_war_id}: {e}")
+
                 war_meta = {
-                    'id': str(current_war_id),
+                    'id': resolved_war_id,
                     'name': war.get('mstWar', {}).get('name', ''),
                     'longName': war.get('mstWar', {}).get('longName', ''),
                     'banner': '',
                     'mapImage': '',
                 }
+                if resolved_war_id != requested_war_id:
+                    war_meta['shortcutId'] = requested_war_id
                 # Fetch nice war for banner/map image (best-effort, cached by retry layer)
                 try:
-                    nice_war_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/war/{current_war_id}"
+                    nice_war_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/war/{resolved_war_id}"
                     nice_war = loader.db_loader._make_request_with_retry(nice_war_endpoint, max_retries=1)
                     if nice_war:
                         war_meta['name'] = nice_war.get('name', war_meta['name'])
@@ -165,12 +187,11 @@ def search_quest():
                         if maps:
                             war_meta['mapImage'] = maps[0].get('mapImage') or ''
                 except Exception as e:
-                    print(f"Failed to fetch nice war {current_war_id}: {e}")
+                    print(f"Failed to fetch nice war {resolved_war_id}: {e}")
 
                 war_info_list.append(war_meta)
 
-                quests = war.get('mstQuest', [])
-                print(f"Got {len(quests)} quests from war {current_war_id}")
+                print(f"Got {len(quests)} quests from war {resolved_war_id}")
                 # Build a lookup of mstSpot for spot names
                 spot_lookup = {sp.get('id'): sp.get('name', '') for sp in war.get('mstSpot', [])}
                 for quest in quests:
@@ -218,7 +239,7 @@ def search_quest():
                                 'openedAt': quest_data.get('openedAt'),
                                 'closedAt': quest_data.get('closedAt'),
                                 'region': region,
-                                'warId': str(current_war_id),
+                                'warId': resolved_war_id,
                                 'warName': war_meta['name'],
                             })
                     except Exception as e:
@@ -416,6 +437,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     state = {
         'bg': '',
         'sprites': {},   # slot -> {entityId, name, face, visible}
+        'subLayers': {},
         'talker': None,
         'cameraFilter': None,  # active color tint
         'bgm': None,           # active BGM name
@@ -490,6 +512,16 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         pending_effects = []
         return e
 
+    def set_sprite_visible(slot, visible):
+        if slot in state['sprites']:
+            state['sprites'][slot]['visible'] = visible
+            if not visible and state['talker'] == slot:
+                state['talker'] = None
+
+    def hide_sub_layer(layer_id):
+        for slot in state['subLayers'].get(layer_id, set()):
+            set_sprite_visible(slot, False)
+
     def snapshot_sprites():
         result = []
         for slot, sp in state['sprites'].items():
@@ -554,18 +586,31 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             state['talker'] = None if s in ('off', 'depthOff', 'on') else s
             continue
 
-        m = re.match(r'\[charaFadein\s+(\w)', line)
+        m = re.match(r'\[charaFadein\w*\s+(\w)', line)
         if m:
-            slot = m.group(1)
-            if slot in state['sprites']:
-                state['sprites'][slot]['visible'] = True
+            set_sprite_visible(m.group(1), True)
             continue
 
-        m = re.match(r'\[charaFadeout\s+(\w)', line)
+        m = re.match(r'\[charaFadeout\w*\s+(\w)', line)
+        if m:
+            set_sprite_visible(m.group(1), False)
+            continue
+
+        m = re.match(r'\[charaPut\w*\s+(\w)\s+([01])', line)
+        if m:
+            set_sprite_visible(m.group(1), m.group(2) != '0')
+            continue
+
+        m = re.match(r'\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])', line)
+        if m:
+            state['subLayers'].setdefault(m.group(2), set()).add(m.group(1))
+            continue
+
+        m = re.match(r'\[charaLayer\s+(\w)\s+main', line)
         if m:
             slot = m.group(1)
-            if slot in state['sprites']:
-                state['sprites'][slot]['visible'] = False
+            for slots in state['subLayers'].values():
+                slots.discard(slot)
             continue
 
         m = re.match(r'\[charaCrossFade\s+(\w)\s+(\d+)', line)
@@ -574,6 +619,11 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             if slot in state['sprites']:
                 state['sprites'][slot]['entityId'] = eid
                 entity_ids.add(eid)
+            continue
+
+        m = re.match(r'\[subRenderFadeout\w*\s+(#[A-Z])', line)
+        if m:
+            hide_sub_layer(m.group(1))
             continue
 
         if line.startswith('＠'):
@@ -702,6 +752,24 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             continue
 
         # ----- Visual effect commands (accumulated until next visible frame) -----
+        m = re.match(r'\[criMovie\s+([^\s\]]+)', line)
+        if m:
+            for slot in list(state['sprites'].keys()):
+                set_sprite_visible(slot, False)
+            frames.append({
+                'type': 'movie',
+                'bg': state['bg'],
+                'sprites': [],
+                'movie': m.group(1),
+                'effects': [
+                    {'type': 'fadeOut', 'color': 'black', 'dur': 0.35},
+                    {'type': 'movie', 'name': m.group(1)},
+                ],
+                'cameraFilter': state['cameraFilter'],
+                'bgm': state['bgm'],
+            })
+            continue
+
         m = re.match(r'\[fadeout\s+(\w+)(?:\s+([\d.]+))?\s*\]', line)
         if m:
             color, dur = m.group(1), float(m.group(2) or 1.0)
@@ -709,7 +777,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             frames.append({
                 'type': 'transition',
                 'bg': state['bg'],
-                'sprites': [],
+                'sprites': snapshot_sprites(),
                 'effects': take_effects(),
                 'cameraFilter': state['cameraFilter'],
                 'bgm': state['bgm'],

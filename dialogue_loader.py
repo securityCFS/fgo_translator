@@ -508,6 +508,43 @@ class DialogueLoader:
             raise ValueError(f"Unsupported region: {region}")
         return normalized
 
+    def _war_flags(self, war: Dict) -> set:
+        return set(war.get("flags") or [])
+
+    def _is_main_story_war(self, war: Dict) -> bool:
+        return "mainScenario" in self._war_flags(war)
+
+    def _is_area_board_shortcut(self, war: Dict) -> bool:
+        return "areaBoardShortcut" in self._war_flags(war)
+
+    def _shortcut_parent_war_id(self, war_id: str, war: Optional[Dict] = None) -> str:
+        war = war or {}
+        raw_id = str(war_id or war.get("id", ""))
+        if not (self._is_area_board_shortcut(war) or raw_id.endswith("01")):
+            return ""
+        try:
+            numeric_id = int(raw_id)
+        except ValueError:
+            return ""
+        if numeric_id < 10000:
+            return ""
+        return str(numeric_id // 100)
+
+    def _latest_war_quest_meta(self, war: Dict) -> Dict:
+        latest_opened_at = 0
+        quest_count = 0
+        for spot in war.get("spots", []) or []:
+            for quest in spot.get("quests", []) or []:
+                quest_count += 1
+                latest_opened_at = max(
+                    latest_opened_at,
+                    int(quest.get("openedAt") or quest.get("noticeAt") or 0),
+                )
+        return {
+            "latestQuestOpenedAt": latest_opened_at or None,
+            "questCount": quest_count,
+        }
+
     def list_latest_tasks(self, region: str = "JP", limit: int = 50) -> List[Dict]:
         """
         List the newest quest tasks exposed by the Atlas server.
@@ -566,8 +603,8 @@ class DialogueLoader:
                 "scriptCount": len(script_ids),
                 "hasDialogueScript": bool(script_ids),
                 "warId": str(quest.get("warId") or war.get("id") or (task or {}).get("warId", "")),
-                "warName": war.get("name") or war.get("longName", ""),
-                "warLongName": quest.get("warLongName") or war.get("longName", ""),
+                "warName": war.get("name") or war.get("longName", "") or (task or {}).get("warName", ""),
+                "warLongName": quest.get("warLongName") or war.get("longName", "") or (task or {}).get("warLongName", ""),
                 "spotId": quest.get("spotId") or spot.get("id") or (task or {}).get("spotId"),
                 "spotName": quest.get("spotName") or spot.get("name", "") or (task or {}).get("spotName", ""),
                 "mapId": spot.get("mapId"),
@@ -700,6 +737,9 @@ class DialogueLoader:
             "eventName": war.get("eventName", ""),
             "startedAt": war.get("startedAt"),
             "endedAt": war.get("endedAt"),
+            "latestOpenedAt": war.get("latestOpenedAt"),
+            "latestQuestOpenedAt": war.get("latestQuestOpenedAt"),
+            "questCount": war.get("questCount", 0),
             "banner": war.get("banner") or "",
             "headerImage": war.get("headerImage") or "",
         }
@@ -723,7 +763,6 @@ class DialogueLoader:
                 if not isinstance(wars, list):
                     return []
 
-                # Build eventId -> startedAt map so wars can be ordered chronologically.
                 event_started_by_id: Dict[int, int] = {}
                 event_ended_by_id: Dict[int, int] = {}
                 try:
@@ -741,50 +780,128 @@ class DialogueLoader:
                 except Exception as e:
                     logger.warning(f"Could not load basic_event for war ordering: {e}")
 
-                # Annotate wars with their event's start/end so the UI can show timestamps.
+                latest_opened_by_war: Dict[str, int] = {}
+                try:
+                    latest_endpoint = f"{self.db_loader.BASE_URL}/basic/{region}/quest/phase/latestEnemyData"
+                    latest_rows = self.db_loader._make_request_with_retry(latest_endpoint)
+                    if isinstance(latest_rows, list):
+                        for row in latest_rows:
+                            war_id = str(row.get("warId", ""))
+                            if not war_id:
+                                continue
+                            latest_opened_by_war[war_id] = max(
+                                latest_opened_by_war.get(war_id, 0),
+                                int(row.get("openedAt") or row.get("noticeAt") or 0),
+                            )
+                except Exception as e:
+                    logger.warning(f"Could not load latest quest rows for war ordering: {e}")
+
+                annotated_wars = []
                 for war in wars:
+                    war = dict(war)
                     ev_id = war.get("eventId") or 0
                     if ev_id:
                         if ev_id in event_started_by_id and "startedAt" not in war:
                             war["startedAt"] = event_started_by_id[int(ev_id)]
                         if ev_id in event_ended_by_id and "endedAt" not in war:
                             war["endedAt"] = event_ended_by_id[int(ev_id)]
+                    war_id = str(war.get("id", ""))
+                    if war_id in latest_opened_by_war:
+                        war["latestOpenedAt"] = latest_opened_by_war[war_id]
+                    annotated_wars.append(war)
 
-                def _war_sort_key(war: Dict):
-                    ev_id = war.get("eventId") or 0
-                    ts = event_started_by_id.get(int(ev_id), 0) if ev_id else 0
-                    return (ts, int(war.get("id", 0)))
+                by_id = {str(war.get("id", "")): war for war in annotated_wars}
+                candidate_by_id: Dict[str, Dict] = {}
 
-                wars = sorted(wars, key=_war_sort_key, reverse=True)
+                def add_candidate(war: Optional[Dict]):
+                    if not war or not war.get("id"):
+                        return
+                    candidate_by_id[str(war.get("id"))] = dict(war)
+
+                for war_id in latest_opened_by_war:
+                    add_candidate(by_id.get(war_id))
+
+                recent_event_wars = sorted(
+                    [war for war in annotated_wars if war.get("eventId")],
+                    key=lambda war: (int(war.get("startedAt") or 0), int(war.get("id") or 0)),
+                    reverse=True,
+                )
+                for war in recent_event_wars[:max(60, limit * 4)]:
+                    add_candidate(war)
+
+                main_story_wars = sorted(
+                    [
+                        war for war in annotated_wars
+                        if self._is_main_story_war(war) and not self._is_area_board_shortcut(war)
+                    ],
+                    key=lambda war: int(war.get("id") or 0),
+                    reverse=True,
+                )
+                for war in main_story_wars[:30]:
+                    add_candidate(war)
+
+                def pre_enrich_score(war: Dict) -> int:
+                    if war.get("latestOpenedAt"):
+                        return int(war.get("latestOpenedAt") or 0)
+                    if war.get("startedAt"):
+                        return int(war.get("startedAt") or 0)
+                    if self._is_main_story_war(war):
+                        return 1_000_000_000 + int(war.get("id") or 0)
+                    return int(war.get("id") or 0)
+
+                candidate_wars = sorted(
+                    candidate_by_id.values(),
+                    key=lambda war: (pre_enrich_score(war), int(war.get("id") or 0)),
+                    reverse=True,
+                )[:max(40, limit * 4)]
+
                 enriched_wars = []
-                for idx, war in enumerate(wars[:limit]):
+                for idx, war in enumerate(candidate_wars):
                     display_war = dict(war)
-                    if idx < 12:
+                    try:
+                        detail_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/war/{war.get('id')}"
+                        detail = self.db_loader._make_request_with_retry(detail_endpoint, max_retries=1)
+                        if isinstance(detail, dict):
+                            quest_meta = self._latest_war_quest_meta(detail)
+                            merged = {**display_war, **detail}
+                            for key in ("eventName", "startedAt", "endedAt", "latestOpenedAt"):
+                                if display_war.get(key) and not merged.get(key):
+                                    merged[key] = display_war[key]
+                            merged.update(quest_meta)
+                            display_war = merged
+                    except Exception as e:
+                        logger.warning(f"Could not enrich latest war {war.get('id')}: {e}")
+                    if not (display_war.get("banner") or display_war.get("noticeBanner")) and war.get("eventId"):
                         try:
-                            detail_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/war/{war.get('id')}"
-                            detail = self.db_loader._make_request_with_retry(detail_endpoint, max_retries=1)
-                            if isinstance(detail, dict):
-                                merged = {**display_war, **detail}
-                                for key in ("eventName", "startedAt", "endedAt"):
-                                    if display_war.get(key) and not merged.get(key):
-                                        merged[key] = display_war[key]
-                                display_war = merged
+                            event_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/event/{war.get('eventId')}"
+                            event = self.db_loader._make_request_with_retry(event_endpoint, max_retries=1)
+                            if isinstance(event, dict):
+                                display_war["eventName"] = display_war.get("eventName") or event.get("name")
+                                display_war["banner"] = event.get("banner") or event.get("noticeBanner") or display_war.get("banner", "")
+                                display_war["noticeBanner"] = event.get("noticeBanner") or display_war.get("noticeBanner", "")
+                                display_war["startedAt"] = display_war.get("startedAt") or event.get("startedAt") or event.get("noticeAt")
+                                display_war["endedAt"] = display_war.get("endedAt") or event.get("endedAt")
                         except Exception as e:
-                            logger.warning(f"Could not enrich latest war {war.get('id')}: {e}")
-                        if not (display_war.get("banner") or display_war.get("noticeBanner")) and war.get("eventId"):
-                            try:
-                                event_endpoint = f"{self.db_loader.BASE_URL}/nice/{region}/event/{war.get('eventId')}"
-                                event = self.db_loader._make_request_with_retry(event_endpoint, max_retries=1)
-                                if isinstance(event, dict):
-                                    display_war["eventName"] = display_war.get("eventName") or event.get("name")
-                                    display_war["banner"] = event.get("banner") or event.get("noticeBanner") or display_war.get("banner", "")
-                                    display_war["noticeBanner"] = event.get("noticeBanner") or display_war.get("noticeBanner", "")
-                                    display_war["startedAt"] = display_war.get("startedAt") or event.get("startedAt") or event.get("noticeAt")
-                                    display_war["endedAt"] = display_war.get("endedAt") or event.get("endedAt")
-                            except Exception as e:
-                                logger.warning(f"Could not enrich latest war event {war.get('eventId')}: {e}")
+                            logger.warning(f"Could not enrich latest war event {war.get('eventId')}: {e}")
                     enriched_wars.append(self._normalize_war_activity(display_war, region))
-                return enriched_wars
+
+                def final_score(war: Dict) -> int:
+                    if war.get("latestOpenedAt"):
+                        return int(war.get("latestOpenedAt") or 0)
+                    if war.get("latestQuestOpenedAt"):
+                        return int(war.get("latestQuestOpenedAt") or 0)
+                    if war.get("startedAt"):
+                        return int(war.get("startedAt") or 0)
+                    if self._is_main_story_war(war):
+                        return 1_000_000_000 + int(war.get("id") or 0)
+                    return int(war.get("id") or 0)
+
+                enriched_wars = sorted(
+                    enriched_wars,
+                    key=lambda war: (final_score(war), int(war.get("id") or 0)),
+                    reverse=True,
+                )
+                return enriched_wars[:limit]
 
             endpoint = f"{self.db_loader.BASE_URL}/export/{region}/nice_event.json"
             events = self.db_loader._make_request_with_retry(endpoint)

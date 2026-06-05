@@ -2234,7 +2234,7 @@
                     dialogueIndex += count;
                 }
                 // Prepare gaming mode with translated data
-                prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues, {
+                prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues, scriptDialogueCounts, {
                     sourceRegion: isAtlasMode ? atlasRegion : null,
                     translationMethod: isAtlasMode
                         ? 'Atlas'
@@ -2258,6 +2258,7 @@
         // =====================================================================
         let _gmTranslations = {};    // dialogueIdx → {speaker, translated_content}
         let _gmScriptIds = [];       // script IDs being played
+        let _gmScriptDialogueCounts = [];
         let _gmWindow = null;        // reference to popup
         let _gmLoading = false;
         let _gmMeta = {};            // sourceRegion, translationMethod, rayshift
@@ -2266,8 +2267,9 @@
          * Called after translation completes. Stores translation data so
          * openGamingMode() can hand it off to the popup window.
          */
-        function prepareGamingMode(scriptIds, allOrigDialogues, allTransDialogues, meta) {
+        function prepareGamingMode(scriptIds, allOrigDialogues, allTransDialogues, scriptDialogueCounts, meta) {
             _gmScriptIds = scriptIds;
+            _gmScriptDialogueCounts = scriptDialogueCounts || [];
             _gmMeta = meta || {};
             _gmTranslations = {};
             allTransDialogues.forEach((t, i) => {
@@ -2325,19 +2327,38 @@
                 const allFrames = [];
                 let dialogueOffset = 0;
                 const svtData = {};
-                for (const d of responses) {
+                for (let scriptIndex = 0; scriptIndex < responses.length; scriptIndex++) {
+                    const d = responses[scriptIndex];
                     if (d.error) throw new Error(d.error);
                     region = d.region || region;
                     Object.assign(svtData, d.svtData || {});
                     (d.frames || []).forEach(fr => {
                         const f = Object.assign({}, fr);
                         if (typeof f.dialogueIdx === 'number') f.dialogueIdx += dialogueOffset;
-                        if (f.choices) f.choices = f.choices.map(c => Object.assign({}, c));
+                        if (typeof f.endDialogueIdx === 'number') f.endDialogueIdx += dialogueOffset;
+                        if (Array.isArray(f.choices)) {
+                            f.choices = f.choices.map(c => ({
+                                ...c,
+                                dialogueIdx: typeof c.dialogueIdx === 'number' ? c.dialogueIdx + dialogueOffset : c.dialogueIdx,
+                            }));
+                        }
                         allFrames.push(f);
                     });
-                    const dCount = (d.frames || []).filter(f => f.type === 'dialogue').length
-                                 + (d.frames || []).filter(f => f.type === 'choice')
-                                        .reduce((s, f) => s + (f.choices||[]).length, 0);
+                    let dCount = _gmScriptDialogueCounts[scriptIndex];
+                    if (typeof dCount !== 'number') {
+                        let maxIdx = -1;
+                        for (const f of d.frames || []) {
+                            if (f.type === 'dialogue' && typeof f.dialogueIdx === 'number') {
+                                maxIdx = Math.max(maxIdx, f.dialogueIdx);
+                            } else if (f.type === 'choice') {
+                                (f.choices || []).forEach(c => {
+                                    if (typeof c.dialogueIdx === 'number') maxIdx = Math.max(maxIdx, c.dialogueIdx);
+                                });
+                                if (typeof f.endDialogueIdx === 'number') maxIdx = Math.max(maxIdx, f.endDialogueIdx);
+                            }
+                        }
+                        dCount = maxIdx + 1;
+                    }
                     dialogueOffset += dCount;
                 }
 
