@@ -23,6 +23,175 @@ const Translator = (() => {
         return loadPrefs()[key] ?? fallback;
     }
 
+    function _sanitizePathSegment(value) {
+        const safe = String(value || '').trim().replace(/[^A-Za-z0-9._-]+/g, '_').replace(/^[._]+|[._]+$/g, '');
+        return safe || 'unknown';
+    }
+
+    function _normalizeTargetLanguage(value) {
+        const raw = String(value || '').trim();
+        const lowered = raw.toLowerCase();
+        const mapping = {
+            'chinese': 'zh-CN',
+            'chinese simplified': 'zh-CN',
+            'chinese (simplified)': 'zh-CN',
+            'simplified chinese': 'zh-CN',
+            'zh-cn': 'zh-CN',
+            'chinese traditional': 'zh-TW',
+            'chinese (traditional)': 'zh-TW',
+            'traditional chinese': 'zh-TW',
+            'zh-tw': 'zh-TW',
+            'english': 'en',
+            'en': 'en',
+            'japanese': 'ja',
+            'ja': 'ja',
+            'korean': 'ko',
+            'ko': 'ko',
+        };
+        return mapping[lowered] || _sanitizePathSegment(raw);
+    }
+    function _normalizeProvider(apiType, model, method) {
+        if (method === 'free') return 'google-translate';
+        const raw = String(apiType || 'openai').trim().toLowerCase();
+        const modelLower = String(model || '').toLowerCase();
+        if (raw === 'gemini' || modelLower.includes('gemini')) return 'gemini';
+        if (modelLower.includes('deepseek')) return 'deepseek';
+        if (modelLower.includes('qwen') || modelLower.includes('qwq')) return 'qwen';
+        if (modelLower.includes('claude')) return 'claude';
+        if (raw === 'openai' || raw === 'custom') return raw;
+        return _sanitizePathSegment(raw);
+    }
+
+    async function _sha256Hex(value) {
+        const bytes = new TextEncoder().encode(value);
+        const hash = await crypto.subtle.digest('SHA-256', bytes);
+        return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function _canonicalSourceHash(dialogues) {
+        const payload = (dialogues || []).map(item => ({
+            content: String(item.content || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'),
+            speaker: String(item.speaker || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'),
+        }));
+        return _sha256Hex(JSON.stringify(payload));
+    }
+
+    function _cacheRelativePath(key) {
+        return [
+            'v1',
+            _sanitizePathSegment(String(key.sourceRegion || 'JP').toUpperCase()),
+            _sanitizePathSegment(key.scriptId),
+            _sanitizePathSegment(key.sourceHash),
+            _sanitizePathSegment(key.targetLanguage),
+            _sanitizePathSegment(key.provider),
+            _sanitizePathSegment(key.model),
+            `${_sanitizePathSegment(key.promptVersion || 'fgo-v1')}.json`,
+        ].join('/');
+    }
+
+    function _base64Utf8(value) {
+        const bytes = new TextEncoder().encode(value);
+        let binary = '';
+        bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+        return btoa(binary);
+    }
+
+    function _hasTranslationErrors(translations) {
+        return (translations || []).some(item => String(item.translated_content || '').includes('[Translation Error:'));
+    }
+
+    async function saveTranslationCache(opts = {}) {
+        const prefs = loadPrefs();
+        const repo = String(prefs.githubCacheRepo || prefs.github_cache_repo || prefs.cacheRepo || '').trim();
+        const token = String(prefs.githubCacheToken || prefs.github_cache_token || prefs.cacheToken || '').trim();
+        const branch = String(prefs.githubCacheBranch || prefs.github_cache_branch || prefs.cacheBranch || 'main').trim() || 'main';
+        const promptVersion = String(prefs.translationCachePromptVersion || prefs.translation_cache_prompt_version || prefs.cachePromptVersion || 'fgo-v1').trim() || 'fgo-v1';
+        if (!repo || !token) {
+            return { configured: false, written: 0, skipped: opts.scriptIds?.length || 0, errors: [] };
+        }
+
+        const scriptIds = (opts.scriptIds || []).map(String).filter(Boolean);
+        const counts = opts.scriptDialogueCounts || [];
+        const sources = opts.sourceDialogues || [];
+        const translations = opts.translatedDialogues || [];
+        const provider = _normalizeProvider(opts.apiType, opts.baseModel, opts.method);
+        const model = opts.method === 'free' ? 'free-engine' : (opts.baseModel || (opts.apiType === 'gemini' ? 'gemini-2.5-flash' : 'unknown'));
+        const targetLanguage = _normalizeTargetLanguage(opts.targetLanguage || 'Chinese Simplified');
+        const sourceRegion = String(opts.sourceRegion || 'JP').toUpperCase();
+
+        const headers = {
+            'Accept': 'application/vnd.github+json',
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'X-GitHub-Api-Version': '2022-11-28',
+        };
+        let offset = 0, written = 0, skipped = 0;
+        const errors = [];
+
+        for (let i = 0; i < scriptIds.length; i++) {
+            const scriptId = scriptIds[i];
+            const count = Number(counts[i] || 0);
+            const sourceSlice = sources.slice(offset, offset + count);
+            const translatedSlice = translations.slice(offset, offset + count);
+            offset += count;
+            if (!count || translatedSlice.length !== sourceSlice.length || _hasTranslationErrors(translatedSlice)) {
+                skipped += 1;
+                continue;
+            }
+
+            const sourceHash = await _canonicalSourceHash(sourceSlice);
+            const key = { scriptId, sourceRegion, sourceHash, targetLanguage, provider, model, promptVersion };
+            const path = _cacheRelativePath(key);
+            const url = `https://api.github.com/repos/${repo}/contents/${encodeURIComponent(path).replace(/%2F/g, '/')}`;
+            try {
+                const existing = await fetch(`${url}?ref=${encodeURIComponent(branch)}`, { headers });
+                if (existing.ok) {
+                    skipped += 1;
+                    continue;
+                }
+                if (existing.status !== 404) {
+                    errors.push(`${scriptId}: existence check HTTP ${existing.status}`);
+                    continue;
+                }
+                const body = {
+                    schema_version: 1,
+                    script_id: scriptId,
+                    source_region: sourceRegion,
+                    source_hash: sourceHash,
+                    target_language: targetLanguage,
+                    provider,
+                    model,
+                    prompt_version: promptVersion,
+                    dialogue_count: count,
+                    trusted_generation: true,
+                    generator: {
+                        app: 'fgo_translator',
+                        branch_mode: 'static-browser',
+                        generated_at: new Date().toISOString(),
+                    },
+                    translations: translatedSlice.map(item => ({
+                        speaker: String(item.speaker || ''),
+                        translated_content: String(item.translated_content || ''),
+                    })),
+                };
+                const put = await fetch(url, {
+                    method: 'PUT',
+                    headers,
+                    body: JSON.stringify({
+                        message: `Add translation cache ${scriptId} ${targetLanguage} ${model}`,
+                        content: _base64Utf8(JSON.stringify(body, null, 2)),
+                        branch,
+                    }),
+                });
+                if (put.ok) written += 1;
+                else errors.push(`${scriptId}: upload HTTP ${put.status} ${(await put.text()).slice(0, 160)}`);
+            } catch (e) {
+                errors.push(`${scriptId}: ${e.message}`);
+            }
+        }
+        return { configured: true, written, skipped, errors };
+    }
+
     // ── Core translation ─────────────────────────────────────────────────────
 
     /**
@@ -327,5 +496,5 @@ const Translator = (() => {
         return translations;
     }
 
-    return { loadPrefs, savePrefs, getPref, translateDialogues };
+    return { loadPrefs, savePrefs, getPref, translateDialogues, saveTranslationCache };
 })();

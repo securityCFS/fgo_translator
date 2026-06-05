@@ -92,6 +92,9 @@ const AA = (() => {
             banner: w.banner || w.headerImage || w.icon || '',
             eventName: w.eventName || '', age: w.age || '',
             startedAt: w.startedAt, endedAt: w.endedAt,
+            latestOpenedAt: w.latestOpenedAt,
+            latestQuestOpenedAt: w.latestQuestOpenedAt,
+            questCount: w.questCount || 0,
             region, itemKind: 'war',
         };
     }
@@ -121,6 +124,45 @@ const AA = (() => {
         };
     }
 
+    function _warFlags(war) {
+        return new Set(Array.isArray(war.flags) ? war.flags : []);
+    }
+
+    function _isMainStoryWar(war) {
+        return _warFlags(war).has('mainScenario');
+    }
+
+    function _isAreaBoardShortcut(war) {
+        return _warFlags(war).has('areaBoardShortcut');
+    }
+
+    function _shortcutParentWarId(warId, war = {}) {
+        const id = String(warId || war.id || '');
+        if (!_isAreaBoardShortcut(war) && !id.endsWith('01')) return '';
+        const n = Number(id);
+        if (!Number.isFinite(n) || n < 10000) return '';
+        return String(Math.floor(n / 100));
+    }
+
+    function _latestQuestOpenedAt(war) {
+        let latest = 0, count = 0;
+        for (const spot of war.spots || []) {
+            for (const quest of spot.quests || []) {
+                count += 1;
+                latest = Math.max(latest, Number(quest.openedAt || quest.noticeAt || 0));
+            }
+        }
+        return { latestQuestOpenedAt: latest || undefined, questCount: count };
+    }
+
+    function _flattenWarQuests(war, region) {
+        const maps = war.maps || [];
+        const mapById = new Map(maps.map(m => [String(m.id), m]));
+        return (war.spots || []).flatMap(sp => (sp.quests || []).map(q =>
+            _normalizeQuest(q, sp, war, region, mapById)
+        ));
+    }
+
     async function _mapLimit(items, limit, mapper) {
         const results = [];
         for (let i = 0; i < items.length; i += limit) {
@@ -134,12 +176,15 @@ const AA = (() => {
         let enriched = war;
         try {
             const detail = await get(`${BASE}/nice/${region}/war/${war.id}`, { timeoutMs: DETAIL_TIMEOUT_MS });
+            const questMeta = _latestQuestOpenedAt(detail);
             enriched = {
                 ...war,
                 ...detail,
                 eventName: war.eventName || detail.eventName,
                 startedAt: war.startedAt || detail.startedAt,
                 endedAt: war.endedAt || detail.endedAt,
+                latestQuestOpenedAt: war.latestQuestOpenedAt || questMeta.latestQuestOpenedAt,
+                questCount: questMeta.questCount,
             };
         } catch (e) {
             console.warn('war detail enrichment failed:', war.id, e);
@@ -207,16 +252,61 @@ const AA = (() => {
             const wars = await get(`${BASE}/export/${region}/basic_war.json`, { timeoutMs: BULK_EXPORT_TIMEOUT_MS });
             if (!Array.isArray(wars)) return [];
             const timeline = await _eventTimeline(region);
-            const sorted = wars.map(w => _applyWarTimeline(w, timeline)).sort((a, b) => {
-                const ta = a.startedAt || a.id || 0;
-                const tb = b.startedAt || b.id || 0;
+            const latestOpenedByWar = new Map();
+            try {
+                const latestRows = await get(`${BASE}/basic/${region}/quest/phase/latestEnemyData`, { timeoutMs: BULK_EXPORT_TIMEOUT_MS });
+                for (const row of Array.isArray(latestRows) ? latestRows : []) {
+                    const warId = String(row && row.warId || '');
+                    if (!warId) continue;
+                    latestOpenedByWar.set(warId, Math.max(
+                        latestOpenedByWar.get(warId) || 0,
+                        Number(row.openedAt || row.noticeAt || 0),
+                    ));
+                }
+            } catch (e) {
+                console.warn('latest war quest timeline failed:', e);
+            }
+
+            const byId = new Map(wars.map(w => [String(w.id), _applyWarTimeline(w, timeline)]));
+            const candidateMap = new Map();
+            function addCandidate(war) {
+                if (!war || !war.id) return;
+                const id = String(war.id);
+                candidateMap.set(id, {
+                    ...war,
+                    latestOpenedAt: latestOpenedByWar.get(id) || war.latestOpenedAt,
+                });
+            }
+
+            latestOpenedByWar.forEach((_, warId) => addCandidate(byId.get(warId)));
+            wars
+                .filter(w => w.eventId)
+                .map(w => _applyWarTimeline(w, timeline))
+                .sort((a, b) => (Number(b.startedAt || 0) - Number(a.startedAt || 0)) || Number(b.id) - Number(a.id))
+                .slice(0, Math.max(60, limit * 4))
+                .forEach(addCandidate);
+            wars
+                .filter(w => _isMainStoryWar(w) && !_isAreaBoardShortcut(w))
+                .sort((a, b) => Number(b.id || 0) - Number(a.id || 0))
+                .slice(0, 30)
+                .forEach(w => addCandidate(_applyWarTimeline(w, timeline)));
+
+            const preselected = [...candidateMap.values()].sort((a, b) => {
+                const ta = a.latestOpenedAt || a.startedAt || (_isMainStoryWar(a) ? 1000000000 + Number(a.id || 0) : 0);
+                const tb = b.latestOpenedAt || b.startedAt || (_isMainStoryWar(b) ? 1000000000 + Number(b.id || 0) : 0);
                 return tb - ta;
-            });
-            const selected = sorted.slice(0, limit);
-            const enriched = await Promise.all(selected.map((war, idx) =>
-                idx < ACTIVITY_ENRICH_LIMIT ? _enrichWarForDisplay(war, region) : war
-            ));
-            return enriched.map(w => _normalizeWar(w, region));
+            }).slice(0, Math.max(40, limit * 4));
+
+            const enriched = await _mapLimit(preselected, 6, war => _enrichWarForDisplay(war, region));
+            return enriched
+                .filter(w => w.eventId || w.latestOpenedAt || w.questCount > 0 || !_isAreaBoardShortcut(w))
+                .sort((a, b) => {
+                    const ta = a.latestOpenedAt || a.latestQuestOpenedAt || a.startedAt || (_isMainStoryWar(a) ? 1000000000 + Number(a.id || 0) : 0);
+                    const tb = b.latestOpenedAt || b.latestQuestOpenedAt || b.startedAt || (_isMainStoryWar(b) ? 1000000000 + Number(b.id || 0) : 0);
+                    return tb - ta || Number(b.id) - Number(a.id);
+                })
+                .slice(0, limit)
+                .map(w => _normalizeWar(w, region));
         } catch (e) {
             console.warn('latestWars export failed:', e);
             throw e;
@@ -377,8 +467,11 @@ const AA = (() => {
     /**
      * Get quests belonging to a war.
      */
-    async function getWarQuests(warId, region = 'JP') {
+    async function getWarQuests(warId, region = 'JP', seenWarIds = new Set()) {
         region = norm(region);
+        const warKey = String(warId);
+        if (seenWarIds.has(warKey)) throw new Error(`Recursive war shortcut: ${warKey}`);
+        seenWarIds.add(warKey);
         // Use nice war which has full quest list and phase info
         const url = `${BASE}/nice/${region}/war/${warId}`;
         let war;
@@ -389,10 +482,16 @@ const AA = (() => {
             return getWarQuestsFromLatestRows(warId, region, e);
         }
         const maps = war.maps || [];
-        const mapById = new Map(maps.map(m => [String(m.id), m]));
-        const quests = (war.spots || []).flatMap(sp => (sp.quests || []).map(q =>
-            _normalizeQuest(q, sp, war, region, mapById)
-        ));
+        const quests = _flattenWarQuests(war, region);
+        if (!quests.length) {
+            const parentWarId = _shortcutParentWarId(warId, war);
+            if (parentWarId && parentWarId !== warKey) {
+                const resolved = await getWarQuests(parentWarId, region, seenWarIds);
+                resolved.warInfo.shortcutId = warKey;
+                resolved.warInfo.shortcutName = war.name || '';
+                return resolved;
+            }
+        }
         return {
             quests,
             warInfo: {
@@ -862,11 +961,19 @@ const AA = (() => {
         let currentGroup = null;
         let currentBranch = null;
 
-        const state = { bg: '', sprites: {}, talker: null, cameraFilter: null, bgm: null };
+        const state = { bg: '', sprites: {}, subLayers: {}, talker: null, cameraFilter: null, bgm: null };
         const frames = [], entityIds = new Set();
         let dialogueIdx = 0, pendingEffects = [];
 
         function takeEffects() { const e = pendingEffects; pendingEffects = []; return e; }
+        function setSpriteVisible(slot, visible) {
+            if (!state.sprites[slot]) return;
+            state.sprites[slot].visible = visible;
+            if (!visible && state.talker === slot) state.talker = null;
+        }
+        function hideSubLayer(layerId) {
+            for (const slot of state.subLayers[layerId] || []) setSpriteVisible(slot, false);
+        }
 
         function snapshotSprites() {
             return Object.entries(state.sprites)
@@ -899,14 +1006,31 @@ const AA = (() => {
             if (m = /^\[charaTalk\s+(\w+)\]/.exec(line)) {
                 state.talker = ['off', 'depthOff', 'on'].includes(m[1]) ? null : m[1]; continue;
             }
-            if (m = /^\[charaFadein\s+(\w)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].visible = true; continue;
+            if (m = /^\[charaFadein\w*\s+(\w)/.exec(line)) {
+                setSpriteVisible(m[1], true); continue;
             }
-            if (m = /^\[charaFadeout\s+(\w)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].visible = false; continue;
+            if (m = /^\[charaFadeout\w*\s+(\w)/.exec(line)) {
+                setSpriteVisible(m[1], false); continue;
+            }
+            if (m = /^\[charaPut\w*\s+(\w)\s+([01])/.exec(line)) {
+                setSpriteVisible(m[1], m[2] !== '0'); continue;
+            }
+            if (m = /^\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])/.exec(line)) {
+                const slot = m[1], layer = m[2];
+                if (!state.subLayers[layer]) state.subLayers[layer] = new Set();
+                state.subLayers[layer].add(slot);
+                continue;
+            }
+            if (m = /^\[charaLayer\s+(\w)\s+main/.exec(line)) {
+                const slot = m[1];
+                Object.values(state.subLayers).forEach(slots => slots.delete(slot));
+                continue;
             }
             if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)/.exec(line)) {
                 if (state.sprites[m[1]]) { state.sprites[m[1]].entityId = m[2]; entityIds.add(m[2]); } continue;
+            }
+            if (m = /^\[subRenderFadeout\w*\s+(#[A-Z])/.exec(line)) {
+                hideSubLayer(m[1]); continue;
             }
 
             if (line.startsWith('＠')) {
@@ -1025,9 +1149,18 @@ const AA = (() => {
             }
 
             // Effects
+            if (m = /^\[criMovie\s+([^\s\]]+)/.exec(line)) {
+                Object.keys(state.sprites).forEach(slot => setSpriteVisible(slot, false));
+                frames.push({
+                    type: 'movie', bg: state.bg, sprites: [], movie: m[1],
+                    effects: [{ type: 'fadeOut', color: 'black', dur: 0.35 }, { type: 'movie', name: m[1] }],
+                    cameraFilter: state.cameraFilter, bgm: state.bgm,
+                });
+                continue;
+            }
             if (m = /^\[fadeout\s+(\w+)(?:\s+([\d.]+))?\s*\]/.exec(line)) {
                 pendingEffects.push({ type: 'fadeOut', color: m[1], dur: parseFloat(m[2] || 1) });
-                frames.push({ type: 'transition', bg: state.bg, sprites: [],
+                frames.push({ type: 'transition', bg: state.bg, sprites: snapshotSprites(),
                     effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm });
                 continue;
             }
