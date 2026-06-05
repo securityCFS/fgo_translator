@@ -1626,11 +1626,25 @@
     }
 
     function renderAtlasQuestMap(meta, entries) {
+        const mapGroups = new Map();
+        for (const item of entries || []) {
+            const q = item.quest || {};
+            const key = q.mapId || q.mapImage || 'default';
+            if (!mapGroups.has(key)) mapGroups.set(key, []);
+            mapGroups.get(key).push(item);
+        }
+        return [...mapGroups.values()]
+            .map((groupEntries, index) => renderAtlasQuestMapPanel(meta, groupEntries, mapGroups.size, index))
+            .filter(Boolean)
+            .join('');
+    }
+
+    function renderAtlasQuestMapPanel(meta, entries, mapTotal = 1, mapIndex = 0) {
         const first = (entries || []).map(item => item.quest).find(q => q.mapImage) || {};
-        const mapImage = meta.mapImage || first.mapImage || '';
+        const mapImage = first.mapImage || (mapTotal === 1 ? meta.mapImage || '' : '');
         if (!mapImage) return '';
-        const mapW = Number(meta.mapImageW || first.mapImageW || 2048);
-        const mapH = Number(meta.mapImageH || first.mapImageH || 2048);
+        const mapW = Number(first.mapImageW || (mapTotal === 1 ? meta.mapImageW : 0) || 2048);
+        const mapH = Number(first.mapImageH || (mapTotal === 1 ? meta.mapImageH : 0) || 2048);
         const spots = new Map();
         for (const item of entries || []) {
             const q = item.quest;
@@ -1665,7 +1679,10 @@
                 spot.idx = item.idx;
             }
         }
-        const title = meta.longName || meta.name || first.warLongName || first.warName || t('atlasMap');
+        const baseTitle = meta.longName || meta.name || first.warLongName || first.warName || t('atlasMap');
+        const title = mapTotal > 1
+            ? `${baseTitle} · ${first.mapId ? `Map ${first.mapId}` : `${mapIndex + 1}/${mapTotal}`}`
+            : baseTitle;
         const spotButtons = [...spots.values()].sort((a, b) => a.y - b.y || a.x - b.x).map(spot => {
             const left = Math.max(-3, Math.min(103, ((spot.x + spot.questOfsX + spot.nameOfsX) / mapW) * 100 - 2));
             const top = Math.max(-3, Math.min(103, ((spot.y + spot.questOfsY + spot.nameOfsY) / mapH) * 100 + 2));
