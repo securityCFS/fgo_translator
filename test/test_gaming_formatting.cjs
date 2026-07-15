@@ -28,7 +28,8 @@ const context = {
 };
 vm.createContext(context);
 vm.runInContext(
-  `${extractFunction('escapeHtml')}\n${extractFunction('formatScriptText')}\n${extractFunction('formatSpeakerName')}`,
+  `${extractFunction('escapeHtml')}\n${extractFunction('formatScriptText')}\n${extractFunction('formatSpeakerName')}\n`
+    + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576;\n${extractFunction('computeSpriteLayout')}`,
   context
 );
 
@@ -47,5 +48,23 @@ assert.match(ruby, /<ruby>彼<rt>か<\/rt><\/ruby>の王/);
 const speaker = context.formatSpeakerName('[51d4ff]广播语音[-]');
 assert.match(speaker, /color:#51d4ff/i);
 assert.doesNotMatch(speaker, /\[51d4ff\]|\[-\]/);
+
+const explicitLayout = context.computeSpriteLayout({
+  slot: 'A', entityId: '1001', x: -256, y: 72, scale: 1.25, depth: 7,
+}, 50, 0);
+assert.equal(explicitLayout.key, 'A');
+assert.equal(explicitLayout.leftPercent, 25);
+assert.equal(explicitLayout.bottomCqh, 12.5);
+assert.equal(explicitLayout.scale, 1.25);
+assert.equal(explicitLayout.depth, 7);
+assert.equal(explicitLayout.explicit, true);
+
+const fallbackLayout = context.computeSpriteLayout({
+  entityId: '1002', x: null, y: null,
+}, 68, 1);
+assert.equal(fallbackLayout.key, '1002:1');
+assert.equal(fallbackLayout.leftPercent, 68);
+assert.equal(fallbackLayout.bottomCqh, 0);
+assert.equal(fallbackLayout.explicit, false);
 
 console.log('gaming formatting tests passed');

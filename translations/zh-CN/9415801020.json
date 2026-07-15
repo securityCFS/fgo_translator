@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801020",
+  "source_region": "JP",
+  "source_hash": "62124b7571e083d59f9c5fc1dafd8e5f7be0cbbc5df2eb0f729a33375f2b58e5",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 56,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "经……理……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "Garbage！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为融合Garbage，\n卡尔德尼亚和里卡尔德尼亚的边界崩塌了……？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "小心，藤丸立香[&君:ちゃん]！\n周围的地形信息又发生了变化！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "通讯变得不稳定……！\n前辈！请小心……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "就在那里……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "原来你……就在那里……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里是什么地方……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 卡尔德尼亚和"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 里卡尔德尼亚之间的夹缝……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "就在那里……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "原来你……就在那里……[#わたし]……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "啊啊，连阿斯也……\n你一直瞒着这件事呢……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 厄里倪厄斯……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我、我……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "没关系……没关系的……\n我明白……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "阿尔托莉雅也说过……你的手杖招式中\n展现了内心的坚强……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "亚瑟也说过。\n你的手杖中没有邪念。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "所以我明白了。\n你一定是出于善意，才有所隐瞒。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "呵呵，你隐瞒的就是这件事吧？\n你真的很不擅长隐瞒呢。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊……啊……[charaShake C 0.05 1 1 0.2]"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "不过，那些已经无所谓了……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "因为，我已经明白了……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "原来在那种地方……还有一个我……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "啊啊，对啊。阿斯一直隐瞒的，\n就是这件事吧。原来我一直就在那里。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "我明白了。这次真的明白了。\n我之所以会如此痛苦……"
+    },
+    {
+      "speaker": "得墨忒耳＆得墨忒耳·厄里倪厄斯",
+      "translated_content": "是[#私]／[#わたしのせい]！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "得墨忒耳大人和厄里倪厄斯大人的神威\n正在相互碰撞……！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "是我！没错！\n让我如此痛苦的原因！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "是我！\n是我害得自己这么痛苦！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "……阿尔托莉雅！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "……别无选择了。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "亚瑟！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "……唔！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "好沉重……！\n不愧是伦戈米尼亚德的一击！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "但是，你真打算这么做吗！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "眼下这种状况，双方的经理\n显然都不正常吧！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "正是如此。\n我完全赞同阁下所言。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "正因如此，我才会选择最快的手段，\n制服你那一方的经理。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "她们的精神状态绝非三言两语就能平静下来，\n阁下一眼就能明白吧。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "既然如此，还能有什么更好的办法。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "只要吾之御主下令，\n我便会以骑士王的身份回应其声！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "都是因为我……又做了多余的事……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "必须阻止得墨忒耳大人她们战斗……！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "格蕾！你站到我这边！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "格蕾……你是……我的同伴吧……？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎么会……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "该、该怎么办，御主？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿尔托莉雅说得没错。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然哪一边都不能选，\n但必须立刻结束这场战斗！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是获得圣杯支援的神灵之间的战斗！\n一旦愈演愈烈，整个特异点都可能被摧毁！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "由你来决定！\n要站在哪一边！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我知道了！\n总之，先平息眼前的局面！"
+    }
+  ]
+}

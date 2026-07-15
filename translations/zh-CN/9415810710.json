@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810710",
+  "source_region": "JP",
+  "source_hash": "e9a8ce2bae8989468eff86391233da8d41753bed2ceeaccdf4d8f83d5d0e6afd",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 87,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：在[#施設:テアトルム]里面"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：竟然有海！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这机关的规模还真不小……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "虽然稍微费了些功夫，但凭经理的权能，\n这种程度的空间操作还是可以做到的……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是船——！！！"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "库库库，库克船长。"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "还是来了啊，终于还是来了。\n来到了这座海盗体验的[#施設:テアトルム]……！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "提库克船长那茬，有必要吗？"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "有必要。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "这样啊……[wt 0.7][charaFace D 0][charaMoveReturnFSR D 256,-5 0.5]咳咳。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "欢迎你来，阿斯君！\n而且不是玩偶服，竟然露出了真容！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "来吧！让我更仔细地欣赏那完美的美貌——"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "比、比起我，还是先向特别嘉宾们\n介绍这座[#施設:テアトルム]吧！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "哎呀，是我失礼了。[wt 0.7][charaFace D 0][charaMoveReturn D 0,-5 0.5]\n咳咳。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "这座[#施設:テアトルム]，\n就由我和黑胡子担任指导者！"
+    },
+    {
+      "speaker": "海盗们",
+      "translated_content": "还有我们呢！"
+    },
+    {
+      "speaker": "H：鲨鱼骑士",
+      "translated_content": "我们也在哦——。\n会加油的——。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这座[#施設:テアトルム]是不是热闹过头了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：咦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：德雷克没有一起来吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "德雷克？德雷克、德雷克……\n咦——，那是谁来着——？"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "哼——！那个落伍又前途堪忧的\n老太婆根本没什么值得我学的——！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：连平时的称呼都改了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "比如人类顶尖的掌舵技术，还有身为海盗的领导力？\n那些……嗯，就是那个。那个啦。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "呵。你不用说『要学也该是我先学』\n这种话吗，黑胡子？"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "好了。听你们刚才的说法，\n已经去过武器商人的[#施設:テアトルム]了吧。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "因为她负责那边，\n所以这里就交给我们了。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "也就是说，你们是海盗新人。听到我的命令，\n就要回答『Aye aye，船长』！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "Aye aye，船长！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真没办法……Aye aye，船长！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：Aye aye，船长！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "哈哈哈。精神十足，非常好！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "那么，就请身为新人的你们\n寻找我们接下来要袭击的船吧。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "用这副望远镜，\n观察经过海峡的船只。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "Aye aye，船长！\n太好了，是望远镜！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，马上就来了一艘！"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "让我看看——？嗯……[wt 1.0][charaFace E 5]这艘不行，来看下一艘！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦，不行吗？"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "对。虽说是海盗，\n也不会见船就毫无选择地袭击。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "挑选目标非常重要。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "看看对方是否运着香料、丝绸、砂糖之类容易变现的货物，\n大炮和战斗人员又是否足够少。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "袭击一艘什么都没装的船，\n光想想都觉得浪费！"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "另外，盯上速度快的船也只是白费力气。\n毕竟会让对方逃掉嘛～"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：还挺正经的——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：只要这样做事，看起来倒像个厉害的海盗……"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "喂喂，在下本来就是厉害的海盗好吗？\nTrust me！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "我们的战斗也需要成本。\n如果接连失败，就活不下去了。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "要是连续白费力气，第二天全体船员就会\n开会选出下一任船长，至于现任船长的脑袋——"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "哎呀，接下来的内容\n就不适合在卡尔德尼亚谈了。"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "脑袋和身体从此各奔东西。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "别说出来啊……"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "总之，海盗也很精于算计，就是这么回事。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "他们会占据贸易航线上必经的海峡，\n等着肥羊自己送上门。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "等待期间常有很长时间无事可做，\n所以纸牌之类打发时间的东西不可或缺。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "……好了。严肃的话题先放到一边。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "既然是第一堂课，就先从合适的装扮\n开始整理吧！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "具体来说，请两位特别嘉宾\n也把头发整理成遮住眼睛的发型！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "尤其是奥尔加玛丽君，只要再遮住一点点就——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "巴沙洛缪的话就先无视吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，又来了一艘！这次好像没有大炮！"
+    },
+    {
+      "speaker": "I：海盗",
+      "translated_content": "就像新人说的！\n没有大炮！船员也少！正是绝佳的肥羊！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "好！开炮！\n封住逃路后，我们就登船！"
+    },
+    {
+      "speaker": "M：船员",
+      "translated_content": "哇——！是海盗——！"
+    },
+    {
+      "speaker": "N：船员",
+      "translated_content": "快逃！坐上避难用的小船！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "转眼之间就全逃走了……"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "这还真是轻而易举。\n不过，大多数袭击也就是这样。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "那么，我们马上去享用宝物吧……"
+    },
+    {
+      "speaker": "I：海盗",
+      "translated_content": "老大！\n对面的船朝我们开炮了！"
+    },
+    {
+      "speaker": "F：鲨鱼士兵",
+      "translated_content": "那个该不会是海盗船吧？\n是同伴吗？"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "不。这正是我担心的事！\n就算一直保持警戒，听起来也还是令人不快！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是怎么回事！"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "只要是值得下手的船，\n其他海盗也可能找上门……！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "说到海盗！"
+    },
+    {
+      "speaker": "哥伦布",
+      "translated_content": "就要连根拔起，抢个精光！"
+    },
+    {
+      "speaker": "哥伦布",
+      "translated_content": "不过我不是海盗，而是商人。\n所以会留一颗玻璃珠当货款的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：突然冒出来了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "哥伦布",
+      "translated_content": "呜哦！哪有人二话不说，\n上来就朝别人脸上开炮的啊！"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "不是，你看，怎么说呢，突然？Q然？\n怒火一下就涌上来了？"
+    },
+    {
+      "speaker": "黑胡子",
+      "translated_content": "所以啊，巴索，赶紧宰了他。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "你用这个称呼，看来是真的心情很差。"
+    },
+    {
+      "speaker": "巴沙洛缪",
+      "translated_content": "那么，就让我们像海盗一样，\n来争夺宝藏吧！"
+    }
+  ]
+}

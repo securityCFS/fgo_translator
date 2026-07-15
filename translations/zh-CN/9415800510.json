@@ -1,0 +1,767 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800510",
+  "source_region": "JP",
+  "source_hash": "dcbe3ba58a49f3a77499ac8efc3e56e1c7ec9a37ea187a191e8e980ba82685fb",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 187,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！\n又是城堡啊！　还是连续两座！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这边也好气派！\n总觉得闪闪发亮的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总觉得很有德墨忒尔的风格"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：总觉得很有光属性的风格"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这里就是卡尔德尼亚引以为傲的\n德墨忒尔城堡！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "名字还真直接……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "一路走到这里，\n大家都不累吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……没、[charaMoveReturn A 3,0 0.4]没关系。[wt 0.3][charaMoveReturn A -3,0 0.4]"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "嗯？　我的脸上沾了什么吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "没、没有……只是觉得，大哥哥很像\n以前妈妈给我读过的"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "童话故事里的骑士大人……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "……这是我的荣幸。\n我会努力不让你失望的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（那位亚瑟王也在迦勒底吧……\n　报告中记得是……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（嗯，好像是异世界的亚瑟王）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（记得是异世界的圣剑使——）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（异世界……是与平行世界不同的概念呢）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（从根源上就截然不同，\n　与我们所居住的世界并不相同的世界）"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "（嘻嘻嘻！　反正要不是在特异点和迦勒底，\n　根本不可能有这种存在！）"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "好了，管理人已经望眼欲穿。\n我们这就去觐见吧。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀？"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀哎呀？"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "终于来了！　我都等得不耐烦了！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "让您久等了，管理人。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这几位就是特别来宾。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "来，到我这里来吧。亲爱的孩子们。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好的。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我是格蕾！\n初次见面，德墨忒尔大人！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀、哎呀、哎呀？\n旁边这位小姑娘也可以吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……我是奥尔加玛丽。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "比想象中还要可爱！\n呜呜，两个人怎么都这么惹人怜爱……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "准许了！　你们和藤丸立香一起，\n尽情在我的卡尔德尼亚玩耍吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（哇，好像……！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（和厄里倪厄斯的反应一模一样……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "（这话千万别让她听见！\n　在这里绝对不能提里卡尔德尼亚！）"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "看来顺利获得许可了，真是再好不过。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "想在这座卡尔德尼亚中活动，\n管理人的许可必不可少。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "不过，她既然都把护照交给你们了，\n应该也不可能不许可……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "世上还真有令人欣喜的意外！\n这么可爱的孩子们竟然会来到我的卡尔德尼亚。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "……不行，这样一来可不能让你们空手回去。\n我以自己的名字起誓，一定要送你们合适的礼物……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "啊，对了。\n——你的剑似乎很适合她。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "管理人？"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "呵呵。我看见了，看得清清楚楚！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "——格蕾的可能性！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "听好了。\n你拥有非常非常多的可能性。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "这不只是在说未来。\n就连过去，也可能产生分歧。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我所看见的，正是其中之一。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：难道……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：这个套路是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "现在，就把它送给你！\n来吧，无形却闪耀的圣剑啊……请助我一臂之力！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这是——！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "——我知晓。\n——我[#識:し]晓。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "——你的刻痕。你的季节。你的境界。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊啊——！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "唔哦哦哦！\n连我的内部都被改写了！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "格、格蕾小姐的灵基\n正在被实时改写！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "即便是过去遇到的神灵，\n能做到这种程度的干涉也屈指可数……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀，你们在用那种方式和外界通信吗？\n看起来真有趣。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "好好看着。这就是填满卡尔德尼亚\n护照时能够获得的奖励！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这、这是！！！！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊哈哈！　感觉好畅快！\n现在就想跑起来！　不对，我已经要跑了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：格蕾"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：这次变成活力少女了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是……！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　连我都觉得心情愉快起来了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "原来如此。\n原来也存在[#こういうことになる可能性]啊。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：可能性？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：格蕾的？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "听得见吗。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你……！"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "因为这是[#彼女の特異点]，所以我一直在待命。\n我应该可以解释刚才的现象。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（对了……因为同属希腊神话体系……）"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "格蕾与亚瑟王有所因缘，\n并持有圣枪伦戈米尼亚德——"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "这些情报我已经从埃尔梅罗二世那里听说了。"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "既然如此，她所做的正如本人所言，\n就是[#過去の書き換え]。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：改写过去？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：可是那种事……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "未来可以改变、过去却不可动摇……\n这种说法并非真理。"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "我来到迦勒底后也学到，\n不仅是魔术，就连现代最先进的科学"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "似乎也已经提出了过去有可能被[#改竄:かいざん]的观点。"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "更何况，从者本质上就是[#記録帯]。\n也就是说，过去和未来对他们拥有同等价值。"
+    },
+    {
+      "speaker": "喀戎",
+      "translated_content": "既然如此，发生这种事也并非没有可能。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯，感觉棒极了！\n身体和心情都轻快得不得了！！！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　这可真厉害！\n格蕾简直只要呼吸，魔力就会不断[#溢:あふ]出来！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "抵得上那个怪脾气师父的一百人份！\n当然，指的是他成为从者以前！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "喂，不许说师父的坏话！\n再说这种话，我就这样对付你！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "唔哦哦哦！　别上下甩我！\n住手，是我错了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会再骂师父了吧？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "不会！　绝对不会了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "反应真的和平时完全不同！\n可偏偏又让人觉得特别合理，喂！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "啊啊，实在太完美了！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "比我想象中还要出色！\n这孩子拥有的可能性，果然无比闪耀！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我已经忍不住了！\n现在就把你的能力全部引导出来吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇啊啊！　身体好热！\n像要燃烧起来一样！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "不，还能继续。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、这边的德墨忒尔也这么乱来……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "把眼睛能看见的极限统统打破吧！\n生命啊，心爱的孩子啊——尽情成长吧！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "去想象最完美的自己！\n轻而易举地超越父母！　超越极限！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "最完美的，自己——！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……那个……这已经……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "嗯。终于抵达了……\n这就是你的抵达之处……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我说，奥尔加玛丽？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什、什么？"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你一点都不难。\n因为你已经抵达了自己本应成为的模样。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "所以，只需要稍稍——"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "打破外壳。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "怎么会！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "阿尼姆斯菲亚家的小丫头！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "啊，抱歉！　手滑了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：通信中断了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：所长！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "C：奥尔加玛丽",
+      "translated_content": "我……想起来了！\n想起来了——！"
+    },
+    {
+      "speaker": "C：奥尔加玛丽",
+      "translated_content": "此身乃自遥远虚空来访的[#降臨者:フォーリナー]！\n我正是统治行星之人，亦即最强且至高无上的统率者！"
+    },
+    {
+      "speaker": "C：奥尔加玛丽",
+      "translated_content": "[f large]『异星之神』！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：——你说什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：——这可不得了？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "呵。因这过于[#衝撃的展開:イ ン パ ク ト ・ パ ン チ]而失去理智的表情，\n实在似曾相识！　我喜欢！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "不，说错了，是『实在值得一看』！　不是喜欢！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "地球的语言，尤其是日语很难。\n即便是我，要熟练运用也需要时间。明白吗？"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "但是！　一事归一事！\n重要的是现在！　是我已现身于此！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "长久离开地球，实在抱歉。\n作为补偿，即使你们不愿意，我也会大展[#辣腕:らつわん]。"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "你明白吧，藤丸立香！\n从现在起，该怀着绝对的安心、信赖与崇拜侍奉我了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：难道是所长的第三人格……！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：都怪德墨忒尔小姐从奇怪的角度敲她的头！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：可是，这难道是……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "好。经营顾问现在正忙着布置自己的房间。\n奥尔加玛丽也去监视他了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这是千载难逢的绝佳机会。\n趁现在决定好只属于我们的行动方针吧。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "奥尔加玛丽·阿尼姆斯菲亚。\n她现在的身体有九成由灵基构成。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "当然，她既不是英灵，\n也不能算是从者。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "作为所长身处此地的她，是个[#歴:れっき]的『人类』。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "但是……她的力量、魔术回路的规模都是未知数，\n而且并不稳定。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "她不是Beast，不可能是Beast。\n但这也不是一件『可以永远断言』的事。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "如果因为某种契机，或是我们漏掉的某个要素，\n导致那些魔术回路开始全力运转——"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那就不再是奥尔加玛丽·阿尼姆斯菲亚。\n而会成为其他存在。比如说——"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "从她的人格中分离出来、\n被捏造出的虚拟人格，『异星之神』。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "她也可能变成那种存在。\n到那时，要在被阿兹莱尔发现之前，全力——"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "由我们全力打倒——\n温柔地使其失去抵抗能力，让她恢复神智。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "将此称为『对所长特殊案件』。\n一旦出现这种情况，允许各位自行判断并攻击、行动。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：成为人类威胁的『异星之神』……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：可没想到这么快就出现了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "正是如此，迦勒底的导航员。\n我正是现存人类的威胁本身。"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "因为我会摧毁当今的统治体系、既得利益和社会常识，\n摧毁这一切，让世界变得更加公正。"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "说到底，现在的人理太陈旧了！\n已经持续近两千年，也该更新了吧！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "正因如此，我才会降临！\n不知变通的人理，就由我改造成喜欢的模样！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "总、总觉得……\n突然非常非常想砍下去……！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "批准。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "将目标认定为星之敌。接受持有者的请求。\n[#十三拘束解放:シ ー ル ・ サ ー テ ィ ー ン]——[#円卓議決開始:デ シ ジ ョ ン ・ ス タ ー ト]！[cueSeStop NP_603900_2 2.5]"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "[#十三拘束解放:シ ー ル ・ サ ー テ ィ ー ン]！\n用于抑制圣剑力量的圆桌封印竟然——！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "等、等一下，亚德！\n哇，真的！　真的要进行圆桌表决吗！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：确实，这个所长"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：或许就有那么危险"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀、哎呀！\n好像变得热闹起来了！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "那么就这样吧……\n阿斯，你加入奥尔加玛丽那边！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦咦咦！　管、管理人！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "哦，那股[#滲:にじ]出来的不幸气质，我很中意！\n很好，就让你成为我的新使徒！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这是无比光荣的邀请，但我拼尽全力也要拒绝！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那么，我就站在格蕾小姐这边吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚瑟先生要和我一起战斗！"
+    },
+    {
+      "speaker": "V：亚瑟",
+      "translated_content": "作为卡尔德尼亚的一项活动，\n只要你愿意——"
+    },
+    {
+      "speaker": "V：亚瑟",
+      "translated_content": "就来上一堂圣剑[#使い方講座:レ　ク　チ　ャ　ー]吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我当然愿意！　啊哈哈，简直像做梦一样！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那么，最后……"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "既然如此，最后……"
+    },
+    {
+      "speaker": "格蕾／异星之神",
+      "translated_content": "藤丸立香要站在哪一边／呢！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "太好了！　那我可要全力以赴了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "上吧，藤丸立香！\n还有亚瑟先生！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "交给我吧！\n我会努力不辱圣剑使之名！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "明智的判断，地球人类！\n但你要称我为『异星之神』！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "不过，若想到了不错的爱称，也可以提出！\n我正在征集与我相称的名字！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "那边的从者也不许放水。\n视你的表现，我也可以赐予你使徒之位！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊啊，我知道了！　身为卡尔德尼亚的管家，\n我会竭尽所能！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

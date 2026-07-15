@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010510",
+  "source_region": "JP",
+  "source_hash": "f1b1576a34b1ad59ec81ff119f86aa8155b202da8bfcb545d7e91bd39d447564",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 43,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那么，最后来打个招呼。先来打个招呼。\n你好，初次见面，请多关照。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐……！？\n你究竟要——"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "宝具展开——『[#旧き過去を紡ぐ糸:ウ ル ザ ル ス ラ ズ ル ・ フ ォ ル ン]编织往昔之丝』"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——藤丸立香。\n玛修小姐。他们两人的那副表情……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我知道。我认得那种表情。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是决意的目光。即使内心被恐惧驱使，\n仍在寻找能否刺中一击的机会。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "在特异点与异闻带的战斗中，\n我曾无数次见到那样的表情。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……下一段过去，或许会变得有所不同。\n那可不好。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "必须在下一段过去中修正……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "时间开始倒流。\n[&彼:彼女]们的功绩将化为乌有……不，不对。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[&彼:彼女]们会做出[#同じ]的事。\n所以，那份功绩绝不会化为乌有。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[&彼:彼女]们所赢得的东西绝不会改变。\n恒久不变、无可替代的胜利。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "嗯。\n那是我永远爱着的，无比、无比珍贵的事物。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "但是，那种表情……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "既然如此，就让过去变得更加耀眼吧。\n耀眼到无论多么[#強靱な:つ　よ　い]内心——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "都会为之停下脚步。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（……没事，我还记得……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……时间神殿。所罗门沉默着与[&自分:わたし]\n相对，又沉默着退场了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "然后是时子小姐……她和上次一样，\n把一切恢复了原状。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——问题是，从现在开始应该做什么。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "想起来，快想起来，快想起来。\n在时间神殿战斗的前一夜，自己最后采取的行动。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我[#何かを行って]，又[#何かを忘れた]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "最后，[&オレ:わたし]做了什么。\n记忆中最后的画面是——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所长、Dr.罗曼、玛修，还有[&オレ:わたし]。\n应该是四个人在一起……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……不，那样的过去……好像存在过，\n又好像不曾存在……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：但总之，必须想想办法……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "你好，御主。\n接下来似乎要开会，要一起去吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：杰罗尼莫！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：有件事想拜托你……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "……嗯。虽然这道指示有些难以理解……\n但既然是你要做的事，就一定有其意义吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（这道指示就算暴露也没关系——）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（但愿如此……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "明白了。那么我不参加会议，\n在图书馆待命。"
+    }
+  ]
+}

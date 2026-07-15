@@ -1,0 +1,951 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010130",
+  "source_region": "JP",
+  "source_hash": "a2d14fb65ee5c05cf6935703d8966924fc6424f2eb06d15f7ce5b009cef0fbf4",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 233,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "紫式部",
+      "translated_content": "这样就全部结束了。\n谢谢您。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……最后出现的敌人究竟是什么呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修也很在意吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。作为会出现在图书馆里的敌人来说，\n确实有些另类。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然并没有那么强……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是啊。背负着钟盘的菊石……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那是一种无论在[#旧:ふる]老时代，\n还是在现代都不存在的奇妙生物。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如果它还会再次出现，\n或许就有必要进行调查了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，前辈。\n学习时间到了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：真的要学啊——……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好了，这样就全部学完了。\n辛苦了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：真是动脑筋了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "学习会就此解散了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我要去借几本书，\n前辈要先回去吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[&自分:わたし]也借点什么回去吧……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我觉得这是个好主意。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我大约十分钟就会回来，\n前辈慢慢挑选就好。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这段时间，我想和紫式部小姐聊聊天。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "哎呀。谢谢您。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "与时间有关的书……\n有了，对应的书架就在这里。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "不过，怎么突然想找这种书呢？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……没什么特别的理由？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：应该就在这附近吧……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "哎呀，哎呀，哎呀。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我来捡吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "对不起。非常感谢[#した]。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（她是谁呢……？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "——帮大忙了。因为我还不习惯肉体的触感。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没什么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "要是您能顺便帮我搬一下书，我会很高兴的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：搬过去就行了吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是的。不行吗？"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "感谢您。\n那么，就拜托了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "这座图书馆真不错。\n藏书很丰富。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：你是……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "您不知道吗？\n……失礼了。你不知道吗？"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "呵呵，原来你不知道。\n其实我没有自报姓名，所以不知道也是理所当然的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：呃——……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "目前就请把我当作神秘的谜之女子，\n差不多这样来认识吧……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "啊，请放到这张桌子上……放下吧。\n谢谢您。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "那么，那个……你的名字是什么来着？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我是藤丸立香"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "对，藤丸立香。\n是个好名字。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "——我的名字还没有公开。\n但这样会很麻烦，所以先取个临时名字吧。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我的名字是……\n名字是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……名字是？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "没能想到。\n呵呵……想象力贫乏还真是抱歉。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（我什么都没说……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "机会难得，\n就请汝来替我想一个名字吧。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "啊，有违公序良俗的名字已经驳回了。\n会驳回的。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "可不能那样哦……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：才不会呢！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "这样啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：话虽如此，请给我一点时间"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "不能给你时间呢。[wt 1.2][charaFace C 4]\n……不，刚才是失言。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "请慢慢考虑吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那我就把想到的名字挨个说出来"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "嗯，请吧。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太随便了呢。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太复杂了呢。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我不喜欢这个发音呢。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "没有别的好名字了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：唔……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时……时间……时子，怎么样……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "C：？？？",
+      "translated_content": "唔……是叫时子吗。"
+    },
+    {
+      "speaker": "C：？？？",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "C：？？？",
+      "translated_content": "不错呢。时子、TOKIKO……时子。\n真是个好名字。那么，从今天这一刻起我就是时子了。"
+    },
+    {
+      "speaker": "C：？？？",
+      "translated_content": "写成平假名感觉更柔和呢。\n就用这个吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "于是，我就是时子，时子。今后请多关照了。\n来，请坐。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "我有件事想问汝。\n——人生快乐吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那就好。\n那么，你曾想继续……还想继续这快乐的人生吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那当然"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这是理所当然的。\n想继续快乐的人生，是人之常情。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，[#進みたいですか]？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：前进……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "汝的过去、汝的历史，已经注定充满荣耀与成功。\n但也仅止于此。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "[#ここから先は喪失の物語]。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "与其被势头冲昏头脑，亲身经历失去，\n不如沉入名为过去的浴池。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "你不曾这样想过吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……不，我不这么想"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵，是啊。\n你就是这样的人。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "所以，接下来就是我的[#我:わ]随[#侭:まま]心所欲了。\n我会尽可能实现你的梦想。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "让你能够永远留在这里。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……不会变成那样的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……那真遗憾。\n那么，就继续这样战斗下去吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "后悔才是人生。\n我要读书了，你回去吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……你该不会是神灵吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "心头一跳☆"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……不，我只是神奇又神奇的大姐姐。\n是时子姐姐哦。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嘿，咚————！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：消失了……！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "K：时子",
+      "translated_content": "呵呵呵……那么，改日有缘时\n再见吧……"
+    },
+    {
+      "speaker": "K：时子",
+      "translated_content": "啊，为了让你无法谈论我的事，我施加了[#禁止事項処理:マ　イ　ン　ド　ロ　ッ　ク]，\n所以就算寻求帮助也是没用的哦。"
+    },
+    {
+      "speaker": "K：时子",
+      "translated_content": "而且再过五分钟，你连这段对话本身也会忘记。\n[#いつものように]。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：果然是神灵啊————！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "K：时子",
+      "translated_content": "才不是——。不是的啦——。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：到底是什么[&だ:だろう]……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，辛苦了！"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "您怎么了吗？\n脸色似乎不太好……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（想要说出口，话语却[#支:つか]卡在喉咙里）"
+    },
+    {
+      "speaker": "两人",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈想找的书……[wt 1.2][charaFace B 9]\n啊，没有找到吗。真遗憾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：[&いや:いえ]，没什么……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "这样啊。\n看来……您没找到想要的书呢。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么紫式部小姐，我们下次再来打扰。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "好的。随时欢迎。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没想到迦勒底不知不觉间竟然建起了图书馆，\n我有些惊讶。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然很不可思议……\n但我虽感到惊讶，却没有危机感。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[&オレ:わたし]也一样……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是吧！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，不过……奥尔加玛丽所长\n恐怕还是会惊讶得发火吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "医生是那种[#事後承諾有事対応:後   の   せ   何   で   も   Ｏ   Ｋ   ！]的性格，\n应该会笑着批准吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "总之先去汇报吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哈？迦勒底里有图书馆？\n什么啊。开什么玩笑。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，是真的。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哈哈哈。玛修，你在说什么啊。\n摆放实体书的图书馆什么的……什么的……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "要是有就好了……大家心灵的绿洲……\n不不，不过怎么可能有呢。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "当然了，储藏室……\n也就是数据保管库还是有的哦？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "但这里没有图书馆。\n有的只是各位职员的私人藏书。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "比如这种私人房间里的书架。不过，这么正式的\n图书馆怎么可能会有——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[fontSize large]真的！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "[fontSize large]有图书馆！"
+    },
+    {
+      "speaker": "奥尔加玛丽＆Dr.罗曼",
+      "translated_content": "[fontSize x-large]啊！！"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "哎呀，哎呀，哎呀。\n那个……欢迎光临？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等、这是怎么回事！？[wt 1.0][charaFace D 6]\n那个，首先你是从者吧！？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是、是的。\n我是Caster，紫式部。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是吗。我是迦勒底的所长奥尔加玛丽，\n也就是那边那位御主的上司。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "哎呀。\n那么，今后还请多多关照。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊，我是罗玛尼·阿其曼。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我应该也算身为御主的\n藤丸立香[&君:ちゃん]的上司吧。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "好的，也请罗玛尼大人多多关照。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，这座图书馆从什么时候开始有的？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "您说从什么时候……是指？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我说啊！这个迦勒底原本根本没有图书馆！\n现在突然冒出来……那个……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "当然会吓一跳吧！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯，确实如此。\n这难道是你的某种能力吗？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "不，这并非我的宝具或技能。\n啊，不过我确实以阵地建造辅助了管理……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，那是谁建的？\n又是谁命令[#貴方]来管理的？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "这个——我也不太清楚。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很可疑。比罗玛尼还可疑十倍。\n简直可疑透顶。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "……很可疑吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "罗玛尼。\n先叫一个有空的职员过来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "让他和藤丸立香、玛修\n一起调查这里。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "结果叫了我啊。倒是没问题。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "不过，图书馆啊……[wt 0.8][charaFace F 7]\n算了，怪异现象本来就总和魔术相伴。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "馆内地图……啊，半路上就有啊。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是的，请使用那一份。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "那就从头到尾转一圈吧。\n好，你们两个，出发喽。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么样，穆尼尔？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "哎呀……藏书种类还挺丰富的。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "没发现什么可疑的魔术书，\n有的都是现有书籍。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "[#稀覯本:き こ う ぼ ん]之类的也没有多少，\n就算有，也不是什么带有诅咒的东西。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "安全吗？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "安全得不能再安全了。说到底，就算是珍本，\n也不是什么特别高级的东西——"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "我不是在说这家图书馆的坏话！\n只是在讨论是否危险的话，它确实不危险。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那是自然。这里毕竟是图书馆。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是吗。那你叫紫式部……对吧？\n请你继续管理这座图书馆。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "好、好的！\n非常感谢您，所长大人。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过一旦发生什么，也可能会封锁这里。[wt 1.0][charaFace D 7]\n为了避免那种情况，务必严格管理。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是，我会尽力而为。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "谢谢您，所长！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：谢谢您！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "算了……既然没有危害，也无所谓。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过……这种设施到底为什么会突然\n冒出来呢……"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "虽然确实是个谜……\n但好像也没必要想得太深吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没必要啊。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎呀，这里的书真不错。\n历史和文学方面尤其充实。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不过，要是能再增加一些心理学相关藏书，\n我会很感激的，可以吗？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "好的。还请稍等一段时间。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这家伙倒是悠闲到家了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总而言之，第二特异点的详情很快就会出来。\n在那之前，给我好好过规律生活。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——无法接受。[seStop ade422 0.2][seStop ad95 0.2]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——绝对无法接受。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，怎么了？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才有没有听到什么？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "刚才吗？\n……不，我什么也没听到。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这样啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——我怎么可能会承[&の:ん]认。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——现在开始攻略第二特异点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "第二特异点的舞台是罗马。\n我已经准备好了符合时代的魔术礼装。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也观测到了大量从者反应。\n谁是敌人，谁是同伴。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "能不能交涉。\n这些都要逐一弄清楚。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "藤丸立香，\n以及玛修·基列莱特。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "各项生命体征检查完毕。\n无异常。灵子转移没有问题。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "可同行的从者如列表所示。\n同行上限为两骑。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "布狄卡和清姬啊。\n……应该没问题吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "至于清姬，就由布狄卡和御主，\n你们来负责制止她。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "那么御主，请多关照啦！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "还请多多关照。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，出发！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    }
+  ]
+}

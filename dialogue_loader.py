@@ -478,9 +478,9 @@ class DialogueLoader:
         Args:
             cache_dir: Optional directory to cache API responses
         """
-        self.db_loader = AtlasDBLoader(cache_dir)
-        self.cache_dir = cache_dir or Path("cache")
-        self.cache_dir.mkdir(exist_ok=True)
+        self.cache_dir = Path(cache_dir) if cache_dir else Path("cache")
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self.db_loader = AtlasDBLoader(self.cache_dir)
         
     def _get_text_content(self, url: str) -> str:
         """
@@ -498,6 +498,85 @@ class DialogueLoader:
             return response.content.decode("utf-8", errors="replace")
         except Exception as e:
             logger.error(f"Failed to fetch text content from {url}: {e}")
+            return ""
+
+    def _story_script_cache_path(self, region: str, script_id: str) -> Path:
+        """Return the local path for an Atlas raw story script."""
+        normalized_region = self.normalize_region(region)
+        normalized_script_id = str(script_id).strip()
+        if not re.fullmatch(r"\d+", normalized_script_id):
+            raise ValueError(f"Invalid script ID: {script_id}")
+        return self.cache_dir / "story_scripts" / normalized_region / f"{normalized_script_id}.txt"
+
+    def _read_story_script_cache(self, region: str, script_id: str) -> str:
+        cache_path = self._story_script_cache_path(region, script_id)
+        try:
+            return cache_path.read_text(encoding="utf-8") if cache_path.is_file() else ""
+        except OSError as exc:
+            logger.warning(f"Failed to read story script cache {cache_path}: {exc}")
+            return ""
+
+    def _write_story_script_cache(self, region: str, script_id: str, text: str) -> None:
+        cache_path = self._story_script_cache_path(region, script_id)
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_path = cache_path.with_suffix(f"{cache_path.suffix}.tmp")
+        try:
+            temporary_path.write_text(text, encoding="utf-8")
+            temporary_path.replace(cache_path)
+        except OSError as exc:
+            logger.warning(f"Failed to write story script cache {cache_path}: {exc}")
+            try:
+                temporary_path.unlink(missing_ok=True)
+            except OSError:
+                pass
+
+    def load_script_text(
+        self,
+        script_id: str,
+        region: str = "JP",
+        refresh: bool = False,
+    ) -> str:
+        """Load Atlas raw script text, using the local cache when possible.
+
+        Existing cache entries are preferred unless ``refresh`` is requested.
+        A refresh that cannot reach Atlas falls back to the existing entry.
+        Only the raw script body is persisted locally.
+        """
+        search_region = self.normalize_region(region)
+        normalized_script_id = str(script_id).strip()
+        cache_path = self._story_script_cache_path(search_region, normalized_script_id)
+        cached_text = self._read_story_script_cache(search_region, normalized_script_id)
+        if cached_text and not refresh:
+            logger.info(f"Using cached Atlas script {search_region}/{normalized_script_id}")
+            return cached_text
+
+        try:
+            endpoint = (
+                f"{self.db_loader.BASE_URL}/nice/{search_region}/script/"
+                f"{normalized_script_id}"
+            )
+            script_data = self.db_loader._make_request_with_retry(endpoint)
+            script_url = str(script_data.get("script", "")) if script_data else ""
+            if not script_url:
+                raise ValueError("Atlas script metadata did not include a script URL")
+
+            text_content = self._get_text_content(script_url)
+            if not text_content:
+                raise ValueError("Atlas raw script response was empty")
+
+            self._write_story_script_cache(search_region, normalized_script_id, text_content)
+            logger.info(f"Cached Atlas script {search_region}/{normalized_script_id} at {cache_path}")
+            return text_content
+        except Exception as exc:
+            if cached_text:
+                logger.warning(
+                    f"Failed to refresh Atlas script {search_region}/{normalized_script_id}; "
+                    f"using cached copy: {exc}"
+                )
+                return cached_text
+            logger.warning(
+                f"Failed to load Atlas script {search_region}/{normalized_script_id}: {exc}"
+            )
             return ""
 
     def normalize_region(self, region: Optional[str] = None) -> str:
@@ -583,6 +662,29 @@ class DialogueLoader:
                         seen.add(script_id)
                         script_ids.append(script_id)
             return script_ids
+
+        dialogue_presence = {}
+
+        def has_dialogue_content(quest):
+            uncertain = False
+            for script_id in quest.get("scriptIds", []):
+                if script_id not in dialogue_presence:
+                    try:
+                        dialogue_presence[script_id] = bool(
+                            self.extract_dialogues(script_id, region=region)
+                        )
+                    except Exception as exc:
+                        logger.warning(
+                            f"Failed to inspect latest-task script {script_id}: {exc}"
+                        )
+                        dialogue_presence[script_id] = None
+                if dialogue_presence[script_id] is True:
+                    return True
+                if dialogue_presence[script_id] is None:
+                    uncertain = True
+            # Keep uncertain tasks visible on transient network failures. The
+            # translation endpoint still rejects scripts that parse to no dialogue.
+            return uncertain
 
         def normalize_quest(quest, spot, war, task=None, map_by_id=None):
             map_by_id = map_by_id or {}
@@ -677,7 +779,7 @@ class DialogueLoader:
                 quest["phase"] = task.get("phase")
                 quest["latestPhase"] = task.get("phase")
                 quest["latestOpenedAt"] = task.get("openedAt")
-                if not quest.get("hasDialogueScript"):
+                if not quest.get("hasDialogueScript") or not has_dialogue_content(quest):
                     hidden_no_script_count += 1
                     continue
                 normalized_tasks.append(quest)
@@ -705,7 +807,11 @@ class DialogueLoader:
                         for spot in nice_war.get("spots", []) or []:
                             for quest in spot.get("quests", []) or []:
                                 story_task = normalize_quest(quest, spot, nice_war, map_by_id=map_by_id)
-                                if not story_task.get("hasDialogueScript"):
+                                if (
+                                    not story_task.get("hasDialogueScript")
+                                    or not has_dialogue_content(story_task)
+                                ):
+                                    hidden_no_script_count += 1
                                     continue
                                 if story_task["id"] in seen_story_ids:
                                     continue
@@ -1150,8 +1256,8 @@ class DialogueLoader:
                     'content': content.replace('[r]', '\n'),
                 })
 
-        # Pattern 2: Protagonist choice — ？num：choice\n
-        for match in re.finditer(r'？(\d+)：(.*?)\n', text_content, re.DOTALL):
+        # JP/CN/TW use full-width markers while KR uses ASCII ?1: / ?!.
+        for match in re.finditer(r'[？?](\d+)[：:](.*?)\n', text_content, re.DOTALL):
             choice_num = match.group(1)
             choice_text = match.group(2).strip()
             if choice_text:
@@ -1162,8 +1268,8 @@ class DialogueLoader:
                 })
                 last_choice_num = choice_num
 
-        # Pattern 3: Choice ending marker — ？！
-        for match in re.finditer(r'？！', text_content, re.DOTALL):
+        # Pattern 3: Choice ending marker — ？！ / ?!
+        for match in re.finditer(r'(?:？！|\?!)', text_content, re.DOTALL):
             all_matches.append({
                 'pos': match.start(), 'type': 'choice_ending',
                 'speaker': 'System',
@@ -1198,10 +1304,7 @@ class DialogueLoader:
                     rs_head = _req.head(rs_check_url, timeout=8)
                     if rs_head.status_code == 200:
                         # Fetch JP original from Atlas JP
-                        jp_endpoint = f"{self.db_loader.BASE_URL}/nice/JP/script/{script_id}"
-                        jp_data = self.db_loader._make_request_with_retry(jp_endpoint)
-                        jp_url = str(jp_data.get('script', '')) if jp_data else ''
-                        jp_text = self._get_text_content(jp_url) if jp_url else ''
+                        jp_text = self.load_script_text(script_id, region="JP")
                         # Fetch Rayshift English text
                         rs_resp = _req.get(
                             f"https://rayshift.io/api/v1/translate/script-ingame/{script_id}",
@@ -1229,110 +1332,17 @@ class DialogueLoader:
                     logger.warning(f"Rayshift fetch failed for {script_id}, falling back to Atlas NA: {e}")
                 # Rayshift unavailable — fall through to Atlas NA below
 
-            script_endpoint = f"{self.db_loader.BASE_URL}/nice/{search_region}/script/{script_id}"
-            script_data = self.db_loader._make_request_with_retry(script_endpoint)
-            
-            if not script_data:
-                logger.warning(f"No script data found for script ID {script_id}")
-                return []
-            
-            # Get the raw script text from the script URL
-            script_url = str(script_data.get('script', ''))
-            if not script_url:
-                logger.warning(f"No script URL found for script ID {script_id}")
-                return []
-
-            # Fetch the raw script text (Atlas region text)
-            text_content = self._get_text_content(script_url)
+            text_content = self.load_script_text(script_id, region=search_region)
             if not text_content:
-                logger.warning(f"Failed to fetch script text from {script_url}")
+                logger.warning(
+                    f"No Atlas script text found for {search_region}/{script_id}"
+                )
                 return []
             
             text_content = text_content.replace('[%1]', '藤丸立香').replace('[line 3]', "——").replace(
                 '[line 6]', "——").replace('[line 18]', "——")
                         
-            dialogues = []
-            
-            # Pattern 1: Regular dialogue with speaker
-            # Format: ＠speaker\ncontent\n[k]
-            pattern1 = r'＠([^\n]*)\n(.*?)\n\[k\]'
-            
-            # Pattern 2: Protagonist choice
-            # Format: ？num：choice\n
-            pattern2 = r'？(\d+)：(.*?)\n'
-            
-            # Pattern 3: Choice ending marker
-            # Format: ？！
-            pattern3 = r'？！'
-            
-            # Find all matches for all patterns
-            matches1 = list(re.finditer(pattern1, text_content, re.DOTALL))
-            matches2 = list(re.finditer(pattern2, text_content, re.DOTALL))
-            matches3 = list(re.finditer(pattern3, text_content, re.DOTALL))
-            
-            # Combine and sort all matches by their position in the text
-            all_matches = []
-            
-            # Process regular dialogues
-            for match in matches1:
-                try:
-                    speaker = match.group(1).strip() or 'Narrator'
-                    content = match.group(2).strip()
-                    if content:  # Only add non-empty dialogues
-                        all_matches.append({
-                            'pos': match.start(),
-                            'type': 'dialogue',
-                            'speaker': speaker,
-                            'content': content.replace('[r]', '\n')
-                        })
-                except Exception as e:
-                    logger.warning(f"Failed to process dialogue match: {e}")
-                    continue
-            
-            # Process protagonist choices
-            last_choice_num = None
-            for match in matches2:
-                try:
-                    choice_num = match.group(1)
-                    choice_text = match.group(2).strip()
-                    if choice_text:  # Only add non-empty choices
-                        # Pre-process the choice text
-                        processed_text = choice_text.replace('[r]', '\n') #.replace('[%1]', '藤丸立香').replace('[line 3]', "——")
-                        all_matches.append({
-                            'pos': match.start(),
-                            'type': 'choice',
-                            'speaker': '藤丸立香',
-                            'content': f"Choice {choice_num}: {processed_text}"
-                        })
-                        last_choice_num = choice_num
-                except Exception as e:
-                    logger.warning(f"Failed to process choice match: {e}")
-                    continue
-            
-            # Process choice ending markers
-            for match in matches3:
-                try:
-                    all_matches.append({
-                        'pos': match.start(),
-                        'type': 'choice_ending',
-                        'speaker': 'System',
-                        'content': f'Choice {last_choice_num} Ending' if last_choice_num else 'Choice Ending'
-                    })
-                except Exception as e:
-                    logger.warning(f"Failed to process choice ending match: {e}")
-                    continue
-            
-            # Sort matches by their position in the text
-            all_matches.sort(key=lambda x: x['pos'])
-            
-            # Convert matches to dialogues
-            for match in all_matches:
-                dialogues.append({
-                    'speaker': match['speaker'],
-                    'content': match['content']
-                })
-            
-            return dialogues
+            return self._parse_script_dialogues(text_content)
             
         except Exception as e:
             logger.error(f"Failed to extract dialogues from script {script_id}: {e}")

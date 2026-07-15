@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010820",
+  "source_region": "JP",
+  "source_hash": "51ba5ed3412b66af8bf62015b740403386d2e22828918135e4463b8fcaa2b827",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 101,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……没成功吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "唔姆。要是在这里说出『成功了吗？』之类的话，\n复活的旗帜就会唰唰竖起。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "……不过说『没成功吧？』\n不也是一样的吗，豹人如此想到。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……啊啊，果然还是这样！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "听好了，藤丸立香！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "乌尔德让自己周围的[#時間を遡行させているの]！\n也就是说……你们从一开始就根本没有成功发动攻击！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "她能躲过阿兹莱尔的斩首，\n大概也是因为这个！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[#出鱈目:で た ら め]也该有个限度！\n谁有因果逆转的宝具吗！？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "想带什么来都随你们。\n你们以为因果逆转就能逃过我的时间遡行？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "只要把时间倒退到那件宝具成立之前即可。\n当然，如果40亿年前便有宝具的原型，那另当别论。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "御主。\n抱歉，可以让我站在最前面吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……大卫？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哎呀呀，原来如此。\n看来这就是所谓的命运际会。"
+    },
+    {
+      "speaker": "M：大卫",
+      "translated_content": "别担心。我看起来虽然这样，该出手时还是很可靠的。\n我能攻破时间遡行，绝对没错。"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "……什么？"
+    },
+    {
+      "speaker": "M：大卫",
+      "translated_content": "啊，我说自己能攻破你的时间遡行。\n想逃吗？那样的话，我不会追你。"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "一派胡言。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "[#君には改心する権利がある]。[wt 0.8][charaFace F 3]\n——不过说实话，我觉得你其实没有。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：打中了……！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，奇怪？为什么？怎么回事？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大卫的宝具『[#五つの石:ハメシュ・アヴァニム]』，\n确实有第五颗石头必定命中的记录。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，居然能命中乌尔德？"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "——怎么会。"
+    },
+    {
+      "speaker": "M：大卫",
+      "translated_content": "哎呀，原来女神的血也是红色的。"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "你用的那颗……是40亿年前的石头。"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "也就是说，你把滚落在眼前的东西，\n当作宝具使用了吗。"
+    },
+    {
+      "speaker": "M：大卫",
+      "translated_content": "我的宝具只要是石头，什么都行。\n既然就滚落在眼前，那当然要用。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……嗯，也是理所当然。\n只要让受伤的状态也一并倒流即可。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，现在已经找到突破口了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要大卫能让宝具命中，\n时间遡行的防御就应该会暂时失效。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "瞄准那个时机，把所有攻击\n全都轰过去——！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哈哈哈。我们的所长还真会提出无理要求！\n不过，这是心爱的亚比煞提出的请求！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "好吧。无论多少次，我都会让宝具命中。\n毕竟[#弾丸:た　ま]到处都是。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "不过，我会把全部精力投入用宝具瞄准这件事。\n你们最好当我除此以外什么都做不了！"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "——回首看来。\n我真是个胆小鬼。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "N：乌尔德",
+      "translated_content": "存在能够触及我的利齿。\n而我的天性，会对此感到比屈辱和愤怒更深的恐惧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "所以——我可以毫无[#躊躇:ためら]地使用这个。"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "……报告情况！"
+    },
+    {
+      "speaker": "卡瓦塔",
+      "translated_content": "乌尔德的灵基数值出现变化！\n正在发生规模惊人的膨胀。"
+    },
+    {
+      "speaker": "托马林",
+      "translated_content": "检测到职阶变化，\n正从Archer羽化为Beast！"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "也就是说，她此前一直没有发挥出\n身为Beast的真正力量……！"
+    },
+    {
+      "speaker": "卡扬",
+      "translated_content": "这是……[wt 0.7][charaFace I 3]特里斯墨吉斯忒斯下达批准了！"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "批准！？我们有提出过什么请求吗！？"
+    },
+    {
+      "speaker": "卡扬",
+      "translated_content": "系统已确认当前处于对职阶·Beast的事态，\n允许召唤冠位英灵！"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "这就是刚才那一战中无法\n召唤Grand Servant的原因！"
+    },
+    {
+      "speaker": "卡扬",
+      "translated_content": "数量为两骑！"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "好，立刻通知藤丸立香\n可以召唤冠位英灵！"
+    },
+    {
+      "speaker": "卡扬",
+      "translated_content": "没问题。已经开始准备召唤了！"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "很好！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "奥尔加玛丽所长，这是刚才发掘出的Beast，\n提亚马特的战斗数据。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "虽然尚不清楚她是如何\n变生为Beast的，"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "但可以确定，她是在模仿\n提亚马特的数据。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所以，只要参考这份数据，就完全能够\n为藤丸立香[&君:ちゃん]他们提供帮助。"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "……[wt 0.5]谢谢。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不客气。\n啊，现在能进行通讯吗？"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "可以。有什么话要转告他们？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯，我自己来说。"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "——好，藤丸立香[&君:ちゃん]，\n玛修。能听见吗？"
+    },
+    {
+      "speaker": "M：藤丸立香",
+      "translated_content": "听得见！"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "是，没问题，医生！"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "乌尔德现在正试图羽化为Beast。"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "虽然恐怕远远无法与你们曾经战斗过的\n提亚马特相比。"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "——但最重要的是，她正拼尽全力。"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "这和生存本能稍有不同。\n更接近于确立自我——"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "也就是『为了让自己能继续成为自己』，\n这种任何人都拥有的、平凡的……"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "却又不得不为之拼命的理由。\n怀有这种理由的从者，会很强哦。"
+    },
+    {
+      "speaker": "M：藤丸立香",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "……不过，那和现在这件事得分开说。\n首先，她惹出的麻烦也太乱来了！"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "说得没错！"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "虽说多少有值得同情之处——"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "但一码归一码，基列莱特认为，\n她仍是一位必须打倒的女神！"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "好，你们两个加油！\n打倒Beast，拯救世界吧！"
+    },
+    {
+      "speaker": "O：Dr.罗曼",
+      "translated_content": "我们还可以投入两骑Grand职阶。\n让她见识你们的全部力量！"
+    },
+    {
+      "speaker": "K：二人",
+      "translated_content": "明白！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "奥尔加玛丽所长，谢谢你。\n那么，我的职责到此结束。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "之后就交给你们了——"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "别说傻话，赶快给我回到监控屏前。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦。"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "虽然不知道你什么时候会消失，\n但我要你一直认真工作到最后。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎呀……\n我觉得自己帮不上什么忙哦？"
+    },
+    {
+      "speaker": "E：奥尔加玛丽",
+      "translated_content": "他是这么说的，穆尼尔，你怎么看？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "你在说什么啊，医生。\n[#俺たちは元々あんまり役に立ってないんですよ]。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦，是这样吗！？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "毕竟真正身处现场的，归根结底只有他们两个。\n遇到太过紧急的抉择，也只能交给他们。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "现在已经是最高潮了。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "接下来只需要看着他们战斗，\n我们在不在这里，其实都没太大区别。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……唔，是吗。[wt 1.2][charaFaceFade J 1 0.2]\n那我就留下来好了。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "好好。那就在这里待着吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——Beast·乌尔德。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "时间不会倒流之类的说法都是谎言。\n不回首过去更是愚行。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "永远回首过去吧。\n我深爱的迦勒底啊。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请容我们全力拒绝，Beast·乌尔德！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "因为我们已经决定，\n要迈向一秒之后的世界！"
+    }
+  ]
+}

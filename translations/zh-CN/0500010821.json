@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010821",
+  "source_region": "JP",
+  "source_hash": "0a55223086601eb6e51a73838f8b948cc6d5bb793ee0b11aa62e45c239e8265a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 90,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "好，我还远远没到极限呢！"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "喂，你在说什么啊！\n灵基！　你的灵基都快要坏掉了！"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "对神灵乱来成这样，\n怎么可能安然无恙啊！"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "说到底，你扔的石头也是40亿年前的东西吧！\n虽然搞不太懂，但那玩意儿不是相当不妙吗？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "啊，还有这回事！\n总之先退下来，大卫！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "手臂还没断掉吧？　那就没问题，没问题！"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "治疗可是跟不上了啊。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——怎么了，过去的女神。\n不用吗？刚才那股力量。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不过，看来我们无论多少次\n都会重复刚才的行动。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "『反·时间』"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修！？　大家！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——我让时间停止了。\n或许一开始就该这么做。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……不，这是……。\n是我的败北吗……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……什么？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "动真格使用这股力量本身，就是你宣告败北吗。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "你以神自居，又动用了Beast之力，\n即便如此——也没能制服迦勒底。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——藤丸立香。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……你一直都没有迷茫过。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "一次也没有停下过脚步。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "难道就一点都不觉得可惜吗？\n难道不觉得每天就这样重复下去也好吗？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "根本没必要沿着最短的路一路狂奔吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我当然不会迷茫"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：因为我早就决定好了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——啊。这样啊。\n那就没办法了呢。"
+    },
+    {
+      "speaker": "K：乌尔德",
+      "translated_content": "大卫，你还有力气投石头吗？"
+    },
+    {
+      "speaker": "L：大卫",
+      "translated_content": "——当然。多少次都行。"
+    },
+    {
+      "speaker": "K：乌尔德",
+      "translated_content": "那么，瞄准这只红色的角。\n这样一切就结束了。"
+    },
+    {
+      "speaker": "L：大卫",
+      "translated_content": "……真的可以吗？"
+    },
+    {
+      "speaker": "K：乌尔德",
+      "translated_content": "你好像对我怀恨在心。\n把它击碎，想必会无比痛快吧。"
+    },
+    {
+      "speaker": "L：大卫",
+      "translated_content": "——恨意吗。\n没那么高尚啦。"
+    },
+    {
+      "speaker": "L：大卫",
+      "translated_content": "我这份心情，不过是更加充满虚荣的东西。\n抱歉了，乌尔德。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "好吧，尽管如此——\n你仍有改过自新的权利。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：大卫！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "没事没事。[wt 1.0][charaFace D 7]\n啊，不……能用那枚令咒强化我一下吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……明白了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "都到最后关头了还要依赖你，抱歉啊！\n那么！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "『前四发不得命中』\n『因人有被宽恕的权利』"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "『然而第五发不得落空』\n『因王有裁决的权利』"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "——『[#五つの石:ハメシュ・アヴァニム]』！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "哈！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "刚、刚才好像……有些发呆……。[wt 1.0][charaFace I 7]\n不，总之重新开始战斗行动！"
+    },
+    {
+      "speaker": "K：乌尔德",
+      "translated_content": "——没那个必要。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咦？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "真的很遗憾。一想到自己将消失得无影无踪，\n我的心真的会痛。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "不过……这样啊。\n你们是要怀抱过去，继续向前吗。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "这样啊。只要你们不忘记[#過去:わ た し]，\n[#私:かこ]也不会忘记你们。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "迦勒底——还有藤丸立香，\n我绝不会忘记。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "真是值得称许的话。\n你竟如此认可迦勒底？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "[FFFFFF]？[-]　我不是一直抱着这个想法行动的吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，什么情况。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道说，你该不会……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为了不让迦勒底被人忘记，\n才想让过去不断重演吗？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我没有说过，\n自己喜欢迦勒底吗？"
+    },
+    {
+      "speaker": "全员=spot[D,E,F,G,H,I,J,M]",
+      "translated_content": "[f large]根本没说过！！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "汝等的功绩无比辉煌。\n你们拯救了世界，让这颗星球免于孤高。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "但我无法忍受这一切被遗忘。\n甚至不是被埋没于历史的阴影之中。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我非常讨厌这一切消失得无影无踪。\n所以——"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "不过，败者再说这些也无济于事吧。\n无论如何，这个结局都是必要的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：再见，乌尔德"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "啊，只是暂时道别。\n下次再在图书馆见吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……是啊，图书馆见"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "嗯。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "下次——我会先好好做足功课再来的。\n电影方面的功课。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：再见，时子小姐"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "这个名字，我会好好珍藏的。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才，好像有什么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我有一种……某些东西开始前进了的感觉。\n就是这样的感觉。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里是管制室。\n大家都奋战得很好。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "已确认特异点完成修复。\n开始准备灵子转移回归。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这就是修复人理啊。[wt 1.0][charaFace J 9]\n虽然似乎有不少例外。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，都回来吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这里是藤丸立香，"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：收到！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

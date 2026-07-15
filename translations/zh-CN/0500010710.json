@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010710",
+  "source_region": "JP",
+  "source_hash": "5ef62f40a189e031a552c5acfec1dd30a8d7b85da031cee163a5f397a8cf1f58",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 101,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "早上好，前辈。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：早上好——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "早上好，藤丸立香[&君:ちゃん]、玛修。[wt 0.8][charaFace A 1]\n你们两个怎么样，都还精神吗？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我被迫明白自己甚至连死人都算不上，\n真是头疼死了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……什么？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯，总之昨天我已经大致了解情况了。\n也明白了自己曾经是什么。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "当然，一点实感都没有。半点都没有。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我所拥有的，只有作为罗玛尼·阿其曼的\n那段过去。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不过啊，要是我把一切都扔下不管，\n不觉得也有点对不起真正的医生吗？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所以，我会尽力做到自己能做的事。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "藤丸立香[&君:ちゃん]也好，\n玛修也好。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "在我消失之前，也请继续多多关照啦！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好、好的……。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊，对了对了。是叫旧日回响来着？\n根本没有那种现象哦。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我想多半是乌尔德通过我捏造出来的现象。\n矛盾一旦被[#衝:つ]破，那位女神就不堪一击呢。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "那就这样，回头见！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（……我该怎么办才好……）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（该对那位医生说些什么。\n　不，该告诉他些什么……）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（还是说，什么都不告诉他更好……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦……芙芙？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "芙芙？\n……是芙芙吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "跑、跑到哪里去了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才那是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。虽然只有一瞬间，很难看清，\n但轮廓似乎和往常有些不同……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是我的错觉……吗。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "戈尔德鲁夫大叔好像已经消失了。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "唉……如今想来，\n连他的吐槽都让人怀念啊……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（稍微松了口气）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（随后陷入[#自己嫌悪:じ  こ  け  ん  お]）"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "御主。那个……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "重新摆脱乌尔德的控制之后，\n我想起了一件事……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我们确实已经夺回人理了吧！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是啊！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "是的。所以我当时真的是\n非常非常用力地向您道别了……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这样一来，我岂不是说谎了吗——！？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好啦好啦。冷静点。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "想做却没能做到的事，\n根本算不上说谎吧。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "……唔，虽然好像另有隐情，\n但既然回来了，我就会继续努力。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "今后也请多关照啦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我才要请你多关照！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我、我今后也要继续\n请您多多关照啦——！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（果然……虽然之前就已经明白了，\n　但清姬刚才的言行让我彻底确定了）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（从者们还记得\n　在奥尔加·迦勒底亚斯内部的战斗）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（也就是说，他们也和现在的迦勒底以及\n　藤丸立香等人一样，）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（在停止马里斯·迦勒底亚斯之后，\n　回归原本历史之前的短暂余暇中……）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（在距离人理被正确[#編纂:へんさん]的前一刻，\n　身处这座迦勒底基地）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（对他们而言，如今迦勒底的状态也是\n　“夹在结束之前的结束之延续”）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说回正题。乌尔德消失后，\n重启完成的示巴观测到了特异点的产生。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚才，我们尝试确定时间轴与地点——\n但失败了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "失败……了吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "特里斯墨吉斯忒斯的回答是『过去』。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "范围从一秒前一直到公元前。\n推测恐怕连侏罗纪以前也包括在内。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：侏罗……侏罗纪！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。那里既是一秒前的过去，\n同时也是公元前。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概只是示巴无法观测到十亿年以前，\n实际上更久远的过去应该也全都符合条件。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……『过去』这一完整的概念，\n全都对应着她所在的地点与时间。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那该不会没法灵子转移吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，不是。正好相反。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从原理上来说，只要『灵子转移至过去』，\n应该就能抵达她所在的地方。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "没错。甚至可以说，灵子转移的目的地\n[#そこしかない]只有那里。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "照这样下去，新产生的微小特异点之类，\n都会因为被乌尔德覆盖而无法被示巴观测。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "要是不赶快打倒乌尔德、想办法解决，\n我看事情会变得很不妙哦！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "立刻准备灵子筐！\n藤丸立香、玛修，转入待命状态！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "灵子筐准备完毕后，立即进行灵子转移。"
+    },
+    {
+      "speaker": "二人",
+      "translated_content": "是！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "奥尔加玛丽所长。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "虽说女神乌尔德的权能是『过去』。\n但真的如此吗。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什么叫真的如此？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "北欧神话的命运三女神之一，掌管过去的乌尔德。\n当然很有名，也会有人信仰她。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "可是，她再怎么说也不该强大到这种地步吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "虽然[#方向性:ベ  ク  ト  ル]有所不同，\n但若能操纵整个『过去』，那就足以比肩提亚马特。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那是因为……她属于Beast职阶吧。\n出现在巴比伦尼亚的提亚马特也是Beast吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要是Beast，做到这种犯规的事并不奇怪。\n何况还是掌管『过去』的神灵。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "话是这么说……。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "可这样一来，\n刚才那场战斗就有些蹊跷。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "没错。即使海德那一击\n近似偷袭，她也[#弱すぎる]太弱了。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "只能认为她压制了自己的力量。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "她当时确实说过，自己分出了一部分力量\n用于控制示巴……。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "一边是操纵过去这种荒唐的权能，\n一边又脆弱到会被暗杀者的利刃所伤。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "唔——，确实有些矛盾。\n又或者——那并非她原本拥有的力量。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊——，那一点确实重要，\n不过你们是不是还忽略了另一件重要的事？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "罗玛尼？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "当然，她没有使出全力，这一点毋庸置疑。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "事实上，她一边维持『过去』这一概念，\n一边反复进行多次循环——"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "这对身为女神的她无疑也是种负担。\n不过在那之前，还有一个更根本的问题。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我们似乎遗漏了她究竟[#なんでそんなことをしたのか]\n为什么要那么做这个角度。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……确实如此。[wt 0.5][charaFace D 0]\n她追求的东西——究竟是什么呢。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "……或许就是迦勒底本身。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "你看，灵子转移会干涉过去……。\n换言之，它和乌尔德的权能很接近吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "她为了追求更强的力量，试图吞并迦勒底……\n这种可能性应该也是有的吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原来如此。这个推测或许很接近真相。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……。"
+    }
+  ]
+}

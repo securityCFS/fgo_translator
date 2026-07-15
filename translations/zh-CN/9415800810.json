@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800810",
+  "source_region": "JP",
+  "source_hash": "ba627a8ca253579cd257b9c3d3dbfdd90d95802d96892f2505bec3ed8b3ec4de",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 57,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[#施設:テアトルム]大概也逛了七八成吧"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：看来很快就能称霸所有[#施設:テアトルム]了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "能打扰一下吗？　藤丸立香。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：什么事？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个管家果然还有事瞒着我们。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我也同意[&ですけど:だけど]……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：大概没有敌意[&のでは？:んじゃないかな？]"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯……我也有这种感觉。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但是……果然不能放着不管吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "即便没有恶意，\n也不代表不会对我们造成损害。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你在之前的特异点里\n也已经经历过很多次了吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：有什么明确可疑的地方[&あるんですか:あったりする]？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是的。体验期间我稍微调查了一下，\n卡尔德尼亚里也有几个奇怪的地方。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "离开村正的锻造工坊后也看见过吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这么说来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：那里像废墟一样……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽说是为了更新[#施設:テアトルム]，\n可那里似乎并没有新建任何东西的计划。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "旁敲侧击地问也会被搪塞过去，\n那里肯定是某个关键点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我和格蕾会拖住阿斯卡拉福斯，\n你能趁这段时间去调查一下吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：知道了"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我试试"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "玛修，支援就拜托你了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好的。请交给我吧，奥尔加玛丽所长！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯，能打扰一下吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好的！　什么事！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "关于下一处[#施設:テアトルム]的选择，\n我有些事情想确认……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "奥尔加玛丽所长所说的\n就是这一带吧……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "垃圾……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好像在叫我过去？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：好像在说来这边……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。以至今为止垃圾表现出的威胁程度，\n数量不多的话，即使遭到袭击应该也没有问题……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我去看看"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我们也会在这里进行监控，\n但请务必小心，前辈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "卡尔德尼亚里竟然有这样的后巷……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，请等一下！\n显示不正常！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这里同时属于卡尔德尼亚和里卡尔德尼亚……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：大家……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：一群垃圾……！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：垃圾们"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：融合了……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "危险！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：刚才那是……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "集中精神！　先解决眼前的敌人！"
+    }
+  ]
+}

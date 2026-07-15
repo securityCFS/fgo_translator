@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010010",
+  "source_region": "JP",
+  "source_hash": "bf026bd4f3801a8a61c972b7566488c3c942f9137d55309ad00059d03687e3ea",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 153,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "旁白",
+      "translated_content": "任何生命体都存在时间轴，\n其生存或死亡也由此决定。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "无论何种生命体，诞生的瞬间，\n过去便随之出现。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不，即使尚未诞生也一样。\n只要存在作为母体之物，便仍旧存在过去。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "只要任凭自己置身于时间的流逝中，\n一切生命便都受到时间束缚。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "一切生命都拥有充满乡愁的过去——\n走过的路途也被记录下来。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "记录不会改变。过去无法改变。\n这便是所谓的命运。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "可是。\n即便如此。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "你是否曾经梦想着，\n想要改变过去呢？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——我说，[#あなた]？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有过吧？ 别想说没有。\n而如果愿望得以实现，你的过去就会变得[#無敵]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "让我为你准备一段精彩的假想过去吧。\n这样一来，无论发生什么，你都能承受。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "让我为你准备一段美妙的体验吧。\n这样一来，无论发生什么，你都无法离开。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那么，最后来问候一句。最先来问候一句。[wt 1.0]\n你好，[wt 1.0]初次见面，[wt 1.0]请多关照。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "芙、芙、芙！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 早啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "早上好，前辈。\n身体感觉怎么样？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 身体？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。昨天因为身体不适，灵子转移中止。\n任务应该暂时延期了才对……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: ……感觉还不错吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那真是太好了！\n那么，我先去参加简报了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "刚开始只是闲聊，\n请换好衣服再慢慢过来吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 呃……一开始要做什么来着……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 对了，先换上制服……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 走廊……原来是这样的吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 不，就是这样的……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 总觉得……轻飘飘的……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[tVoice ChrVoice_9800300 0_T010]\n嗨，你好啊。\n看来我们俩都要迟到参加简报了呢。[wait tVoice]"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[tVoice ChrVoice_9800300 0_T020]\n既然如此，要不要干脆一起挨骂？[wait tVoice]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: ……医生……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "没错。是大家可靠的男人，罗曼医生哦？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦？ 藤丸立香[&君:ちゃん]，你怎么了！？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "糟糕，这可不得了。把新人御主弄哭什么的，\n这可是会被工作人员集体声讨的大事啊！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 对不起，我没事"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "是吗？也许是湿度太低，眼睛发花了吧？\n总之，给。手帕。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "太好了。那么，马上开始简报吧。[wt 1.3][charaCrossFade B 98003000 4 0.4]\n不知道会不会又被所长训啊。[wait charaCrossFade B]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 没事的"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 一起挨训吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哈哈哈，说得也是。\n反正都要挨训，不如慢慢过去吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的，你们两个来得也太晚了吧。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎呀，抱歉。\n不小心聊了些闲话……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……算了，也没关系。\n反正我们也只是在和玛修闲聊。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "医生喝咖啡……前辈想喝什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 咖啡"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 红茶"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然集合晚了，就马上开始简报。\n穆尼尔，可以拜托你吗？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "了解。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了。关于这次的特异点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正如刚才告诉你们的，终于要正式开始\n攻略七个特异点了——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我们要攻略的是15世纪法国的特异点。\n埃尔隆，报告目前已知的情况。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "是。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "已确认多个[#思:おぼ]似从者的反应。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "数量在十骑以上，推测其中还有许多\n幻灵级从者。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "敌对反应遍布法国全境。放眼天空，\n到处都是杂龙之类的生物……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 双足飞龙？"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "对。双足飞龙遮蔽了天空。\n简直是一幅小型的末日景象。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 法夫纳？"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "……不是。说到法夫纳，\n那可是传说中的恶龙吧。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "如今出现在法国的，是龙种中最低等的一类……\n也就是所谓的双足飞龙。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "不过要是置之不理，它们迟早也会进化成真正的龙种，\n引发极为严重的事态。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "——总之，\n这类生物正遮蔽着15世纪法国的天空。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "至此，已经可以确定那里是特异点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。但要把双足飞龙一头不剩地全部剿灭，\n并不现实。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "根据特里斯墨吉斯忒斯的演算……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这些双足飞龙，全是由仅仅一骑从者\n召唤出来的。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊，也就是说，它们是从者的[#使い魔:サーヴァント]，\n可以这么理解。契约系统当然也相同吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以首先要调查那名从者究竟是谁，\n再思考对抗手段——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……前辈？前辈！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等、怎么了！？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎，是不是受到了敌人的攻击！？\n要叫医生吗！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你自己不就是医生吗，振作一点！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 对不起，我没事"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没事……吗。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道是先前的战斗给你留下了心理阴影？\n御主的心理护理应该优先进行才对。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 只是……稍微觉得有些怀念"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "怀念……？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哈哈哈，难道你是迦勒底的老牌御主吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "医生，请你再认真一点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了好了，言归正传。\n观测结果再过几分钟就出来了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在此期间，御主·藤丸立香和\n玛修去进行灵子转移的准备。明白了吗？"
+    },
+    {
+      "speaker": "藤丸立香＆玛修",
+      "translated_content": "了解！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，准备完毕了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 没问题"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好的，那么失礼了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "终于要正式攻略特异点了呢，前辈。[wt 1.0][charaFace A 11]\n……啊，不。应该称呼您为御主。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对了，芙芙在吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "接下来一段时间，我们要通过灵子转移\n离开迦勒底……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 抱歉，它不在这里"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这样啊，真遗憾。\n那么，机会难得……我们来做一次指差确认吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "毕竟这里可不是忘带东西后\n还能轻松回来拿的环境。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么——魔术礼装，确认。便携食品，确认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 魔术礼装，确认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 便携食品，确认。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "通信器，确认。\n盾，确认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 通信器，确认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: [&オレ:わたし]可没有盾哦？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，我就是御主的盾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "化为盾牌守护御主，\n正是我的职责。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对、对不起。我突然说了奇怪的话……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 不会，很让人安心"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。那么我们出发吧，御主！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "感觉自己有些轻飘飘的。\n仿佛置身于梦境与现实的夹缝之间。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "是因为马上要正式修复特异点，所以才紧张吗？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "前往法国，打倒邪龙们这一艰巨任务，\n正在[#苛:さいな]折磨我的精神？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……不，总觉得哪里不对。[wt 0.05][charaMoveReturn D -250,-6 0.3]\n虽有紧张，却没有恐惧。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "既然是去修复特异点，这应当是好事。\n我是这么想的……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "但自己——原本是这么坚强的人吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "准备万全了吧？最后再做一次自我诊断，\n没问题就进入灵子筐体。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不愧是所长，凡事都很谨慎呢。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "藤丸立香[&君:ちゃん]应该也还没习惯，\n慢慢来，不要慌张。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，终于要开始修复第一特异点了。\n各位，绝对不能松懈！"
+    },
+    {
+      "speaker": "工作人员",
+      "translated_content": "了解！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "玛修和藤丸立香[&君:ちゃん]的\n生命体征检查，没有问题。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……倒不如说，你太镇定了，\n藤丸立香[&君:ちゃん]。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "玛修的紧张程度还在允许范围内，\n藤丸立香[&君:ちゃん]则正好相反。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "放松过头了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这可不是什么好兆头。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "是啊。没有适度的紧张感，\n就有可能做出错误判断。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "告诉玛修，万一发生情况，\n要优先服从我们的命令。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "已经告诉她了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好。只要玛修能及时阻止你乱来，\n应该就没问题。"
+    },
+    {
+      "speaker": "F：川田",
+      "translated_content": "灵子转移准备完成。\n已完全阻断灵子筐体内的时空相互认知。"
+    },
+    {
+      "speaker": "F：川田",
+      "translated_content": "无法确立藤丸立香\n在当前时刻的存在证明。"
+    },
+    {
+      "speaker": "F：川田",
+      "translated_content": "由空洞构造体构筑的理论防壁已达到五层。\n开始缓解[#逆説流出崩壊:パ ラ ド ク ス フ ォ ー ル]。"
+    },
+    {
+      "speaker": "G：托马林",
+      "translated_content": "将伪装存在证明投射至指定坐标。\n已取得转移目的地的存在权利。"
+    },
+    {
+      "speaker": "G：托马林",
+      "translated_content": "灵子转移成功率已达到99.9％。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很好，那么开始灵子转移！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "来吧，一起去拯救世界。\n没关系，对现在的你而言，早已驾轻就熟了吧？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "一如往常地战斗，一如往常地带来希望吧。\n这个世界的一切都随你心意。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "创造出更加美好的过去吧。\n愿那段过去成为你的一切。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "永远活在过去吧。\n永远沉溺于过去吧。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "人类这样就好。\n你这样就好。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为你看，\n所谓[#『未来』:よけいなもの]早已无处可寻。"
+    }
+  ]
+}

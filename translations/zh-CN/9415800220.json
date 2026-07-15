@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800220",
+  "source_region": "JP",
+  "source_hash": "4931f8ca0e53c46656f257f46e452b223adfeee55745c3721a36e722f9d2ba5a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 40,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "呐呐，小阿斯！御主！[cueSeContinue SE_25 25_ade1144 0 1.0 001][wt 0.05][charaMoveReturn A 0,5 0.25][wt 0.25][cueSeContinue SE_25 25_ade1144 0 1.0 002][wt 0.05][charaMoveReturn A 0,5 0.25][wt 0.25]\n接下来要去哪里呀！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：格蕾似乎"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：非常喜欢卡尔德尼亚呢"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！仔细想想，\n这家伙可能还是第一次来游乐园吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "作为管家，我真是再高兴不过了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "之前一直穿着玩偶服，\n现在换成这身，甚至觉得有点凉快过头了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：你一直都"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：穿着玩偶服吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈哈。这也是经理的命令……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "先不说这个。在前往下一处[#施設:テアトルム]之前，\n还有一个地方必须介绍给已经获得卡尔德的各位。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "必须介绍的地方？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没错，就在这边。\n离得很近，不用担心。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：是那个吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哎呀，不是。\n那是一处目前暂停使用的[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "为了让各位始终享受到最新内容，\n卡尔德尼亚也一直在更新[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哦。还挺勤快的嘛。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我们到了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这里是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：难道说"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没错！这里是[#株の取引所]！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "在这里，各位将体验\n成为各家企业股东的感觉。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "股、股东！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "使用各位获得的卡尔德，\n买入有潜力的股票……取得分红……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "也就是说！靠炒股大赚一笔！\n体验富有从者与贫穷从者的差别！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说起来，父亲也做过投资呢……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "魔术师和投资的确十分相配。\n毕竟，这是占卜确实能派上用场的世界。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过，很难达到未来视那般精准，\n而且魔术师之间也会彼此争斗……！"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "这方面我也算颇有[#一家言:いっかげん]！\n不过，卡尔德尼亚提供的终究只是体验版吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：哎呀，师父来了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：她看起来很擅长谈钱"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "真是敏锐。正如您所说，\n这里会挑选出一些推荐项目供各位体验。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位只需从中作出选择，\n具体的运作则全权交由管家，也就是我来负责。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "还可以使用其他设施获得的卡尔德\n追加购买股票，投入越多，预期收益自然也越高。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "投资收益会定期发放，\n请各位务必留意查看！"
+    }
+  ]
+}

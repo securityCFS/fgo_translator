@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010430",
+  "source_region": "JP",
+  "source_hash": "def3b383c05f767c83bddf02886eb3ca53f7122f23717e7c6361c18e7cdeb08d",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 77,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "果然，时子小姐……是从者！\n但她并没有和御主缔结契约！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "恐怕她持有圣杯，此外还有另一种可能。\n时间——她是与时间有关的存在。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时间……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "比如说……虽然是故事中的人物，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "曾说出“时间啊，停下吧，你是如此美丽”的\n浮士德博士。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "或者……虽然这种可能性比较低，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "亚瑟王有“在阿瓦隆疗伤，并在不列颠\n陷入危机时再度现身”的传说。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "还有，那个……日本也有……\n我记得是玉手箱……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：浦岛太郎？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。记得浦岛太郎打开箱子后，\n转眼间就衰老了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "而且他跨越了时间，抵达了未来。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "作为与时间有关的从者\n被召唤的可能性或许并非为零。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：可是，总觉得……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。感觉无论哪一位都不太符合。\n御主心中的形象是？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……神灵"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……是的。我也赞成这个推测。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时间自古便已存在，同时也是人类之身\n无法操纵之物。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "因此，其职能往往由神来承担。\n希腊神话中的克洛诺斯、埃翁。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "据说琐罗亚斯德教的创造神祖尔宛之名，\n意为时间。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "以及——北欧神话中掌管时间的三女神。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时间被分为过去、现在与未来三者。\n因此，她们也分别被赋予了各自的名字。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "掌管过去的乌尔德、[wt 1.0]掌管现在的薇儿丹蒂、[wt 1.0]\n以及掌管未来的诗寇蒂。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……虽然无法确定……\n但我想，或许就是这些神明中的某一位。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然，既然是神灵，\n应该是降格后被召唤的……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但若有圣杯作为后盾，\n那股力量想必会无比惊人。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[&時間……か:時間……]"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不过，也不能去图书馆调查这件事。\n更不可能直接去问她——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：身份固然重要，但共犯也很重要"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的，问题反倒在这里。\n时子小姐肯定不知道雪花干扰的事。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……也就是说，她果然不是工作人员。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "至少可以排除在第六特异点负责监控的\n工作人员吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯，还有……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。医生和奥尔加玛丽所长也一样。\n应该也可以从符合条件的人选中排除。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：但这样一来——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……麻烦的是，\n嫌疑人几乎一个也不剩了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "稍微整理一下吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "“共犯者大体了解迦勒底内部的情况”[wt 2.5][charaFadein L 0.8 0,-250][charaFadein O 0.8 85,20]\n“共犯者无从知晓迦勒底外部的情况”"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "“共犯者并不能读取我们的内心”[wt 2.5][subRenderFadein #C 0.8 0,0][subBlur2 #D lens 0.8 4 2 1.0 subBlur]\n“只能通过对话等方式获取信息”"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我想大致就是这样"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "奥尔加玛丽所长和医生都不符合。\n也不是工作人员。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "从者们……又如何呢？\n紫式部小姐似乎一直待在图书馆里。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "向特里斯墨吉斯忒斯查询后，\n得到的答复也是她从未离开过图书馆。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：特里斯墨吉斯忒斯……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "它是这座迦勒底信息分析的核心，\n灵子演算器·特里斯墨吉斯忒斯。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "与观测镜片·示巴并列，\n是如今迦勒底的两大核心。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：特里斯墨吉斯忒斯是什么来着……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "它是这座迦勒底信息分析的核心，\n灵子演算器·特里斯墨吉斯忒斯。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "简单来说，就是超级计算机吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "它会记录世界上的一切现象，\n甚至能推算未来将会发生的事。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "同时，它也是灵子转移的核心之一。\n另一个核心则是观测镜片·示巴。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "正因为有这两者，\n我们才能以迦勒底为据点战斗。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "说到底，没有它就无法进行灵子转移，\n我们也会束手无策。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……御主？怎么了？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（医生好像……说过……什么……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（不行……想不起来……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，通讯即将恢复。"
+    },
+    {
+      "speaker": "Z：穆尼尔",
+      "translated_content": "喂——，差不多该结束了——。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "辛苦啦——。\n这是第二次在通讯中断状态下战斗了吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。感觉我们已经适应了不少。\n不过，还远远不够。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "没事。比起第一次，耗时和战斗行动\n全都越来越好了。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "只要扎扎实实地训练到第七特异点，\n我觉得就没问题了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：谢谢！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "好，就是这股劲，就是这股劲。"
+    }
+  ]
+}

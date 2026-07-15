@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221211",
+  "source_region": "JP",
+  "source_hash": "255777b13badf95edda56d782c844e9c2dd2a557a75e038e6cdf902fe7ceabc5",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 15,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "三藏",
+      "translated_content": "漂亮！\n看来你们就算拿着石钵也不会被压垮呢！"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "那这个『佛前的石钵』就给你们吧。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "钱就不用付了。看来你们遇到了什么麻烦，\n那这个石钵就托付给你们吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "太……太感谢了。\n……但这样真的好吗，那么轻易交给我们？"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "没事没事，毕竟这东西只是重而已！\n如果能帮到人，佛一定也会露出笑容的。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "刚才我犹豫不决的原因在于别处。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "因为这是佛前的石钵，\n所以[#实际重量与目测不符]。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "其实这是个能够轻易装下整座阎魔亭的巨大石钵。\n我只是把它缩小了而已。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "所以，如果压垮了藤丸立香可就不好了。"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "但大家接下了我的如来掌也没事吧？\n那就没问题啦！"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "请不要客气拿走吧！\n但记得室外使用哦，因为可能恢复到原始大小！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 谢谢你，三藏亲！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 佛祖很大呢！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "三藏",
+      "translated_content": "嗯！　佛祖可是能看透一切的哦！"
+    }
+  ]
+}

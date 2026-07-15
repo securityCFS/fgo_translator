@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800720",
+  "source_region": "JP",
+  "source_hash": "1b5a859149c886e5b9e68482c20b0f9612fab1eef03e5c4bc618b94cea6d83db",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 36,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "让您久等了，管理人。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是谁……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是我。阿斯。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "又要……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "又要……从我这里……夺走吗……！？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我、我来送上格蕾小姐的记录！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "终于来了啊，阿斯……！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "我真的……等了好久……！\n来吧……快点……快点……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当然。\n记录就保存在这块水晶里……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "（这是与迦勒底合作制作的剪辑影像记录……）"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "啊啊……啊啊啊啊……怎么会……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "怎么会……如此可爱……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "呀[messageShake 0.03 3 3 0.5]啊——！\n怎、怎么会这么可爱！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "完美！　满分！　不，何止满分！\n亿分！　兆分！　直至[#那由他:な　ゆ　た]的尽头！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "在[#施設:テアトルム]的体验评价中\n偶尔也有扣分……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你根本不懂啊，阿斯！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "听好了。对父母来说，\n孩子无论是什么样子都完美无缺。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "这和表现好坏无关，\n孩子的一举一动，不，连每一次呼吸都惹人怜爱。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "所以……我希望他们\n能够实现梦想……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "绝对、绝对要实现最最精彩的梦想！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你能理解吧，阿斯？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "孩子……仅仅是存在于那里……\n光是这样……就真的无比美好……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "所以……梦想没能实现时该怎么办……\n父母也必须……替他们想好……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "必须告诉他们……比起破灭的梦想……你们自身才更加……\n更加美好……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "必须让他们……即使梦想破灭……也拥有重新面对一切的力量……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "这……就是卡尔德尼亚……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "那种……只会颂扬完美梦想的人……\n绝对不能原谅……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "对，绝对无法原谅……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你能理解吧，阿斯？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当然，管理人。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我要你让这些出色的孩子更加、更加闪耀，\n让他们竭尽全力获得实现梦想的力量。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "这才是！\n卡尔德尼亚！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "最优秀的孩子们认真许下的梦想必定能够实现，\n绝不能原谅任何阻挠他们的人！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "对，绝对不可能原谅！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你明白吧？　阿斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……当然，管理人。"
+    }
+  ]
+}

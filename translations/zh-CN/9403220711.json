@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220711",
+  "source_region": "JP",
+  "source_hash": "6f0e2ce544c6fc653f6b8ad4d6b5d74475710fee2b188235f92f0c6a83692e60",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 106,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "A：麻雀",
+      "translated_content": "您请喝茶啾！　您请吃点心啾！\n给您唱歌啾！　给您揉肩啾！"
+    },
+    {
+      "speaker": "C：麻雀",
+      "translated_content": "总之，要心怀感激地招待您啾！\n藤丸立香辛苦了啾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 作为对战斗的嘉奖，"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 麻雀们蜂拥而至。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "小……小麻雀们疯狂地招待……"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "这也是为了回报各位平日里的贡献啾。\n各位是不是在收集雀礼啾？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……？　啊，这么说来……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "在收集柴火、打扫房间、清扫庭院，\n以及击退魔猿时，确实积攒了一些……"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "嗯，在下也非常在意。\n『雀礼』究竟是什么啊。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "！　佐佐木不知不觉出现啾！\n熟人啾，是熟人啾？"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，啾啾啾芙。[wt 0.5][charaFace I 0][charaFadein I 0.2 0,-100]\n啾啾啾，芙芙呜芙。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 其实我也吓了一跳哦！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 竟然在若无其事地喝茶！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "算啦算啦，这样不是挺好的嘛。\n反正大家都是从迦勒底来的迷路之人。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "不过在下是四海为家的浪人，\n和藤丸立香阁下还是有所不同的。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "不过这不重要，麻雀们，继续说吧。\n雀礼究竟为何物？"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "啾。和客人们会有“谢意”一样，\n我们也会有感谢之情啾。"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "将形而上的、暧昧模糊的意念之力可视化之后的产物，\n就是『雀礼』啾。"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "具体来说，就是只要帮我们干活，\n雀礼的数量就能噌噌地往上涨啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "噌噌。"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "噌噌。所以今天就是来报答各位啾。\n类似于积点卡上的印章敲满啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 原来如此……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来是这么回事啊。\n感谢您认真的说明。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "话说回来……小麻雀，\n您刚才的解释还真是简单易懂呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "平时的会更……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 你似乎很会说呢。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "那当然啾。\n我可是雀十杰中脑子转得最快的麻雀。"
+    },
+    {
+      "speaker": "D：麻雀",
+      "translated_content": "我就是阎魔亭的金库管理负责人，『五官』啾。\n其他的麻雀也分别被父母赐予了……"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "『秦广』、『初江』、『宋帝』、『[#变成:卞城]』、\n『泰山』、『平等』、『都市』、『五道转轮』"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "这些名字啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这些名字……\n是地狱审判官十殿阎罗的名字吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "莫非各位都是地狱之王的孩子吗？"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "不是啾。只是侍从啾。\n但红老板娘是阎魔大王的女儿啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 阎魔大王……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 阎魔大王难道是指那个阎魔大王！？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "真令人吃惊。所谓的阎魔大王，\n就是在地狱审判罪人的审判长。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "用地狱的司法揭露死人生前的罪状，\n并根据罪的严重程度将其送入相应的地狱。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "其中，企图撒谎逃脱罪责的人还将被[#拔掉舌头]……\n以上就是世间对于阎魔大王的普遍认知。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "在佛教中，阎魔大王被称为夜摩天，\n在佛的意志下，“第一位死者”成为了掌管地狱的神佛……"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "十殿阎罗的架构据说是佛教从西方传入后，\n经过民间不断演变成的。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "也就是说，麻雀们所说的地狱，\n应该是扎根于日本的地狱的概念。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "扎根于日本的地狱信仰，\n与人们信奉的民间传说。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "两者混合而成的产物，\n那就是红阎魔阁下，是这样吧？"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "区区佐佐木，理解能力还挺快啾。\n半对半错啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "红老板娘的身世更加曲折啾。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "唔。什么，\n居然更加曲折啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "红老板娘原本是人类啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "她本是从人类的[#游廓:妓院]中逃出来的侍童，\n误入了『迷途之家』，最后丢了性命啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "但是，她在死前很好地安抚了『迷途之家』啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "基于这份功绩，死后才没有成为罪人，\n而是作为夺衣婆的手下开始在三途河畔工作啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "啾。然而，夺衣婆是个特别抠……\n不对，应该是特别节约的鬼啾。"
+    },
+    {
+      "speaker": "夺衣婆（想象）",
+      "translated_content": "『在这里工作的话，你就是我的女儿了。\n　是女儿就没必要给工资了吧？』"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "因金钱被卖身，遭受虐待逃走后再一次\n因金钱成为了别人的养女，地狱的鬼也太不像话了啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "『守财鬼』这词的起源大概就是那个老太婆啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 夺衣婆是谁？"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "据说死者在接受阎魔大王的审判之前，\n需要先渡过三途河。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "这时，会有鬼负责扒掉死者们的衣服，\n用来抵押当做过河的船费。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "那个鬼就是夺衣婆。\n据说她身长超过三尺。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "简直就是和各位一样大的老太婆啾。\n但在地狱里的资历比阎魔大王还长啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: （难道那个居合术只会把衣服给……咽口水。）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "夺衣婆……前辈知道吗？"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "哦哦。从表情来看，\n你似乎在动什么歪脑筋啊。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "哈哈哈。只斩落衣服的剑技，\n简直就是分寸拿捏分毫不差的高手啊。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "若真是如此，\n应该可以归在魔剑那类了吧！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "红老板娘在那个鬼婆婆手下认真且努力地工作啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "阎魔大王觉得她太可怜了，\n便正式将她收为了养女啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "简……简直就是童话般的发展呢……！\n我觉得这样很棒！"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "毕竟夺衣婆是阎魔大王的妻子，\n这只是兑现了口头承诺罢了啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "红老板娘的居合术传承自阎魔大王啾。\n『斩舌』的名号并不是徒有虚名啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "之后，阎魔大王委任红老板娘管理『迷途之家』，\n并在地面上开设了这座阎魔亭啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "作为治愈受伤神明、解救在山中迷路人类的\n『短暂梦之旅馆』啾！"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "原来如此。这样一来线索总算都连起来了。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "童话里的『雀之旅馆』，\n指的就是这座阎魔亭吗？"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "谁先谁后还无法断言啾。\n毕竟地狱和地面的时间是不同的啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "『迷途之家』……\n就是日本民间传说中的『无人之家的妖怪』。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "近代也有著名小说家以此为主题撰写了短篇小说呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "『迷途之家』中到处都是财宝，\n餐桌上摆满着豪华的食物。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "尽管迷途之人会对于屋内没人感到纳闷，\n但无法忍住面前无尽奢华的诱惑。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "然后据说一旦擅自对财宝或美食动手，\n就再也无法离开『迷途之家』，继而丧命于此了。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "相反，能够控制自身『欲望』的人会得到『迷途之家』的认可，\n从而带着幸福返回人间。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没错。『迷途之家』是测试人类欲望的妖怪。\n类似于阎魔大王的审判……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这座阎魔亭并没有那样的法则。\n这里应当是童话中出现的『雀之旅馆』。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "并非测试迷途之人，\n而是邀请善良之人。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "没错啾。\n阎魔亭已经转型成那样的旅馆了啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "红老板娘就是『雀之旅馆』的老板娘，\n是承载民间传说的麻雀英雄。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "也就是『宇治拾遗物语』中所提到的\n『在山中帮助人类的妖怪』的原型啾。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "贪婪的坏爷爷得到了惩罚，\n无欲无求的好爷爷得到了幸福……"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "摘瘤爷爷、开花爷爷。\n还有帮助麻雀的葛笼爷爷。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "原来如此，作为承载着俗称『爷爷三部曲』之一的人物，\n会有如此待遇也可以理解。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "也就是日本版的童谣。\n童话的证明人，对吧？"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "这是什么『俗称』啾？\n我还是第一次听到这个称呼啾。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "哈哈哈。在下只是觉得读起来挺顺口的。\n不过，那些其实全都指的是同一件事吧？"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "……嗯，没错啾。\n看来在这种问题上不能小看佐佐木啾。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "我们能告诉各位的啾只有这些。"
+    },
+    {
+      "speaker": "麻雀（五官）",
+      "translated_content": "聊太久了啾。我们得回去工作了。\n刚才的谈话要对老板娘保密啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……红阎魔小姐生前并非英雄，\n死后却成为了英灵呢…………"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但是，这样我们对红阎魔小姐的事也多少了解了一些。\n她确实是一个值得尊敬、出色的老板娘！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 没错！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "嗯。在下也受益匪浅。\n那在下差不多该回房间了。"
+    },
+    {
+      "speaker": "小次郎",
+      "translated_content": "请在下喝茶的回礼今后一定会还。\n若有需要在下帮忙的事，可以随时来访。"
+    }
+  ]
+}

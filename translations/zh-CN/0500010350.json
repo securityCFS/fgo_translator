@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010350",
+  "source_region": "JP",
+  "source_hash": "f47e3ef8395da0d0ce399c71daff927b96fcbc9b4fc55a71c7728508fd5da9ff",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 43,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "第六特异点修复完成！"
+    },
+    {
+      "speaker": "N：玛修",
+      "translated_content": "谢、谢谢。非常感谢！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚到沙漠时通信中断，\n的确有点吓人呢……"
+    },
+    {
+      "speaker": "N：玛修",
+      "translated_content": "是吗……是啊。\n通信中断的确是件相当可怕的事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。\n毕竟此前的特异点很少发生这种情况。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总之，还是和往常一样去接受心理辅导吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我们会立刻使用示巴与特里斯墨吉斯忒斯，\n开始探查特异点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然第六特异点已经修复，\n人类史中应该会浮现下一个特异点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "终于要到最后的特异点了。\n预计会有比以往更加激烈的战斗。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所有人都给我打起精神！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈。呃……我们该怎么办？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总之，先和平常一样"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是啊。和平常一样。\n……可是，那样的话……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没关系，[#必ず機会がある]"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "明白，御主。\n那么我会等待机会。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总之，玛修辛苦了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主也辛苦了。\n那么，我先告辞。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：思考"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……和玛修谈过之后，她愿意相信我，[bgm BGM_REQUIEM 0.1]\n实在是[#僥倖:ぎょうこう]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "把事情告诉她以后，\n目前[&オレ:わたし]没有发生任何变化。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，她不是犯人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……虽然这或许只是我的一厢情愿。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "时子小姐。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她应该就是敌人，这一点基本可以肯定。\n但是……比如说，在大家面前——"
+    },
+    {
+      "speaker": "福尔摩斯",
+      "translated_content": "你就是犯人，莫里亚蒂！"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "呀——，为什么会暴露啊————！？"
+    },
+    {
+      "speaker": "福尔摩斯",
+      "translated_content": "[f large]……长相！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……即便像这样揭穿她，她恐怕也不会多么动摇，\n而会[#何事もなかったかのようにする]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "其他人应该也曾对她产生过异样感。\n很难想象他们没有采取过应对措施。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "尽管如此，她仍毫无戒备地行动，是因为——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#対処しても無駄だからだ]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她很显眼，非常显眼。\n而且处处透着异样，只不过这种异样遭到了掩饰。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以在此前的无数次[#やり直し]中，\n一定也有人察觉过她的异常。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "一旦对她的存在产生怀疑，\n并且出言弹劾她。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "就会发生某种事情——让一切化为乌有。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，绝不能让她发现\n我们已经注意到了她。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "面对平时那个平易近人的她，\n也要报以同样亲切自然的态度。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……之后的问题，只剩下去哪里和玛修交谈……\n关于这一点，经过这次也有了明确答案。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "只要制造出和沙漠相同的条件就行。"
+    }
+  ]
+}

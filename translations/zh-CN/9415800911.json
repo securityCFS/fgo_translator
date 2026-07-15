@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800911",
+  "source_region": "JP",
+  "source_hash": "5c542173677e4e107da659bc3bdfbfb554d7ae3735990389221e8035727af69c",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 31,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "旁白",
+      "translated_content": "小小的……啊。为什么你……\n竟会以为连余也能欺骗……呢……"
+    },
+    {
+      "speaker": "E：阿斯卡拉波斯",
+      "translated_content": "啊啊，慈悲……冥府……啊。我竟然……\n以为自己……着那……之类的…………。"
+    },
+    {
+      "speaker": "E：阿斯卡拉波斯",
+      "translated_content": "所以……我所拥有的……就只有……这个……了。"
+    },
+    {
+      "speaker": "E：阿斯卡拉波斯",
+      "translated_content": "力量也……没有。知……也没有。连亲……都没能好好……\n……那样的我……最后剩下的……就只有谎言……而已。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这是——"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "还没………………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "还没………………还没……………………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我……………………必须………………\n好好做到才行………………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "即使对手是………………您…………\n也一样………………"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "您……？\n是在说谁呢。"
+    },
+    {
+      "speaker": "F：阿斯",
+      "translated_content": "…………愿祝福………………与您同在………………"
+    },
+    {
+      "speaker": "F：阿斯",
+      "translated_content": "…………愿幸运………………与您同在………………"
+    },
+    {
+      "speaker": "F：阿斯",
+      "translated_content": "将我………………对我而言………………\n所能做到的………………一切…………"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "你是在看幻觉吗，卡尔德尼亚的管家。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "看来大部分Garbage也都逃走了。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "能坚持到这里，已经很不错了。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "但是，到此为止了。"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "于此编织的，是梦想的吐息。\n是连宿命亦能斩断的，年轻生命之奔流。"
+    },
+    {
+      "speaker": "B：阿尔托莉雅",
+      "translated_content": "什么！"
+    },
+    {
+      "speaker": "D：亚瑟",
+      "translated_content": "那是！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "接招吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[font large]『[#巡り来たる宿命の剣:エ　　ク　　ス　　カ　　リ　　バ　　ー　　・　　ロ　　ゴ　　ス]』！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "快，逃吧！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "被摆了一道啊……\n从一开始，就没打算击中我们。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "只为逃跑而释放的宝具吗。\n从战术上说很明智，但实在令人不敢恭维。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "而且偏偏还挥动了\n你那边的剑。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "不不！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "不管怎么说，看来我们双方\n都多了些要向经理汇报的事情。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "现在先撤退吧。\n若还有再会之时。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "啊，就这么办吧。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "……可别就这样消失啊，阿斯。"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220110",
+  "source_region": "JP",
+  "source_hash": "44351b52c7b568cc87b98b9a8cd8d487f7df35173cace2d4eb7dabaccb551bb2",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 56,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "……唔。灵子转移，似乎完成了。\n这次好像没有出现在空中……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这里是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 某处山间……？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "唔唔……视野所及之处都是树林呢……\n别说公交站了，竟然连前往旅馆的指示牌也没有……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "嗯。希翁小姐所说的『度假旅馆』完全不见踪影啊。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "尽管对我来说，无论身处何方，\n只要在御主身边我就没有任何怨言……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "但连一条像样的路都没有未免太过分了吧。\n难道说，我们被那个人耍了？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 算啦算啦。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: ……咦？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……只有我们几个吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "戈尔德鲁夫新所长、迪尔姆德先生，\n还有芬恩·麦克库尔先生呢……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "都不在呢。也完全感受不到气息。\n看来是『走散』了吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "这次灵子转移也兼具实验的性质吧？\n他们的传送目的地会不会和我们的产生了偏差？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这……这可是紧急事态！\n立即联络迦勒底——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "迦勒底——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "玛修·基列莱特，\n新年刚开始就无法取得联系！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊[charaShake A 0.05 6 0 0.4]哇哇哇哇……这么说来，\n根本没让我们携带通讯设备啊，前辈！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 希翁该不会……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 是个不懂人心的人……？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "冷静点啦。\n通信手段的话，戈尔德鲁夫所长不是有吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "问题是现在我们和那位所长走散了。\n不过，这件事包在我身上吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "哎～，先拿出一小串稻穗。\n然后……[se ade236][charaMoveReturn C 10,0 1.0]消除吧～～，[wait charaMove C][charaMoveReturn C -10,0 1.0]净化吧～～♪[wait charaMove C][seStop ade236 0.3]"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "『走散之人：不甚遥远\n　相遇之期：不消半日』"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "好，以上就是神谕☆\n所以不必那么慌张啦，玛修。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不……不愧是玉藻小姐。\n若真是这样就好了……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "芬恩阁下也消失了的话，\n就意味着他和戈尔德鲁夫所长在一起吧。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "要信任身经百战的芬恩阁下，\n因此我们不如继续前进吧。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "这里可以听到潺潺溪水声。\n在山中迷路时最好沿着河川往上游走。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "怎么样，御主。\n先以山顶为目标吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 沿着河上山。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 沿着河下山。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "——请等一下。\n刚才，好像有——"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "听见了，是求助的惨叫声！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "毕竟御主从我身边逃跑时经常发出这种声音！\n所以我绝对不会听错！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: （感同身受！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 去看看发生了什么吧……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！\n说不定是戈尔德鲁夫新所长！"
+    },
+    {
+      "speaker": "F：？？？",
+      "translated_content": "住手啾！\n好痛　快住手啾！"
+    },
+    {
+      "speaker": "F：？？？",
+      "translated_content": "这些豆腐是虎大人的晚餐啾！\n才不是给你们这些臭猴子吃的啾！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[charaTalk A]\n唔叽！\n唔叽叽！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "那……那是……\n十分丰满像麻雀般的生物究竟是……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "看起来是一群捣蛋的猴子呢。\n那些猴子并非一般的猴子。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "似乎是带着魔性之力的魔猿。\n大概是妖魔鬼怪之类的东西吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "（究竟是怎么回事……一看到那只麻雀，\n　我就有种心神不宁的感觉……）"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "不对，现在不是胡思乱想的时候！\n御主，该怎么办！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 帮助那只麻雀（般的生物）！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "正合我意！　尽管不知道那是从哪来的魔性，\n但是这种一哄而上欺负一只麻雀的行为，不能坐视不管！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "山中相遇即是缘。\n就让我等慰劳旅行团来助你一臂之力吧！"
+    }
+  ]
+}

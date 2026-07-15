@@ -4,6 +4,54 @@ from dialogue_loader import DialogueLoader
 
 
 class LatestActivitiesTests(unittest.TestCase):
+    def test_latest_tasks_filter_scripts_that_parse_to_no_dialogue(self):
+        loader = DialogueLoader()
+        inspected_scripts = []
+
+        def fake_request(url, max_retries=None):
+            if url.endswith("/basic/JP/quest/phase/latestEnemyData"):
+                return [
+                    {"id": 1, "warId": 9, "phase": 1, "openedAt": 200},
+                    {"id": 2, "warId": 9, "phase": 1, "openedAt": 100},
+                ]
+            if url.endswith("/nice/JP/war/9"):
+                return {
+                    "id": 9,
+                    "name": "test war",
+                    "maps": [],
+                    "spots": [{
+                        "id": 90,
+                        "quests": [
+                            {
+                                "id": 1,
+                                "name": "battle only",
+                                "phaseScripts": [{"phase": 1, "scripts": [{"scriptId": "battle"}]}],
+                            },
+                            {
+                                "id": 2,
+                                "name": "story",
+                                "phaseScripts": [{"phase": 1, "scripts": [{"scriptId": "story"}]}],
+                            },
+                        ],
+                    }],
+                }
+            self.fail(f"unexpected URL {url}")
+
+        def fake_extract(script_id, region="JP"):
+            inspected_scripts.append(script_id)
+            if script_id == "story":
+                return [{"speaker": "A", "content": "dialogue"}]
+            return []
+
+        loader.db_loader._make_request_with_retry = fake_request
+        loader.extract_dialogues = fake_extract
+
+        rows = loader.list_latest_tasks(region="JP", limit=1)
+
+        self.assertEqual(["2"], [row["id"] for row in rows])
+        self.assertEqual(["battle", "story"], inspected_scripts)
+        self.assertEqual(1, rows[0]["hiddenNoScriptCount"])
+
     def test_latest_wars_use_lightweight_export_and_enrich_top_rows(self):
         loader = DialogueLoader()
         calls = []

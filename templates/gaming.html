@@ -56,14 +56,14 @@
                portion of the sprite (FGO standard layout). */
             bottom: 0;
             transform: translateX(-50%);
-            transition: opacity 0.45s ease, filter 0.4s ease, left 0.6s cubic-bezier(.4,.2,.2,1), transform 0.45s ease;
+            transition: opacity 0.45s ease, filter 0.4s ease, left 0.6s cubic-bezier(.4,.2,.2,1), bottom 0.6s cubic-bezier(.4,.2,.2,1), transform 0.45s ease;
             will-change: opacity, filter; opacity: 0;
         }
         .sprite-wrap.dimmed { filter: brightness(0.55) saturate(0.7); }
         .sprite-wrap.in { opacity: 1; }
         .sprite-wrap.dimmed.in { opacity: 0.85; }
         .sprite-wrap.out { opacity: 0 !important; transform: translateX(-50%) translateY(30px); }
-        .sprite-img { display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); user-select: none; -webkit-user-drag: none; transition: opacity 0.3s; }
+        .sprite-img { display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); user-select: none; -webkit-user-drag: none; transition: opacity 0.3s, height 0.6s cubic-bezier(.4,.2,.2,1); }
         
         /* Fade Layer (color-aware: black/white) */
         #fadeLayer { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease, background-color 0.2s; z-index: 80; }
@@ -641,6 +641,26 @@ const FIGURE_PAGE_H = 1024;
 const BODY_VH = 100;  /* % of scene container height — sprite fills full scene height (top to bottom) */
 const BODY_MAX_PX = 99999;
 const BODY_UNIT = 'cqh'; /* container-query height units, relative to #sceneWrap */
+const SCENE_LOGICAL_WIDTH = 1024;
+const SCENE_LOGICAL_HEIGHT = 576;
+
+function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
+    const rawX = Number(sp && sp.x);
+    const rawY = Number(sp && sp.y);
+    const explicit = sp && sp.x !== null && sp.x !== undefined
+        && sp.y !== null && sp.y !== undefined
+        && Number.isFinite(rawX) && Number.isFinite(rawY);
+    const rawScale = Number(sp && sp.scale);
+    const rawDepth = Number(sp && sp.depth);
+    return {
+        key: String((sp && sp.slot) || `${sp && sp.entityId}:${index}`),
+        leftPercent: explicit ? 50 + (rawX / SCENE_LOGICAL_WIDTH * 100) : fallbackLeftPercent,
+        bottomCqh: explicit ? rawY / SCENE_LOGICAL_HEIGHT * 100 : 0,
+        scale: Number.isFinite(rawScale) && rawScale > 0 ? Math.min(rawScale, 4) : 1,
+        depth: Number.isFinite(rawDepth) ? rawDepth : index,
+        explicit,
+    };
+}
 
 function escapeHtml(s) {
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -1202,65 +1222,70 @@ function renderFrame() {
 // Continuous sprite manager: keep DOM nodes alive across frames, only fade
 // out characters that left the scene and fade in genuinely new ones.
 // Existing characters get their face/talking/position updated in place.
-const SPRITE_NODES = new Map(); // entityId -> { wrap, img, sp, lastCompositeKey }
+const SPRITE_NODES = new Map(); // script slot -> { wrap, img, sp, lastCompositeKey }
 
 function renderSprites(sprites) {
     const stage = document.getElementById('spriteStage');
     sprites = sprites || [];
 
-    // Dedupe by entityId — if multiple slots show the same character, keep one
-    // (preferring the talking one).
+    // Script slots are stable across movement/face changes. The same entity can
+    // legitimately appear in more than one slot, especially in sub-render scenes.
     const seen = new Map();
-    for (const sp of sprites) {
-        const key = String(sp.entityId);
-        const existing = seen.get(key);
-        if (!existing) seen.set(key, sp);
-        else if (sp.talking && !existing.talking) seen.set(key, sp);
-    }
+    sprites.forEach((sp, index) => seen.set(String(sp.slot || `${sp.entityId}:${index}`), sp));
     const unique = Array.from(seen.values());
 
-    // Compute on-screen positions
-    const positions = unique.length === 0 ? []
+    // Fallback positions are only used by old/simple scripts without explicit
+    // charaFadein/charaMove coordinates.
+    const fallbackPositions = unique.length === 0 ? []
         : unique.length === 1 ? ['50%']
         : unique.length === 2 ? ['32%', '68%']
         : unique.length === 3 ? ['22%', '50%', '78%']
         : unique.map((_, i) => `${15 + (i * 70 / (unique.length - 1))}%`);
+    const layouts = unique.map((sp, index) => computeSpriteLayout(
+        sp,
+        parseFloat(fallbackPositions[index] || '50'),
+        index,
+    ));
 
-    const wantedIds = new Set(unique.map(sp => String(sp.entityId)));
+    const wantedKeys = new Set(layouts.map(layout => layout.key));
     const myFrameIdx = IDX;
 
     // 1. Remove sprites that are no longer present (animate out, then drop)
-    for (const [eid, node] of Array.from(SPRITE_NODES.entries())) {
-        if (!wantedIds.has(eid)) {
+    for (const [slotKey, node] of Array.from(SPRITE_NODES.entries())) {
+        if (!wantedKeys.has(slotKey)) {
             const w = node.wrap;
             w.classList.remove('in');
             w.classList.add('out');
-            SPRITE_NODES.delete(eid);
+            SPRITE_NODES.delete(slotKey);
             setTimeout(() => { if (w.parentNode) w.parentNode.removeChild(w); }, 480);
         }
     }
 
     // 2. Add or update remaining sprites
     unique.forEach((sp, idx) => {
-        const eid = String(sp.entityId);
-        let node = SPRITE_NODES.get(eid);
+        const layout = layouts[idx];
+        const slotKey = layout.key;
+        let node = SPRITE_NODES.get(slotKey);
         if (!node) {
             const wrap = document.createElement('div');
             wrap.className = 'sprite-wrap' + (sp.talking ? '' : ' dimmed');
-            wrap.style.left = positions[idx];
-            wrap.style.zIndex = sp.talking ? '4' : '3';
+            wrap.style.left = `${layout.leftPercent}%`;
+            wrap.style.bottom = `${layout.bottomCqh}cqh`;
+            wrap.style.zIndex = String(3 + layout.depth);
             const img = document.createElement('img');
             img.className = 'sprite-img';
-            img.style.height = `min(${BODY_VH}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
+            img.style.height = `min(${BODY_VH * layout.scale}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
             wrap.appendChild(img);
             stage.appendChild(wrap);
             node = { wrap, img, sp: null, lastCompositeKey: null };
-            SPRITE_NODES.set(eid, node);
+            SPRITE_NODES.set(slotKey, node);
         }
 
         // Update position / talking state (smooth transitions via CSS)
-        node.wrap.style.left = positions[idx];
-        node.wrap.style.zIndex = sp.talking ? '4' : '3';
+        node.wrap.style.left = `${layout.leftPercent}%`;
+        node.wrap.style.bottom = `${layout.bottomCqh}cqh`;
+        node.wrap.style.zIndex = String(3 + layout.depth);
+        node.img.style.height = `min(${BODY_VH * layout.scale}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
         node.wrap.classList.toggle('dimmed', !sp.talking);
 
         const key = `${sp.entityId}:${sp.face || 0}`;
@@ -1268,7 +1293,7 @@ function renderSprites(sprites) {
             node.lastCompositeKey = key;
             compositeSprite(sp).then(dataUrl => {
                 if (IDX !== myFrameIdx) return;
-                if (SPRITE_NODES.get(eid) !== node) return;
+                if (SPRITE_NODES.get(slotKey) !== node) return;
                 // Cross-fade the image without blanking the wrapper
                 if (node.img.src && node.img.complete) {
                     // Brief fade on the img element only (wrapper stays visible)

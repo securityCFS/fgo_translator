@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810011",
+  "source_region": "JP",
+  "source_hash": "6eee775f3561c2cb5c70a9a2614ef730ca2304dcf87a2f8f8262a6bc87839700",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 12,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "萨列里",
+      "translated_content": "那么，就像这样。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好美……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真的能变成一首曲子啊……"
+    },
+    {
+      "speaker": "萨列里",
+      "translated_content": "嗯。真是一段美好的时光。\n这种忙，无论多少次我都愿意帮。"
+    },
+    {
+      "speaker": "萨列里",
+      "translated_content": "因为哪怕只有短短一瞬，\n我也能感觉自己的指尖仿佛触及了天堂。"
+    },
+    {
+      "speaker": "萨列里",
+      "translated_content": "那么，今后我们想用与你们合创的曲子\n宣传这座[#施設:テアトルム]，可以吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好的！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯……只是这样的话……"
+    },
+    {
+      "speaker": "萨列里",
+      "translated_content": "那么，这是作曲报酬的卡尔德。"
+    },
+    {
+      "speaker": "阿马德乌斯",
+      "translated_content": "再拍一张纪念照吧！\n来吧，阿斯，随你喜欢地拍！"
+    },
+    {
+      "speaker": "萨列里",
+      "translated_content": "不，学生才应该站在中间吧。\n吾友，你为什么理直气壮地站在正中央。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么各位，请在那架钢琴旁集合！"
+    }
+  ]
+}

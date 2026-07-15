@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221310",
+  "source_region": "JP",
+  "source_hash": "38b3a0c58207e02fe000d13efeadd8bb1b128812f3dcf31f0028c326ebeb61e5",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 57,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我听说了一个情报哦，藤丸立香。\n是关于……蓬莱玉枝吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "听说拥有蓬莱玉枝的从者预约了阎魔亭。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这是个求对方将蓬莱玉枝转让给我们的好机会……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。\n但这个从者和你们的关系非常糟。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "甚至可以说现在正处于真正的敌对状态。\n因此采取正攻法毫无疑问会导致决裂。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不如交给我吧。\n怎么样？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦。平时只知道提意见的你居然会说出这种话。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好，那你就试试看吧。\n我们会躲起来见识你的实力。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "可以可以。\n我会尽快解决。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（这里是新增设的美容室呢……\n　拥有蓬莱玉枝的从者究竟是……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: （嘘……！　有人来了！）"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "阎魔亭竟然还在营业啊。\n老板娘还好吗，变成？"
+    },
+    {
+      "speaker": "麻雀（变成）",
+      "translated_content": "没什么精神，但还健在啾。"
+    },
+    {
+      "speaker": "麻雀（变成）",
+      "translated_content": "啾，我帮您拿外套啾。\n小虞，还是老套餐吗啾？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "嗯嗯。我最喜欢里面那张床。\n背阴比较舒服。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "不过，我已经近三百年没听到这里的消息了，\n我还以为这里消失了呢。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "真亏你们能在那丑陋的人类社会中，\n维持这么一个如桃花源般的秘境……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "该说你们死不罢休呢……\n呵呵……我也没资格这么高高在上地评价呢……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "啊啊，再用力一点，不用客气……\n阎魔亭的按摩简直是仙人的技法……真爽……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "哪怕我是不老不死之身，该酸痛的地方还是会酸痛……\n甚至比你们这些生命有限的还要严重……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "后背的僵硬越来越严重……\n我还不得不和它相处一辈子……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "人类……不知不死身的痛苦……\n还羡慕什么长生不老，居然……嗯，那里，那里用力点……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "太爽了……返老还童莫过于此……\n但是……"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "（竟然连阎魔亭也无法完全消除这份酸痛……\n　有没有其他更强的按摩师呢……）"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "啊呀。这还真是位高贵的客人。\n看起来像是隐居的精灵？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "呜——！"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "无礼之徒，\n区区英灵竟敢闯入我的『抗衰老』仪式！"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "在那里老实点，不，不用老实。\n我会用全身爆裂将一切炸成尘埃——唔？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "……你是不是妖精的亲属？\n尽管感觉微弱，但你身上好像保留着古老的传承？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。应该是我最为深爱的、\n也深爱着我的妻子的影响吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我叫芬恩·麦克库尔。\n我好歹也是[#那个时代:Cycle]第一骑士团的团长。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "看来您对自己的身体怀有一些烦恼吧。\n如果您不介意的话，需要我来帮您解决吗？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "哎？\n……那好吧，你说说看。至少先听听你打算怎么做。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "没什么，其实我的妻子与您怀有相同的烦恼。\n只要身处人间，身体就会变得僵硬。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我想尽了各种办法，\n实在没辙之后，我找了一名按摩师。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哪怕是妖精，也能立刻让对象气血通畅、\n酸痛消解、心情舒畅的大师哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "萍水相逢即是缘。\n怎么样？　需要我为您介绍吗？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "哼。结果是打算卖我一个人情吗？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "好吧。死马当活马医——\n不对，应该算是永恒生命玩的游戏。我愿意奉陪。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "把那个所谓的大师叫来。\n只要能成功帮我解决身体的问题，我会将你想要的东西给你。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈，感谢您的理解。看来您的确苦之久矣啊。\n那么——大师，轮到您出场了！"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "[f x-large][messageShake 0.05 5 5 0.3]好的。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "恶，你是……！？"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "等等，这家伙不是按摩师吧！？\n他可是比按摩师更恐怖的人吧！"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "不要紧张，仙女啊。\n尽管您好像认识我，但我是初次见到您。"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "我从数天前开始，就住在这阎魔亭了，\n一直深受红老板娘的照顾。"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "而老板娘也拜托我帮助她的老朋友。"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "要好好珍视友情哦？\n尤其是对您这样长寿的存在。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "（小阎魔真的很关心我呢……\n　这固然令我高兴，但也不用找这家伙吧，偏偏是这家伙！）"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "啊，不，等等！\n我非常熟悉你内功的威力！"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "如果接下那种攻击，我的内脏可是会从嘴里飞出去的！\n哎哎住手，别过来啊！　啊！？"
+    },
+    {
+      "speaker": "麻雀（变成）",
+      "translated_content": "那可不行啾。\n无论多痛都要坚持啾。"
+    },
+    {
+      "speaker": "麻雀（变成）",
+      "translated_content": "客人的健康是我们优先考虑的对象，\n所以高手套餐无法中断啾。"
+    },
+    {
+      "speaker": "虞美人",
+      "translated_content": "变成[line 5]！"
+    },
+    {
+      "speaker": "大师",
+      "translated_content": "那我们开始吧。\n多少会有点痛，不要乱动哦。"
+    }
+  ]
+}

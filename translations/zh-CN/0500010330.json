@@ -1,0 +1,1091 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010330",
+  "source_region": "JP",
+  "source_hash": "22619ca28879e369edf9e1fb4131e8ba50c267980d9eb0da3220ae3081724c65",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 268,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：去训练！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：去图书馆借书吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：去资料室看电影"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好呀，那么就一起挑选要看的电影吧！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀，你们好。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，呃。您是时子小姐……对吧？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是的。我是时子……来着。\n你们看过电影了吗？　是要看吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。如果时子小姐愿意，\n要不要也一起来呢？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "电影……虽然是第一次，\n我能顺利看好吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "顺利看好……吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "观影时有什么必须遵守的礼仪吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "礼仪……吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请不要过分喧哗，也不要打扰别人，\n这些行为还请尽量避免……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "基本上，只要放松下来，\n专心看电影就可以了。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "唔唔……\n会有电影解说员在场吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "电、电影解说员吗？\n呃……恐怕不会有吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来如此。谢谢。\n也就是说……每个人自行解读吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、是的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修，电影解说员是什么……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "应该是在[#旧:ふる]式无声电影旁解说内容、\n替角色念出台词的一种职业……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来如此……如今已经是有声电影的时代了呢……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：饮料好了，零食也好了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "资料室的数据传输也准备完毕了。\n接下来只要按下播放键就行。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "已经不需要胶卷了吗……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。那我关灯了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我选择的是一部能让人放松欣赏的\n动作喜剧电影！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "心跳心跳心跳。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那么准备……开始！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啪啪啪啪……\n真有意思呢，前辈。[seStop ade52 1.0]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：爆炸收尾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：不过很有意思！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我觉得结局很精彩。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "毕竟是喜剧，就算爆炸之后\n他们应该也还活着……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐，您觉得怎么样？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那个……他们没事吧……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没事，是指……？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "电影里的那些人……\n他们受的伤没事吧……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "真让人担心呢……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那只是电影里的情节……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "咦？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……啊，我明白了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐，你该不会把电影里的枪战\n当成真的了吧？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……不是真的吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不是真的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来电影……已经发展到这种程度了呢……\n时子，震惊。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，该怎么办？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "其实——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "下一部是大量运用最新VFX技术的\n超级科幻巨制……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：超级科幻巨制……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐要是看了，会不会震惊得晕过去啊！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "科幻……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "没、没问题的，二位。\n时子无论什么电影都好好看过了。也会好好看的。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "最新技术，尽管放马过来！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——。\n——。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时子小姐露出了像身处宇宙空间的猫一样的表情……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐，你没事吧……！？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "没事的。\n世界就是科幻呢。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "人类的技术已经进步到这种程度了吗……\n不容小觑，真是不容小觑啊……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "真是冲击性的体验。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没事吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嗯。整体相对而言，我还是很开心的。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……距离攻克第六特异点已经不远了呢。\n你们一定取得了辉煌的战果吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "一切归于应归之处。\n时间的流动本就是如此。曾是如此，现在也是。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——即便如此，也请勿疏忽或自满。\n那么，再会。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "去图书馆吧。我陪您一起。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "你们好，二位。\n今天有什么事吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。我们来借书。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "非常乐意。\n二位想找什么类型的书呢？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "还是想慢慢逛一逛呢？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "现在没有什么邪恶书籍出没，\n请放心寻找吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "谢谢！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这附近的书我还完全没翻过呢。[wt 1.2][charaFace E 6]\n咦，那边的似乎是——"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "啊，是你们啊。来图书馆有事吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。我们想挑战一下\n以前没有接触过的类型……"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "嗯。增长知识是件好事。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "要看具体是什么类型，\n不过我也可以推荐一些书。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，那就拜托您了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[&オレ:わたし]还是读以前借的书吧……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈要读以前借的书吧。\n我借完书再来与您会合。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "那么，御主。待会儿见。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——《思考一下时间吧》"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我们总认为时间始终在流逝。\n并且对所有人始终平等。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "从上游到下游，从过去到现在，\n再流向未来，永不停歇、不可逆转的现象。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……真的是这样吗？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[effectmessage bit_talk_change_text01 440,177 4.7 19]\n[wt 2.0]\n[cueSeContinue SE_26 26_ad1555 6]\n过去的失败会一直醒着吗。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[effectmessage bit_talk_change_text02 440,177 4.7 24]\n[wt 2.0]\n[cueSeContinue SE_26 26_ad1555 7]\n现在的成功有时也会　　醒来　　。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[effectmessage bit_talk_change_text03 440,177 5.5 18]\n[wt 2.0]\n[cueSe SE_26 26_ad1556]\n寻找犯人寻找犯人寻找犯人寻找犯人寻找犯人\n寻找犯人寻找犯人寻找犯人寻找犯人寻找犯人"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……无法接受。我无法接受这一切。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才……是不是有什么……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：梦……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈。我借好书了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦？时子小姐？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。时子小姐刚好来了，\n所以我就带她到了这里……"
+    },
+    {
+      "speaker": "A：时子=spot[J,A]",
+      "translated_content": "谢谢。是时子。\n发生什么事了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不……没什么"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子=spot[J,A]",
+      "translated_content": "这样啊。[wt 1.0][charaFace A 11][charaFadein A 0.4 140,0][charaFadein R 0.4 -60,-260][charaMoveEase A 100,0 0.6 easeOutSine][charaMoveEase R -100,-260 0.6 easeOutSine][wt 0.6]\n——那本书是讲什么的？"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "是关于时间的书吗？\n既然如此，问我不就好了。"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "因为我可是时间之子。\n这是你为我取的名字吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：说起来……为什么会取这个名字呢"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "这一点我也不明白。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（而且……是什么时候取的？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "呵呵。不过……大多数人都误解了时间。\n时间是一种感觉。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "一种感觉……吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "各位的皮肤被针扎时，会感觉到疼痛吧？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "单纯等待五秒，与被针扎着等待五秒相比，\n后者应该会显得更加漫长。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "快乐的时间转瞬即逝，\n痛苦的时间却格外漫长。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这绝不只是心理作用。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "可是……时间不是以秒和分为单位，\n进行着严格划分的吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嗯，是的。但那终究只是\n外界的一种现象。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "时间是每个灵魂各自拥有的东西。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "首先有事件发生，继而产生对事件的意识，\n当事件与意识相互碰撞……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "时间便会诞生。\n也就是说，那是[#神の御業]。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——开玩笑的。\n我只是随口一说，请不要在意。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嗯？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：操纵时间的存在，等同于神？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "——嗯，那当然。\n可以说是超越万物的……神本身吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。当然一起去！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀，你们好。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "呃，您是——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是的，我是时子。[wt 0.7][charaFace J 14]\n听说你们要训练……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这里是怎样的房间呢？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这里是训练室。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "与其说是正式锻炼，\n主要还是为了解决运动不足的问题……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：修复特异点也是一场体力战……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来如此。我明白了。\n运动从古至今都不曾改变呢……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，前辈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这是西尔维娅小姐\n为我们制定的训练清单。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "用西尔维娅小姐的话来说，就是“在不过度勉强的情况下，\n稍微突破一点极限的训练量”。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这不是自相矛盾吗……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没问题，前辈一定能做到！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这份信赖很沉重。曾经沉重，现在也很沉重呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，首先从跑步开始。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……要在这么狭窄的地方跑吗？\n那可真不容易……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，是用跑步机。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……跑步机……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[&ぬお:うお]————！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "原来如此。这里会不停转动，\n于是就能跑步了呢……原来如此……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "还剩1分钟！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：最后冲刺！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：时子",
+      "translated_content": "加油～。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "结束。辛苦了，前辈。\n休息10分钟后，要做跳跃深蹲。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那个很累人啊……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "刚才很累，是吗。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这是为了锻炼爆发力的训练，\n但要一直保持正确姿势真的很累……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如果没有亚从者的力量，\n我觉得即使是我也会相当吃力。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "唔唔……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "虽然辛苦程度不会改变，\n要我帮忙吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：帮忙……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "说是帮忙，更像是施个小咒语吧。\n请闭上眼睛。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这种时候该怎么说来着……\n天灵灵地灵灵，对吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "好了，请试试看。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好、好的。那么准备……开始！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "就是这样，前辈！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（做得特别顺利……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "最后一次！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，做得太棒了！\n动作姿势堪称完美！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是多亏了时子小姐的咒语？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐，刚才那究竟是……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵。很简单哦。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "我只是让你过去最理想的动作姿势\n不断重复罢了。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "如果理想的过去不断重复，\n无论身处何种情况都能重现过去的最佳状态——"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那便会通向最理想的现实。曾经如此，现在也是。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（这是时子小姐的技能……吗？）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这……总觉得像是在作弊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "作弊……吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……对不起。\n那种心情，我没能理解。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "现实不过是一瞬。\n每过一秒，上一秒就会成为过去。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，创造出最美好的过去，\n不正是人类的目标吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……不好意思，我想不用咒语再试试"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "还要再来一组吗？[wt 0.8][charaFace E 1]\n……好的！让我们鼓足干劲吧！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：最后一次……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "辛苦了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "果然和刚才相比，\n动作姿势变形了呢……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "您应该已经很累了，最后再慢慢做一次，\n只确认一下动作姿势吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咿——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请、请加油，前辈！\n还差一点点！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，前辈。\n明天终于要开始攻略第六特异点了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：一起加油吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！那么我先告辞了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯？前辈，还有什么事吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……要小心别感冒哦！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然！玛修·基列莱特，\n一定会坚持洗手漱口！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "欢迎回来，藤丸立香。\n我们刚刚才见过。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：呃……我回来了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "要吃点东西吗？\n虽说只是点心，不过我试着做了三明治。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "命名为，终极胜利三明治。\n简称U.V.S.。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这是？时子小姐做的？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "不行吗……？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "啊，太好了。\n看来没有白费我借用厨房努力一番。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：你还会做饭啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……当然会啊？本来就会啊？\n好、好了，别说这个了，快吃吧。已经吃了。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "请。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：啊，好吃"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵，是吧是吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "[f x-small]……太好了——……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：难道你不擅长做饭？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……呵呵，怎么可能？\n来，请看看这双手。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——看。连一道刀伤都没有吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（我好像没说她手上有刀伤……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：多谢款待"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "明天的攻略，你已经很努力了呢。\n不，是请好好加油哦。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嗯。那么……[wt 1.0][charaFace J 8]\n啊，不对。应该是这个。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：牙刷？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "饭后应该刷牙吧？[wt 1.2][charaFace J 14]\n咦，刷牙不能让别人代劳？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这样啊……\n原来如此……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "刷牙原来是要自己做的呢……\n我还想试着帮你刷一次来着……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，晚安。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：思考"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……是否应该思考一下\n[#彼女]究竟是怎样的存在……？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……不，还是算了。\n思考她的事情或许也很危险。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "虽然她应该不至于连思想都能读取，\n但还是谨慎再谨慎为好。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "比起这个……还是先想想明天该说什么吧。\n首先是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：不思考"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

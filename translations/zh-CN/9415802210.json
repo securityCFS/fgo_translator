@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802210",
+  "source_region": "JP",
+  "source_hash": "f24076812dae455fd748080f7282d4c355beeaa620179e10e85451c8f347c3e7",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 78,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "德雷克",
+      "translated_content": "那个大家伙……消失了……！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "黑水正在退去……\n原来如此。我们确实让一切好好结束了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "黑、黑水突然消失了！[wt 0.7][charaFace F 0]\n御主，我要降落在那里了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这不是藤丸立香和格蕾吗。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "奥尔加酱！\n太好了！　你顺利逃出来了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也谈不上什么逃脱。\n回过神时，我已经在这里了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯确实保护好我了呢。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且，得墨忒耳·起源逸散的剩余魔力，\n似乎正在不断修复卡尔德尼亚。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真不愧是由神灵创造的特异点。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那么，也得把她介绍给奥尔加酱才行……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊……对哦，已经……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "黑、黑水突然消失了！[wt 0.7][charaFace F 10]\n我们要降落在那里，请您[#掴:つか]紧我！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这不是藤丸立香和格蕾吗。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "奥尔加小姐！\n太好了！　您顺利逃出来了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也谈不上什么逃脱。\n回过神时，我已经在这里了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯确实保护好我了呢。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且，得墨忒耳·起源逸散的剩余魔力，\n似乎正在不断修复卡尔德尼亚。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真不愧是由神灵创造的特异点。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊！　那么也得把她介绍给奥尔加小姐才行……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊……已经……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……谢谢你，父亲。\n这一次，我也有好好做到吗……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[charaTalk I]\n你做到了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "你……[wt 0.7]是……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "珀耳塞福涅……你在那里吗……"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "被你发现啦！"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "我的灵基已经维持不了多久，\n本来还想悄悄看着你呢。"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "看你实在太痛苦了，我就忍不住插嘴了！"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "——不过，辛苦你了。阿斯卡拉波斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "才不是什么辛苦了。我……我一直……\n一直还是那个背叛了你的我……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我一直有话想对你说……\n可以听我说吗？"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "可以啊。我会好好听着。"
+    },
+    {
+      "speaker": "K：阿斯",
+      "translated_content": "我——[wt 1.1][charaFaceFade K 0 0.2]阿斯卡拉波斯，爱慕着你。"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "嗯，我知道。"
+    },
+    {
+      "speaker": "L：珀耳塞福涅",
+      "translated_content": "但是，对不起。\n我爱着那个人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——这件事，我也早就知道。\n这份恋情绝不可能胜过那个人的爱。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "从一开始便毫无胜算。\n漫长、漫长的岁月中，我只是在苦苦煎熬。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即便如此，如果不说出口，一切就无法开始。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "虽然不知道已经花了几百年、几千年，\n虽然身为从者的自己并不存在所谓未来，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即便如此，至少在这短暂的时光中，我仍能向前迈进。\n心中确实感受到了温暖。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "对不起，阿斯卡拉波斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没关系。\n谢谢你坦率地回答我。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……去吧，珀耳塞福涅。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "嗯！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "我……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "这里……是……缟玛瑙城堡……？"
+    },
+    {
+      "speaker": "M：亚瑟",
+      "translated_content": "二位平安无事，实在再好不过了。经理。"
+    },
+    {
+      "speaker": "N：阿尔托莉雅",
+      "translated_content": "虽然稍微费了一番力气。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "你们两个……那些黑水……"
+    },
+    {
+      "speaker": "M：亚瑟",
+      "translated_content": "阿斯将阿刻戎纳入自身的那一刻，\n我们便从黑水的束缚中解放了。"
+    },
+    {
+      "speaker": "M：亚瑟",
+      "translated_content": "之后，我们配合格蕾摧毁核心，\n将二位从中[#剥離:はくり]分离了出来。"
+    },
+    {
+      "speaker": "M：亚瑟",
+      "translated_content": "这种时候，我的直觉意外地可靠。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "话虽如此，我们也确实太过勉强了。毕竟此前还在连续迎战Garbage，\n如今也只能退场了。"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "啊啊……阿尔托莉雅……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "别露出那种表情。\n帮助召唤者，是从者理所当然的职责。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "两个我，都是配得上你们的英灵吗？"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "当然……！\n你们两位，都是最出色的骑士王……！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "能听到这句话，就足够了。\n那么，请开始最后的交谈吧。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "咦……"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "我说，[#お母さんたち]。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "无论是卡尔德尼亚还是里卡尔德尼亚，\n我都过得非常开心！"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "你们是想着我，才创造了这些地方。\n这份心意，我确实感受到了。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "因为通过那张纪念照，\n我分享到了阿斯卡拉波斯与格蕾小姐的记忆……"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "虽然这副灵基真的只能存在一瞬间……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "珀耳塞福涅……！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "珀耳……塞福涅……我的……我的……"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "谢谢你们，母亲……"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "我永远、永远……[wt 1.2]爱着你们……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "风……变暖了……？[seStop ad112 3.0]"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "风……正在渐渐变暖……[seStop ad112 3.0]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。春天一定要来了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "无论外界是什么季节，这片土地都始终无法迎来春天。\n如今终于……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "真的……好温暖啊……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "是啊……很温暖……\n温暖得……几乎要让人落泪……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "即使我哭了，你也不会笑我吗？"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "不会笑的……因为我就是你啊……"
+    },
+    {
+      "speaker": "K：阿斯",
+      "translated_content": "啊啊，春天就要来了。"
+    },
+    {
+      "speaker": "K：阿斯",
+      "translated_content": "…[charaFadein X 3.0 1]…没有你的春天，就要来了。"
+    },
+    {
+      "speaker": "K：阿斯",
+      "translated_content": "……在春日终结时……将你……"
+    }
+  ]
+}

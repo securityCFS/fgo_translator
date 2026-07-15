@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010410",
+  "source_region": "JP",
+  "source_hash": "1fcc95561413479579aecad5dc41b61752a4facaa40acac213c706400012d61c",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 74,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "哈？想让我切断战斗模拟器的通讯？\n为什么？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。我们在第六特异点深刻体会到……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "直到第五特异点为止，我们都是通过通讯\n获得建议，执行任务的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但在通讯中断的第六特异点，\n我们却意外陷入了与斯芬克斯的苦战……"
+    },
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "是、是这样吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "就是这样！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所以，我们想刻意切断通讯，\n在这种情况下挑战战斗。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：请尽量选择耐久力较高的敌人"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "知道了，知道了。符合条件的敌人……\n好，就这家伙吧。"
+    },
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "已经把耐久力调到最高了。\n这样行吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的，没有问题。\n接下来请切断通讯。"
+    },
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "明白，明白。\n加油吧！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "喝啊啊啊啊啊————！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么！从！现在！开始！\n我们该！怎么办！才好！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：首先！对时子要表现得若无其事！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：不能让她看出我们有所警戒！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……是啊。迦勒底里原本\n并没有那位……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我觉得……她应该不是人类。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但要说是从者，\n又感觉有些不同——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么……我们为什么会\n接受她的存在呢？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我想……她拥有那样的力量"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来如此。类似催眠或洗脑的\n能力吗……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我明白了。不能表现出警戒，\n还要友好相处……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：能做到吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……没、没问题！\n然后，前辈说还有另一件事……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……迦勒底里有同谋"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咳……！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "呀啊！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对、对不起，我大意了！\n但是，为什么……！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：只能这么想了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "唔……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "可是！各位职员都不是会背叛我们的那种人……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：说不定他们本来就是冒牌货"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "冒牌货……确实不能排除这种可能。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时子监视着所有职员"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：但也有些情报她似乎并不知道"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来如此……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如果时子小姐是万能的，我们的\n记忆早就被消除了……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "也就是说，我们根本不可能还有余力\n像这样讨论。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不过，这样一来……范围就缩小了。\n嫌疑人是——"
+    },
+    {
+      "speaker": "玛修=spot[L,M]",
+      "translated_content": "首先是奥尔加玛丽所长。[wt 1.0][charaFadein M 0.5 -120,0]\n其次是罗曼医生。"
+    },
+    {
+      "speaker": "玛修=spot[O,N]",
+      "translated_content": "还有……[wt 0.4][charaFadein O 0.5 120,0]紫式部小姐和[wt 0.5][charaFadein N 0.5 380,0]达·芬奇亲\n也符合条件吗？"
+    },
+    {
+      "speaker": "玛修=spot[O,N]",
+      "translated_content": "虽然她们两位都不太露面……\n但从者能让一切不可能化为可能。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然，\n其他从者也包括在内。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "要怀疑那些本应和我们并肩战斗过的人，\n实在让人难受……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "其他职员要说是嫌疑人也确实如此……\n但御主所想的那种，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "[#カルデア全てを監視しているような]存在，\n我想应该并不多……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "B：穆尼尔",
+      "translated_content": "喂——，看样子敌人早就被打倒了，\n所以我恢复通讯了。发生什么了吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对、对不起。因为比预想中更为苦战，\n所以我们开了一场反省会！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……那么，之后再谈。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "嗯——没有通讯，战斗确实拖得有点久。\n也受了额外的伤。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是……这都是因为我能力不足……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：对不起……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡扬",
+      "translated_content": "因为没有通讯，你们应该也有些不知所措吧。\n必须确实掌握自己该做什么。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！\n感谢您的建议！"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "……玛修以前有这么热血吗……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我[charaShake C 0.02 2 2 0.3]、我也积累了各种各样的经验！"
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801510",
+  "source_region": "JP",
+  "source_hash": "392e1d8b38cf8a43ba172ff5b081cdd8bb0363d3b2fdcf67e6c57794b707e300",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 101,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "千子村正",
+      "translated_content": "我这边已经准备好了……你那边决定了吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：是！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：请打造圣剑！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这样啊，选了剑吗。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那就好。\n这里只留下格蕾。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不好意思，藤丸立香得去外面等。\n这里是只属于持有者、武器与锻造师的领域。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "放心吧。\n不会有危险，也花不了多少时间。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：明白了"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：拜托您了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那个……我该做什么？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "什么都不用做。\n只管坐在那里看着就行。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这东西会让你的朋友获得新生，\n成为与你的灵基同步、独一无二的武器。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "所以只有你，\n必须陪伴它诞生。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我、我知道了！　我会好好看着的！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不过，原来如此。你选了剑啊。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "对村正先生来说，\n这把剑有什么特别的吗？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "没有，[#儂:オレ]是个刀匠。\n生前没有机会学习西洋剑。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "但作为从者存在于此的\n这副[#霊基:からだ]，或许有所不同。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "身体……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我的身体和内心，可能也有一点不一样。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "哦？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "因为这副身体，\n是为未来的王准备的身体。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "所以大家一直告诉我，\n要成长为应有的模样。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "喂喂，这可不对吧。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "就算你是怀着某种期望被创造出来的，\n孩子也不必照着那份期望长大。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可以吗？"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "当然可以。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "无论父母还是创造者，都会擅自许愿。\n希望孩子这样，希望孩子成为那样。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "但说到底，\n那都只是他们的一厢情愿。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "刀匠成不了刀。\n父母也成不了你。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "你尽管成为自己想成为的样子。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "好了，开始吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "看来已经开始了，御主。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "方便的话，刚才那番话，\n能再让我多[#訊:き]听一点吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：刚才的话？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：你指哪一件事？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "您说，想要帮助别人的心意并没有错。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "刚才御主说过。\n想要帮助别人，并没有错。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "哈哈哈！　或许的确如此！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不过啊，想要救人这种事，\n对[#儂:オレ]这样的营生来说可不好办。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "为什么？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "救了一个人，就会让另一个人不幸。\n只要有人获利，就必定有人蒙受损失。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "[#儂:オレ]的工作更是如此。\n赋予某人胜利，就意味着杀死另一个人。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "即便如此，你也觉得没问题吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我感觉自己稍微得到了一点救赎。\n觉得那时的我，或许也没有做错。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "可是，经理曾对我说过。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "[#おまえが]，[#裏切り者だったのよね]。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐说得没错。\n我所做的事，绝不能用时机不巧来搪塞。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "即便如此，我还是——"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "即便如此，我仍可以尝试去拯救\n两位经理吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "刚才的问题，是我问得太刁钻了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这个问题根本没有答案。\n你没必要被这种事牵着走。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "就算会伤害别人，也可以吗？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "当然不可以。可你正是为了救人，\n才想要圣剑的吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……嗯。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我想救亚德。\n也想救阿斯。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德墨忒尔大人、厄里倪厄斯大人、\n亚瑟先生、阿尔托莉雅小姐，我全都想救。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那就别忘了这份心意。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "结果或许会出错。\n事情或许不会如你所愿。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "或许会伤害某个人，\n说到底，人类或许根本没有正确答案。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "即便如此，最初的那份心意，一定没有错。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "就算开始做的一百件事里有九十九件错了，\n最初那份想帮助别人的心意，却不是错的。"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "即使如此，若你还是忘不掉\n刚才那个刁钻的问题——"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "村正先生？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：那是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "[f large]简[messageShake 0.05 5 5 0.5]直像笨蛋一样！"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "到那时候，就找个人把你痛骂一顿。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥、奥尔加玛丽小姐……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的！　都怪你们一脸认真地烦恼，\n害我不知不觉也被带进了你们的节奏！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过我想起来了！\n我早就受够这种事了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "忍住自己想做的事，还去担心会不会牵连别人，\n这可不是我的作风！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我是讨厌“只要相信梦想就会实现”这种漂亮话，\n但也受够了因此被束缚得[#雁字搦:がんじがら]动弹不得！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香！\n你也别一直陪他们钻牛角尖！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：是、是！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很好！\n多亏如此，我还想到一点解决办法！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你说什么！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯！　把耳朵凑过来！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "明、明白！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦，那是……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "来，最后收尾……！"
+    },
+    {
+      "speaker": "G：格蕾",
+      "translated_content": "剑，正在……"
+    },
+    {
+      "speaker": "I：千子村正",
+      "translated_content": "再一次，呼唤这把剑的名字吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "Excalibur……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[#巡り来たる宿命の剣:エ　ク　ス　カ　リ　バ　ー　・　ロ　ゴ　ス]！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　一睁眼，\n模样居然变了这么多啊！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "话说回来，虽然又是这副模样，\n但这次感觉确实已经融入灵基了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "欢迎回来，亚德……！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "喂喂，哪有人一上来就哭的！\n真拿你没办法！　以后还得由我照顾你！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "怎么样，拿在手里顺手吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯！　谢谢你，村正。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[#拙:せつ]会依照[#拙:せつ]自己的心意，挥舞这把剑！"
+    }
+  ]
+}

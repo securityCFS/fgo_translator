@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010440",
+  "source_region": "JP",
+  "source_hash": "ed315070f4410e026a58f3de5f0af3c54e004585bae82da24063a4da12b810fd",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 86,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好好好，怎么了？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……您好，医生。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哇哦，怎么了，玛修。\n我可不是在偷懒哦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：真的吗——？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "连藤丸立香[&君:ちゃん]也……\n你们对我的信任也太少了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我想和您说会儿话……不，应该算是闲聊吧。\n我想和您聊一聊。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哈哈哈。当然可以。\n照顾你们的心理健康也是我的工作嘛。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好——，来准备珍藏的茶点吧！\n这个先留到之后再吃……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：果然是在偷懒吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……来，让我为你们做心理疏导吧。"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙芙芙。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好了好了，别爬上我的肩膀拍我的脸，别打了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（芙芙也是……嫌疑人之一……吗？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好了好了，别爬到我头上蹦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（虽然希望……不是它……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好。你们的心理状态完全正常。\n嗯——，看来我今天的工作也能到此为止了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……虽然这个问题有点奇怪"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "两人",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：如果所长不在"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：会由谁来指挥迦勒底？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊，那大概……是我吧……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "幸存的工作人员中，\n已经没有职位比我更高的人了。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "雷夫教授也消失了。\n如果所长碰巧不在的话……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯，果然还是我吧。[wt 1.2][charaFace F 2]\n真要那样，我肯定会忙得要死！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "至少不可能像这样悠闲地吃着茶点，\n和你们闲聊了。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所长看起来虽然是那副样子，却一直在[#捌:さば]处理\n多得惊人的工作……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "她会把我们这边也能处理的工作分过来，\n但大部分还是由她承担的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "希望有一天，也能和所长……像这样喝着茶，\n聊聊天。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦，原来是这样吗？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我还以为像藤丸立香[&君:ちゃん]这样的人，\n很不擅长应付她呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：完全不会啊？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "什么嘛，原来是这样啊。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "那下次也找个机会请所长过来吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "唉……以医生这种态度，\n所长大概会拒绝的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这样吧。\n我想亲自去邀请所长。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦，玛修去邀请？[wt 1.0][charaFace A 6]\n不……玛修不是被所长讨厌……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我才不讨厌她呢，罗玛尼，扣你薪水！！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哇，好没道理！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "奥尔加玛丽所长！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "唔……一不留神就出来了……\n我就不该问时子小姐那些多余的事。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐说了什么吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——没什么。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "比起这个，我作为所长，自认为一直都在\n公平地对待工作人员。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，那个。[wt 1.0][charaFaceFade E 5 0.2]\n我并没有讨厌玛修。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是，当然。\n毕竟医生胡说八道也不是一天两天了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……罗玛尼。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好的，请用，所长。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "谢谢。也就是说，我也可以参加，对吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然非常欢迎。\n对吧，前辈？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长有什么喜欢的电影吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "一上来就抛了个摆明要闲聊的话题！？\n喜欢的电影啊……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好了。那今天就聊到这里吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也是。我也差不多该回去工作了。\n那我先走了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：晚安——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，晚安。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么御主，明天也请多多指教。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯，辛苦了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（也去和达·芬奇亲打声招呼……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "[tVoice ChrVoice_500900 0_T010]\n抱歉——，我现在正忙着呢——。[wait tVoice]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：别太拼命了哦——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（……又是这种感觉）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（[&オレ:わたし]现在忘记了什么……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不能承认。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——绝对不能承认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这只有[&オレ:わたし]能听见的声音……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不能承认！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：难道是[&オレ:わたし]自己的声音？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    }
+  ]
+}

@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010311",
+  "source_region": "JP",
+  "source_hash": "610ce7ba800202edc7bf2eea02f59cde65c50e879ae58bd2ca6e10e9f732c9ae",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 129,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "所罗门",
+      "translated_content": "……真是的。\n……未免也太空洞了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所罗门……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "所罗门",
+      "translated_content": "……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "所罗门",
+      "translated_content": "——。\n——。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "成……成功了！\n魔术王所罗门已被击破！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……说实话！比我想象中还要[#呆気:あっけ]轻松呢！[wt 1.2][charaFace C 16]\n我还以为他甚至能死而复生呢！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，我们做到了！这样世界就得救了……。[wt 1.0][charaFace C 1]\n人理修复，正式完成！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "成功了呢，[#ときこさん]时子小姐！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是啊。\n无论看多少次，都是如此戏剧性、如此美妙的瞬间。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，也差不多该入睡了。\n你们成功守护住了人理。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "修复七个特异点，\n并在时间神殿与伪典所罗门对峙。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "迎来了美好的结局。\n抵达了美好的终焉。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "今后那平稳而\n美好的余生，就用想象来补全吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那是未来之事。与我们无关。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……时子小姐。你在说什么？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，话说回来……[#貴方誰なのよ]你究竟是谁……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（……对了，这个人是……不，这名从者是）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么——回到本应归去的[#場所:か　こ]过去吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（是敌人……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……唔！御主！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "吾名乌尔德。哎呀，这已经是第几次自我介绍了？\n我记得是第三次吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那么，回去吧。归去吧。\n与我一同回到安宁的过去。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "宝具展开——『[#旧き過去を紡ぐ糸:ウ ル ザ ル ス ラ ズ ル ・ フ ォ ル ン]编织往昔之丝』"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "编织过去的丝线啊。\n倒转吧，归去吧，追溯吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "回到注定胜利的那些日子。\n回到永远不会[#躓:つまず]失足的世界。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "回去吧，回去吧。[wt 1.0][charaFace E 4]\n……啊啊，另外，也先消除你们的不安吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "[#未来は安泰です]未来将安然无虞。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那么最后致以问候。也在最初致以问候。\n你好，初次见面，请多关照。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——那么，再会。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "芙、芙呜。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——藤丸立香，\n藤丸立香！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……喂？你们该不会在会议期间\n打瞌睡了吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你们知道我最讨厌什么吗？\n就是开会开到一半睡着的家伙！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不、不是的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我有认真听！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这点我也可以保证！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "只是，那个……我也和\n前辈在同一时刻……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "感觉就像……[#時間が跳躍したような]时间发生了跳跃，\n大概是这种感觉……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……咦，玛修也有？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "会议暂时中止。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "相应地，请各自提交报告，说明自己有没有\n遇到什么异常状况。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说不定，\n我们正受到某种魔术影响。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "异常状况啊……。"
+    },
+    {
+      "speaker": "达斯顿",
+      "translated_content": "毕竟原本的日常就是异常状况，\n所以我们一直没注意到……。"
+    },
+    {
+      "speaker": "达斯顿",
+      "translated_content": "但仔细想想，确实有些地方不太对劲。\n该说是既视感吗……。"
+    },
+    {
+      "speaker": "西尔维娅",
+      "translated_content": "说起来，我们什么时候变成了会一起吃饭的关系？\n这也算异常状况吗？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "那是……因为啊。幸存者之间互相敌对，\n也没什么意思……。"
+    },
+    {
+      "speaker": "西尔维娅",
+      "translated_content": "可是，你不觉得应该发生过什么契机吗？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "你这么一说……是什么来着。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……迦勒底至今攻略的有，\n第一特异点奥尔良……第二特异点罗马……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "一路都很顺利。\n没有伤亡。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香……。[wt 0.7][charaFace C 9]\n精神和身体也都没有问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你真的做得很好。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "玛修·基列莱特……。\n嗯，这边也没有问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "她应该没有怨恨我……吧。大概没有吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "其他幸存的迦勒底职员也没有问题。\n虽然难免显露出不安……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还在容许范围内。没有……异常。\n一切都很顺利。所有事情都是。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——并非异常状况。\n但是，似乎有哪里……。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "唉……异常状况啊……。\n不过，要说异常，现在本来就挺异常的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是啊。\n达·芬奇亲怎么样？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "她说，『天才怎么可能出现异常？』\n就是这样。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不过，如果天才本身就算异常，达·芬奇亲\n自身或许也处于特异点状态……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "被达·芬奇亲听见会生气的哦？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎呀，[#剣呑:けんのん]危险危险。[wt 0.8][charaFace J 8]\n我这边也报告为没有任何异常吧。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "那么，就这样！\n你们也别想得太深，好好休息哦！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所长大概是积累了太多疲劳，所以神经紧张吧。\n之后我会推荐她做做芳香疗法。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "唔……医生真是悠闲呢……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈有察觉到什么异常吗？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——不能承认。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：………………不，什么都没有"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这样啊……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我觉得似乎……有什么地方不同，\n但也说不上来……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……抱歉，我整理一下思绪。[wt 1.2][charaFace B 10]\n晚安，前辈。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：睡吧……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——睡不着。既然睡不着，就继续思考。\n毫无疑问，存在异常。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为，我还记得。\n[#はっきりと思い出した]清楚地想起来了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[&オレ:わたし]我们\n在时间神殿战胜所罗门，已经是……。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#あの時で四度目だ]那时已经是第四次了。"
+    },
+    {
+      "speaker": "所罗门",
+      "translated_content": "——这场战斗，已经是第四次。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所罗门最后的话语，\n串联起了自己的记忆。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，现在正处于异常状况。\n但是……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（应该告诉谁？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有一个顾虑。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "如果真的存在异常，那它已经遍布整个迦勒底，\n没有任何遗漏。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所长、医生、工作人员、玛修。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "也就是说——[#監視されている]我们正被监视。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我想和玛修商量。\n也想告诉医生和所长。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#でもそれをしたらダメになる]但那样做就会坏事。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……对了。所罗……不，不对。\n盖提亚也曾以只有我能听见的方式[#囁:ささや]低声说道。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为他注意到有人正在监视。\n那是谁……是谁？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——答案显而易见。除了[#彼女]她以外，不可能是别人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为，谁都[#三回目の話をしていない]没有提起第三次的事。\n但只有[&オレ:わたし]我还记得。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那大概是因为……她并不知道。\n不知道[&オレ:わたし]我还记得这件事。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，还是有机会找人谈论此事的。\n但不能随便找个人就说。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——应该告诉谁？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "奥尔加玛丽所长。[wt 1.0][charaMoveScaleEase K 0.7 1.0 easeOutCubic][charaMoveEase K 150,-60 1.0 easeOutCubic][wt 1.6][charaFadeinFSL M 0.4 -330,0]\n罗曼医生。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "莱昂纳多·达·芬奇。[wt 1.0][charaMoveScaleEase L 0.7 1.0 easeOutCubic][charaMoveEase L -150,-60 1.0 easeOutCubic][wt 1.6][charaFadein I 0.4 350,0]\n玛修·基列莱特。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "从这些人中找一个，偷偷告诉对方……。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……所长和医生，\n还有达·芬奇亲都不行。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "想偷偷告诉所长和医生，\n这件事本身就非常困难。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "达·芬奇亲更不用考虑。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那么，只能选玛修了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "说实话，如果和她交换情报都会[#漏洩:ろうえい]泄露，\n那就彻底无计可施了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我也不可能不信任她。\n不过，还有另一个顾虑。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（监视的目光……这个房间里应该也有[&だろうな:よね]……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "两人独处时的对话，恐怕也会被掌握。\n我怎么也无法摆脱这种感觉。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "可是……盖提亚曾在耳边低语的事，\n看来唯独那件事没有被时子小姐掌握。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，不能在迦勒底内部采取行动。\n如果有机会，那就是第六特异点。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "说到第六特异点——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（在那片沙漠里，应该能找到机会……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不过，在那之前必须老老实实待着。\n安分、谨慎地。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "就像什么都没发生过一样，\n过着平凡的日常生活……。"
+    }
+  ]
+}

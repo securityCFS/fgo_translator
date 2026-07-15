@@ -1,0 +1,687 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221110",
+  "source_region": "JP",
+  "source_hash": "c4018a3ebca434ecfa13049d2b72eb3f179d5379e65b27904eb98e8c2c7a4c3e",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 167,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "巴御前",
+      "translated_content": "结束了早上的配膳工作之后，终于迎来了悠闲的休息时间……\n工作之后的热茶分外美味。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "今天早上后山的魔猿们也十分猖獗呢。\n我们阎魔亭警备组也费了不少力气。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "确实。但正因为激战的存在，\n才更能体会这杯沁人心脾的茶。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "战斗之后偶尔会出现情绪持续高昂的情况。\n这杯静心的茶正好能够缓和高涨的情绪……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "专注武道之人才更应该习得教养。\n茶之道，真是逆耳的教训呢。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "哎呀……？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "等等啾，玉藻！\n不要为这种事给大家添麻烦啾！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "不，我才不等！\n现在可不是客气的时候了！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "今天早上也很可爱的小玉藻打扰啦！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我会尽可能迅速地为大家讲解我们的策略！\n大危机啊，御主！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "厨房人手……不够吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "没错。与客人的人数相比，\n厨师的人数明显不够。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "不仅如此——"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "嗯，轻而易举。据说此处是难以到达的魔境，\n但以我等的脚力也不过如此。"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "到了，诸位。\n这里就是最近在英灵座也大受好评的阎魔亭。"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "赶紧进去确认一下传说中的日本地狱吧。"
+    },
+    {
+      "speaker": "静谧哈桑",
+      "translated_content": "……真是栋前所未见的豪华建筑啊。\n希望我的奥义不会给别人添麻烦……"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "哼。这种东西一看就知道是纸糊的道具。\n高台楼阁怎么可能是那样稳住啦。"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "再说这里不是死者安息的地方吗？\n那根本不需要豪华的设计。"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "住的地方越单纯越好。\n像我，还在路边的洞穴中住过。"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "哦。你之所以一生不靠近我的灵庙，[wt 0.4][charaFace G 2][charaMove G -384,-50 0.3][charaFace I 2][charaMove I 128,-50 0.3][charaFace H 2][charaMove H 384,-50 0.3]\n也是因为你那朴素的信仰吗，百貌啊。"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "这种想法必须改一改了。\n难道吾等亚兹拉尔之庙也过于奢华了？"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "（哇啊啊啊[line 5]！\n　你看你都说了什么傻话啊，百貌！）"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "不[messageShake 0.07 8 5 0.8]不不不不不不不不不是，绝没有那种事……！\n毕竟初代大人的庙宇设计是信徒们祈求的结果……！"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "而且，庆典还是在豪华的地方办比较好！\n从情感上来说！"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "嗯。虽然吾等不庆祝什么『春节』，\n但知己聚集的宴席还是不该破坏的。"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "只不过——"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "据说我们之中还存在心怀“睡大觉过大年”这种\n完全不该出现在山中老人身上的自甘堕落想法的人。"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "——这简直是天不怕地不怕的失言啊。\n你知道是谁吗，咒腕？？"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "不[messageShake 0.07 8 5 0.8]不不不不不不不知道，完全猜不出啊！\n哈哈哈，怎么可能有这样的哈桑嘛哈哈哈！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "哈～，到了到了！\n各位王，我们终于到达目的地啦！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "哎哟，海盗还真不该到陆地上来！\n本来以为很快就能到，结果却迷了好久的路！"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "唔。这可不好笑哦，船长。"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "我们是因为你擅长看地图，才会交给你当向导，\n没想到你却带我们出海了！"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "不过能看到日本的海也是一种幸运呢！\n那便是异界章鱼栖息的浪里绝海吧？"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "哎呀，真可怕真可怕！\n余的海军恐怕都无法对抗那般惊涛骇浪吧！"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "……完全没有反省的意思呢，征服王。"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "要不是你说“有海浪的声音。绕路去看看吧。”\n之类的话，我们早就到了。"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "尽管这里是不熟悉的山岳地带，\n但居然会漫无目的地流浪并因空腹引起眩晕……"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "作为曾征服了大地之人，还从未受过这等屈辱。\n你明白吗？"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "你若以『迷路的大征服王』之名流传后世，\n恐怕也没脸去见你的臣下了吧。"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "不，这没什么啊？"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "余的臣下想必会用\n『迷路也理所当然的征服王』来一笑了之哦。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "真是令人羡慕啊。\n胡闹时的同伴就该找这样臭气相投的笨蛋。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "如果是我，一定会用『迷路也在所不辞的征服王』来给你起哄。\n需要我再加上大猩猩三个字吗？"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "噢噢，无妨无妨！\n大猩猩就是那种吧，森林里最聪明的野兽！？"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "没有男人会不喜欢被比作强大的东西啦！\n哇哈，哇哈哈哈哈哈哈哈哈哈！"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "嗯……足够强大就会被比喻成动物……\n原来如此。"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "结果好就行了，阿蒂拉啊。\n这又不是在战争，别考虑那么多。"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "不管怎么说，只要船长在，就肯定有办法。\n余可是很乐观的哦？"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "毕竟船长正吹着口哨不断前进啊！\n余相信一定会到达目的地。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "当然啦。大王有件非常方便的宝具嘛。\n你想，你的战车是可以飞的吧？"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "所以实在不行的话用它不就行了嘛。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "我会在你魔力枯竭濒临饿死之前，\n一脚把你踢飞。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "毕竟我们已经准确掌握了目的地的方位。\n只要从空中飞过去，一眨眼就到了吧？"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "但那样做未免太无趣了，所以我打算悠闲地找，\n就把这当成是我的一点小任性好啦。"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "你看，根本没有担心的必要！\n船长很懂男人的浪漫！"
+    },
+    {
+      "speaker": "伊斯坎达尔",
+      "translated_content": "看来今晚的宴会值得期待！\n应该会有美酒可以喝吧！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "尽管我不是男人，\n但说到拼酒，我定会奉陪到底。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "那位大王看来也能很喝吧？\n快点快点，抓紧去办入住手续啦！"
+    },
+    {
+      "speaker": "阿蒂拉",
+      "translated_content": "（原来征服王的战车可以在空中飞吗……\n　果然……我也想要能在空中飞的宝具啊………）"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "好了各位，我们到了。\n这里就是这次林间教学的目的地了。"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "让我们在自然中学习诞生的喜悦、\n生命的宝贵，以及生存的艰辛吧。"
+    },
+    {
+      "speaker": "三个孩子",
+      "translated_content": "好～！　我们会努力加油～！"
+    },
+    {
+      "speaker": "三个孩子",
+      "translated_content": "哇～！　是旅馆，是旅馆呢～！\n听说传教士先生会帮我们买单哦！"
+    },
+    {
+      "speaker": "三个孩子",
+      "translated_content": "好厉害！　有钱人呀！"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "哈哈哈。尽管我以清贫立身，\n但这点积蓄还是有的哦。"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "何况儿童的住宿费没有那么高。"
+    },
+    {
+      "speaker": "童谣",
+      "translated_content": "是这样啊，那我就放心了。[wt 0.6][charaFace F 4]\n不过我还是有一点担心。"
+    },
+    {
+      "speaker": "童谣",
+      "translated_content": "比起我们几个，\n你其实有更想取悦的人吧？"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "很遗憾，对于那位，\n当面表达好意似乎会成为毒药。"
+    },
+    {
+      "speaker": "谜之传教士A",
+      "translated_content": "所以我无法邀请她参加像这样的远足。\n必须使用更为委婉的邀请方式才行。"
+    },
+    {
+      "speaker": "童谣",
+      "translated_content": "哎呀，真奇怪。[#蜂蜜:Syrup]、[#诱惑:Drop]、[#苦味女王:Poison Queen]！\n明明是毒之公主，却害怕甜美之毒！"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "听说这里是地狱，那我们也不能保持沉默了。\n毕竟日本的地狱就是从古印度的地狱派生而来的。"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "支流究竟理解了多少本家的意图……\n作为熟知本家之人必须前来监督才行。"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "换言之，这是一次守护传统的远征。\n我将个人情感藏入心中，作为肩负起责任的文化人——"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "那就是阎魔亭吗？　真是太棒了。\n莫名有种我们故乡的气味。"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "猴子好多，但没有香蕉呢……\n之所以没看到罗摩就是因为这个吗……"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "这里的土特产有香蕉包子吗？\n我无法不在意这点。"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "[#你小子:迦尔纳]完全是外出野餐的状态吧。\n能拓宽一下你那狭隘的视野吗！"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "唔。快看，阿周那。\n那座旅馆没有烟囱。"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "旅馆一般都都不会有烟囱吧。\n……不，等等。难道这有什么重要的含义？"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "有。也就是说，这里的温泉就是源泉。"
+    },
+    {
+      "speaker": "迦尔纳",
+      "translated_content": "也就是说……火山大国·日本独有的\n灼热地狱澡堂正在等待着我们吧？"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "…………原来如此。\n也就是说可以比耐力了？"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "哼。看来我阿周那展示\n自己不光是得到授予的机会终于来了。"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "我的最高纪录是在120度的桑拿房中蒸12个小时。\n甚至还淡定地吃了咖喱……"
+    },
+    {
+      "speaker": "阿周那",
+      "translated_content": "呵，呵呵——\n别以为这次你能和我打成平手，迦尔纳……！"
+    },
+    {
+      "speaker": "埃里克",
+      "translated_content": "地狱……居然是，地狱……？\n呜呜……头……头好痛……！"
+    },
+    {
+      "speaker": "埃里克",
+      "translated_content": "我我我……我有种，曾取了这个外号，\n然后胡乱连发宝具的　感觉……！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "冷静点，这只是你的胡思乱想！\n你已经不是地狱机器人了！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "不过，由于可怕妻子使用的[#地狱:Hell][#线路:LINE]，\n偶尔也会变成远程操控型从者啊。"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "这也是一种爱情的证明啊。越是跨越时空就越能享受恋爱。\n毕竟[#妻子的恐怖:wife-fear]基本都是免费的嘛。"
+    },
+    {
+      "speaker": "埃里克",
+      "translated_content": "是……是吗？　越是跨越时空，\n被你这么一说，还挺不好意思的呢……"
+    },
+    {
+      "speaker": "埃里克",
+      "translated_content": "但还是谢谢你了，猫之英灵啊。\n只要有你在，就有人能翻译我的话了。"
+    },
+    {
+      "speaker": "埃里克",
+      "translated_content": "同属Berserker职阶的你真是太可靠了！\n果然会咒术的女孩子既聪明又重情义呢！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "哈哈哈，交给我吧！\n尽管我也不知道我在说些什么汪！"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "终于到了。\n这就是那个女人的旅馆吧。"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "尽管我不知道阎魔还是别的什么，\n但既然涉及死者之国的权威，那我是无法袖手旁观。"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "无视我的冥界擅自大受好评，\n这一点都不好玩。再说了……"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "明明说是个让死者痛苦的国度，\n却有一座能让所有人获得放松的旅馆，这不奇怪吗？"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "是指针山地狱、血池温泉地狱\n之类的设施也应有尽有……？"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "那我不就毫无胜算了吗！？\n同……同为死者的统治者，"
+    },
+    {
+      "speaker": "埃列什基伽勒",
+      "translated_content": "为了让[&他:她]随时来我的冥界都不会感到失望，\n必须好好在这里调查调查才行！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……像这样。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "从这里也可以看见从者们\n向通往阎魔亭的桥涌去的盛况！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "粗略估算已经有超过50骑以上的团体到达了，前辈！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "对。要填饱那么多人的肚子，\n仅靠我和红老板娘是根本做不到的。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "因此，巴小姐、清姬小姐、\n玛修小姐、藤丸立香大人，"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "为了求各位来厨房帮忙，\n我才会赶来这里。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……太丢人啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管我知道各位帮我修缮了阎魔亭，\n但没想到还会发生这种情况啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "客流增加后厨房的人手也得增加啾……\n我疏忽了这件事啾，红……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我们来帮你！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 如果只是为蔬菜削皮之类的工作……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "能有这份心意我很高兴啾……[wt 0.5][charaFace D 0]\n因为我不能说谎，所以就直说了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "清姬和巴是派不上用处的啾。\n因为她们做完第一道菜之后，肯定会毁了第二道菜啾。"
+    },
+    {
+      "speaker": "清姬＆巴御前",
+      "translated_content": "咕[messageShake 0.07 7 3 0.4]哇，竟然无法反驳……！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管这两位配膳很可靠啾，\n但不能让她们进厨房啾。因为太危险啾。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "……这倒是。因为在阎魔亭，\n食材偶尔还会张牙舞爪地发起攻击呢。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "就是这样啾。\n所以……还是放弃吧啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "既然无法接待，\n那只能恳求客人们离开了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "毕竟只拒绝其中一两个未免太不公平啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "真的非常抱歉啾，看来只能平等地\n拒绝所有远道而来的新客人……啾……"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙呜……芙呜芙芙……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: ……（老板娘看起来好痛苦……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: ……（但是，该怎么办呢……）"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "好啦好啦。只要找到能掌勺的从者就行了吧？\n那问题就简单了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "光临的客人中说不定就有擅长烹饪的从者。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "说明我们的情况后，临时雇佣对方，\n这个方法怎么样？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不过，就算连一骑都没有——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我心中还有一骑合适的人选。\n届时，我会把那个人带过来。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……从客人之中选择啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "与其让心怀期待而来的客人们扫兴而归，\n我情愿低头恳求啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但客人中真的有烹饪高手啾？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 猫！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "嘁。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 唔，是山中老人吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不对啦，御主！\n明显是玉藻猫小姐啊！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "……真的要选那个莫名其妙的从者吗……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "不，我并不是反对，嗯。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我和她只是碰巧发色衣着相似而已，\n实际上毫无关系。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "就算我的尾巴尖再怎么抗议，\n也不会对我造成任何影响♡"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "不过，她做菜的手艺确实比我更胜一筹吧？\n说不定多少也能帮上一点忙。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "连玉藻小姐也打包票了！\n我们赶紧去邀请玉藻猫小姐吧！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "[f large]但我拒绝！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "这关乎猫的尊严，\n我是不会和本体待在同一间厨房的汪！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "我欣赏你们求助于猫的气魄，\n但一是一，二是二。奶牛是奶牛，三花是三花。我是我，谁是谁。"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "作为咒装战队的一员，\n我唯独不会帮助本体！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是……玉藻啾？？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "原来如此。\n将不利于自己的部分切除了啾……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "真是的！　不是啦，话不要说得那么难听！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "其实是～，为了世界为了和平～，\n我将碍事的灵基切除了的悲伤的过去……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "没错！　也就是说，为保护世界，\n与自己的黑暗面诀别！　就是这样！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "不是哦。我们非常清楚。\n这女人曾经这样胡扯，"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "『唔～。小玉藻我呀，\n　[#灵基:体重]是不是有点变重了？』"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "但她却没有减肥的毅力，\n就采取了切掉尾巴这种的简单方法。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "呜，为什么你会知道……！？\n这件事应该只有我知道才对啊！？"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "当然是因为这就是我自己的事啦汪！\n你难道都不照镜子不梳毛发吗，大笨蛋！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "哎，没完没了了。\n看来只能在这里打倒你了！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "放马过来吧，本体！\n你根本没有资格做红阎魔老师的弟子！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "少自以为是了，\n在地狱厨房里活下来的不是你，而是我！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我自己的事情暂且不论，在红老师的问题上我是不会让步的。\n让我们在这里一决雌雄吧！"
+    }
+  ]
+}

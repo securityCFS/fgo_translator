@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220610",
+  "source_region": "JP",
+  "source_hash": "1115ec8aa2b57b46595b2d96d452d4ff77de1c48845d64035b7e8e0781b39a81",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 25,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "呼。\n二楼的窗户擦好了，前辈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然阎魔亭的大窗户视野很好，\n但打扫起来也很费劲。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 需要梯子呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 这种时候真羡慕麻雀们呢。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是啊。麻雀们能飞，\n所以打扫高的地方……咦？[wt 1.5][bgmStop BGM_EVENT_77 0.3]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "出什么事了！？\n麻雀们好像从客房里被扔出来了！？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啊，玛修大人！　藤丸立香大人！\n来得正好啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "拜托了啾，拜托了啾！\n请快去鸫之间啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "虎名主大人又开始大闹了啾！\n请各位快去协助老板娘啾！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "！　虽然还不知道发生了什么，\n但这显然是紧急事态！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，我们快去吧！\n鸫之间是二楼最里面的房间！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "呜呜呜呜……\n呜　呜　呜　呜　呜　呜　呜　呜　呜！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "肚子……好饿……\n我要吃……我要吃……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[f large]我要吃，人类的，指头嗷嗷嗷！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "最好　是　左撇子　的人！\n最好　是　左撇子　的人　右脚的　指头嗷嗷！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这可不行啾！\n你忘了自己是为了什么而忍到现在的啾！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我们来帮你了，老板娘！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 真是狂热的要求啊！？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是藤丸立香大人啾！\n你们来得正好啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "来帮我让这位客人老实下来啾！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "人类……人类的　气味……\n果然　有人类　在这里啊！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "竟然敢耍我，臭麻雀！\n我要吃人，我要吃人了嗷嗷嗷嗷嗷！"
+    },
+    {
+      "speaker": "G：玛修",
+      "translated_content": "身份不明的客人，正在袭来……！\n御主，准备应战！"
+    }
+  ]
+}

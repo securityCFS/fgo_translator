@@ -1,0 +1,1227 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800010",
+  "source_region": "JP",
+  "source_hash": "90547184f671e38bdb776dc000459db4c39867fc2f79e641014ba07c71dcafef",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 302,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "旁白",
+      "translated_content": "——总是如此。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "总是只能听见雨声。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "哪怕能听见风声也好。\n哪怕能用脸颊感受到它的温度也好。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那样的话，或许就能产生错觉。\n哪怕只有几秒，或许也能骗过自己。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……又一次，周而复始。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "没有你的春天，再度来临。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：怎么睡都还是困……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：感觉要融进床里了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "喂喂，你还在睡啊，藤丸立香。\n春天早就已经结束了吧。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "就算你有权把一辈子的觉都补回来，\n一直睡个不停也对身体不好。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "总之先离开房间，\n出去运动一下怎么样？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：唔……虽然还是很困……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：在迦勒底里散散步吧……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总觉得这是个很少见的组合……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：总觉得这个组合意外地合拍……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：最初遇见她们两个，是在……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……是谁？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：……迷路了吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：哇"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是御主的味道～。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "好安心……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：睡着了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：这孩子，好像在哪里见过……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "师父……莱妮丝……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才那是！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：难道有人袭击迦勒底……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "呼喵……呜喵……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈！　您没事吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我这边没事"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：玛修也没事就好"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这孩子是怎么回事？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好、好可爱的一位……！\n似乎和阿尔托莉雅小姐有点像？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "她在基地里走动？　可是，这样的孩子……\n难道是新召唤出的阿尔托莉雅小姐……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：唔，阿尔托莉雅大饱和……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：唔，阿尔托莉雅大集合……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……真是难以理解的想法。\n英雄与士兵。成熟与稚嫩。成人与孩童。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "如果是实力相同的英灵重复存在，\n那我多少还能理解，"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "可既然已经存在比另一方更优秀的个体，\n另一方便没有可被赋予的[#職務:せ　き]。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "这是在浪费资源。难道在迦勒底，\n[#喚:よ]来英灵的不同侧面已是常态？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……确实是常态。\n……这就叫多样性吗。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "算了。藤丸立香。玛修。\n我是来叫你们的。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "立刻去所长室。\n那边的女孩是外人吧。那就暂时由我——"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "……呜喵……不～要……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……看来不愿松手。\n也罢，带她一起走。事态紧急。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：情况很紧急吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：说起来，刚才那阵冲击是——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "没错。\n当然，也与刚才的冲击有关。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "原因尚未查明，\n但发生源和犯人都已经清楚了。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "奥尔加玛丽·阿尼姆斯菲亚。\n她的灵基终于——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "！\n奥尔加玛丽所长出什么事了吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：——！（难道是出现了Beast的征兆！？）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：…………！（难道是总统之力觉醒了！？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "你也这么想吗，藤丸立香。\n真是有默契。之后就等着失望吧。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "遗憾的是，我没有向你们说明的[#術:すべ]。\n亲眼去看会更快。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "如果那女孩会成为累赘，\n还是由我来抱吧。她应该也有些分量。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没关系，我可以！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！　前辈每天都有锻炼！\n真有万一时，我也会[#庇:かば]护前辈！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "…………。莫非，她是你们的女儿？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "！？[messageShake 0.05 4 4 0.2]\n不不不不是，并不是那么回事！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：……你喜欢孩子吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不。没什么。\n硬要说的话，我不太擅长应付。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "因为我想克服弱点。\n至少想要三个。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……不过，孩子……孩子吗。\n那女孩或许并非毫无关系。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "算了。快走吧。\n不能让[#所長:ア　レ]独处太久。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我回来了，奥尔加玛丽。\n我把藤丸立香和玛修带来了。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "这两个人选，你应该也无可挑剔。\n我们要进去了，你已经不会再放电了吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等、谁拜托你做这种事了！？\n反而这两个人不行！　绝对不行！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不可能。没有比他们更合适的人选。\n无论情况如何，这样便不会有错。进去吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我才不管什么可能不可能！\n绝～～～对不让他们进来！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里是我的城堡！\n我的领地！　我坚决抵抗[#不法侵入:ふほうしんにゅう][line3]"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "门锁[#截断:せつだん]。打扰了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊、啊啊啊啊啊啊啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长她"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：变小了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊——！！！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "没错。本以为她终于露出了马脚，不，是兽角，\n结果却成了这副模样。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我失望得几乎一阵[#眩暈:めまい]。\n你打算怎么赔偿。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "想因为[#眩暈:めまい]倒下的人是我才对！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "早晨醒来就突然变成这样了！\n我自己也完全搞不懂啊！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "而且，她现在还无法控制魔力。\n肉体变化令魔术回路也陷入混线。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "为了查明这一异常，我提议先进行检查，\n然而——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "当然不要！　这可是检查啊！\n肯定还会给我打针吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你不也是御主吗，\n这点事应该能理解吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长的性格也"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：好像和平时不一样"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大、大概是身体造成的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不只是从者，\n所有生物的感觉都会受到肉体影响。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "她的记忆似乎没有改变，\n但身体感受更接近年幼时的……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：也就是说"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：是小学生年龄的所长？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总、总而言之！　我不要接受检查！\n说不做就是不做！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "唔唔唔……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "女孩——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不能靠近她！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "唔……那……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "不可以闹哦。\n奥尔加，冷静下来。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……咦……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "哦。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：奥尔加……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "身体里面……平静下来了……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太好了。\n冷静下来了呢。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "嘻嘻嘻嘻！　抱歉啦！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "这家伙好像把自己世界里的奥尔加玛丽\n和你弄混了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这个声音是[line 2]"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "对啊，所以说就是我！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：难道是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：亚德！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "终于想起我来了啊！　是亚德！\n我就是一直负责照[#守:も]这家伙的礼装！"
+    },
+    {
+      "speaker": "G：亚德",
+      "translated_content": "不过这副模样，简直真成了照[#守:も]小孩的啊！\n嘻嘻嘻嘻！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "怎、怎么会。那也就是说……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道你是……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "嗯——？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "就是[#グレイ]啊！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "我算是附属于她灵基的礼装，\n也就是说，她的灵基被彻底改写了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻嘻！　没想到连奥尔加玛丽\n也变得这么小啊！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "师父！　莱妮丝！[charaFace A 6][charaFace M 8]"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "这、这可不妙……太可爱了……\n连我的挖苦都被中和了……我要死了……"
+    },
+    {
+      "speaker": "特里姆玛乌",
+      "translated_content": "检测到[#ご主人様:マ　ス　タ　ー]心率上升。\n是否请求执行治疗程序？"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "放开我，特里姆玛乌！\n我要一心[#耽溺:たんでき]于格蕾的可爱之中！"
+    },
+    {
+      "speaker": "埃尔梅罗Ⅱ世",
+      "translated_content": "不过……没想到会变成这样……\n达·芬奇，检查结果如何？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "对两人的灵基状态进行扫描后发现，\n发生变化的只有年龄。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "灵基本身并无异常。\n当然，变年轻这件事本身就已经够异常了。"
+    },
+    {
+      "speaker": "埃尔梅罗Ⅱ世",
+      "translated_content": "也就是说，变化发生时，并没有混入以前不存在的东西……\n没有混入所谓的“多余要素”，对吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "嗯。既没有其他英灵的精髓，\n也没有发现会威胁人类的可疑因子。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "只是变回了孩子而已。\n所以阿兹莱尔也一直很安分吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "以前也出现过从者的年龄信息\n发生变化的案例。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，若对象是格蕾或奥尔加玛丽这样\n活在当下的人类，情况就不同了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不是修改一下魔力或灵基信息\n就能解决的问题。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "而且，她们调用记忆的能力\n似乎也受到了肉体限制。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "结果就是，她们还记得关系亲近的人，\n但记忆中的细节似乎变得模糊了。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "不过和这家伙真正小时候的样子\n也有很大不同就是了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "现在的格蕾似乎完全不会\n产生把脸遮起来的念头！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻嘻！　我觉得这样挺好！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所以，她把迦勒底的奥尔加玛丽所长"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：误认成了自己世界里的奥尔加玛丽所长？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "大概就是这么回事。"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "格蕾在我们的世界遇见奥尔加玛丽时，\n她也差不多是这个年纪。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原来，那个世界里真的也有一个我啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：话说回来……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：经营顾问去哪了？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这么说来……从所长室前往[#管制室:こ　ち　ら]的时候，\n他应该还和我们在一起……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个人完全感觉不到气息，气息啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "视线稍微移开他就不见了，\n漫不经心地回头时却又突然出现！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "太伤心脏了，门要锁好，锁好！\n既然在分头行动，我甚至希望他暂时彻底消失！"
+    },
+    {
+      "speaker": "D：？？？",
+      "translated_content": "你是说我可以休长期假吗？\n这样啊。但不必为我费心，奥尔加玛丽。[charaFace E 12]"
+    },
+    {
+      "speaker": "D：？？？",
+      "translated_content": "休息一天便足够了。\n不完成职务便绝不松懈，这是我的方针。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "门都锁了，你为什么还能悄无声息地进来！？[messageShake 0.05 4 4 0.2]"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "因为我没走门。\n很遗憾，我并不擅长开锁。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "达·芬奇。藤丸立香。玛修。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "无论如何，奥尔加玛丽现在的状态\n会妨碍她履行迦勒底所长的职务。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不能让孩子承担责任。\n但目前也不清楚让她恢复成人的方法。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "所以我带来了一位仅限本次事件的代理人。\n你可以发表就任致辞了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "唔……已经早上了吗？\n感觉我明明才刚睡着……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "算了，从某种意义上说也算得救了！\n毕竟今晚做的梦实在太可怕了！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "回过神来，天空染得通红，\n地表熊熊燃烧，擦肩而过的人们全都一丝不挂！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "简直是地狱！　地狱般的景象！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我正惊恐地想，自己为什么非得待在地狱，\n莫非马上就要开始一场扯断手脚的残酷表演，"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "就在我胆战心惊时醒来了啊！\n哎呀，能醒真是太好了、太好了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。话说这里是哪里？\n因为熟悉得过头，我一瞬间就清醒了啊？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：戈——戈尔德鲁夫司令！！！！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔？　唔唔？　唔唔唔唔？\n明明初次见面，却又不像陌生人的这种感觉……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "等等。等等等等。现在有庞大得惊人的信息量\n正涌进我的脑袋！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不是我忘记了，而是被分离保存起来的\n记忆，此刻正被重新装回我的身上……！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "没错……我、我认识这间管制室！\n还有，还有——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦。哦哦。哦哦哦！\n你们，你们是——！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "淘气的达·芬奇！\n看似优等生却力量惊人的基列莱特！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "还有，还有——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "百折不挠、跌倒也绝不空手起身的[&男:娘]，\n这不是藤丸立香吗——！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "太厉害啦——！\n是真正的戈尔德鲁夫——！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这种直接攻击，错不了！[wt 1.2][charaFaceFade P 10 0.2]\n糟糕，快哭出来了。不行，要保持绅士风度，戈尔德鲁夫！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "身为正在复兴的穆吉克家当主，\n怎能如此轻易地落泪！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：太狡猾了，[&オレ:わたし]也要！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是，我也会充满力量地扑上去！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这是什么，梦还没醒吗？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "又或者，这是在暗喻\n迦勒底的生活就是地狱？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不是。\n你刚才身处的地狱是真实存在的。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "没有手段能将身处泛人类史的你\n带进这个隔绝空间。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "通常而言，是这样。\n所以便经由你们的地狱。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "就像我们所说的[#地中の界:バ　ル　ザ　フ]，\n死者会被给予一个临时停留之处。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "那是接纳一切死者的灵性领域——\n也就是现世与幽界的边界。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "灵魂的去处因罪业而异。\n或天堂，或地狱。暂且不论这些——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我将那里作为中转站，\n把你[#案内:エスコート]到了这个原本并不相连的空间。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "也就是说，我先把你送入死亡之国，\n再从其底部将你带到这里。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "原来如此。经由地狱。\n呃。[wt 0.5][charaFace P 9]——这么说，我已经死了？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "放心，只是暂时的。\n事件解决后，我会把你送回原来的世界。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "也无法一直瞒过地狱的监视机构。\n大约十天后，他们就会发现这次偷渡。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦。被发现之后会怎样？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我和你都会受到惩罚并消灭。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那么，你又是谁？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "阿兹莱尔。新任经营顾问。\n虽然只有几天，还请多关照，戈尔德鲁夫·穆吉克。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呵——[wt 1.2][charaFace P 2][messageShake 0.05 4 4 0.5]呵呵。哈哈哈哈、哈哈哈哈哈哈哈！[wt 1.4][charaFace P 12][cameraMoveEase 0,-40 0.5 easeOutQuint 1.2][charaEffect Z bit_talk_41_remake]\n原来如此，还是熟悉的迦勒底，我已经想回家啦————！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不得了的状况又叠上了不得了的事……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：那个……Mr.戈尔德鲁夫·穆吉克……（安慰的眼神）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "可恶，做梦都没想过\n我会因为这种理由再次来到迦勒底！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过既然迦勒底正面临危机，\n我也不能只顾着哀叹自己的处境。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "就在此刻，穆吉克城中仍有络绎不绝的纳税人\n前来找我排忧解难——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯，但现在也不是发牢骚的时候！\n毕竟这关系到我的性命！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好吧，我也是一位（总觉得）曾拯救过世界的男人！\n就再当一次你们的司令官吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这才是不死鸟穆吉克[&です:]！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呵。那当然、那当然。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这个嘛。虽然我现在就想再睡一觉，\n但可不能在你们面前露出丢脸的样子。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：话说，您睡觉时原来穿成这样啊"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦，这是特别定制的。\n因为舒适的睡眠要由舒适的服装来提供。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "话说回来……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "就算要把我带来，也该考虑一下时间吧！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我刚完成家里大批人造人的调整和培育，\n好不容易才睡下啊！？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……是时差问题吗。这点我向你道歉。\n地狱没有昼夜之分，所以我没有考虑。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那也没办法。\n非常时期，我会忍住困意。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "话说，奥尔加玛丽……\n你确实是奥尔加玛丽吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我认识的你，是一位自称总统的成年女性……\n你现在也拥有当时那种力量吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你是指我的魔术回路？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这我也不太清楚……\n但输出确实感觉比以前更高了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可用这副身体就无法顺利控制。\n势头太强，连魔术式也无法正常构筑。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。要是勉强使用，\n说不定能把这间屋子整个炸飞。呵呵。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：一脸压倒性的得意……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "奥尔加玛丽所长所言不假。\n根据三尖赫耳墨斯的计算，"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "若继续维持这种失控状态，\n迦勒底有可能会消灭。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，所以事情必须解决。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "现在不是害羞的时候吧！\n难道不该把这个炸弹女孩隔离起来吗！？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "好了好了，别慌、别慌。\n刚才已经查明幼儿化的原因了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "玛修，能请你说明吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。我们发现这个特异点\n正在对迦勒底进行干涉。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "特异点竟然能直接影响迦勒底和我……？\n明明这里已经与通常空间隔绝？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "过去并非没有类似案例。\n迦勒底曾遭受过数次攻击。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "总的来说，那类特异点都极为可怕。\n其中充斥着针对迦勒底的敌意与陷阱。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "……这次也是如此吗？\n危险程度有多高？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "可是，根据三尖赫耳墨斯的判断，\n危险度低得惊人——几乎可以说是[#低い]。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "数小时前，这个特异点通过某种[#縁:パス]，\n向迦勒底放射了异质魔力。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "然而，我们无法顺利观测\n特异点本身的状况。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "只能判断其大小相当于一片地区，\n除此之外几乎一无所知。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "因此，要想解决问题，只能请受到影响的\n格蕾小姐和奥尔加玛丽所长亲自前往……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "………………。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "怎么了，死神小……不，经营顾问。\n你对基列莱特的说明有什么不满吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不，并无不满。情况说明与应对都简洁明了。\n但没有其他办法了吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "两个孩子恐怕连东西都买不了。\n更何况是与异常对抗。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "还是说，在迦勒底这也属于日常？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个嘛……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……唉。你居然会不像自己地担心我们？\n没事，不会有任何问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为要进行灵子转移的\n不只有我和格蕾。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里还有一位身经百战、无论何种特异点\n都拥有灵子转移适性的御主。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对吧，藤丸立香？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：当然！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我会和你们一起调查特异点！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主要去，奥尔加也要去，那我也去！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "两位的适性当然都没有问题。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "只是……她们的灵基都发生了变化，\n目前无法战斗……"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "呜呜，偏偏这种时候，我却没有适性！"
+    },
+    {
+      "speaker": "埃尔梅罗Ⅱ世",
+      "translated_content": "我似乎勉强有适性，\n但数值不足以承受灵子转移。"
+    },
+    {
+      "speaker": "埃尔梅罗Ⅱ世",
+      "translated_content": "在这种状态下派御主前往，\n实在令人不安……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我会谨慎行动的。还有可靠的司令官在！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "没错、没错。\n我以这副[#美髯:びぜん]起誓，定会竭尽全力。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我会作为监护人努力的！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你在说什么。\n监护人应该是我才对吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我会好好监督你，\n免得你又做出什么乱来的事。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这样一来，我们就在这里负责后方支援。\n本来想把穆尼尔他们也叫来……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不行，绝～～～对不行！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要是被职员们看到这副模样，\n恢复之后我还怎么维持威严！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "所以操作员只能由我和玛修\n来担任了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "经营顾问准备怎么办？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……看来调查会持续相当长的时间。\n我去拿些饮料。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "（这个死神小哥完全是一副观战的心态吧！？）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好吧。达·芬奇、玛修，\n给我好好看着藤丸立香。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不只是存在证明哦？\n还要防止其像平时一样做出奇怪的选择。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然。请放心交给我们。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我也会看着御主的！"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "呜呜呜！　太可爱了！　绝对不想放手！\n不要走啊，格蕾……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好了好了，不行！　放弃吧！\n时间紧迫，立刻准备灵子转移！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "拜托了，藤丸立香。\n这不仅关系到奥尔加玛丽，也关系到我的性命！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "情况比以往更加扑朔迷离，\n但还是像平常一样干脆利落地解决掉吧！"
+    }
+  ]
+}

@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802120",
+  "source_region": "JP",
+  "source_hash": "cacf288ba9abefa22c09de6a8980f20a89670367aef1bf7998271df3b383682a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 114,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "旁白",
+      "translated_content": "继续下潜。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "继续下潜。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "每深入一次，便能感觉到灵魂逐渐冻结。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "连神灵之躯都能冻僵的，\n绝对的冥府之水。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#父さん:アケローン]的权能。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "正因如此吧。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "自己心中最不愿回想的记忆被唤醒。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——总是如此。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "总是只能听见雨声。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "哪怕能听见风声也好。\n哪怕能用脸颊感受到它的温度也好。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那样的话，或许就能产生错觉。\n哪怕只有几秒，或许也能骗过自己。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……又一次，周而复始。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "没有你的春天，再度来临。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "…………不。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "现在，很温暖。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即便是通往冥府的死亡之水，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "也无法冻结这段回忆。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "依靠那份温暖与御主的魔力，\n继续向更深处潜去。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "前往这条河最初的……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "最初那一滴水的记忆之中……"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "……渺小的神啊。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "渺小的神啊。你为何会相信，\n自己的谎言连余也能骗过？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "你以欺骗[#我が妻:ペルセポネ]的[#偽り]，\n试图[#彼女の幸せを守ろうとした]。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "你为何会认为，\n余连这点事情都看不穿？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "啊啊，慈悲深厚的冥府之王啊。我从未认为，\n自己的谎言能够骗过您。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "即便如此，我所拥有的獠牙也只有这一副。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "没有力量，也没有智慧，甚至未曾得到双亲多少[#顧:かえり]顾。\n最后留给这样的我的，就只有一个[#拙:つたな]拙劣的谎言。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "那么，你没有想过，\n那将成为对余的背叛吗？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "……您……不，对您而言……"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "我……"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "还有别的话想说吗？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "珀耳塞福涅大人……夫人她，是否安好？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "你没有知道的必要。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "如何处置，容后再行宣告。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "……你怎么看？\n丰穰之神啊。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "那个孩子的谎言，以及谎言的含义，我都明白。\n但这并不代表我能够原谅。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "给予他应得的报偿。\n给予他应得的惩罚。"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "我……所求的……仅此而已……"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "牵涉其中的神，这便是全部了吗？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "……唔？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "站在那里的……难道是阿刻戎吗？"
+    },
+    {
+      "speaker": "阿刻戎",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "不，这声[#誰何:すいか]喝问倒是多余了。\n就连余，也已有数百年不曾见过你开口。"
+    },
+    {
+      "speaker": "阿刻戎",
+      "translated_content": "……冥府之王啊。我有一事相求。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "什么？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "今天吹的是什么风？\n听闻儿子受罚，终于生出父爱了吗？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "还是说，是对犯下罪行的儿子感到愤怒？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "……抑或，是对余感到愤怒？"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "据说那些多嘴之人声称，余是为了将珀耳塞福涅留在身边，\n才把石榴交给了阿斯卡拉波斯。"
+    },
+    {
+      "speaker": "阿刻戎",
+      "translated_content": "……请将这个交给得墨忒耳大人。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "这不是你河流最初的一滴水吗？\n实际上，这便等同于你的权能本身。"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "你……原来如此。"
+    },
+    {
+      "speaker": "阿刻戎",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "冥府之王",
+      "translated_content": "准了。余以自己的名义起誓，\n定会将其交给得墨忒耳。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "同一段记录，\n我大概以前也曾见过。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那时，我还不明白其中的含义。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……现在却明白了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "仔细想来，其实非常简单。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为那一滴水，正是父亲的分灵本身。\n而将它托付给得墨忒耳大人，也就意味着……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#もしも]，[#息子の罪を許せる日が来たならば]，\n[#我と息子を会わせてほしい]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "仅仅如此。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "真的就只有这一个，\n笨拙得过分的口信。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "父亲。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "父亲，我……"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "Archer！　拜托了！"
+    },
+    {
+      "speaker": "无铭",
+      "translated_content": "请退后！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "可恶！　光应付这些融合Garbage就已经忙不过来了！\n阿斯那家伙还没好吗！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『何其悲哀。何其悲哀。』[bgm BGM_EVENT_72 0.1]"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『死亡何其悲哀。终结何其悲哀。』"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不好！　这次[#真体:アリスィア]真的要发动宝具了！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『粉碎吧。』"
+    },
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "你……[wt 0.7]是……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯酱……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯……先生……！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "挡住了[#真体:アリスィア]的『[#汝、星を鋤く豊穣:ス  ク  リ  ー  ム  ・  エ  レ  ウ  シ  ス]』……\n原来如此……那个姿态是……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如果整个特异点都被阿刻戎河的\n河水吞没了……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那河水……也就是阿斯先生的父亲，\n冥府之河阿刻戎本身……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "换言之，卡尔德尼亚与里卡尔德尼亚，\n如今全都处于阿刻戎的领域之中吗！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那么，现在的阿斯……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：吸收了父亲的灵基……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "A：阿斯",
+      "translated_content": "吾名为，阿斯卡拉波斯＝阿刻戎。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "这黑水所及之处，\n一切皆为吾之领土！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "哪怕你是大地母神的原型，\n区区仿造品，又有什么道理胆敢反抗！"
+    },
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "不过是……"
+    },
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "不过是一颗行星的自然灵罢了！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "原来如此……这份重量，确实名副其实的机神……！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "但是！\n您不会忘了自己吞下了什么吧！"
+    },
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "从内部……黑水正在[#蝕:むしば]侵蚀我……！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "被人在体内大闹一场的滋味如何？\n这件事，想必连您也不曾习惯吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：阿斯……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "让您久等了，御主。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "正如方才所说，这副灵基乃是阿斯卡拉波斯＝阿刻戎。\n就人格而言，大概是我与父亲各占一半。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "那张王牌，你顺利读取到了呢。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "是的。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "岸波小姐从Garbage们身上提取并演算出的，\n[#デメテル]・[#オリジンが切り離していた記録]。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "循着那份记录的指引，我也将阿刻戎河最初的一滴水，\n纳入了这副灵基。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "呵呵，我还是第一次觉得，自己身为神真是太好了。\n若原本只是人类，早就被父亲压垮了吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……我还可以叫你阿斯酱吗？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "当然可以。我回来了，格蕾小姐。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "欢迎回来，阿斯酱！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……称呼您为阿斯先生……可以吗……？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "当然可以。我回来了，格蕾小姐。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "欢迎回来，阿斯先生！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "既然我已经来了，\n就请把整条阿刻戎河都当作我们的伙伴吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，大家都准备好了吧。\n给我好好干哦。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "当然。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "这一战想必……就是最终战了。\n准备好了吗，御主？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：大家一起结束这一切吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：夺回两个卡尔德尼亚吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

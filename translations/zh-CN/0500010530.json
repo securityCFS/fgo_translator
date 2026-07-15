@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010530",
+  "source_region": "JP",
+  "source_hash": "1b39422c717287c0ffc34af44892efd7794b2b2d12de8d48f89eaf15e26ffa5b",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 133,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，怎么了！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……好像有什么重要的事……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：被我忘了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "忘了什么……吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "怎么办。要不要先回个人房间，\n寻找一下忘掉的东西？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "——啊，原来你们在这里。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "杰罗尼莫先生！"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "接下来要开会吧。我和你们一起去。\n……不，还有一件事。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "这个想法……为什么会出现在我的脑海中，\n[#私にも理解できていないのだが]连我自己也无法理解……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "迦勒底里有一位名叫紫式部的从者吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "啊，看你的反应，果然是有啊。\n那么——"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "[#紫式部を頼れ]去找紫式部帮忙。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "……。\n……很不可思议吧？我也觉得不可思议。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "只是……[#これを言わなくてはならない]必须把这句话告诉你，\n我刚才突然产生了这样的直觉。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "——唔。真有意思。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：帮我告诉所长，我不参加会议了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咦，前辈……前辈！？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "御主？这么着急是怎么了。\n呵呵，书是不会逃跑的哦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：紫式部小姐，我有件事想拜托你……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "什么事？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：[#忘れたものを思い出す呪術はある]有能让人想起遗忘之物的咒术吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是的，有。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是寻找失物吧。\n据晴明大人说，世界各地都有类似的咒术。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "例如，使用[#霊符:れいふ]灵符，\n就能刺激记忆之类的——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（记忆……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "虽然不能保证准确度……\n需要我为您准备吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：拜托了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那么，请稍等片刻。\n沙沙，沙沙……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "做好了。\n御主，请收下。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个该怎么用？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "请拿着它，在心中默念。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "牢牢抓住浮现在眼前的东西，\n像是将其拖拽出来一样……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（……就是这个）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "——感觉如何？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……谢谢！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "请、请慢走……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "又没有紧急情况，不许在走廊上跑！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还有，不参加会议是怎么回事！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要不是生病，我就不允许你缺席哦！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是紧急情况！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前……不，御主！\n玛修·基列莱特，前来会合！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，我们要去哪里！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲的工坊！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……好的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "[tVoice ChrVoice_500900 0_T010]\n抱歉——，我现在正忙——。[wait tVoice]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊。原来您在忙。\n那就……[#仕方ないですね]没办法了……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "[tVoice ChrVoice_500900 0_T010]\n抱歉——，我现在正忙——。[wait tVoice]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修，破门！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咦！？可、可是……[wt 1.0][charaFace A 13]\n[#それはできません]我不能那么做！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……[#令呪を以て命ずる]以令咒下令！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：[&頼む:お願い]拜托了，玛修，破门！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "什——！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……Yes，御主！\n喝啊啊啊啊啊！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[tVoice ChrVoice_500900 0_T010]\n抱歉——，我现在正忙——。[wait tVoice]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "达·芬奇亲……\n为什么，这是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：原本就不在这里……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……！"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "等一下等一下！刚才是什么声音！？\n发生什么了！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "究竟——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里是达·芬奇的工坊吧？\n怎么会变成这样……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[messageShake 0.04 3 3 0.6]\n是你们闯了什么祸吗！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不、不是的！\n我也很混乱，但这里从一开始就——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从一开始就……[wt 0.7][charaFace D 6]那么，\n达·芬奇去哪里了！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这是……留声机。\n一直在……重复刚才那句话……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲……从一开始就不在这里"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦……？\n不在……[wt 0.8][charaFace D 9]啊，不过说起来……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我……该不会……\n好像一直都没见过达·芬奇……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（在时子小姐赶来消除记忆之前）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（应该已经没有时间了……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "为什么唯独达·芬奇亲[#だけ]一个人，\n不在这里呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这里……这里明明连戈尔德鲁夫新所长……\n不对，戈尔德鲁夫先生也在。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，戈尔德鲁夫新所长？所长明明还是我啊？\n喂，玛修……玛修奇？把详情告诉我，"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：达·芬奇亲不在这里，是因为——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（玛修奇？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主。再这样下去……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "所以说，快把详情告诉我……[wt 0.7][charaFace H 20]\n干嘛突然一脸严肃。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：一起逃走吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "……逃走？为什么？[wt 0.5][cueSe SE_25 25_ad1460 0 0.6][cueSeStop 25_ad1460 0.6][charaFace A 0][charaFadein A 0.3 150,20][charaMove A 120,20 0.3]"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "咦？玛修。为什么站到我身后去了？"
+    },
+    {
+      "speaker": "A：玛修",
+      "translated_content": "失礼了，所长！"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "为什么我被你夹在腋下了！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，玛修·基列莱特。\n将以全力出发！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "喝啊啊啊啊啊！"
+    },
+    {
+      "speaker": "H：奥尔加玛丽",
+      "translated_content": "全力！？全力是什么意思！？[wt 1.0][charaFace H 15]\n等等，[messageShake 0.04 3 3 1.0]呀啊啊啊啊啊啊啊啊！！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，我们要去哪里！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总之去一个看起来安全的地方……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "看起来安全的地方吗！\n迦勒底虽然很大，但这个范围实在是……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种含糊不清的指示是怎么回事！\n给我说得更具体一点！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "例如，没有任何人会靠近的，\n那种房间吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没错，就是那种房间！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……倒也不是完全没有头绪。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "真的吗，所长！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从这里直走再左转！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这是什么声音！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那是贝壳！好大的贝壳！\n可是迦勒底里为什么会出现敌人！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（得在被追上之前解决它……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "哎呀，御主大人。这是敌人吗？\n看来是敌人呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "清姬小姐！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：清姬……战斗就拜托你了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "是，当然♪\n就交给清姬亲吧～"
+    }
+  ]
+}

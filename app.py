@@ -6,6 +6,8 @@ from flask_cors import CORS
 import json
 import sqlite3
 import asyncio
+import re
+from pathlib import Path
 from flask_socketio import SocketIO, emit
 from concurrent.futures import ThreadPoolExecutor
 from translation_cache import (
@@ -43,6 +45,7 @@ def load_user_preferences():
 user_preferences = load_user_preferences()
 translation_cache_config = TranslationCacheConfig.from_env()
 translation_cache_client = TranslationCacheClient(translation_cache_config)
+BUNDLED_TRANSLATION_ROOT = Path(__file__).resolve().parent / 'translations'
 
 @app.route('/')
 def index():
@@ -63,6 +66,14 @@ def docs(filename):
     response = make_response(send_from_directory('docs', filename))
     if filename.lower().endswith('.md'):
         response.headers['Content-Type'] = 'text/markdown; charset=utf-8'
+    return response
+
+
+@app.route('/translations/<path:filename>')
+def bundled_translation_file(filename):
+    response = make_response(send_from_directory(BUNDLED_TRANSLATION_ROOT, filename))
+    response.headers['Content-Type'] = 'application/json; charset=utf-8'
+    response.headers['Cache-Control'] = 'public, max-age=300'
     return response
 
 @app.route('/search_war', methods=['POST'])
@@ -365,15 +376,9 @@ def parse_script_visual():
     if not script_id:
         return jsonify({'error': 'script_id required'}), 400
     try:
-        script_endpoint = f"{loader.db_loader.BASE_URL}/nice/{region}/script/{script_id}"
-        script_meta = loader.db_loader._make_request_with_retry(script_endpoint)
-        script_url = script_meta.get('script', '')
-        if not script_url:
-            return jsonify({'error': 'No script URL found'}), 404
-        import requests as req
-        raw_resp = req.get(script_url, timeout=15)
-        raw_resp.raise_for_status()
-        raw = raw_resp.content.decode('utf-8', errors='replace')
+        raw = loader.load_script_text(script_id, region=region)
+        if not raw:
+            return jsonify({'error': 'No script text found'}), 404
         frames, entity_ids = _parse_fgo_script(raw, region)
         svt_data = _fetch_svt_scripts_parallel(region, entity_ids)
         return jsonify({
@@ -439,7 +444,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
 
     text = raw_text.replace('\r\n', '\n').replace('\r', '\n')
     text = re.sub(r'\[\s*\n\s*', '[', text)
-    text = re.sub(r'\n\s*(?=[^\[＠？\n])', ' ', text)
+    text = re.sub(r'\n\s*(?=[^\[＠？?\n])', ' ', text)
     text = text.replace('[%1]', '藤丸立香').replace('[r]', '\n')
     # Note: formatting tags [line N], [align ...], [f ...], [image ...] are
     # preserved here and rendered by the frontend (gaming.html / index.html).
@@ -478,7 +483,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         'bg': '',
         'sprites': {},   # slot -> {entityId, name, face, visible}
         'subLayers': {},
-        'talker': None,
+        'talkers': set(),
+        'talkHighlightEnabled': True,
         'cameraFilter': None,  # active color tint
         'bgm': None,           # active BGM name
     }
@@ -511,7 +517,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 idx += 1
                 j = jj
                 continue
-            cm = re.match(r'？(\d+)：(.+)', ln)
+            cm = re.match(r'[？?](\d+)[：:](.+)', ln)
             if cm:
                 if cur is None:
                     cur = {'first_line': j, 'choices': [], 'end_dialogueIdx': None, 'end_line': None}
@@ -523,7 +529,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 idx += 1
                 j += 1
                 continue
-            if ln.startswith('？！'):
+            if re.match(r'^(?:？！|\?!)', ln):
                 if cur is not None:
                     cur['end_dialogueIdx'] = idx
                     cur['end_line'] = j
@@ -564,8 +570,30 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     def set_sprite_visible(slot, visible):
         if slot in state['sprites']:
             state['sprites'][slot]['visible'] = visible
-            if not visible and state['talker'] == slot:
-                state['talker'] = None
+            if not visible:
+                state['talkers'].discard(slot)
+
+    def parse_position_token(token):
+        token = str(token or '').strip()
+        if not token:
+            return None
+        if ',' in token:
+            raw_x, raw_y = token.split(',', 1)
+            try:
+                return float(raw_x), float(raw_y)
+            except ValueError:
+                return None
+        try:
+            preset = int(token)
+        except ValueError:
+            return None
+        return ({0: -256.0, 1: 0.0, 2: 256.0}.get(preset, float(preset)), 0.0)
+
+    def set_sprite_position(slot, token):
+        position = parse_position_token(token)
+        if slot not in state['sprites'] or position is None:
+            return
+        state['sprites'][slot]['x'], state['sprites'][slot]['y'] = position
 
     def hide_sub_layer(layer_id):
         for slot in state['subLayers'].get(layer_id, set()):
@@ -582,7 +610,14 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     'name': sp.get('name', ''),
                     'face': sp.get('face', 1),
                     'url': FIG_BASE.format(eid=eid),
-                    'talking': (slot == state['talker']),
+                    'talking': (
+                        not state['talkHighlightEnabled']
+                        or slot in state['talkers']
+                    ),
+                    'x': sp.get('x'),
+                    'y': sp.get('y'),
+                    'scale': sp.get('scale', 1.0),
+                    'depth': sp.get('depth', 0),
                 })
         return result
 
@@ -624,26 +659,44 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 'face': face,
                 'visible': False,
                 'renderable': is_renderable_sprite(eid, name),
+                'x': None,
+                'y': None,
+                'scale': 1.0,
+                'depth': 0,
             }
             entity_ids.add(eid)
             continue
 
-        m = re.match(r'\[charaFace\s+(\w)\s+(\d+)\]', line)
+        m = re.match(r'\[charaFace(?:Fade)?\s+(\w)\s+(\d+)', line)
         if m:
             slot, face = m.group(1), int(m.group(2))
             if slot in state['sprites']:
                 state['sprites'][slot]['face'] = face
             continue
 
-        m = re.match(r'\[charaTalk\s+(\w+)\]', line)
+        m = re.match(r'\[charaTalk\s+([^\]]+)\]', line)
         if m:
-            s = m.group(1)
-            state['talker'] = None if s in ('off', 'depthOff', 'on') else s
+            raw_talkers = m.group(1).strip()
+            if raw_talkers == 'off':
+                state['talkHighlightEnabled'] = False
+                state['talkers'].clear()
+            elif raw_talkers == 'on':
+                state['talkHighlightEnabled'] = True
+                state['talkers'].clear()
+            elif raw_talkers in ('depthOff', 'depthOn'):
+                pass
+            else:
+                state['talkHighlightEnabled'] = True
+                state['talkers'] = {slot for slot in raw_talkers.split(',') if slot in state['sprites']}
             continue
 
-        m = re.match(r'\[charaFadein\w*\s+(\w)', line)
+        m = re.match(r'\[(charaFadein\w*)\s+(\w+)\s+([^\]]+)\]', line)
         if m:
-            set_sprite_visible(m.group(1), True)
+            args = m.group(3).split()
+            slot = m.group(2)
+            if len(args) >= 2:
+                set_sprite_position(slot, args[1])
+            set_sprite_visible(slot, True)
             continue
 
         m = re.match(r'\[charaFadeout\w*\s+(\w)', line)
@@ -651,9 +704,38 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             set_sprite_visible(m.group(1), False)
             continue
 
-        m = re.match(r'\[charaPut\w*\s+(\w)\s+([01])', line)
+        m = re.match(r'\[charaPut\w*\s+(\w+)\s+([^\s\]]+)', line)
         if m:
-            set_sprite_visible(m.group(1), m.group(2) != '0')
+            set_sprite_position(m.group(1), m.group(2))
+            set_sprite_visible(m.group(1), True)
+            continue
+
+        m = re.match(r'\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)', line)
+        if m:
+            set_sprite_visible(m.group(1), float(m.group(2)) > 0)
+            continue
+
+        m = re.match(r'\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)', line)
+        if m:
+            if m.group(1) in state['sprites']:
+                state['sprites'][m.group(1)]['scale'] = float(m.group(2))
+            continue
+
+        m = re.match(r'\[(charaMove(?!Return|Scale)\w*)\s+(\w+)\s+([^\s\]]+)', line)
+        if m:
+            set_sprite_position(m.group(2), m.group(3))
+            continue
+
+        m = re.match(r'\[charaScale\s+(\w+)\s+([\d.]+)', line)
+        if m:
+            if m.group(1) in state['sprites']:
+                state['sprites'][m.group(1)]['scale'] = float(m.group(2))
+            continue
+
+        m = re.match(r'\[charaDepth\s+(\w+)\s+(-?\d+)', line)
+        if m:
+            if m.group(1) in state['sprites']:
+                state['sprites'][m.group(1)]['depth'] = int(m.group(2))
             continue
 
         m = re.match(r'\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])', line)
@@ -661,18 +743,19 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             state['subLayers'].setdefault(m.group(2), set()).add(m.group(1))
             continue
 
-        m = re.match(r'\[charaLayer\s+(\w)\s+main', line)
+        m = re.match(r'\[charaLayer\s+(\w)\s+(?:main|normal)', line)
         if m:
             slot = m.group(1)
             for slots in state['subLayers'].values():
                 slots.discard(slot)
             continue
 
-        m = re.match(r'\[charaCrossFade\s+(\w)\s+(\d+)', line)
+        m = re.match(r'\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)', line)
         if m:
-            slot, eid = m.group(1), m.group(2)
+            slot, eid, face = m.group(1), m.group(2), int(m.group(3))
             if slot in state['sprites']:
                 state['sprites'][slot]['entityId'] = eid
+                state['sprites'][slot]['face'] = face
                 state['sprites'][slot]['renderable'] = is_renderable_sprite(
                     eid,
                     state['sprites'][slot].get('name', '')
@@ -711,7 +794,9 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     speaker_slot = slot_prefix.group(1)
                     speaker = slot_prefix.group(2).strip()
                     if speaker_slot in state['sprites']:
-                        state['talker'] = speaker_slot
+                        if speaker_slot not in state['talkers']:
+                            state['talkHighlightEnabled'] = True
+                            state['talkers'] = {speaker_slot}
                 else:
                     speaker = speaker_raw
 
@@ -770,7 +855,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             dialogue_idx += 1
             continue
 
-        m = re.match(r'？(\d+)：(.+)', line)
+        m = re.match(r'[？?](\d+)[：:](.+)', line)
         if m:
             num = int(m.group(1))
             # Determine which group this choice belongs to (by line index of first ？N).
@@ -804,7 +889,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             dialogue_idx += 1  # ？N consumes one translation slot
             continue
 
-        if line.startswith('？！'):
+        if re.match(r'^(?:？！|\?!)', line):
             current_group = None
             current_branch = None
             dialogue_idx += 1  # ？！ consumes one translation slot ("Choice N Ending")
@@ -909,6 +994,18 @@ def _split_dialogues_by_script_counts(dialogues, script_ids, script_dialogue_cou
     if offset != len(dialogues):
         return {}
     return result
+
+
+def _filter_nonempty_script_dialogues(script_ids, script_dialogues):
+    filtered_ids = [
+        str(script_id)
+        for script_id in script_ids
+        if script_dialogues.get(str(script_id))
+    ]
+    return filtered_ids, {
+        script_id: script_dialogues[script_id]
+        for script_id in filtered_ids
+    }
 
 
 def _merge_script_translations(script_ids, translations_by_script):
@@ -1096,6 +1193,8 @@ def translate():
     script_dialogue_counts = data.get('script_dialogue_counts', [])
     source_region = loader.normalize_region(data.get('source_region', 'JP'))
     script_dialogues = _split_dialogues_by_script_counts(dialogues or [], script_ids, script_dialogue_counts)
+    script_ids, script_dialogues = _filter_nonempty_script_dialogues(script_ids, script_dialogues)
+    script_dialogue_counts = [len(script_dialogues[script_id]) for script_id in script_ids]
     session_id = data.get('session_id')  # 用于标识翻译会话
     
     if not dialogues:
@@ -1292,6 +1391,92 @@ def get_quest_detail():
         return jsonify(quest_data)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+def _bundled_translation_path(script_id, target_language='zh-CN'):
+    script_id = str(script_id or '').strip()
+    if not re.fullmatch(r'\d+', script_id):
+        raise ValueError(f'Invalid script ID: {script_id}')
+    language = normalize_target_language(target_language)
+    if language != 'zh-CN':
+        raise ValueError('Only bundled Simplified Chinese translations are available')
+    return BUNDLED_TRANSLATION_ROOT / language / f'{script_id}.json'
+
+
+def _load_bundled_translation(script_id, target_language='zh-CN'):
+    path = _bundled_translation_path(script_id, target_language)
+    if not path.is_file():
+        return None
+    data = json.loads(path.read_text(encoding='utf-8'))
+    key = TranslationCacheKey(
+        script_id=str(script_id),
+        source_region=str(data.get('source_region', 'JP')).upper(),
+        source_hash=str(data.get('source_hash', '')),
+        target_language=normalize_target_language(data.get('target_language', target_language)),
+        provider=str(data.get('provider', 'codex-agent')),
+        model=str(data.get('model', 'agent-translation')),
+        prompt_version=str(data.get('prompt_version', 'fgo-agent-v1')),
+    )
+    entry = TranslationCacheEntry.from_json(
+        data,
+        key,
+        expected_dialogue_count=int(data.get('dialogue_count', -1)),
+    )
+    return (data, entry) if entry else None
+
+
+@app.route('/check_bundled_translations', methods=['POST'])
+def check_bundled_translations():
+    data = request.get_json() or {}
+    script_ids = [str(value) for value in data.get('script_ids', []) if str(value)]
+    target_language = data.get('target_language', 'zh-CN')
+    if not script_ids:
+        return jsonify({'available': False, 'missing': [], 'reason': 'script_ids required'})
+    try:
+        loaded = [_load_bundled_translation(script_id, target_language) for script_id in script_ids]
+        missing = [script_id for script_id, item in zip(script_ids, loaded) if item is None]
+        providers = sorted({item[0].get('provider', '') for item in loaded if item})
+        return jsonify({
+            'available': not missing,
+            'missing': missing,
+            'providers': providers,
+            'target_language': normalize_target_language(target_language),
+        })
+    except Exception as exc:
+        return jsonify({'available': False, 'error': str(exc)}), 400
+
+
+@app.route('/get_bundled_dialogues', methods=['POST'])
+def get_bundled_dialogues():
+    data = request.get_json() or {}
+    script_ids = [str(value) for value in data.get('script_ids', []) if str(value)]
+    target_language = data.get('target_language', 'zh-CN')
+    if not script_ids:
+        return jsonify({'error': 'script_ids required'}), 400
+    try:
+        translations = []
+        providers = set()
+        for script_id in script_ids:
+            loaded = _load_bundled_translation(script_id, target_language)
+            if not loaded:
+                return jsonify({'error': f'Bundled translation not found for script {script_id}'}), 404
+            payload, entry = loaded
+            source = loader.extract_dialogues(script_id, region=payload.get('source_region', 'JP'))
+            if len(source) != entry.dialogue_count:
+                return jsonify({'error': f'Bundled dialogue count mismatch for script {script_id}'}), 409
+            if canonical_source_hash(source) != entry.key.source_hash:
+                return jsonify({'error': f'Bundled source hash mismatch for script {script_id}'}), 409
+            translations.extend(entry.translations)
+            providers.add(entry.key.provider)
+        return jsonify({
+            'translated_dialogues': translations,
+            'source_region': 'JP',
+            'target_language': normalize_target_language(target_language),
+            'providers': sorted(providers),
+            'bundled': True,
+        })
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
 
 @app.route('/check_atlas_translations', methods=['POST'])
 def check_atlas_translations():

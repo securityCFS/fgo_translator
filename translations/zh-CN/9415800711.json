@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800711",
+  "source_region": "JP",
+  "source_hash": "6474dfd98c668e6413fc369f4ef7a0e45f4788f1c8adbe736467fef073ceef34",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 68,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "大获全胜！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "又逃掉了啊……\n话说，要不是阿斯碍事，本来能给它最后一击吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不、不不，怎么会！\n给您添麻烦了，实在抱歉！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "算了，也没关系。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等等，藤丸立香。\n你的脸色不太好哦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：因为逛了好多地方"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：可能有点累了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样啊。这里一半是游玩，一半是工作嘛。\n要稍微休息一下吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊，既然如此，趁这段时间\n我去向管理人汇报一趟！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "她一直催着我，说想知道\n格蕾小姐她们体验中的一切！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：好像掉了什么东西……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，是玩偶服上的徽章！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾去送给他！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，是垃圾！\n难道是因为格蕾她们……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，这和刚才同我们战斗的不是同一个个体。\n大概是被管理人的部下或从者打倒的……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯姐姐，你在哭吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈，没什么大不了的。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯姐姐刚才在垃圾面前放了卡尔德吧？\n那不是很重要的工资吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "连那里也被你看见了啊。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "真的没什么。算是祭奠，\n也就是付给冥界摆渡人卡戎的渡船钱。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我也不知道垃圾会不会去冥界就是了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可阿斯姐姐不是一直在打倒垃圾吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "因为是工作，所以会消灭它们。[wt 0.9][charaFace C 11]\n德墨忒尔大人和厄里倪厄斯大人都很可怕嘛！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "但祭奠是另一回事。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯姐姐和德墨忒尔大人的女儿吵架了吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦？　[wt 0.55][charaFace F 21]啊，那个……[wt 0.85][charaFaceFade F 9 0.2]珀耳塞福涅小姐她……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "就像奥尔加玛丽小姐说的。\n只是因为我是恶人。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯姐姐是恶人？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是的。虽说在神话里很有名……不，其实也没那么有名，\n总之就是个很差劲的小恶棍。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "据说我让她吃下了冥界的[#柘榴:ザクロ]，\n害她再也无法完全[#蘇:よみがえ]。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "因为无聊的告密把所有人都推向不幸，\n真是个无聊透顶的角色。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那就是我。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，那个那个……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "呃、呃——，呃——呃——……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "对、对了！\n格蕾的脸，其实不是格蕾自己的！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "你、你在说什么？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那、那个！　然后还给妈妈和其他人\n添了麻烦。[wt 1.0][charaFaceFade B 19 0.2]呃，就是……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　这谁听得懂啊！\n说话根本没头没尾！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "您是……亚德先生，对吧？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "对。我们俩是孽缘。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "稍微替她补充一句，\n格蕾的脸中途变成了别人的脸。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "就像之前说的，是[#御伽話:おとぎばなし]里的亚瑟王——\n也就是说，变成了那个阿尔托莉雅的脸。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "她说自己是亚瑟王的容器……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "不过，她原本也长得挺像就是了。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "但已经超出了像不像的范畴，\n身体变成了亚瑟王本人的模样。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "结果，格蕾也好周围的人也好，\n都被这件事折腾得够呛。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "毕竟那是个崇拜亚瑟王的村子。\n就像往火药库里扔了炸弹。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "最后甚至三个组织发生冲突，\n差点把整个地区都炸飞。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那一定……很痛苦吧……？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会。格蕾已经不难过了。\n因为师父和莱妮丝来到了格蕾身边。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "现在还有御主、奥尔加姐姐、芭万姐姐\n和迦勒底的大家陪着格蕾。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "所以、所以，那个，就是……\n如果阿斯姐姐是恶人，那格蕾也……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "你是想说，我们同样都给别人添过麻烦吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "对、对。就是那个！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……很奇怪吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我那是自己闯的祸，\n你只是被卷了进去吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……不过，我多少明白你的意思。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "无论是谁，只要活着就会给别人添麻烦。\n不，即便死后也可能给别人添麻烦。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "所以，即便成了从者，也许也不必\n永远为此苦恼……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，是垃圾！[wt 0.7][charaFaceFade B 6 0.2]\n现在不用消灭它吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "总之，它现在看起来很安分。\n请替我向大家保密。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么，我去向管理人汇报了！"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "刚才那两个人，组合还挺有意思。\n看来差不多该有动静了。"
+    }
+  ]
+}

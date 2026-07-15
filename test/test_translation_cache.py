@@ -195,7 +195,12 @@ class TranslationCacheClientTests(unittest.TestCase):
         self.assertEqual(options[0].label, "deepseek / deepseek-v4-flash / fgo-v1")
 
 
-from app import _common_cache_options_for_scripts, _merge_script_translations, _split_dialogues_by_script_counts
+from app import (
+    _common_cache_options_for_scripts,
+    _filter_nonempty_script_dialogues,
+    _merge_script_translations,
+    _split_dialogues_by_script_counts,
+)
 
 
 class TranslationRouteHelperTests(unittest.TestCase):
@@ -210,6 +215,17 @@ class TranslationRouteHelperTests(unittest.TestCase):
 
         self.assertEqual(result["s1"], dialogues[:2])
         self.assertEqual(result["s2"], dialogues[2:])
+
+    def test_filter_nonempty_script_dialogues_drops_battle_only_scripts(self):
+        story_dialogues = [{"speaker": "A", "content": "story"}]
+
+        script_ids, script_dialogues = _filter_nonempty_script_dialogues(
+            ["battle", "story"],
+            {"battle": [], "story": story_dialogues},
+        )
+
+        self.assertEqual(script_ids, ["story"])
+        self.assertEqual(script_dialogues, {"story": story_dialogues})
 
     def test_merge_script_translations_keeps_original_order(self):
         result = _merge_script_translations(

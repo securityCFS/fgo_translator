@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010631",
+  "source_region": "JP",
+  "source_hash": "9ebafae34c9be93bfb512c88309d4da6bba357d78a5f50df0264151cd3e235f7",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 119,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "乌尔德",
+      "translated_content": "怎、怎么会……！？"
+    },
+    {
+      "speaker": "海德",
+      "translated_content": "哈，这下结束了……！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——失策。[#迂闊:うかつ]大意。\n真丢脸。不，现在依然很丢脸。"
+    },
+    {
+      "speaker": "海德",
+      "translated_content": "啧……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：海德！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……正如汝所言。的确是我大意了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（气氛变了……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "[#糸も見えてしまった]连丝线也显现出来了。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "唔，这些丝线是……！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "缠在我们身上了……！？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "并不是什么有害之物。\n这是命运之线，只会让你们遵循丝线行动。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……我明明缠了好几层，\n以防它被斩断。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（[&オレ:わたし]和玛修身上……没有[&な:ね]）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "藤丸立香，\n汝这家伙……真是的。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——好吧。此地便让给汝等。\n我会在[#過去で待つ]过去等候。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……若想夺回现在、抓住未来，\n就来打倒我吧。"
+    },
+    {
+      "speaker": "海德",
+      "translated_content": "混账，你想逃吗！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "要知道，汝等正是借助吾之力量，才得以维持那份平稳。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "而若那份力量已无必要，\n我也只需使出真本事。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：乌尔德……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——若敢前来，就做好遭到[#殲滅:せんめつ]的觉悟吧。"
+    },
+    {
+      "speaker": "J：阿兹莱尔",
+      "translated_content": "Beast。"
+    },
+    {
+      "speaker": "全员",
+      "translated_content": "！[messageShake 0.03 2 2 0.3]？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……确实有砍中的手感。可你的头还在。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……真是个不祥的女人。\n你引发了某种异常现象吧，女神。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "从背后偷袭的人，没有资格\n以『作弊』之名[#誹:そし]谤我。再说——"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——再说，根本没有『脖子被砍断』这段[#過去はない]过去。\n凭那点[#霊基:ちから]力量，休想取我首级。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "因为我们[#たち]是获得兽角的女神。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——你说了『我们』。\n命运三女神。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "永别了，亲爱的迦勒底。\n下次与我[#見:まみ]面时，将是在我的领土。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：大、大家都没事吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "唔……啊啊，嗯。总算没事。\n没有令咒的话，我就没法把[#宝具:クスリ][#使え:の　め ]喝下去了。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "原来如此。当时我们所有人都把自己在做什么\n忘得一干二净……"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "而你的另一个人格却还记得。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "双重存在。既是同一个人，又是[#別人]另一个人。\n看来就连女神乌尔德也没能预料到这一点。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "果然是女神乌尔德。\n从她把头复原的时候就能推断出来了。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——能否向我说明情况？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我察觉到兽的气息，因而拔剑，\n但这里并非我方才所在的管制室。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "[#カルデアスがある]这里有迦勒底亚斯。\n究竟是地点不同，还是我的认知受到了迷惑。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "有谁能够说明吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。\n我们似乎误入了过去的世界……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "在此之前，阿兹莱尔先生\n并不在迦勒底。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "因为我们的记忆与认知都变成了符合『那段过去』的状态，\n所以此前一直没有觉得奇怪……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……原来如此。凭女神乌尔德的权能，\n造成回到过去的[#周回:ループ]循环现象……即便真有这种事……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那、那个。结束了吗？真的赢了吗？\n怎么样了？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哇啊，阿兹莱尔经营顾问！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是、是啊，为什么我会忘了呢，\n一定是因为我很想忘掉吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……阿兹莱尔？"
+    },
+    {
+      "speaker": "L：阿兹莱尔",
+      "translated_content": "你们此前一直无法认知到我，是因为……"
+    },
+    {
+      "speaker": "L：阿兹莱尔",
+      "translated_content": "……我的存在感太弱……？\n给迦勒底带来的紧张感还不够……"
+    },
+    {
+      "speaker": "L：阿兹莱尔",
+      "translated_content": "也就是说，我应该更严厉地\n监视奥尔加玛丽……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "平[messageShake 0.03 3 3 0.5]时您的存在感已经够强了！\n这次不是那么回事！您别努力过头！"
+    },
+    {
+      "speaker": "L：阿兹莱尔",
+      "translated_content": "……这样啊。\n话说回来，奥尔加玛丽。"
+    },
+    {
+      "speaker": "L：阿兹莱尔",
+      "translated_content": "你今天和平时不同。换发型了吗？\n比平时更有魅力。很适合你。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为什么呢，明明是在夸我，我却一点也高兴不起来，\n甚至还浑身发冷！？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——原来如此。\n那身令人斗志高昂的打扮，原来是为了伪装。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我要重新评价你，奥尔加玛丽。\n为了迦勒底，你竟有做到这一步的觉悟。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我又不是因为想穿才穿的！？[wt 1.2][charaFace G 12]\n啊啊啊好想回去换衣服，可现在根本不是时候……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好了好了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：[&オレ:わたし]我们很怀念这身打扮"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、是的。\n让人想起往日所长的英姿。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然你们这么羡慕，\n要不要我也把你们打扮成一样？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总之，乌尔德已经撤退了吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……迦勒底亚斯也消失了……\n看来已经回到现在的迦勒底了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是，看来已经回来了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香，\n你的记忆呢……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我想……已经全都记起来了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……\n罗玛尼也消失了吗。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、是的。那个人……Dr.罗曼，\n是乌尔德创造出来的存在。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "既然她已经撤退，医生也……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……可他就在那儿啊！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦，什么？怎么了？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "听说发生了爆炸，\n我还以为出了严重事故，急忙赶了过来……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "唔，没有爆炸的痕迹啊？\n到底发生什么事了？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "而且那个……[wt 0.7][charaFace H 0][charaShake H 0.03 2 2 0.3]噗……[wt 0.7]\n所长，您这是……在玩角色扮演吗？"
+    },
+    {
+      "speaker": "B：奥尔加玛丽",
+      "translated_content": "我打飞你哦，罗玛尼。"
+    },
+    {
+      "speaker": "B：奥尔加玛丽",
+      "translated_content": "…[messageShake 0.03 2 2 0.4]…不对！[wt 0.6]\n你还活着！？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "[FFFFFF]？[-]　我当然活着啊。\n真要说的话，顶多就是工作过度、过劳死的可能。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：医生……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "哈、哈、哈……\n喂，到底发生什么事了！？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我该怎么说呢……\n感觉直到刚才还一直在沉睡……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "咦。谁？\n不，也不能说是谁。不能这么说，但是……"
+    },
+    {
+      "speaker": "M：Dr.罗曼",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "M：Dr.罗曼",
+      "translated_content": "咦，难道你是达·芬奇吗！？\n为什么变成这么年幼的模样！？"
+    },
+    {
+      "speaker": "M：Dr.罗曼",
+      "translated_content": "难道是中了这一类的诅咒吗！？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "记、记录里是有，可还是第一次见到本人！\n你……不，您就是……罗玛尼·阿其曼……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "怎、怎么办。\n这次相遇实在太出乎计算了……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "呃……[wt 0.8][charaFace G 0]看来得先把情况整理清楚。\n把所有人都叫来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……以上就是现状。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，我想问问大家。\n你们此前都在做什么？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我不是要责怪你们，只是想弄清现状。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "啊……我应该一直在照常维护灵子筐。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "不过我也去帮忙进行特异点提取作业了。\n……奥尔良的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "现在回想起来……\n就像梦里偶尔会出现的、不断重考学生时代的考试。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "『咦？我还得再做一次吗？\n　不过也没办法。毕竟这是必须做的』"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "差不多就是这种感觉。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "其他工作人员也大致如此。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我只能说，自己也不太清楚。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我一直在沉睡，醒来后听到战斗声，\n便急忙赶了过来。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "从你们所说的情况来看，似乎是在过去……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "而且是从修复特异点的起点开始，\n一直循环到时间神殿的终点。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "但当时在场的是[#大人の私]成年的我。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "想必她认为，即便只是过去，重现既是从者又是天才的我，\n也太过危险了吧。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "所以……"
+    }
+  ]
+}

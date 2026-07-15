@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "script_id": "9415811010",
+  "source_region": "JP",
+  "source_hash": "ab96a627b8133fb1aef42f893d7c45bf4c81761e921706bbab90fbafb3c2a979",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 58,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…… 顺便说一句，迦勒底的工作人员也一样\n不是我渴的时候吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么样？　戈尔多夫先生。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯？　是我吗？\n不，我的喉咙还很......"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，是的！　我觉得这是绝对必要的！\n阿兹雷尔，跟我来！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "迦勒底提供多种茶点，\n我们希望你选择你喜欢的！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "…… 我已经知道类型了......\n有没有今天限定的限量版商品？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然！　今天，我吃了一片特别浓郁的茶叶\n我们点甜点，让他们帮我们准备！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但这真的很特别，所以，嗯......\n嗯，可能要三十分钟！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "所以你点餐后再烤。\n听起来不错。 你无法[#蔑:ないがし]工匠的作品。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "大家！　找到了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：这个，这个......"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这是什么—!!"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "不，那可真是了不起......！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "呵呵呵。 这份魅力，这份名人，\n这是展示地球总统伟大的完美标志。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "看到这些，大家都会好奇地球现在缺少了什么，\n理解所需内容就像数学演习！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：这正是你说的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项二：永久性纪念设施，等待时间较长"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你懂我的意思！\n走吧，我们进去吧！"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "我们一直在等你们，大家。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "厄尔·...... 啊！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "数...... 啊！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "仔细想想，[#施設:テアトルム]被毁了，\n大多数仆人说他们逃跑了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "—— 光本。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "看来你已经好好准备了，伯爵。\n我会夸奖你的。"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "说这话真遗憾，总统小姐。"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "对于像[#私:わたくし]这样没有特别显著英雄成就的人来说，\n我从未想过自己会被委以如此重要的角色......"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "你获得的魔法资源和四种催化剂，\n我们已经按您的订单完成了。"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "请在这里看看。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "哇......！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我就知道......！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错！　基于我自己的想法和标准，\n体验“迦勒底大师”[#施設:テアトルム]！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你需要的“迦勒底大师”的资料\n现场调查技能、生存技能、忠诚度，最重要的是战斗力！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我想知道你是不是顶级高手，\n这个[#施設:テアトルム]会让你重新体验一次！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：体验“大师”[#施設:テアトルム]......！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项二：工作...... 不过！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "现在我的梳理卡完全没了，原本看起来很漂亮......"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…… 说实话，这更有趣、更有趣。\n我希望它能成为一个精彩且聪明的内容......"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这就是我现在能想到的全部！\n如果你不偷工减料地体验一个[#易しい:イージーな]的体验，你其实很难获得那种力量！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里准备的一切都是真品...... [font x-small center][#遺分體:エレメンツ][fontSize medium]...... 而且\n性能保持不变。"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "是的。 我无法重现那个性格，\n她的破坏力堪比总统小姐。"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "哦，如果是这样，你现在想进来吗？\n如果你有原版，我也可以复制，"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[messageShake 0.05 2 2 0.5] 哦，这是什么原创？\n准备好发射吧！"
+    },
+    {
+      "speaker": "卡廖斯特罗",
+      "translated_content": "这种性格赋予了她破坏力，但这很遗憾。\n好，照你点的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香。\n当然，你知道你要做什么。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对手是四个美丽却令人畏惧的超级生命体！\n在游戏里，这就像是“困难”之外的噩梦模式！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "通常，赢的机会不大。\n因为如果我赢了，反而是我会气馁。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但要赢。 坚持这么多。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你真正应该击败的对手是\n这就是那个得墨忒耳起源。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：——导演"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什么，别这么[#眩:まぶ]。\n这种执着程度对导演来说是自然而然的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "直接开始战斗吧。\n如果你能做到这么多，你一定是迦勒底的主人。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项二：为了[&オレ:わたし]，毫不掩饰地分享如此黑暗的过去"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过我最尴尬的时候？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好吧，\n快点打败[#遺分體:エレメンツ]！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    }
+  ]
+}

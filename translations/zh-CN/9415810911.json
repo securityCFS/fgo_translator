@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810911",
+  "source_region": "JP",
+  "source_hash": "e8e4a0390a24a761765bff5a93c6df411a287fba4a0a58178c7ccf6b1fce674f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 17,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：只有长矛使用者的巅峰！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项二：人太多了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，不，嗯，\n我们......打造最高效的模拟！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我全力以赴......!!!"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不，我从没想过卡德尼亚的模仿能力会这么强......"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "作为交换，资源转换也包括\n我觉得效果不错！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还有一件事。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "还有一件事，嗯？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这才是真正的！\n欢迎！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哦，但在那之前，有件重要的事！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "真的，回报丰厚......！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "呵呵，这才是卡德尼亚真正的力量。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当然，纪念照片照常一样！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项一：把射击交给我！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "现在，我们去看奥尔加·玛丽的主打点吧？"
+    }
+  ]
+}

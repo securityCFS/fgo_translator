@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220510",
+  "source_region": "JP",
+  "source_hash": "e2bed6341f77bd44af9ada4470c90888dd02c904839852eae866031f36bcc402",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 79,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "已经早上6点啦——！\n天亮了，快起床——！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 唔嗯唔嗯……早上好……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 阎魔亭的一天开始得好早……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "潺潺溪水，小鸟啁啾……\n今早的阎魔亭依然令人心情舒畅呢，前辈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，被褥就由我来收拾，\n前辈请去洗漱更衣吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "距离集合时间应该有20分钟左右的空闲时间，\n喝口茶休息一会儿再去大堂吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 谢谢。那我去洗脸了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 旅馆的工作真辛苦啊……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "早上好，两位。\n今早也很守时呢。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "呵～欠……\n我还有点困……"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "在阎魔亭，从者也不得不被日常生活所拘束……\n这几乎相当于道成肉身了……"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "肚子会饿，晚上也必须睡觉……\n低血压在这种情况下真难受……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "所谓身处人间却遵循幽世法则存在的结界，\n指的就是这里吧？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "身在此处，\n我们从者也像回到了生前一般。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "说得对。\n我也回想起了自己身为藻女时的事。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "毕竟阎魔亭不是『远离人世的山中旅馆』，\n而是『邀往异界的山中旅馆』。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "误入此处的旅客并非遇难者，\n而是不小心踏入异世界的[#流浪者:外来者]。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "某一天突然从自己所属的世界中被割离出来并来到这里，\n不会变老且能享受永远的日常生活，"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "当回到之前的世界时，\n才发现已经过去了几十年……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "这应该就是“神隐”了吧。\n类似于龙宫城和桃源乡。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哦。还有这种事啊。\n[#我们那儿]也有类似的故事哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "是[#调换儿:Changeling]的一种吧。\n也就是被妖精拐走的人类孩子。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "妖精们分别拥有各自的世界观，\n人类被那种异界常识招揽。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "在那个世界中，人类不会变老，\n但一旦返回现实，就必须一口气偿还美梦的代价。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "您说的是[#常青之国:提尔纳诺]吗，\n芬恩·麦克库尔？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不不。虽然[#常青之国:提尔纳诺]也是妖精栖息的土地，\n但它并不是异界哦，迪尔姆德。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "妖精们的世界……妖精乡是这座星球所做的梦，\n是类似于固有结界的存在。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "既有美梦，也有噩梦，\n这取决于住在其中的妖精是好是坏。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "调换儿，就是妖精事件吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。芬恩·麦克库尔想必一定很了解妖精。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "毕竟是娶了妖精的男人。\n妖精很喜欢你那金色的头发吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈。萨布的故事还是以后再聊吧。\n只要一谈论起妻子，我就会滔滔不绝哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "现在不是在谈阎魔亭的事吗？\n截至当前，有没有弄清楚什么，各位？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "是。魔猿们比想象中的更恶劣，\n波及范围也非常广阔。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "不仅在山中袭击麻雀们，\n还妨碍我们采集山珍河味。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "它们还潜入阎魔亭内为恶。\n我在走廊里擦地板时，还被它们扔年糕了！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "魔猿们的嚣张跋扈固然是个问题，\n但阎魔亭自身似乎也有很大的问题。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "首先，不用说，就是客流。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "因为客流减少，\n旅馆内大部分设施都关闭了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "没有使用者还开着店只会导致花销越来越多，\n大概是因为这个原因吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "即使在神隐之乡，\n也不得不节约燃料和人员费用……嘤嘤嘤。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如今，阎魔亭内仅靠必要的基础设施运营。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当下是没有问题，可一旦客流增加，\n启用所有设施将是必不可少的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 温泉被封锁这点很难受。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯，我也对此颇有不满。\n究竟为什么不让我们进温泉呢？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 大厨房被封锁这点很难受。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "……客人很少的话，\n大厨房也就没有必要了吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "再说了，这座旅馆中能掌勺的也就红老师一个。\n麻雀伙计们只能做做配菜之类的辅助工作……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这些问题早晚都得一一解决。\n就快到大堂了。闲聊到此为止。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是参加红阎魔老板娘的晨会吧。\n今天的工作是什么呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "有点期待具体的排班呢。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "早上好啾。\n大家都到齐了吗啾？"
+    },
+    {
+      "speaker": "麻雀们",
+      "translated_content": "啾～～～！"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙～～～～呜！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 迦勒底组，到齐了～！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "充满活力的回答，非常好啾。\n和往常一样，麻雀们先去打扫亭内。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "为了不给阎魔亭之名抹黑，\n今天也要努力工作啾。"
+    },
+    {
+      "speaker": "麻雀们",
+      "translated_content": "啾啾——！\n明白了啾——！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "好了，那迦勒底的各位就去收集食材啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "毕竟那之后多了几个新客人啾。\n食材有些不够啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管历史悠久的阎魔亭邀请外来英灵令人心情复杂啾，\n但不能让客人们饿肚子啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "今天我会给你们介绍一个好猎场啾，\n你们要比平时更加努力啾？　……嘿咻。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "红阎魔小姐也一起来吗？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "外面太危险啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "虽说藤丸立香正在为阎魔亭工作，"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但毕竟还是位客人。\n作为老板娘，我得好好照顾才行啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我会以伙计的身份好好学习！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不……不用说得那么夸张啾。\n我只是有点同情你们啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "猎场中不只有魔猿啾。\n还有凶暴的野兽出没，所以男人们也要随行啾。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "哦。那太令人高兴了。\n光对抗魔猿也会令我的双剑哀叹不已呢。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "没问题。不管来多少只山中野兽都不足为惧。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "我们无需红阎魔阁下的帮助。\n一切交给我们费奥纳骑士团吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哦哦。不足为惧啊。真可靠。\n看来得好好见识一下你的本事了，迪尔姆德。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "真是横冲直撞啾……\n二刀流的剑士都是无所畏惧的啾？"
+    }
+  ]
+}

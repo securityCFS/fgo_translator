@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010741",
+  "source_region": "JP",
+  "source_hash": "677061e86b028176ab38d1fca99c27e0434dcc0cb90f448194855423c966df92",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 8,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "狮子王",
+      "translated_content": "骑士的『过去』至此终结……。\n去吧，前往下一个过去。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "永别了，吾王……。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "呵。都说了，我并不是卿的王。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这边也确认到了狮子王的消灭。\n辛苦了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……请再笔直前进一段路。\n这次出现了其他从者的反应。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然被她牵着走令人[#癪:しゃく]不爽，\n但看来只能继续前进。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白，继续前进！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    }
+  ]
+}

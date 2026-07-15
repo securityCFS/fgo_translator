@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801010",
+  "source_region": "JP",
+  "source_hash": "d438251dcccab20607f09970c2a551507f657b7dde6dc96ebc9cb1b8c9c2af0c",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 66,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "岸波白野",
+      "translated_content": "你要走了吧，藤丸立香。\n去得墨忒耳城堡。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 因为不能放着不管"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "这样啊。那就姑且确认一下。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "你们妨碍了接受经理委托的亚瑟和阿尔托莉雅，\n并保护了阿斯。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "一旦去了那里，你们很可能会\n与亚瑟和得墨忒耳敌对。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "视情况而定，厄里倪厄斯和阿尔托莉雅\n也可能会从里卡尔德尼亚出现。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "危险只会不断增加。上次虽然成功逃脱，\n但这次或许真的会陷入绝境。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个[#娘:こ]说得没错。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果得墨忒耳抱有敌意，你们打算怎么办。\n更不用说厄里倪厄斯了吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 即便如此也要回去"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 因为"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 阿斯想回去吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……是、是的。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "两位经理或许都在生我的气，\n但即便如此，她们依然是我的经理。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如果两位出了什么事，\n我无论如何都必须过去。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "可是，御主和各位\n没有必要陪我一起……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "当然要去！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾不能让小阿斯一个人去！\n对吧，御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 毕竟已经缔结契约了"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 毕竟是特别贵宾嘛"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "目前，我们还没找到解决特异点的办法。\n的确有必要再次接近得墨忒耳。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，就像岸波小姐所说，\n若是[#迂闊:うかつ]接近，我们也会陷入危险。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "所以我建议尽可能隐藏身形后再靠近。\n能做到吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请交给我吧！\n这种事正是我的拿手好戏！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那我就相信你。\n但一定要慎之又慎，藤丸立香[&君:ちゃん]。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 当然！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 靠你了，阿斯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "那我就留在这里调查Garbage。\n有任何发现，我会立刻通知你们。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 得墨忒耳城堡……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位，请保持安静……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "猫头鹰先生？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 感觉好像变暗了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 感觉好像变淡了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这只猫头鹰与我\n可视为同一个灵基。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "冥府的黑暗会将各位隐藏起来。\n算是一点小小的因果律操作。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哼，果然还藏着各种秘密嘛。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请饶了我吧。\n真的只是微不足道的小伎俩……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好了，趁效果还在，快进去……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "总觉得……安静得可怕……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "上次来的时候，即使一个人也没有，\n这里还是亮晶晶的……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！这可真是怎么想都不妙啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "得墨忒耳的神威，已经无法\n遍及城堡的每个角落了吗……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "怎么会，不可能……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 咦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: Garbage！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "为、为什么会在这种地方！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 得墨忒耳讨厌的Garbage"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 为什么会出现在得墨忒耳城堡！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种事我怎么知道。目前看来，\n它们似乎还没有发现我们……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难得施加了隐蔽魔术，\n可这样一来就毫无意义了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里简直连落脚的地方都没有。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我来支援你！\n能行吗，格蕾？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "交给格蕾吧，小奥尔加！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如、如果可以，请别杀死它们！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我试试看！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 我明白！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

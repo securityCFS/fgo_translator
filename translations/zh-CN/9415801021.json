@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801021",
+  "source_region": "JP",
+  "source_hash": "4e1ef2519526a5ce5a142f4bc17ae392f93242ec2558841b3102df5d363a0bd1",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 40,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "亚瑟",
+      "translated_content": "噢噢噢！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "对不起，厄里倪厄斯小姐！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "真不愧是小格蕾！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "只要有你的圣剑，\n无论来什么我都不会害怕！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那、那个！厄里倪厄斯小姐！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: Garbage们"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 将厄里倪厄斯遮住了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "真是的！不要把我！藏起来！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "厄里倪厄斯消失了……？"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "为、什么……？"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "是你们把我藏起来了吗！？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请、请住手，经理！\nGarbage们是您的……"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "闭嘴，叛徒！\n都是因为你——"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "碍事！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这个声音！\n发生什么事了！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "又来！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 咦……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "你……是什么……？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "这里……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "对……对不起！得墨忒耳小姐！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "谢谢你……格蕾……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "如果是你的枪……就能把一切……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那个，得墨忒耳小姐……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: Garbage们"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 将得墨忒耳遮住了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "不要……把我藏起来……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "得墨忒耳消失了……？"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "为什么……？"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "是你们……把我……藏起来了吗……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请、请住手，经理！\nGarbage们是您的……"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "闭嘴……叛徒……！\n都是因为你——"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "碍……事……！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "这个声音！\n究竟发生了什么——！"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "又来……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 咦……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "得墨忒耳·厄里倪厄斯",
+      "translated_content": "你是……什么——？"
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "script_id": "9403230310",
+  "source_region": "JP",
+  "source_hash": "29ae3cd44effa4b0378657215113c97a4a526636852afeedf4e817afa6064c73",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 80,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "信",
+      "translated_content": "哇哈哈哈！\n恭贺新禧本能寺！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "从正月起就泡温泉办宴会简直就是愉快痛快的桶狭间！！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "藤丸立香！　尽情把酒和料理拿上来吧！\n尽情地！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这就来～！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 信你们也来了啊。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "感谢您特地招待我们来这里，御主。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "美味的食物和美妙的温泉。\n冲田小姐的病都被冲走了！"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "哎呀～，话说好久没有泡温泉了呢，土方先生。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "毕竟新选组的福利关系相当微妙，\n和员工慰劳旅行扯不上关系。"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "（嘎吱嘎吱嘎吱）[wt 0.5][seStop ade117]啊？\n你说什么，冲田？"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "少啰嗦，快尝尝这腌萝卜。\n美味到足以让人忘掉芹泽的脸哦。很不得了哦。"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "不只是和酒般配，\n这滋味简直不像是世间所存之物，真是神来之笔哦。"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "这旅馆外表朴素，茶茶本来还挺担心的呢，\n但料理却相当美味，"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "茶茶或许可以给这里盖一个大大的满足印哦！"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "这魔芋蘸甜味噌真好吃。"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "唔？　是叫味噌田乐吗？\n除了关东煮以外，魔芋居然还有这种吃法啊。"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "原来如此，魔小姐的笔记又能\n加入一条新内容了，好高兴。"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "等下等下，冲田亲，你的唇边上沾到味噌了！\n有个费手脚的孩子还真辛苦呢！"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "哎呀，没想到成为英灵之后还能参加温泉旅行。\n来迦勒底真是太好了呢，阿龙小姐。"
+    },
+    {
+      "speaker": "阿龙小姐",
+      "translated_content": "喂，龙马，你在吃的那个看上去很好吃。\n给我。"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "知道啦知道啦，是这个吗？\n这样不禁令人回想起寺田屋那会儿呢。"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "不不，这是我的手，\n这可不能吃啦，不能吃。"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "哇哈哈哈！　各位，这次不用在乎礼节！\n大闹吧大闹吧，我负责买单！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "在酒水的面前自然要唱歌跳舞\nShake it up a baby 本能寺！"
+    },
+    {
+      "speaker": "H：信",
+      "translated_content": "要不要搬出我必杀的『NEW敦盛2020』？"
+    },
+    {
+      "speaker": "H：信",
+      "translated_content": "要不要搬出我必杀的『NEW敦盛2021』？"
+    },
+    {
+      "speaker": "信胜",
+      "translated_content": "我一直在等待这一刻，姐姐大人微妙的敦盛！"
+    },
+    {
+      "speaker": "信胜",
+      "translated_content": "不肖鄙人信胜定会为姐姐大人的舞台锦上添花！"
+    },
+    {
+      "speaker": "H：信",
+      "translated_content": "唔，无妨！\n呃，信胜，你怎么又现界了！？"
+    },
+    {
+      "speaker": "H：信",
+      "translated_content": "不过算了！　春节发生这种事也没什么好奇怪的。\n噢，谜之那啥的也有在好好喝吗？"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "放心吧，我正毫不客气地大口咀嚼咀嚼咀嚼。\n这盐渍烤鱼真是极品！"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "啊，真不好意思，让你们带上我一起来。\n我和信也算老交情了。咀嚼咀嚼。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "哪有哪有，倒是在某次泳装赛车时，\n咱家的信无谓地给您添了很多麻烦。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "不用客气，尽情吃吧。\n吃到灵基胖得圆滚滚的，请便请便。"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "您真是太客气了。"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "我明显感受到了Saber脸的反应，\n但莫名也有种Assassin的气息。"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "哎？　你说重要的是刚才\n有个和我极为相似的生物灾害在外面大闹？"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "我对那种宇宙刑警毫无印象，\n一定是看错了吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，料理和酒根本不够。\n去要求厨房追加一些吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这边的房间要求追加料理！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "呼……宴会差不多也该结束了。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "接下来就是悠闲地泡个温泉。"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "呵呵呵，你根本不懂呢，冲田！\n说到旅行，自然就是『那个』的时间吧……！"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "哎？　那个是哪个？"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "好痛！？"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "哇哈哈哈！　旅行最精彩的部分\n当然就是枕头大战啦！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "别小看我哦，我在尾张也是数一数二的扔枕头大名……"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "……居然胆敢偷袭我冲田小姐，好大的胆子。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "既然如此，那我就不客气了！\n接住我这枕头的闪光吧！"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "怀着去年也没冲田小姐泳装的怨恨，\n必杀『枕头三段投』！"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "今年敬请期待冲田小姐的泳装！"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "……吵死了。\n酒都变得难喝了，就不能安静一点吗……"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "隔墙有耳拉门有缝脸长得恐怖的人出现！"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "……好大的胆子。"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "既然说到这个份上，\n哪怕你是小孩，我也不会手下留情！"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "呀啊！？　因为孩童的嬉戏而发火也太不成熟了吧，\n无论什么时候看你的脸都好可怕！？"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "冲田亲，冲田亲！\n或许现在正是用抑止之力拯救茶茶的时候！"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "枕头大战……\n原来如此，旅行的时候就该这么做啊。"
+    },
+    {
+      "speaker": "D：冲田Alter",
+      "translated_content": "我乃抑止……不对，枕头大战的守护者、"
+    },
+    {
+      "speaker": "D：冲田Alter",
+      "translated_content": "——枕魔『冲田总司』！！"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "哈！？　这是轻率的Saber脸反应！\n哎？　Alterego？"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "但脸完全违规了！\n我本来还想把褐色皮肤当做最后的保留要素啊！"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "不不，大家冷静点，\n这里还有其他客人啊……"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "哎！？　子弹！？"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "哇哈哈！　有破绽，叫坂本什么的！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "我正是为了获得胜利不惜在\n枕头里混入子弹的战国霸王『织田信长』！"
+    },
+    {
+      "speaker": "信胜",
+      "translated_content": "居然在枕头大战里用火枪，\n不愧是姐姐大人，毫不留情不讲道理！"
+    },
+    {
+      "speaker": "信胜",
+      "translated_content": "这令我想起不受既存概念束缚，用暴虐无道的行径，"
+    },
+    {
+      "speaker": "信胜",
+      "translated_content": "将城下坏孩子们弄得半死不活的幼年时代！"
+    },
+    {
+      "speaker": "阿龙小姐",
+      "translated_content": "喂，火枪女，刚才你是不是瞄准了龙马……"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "阿龙小姐！？　这只是枕头大战，不是认真的。\n不对，尽管我也觉得在枕头大战用上火枪非常那啥！"
+    },
+    {
+      "speaker": "阿龙小姐",
+      "translated_content": "吾乃非枕头之神，高千穗的大蛇。"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "前进，投掷，射击，前进[line 5]！!\n我就是！　新选组啊啊啊啊啊啊！！！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "三界神佛回归灰烬……\n我就是枕头大战魔王波旬『织田信长』！！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 各位客人，这样不好！　本旅店禁止战争啦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 看来只能武力介入了！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "事已至此，只能强制阻止他们了，前辈！\n玛修·基列莱特，突击！"
+    }
+  ]
+}

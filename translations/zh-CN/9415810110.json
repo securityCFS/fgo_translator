@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810110",
+  "source_region": "JP",
+  "source_hash": "5fd6edbd5ac3aa71426f506a66beb948b43f2a34cc635eb9bc8f108516115b51",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 46,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "终于来了啊，阿斯。\n今天没有穿布偶装呢。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈哈，特别嘉宾拜托我这样做！[wt 1.1][charaFace B 0]\n两位都准备好了吗？"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "哦，看来终于要告别停业状态了。\n不过对老夫而言，这段时间正好可以休息一下。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我还在想猎人会是谁"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：真是王道组合……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "怎么，你想象的是其他人吗？"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "原来如此，是俄里翁啊。[wt 1.2][charaFace A 4]\n那家伙的性格[charaFace G 11]不适合教导他人吧。[wt 0.6][charaFadeout G 0.4][wt 0.4]"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "嘿嘿。要是能遇见那位星座传说中的人物，\n我也很想和他一同在山野间奔跑。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "神话中的猎人当然非同凡响，\n但我也想让他见识一下乌里的猎人有何本领。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "我敢打赌，只要见到那家伙，\n你那淡淡的憧憬就会被砸得粉碎。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "那么，我带你们进入[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：建筑里面是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好大的森林！！！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这座[#施設:テアトルム]的内部\n被经理用魔术扩张过。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哦。嗯，还算有点看头。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "这里的职业体验[#単純明快:たんじゅんめいかい]。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "森林里有猎物四处活动。\n你们只要把它抓回来。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "当然，弓会借给你们，我们也会同行。\n这座[#施設:テアトルム]应该还有什么特别待遇吧？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "有！仅限在这座[#施設:テアトルム]内，\n你们可以借用资深猎人的直觉。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "哦？借用直觉！\n连这种事都做得到吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "只要稍微集中精神，\n应该马上就能明白。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯，我试试！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：道路浮现了出来……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "好厉害……"
+    },
+    {
+      "speaker": "I：奥尔加玛丽",
+      "translated_content": "我也能看见……！这就是……"
+    },
+    {
+      "speaker": "J：阿塔兰忒",
+      "translated_content": "这就是我们眼中的世界。"
+    },
+    {
+      "speaker": "J：阿塔兰忒",
+      "translated_content": "我们会根据野兽的气味、掉落的毛发和足迹，\n推测猎物的行动。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "真方便啊。若我生前也能用这种能力，\n教导家人和朋友时想必会轻松得多。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "对不起。\n这一点是卡尔德尼亚的卖点。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "嘿嘿，不用这么认真地道歉。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "你不用对每句玩笑都作出反应，\n再放松一点吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好、好的。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "好了，之后就很简单。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "别让猎物察觉，\n谨慎地追踪它即可。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我、我知道了！\n要小心……小心地追……"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "真、真的在那里……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：保持安静"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：要“嘘”哦"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "嗯、嗯……"
+    },
+    {
+      "speaker": "K：威廉·退尔",
+      "translated_content": "屏住呼吸。\n连自身的存在也不要去意识。"
+    },
+    {
+      "speaker": "K：威廉·退尔",
+      "translated_content": "让自己融入周围的树木与叶片。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "就是现在！"
+    }
+  ]
+}

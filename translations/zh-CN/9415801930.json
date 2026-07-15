@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801930",
+  "source_region": "JP",
+  "source_hash": "0dc08e04bb47c9a2f94716aabf6e34aab5744ebde08dfd3be8cb37b324908724",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 80,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 多亏了阿斯和护照"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 虽然到这里一直都畅通无阻……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这次通过卡尔德尼亚护照，\n通信也一直保持着连接。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真让人吃惊。居然真的是万能钥匙。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要是正常入侵，都不知道会被安保系统拦下多少次……\n不过这里大概就是中枢……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 那就是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 机神的核心……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "怎么会这样！\n核心竟然和圣杯融合了！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "坚固到这种程度，\n就算动用宝具，也不知道能否将其摧毁……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我来试试！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我来试试……！"
+    },
+    {
+      "speaker": "D：？？？",
+      "translated_content": "[charaTalk D]\n那可就麻烦了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "果然在这里啊……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德墨忒尔·起源……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德墨忒尔·起源……小姐……"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "德墨忒尔·起源。\n这是你们为我取的名字吗。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "听起来倒不坏。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "若与[#あれ]使用同一个德墨忒尔的个体名，\n想必也多有不便，那我就采用这个名字吧。"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "为什么没有成为我的向导？\n不，这一点我尚且能够理解……"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "可你为什么又回来了？\n还带着其他人一起。"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "难道是打算仿效神话，\n向我献上祭品吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我们是来请您归还经理的。\n……[#ふたりとも]。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "无法理解。\n她们并非你应该守护的[#神霊:ひ　と]吧。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "对她们而言，你不过是应当受罚的罪人，\n对你身边那个人而言，想必也同样如此。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你只是个肮脏的罪人，一个背叛者。"
+    },
+    {
+      "speaker": "L：阿斯",
+      "translated_content": "是啊……一定如您所说。"
+    },
+    {
+      "speaker": "L：阿斯",
+      "translated_content": "但正因为如此，\n我才不能让一切就这样结束。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "外面已经灌满了冥府之水。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……那是我父亲河中的水吗？"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "大概可以这么说吧。"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "我对来龙去脉没有兴趣，但这是卡尔德尼亚闭园时\n预先设置好的[#機構:プロトコル]。"
+    },
+    {
+      "speaker": "K：德墨忒尔·起源",
+      "translated_content": "我判断这是消灭你们的有效手段，\n所以便直接拿来使用了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（预先设置好的……？\n　是德墨忒尔还是厄里倪厄斯……？）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原来如此……是我误会了……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐？"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "既然已经来到这里，\n那我就赐予你们毁灭吧。"
+    },
+    {
+      "speaker": "Z：？？？",
+      "translated_content": "『何其悲哀。何其悲哀』"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦……？"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "『悲哀的是死亡。悲哀的是终结』"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "『然而，你们不会再度复生』"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "噫！　那是……！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "机神德墨忒尔在奥林波斯使用过的，\n『[#汝、星を鋤く豊穣:ス  ク  リ  ー  ム  ・  エ  レ  ウ  シ  ス]』！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会让你得逞！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会让你得逞！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "真是精彩的一击。出手也很果断。\n若是为了阻止我解放宝具，已经足够了。不过……"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "启动宝具的，并不是[#この私]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "『灵基粉碎』"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "唔、[wt 0.5][charaShake G 0.05 3 3 0.5]啊啊啊！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎……[wt 0.5][charaShake G 0.05 3 3 0.5]么会……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊[charaShake B 0.05 3 3 0.5]啊啊……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈！　各位！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "中招了……！　刚才启动宝具的，\n是[#真体:アリスィア]——机神的中枢本身。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那已经不是从者规模，\n而是机神规模的权能。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "没想到竟会在自己的内部动用那种东西……！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "也、也就是说，那是货真价实的大陆破坏级宝具吗！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "它应该为了能在内部使用而限制了范围和威力，\n但我们这次也没有注入[#権能の極小集合体:テ  オ  ス  ・  ク  リ  ロ  ノ  ミ  ア]。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "正面承受那种权能，\n普通英灵根本不可能撑得住……！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "如果……[wt 0.5]只是普通英灵的话……？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "对、对了。经营顾问阁下，\n能否再为我沏一杯茶——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "抱歉，恕我拒绝。\n达·芬奇，也请你不要触碰通信开关。[charaFace F 15]"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "（就连事先准备好的紧急切断装置，\n　线路也不知何时被封死了……！）"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "（他从一开始……就打算等到无法辩解的时机，\n　再判断奥尔加玛丽吗……）"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "为了避免损伤核心，我已经手下留情，\n看来你还能行动。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "而且还保护了藤丸立香……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的……！\n就凭这点寒酸的魔力光……！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "我劝你还是放弃。向导和那边的少女，\n灵基都已经濒临崩溃。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你似乎较为特殊，却也没有特殊到能成为例外。\n只要进入战斗状态，灵基就会立刻崩溃。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "若不是为了保护那个人类，\n或许还能再战斗几分钟。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真遗憾。\n迦勒底的所长可不会抛弃部下。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "看来你是一位优秀的组织领导者。[wt 0.8][charaFace D 4]\n也正因如此，你和部下都会消灭。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "这、这可真够呛！\n整个身体都要被分解了！"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "奥尔加……！　御主……！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "这、这可真够呛！\n整个身体都要被分解了！"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "奥尔加小姐……！　御主……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐……"
+    },
+    {
+      "speaker": "奥尔加玛丽=spot[I,M]",
+      "translated_content": "是吗……？"
+    }
+  ]
+}

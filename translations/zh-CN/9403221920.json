@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221920",
+  "source_region": "JP",
+  "source_hash": "64ecb65aa88268aff802743f5270f433248d83df7b0ee761e7c85de315755445",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 40,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "猿面怪",
+      "translated_content": "[se ade246]\n[image berserker_language_2]——！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "足以撕裂理智，不存于世的魔鸟叫声——\n就是古事记中所记载的鵺吧！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "这算什么，论勇猛，您也毫不逊色！\n看来您也拿出真本事了吧，美丽的鬼武者！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "请别在意，倘若对手乃魔性之物，\n自然会热血沸腾到粉碎对方为止——巴，参战！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "哎呀，你还挺懂得什么时候该换装的嘛☆\n那么，我也不客气啦——嘿！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "假如对方是野兽，那就该用绝世美女来对抗♡\n直击你心脏的夏日野兽，造访！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "唔，你是玉藻鲨！\n这就是所谓的用更大的邪悪对抗邪恶吧！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "叽……！\n喂喂，你们是认真的吗，竟然特地送上门来让我杀！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "有意思，我知道各位是蠢货，但没想到是无药可救的蠢货！\n那好吧，我就原谅你们吧！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "如果你们陪我玩到最后，\n之前的不爽也可以一笔勾销哦！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "——都被逼到绝路了说什么废话。\n你已经没有退路了哦，猿面。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "（以上的话来自一边大义凛然地放狠话，\n　一边不动声色地换上决战服的小清姬☆）"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "哈？　没有退路的应该是你们。\n所谓的龙都是笨蛋吗？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "你们是绝对打不过我的吧？\n我可是搜集了阎魔亭近500年神气的存在啊。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "辛辛苦苦工作到现在的你们一定明白这有多可怕吧。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "廉价的英灵就算杀他一百个都不嫌多！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "把你们全都杀掉，毁了这座神社，\n大口吃掉麻雀，这场游戏就会结束啦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这家伙……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: （这魔力量确实……）"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——少自吹自擂啾。\n看来不用武力是无法让你老实下来啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "猿面怪大人。\n您是否不打算出席阎魔大人的法庭啾？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "才不会出席呢。凭什么要我大老远地\n去那个令人烦躁的地狱啊？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那我必须作为代理官询问理由啾。\n你为什么要这么做啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "你之所以决定这么做，\n是为了报猿蟹合战中的被杀之仇啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是因为明明只是以自己的方式生活，\n却被认定为反派的事啾？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "——"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "——嘻。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "——嘻嘻。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "叽嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻！！！！！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "难道你事到如今还在考虑酌情量刑吗！！？\n你究竟是多无可救药啊！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "理由？　复仇？\n问我为什么要那么做？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "当然是因为开心啦！\n骗那种看起来很幸福的家伙最有意思啦！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "尤其是毁掉软弱小鬼拼死努力的成果，\n简直是最棒的乐趣！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "嘎哈，嘎哈哈哈，\n嘎[line 4]哈哈哈哈哈哈哈！！！！！！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——我明白了。\n你说你不想接受地狱的处置啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "看来你没有改过自新的可能，也不需要减刑机会。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那么，我就代替阎魔审判你所犯下的罪孽啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "等活、黑绳、大叫唤！　让通往阿鼻无间的渡船，\n送你去地狱最深处吧！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是能震动恶鬼，刹那无影的雀之一击——\n阎雀拔刀术，好好品尝这来自冥界的特产吧！"
+    }
+  ]
+}

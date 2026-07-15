@@ -1,0 +1,903 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802130",
+  "source_region": "JP",
+  "source_hash": "bcc37ed705755bb46b066f141fd506e9084597587a1bf9a63b2c2a52a9aa9e2f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 221,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "生产设施功能……停止……传导机构……78%静默……\n中枢区域机能正在显著下降……"
+    },
+    {
+      "speaker": "拟机神得墨忒耳·起源",
+      "translated_content": "怎么会……我竟然……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "成功了！\n拟机神得墨忒耳·起源，停止活动！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯！　你们成功了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但是，她体内的魔力依然健在！\n外部装甲正在接连修复……必须立刻采取行动……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，请等一下！　这已经不只是修复了！\n几乎达到了让时间倒流的程度——"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "什么——！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『消失吧，渺小行星上无聊的冥府之神！』"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不好，阿斯酱！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "危险，阿斯先生！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "翻涌吧，冥府之河！"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "父亲的……力量……失控了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：阿斯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "喂，阿斯！\n可恶，给我继续开火！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "融合Garbage们也重新振作起来了！\n你们别舍不得炮弹！　只管不停地轰！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "对了，机神得墨忒耳的能力是再生……！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "即使不像以前那样与灵脉直接相连，\n这种程度的损伤也会立刻恢复。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "之前无法判断她还保有多少魔力，\n看来至少足够将自己完整重构一遍。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "对方同样在走向枯竭，所以这终究会变成一场耐力战……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "耐、耐力战！　这和说好的不一样啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "对、对了！　不是说要从机神装甲一路贯穿到核心吗！\n你们之前说了那么多！　就没有办法了吗！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "各位，请看监视器！"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "这种程度……这种程度根本算不了什么……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "中枢区域虽有几处受损，\n但只要核心安然无恙，我便能无限再生……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "凭他们的力量，无法击破我的核心……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那样做，有什么意义吗？"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "……意义……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "无论苟活多久，\n你都不会得到满足。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为你最先割舍了自己真正想要的东西，\n此后便一直不肯正视它。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你连自己真正想要什么都不明白，\n拥有再强的力量，也不可能得到满足。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，[#貴方は聖杯を手に入れても使えなかった]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你最初的复活，几乎全都依靠自己的力量吧？\n只不过稍稍[#啜:すす]饮了几口从圣杯中溢出的魔力。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "后来，你无法承受女儿的记忆，将其割舍后陷入沉睡，\n并把后续托付给终端得墨忒耳与厄里倪厄斯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "将圣杯一分为二加以使用的，\n正是这里的得墨忒耳和厄里倪厄斯吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "即使忘记了女儿，这个特异点中仍然充满了\n强烈到无可奈何的思念。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "表侧的卡尔德尼亚，是得墨忒耳为了\n[#こうなってほしかった娘]而创造的地方。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "里卡尔德尼亚，是厄里倪厄斯为了\n[#そうはならなかった娘]而创造的地方。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "两者都诞生于爱，却是截然不同的地方。\n即使是同一个神，表达爱的方式也不止一种呢。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "除了第一原则——活下去之外，\n你最终什么都没能找到，不是吗？"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "你……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "你为什么会……！"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "那……是……？"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "Garbage们停下来了……？\n拟机神也不再发出那刺耳的尖啸了……？"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "而且，漂在那条河上的东西是……\n喂喂，这到底怎么回事。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：阿刻戎河上……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：竟然开出了那么多花……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "怎么会……真的……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "看来……成功了呢……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "难道你身在迦勒底，却在特异点的坐标上\n引发了自己的权能吗？"
+    },
+    {
+      "speaker": "芙萝拉",
+      "translated_content": "……只是权能的一小部分。"
+    },
+    {
+      "speaker": "芙萝拉",
+      "translated_content": "也是因为我们之间有着特殊的联系……\n但我好歹也是神灵，这点事情还是做得到的。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "也太乱来了！"
+    },
+    {
+      "speaker": "芙萝拉",
+      "translated_content": "我只是帮了最好的朋友一把。"
+    },
+    {
+      "speaker": "莱妮丝",
+      "translated_content": "朋友？"
+    },
+    {
+      "speaker": "芙萝拉",
+      "translated_content": "虽然罗马神话与希腊神话之间，\n多少存在一些差异。"
+    },
+    {
+      "speaker": "芙萝拉",
+      "translated_content": "但[#あの子]一定没有改变。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "那是……你那张[#切り札]造成的吗？[wt 0.7][charaFace E 0]\n你到底做了什么？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "没什么大不了的。\n那些花也出乎我的意料。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "Garbage们原本就是拟机神割舍出去的记录。\n我只是将记录复原，然后交给了阿斯。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "借此，阿斯得以和父亲阿刻戎交谈，\n但融入黑河的王牌还引发了另一种作用。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "我好歹也是前辈御主嘛。\n这种两段式的准备，我还是做得到的。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "阿刻戎河是连接冥府与现实的河流吧。\n那么，在那些记录与花朵的引导下，来到这里的将会是……"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "……格蕾小姐。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "什么？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "请和御主一起去那些花的附近。\n我会施加术式，让你们可以在水面上行走。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "我会竭尽全力，维持住这里。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主，可以吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：当然！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我和你一起去！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……嗯，知道了。\n那么御主，牵住我的手。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "你应该知道我是谁吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我大概知道"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……嗯，[#拙:せつ]也知道。\n只是稍微有些吃惊。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太好了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "在这个特异点中，我是『不存在』的。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "所以，我借用了你某种可能性的形态。\n这样才总算能发挥出一点力量。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "如果让你觉得不舒服，对不起。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会，完全不会！\n能见到你，我很高兴！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "……太好了。你真的很温柔呢。\n和阿斯卡拉波斯一样。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嘿嘿，阿斯酱一直都很厉害哦！[wt 1.0][charaFace F 0]\n我也想讲给你听，可是时间不太够了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是啊。虽然很遗憾。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我必须把母亲她们解放出来。\n你愿意帮我吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "当——然！[wt 0.7][charaFace F 15]\n不过，拟机神体内的奥尔加……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那边没问题"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：阿斯会保护她"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "是的。我从一开始就是这么打算的。\n格蕾小姐，你们只管用尽全力将她击穿！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……嗯。既然御主和阿斯酱都这么说，那我明白了。\n我相信你们。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那么，开始吧！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "好！　使出全力！"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "为什么……\n我不明白……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "是谁……站在那里……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "看不见……我真的，看不见啊……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你看不见。\n因为你亲手割舍了[#それ]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但现在，我会把它还给你。"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "你……说什么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我会实现你的愿望。\n不是由我，而是由那些孩子来实现。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主！　请给我令咒！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我正在与格蕾小姐的魔力同步！\n所以，只要专注于格蕾小姐就好！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：把我的一切都拿去吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "啊啊……不明白……我不明白……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "我不知道，你究竟是谁……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "格蕾小姐，你好像有些寂寞？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "因为这里有点像醒来之前的被窝。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "来到卡尔德尼亚以后，一切都像一场梦。\n有许多快乐，许多欢笑，也遇到过一点辛苦。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我成为了许多自己想成为的模样。\n也为无法成为它们的那一天，做了许多准备。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "大概再过不久，\n[#拙:せつ]就会揉着惺忪的[#眼:まなこ]醒来了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "虽说从者不会做梦，\n但活在当下的[#拙:せつ]，大概稍微有些不同。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "你不愿意吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我只是觉得寂寞。\n梦的国度，终有一天会迎来终结。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[#拙:せつ]总有一天会离开这里。\n但在这里见过的未来，会化作一颗小小的种子。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那颗种子会在遥远的未来萌芽。\n这让我无比自豪，也无比喜悦。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是啊。\n一定会的。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我也同样自豪、同样高兴。\n母亲她们留下的地方，能让你产生这样的感受。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德，可以吗？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻嘻！　包在我身上！\n难得轮到我登场！　就让你们见识一下压箱底的本事！"
+    },
+    {
+      "speaker": "Q：格蕾",
+      "translated_content": "在此编织的，是梦之吐息。\n是足以斩断宿命的，年轻生命之奔流。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "吾之母啊，以空想之锚，\n贯穿汝之忘却！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "停止拟似人格。魔力收集率突破预定值。\n解放复合礼装Logos React·Replica。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "第二阶段应用限定解除[line 2][#宝具融合開始]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是本不可能存在的融合宝具。\n以某件封印礼装为基础[#再現:そくてい]的，对命运宝具。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "圣枪与圣剑，[#虚構:ミュトス]与[#真理:ロゴス]。\n两种相对之物冲突至尽头，仅在刹那间显现的奇迹。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "悖论·卡美洛。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即使是矛盾的[#路:みち]也要将其走尽，\n讨伐绝望命运本身的黄金[#双閃:ひかり]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她悟到，不行。\n警报告诉她，这一击无法阻止。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "七十六层外部装甲无一例外被突破。\n数百套防御机构悉数失效。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "为什么？\n为什么无法阻止？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "是能量总量？　那并非无法处理。\n是宝具的性质？　那么防御机构理应有所反应。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "演算只用了零点三秒。\n对[#彼女]而言，这段时间却比永恒更加漫长。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "正在破碎。\n正在破碎。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "就要彻底破碎。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——，[#砕けてほしい]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "直到产生这个念头，她才终于明白。\n这一击当然不可能被阻止。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为想要迎接这一击的，正是她自己。\n正是那个无论如何都想弄明白的自己。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我不知道你是谁……\n我想知道你是谁……"
+    },
+    {
+      "speaker": "格蕾＆珀耳塞福涅",
+      "translated_content": "[f large]冲啊啊啊啊啊啊啊！"
+    },
+    {
+      "speaker": "M：得墨忒耳·起源",
+      "translated_content": "啊啊……看见了……\n我看见了……"
+    },
+    {
+      "speaker": "M：得墨忒耳·起源",
+      "translated_content": "……被[#私]深爱着的……珀耳塞福涅……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……怎么了吗？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "请去那条河的花朵附近。\n我会施加术式，让你们可以在水面上行走。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "我会竭尽全力维持住这里。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……好的，我明白了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦……！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "你应该知道我是谁吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我大概知道"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……[#拙:せつ]也明白。\n只是稍微有些吃惊。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太好了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "在这个特异点中，我是『不存在』的。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "所以，我借用了你某种可能性的形态。\n这样才总算能发挥出一点力量。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "如果让你觉得不舒服，对不起。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不会，完全没有那回事。\n能见到您，我很高兴。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "……太好了。你真的很温柔呢。\n和阿斯卡拉波斯一样。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "呵呵，阿斯先生一直都很厉害哦！[wt 1.0][charaFace F 0]\n我也想讲给您听，可惜时间不够了。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是啊。虽然很遗憾。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我必须把母亲她们解放出来。\n你愿意帮我吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "当然愿意！[wt 0.7][charaFace F 15]\n不过，拟机神体内的奥尔加小姐……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那边没问题"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：阿斯会保护她"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯卡拉波斯＝阿刻戎",
+      "translated_content": "是的。我从一开始就是这么打算的。\n格蕾小姐，你们只管用尽全力将她击穿！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……既然御主和阿斯先生都这么说，我相信你们。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那么，开始吧！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "好！　使出全力！"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "为什么……\n我不明白……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "是谁……站在那里……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "看不见……我真的，看不见啊……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你看不见。\n因为你亲手割舍了[#それ]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但现在，我会把它还给你。"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "你……说什么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我会实现你的愿望。\n不是由我，而是由那些孩子来实现。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主！　请给我令咒！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我正在与格蕾小姐的魔力同步！\n所以，只要专注于格蕾小姐就好！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：把我的一切都拿去吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "啊啊……不明白……我不明白……"
+    },
+    {
+      "speaker": "得墨忒耳·起源",
+      "translated_content": "我不知道，你究竟是谁……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "格蕾小姐，你好像有些寂寞？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "因为这里有点像醒来之前的被窝。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "来到卡尔德尼亚以后，一切都像一场梦。\n有许多快乐，许多欢笑，也遇到过一点辛苦。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我成为了许多自己想成为的模样。\n也为无法成为它们的那一天，做了许多准备。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "大概再过不久，\n[#拙:せつ]就会揉着惺忪的[#眼:まなこ]醒来了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "虽说从者不会做梦，\n但活在当下的[#拙:せつ]，大概稍微有些不同……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "你不愿意吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我只是觉得寂寞。\n因为梦的国度，终有一天会迎来终结。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[#拙:せつ]总有一天会离开这里。\n但在这里见过的未来，会化作一颗小小的种子。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那颗种子会在遥远的未来萌芽。\n这让我无比自豪，也无比喜悦。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是啊。\n一定会的。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我也同样自豪、同样高兴。\n母亲她们留下的地方，能让你产生这样的感受。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德，可以吗？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻嘻！　包在我身上！\n难得轮到我登场！　就让你们见识一下压箱底的本事！"
+    },
+    {
+      "speaker": "Q：格蕾",
+      "translated_content": "幼小的幻想啊，苏醒吧。\n遥远的梦想啊，化作基石吧。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "吾之母啊！\n以真理之刃，斩裂汝之忘却！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "停止拟似人格。魔力收集率突破预定值。\n解放复合礼装Logos React·Replica。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "第二阶段应用限定解除[line 2][#宝具融合開始]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是本不可能存在的融合宝具。\n以某件封印礼装为基础[#再現:そくてい]的，对命运宝具。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "圣枪与圣剑，[#虚構:ミュトス]与[#真理:ロゴス]。\n两种相对之物冲突至尽头，仅在刹那间显现的奇迹。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "悖论·卡美洛。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即使是矛盾的[#路:みち]也要将其走尽，\n讨伐绝望命运本身的黄金[#双閃:ひかり]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她悟到，不行。\n警报告诉她，这一击无法阻止。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "七十六层外部装甲无一例外被突破。\n数百套防御机构悉数失效。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "为什么？\n为什么无法阻止？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "是能量总量？　那并非无法处理。\n是宝具的性质？　那么防御机构理应有所反应。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "演算只用了零点三秒。\n对[#彼女]而言，这段时间却比永恒更加漫长。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "正在破碎。\n正在破碎。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "就要彻底破碎。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——，[#砕けてほしい]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "直到产生这个念头，她才终于明白。\n这一击当然不可能被阻止。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为想要迎接这一击的，正是她自己。\n正是那个无论如何都想弄明白的自己。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我不知道你是谁……\n我想知道你是谁……"
+    },
+    {
+      "speaker": "格蕾＆珀耳塞福涅",
+      "translated_content": "[f large]冲啊啊啊啊啊啊啊！"
+    },
+    {
+      "speaker": "M：得墨忒耳·起源",
+      "translated_content": "啊啊……看见了……\n我看见了……"
+    },
+    {
+      "speaker": "M：得墨忒耳·起源",
+      "translated_content": "……被[#私]深爱着的……珀耳塞福涅……"
+    }
+  ]
+}

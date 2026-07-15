@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800910",
+  "source_region": "JP",
+  "source_hash": "8eaa96b9a9fd539cbc5495d82125e13ffa918e9017cf9410e39863570f019eee",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 50,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "亚瑟",
+      "translated_content": "喝！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "哈！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "不错。这样一来，\n看来很快就能把Garbage一扫而空。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那只融合Garbage，\n对阿斯来说负担太重了吗？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "不，是在那之前的问题。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "阿斯从未向我报告过那样的个体。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "唔。这边也一样。\n嗯，我不喜欢怀疑熟人，不过……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "关于这一点，究竟是怎么回事呢？[#アス]。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "竟在我毫无察觉时来到这么近的地方。\n看来你更擅长模仿Assassin行事。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "我想请你详细说明一下，如何？\n需要的话，我可以准备些茶。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……那是管家的工作吧。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "哈哈，说得也是。是我多嘴了。[wt 1.0][charaFace B 0]\n——话说回来。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "为什么我会从你身上感受到[#敵意が伝わってくる]呢？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我有一个请求。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "能请你们停止消灭Garbage吗？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "抱歉，这个请求我不能答应。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "既然你这么说，想必有什么隐情，\n但我们是侍奉经理的从者。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "首先应该由你向经理说明情况，\n这才合乎道理。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "如果经理听后能够接受，\n我们自然也会收手。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我做不到。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那就抱歉了，我不能听你的。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "不管有什么理由，\n都有必须遵守的次序和道理。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "身为被称作骑士王的人，就更该如此。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "因为我已经切身体会过，\n部下擅自作出判断会有多么危险。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……果然会这样呢。[wt 1.0][charaFace C 27]\n所以……"
+    },
+    {
+      "speaker": "D：阿尔托莉雅",
+      "translated_content": "这是怎么回事，阿斯。"
+    },
+    {
+      "speaker": "D：阿尔托莉雅",
+      "translated_content": "你隐藏了如此实力，也令我十分惊讶，\n不过先请你为自己的行为作出解释吧。"
+    },
+    {
+      "speaker": "E：阿斯",
+      "translated_content": "咕[line 2]！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "没用的！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "（连背后也已经被封住了……！）"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "动作真利落，圣剑使。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "虽然只是感觉，但我知道你想做什么。\n这可真方便。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那么。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "这次轮到我了！"
+    },
+    {
+      "speaker": "D：阿尔托莉雅",
+      "translated_content": "嚯。"
+    },
+    {
+      "speaker": "F：亚瑟",
+      "translated_content": "真厉害。"
+    },
+    {
+      "speaker": "F：亚瑟",
+      "translated_content": "没想到你竟然能用那根手杖，\n一口气挡下我们的攻击。"
+    },
+    {
+      "speaker": "F：亚瑟",
+      "translated_content": "看来你确实一直隐藏着实力。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "快！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "快逃！\n趁现在！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "我是说了“真厉害”。\n但也仅此而已——"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "可别小看我们！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "请你暂时躺在那里吧。\n事情经过，之后我们会慢慢听你说明。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "先完成我们承接的使命……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "为什么？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "我和她的攻击，即使还不及解放宝具，\n也不可能只造成轻伤。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "勉强行动的话，你的灵核会受损。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "即便如此……我已经答应过了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我要独自……\n拦住你们两个！"
+    }
+  ]
+}

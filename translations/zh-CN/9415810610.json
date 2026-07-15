@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810610",
+  "source_region": "JP",
+  "source_hash": "024bfb58f9cee7fbb01bd76b524aaeffc81b9cd97cd47940b4cefa25e37ad23b",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 62,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：好热闹……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "赌、赌、赌场呀！"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "哼。\n你还真的把特别嘉宾带来了呢，阿斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是的，终于等到了！\n这边的[#施設:テアトルム]似乎也生意兴隆。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "那当然了吧？\n毕竟是由身为人类最高峰AI的我来经营。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "名流、奢华，还有浪漫！\n在这座BB迪拜的地下赌场里，三者缺一不可！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哦。赌场不错嘛。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么了，藤丸立香。\n一直在东张西望的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：因为说到赌场"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我还以为那个人会在这里"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "如果是她，倒是时不时会一脸羡慕地\n往这边偷看。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "呵呵，毕竟这次她的工作是担任经理的随从。\n实在无暇顾及赌场。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这样呀。毕竟一个人只有一个身体呢。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "好了，在这里的体验极其简单。\n你们要以客人为对手进行赌博。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "不过，最重要的是——"
+    },
+    {
+      "speaker": "赌徒",
+      "translated_content": "哇啊——！已经不行了——！破产啦——！"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "哎呀，容我失陪一下。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "请放心，客人。\n本赌场也接受内脏和眼球作为抵押品。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "对人类来说，这些无一不是贵重物品。\n我们会给出比任何地方都高的价格。"
+    },
+    {
+      "speaker": "赌徒",
+      "translated_content": "呜、呜呜呜……！"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "来，请继续这场胜负吧。\n只要不放弃，道路总会为你敞开。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "当然，也可能是通往地狱的道路。\n但凭那双眼睛，您已经分不清它和天堂了吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这确实是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：地下赌场……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "虽然多少不合我的兴趣，但这也是『地下』\n卡尔德尼亚的风格，没办法呢。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "说到底，人的一生就是荣光与毁灭的循环。\n只要是人类，都能称其为身边常见的娱乐吧。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "因此，我保证来到这里的各位\n也能获得最顶级的体验。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "刚才中途失陪了，不过最重要的事，\n就是要一分不少地向客人讨回欠款。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "人类最高峰的赌场。\n仅仅掏空钱包这种程度的绝望，远远不够。"
+    },
+    {
+      "speaker": "E：BB迪拜",
+      "translated_content": "我们会把无穷无尽的负数赠给不走运的人。\n能让客人背上多少债务，才是我们的胜负。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇哇哇！她露出了特别坏的表情……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这正是适合我的项目呢。\n好啊，我会把他们榨到一滴不剩。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，这件事的对手可以由我们选择吗？"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "真是意味深长的说法。\n我姑且[#訊:たず]问一句，是什么意思？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我是说，\n[#貴方を相手に選んでもかまわないの]？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "等、等一下！奥尔加玛丽小姐！\n这和这座[#施設:テアトルム]的职业体验可不是一回事……！"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "——好吧。\n这项提议，我就替你[#受理:コール]了。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "如果连这种程度的挑战都应付不了，\n也就称不上是我的[#施設:テアトルム]了。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "那么，就用这台老虎机一决胜负吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：没想到竟然是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：BB迪拜老虎机"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "I：格蕾",
+      "translated_content": "好厉害……是专用的老虎机呀……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：（不过，那台老虎机八成动了手脚……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "I：格蕾",
+      "translated_content": "（动、动了手脚！那怎么办？）"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "（那就反过来利用它）"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "（那台老虎机的机关，应该会制造出\n　让我们完全无计可施的时机）"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "（不如说，大部分时间恐怕都是这样。\n　那段时间要专心全力防守）"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "（只要撑过那里，我就会创造出仅有一次的\n　逆转机会）"
+    },
+    {
+      "speaker": "I：格蕾",
+      "translated_content": "（这种事做得到吗？）"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "（你以为我是谁？我好歹也是[#君主:ロード]的女儿。\n　在时钟塔，这种程度的交锋可是家常便饭）"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "悄悄话说完了吗？\n不论怎么商量，结果都不会改变哦。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊，结果不会改变。\n最终结果就是我们的胜利。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊哇哇哇……"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "哎呀哎呀。\n看来你们至今经历过相当惨烈的战斗呢。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "面对鲁莽的胜负也感觉不到恐惧，\n难道大脑已经被刺激烧坏了吗？"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "不过，这座地下赌场正欢迎你们这种人。\n看来最棒的客人已经登门了。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "那么，我就不客气地赐予各位绝望吧。\n请尽情享受这场[#人生:ギャンブル]哦？"
+    }
+  ]
+}

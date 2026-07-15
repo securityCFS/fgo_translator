@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801810",
+  "source_region": "JP",
+  "source_hash": "1ba6b96552e94c20f7491a988e24530d2901a47e99ba37827089d7503879ed50",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 33,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "让各位久等了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：欢迎回来，格蕾！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然在战斗和[#施設:テアトルム]里都见过你……\n但现在感觉整个人都有了主心骨。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我自己也觉得平静下来了。\n在这个特异点里，当前的灵基似乎已经稳定。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "只是……已经感受不到之前\n厄里倪厄斯小姐赋予我的那股力量了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那本来就是预支来的力量。\n既然失去了，就只能从头开始积累吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……我倒不是舍不得之前的力量，\n但现在正需要它。该怎么办……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：唔……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这件事，就交给卡尔德尼亚的管家吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好久没见您穿这身玩偶服了……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈，我想回归初心，再试一次。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "而且格蕾小姐，\n您是不是忘记这里是什么地方了？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "难道说，是卡尔德尼亚？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没错！　这里是能体验任何梦想的卡尔德尼亚！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "既然如此，\n只要建造一座体验Lancer的[#施設:テアトルム]就行了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "现在的我做得到。\n因为经理已经授予我权限。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……不过话说回来，\n这些其实全是奥尔加玛丽小姐的主意。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：不愧是所长！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这可不只是为了格蕾。\n岸波不是还提过护照的事吗。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "就是完成卡尔德尼亚护照上的纪念照，\n再把它用作德墨忒尔·起源主密钥的计划。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，因为损坏而没能完成的那本护照……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "照片栏还空着两个吧。[wt 0.9][charaFace B 26]\n那只要再建两座[#施設:テアトルム]不就行了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：原来如此……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：没有的话就造出来……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "原来如此……确实合乎道理。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔唔唔唔，不只是合乎道理，\n这分明是一石二鸟的妙计！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "太厉害了，所长！\n这样就能一举扭转局面！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，建造[#施設:テアトルム]，\n具体要怎么做呢？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这就交给我吧。\n或者该说，我已经把它带到这里了……"
+    }
+  ]
+}

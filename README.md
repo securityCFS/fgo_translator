@@ -112,6 +112,42 @@ The local Python/Flask tools may use local files such as `user_preferences.db` f
 - Shows official/synchronized translations from CN/TW/other servers when Atlas exposes them.
 - Can read and reuse translated scripts from the GitHub-hosted cache when available.
 
+Raw Atlas story scripts are cached locally at `cache/story_scripts/<REGION>/<scriptId>.txt`.
+The ignored `cache/` directory contains source text only, not API tokens or user translations.
+Prewarm quest `3000801`, phases 1 and 2, for JP/NA/CN/TW with:
+
+```bash
+python scripts/prewarm_story_cache.py
+```
+
+Override the defaults with repeatable options such as
+`python scripts/prewarm_story_cache.py --quest 3000802 --region JP --region CN`.
+The prewarm command only downloads Atlas quest/script data and never calls a translation API.
+It discovers scripts separately for each region, so a chapter that has not yet
+reached NA/TW does not borrow mismatched JP script IDs. For example:
+
+```bash
+# JP/CN-aligned main-story scripts, including every script in phase 3
+python scripts/prewarm_story_cache.py --quest 4000521 --region JP --region CN --phase 1 --phase 2 --phase 3
+
+# Current JP main-story opening used by the gaming-mode regression check
+python scripts/prewarm_story_cache.py --quest 5000100 --region JP --phase 1
+```
+
+Validated project pre-translations live in `translations/zh-CN/<scriptId>.json`.
+Each file records the JP source hash and exact dialogue count; the UI only shows
+the project pre-translation option when every script in the selected phase is
+present and valid. Build agent batches together with an Atlas CN-aligned war by
+running:
+
+```bash
+python scripts/build_bundled_translations.py \
+  --source-dir translation_jobs/latest_two/source \
+  --translated-dir translation_jobs/latest_two/translated \
+  --official-war 9201 \
+  --static-output-dir ../fgo_static/translations/zh-CN
+```
+
 ## Project Scope
 
 - This project does not unpack game files, modify the game client, or provide any game modification features.

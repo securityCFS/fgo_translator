@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221111",
+  "source_region": "JP",
+  "source_hash": "23ff753339c50c1f8230a140d6d3050d1d36cc6e75067fbe204faf49dba11a45",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 33,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 到此为止，到此为止～！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玉藻们",
+      "translated_content": "[s 1024]\n『为什么阻止我们，主人！？』[s -]\n[s 1024]『请别拦着我们啊！』[s -]"
+    },
+    {
+      "speaker": "玉藻们",
+      "translated_content": "呀！？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管我不知道你们间的关系啾，\n但是我弄清了你们各自的实力了啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "两个人都合格啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "既然你们都这么想接受我的教导，\n那我就不客气了啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我会立刻用实战让你们磨炼啾，\n换上厨师服跟我来啾！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "……？\n这究竟是怎么回事汪？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "唉。我本来只想打打下手，\n但这样一来也没办法了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "放弃抵抗去换厨师服吧。\n我和你都要开始补课了哦。"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "什么！　我竟然能直接接受红老板娘的教导！？\n那分我半根胡萝卜我就跟你一起去！"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "但是你可别误会了，我工作是为了老板娘，\n绝对不是为了你这家伙。"
+    },
+    {
+      "speaker": "玉藻猫",
+      "translated_content": "下次等我学会了新技能，\n可就要威胁[#你:巫女]的地位了哦，提前做好觉悟吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "知道啦。这不是在帮我，是在帮阎魔亭。\n我不是一开始就说了嘛。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。看来厨房人手足够了呢。\n那我们就在其他方面努力帮忙吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "毕竟是那么多客人的晚餐。\n山珍、河味。都得收集平时三倍的量才行。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，好的，您说得对，芬恩先生！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "厨房就交给红阎魔小姐她们，\n我们去收集食材吧，前辈！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 好咧～，干活啦～！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 话说，芬恩所说的合适人选究竟是谁？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "唔？　啊啊，那个啊，其实——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "就是我啦，我自己。\n会烹饪的男人就是我啦。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原……原来是这样啊！？\n但芬恩先生是骑士团的团长——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "迪尔姆德不是也提过吗？\n关于茶道。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "尽管国家不同，但思想可以互通。战士也是需要教养的。\n而我，则是一个基本什么都会的男人哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "很擅长杀鱼，也擅长割肉。\n如非如此，我也不会得到智慧嘛。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不过，算了……\n我的厨艺还是不提了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "[#那]本来应该是我老师应得的东西。\n却被我抢走了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "尽管老师让我不要在意，\n但对我来说，这是仅有的几件后悔事之一。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "因此，我会尽可能避免当着大家的面烹饪……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但在老板娘的一心一意面前，我的懊悔根本微不足道。\n我当然乐意展现我曾经的拿手好戏。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    }
+  ]
+}

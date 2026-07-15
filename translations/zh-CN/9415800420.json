@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800420",
+  "source_region": "JP",
+  "source_hash": "7b4754d37aebe7842f74ec5bf710a5a87f9920d8107c2638eceec2ab21baf463",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 136,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "神明……好大啊……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻。迦勒底还有其他母性很强的神明和\n英灵从者，不过每一个都个性十足啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "母性即便对神而言，也是一个重要的主题。\n尤其是拥有大地属性的神。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是叫大地母神来着？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对。以你而言，功课做得还不错嘛。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "究竟该将万物之母归于海洋还是大地，\n对此众说纷纭，但毫无疑问是个重大主题。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：原来是这样的吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真亏你这样还能拯救世界两次。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "比如你在第七特异点战斗过的提亚马特。\n如果说她是海洋的母性，德墨忒尔就是大地的母性。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在人类的认知中，两者都是能永恒无限地\n持续创造生命的神性。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对她来说，只要有少许资源，\n创造一个特异点或许也不费吹灰之力。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "呜咿，真吓人～。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "比起这个，现在必须问清楚的是……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个就是在这座里卡尔德尼亚里，\n你的主人？"
+    },
+    {
+      "speaker": "I：阿斯",
+      "translated_content": "这个嘛……确实是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：又变回布偶装了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "I：阿斯",
+      "translated_content": "因为管理人吩咐我尽量保持\n这副模样……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "别这样。看不见同行者的脸色可不行。\n无论恶意还是诚意，不都看不出来了吗。"
+    },
+    {
+      "speaker": "I：阿斯",
+      "translated_content": "呜、呜呜……！"
+    },
+    {
+      "speaker": "I：阿斯",
+      "translated_content": "非常抱歉……管理人……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很好。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，最初出现在管理人留言里的，\n毫无疑问就是德墨忒尔吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "究竟为什么会有两个德墨忒尔\n同时存在于这个特异点里？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：话说回来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：厄里倪厄斯和德墨忒尔是什么关系？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哦。\n刚才我只说了，那是德墨忒尔的一个侧面……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好吧，我来好好解释给你听。\n要听长版还是短版？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：长版"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：短版"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很好。\n看来你还是有认真听课的打算嘛。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔的女儿珀耳塞福涅，我之前已经讲过了吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那件事发生在德墨忒尔为了寻找珀耳塞福涅，\n在全世界四处流浪的时候。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "波塞冬对遍体鳞伤、在世界各地[#彷徨:さまよ]的德墨忒尔\n起了欲念，随后袭击了她。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "欲念，是什么？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "哎呀！\n格蕾，把手放到耳朵上，捂住！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "诶——！　格蕾也想听\n奥尔加姐姐讲的故事……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "不行不行！\n来，请继续往下说！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那就从波塞冬说起吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "希腊神话里的众神经常任性妄为、\n横行霸道，而这件事堪称其中之最。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔自然勃然大怒，\n也因这份愤怒背负了厄里倪厄斯这一别名。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所以厄里倪厄斯就是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：那是什么意思？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所谓厄里倪厄斯，\n是希腊神话中复仇女神的统称。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "其中尤以三姐妹最为著名，\n但其他神明有时也会被称为厄里倪厄斯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔也是其中一柱。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "后来，身[#纏:まと]黑衣的德墨忒尔躲进洞窟，\n地上的一切产物随之枯竭，人类濒临[#飢饉:ききん]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "据说直到她的女儿从冥界归来，\n德墨忒尔的怒火才终于平息。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，这个版本比较适合你。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所谓厄里倪厄斯，是希腊神话中\n『复仇女神』的统称。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "其中尤以三姐妹最为著名，不过其他存在\n有时也会被称为厄里倪厄斯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔也是其中一柱。\n想想她女儿被[#攫:さら]走时的事，你就明白了吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以我们刚才遇到的德墨忒尔，\n就是她作为厄里倪厄斯的那个侧面。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样一来，她和我们平时在迦勒底认识的那个她有所不同，\n也就说得通了吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不愧是所长……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哼。只要知道阿斯卡拉福斯，\n这些就都只是附带知识。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么……回到刚才的话题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔和德墨忒尔·厄里倪厄斯，\n为什么会同时存在。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，不只如此。\n从更根本的地方来说，这个特异点就存在偏差。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：根本的地方？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：存在偏差？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "稀奇古怪的特异点，我们不是已经见过很多了吗。\n从某种意义上说，这里的偏差反而很好理解。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "卡尔德尼亚与里卡尔德尼亚。\n它被分成了两个。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "乍看之下是个胡闹的特异点，\n但既然两边都有德墨忒尔，就不能说毫无意义。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "到底是怎么回事，阿斯。[bgmStop BGM_EVENT_141 1.5]"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这个嘛……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……其实，这个特异点的圣杯……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "裂成两半了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：圣杯裂开了——！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原、原来如此。圣杯裂开，特异点也变成双重。\n然后德墨忒尔也有两柱。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "作为一件事，这反而算是很好理解的类型。\n以神灵的规模，也很容易创造分灵。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，你是不是还瞒着什么？\n别再一点一点往外挤情报了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没、没有！\n我真的不知道！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "就连刚才那些，也只是根据两位管理人的话推测，\n事情似乎就是那样而已……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……哦——。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这样的话，无论如何都得回卡尔德尼亚\n见一见德墨忒尔……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你知道怎么回去吗，阿斯？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊，知道。\n只要使用护照就行了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这本护照？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "对，就是那本。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "在卡尔德尼亚，这本护照就是一切的起点。\n无论大家的体验，还是纪念照。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：护照是起点？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "格蕾小姐。\n大家去过的[#施設:テアトルム]是什么样的？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "什么样的……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我们一起去过锻造工坊吧？\n请仔细回想一下当时的事。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯……和村正先生在一起……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯，铁锤咣当一下敲下去，\n震得小手麻麻的，好开心！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐也能回想一下吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦……这个嘛……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "村正谈呼吸的那些话还不错……\n毕竟呼吸对魔术也很重要……"
+    },
+    {
+      "speaker": "K：奥尔加玛丽",
+      "translated_content": "照片……变了……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：回来了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：是原来的卡尔德尼亚！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "哇！　护照的颜色也变回原来的样子了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "像这样，\n就可以往返于卡尔德尼亚和里卡尔德尼亚。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "想去卡尔德尼亚时，就回想卡尔德尼亚的[#施設:テアトルム]。\n想去里卡尔德尼亚时，就回想里卡尔德尼亚的[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "只要拿着这本护照，\n请两位在心中回想即可。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：照片是往返的钥匙？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：护照是往返的钥匙？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概照片和护照缺一不可。\n此外，还需要格蕾和我的认知。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾的，认知？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈！　所长！\n听得见吗！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是玛修！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：当然！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "太好了。明明坐标等位置信息没有变化，\n却怎么也联系不上你们。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "位置信息没有变化？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "从坐标来看，你们一直待在卡尔德尼亚。\n看起来就像回到了最初的锻造工坊，随后又去了城堡。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：回到锻造工坊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：然后又去了城堡……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，卡尔德尼亚和里卡尔德尼亚\n确实共享着时间与空间。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正因如此，我们才能凭借自身认知完成移动。\n……也就是说，发生了观察者问题……？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "观察者问题？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对，虽然和科学中的概念略有不同……可现在\n对格蕾讲这些也——"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "太好了。\n看来所有人都平安回来了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "啊……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "听说你们的反应突然消失，\n管理人十分担心。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "所以才派我来到了这里。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……厄里倪厄斯有近卫从者。\n那么德墨忒尔也会有……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "哎呀，这家伙是……！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "没错。我是由卡尔德尼亚的管理人\n召唤而来的从者。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "……准确来说，我的情况应该算是管理人仿照从者\n创造出的，亚瑟王的[#可能性:イ　　フ]吧？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "阿斯看起来也很精神，太好了。\n我很担心你。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是、是……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那么，就由我带各位前往管理人的城堡吧。"
+    }
+  ]
+}

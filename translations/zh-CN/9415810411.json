@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810411",
+  "source_region": "JP",
+  "source_hash": "00bfb6096a0212c01f3559e92ded8b33b861fdbe4a3ef328a6ae2b159f73ceb4",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 25,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "F：莫德雷德",
+      "translated_content": "被——打——倒——了。"
+    },
+    {
+      "speaker": "小混混A",
+      "translated_content": "咦，等一下，保镖先生！"
+    },
+    {
+      "speaker": "小混混B",
+      "translated_content": "保镖倒下了！完蛋了！"
+    },
+    {
+      "speaker": "小混混们",
+      "translated_content": "哇啊啊，快逃啊——！！！"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "嗨，各位辛苦了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，是莫里亚蒂先生！"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "好了，装钱的手提箱回收。\n莫德雷德君，你也可以起来了哦。"
+    },
+    {
+      "speaker": "F：莫德雷德",
+      "translated_content": "好嘞。"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "好啦好啦，辛苦了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "诶[messageShake 0.03 3 3 0.3]诶！　[wt 0.6]这、这是怎么回事？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，设定上莫德雷德是通过潜入行动混进来的、\n莫里亚蒂一方的间谍，对吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "一开始说交易对象欠款不还，\n也是因为已经让莫德雷德潜入了吧。"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "太、太过分了。这种精彩之处\n就不能让我自己来说吗！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好厉害！就像真正的黑手党一样！\n太帅了！"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "哈哈哈，真正的黑手党可一点也不帅，\n这点要记住哦。"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "不过，既然这位小姐感兴趣——\n要不要稍微给你讲讲呢？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：只能讲一点"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：再多可就不行了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "哎呀，监护人的目光真严格！\n看来只能作罢了！"
+    },
+    {
+      "speaker": "莫里亚蒂",
+      "translated_content": "那么，这是今天这份工作的卡尔德哦。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "既然如此，就在这里拍一张纪念照吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：就等这一刻！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：不许摆出坏人脸哦！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    }
+  ]
+}

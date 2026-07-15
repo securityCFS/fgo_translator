@@ -1,0 +1,995 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010810",
+  "source_region": "JP",
+  "source_hash": "a453b1c311c4fa4dec99d6a9e1d66f2439dc6faddef9b21f73a3d21bbea98b7a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 244,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "卡多克",
+      "translated_content": "大体而言，神可以分为两类。\n这次要说的是其中一类，也就是『人类侧』的神。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "远古时代，人类目睹了超越人智的自然现象，\n并将其视为神的[#業:わざ]。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "这也就是世界各地随处可见的神话形成过程。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "春日来临是神的喜悦，火山喷发是神的愤怒，\n呼啸的风雪是神的哀叹。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "说白了，就是拟人化。人类将无形之物、过于宏伟之物，\n套进人的框架中，试图加以理解。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：比如芙罗拉和佩蕾之类的吧"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "没错没错。预习得很认真嘛。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：原来如此……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "但这样一来，就会出现令人头疼的情况。\n你觉得是什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：唔……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "提示，不是好的现象，而是坏的现象……"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "也就是把台风、洪水、喷发之类的事物\n对应到神身上的情况。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "假如有一位肆虐狂暴的台风之神，\n你觉得那家伙会是什么样的神？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……凶暴？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "嗯，答对了。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "多数情况下，自然现象对当时的人类而言——不，\n现在也一样——往往会造成巨大的负面影响。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "从火山喷发、地震、疾病流行，\n再到风暴、雷电和暴雨。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "而且，理所当然，这些现象背后并没有\n人类能够接受的必然性。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "[#ただ]，[#起きただけなんだ]。\n对当时的人类来说，这未免太不讲理了。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "既然把这种[#現象:も　の]拟人化了，\n自然也只能说它们[#凶暴]。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "……而麻烦的是，这种印象会汇聚信仰，成为神灵，\n甚至继承给真正完成拟人化的从者。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "好了，这下会得出一个相当讨厌的结论吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：也就是说，攻击性强到足以成为从者的神明……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "性格大多很差，就是这么回事。\n不过例外也有很多，这种说法确实相当武断。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "比如伊什塔尔，她以一名曾与圣杯战争有过关联的\n人类为凭依之躯，所以……"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "还算？收敛了一些……还算吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那也叫收敛？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "那已经算收敛了。实际上，\n伊什塔尔可要危险得多。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "总之，这堂不太能让别人听见的\n神明讲座到此结束。"
+    },
+    {
+      "speaker": "卡多克",
+      "translated_content": "……可别泄露给伊什塔尔哦？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "……原来如此。尽管神的形貌有所差异，\n但大体而言，这确实是世界共通的认知。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "不过如此一来，就会产生一个问题。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "北欧的命运三女神之一，乌尔德。\n在流动的时间中，司掌过去的她——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。她在自然现象当中，\n也是最为恒常不变的概念，时间的女神。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "人的命运无法改变。\n无论是好是坏。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "既然由女神本人定下，那便是绝对的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "除此之外……还有她照料世界树尤克特拉希尔的\n故事吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "无论如何，乌尔德并没有像肆虐的灾难那样，\n与之相关的故事。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……而且出现在我们面前的时子小姐，\n也是一位非常温和从容的人……"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "因为我们[#たち]是获得了兽角的女神。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "获得了兽角……\nBeast是那么容易就能变成的吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "所长。\n我可以把这当成高深的笑话吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我是真心在问好吗！？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "是吗。抱歉。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "Beast是从文明发展中渗出的[#澱:おり]一般的存在。\n可以说，其诞生本身既『简单』又『必然』。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不过，这只适用于『从一开始便具有Beast之因』的\n存在。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "无论是作为人理修正式的盖提亚，\n还是创世母神提亚马特，"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "都是因怀有强烈的人类爱而[#変生:へんじょう]的存在。\n然而——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "女神乌尔德并没有转化为Beast的因素。\n却还是[#成り果てた]了。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "其中产生了某种前所未有的异常。\n又或者……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "[#アレはカルデア限定の人類悪]也说不定。\n也就是说，并非针对全人类的兽。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……开战之前，我想先听听她怎么说。\n藤丸立香，可以吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：如果是当初在迦勒底遇见的乌尔德"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：应该可以"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "又是地震……！"
+    },
+    {
+      "speaker": "卡瓦塔",
+      "translated_content": "丛林正在消失。\n和刚才的乌鲁克是同一种现象……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "冷静下来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样的话，藤丸立香他们\n应该是安全的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……他们会前往更久远的世界。\n可是，比这片丛林还要久远的话——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这里是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "呃……这里是地狱还是什么地方？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不对。哪有如此美丽的地狱。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "这里是别说人类，\n就连生物都尚未存在的时代。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我认为这是[#約４０億年前の地球]。\n与此前灵鸟向我炫耀过的景象很相似。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种环境里，人类根本不可能活得下去好吗！？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……是吗？\n不，的确如此……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "放心。看来她至少还留下了足以让人\n活着行动的[#余力]。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "对女神而言，这大概不过是顺手而为。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——还是来了吗，迦勒底。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "欢迎来到40亿年前。\n欢迎来到孕育了你们根源的万物诞生之刻。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "地球的原初时代。\n这是我能够维持存在的最古老时间。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "此处之后再无过去，\n此处之前也不会有未来。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：声音……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "让时间停止了吗。\n你是想谈谈吧，女神乌尔德。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "也好，听她说吧，藤丸立香。\n正是展示你善于倾听这一面的时候。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我也没有那么善于倾听啦……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：为什么会变成Beast？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……为什么吗。\n最初萌发——自我意识，是什么时候来着。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "将人的命运刻在木板上，\n以泉水中的白色泥水浇灌尤克特拉希尔，使其生长。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "不知是谁为这样的[#機構:システム]\n赋予乌尔德之名，并加以信仰。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "然而，时间并非风暴或雷电，\n人类并不会如此依赖[#縋:すが]它。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "人们会把自己的结局定为[#運命]，并相信它。\n却从不会向它寻求救赎。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "命运之神就是这样的存在。\n我的职责，仅仅是从旁注视。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "诸神黄昏落幕后，\n世界从神代迈入了人的时代。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "尤克特拉希尔不知不觉间消失了踪影，\n[#ウルズ:わ　た　し]的意识也在不知不觉间失去了。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "仿佛沉睡，仿佛失神，\n明明时间理应流逝，却又无法感知……"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那样的时间持续许久后，[#それ]突然到来了。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我清楚地记得那一瞬间。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "感觉就像有人将熔岩\n灌进了我身体的[#回路:けっかん]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不过是一个微不足道、无关紧要的、\n小小疑问。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "[#時計:わたし]突然想到。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "三位[#女神:に　ん]当中，谁能称得上\n[#真なる運命の女神:ノ　　　　　　ル　　　　　　ン]？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "若是人类，这不过是个无足轻重的问题。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "若是希腊的女神，\n[#せいぜいが]也只值得为此互相残杀。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那么，对我们三位女神而言呢？"
+    },
+    {
+      "speaker": "过去",
+      "translated_content": "——那就是[#時計:わたし]。\n因为人的一切皆为过去。"
+    },
+    {
+      "speaker": "过去",
+      "translated_content": "没有过去，人便无法生存。\n既然如此，命运便全都属于过去。"
+    },
+    {
+      "speaker": "过去",
+      "translated_content": "因此，[#時計:わたし]才是真正的命运女神。"
+    },
+    {
+      "speaker": "现在",
+      "translated_content": "——那就是[#時計:わたし]。\n因为人活在现在。"
+    },
+    {
+      "speaker": "现在",
+      "translated_content": "人不活在过去。\n人也不活在未来。"
+    },
+    {
+      "speaker": "现在",
+      "translated_content": "明确的此时、现在、这一瞬间。\n人唯有立足于此。"
+    },
+    {
+      "speaker": "现在",
+      "translated_content": "因此，[#時計:わたし]才是真正的命运女神。"
+    },
+    {
+      "speaker": "未来",
+      "translated_content": "——那就是[#時計:わたし]。"
+    },
+    {
+      "speaker": "未来",
+      "translated_content": "无论过去还是现在，全都毫无意义。\n所有人都是以未来为目标而活。"
+    },
+    {
+      "speaker": "未来",
+      "translated_content": "人既无法停留在过去，\n也无法永远置身现在。"
+    },
+    {
+      "speaker": "未来",
+      "translated_content": "如果命运便是定数。\n那就唯有未来才是真实。"
+    },
+    {
+      "speaker": "未来",
+      "translated_content": "因此，[#時計:わたし]才是真正的命运女神。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[align center]失调。　　　　　　　决裂。[align]\n　　[align center]不和。争论。交恶。[align]"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "……最终，三位女神之间的这场争论\n始终未能得出结论。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "所以，她们决定利用欠自己[#貸しがある]的迦勒底。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "如今的迦勒底是一支特殊的团体，一个共同体。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "毕竟，他们克服了BeastⅦ构筑得无比牢固的世界——\n『更新人理的命运』。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "然而，这绝非只有好的一面。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "他们改变了本不该改变的命运。\n攻破了本不容侵犯的领域。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "称其为『对命运的侮辱』，\n也完全不为过。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "而这也足以让此前从未在人类史中登场的\n『命运』这一事象视他们为敌。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "没错。她们终于找到了能够为自己心中\n疑问给出答案的敌人。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "基于以上缘由，她们的职阶发生了变生。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "置身于既非过去、现在，也非未来的空间中的\n人类与从者们。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "她们约定，战胜这些人的那一位，\n便是[#真の]命运女神。"
+    },
+    {
+      "speaker": "时钟",
+      "translated_content": "——就此决定。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——你觉得很无聊吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "当然无聊。\n还以为是什么原因，结果只是权力斗争吗。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "这种事啊，不把旁人卷进来，\n你们三个自己打一架不就好了吗。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——啊，原来如此。\n这就叫权力斗争吗。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "但是，人类啊。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "名为我的存在早已铭刻在神话之中。\n但对[#この私にとっては]来说，这大概是第一次产生的感情。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "对于名为命运的机构而言，\n这是最初也是最后的人格……不，是神格吗。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "[#楽しい]。\n我发自内心地觉得无比快乐。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……原来如此。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "第一次拥有感情，第一次与妹妹争论，\n第一次渴望登上顶点。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "『命运』拥有了自身的欲望。\n的确会长出一两根兽角。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "没错。因为对我而言，[#それしかない]。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "一旦败北，一旦被夺走角——"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我所[#抱:いだ]有的[#これ]，\n一定也会彻底消失。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "为了让我活得像人……不，像一位神。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我要击败你们，再重新来过。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：等等，重新来过？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……我并不想杀死你们。\n一旦杀死你们，你们的过去就会消失。彻底消失。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我不愿如此。\n所以——[#殺さずに倒して全てをやり直す]。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "哦。还真是被彻底小看了。\n你的意思是，要手下留情地战斗？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "手下留情？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "啊，这一点请放心。\n没有必要控制力道。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "即使被打成肉酱——\n只要让时间倒流就好。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "死亡是灵魂与肉体的分离，\n除此之外，都不过是某种状态。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "从者也同样如此。\n他们并非因为灵核破碎而死。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "而是因为灵核破碎导致灵魂离去，才会死亡。\n只要在灵魂离开之前让时间倒流，就没有问题。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "所以请放心。\n我会好好让时间倒流，让一切重新来过。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "收回前言。这比手下留情还要恶劣啊！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "原来如此。真不愧是刚诞生的神灵。\n实在是与周遭格格不入呢。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "无论长得多美，剥去一层[#剥:む]外皮，\n也不过是个孩子吗。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——什么？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "啊，别在意。\n阿兹莱尔，现在可以打倒她了吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "该听的已经听完了。\n这位女神不在我的职责范围之内。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "接下来交给你们。\n这头兽的首级属于你们。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "这样啊。那就来打倒她吧！"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "大卫阁下。以您而言，今天似乎格外好战呢。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "……嗯，是啊！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "没什么，我可是冷静得很。\n不用在意我！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "罗马尼。\n你是不是知道些什么……？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊……真是的。拿这个人没办法。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "……哦？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊。你是大卫吧。\n会议马上就要开始了，得去管制室才行。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "啊……Dr.罗曼。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯？有什么事？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "你没有身为所罗门时的记忆吧？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "没有，完全没有。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "啊，说起来，所罗门的父亲是大卫王，\n也就是你来着。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "放心吧，我没有关于父亲的记忆。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……不，这样好像又让人隐约觉得寂寞。\n怎样回答才对呢。我也不明白。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "没有记忆吗。\n原来如此，那确实令人寂寞。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "我们父子的感情可是非常和睦的——"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不，这肯定是谎话吧。无论是我还是你，\n都绝对不是那种性格。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "被你看穿了。没错。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "正如你从一开始就是王。\n我从一开始也不是一位父亲。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "你确实是神赐予我的礼物。\n所以我从未把你当作孩子。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "而且你看，我的孩子实在太多了。\n老实说，我觉得自己根本记不过来！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哇，太差劲了。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "不过，成为从者后，我还是会这么想。\n那家伙，所罗门他——"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "真是个没用的家伙啊！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不不，不不不。\n关于这一点，我要提出强烈异议！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "不行啊。那家伙实在笨拙得无可救药。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "他在即将成为人类前看到的未来，\n让他把成为人类后想做的一切全都糟蹋了，不是吗？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "他本可以对世界毁灭置之不理，\n选择在有限的时间里随心所欲地享受人生。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "但所罗门从未怀有那样的梦想。\n这不叫笨拙，还能叫什么。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "被你这么一说……嗯。\n的确，算不上处事圆滑吧。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "但现在已经不同了。\n所罗门该做的事，全都已经完成。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "你已经不必再感到肩负责任。\n大可以尽情去做自己想做的事。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "需要的话，我也可以奉陪。\n啊，不过搭讪就算了吧。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "要在这么狭小的空间里扰乱人际关系，\n就连我大卫也会有些犹豫。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "那件事请你务必全力犹豫。\n想做的事吗。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "既然如此，大卫王。\n我有一件事想拜托你。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哦，什么事？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "请你赶快去开会，\n解决这个特异点。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "你觉得这样就好吗？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "说不定乌尔德还会再次出现，\n重新开始循环。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "那样的话——"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好啦好啦。\n你的意思是，这场梦还有可能继续实现吧。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我当然也有自己的想法。\n现在的迦勒底简直有趣得不得了。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "奥尔加玛丽所长虽然好像长了角，\n但也磨平了[#角:カド]，"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "玛修变得比预想中有活力十倍，"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "藤丸立香[&君:ちゃん]也取得了\n超出我想象百倍的优秀成长。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "而达·芬奇亲\n已经不在了这件事……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "……不，以她的性格，\n一定会说这是个足以让自己满意的故事吧。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "而且Grand Cavallo也成功启动了。\n她一定会出色地完成自己的职责。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "也就是说，我的工作减少了，\n可以比以前轻松得多。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "要说我已经毫无留恋，那肯定是谎话。\n我当然想一直留在这里。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "但是。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "『曾经身处这里的他』也有同样的想法。\n即便如此，他还是做出了那个选择。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "他曾恐惧、苦恼于失去生命，\n最终却依然将更宏大的命运置于自己的命运之上。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "我就是那个人物的『记录』。\n所以该做的事只有一件。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "『比起自己的利益，更优先选择未来的浪漫』。\n所谓像人类一样活着，不就是这么回事吗？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "——是啊。\n神实在伟大，也实在残酷。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "祂将人类最无法承受的责任，\n交给了最能活得像个人类的儿子。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "那是我无法抵达的，不，\n是我未曾选择抵达的生存方式。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "没错没错。因为你看上去闲适恬淡，\n骨子里却是个利益至上的人嘛。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "总之，就是这么回事……"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "别在这种地方偷懒了，\n能请你赶快去开会吗，父亲？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "没办法。\n既然你都这么说了，我也无计可施。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "好吧。\n就让你见识一下我帅气的一面！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不用在这种地方卖弄。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "只要你好好保护藤丸立香[&君:ちゃん]\n就行了。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "明白，明白。\n那我出发了。可别指望我带特产哦。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那么，修正的时刻到了。[wt 1.0][charaFaceFade D 12 0.15]\n——沉溺于过去，抗拒此刻，舍弃未来吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "吾名乌尔德。乃漂流于逆转时间中的女神！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "乌尔德进入战斗状态！\n……要上了，御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……上吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "全员",
+      "translated_content": "明白！"
+    }
+  ]
+}

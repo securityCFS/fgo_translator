@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802110",
+  "source_region": "JP",
+  "source_hash": "080810e23c298575dc92788df3eff7ffb9220a5bdcf30f7fe3138c0eae1a7072",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 74,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "旁白",
+      "translated_content": "渺小……神啊。为何你……相信自己的谎言\n连余也能……过……"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "啊啊，慈悲……冥府……啊。我从……\n以为自己能……过您…………。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "即便……我所拥有的……也只有……这个……。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "没有力量……也没有知……。连父……都未曾好好……我。\n这样的我……最后剩下的……只有拙劣的谎……。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "还有呼吸吧？　那就别睡迷糊了！\n快给我醒来！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 德雷克……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 这里是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 德雷克的船？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 我们被黑水吞没以后……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "大概是[#それ]保护了我们。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "虽然不明白其中原理，但看来确实如此。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我们这里也确认到，那件魔术礼装挡下了\n黑水对灵魂的侵蚀。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可是，[#拙:せつ]们……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可是，[#拙:せつ]们……"
+    },
+    {
+      "speaker": "J：格蕾",
+      "translated_content": "被送回外面了！\n只有奥尔加留在里面……！"
+    },
+    {
+      "speaker": "J：格蕾",
+      "translated_content": "被送回……外面了……！\n只有奥尔加小姐留在里面……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "现在……里卡尔德尼亚和一切都被水吞没了……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这个特异点的大部分属性，\n都已经与冥府一致。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "卡尔德尼亚和里卡尔德尼亚，\n都可以说是被阿刻戎河吞没了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这样下去……"
+    },
+    {
+      "speaker": "A：拟机神德墨忒尔·起源",
+      "translated_content": "……啊啊，原来你们在那里？\n太渺小了，我都没发现。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "拟机神德墨忒尔·起源开始行动！\n准备应对！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "该死，转舵！\n重新开始炮击！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "拟机神内部检测到极大规模的魔力汇聚！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "糟糕！　这次和她刚才在内部使用的宝具不同！\n这是[#正真正銘:しょうしんしょうめい]动用[#真体:アリスィア]全部力量的权能！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那是字面意义上拥有粉碎大陆威力的机构！\n整个特异点都会被碾碎！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "可恶！　那大家伙只是开始上浮，就掀起海啸了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "原来如此……奥尔加玛丽小姐当时说的是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 阿斯？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我一直在想……奥尔加玛丽小姐说过的话。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "她问我，为什么……我的父亲会把\n冥府之水交给德墨忒尔大人。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我始终想不明白，\n但说不定……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种事就别一个人烦恼，\n直接去问本人啊！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 所长！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 你没事吗！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我光是维持障壁，\n[#堰:せ]住黑水就已经竭尽全力了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就像德墨忒尔·起源说的，现在的我\n也不是火力偏重到足以摧毁这里核心的类型。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以我会把坐标发给你们。\n你们从外面把核心轰穿！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你你你、你在说什么！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "从内部攻击还另当别论，\n要是能从外面轰穿机神核心，我们哪还会这么辛苦！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "戈尔德鲁夫先生似乎还做得了最基本的计算，\n但察言观色的能力就不怎么样了。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔、唔唔唔？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "最开始不是说过了吗。\n王牌应该差不多准备好了。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "哇，迦勒底所长真厉害。\n连时间都算得分毫不差。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "岸波姐姐！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "岸波……小姐……！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "久等了。我们这边的王牌也准备好了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这是……"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "我想你已经明白这代表什么了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "明白了吧，阿斯？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……是的。您说的直接去问本人，就是这个意思吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "除此之外，还能有什么别的解释。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "能把卡尔德尼亚护照交给我吗？\n可以的话，我还想借用令咒的魔力。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……您愿意相信我吗。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 当然"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 我从一开始就相信你"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯姐姐，没问题吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "阿斯小姐，您没事吧……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请别担心，格蕾小姐。\n我毕竟可是……"
+    },
+    {
+      "speaker": "K：阿斯",
+      "translated_content": "卡尔德尼亚的执事！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么，各位……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我出发了！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "他跳进那片黑水了……！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "加油啊，阿斯姐姐……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "请加油，阿斯小姐……！"
+    }
+  ]
+}

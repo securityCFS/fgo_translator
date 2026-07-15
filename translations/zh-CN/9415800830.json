@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800830",
+  "source_region": "JP",
+  "source_hash": "480e6eaf28e3a47d45b0e1a59e9e852dfd81b0f05186d434bdad5a7520ba1e73",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 62,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "请……救救Garbage。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 救它们？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 救Garbage？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "刚才那道光是——！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "情况不容乐观呢。\n没想到Garbage已经增加到这种程度。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "阿斯究竟在做什么？\n他看起来并不像会在职务上偷懒的人……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "徒劳。无论增加多少，结果都一样……[wt 1.1]\n……嗯？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "原来如此，还存在这样的形态吗。\n倒也颇为有趣。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "话虽如此。\n若要以我为目标露出[#剥:む]牙，这种程度还远远不够。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "是我多管闲事了吗？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "不。帮我省了不少功夫。\n那把剑……也就是说，你是。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "哈哈哈。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "看到那把枪，我也马上明白你的身份了。\n虽然感觉有些奇妙。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "你是[#そちらの支配人]的从者，没错吧？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "是。我知道有两个迦勒底尼亚，\n但一直以为二者互不相交。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "看来这个地方的边界十分模糊。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这里可以算是两个迦勒底尼亚的交点吗？\n直到刚才，我也无法认知这里……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "我也一样。\n感觉这个地方突然出现在了地图上。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "是因为聚集在这里的Garbage吗？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "我确实从刚才那只改变了形态的Garbage身上，\n感受到了奇妙的魔力。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "还是说，为了消灭Garbage，经理们下定决心\n连[#見たくなかったものも見る]了呢。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "明明知情却故意不说。\n你的口吻倒像梅林。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "（一脸相当嫌弃的表情）"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "话虽如此，在这里我们似乎可以互相协作。\n意下如何？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "……我没有异议。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "先从各自的迦勒底尼亚中\n清除Garbage吧。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "好。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "那么，就由我先来……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "自尽头释放光芒！\n[#其:そ]乃撕裂天空、连接大地的风暴之[#錨:いかり]！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "哎呀，一上来就用全力吗！那边的我！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "[font large]『[#最果てにて輝ける槍:ロ　　　　ン　　　　ゴ　　　　ミ　　　　ニ　　　　ア　　　　ド]』！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "刚才那道光是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 圣枪之光——！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 与格蕾不同的圣枪——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "也就是说，她是得墨忒耳·厄里倪厄斯的从者？\n天啊，那个输出也太离谱了。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "不过，这孩子……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 阿斯说的是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 刚才那把圣枪吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……是。这样下去，\n所有Garbage都会被猎杀。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "所以……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总算找到你了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你本来应该被我们牵制在那边，\n结果却反而突然消失了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香打算怎么办？\n直说吧，我们应该不能放过他。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "唔……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 等一下"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "干什么。已经不需要继续拖延了吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 阿斯卡拉福斯他"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 说想让我们保护Garbage"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哈？保护Garbage？\n你是认真的吗。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我是认真的。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我是认真的。\n请和我一起保护Garbage！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那就把理由说清楚。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要是理由不能让我信服，\n这次我绝不会手下留情。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "Garbage，它们是……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什么啊。给我说清楚。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "[#ガベージの正体は]，\n[#デメテル様の娘であるペルセポネなんです]。"
+    }
+  ]
+}
