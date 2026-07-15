@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "script_id": "9403230110",
+  "source_region": "JP",
+  "source_hash": "0ccb287f058051cf1bb61bb69bdbcb38bfb71cc2ecdb97239a4559b3a20cd570",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 105,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "尽管进展缓慢，\n但逐渐开始有客人光顾了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "下一个光临的会是什么样的客人呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 真令人期待呢！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯！"
+    },
+    {
+      "speaker": "B：？？？",
+      "translated_content": "打扰了～。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "！　大厅传来了招呼声！\n让我们不慌、不乱地赶紧去看看吧！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "——唔。\n这就是东洋的旅馆啊。"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "哎呀，太美妙了！\n鲜红而华丽，犹如蔷薇！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（玛丽小姐！　前辈，新来的客人\n　是玛丽小姐和意料外的阿纳斯塔西娅小姐！）"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "真是两位衣着华美的大小姐啾。\n欢迎光临阎魔亭。您的夸奖是我的荣幸啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 咦，另外几位法国成员呢？"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "呵呵，这次我拜托他们回避了。\n我偶尔也需要转换一下心情嘛。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 真是对稀罕的搭档呢。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "是吗？\n……是呢。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我也算是继承了罗曼诺夫帝国血脉之人。\n会对玛丽小姐表示敬意。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "话说回来。\n这座阎魔亭……好红啊。"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "哎呀，难道您讨厌红色的？"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "算是吧。\n不过，算了。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "蔷薇和鲜血的红色是不同的。\n会在意这些的我应该比较奇怪吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，行李就由我们——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 好多！？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "对不起。\n我们两个的行李无论如何都少不了。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "真不可思议。\n不过，迄今为止也没有因此感到不便。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我来为你们搬行李……好重！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我来帮忙。\n嘿咻。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "看上去好多啊。\n我们也去帮忙吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "当然啦。\n搬运各位小姐的行李乃是美男子的义务。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这是护花使者的基本。\n我说得没错吧，戈尔德鲁夫阁下？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "把我也算进去了吗！？\n我可是行李交给别人搬运的那方啊！　毕竟我是贵族啊！？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "贵族就更不用说了吧？\n毕竟她们是你们理应支持的象征啊。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "粗略看来，大概有一马车份的行李，\n现在正是展现男子汉气概的时候啊，先生！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不那啥，我可是负责头脑战的啊。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我认为指挥官负责搬运行李\n是不是不太合适[charaMove G 0,-10 0.2][charaFace G 9]好重！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是你们的熟人啾。那真是太好了啾。\n那么，将客人带去客房啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "这边啾！"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "哎呀，多么可爱的鸟儿啊！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "谢谢啾！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我的[#维:Вий]明明也很可爱，\n但不知为何总是无法得到他人的理解……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这是因为……眼睛比较可怕吧？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "怎么能这样……！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "[#维:Вий]确实那个……稍微有些……\n魔眼……眼睑也非常有特点……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。我可不会被这种玩偶风的外形迷惑哦。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那是可怕的精灵，\n而且还有从异闻带偷溜出来的嫌疑。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "根本就是会行走的硝化甘油。\n怎么可能可爱嘛，不可能啦。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "啜泣。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "没关系啦，[#维:Вий]。\n有我深～刻了解你的可爱！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "哎呀。\n这是……[#贵客之间:豪华套房]？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这……非常抱歉啾。\n现在阎魔亭的[#贵客之间:豪华套房]用不了啾。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "怎么会！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我们一直很期待看到\n日本的[#贵客之间:豪华套房]是什么样的啊！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "邀请很多艺妓小姐，喝酒唱歌喧闹，\n讴歌吾世之春！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这皇女怎么那么俗！？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "这里没有什么艺妓啾。\n你把这里错当成别的什么地方了啾。"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "但是，这里的景色也十分美妙！\n正可谓风光明媚。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "……确实相当华美。\n哎呀，还有猴子呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊——"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "呵呵，它们在看这边哦。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我听说日本的猴子非常亲人，\n它们是在索要食物吗？"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "没问题，到这边来——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 皇女的脸……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 被泥球砸中……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "哎呀，这下糟了！\n这下糟了呀！"
+    },
+    {
+      "speaker": "魔猿",
+      "translated_content": "唔叽！\n唔叽叽！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "魔猿高兴地拍着手！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "居然胆敢对客人出手，无礼也该有个限度啾！\n这次得稍微严厉点惩罚你们了啾！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "——请等一下。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "啾？"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "阿纳斯塔西娅，阿纳斯塔西娅。\n冷静点。好吗，好吗，好吗？"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "我觉得平时Coooool的你才是最好的！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "平时总能维持和善笑容的玛丽小姐居然那么慌张……！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "嗯，没关系。真的没关系。\n从我小时候起，就学会了受人恩仇亿倍奉还的道理。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "这是俄罗斯的礼仪，也是我的宗旨。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 亿倍？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "把泥球重新捏好……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "……咦？\n你是不是在泥球里塞了什么？"
+    },
+    {
+      "speaker": "魔猿",
+      "translated_content": "唔叽！\n唔叽叽叽叽！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "预……[wt 0.3]备[wt 0.3]……！"
+    },
+    {
+      "speaker": "魔猿",
+      "translated_content": "唔叽，唔叽叽叽[wt 0.2][effect bit_talk_14][se ad687][se bac59][messageShake 0.05 5 5 0.3]咕哇啊啊啊啊！？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "被泥球直接击中的魔猿\n居然螺旋旋转着……被打飞了！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，精彩的低手投球！\n不过这种投法为何能造成如此破坏力，难以理解！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "确实，低手投球由于其不合常规的投法，\n应该投不出较高的速度来。但是……？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "对了！　刚才被偷偷塞进泥球里的，\n无疑是石头！"
+    },
+    {
+      "speaker": "戈尔德鲁夫＆迪尔姆德",
+      "translated_content": "石头！？"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "嗯，是宝石。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "太浪费了吧！？\n还有太过分了吧！？"
+    },
+    {
+      "speaker": "玛丽",
+      "translated_content": "……啊啊，阿纳斯塔西娅……\n果然演变成这种事态了啊……"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "居然让我字面意义上的颜面扫地，\n岂能让它们活着回去。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "综上所述，御主。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我会为你们援护。\n帮我们消灭那些魔猿吧。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "……好不好嘛？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 明……明白了！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我……我会振作精神帮忙的！\n只……只是将它们赶走的话，应该还能想办法！"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "呵呵呵，我可不是在骄傲自满——"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "我可是会在打雪仗时毫不留情地\n用塞了石头的雪球发动攻击的皇女。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这确实没什么好骄傲的呢！？"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "只不过，当我看到倒地不起的姐姐后，还是哭了一会儿的。"
+    },
+    {
+      "speaker": "阿纳斯塔西娅",
+      "translated_content": "如果你们想打泥球仗，\n我愿意奉陪！"
+    }
+  ]
+}

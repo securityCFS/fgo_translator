@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220821",
+  "source_region": "JP",
+  "source_hash": "9f1fa8f3fac2de8582d931f71f0fb9f3a59ffac47643e03098353390bd305dba",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 56,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "迷之来访者Dragon X",
+      "translated_content": "啊[line 5]！\n好痛[line 5]！"
+    },
+    {
+      "speaker": "迷之来访者Dragon X",
+      "translated_content": "我明明感知到了新度假胜地的气息，\n你们竟然让我吃闭门羹！"
+    },
+    {
+      "speaker": "迷之来访者Dragon X",
+      "translated_content": "有什么了不起的，\n如此暴力的酒店，不住也罢！"
+    },
+    {
+      "speaker": "迷之来访者Dragon X",
+      "translated_content": "笨蛋～笨蛋～！\n温泉蛋吃多了发射胖子光线！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "话说好不容易才有出场的机会，对手却是那种，\n我遭受的待遇是不是有点过分！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "谜之来客DX……可怕的龙种。\n不，她真的有龙属性吗……"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，芙呜……\n（特别意译：对不起啦，咱家的阿尔托莉雅属给你们添麻烦了……）"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "哎呀呀。\n你看我早提醒过你们吧。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "我欣赏各位的努力，\n但不加筛选一味招揽客人就会出现这种情况哦。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "阎魔亭不会主动招揽客人。\n而是等待客人自己误入此处。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "这才是『迷途之家』的本质吧。\n本来可以如此的，真是的——"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "连那种暴徒都被招揽来了。\n红阎魔老板娘的心情一定很复杂吧。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你这只猴子胡说些什么呢。\n客人增加老板娘自然会高兴！　这不是显而易见的嘛！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "再说了，如果没有我们的帮助，\n这里还不是会一直冷清下去嘛！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你难道觉得那样比较好！？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "并不好。\n毕竟我也爱阎魔亭。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "可是……这也是时势使然啊。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "神明们已经对人间丧失了兴趣。\n人们也不再对山中抱有幻想。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "阎魔亭的衰退是理所当然的。\n只能说这里跟不上时代了。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "你们来自迦勒底，对吧？\n我很羡慕你们住的地方。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "英灵和人类互相信任……呵呵呵。\n原来人间还存在着这样的地方啊。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯。\n迦勒底的确是最新的世外魔境。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那里是个比阎魔亭更加先进的工房……\n即便如此，你难道不觉得阎魔亭的冷清有些奇怪吗？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "就算随着现代化的进程，神明的力量逐渐减弱。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "依然存在新来的客人，\n也有像你这样长期逗留于此的人。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们到这里的时候，\n功德箱里面塞满了“谢意”。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "虽说都是些小钱，\n但这也代表着[#旅馆经营顺利]。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "既然如此，你为何要说阎魔亭正在衰退？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "老板娘和麻雀们明明如此认真地修缮建筑，\n却为何有那么多处于关闭状态的设施？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "当然是因为[#还有其他问题啦]。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "这是一个悲伤的故事……\n如果500年前没有发生那件事的话……嘤嘤嘤。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "那件事……？\n究竟发生了什么，猿长老大人？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "嗯，嗯。\n那可是件难以启齿的糗事啊。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "呵呵。毕竟我只是个随心所欲的住客。\n关于阎魔亭的糗事，我不能透露更多了。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "其他的客人们恐怕也不会说。\n就连喋喋不休的蛇庄屋也会对此保持沉默。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "不过，这是个无法解决的问题，\n所以各位不必在意。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "现在还是一心一意地积攒供奉殿内“谢意”就好了。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "至少，各位通过这种方式帮上忙了。\n身处这般异界竟然还乐于助人……"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "不，应该说是乐于助雀才对吧？\n阎魔亭的事交给老板娘就好了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 500年前的事……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 老板娘没提过呢……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "红阎魔老师十分认真……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "她不会为自己的问题去麻烦别人……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。迄今为止没有提及的话，\n就说明她本人并不想提吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们强行询问只会适得其反。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "现在只能不动声色、顺其自然地\n打听阎魔亭的情况了。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "芬恩·麦克库尔那混蛋……就是预见到了这个，\n才会说“先努力劳动”的吧……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我们还是专心做当下能做的事吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 蛇先生应该迟早会告诉我们的。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没错。\n现在再怎么着急也没用。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "毕竟红阎魔小姐也说过“放手去干吧”，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "让我们在力所能及的范围内振兴阎魔亭吧！"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，芙呜！"
+    }
+  ]
+}

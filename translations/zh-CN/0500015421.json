@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "script_id": "0500015421",
+  "source_region": "JP",
+  "source_hash": "b499a586848d6b1c2a3376654043a478e2ec6d4ce73c5b6dacc32de2e00339bf",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 38,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——那么，重新来过。\n让我们重新来过那段过去吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "没关系。我会带你们前往一段\n最为温柔的过去。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——来吧，让我们重新来过。\n没关系，你的人理修复一定会顺利成功。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……喂。你该不会又睡着了吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦，奇怪？刚才……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……对不起，没什么"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是吗？那我继续说了。\n嗯……第一特异点的位置是——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那么，就从头开始吧。没什么可叹息的，\n你的人理修复一定会成功。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "来吧，好好享受吧。\n没关系，没关系的。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "只要有我在，\n你们便永远无法走向未来。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，请进。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——欢迎光临。欢迎来到你们\n终有一日会抵达的地方。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时间神殿……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "咦、咦、咦？\n御主大人。这是怎么回事？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "咦？\n……唔，好像有印象……又好像没有……"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "我也有印象……\n这里是……不可能，可是……"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "比起这个，时子。\n你是——敌人吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是的，当然。\n我觉得继续这样不方便交战，所以现在就揭晓真身吧。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "吾乃终末的[#弓兵:アーチャー]。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "北欧命运三女神之一。\n真名为乌尔德。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "来吧，各位从者。\n请尽情一战。随心所欲。"
+    },
+    {
+      "speaker": "贝德维尔",
+      "translated_content": "御主。保险起见，我想确认一件事。"
+    },
+    {
+      "speaker": "贝德维尔",
+      "translated_content": "她一直以极其友好的态度\n与我们相处——"
+    },
+    {
+      "speaker": "贝德维尔",
+      "translated_content": "可以将她视为敌人吗？"
+    },
+    {
+      "speaker": "贝德维尔",
+      "translated_content": "那么，就这么办。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "哎，可这家伙是神灵哦？能赢吗——？"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "豹人好像很久没见过与自己同等级、\n同属[#旧:ふる]古老[#鋳型:うつわ]容器的神灵了。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……还少了两个人呢？\n不过，等那些不来的人也没有意义吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "请尽兴。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——来吧，让我们重新来过。\n没关系，你的人理修复一定会顺利成功。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——来吧，让我们重新来过。\n没关系，你的人理修复一定会顺利成功。"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "script_id": "9415811011",
+  "source_region": "JP",
+  "source_hash": "d516c2b897a97998c79c87003b958d1844ae4a33bdd054d7d1019e1f7f1948b3",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 65,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正中下怀！[#遺分體:エレメンツ]核融合，成功！\n接下来只要——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这枚徽章就由我来保管！\n把它当作关键时刻的杀手锏吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：杀手锏？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "杀手锏就是杀手锏啦！\n好了，阿斯，该来那套惯例了吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好、好的！\n感谢您的关心。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么请大家聚到一起！来拍纪念照吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这就是最后一张纪念照了呢……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：一定会拍得漂漂亮亮！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：大家都要笑哦！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "等一下。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "这次由我来拍吧。\n至少最后这张，你也该一起入镜。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "毕竟这里曾经是“御主”的[#施設:テアトルム]嘛。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：可以吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：那我就恭敬不如从命了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "准备好了吗？看镜头哦。\n来，笑一个！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我们一起贴上去吧？奥尔加！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我们一起贴上去吧，奥尔加小姐！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毕竟是最后一次了，也没办法呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：完成了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：这就是万能钥匙？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "嗯，外形虽然没变，但肯定没错！\n阿斯，你看怎么样？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "虽然还不能完全确定，\n但它应该确实具备您所说的功能。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "不过，能使用它的\n大概只有格蕾和奥尔加玛丽。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "毕竟一路出现在纪念照里的是你们。\n这可真成了名副其实的证件照！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "偏偏在这种地方又意外地合乎逻辑，\n还真有星际航行船团的风格呢……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这就是我提出的解决方案！怎么样？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "（简直像在地狱里走钢丝一样……！）"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过，确实如此。这样一来，\n或许就能与德墨忒尔·起源抗衡了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "虽说那位经营顾问的视线很令人在意，\n但无论如何，在与德墨忒尔·起源交手时，"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "通信很可能会处于中断状态。\n这方面我也会想想办法。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好了，为了至少还能找个借口，\n你们先离开那座设施，回锻造工坊之类的地方吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "茶和点心都准备好了！\n阿兹莱尔先生泡茶真的特别厉害！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不过是萃取与焖泡时间的问题。\n不必为此感到佩服。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "但美味与咖啡因的功效会影响工作效率。\n用心品尝吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "噢噢，这真是……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "刚才是什么声音？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "刚才那是什么声音……！"
+    },
+    {
+      "speaker": "广播",
+      "translated_content": "致卡尔德尼亚的各位游客及工作人员：\n现有一则重要通知。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：广播……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "广播",
+      "translated_content": "一直以来承蒙各位惠顾的卡尔德尼亚，\n将在三十五分钟后永久闭园。"
+    },
+    {
+      "speaker": "广播",
+      "translated_content": "衷心感谢各位长久以来的支持与声援。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "你们几个！\n马上到外面去！卡尔德尼亚它！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是怎么回事！\n黑色的水把园区全都……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈！请远离那些水！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "魔力反应以及各类传感器的数值，\n全部出现异常！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "或者说，这种水似乎具有\n让我们自身的活动停止的性质。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "根据计算，一旦完全浸入这种水中，\n就连从者也会立刻停止活动！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "也、也就是说，刚才广播所说的剩余时间，\n就是卡尔德尼亚完全被淹没前的倒计时吗！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不只是卡尔德尼亚，里卡尔德尼亚\n似乎也发生了同样的现象！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主！我们先转移到里卡尔德尼亚吧！\n那里有德雷克小姐的船！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "村正先生也一起——"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不，[#儂:オレ]就不用了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：怎么会——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "铁匠哪有离开锻造场的道理。\n既然只是停止活动，那我就在这儿等你们把事情办完。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "更何况，我自认已经把\n最好的一把刀交给那边的小姑娘了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "谢谢你，村正！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "非常感谢您，村正先生……！"
+    }
+  ]
+}

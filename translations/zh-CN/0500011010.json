@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "script_id": "0500011010",
+  "source_region": "JP",
+  "source_hash": "ec66a9eb1511cd1a9b978c1bbcf27771659aea5fb09b974c71a371651c66c98f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 44,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "紫式部",
+      "translated_content": "哎呀，是御主和玛修大人。\n欢迎两位。"
+    },
+    {
+      "speaker": "B：时子",
+      "translated_content": "早上好……过了。\n曾是个美好的早晨呢。是呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "A：紫式部（什么都不知道的香子小姐）",
+      "translated_content": "[FFFFFF]？　？　？[-]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：为什么会在这里"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "B：时子",
+      "translated_content": "真冷淡过了……不，是很冷淡呢。\n不是说了下次还在图书馆见吗。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：太快了太快了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是这么回事，但问题不是这个！[wt 1.2][charaFace D 11]\n……对不起，这里是图书馆呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我会安静的……是。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——临死之前，我想起了一件事。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我并没有打算成为所谓的真正命运女神。\n曾经没有。现在也没有。"
+    },
+    {
+      "speaker": "两人",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "我只是不想决出谁是第一。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "因为那样一定会给我们姐妹\n带来某种决定性的[#何か]东西。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "所以，在决定袭击迦勒底的顺序时，\n我第一个举起了手。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "为了不让剩下的两柱神——薇儿丹蒂和诗寇蒂中的\n任何一人获胜，从而变成那样。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "果然，剩下的两柱神……掌管现在的薇儿丹蒂，\n掌管未来的诗寇蒂也……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "也会来袭击迦勒底吗？"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "是的。同时，也可以换成这种说法。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "若真想让这个迦勒底彻底终结，\n就必须与剩下的两柱神……我的妹妹们对决，并打倒她们。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "只打倒我一个，\n这个迦勒底是不会获得解放的。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "由于我已经战败，\n不久后那两柱神也来了……也会来吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "这是必然。从诺恩的角度来说，属于既定事项。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "正因如此，我才抢先控制迦勒底的过去，\n希望通过循环让那两柱神放弃。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "然而……如先前所述，我已经落败。\n明明拥有那般惊人的权能，却吃了[#一敗:いっぱい]一次败仗，狼狈得[#地:ち]一[#塗:まみ]身泥泞。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "真是个没出息的姐姐，没出息的长女。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "而如今，就算面对妹妹，我也毫无疑问已经输了吧。\n失礼，是会输吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "所以，事已至此也别无他法。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "听好。剩下的两柱神，也就是我的妹妹们，\n也会以某种方式试图制压迦勒底——"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "或者，会将这里彻底毁灭。\n不，是会试图毁灭。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "所以，为了不让你们输给妹妹们，\n我也会尽一点绵薄之力。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "迦勒底，努力过了呢。\n……不，是接下来还要努力才对。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "请加油吧，迦勒底。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来如此。\n……综上所述，御主。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "看来其余的女神\n也计划袭击迦勒底。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "趁现在商量对策吧！\n然后夺回那一秒！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：上吧——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那个……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "我想，这里应该是个令人热血沸腾的场面，\n就连我也深受触动……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "但在图书馆里……还请保持安静……好吗？"
+    },
+    {
+      "speaker": "三人",
+      "translated_content": "对不起。"
+    }
+  ]
+}

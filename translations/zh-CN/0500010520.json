@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010520",
+  "source_region": "JP",
+  "source_hash": "4fbc6a6dc762091dddcec221264a5cd68cc31c8934708573f713d2cfb5eadd96",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 65,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：戈……戈尔德鲁夫司令官！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "司令官是在说谁？\n我是迦勒底监察员戈尔德鲁夫·穆吉克。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "……我还是第一次像这样和你交谈吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所长是我，所以司令官也是我。[wt 1.0][charaFace B 10]\n不要再记成奇怪的样子了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：戈夫！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这种自来熟的称呼是怎么回事！？\n我是迦勒底监察员戈尔德鲁夫·穆吉克啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "可别说你不记得我了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "穆吉克先生作为迦勒底的监察员，\n碰巧来访时被卷了进来……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我被卷进来了啊！[wt 1.0][charaFace A 8]\n真是的……这上班第一天可真够呛……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过，我就相当于顾问一类的角色，\n你们不必在意，专心开会吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：请、请多关照……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "戈、戈尔德鲁夫新所……不对，\n戈尔德鲁夫先生！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "咦，怎么了？\n为什么大家突然都开始关注我了！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好啦好啦。别东张西望，\n要开始开会了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "穆吉克先生也……[wt 1.0][charaFace B 20]\n咦？你平时都坐在哪个位置来着。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这个……那我就站在这里吧……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（感觉好尴尬啊！？）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，会议现在开始。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……差不多就这些吧。\n那么，各自回到岗位上去。解散！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀。……您看起来非常疲惫呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那是因为……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（也不想想是谁害的）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "K：玛修",
+      "translated_content": "御主！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……看你的眼神，似乎还记得呢。\n那么，这次就在你们抵达时间神殿前送回去吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵，没关系。\n偶尔也会有这种事。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，二位。遗忘的时间到了。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "要是在这里搞破坏，\n会给其他人添麻烦……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "想战斗的话，得换个地方才行哦？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "啊，当然。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "也可以把其他从者们带来，\n没关系哦？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——你们打算怎么办？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，请进。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——欢迎光临。欢迎来到你们\n终有一日会抵达的地方。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时间神殿……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "咦、咦、咦？\n御主大人。这是怎么回事？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "咦？\n……唔，好像有印象……又好像没有……"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "我也有印象……\n这里是……不可能，可是……"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "比起这个，时子。\n你是——敌人吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是的，当然。\n我觉得继续这样不方便交战，所以现在就揭晓真身吧。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "吾乃终末的[#弓兵:アーチャー]。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "北欧命运三女神之一。\n真名为乌尔德。"
+    },
+    {
+      "speaker": "L：乌尔德",
+      "translated_content": "来吧，各位从者。\n请尽情一战。随心所欲。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "御主。保险起见，我想确认一件事。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "她一直以极其友好的态度\n与我们相处——"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "可以将她视为敌人吗？"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "那么，就这么办。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "哎，可这家伙是神灵哦？能赢吗——？"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "豹人好像很久没见过与自己同等级、\n同属[#旧:ふる]古老[#鋳型:うつわ]容器的神灵了。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……还少了两个人呢？\n不过，等那些不来的人也没有意义吧。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "请尽兴。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是吗……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这里可以吗。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时间神殿……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：这里本应不存在于模拟器中"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。因为这里被判定为\n无法重现……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "为什么时子小姐能——"
+    },
+    {
+      "speaker": "C：？？？",
+      "translated_content": "那当然是因为，\n我拥有相应的权能。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "那么，开战吧。\n吾名乌尔德。……好好体会三女神之力吧。"
+    }
+  ]
+}

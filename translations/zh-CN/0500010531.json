@@ -1,0 +1,639 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010531",
+  "source_region": "JP",
+  "source_hash": "54a86e6e2e346dbde5459bb2e5b4bace8a45bca6e673e3acc0bd94a438d0815b",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 155,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "清姬",
+      "translated_content": "这就是最后一个了吗——。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，请尽快撤离……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（可是，这样下去……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：（就会一直在监视下逃跑……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "F：清姬",
+      "translated_content": "御主大人，怎么了？"
+    },
+    {
+      "speaker": "I：奥尔加玛丽",
+      "translated_content": "喂？不是得赶紧走吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：清姬，虽然真的很过意不去，但我想拜托你……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "F：清姬",
+      "translated_content": "什么事？\n只要是御主大人的请求，我都完全没问题……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：使用那个超级帅气的宝具……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "三人",
+      "translated_content": "[f large]什[messageShake 0.03 2 2 0.5]么！？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这个……要使用宝具？\n不是对敌人？而是在这里吗？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "也就是说……要对着空无一物的走廊使用宝具？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "您……没有说谎吧。[wt 1.0][charaFace E 0]\n我明白了，这是必要的吧。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "既、然、如、此。\n就让我的超级帅气宝具！全力以赴！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等、等一下！等等等等等！\n在这种地方使用宝具！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且，清姬的宝具我记得应该是……\n不、不行！绝对不行！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "因为这是我的御主大人的命令！\n那么，我要上了——[charaEffectStop E bit_talk_36]"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "[f large]『[#転身:て ん し ん][#火生:か し ょ う][#三昧:ざ ん ま い]转身火生三昧』！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修，趁现在！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "B：玛修",
+      "translated_content": "好、好的！"
+    },
+    {
+      "speaker": "D：奥尔加玛丽",
+      "translated_content": "藤丸立香！\n工资评定时你给我等着————！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "哈啊、哈啊、哈啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这里是……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里是管制室后方的仓库。\n职员们常拿这里讲怪谈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "难道是……失落之室吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。据说在午夜零点进入房间，\n就会看见失去之物，或是将要失去之物。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "有过这样一个怪谈。\n藤丸立香知道吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我知道"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "学习得很认真，非常好。[wt 1.2][charaFace C 3]\n嗯？不对。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你好像只是闲聊时听说过，并不是学来的。\n学习也要认真，学习也是。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我不知道"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也罢，不知道也没关系。\n本来就只是个怪谈而已。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总之，这间仓库不会引人注意。\n安全性应该是最高的……吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……所以，到底发生什么事了？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然闹出那么大的动静，\n你们应该也做好相应的觉悟了吧！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，怎么办？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：告诉她吧，玛修"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……说得也是。到了这个时候，所长\n基本不可能是共犯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊？共犯？\n在聊推理小说吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "简单来说就是——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……虽然难以置信……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不行。\n虽然只有一点，但我对[#それ]那件事也有头绪。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "明明接下来就必须着手修复第一特异点，\n我却一点都不紧张。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没有不安，也没有对未知的恐惧。\n只要方法正确，就一定能解决。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我怎么可能达到那种心境！[wt 1.4][charaFace C 14]\n就算已经经历过三遍也不奇怪！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长……（落泪）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "顺便一提，你那副松懈的态度，\n现在也解释得通了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不管怎么说，都不像直到刚才还是普通人的\n[&男の子:女の子]年轻人……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：非常抱歉——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所、所长。请您就说到这里吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，现在的问题是共犯吧。\n……完成侧写了吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大致完成了。只是……结论是，那种人并不存在。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。模拟器内发生的事，\n我有一部分感知不到。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "另一方面，迦勒底内部发生的事，\n对方却基本都能掌握。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就连罗马尼·阿其曼也做不到那种程度。\n我当然也做不到。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者的话……虽然拥有化不可能为可能的力量，\n但能掌握迦勒底内部情况的，又会是什么能力？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "千里眼，或者操纵使魔……\n勉强能列为候选的，只有杰罗尼莫和紫式部？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那两个人也……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然他们帮助过我们，\n就不太可能是共犯人选。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……原来如此。玛修，你知道共犯是谁了吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不。很遗憾。\n我光是掌握状况就已经竭尽全力了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "或者说……根本没有余力\n思考谁才是共犯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不只如此吧。\n玛修，你……是不愿意怀疑吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不愿意怀疑罗马尼和迦勒底的工作人员。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那是——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……是的。我想所长说得没错。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我也不是不能理解你的心情。\n但现在不能这么说。因为，你看——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这个……是什么来着。\n放过这个共犯……似乎会造成致命的错误……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就好像脖子正被什么轻轻触碰着……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……对！总之，必须找出共犯才行。\n这一点是绝对的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，我听完你们的话以后，\n最先怀疑的就是。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[#貴方たちを]你们二位。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咦，是我们吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：晴天霹雳！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我说，你们当然考虑过\n共犯可能并不知情吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然如此，首先该怀疑的，\n就是自己本身。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：这……确实……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊，原来你们有认真考虑。\n我稍微放心了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为毫无自觉的共犯，\n才是最难对付的。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——不过放心吧。\n看样子也不是你们。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "基于你们的思想没有被读取这一前提，\n仔细想想就明白了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果她……时子小姐将二位指定为毫无自觉的共犯，\n那她至少应该能读取思想才对——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你们不这么认为吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "『让二人成为毫无自觉的共犯，监视迦勒底\n　的一举一动』"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "『可是无法读取精神。\n　所以不知道他们在想什么』"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要真是这样，该怎么说呢……也太逊了吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：确实……很逊"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个共犯因为某种原因，\n无法读取你们二人的内心。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "却能监视迦勒底的一切。[wt 1.4][charaFaceFade D 16 0.2][bgmStop BGM_MAP_115 1.5]\n处于这种立场的存……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……找到了。\n咦，不会吧，真的？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，要监视迦勒底的一切……\n只有[#あれ]那个……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，那[#あれ]个也是？\n两个都是？还是只有一个？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，总之应该只有一个。嗯……\n到底要我怎么办啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……您发现什么了吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦？啊，不是……\n好像明白了……又好像没明白？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，我已经[#理解:わ　か]理解了。\n我确实理解了哦！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所长，请告诉我们！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：所长，请务必告诉我们！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这件事很少有人知道。\n迦勒底有近未来观测镜片·示巴吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那是用来观测拟似天体迦勒底亚斯的望远镜……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "目前它会与三尖赫尔墨斯联动，\n对特异点进行探查。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "与此同时，\n还会运行另一个程序。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……另一个程序？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "监视迦勒底是否会遭到外部攻击，\n内部是否会发生异常。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……以及是否会[#また]再次出现叛徒。\n它监视着迦勒底全域。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：医生确实好像说过……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "从很久以前就开始了吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "当然。这里开展的实验，\n本身就会承担相当大的风险。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "时钟塔……毫无疑问也有其他派系派来的间谍。\n既然如此，监视全域自然是理所应当的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不过最后还是爆炸了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊！如果连镜片的开发者本人都背叛了，\n那就彻底无计可施了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请等一下，所长。\n难道示巴就是共犯……吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。老实说，连我自己都不敢相信，\n但说到拥有相应能力的存在……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就只能想到它了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果时子小姐能够控制示巴，\n从那里获得情报也不奇怪。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……原来如此。也就是说……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……要破坏它吗"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊，果然会得出这种结论……[wt 1.4][charaFace C 10]\n不、不行。绝对不行。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没有示巴，就无法发现特异点，\n也就无法进行灵子转移。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就算灵子转移成功了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也无法进行监控，\n不知道那边发生了什么。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没关系，不用担心这个"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：因为这里大概是——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是这样吗！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然只是推测。\n但我想，就算破坏示巴也不会有问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、这样啊。不会……有问题吧。[wt 1.2][charaFace C 16]\n……真的？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……我明白了。\n批准对示巴发动攻击。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真的不会有问题吧！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请交给我们吧，所长。\n我和前辈……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "将由最强的从者与御主联手，\n彻底解决这起事件！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（口气真大啊！？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220511",
+  "source_region": "JP",
+  "source_hash": "b6b2bf6be9efa18ddbd989e483b7e9adadb2dbfe5099900458ffade1f9b8e216",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 38,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "[f large]这座山好可怕！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 迪尔姆德[line 4]！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 我理解。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "不过，总算是捡回了一条小命。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "虽然只是野兽，但是强大的野猪依然很恐怖啊……\n我迪尔姆德得到了宝贵的经验。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "干得漂亮啾。尽管只是凭蛮力挥剑啾，\n但从中也能看出久经磨练的招式啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不只是臂力，双腿也锻炼得很好啾。\n我并不讨厌跳来跳去啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 话说回来，凶暴的野兽是不是太多了……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……这些还算是温顺的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "在阎魔亭的兴盛时期，\n这里就已有神兽和幻兽乱闹了啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "如今客人少了，信仰衰弱了，\n也不再有误入此处的人类了……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "——"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "好啦好啦。\n山里变安静了不是挺好吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "客流的问题有藤丸立香大人帮忙想办法啦。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "红阎魔老师还请放宽心吧。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "竟然如此从容啾……\n明明玉藻也会遭天罚啾……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "这是因为我咪咕地♪\n信任御主啊。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "尽管得到过诸多奇迹的助力，\n但御主毕竟是曾修复了人理存在。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "善良的灵魂会引来美好的缘分。\n我完全不担心天罚♡"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是这样啾。那么以后，\n食材收集的任务就交给各位了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "若对手是巨大的野兽，\n麻雀们组队后也可以与之对抗，"
+    },
+    {
+      "speaker": "负责背大剑的麻雀",
+      "translated_content": "前卫就交给我啾。\n让我用蓄力了三天的一击重创它啾。"
+    },
+    {
+      "speaker": "负责背大弓的麻雀",
+      "translated_content": "牵制就交给我啾。\n我会不管周围情况一直放广域弹啾。"
+    },
+    {
+      "speaker": "负责背枪盾的麻雀",
+      "translated_content": "只有我要活到最后啾。\n我打算用这种战术进行周旋啾。"
+    },
+    {
+      "speaker": "负责接待的麻雀",
+      "translated_content": "一起前去战斗吧，搭档！　啾。\n（※本人其实并不会上场。）"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是麻雀们对于比自己\n『稍微大一点』的对手就无能无力了啾。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。也就是说魔猿们是麻雀们的天敌吧？\n它们是从什么时候开始出现的？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "从大约一百年前起，魔猿就在这里了啾，\n但是作恶是最近才开始的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "大概是因为人类世界变得不适宜居住了，\n所以才集体逃到阎魔亭来的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我其实并不想赶走这些走投无路的魔猿啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但如果它们变得进一步残暴，\n我就不得不考虑驱逐它们了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "哎哟，这些话可不该对客人们说啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我先行一步回阎魔亭啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "既然各位都付出了辛勤的劳动，\n那晚饭就给大家准备丰盛的野猪火锅啾！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……红阎魔小姐也很为魔猿们着想呢……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "解除我们的诅咒固然重要，\n但阎魔亭本身的问题也很令人在意呢，御主……"
+    }
+  ]
+}

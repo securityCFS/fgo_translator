@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810111",
+  "source_region": "JP",
+  "source_hash": "d215048f38e2ac90ef9b680060e56aba970769739de7d25af36db70832ec71de",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 16,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等[messageShake 0.03 3 3 0.4]一下！最后那个是什么啊！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：虽说都是老虎！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：但感觉那不是普通的猎物！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "凡事都需要一点刺激，不是吗？"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "对猎人来说，机械和生物没有太大区别。\n你们事实上也做到了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这就是希腊众"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：机械和野兽毫无差别"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "反正要做的事没有改变。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "摸清习性、锁定路线，\n设下陷阱、将它逼入绝境。"
+    },
+    {
+      "speaker": "威廉·退尔",
+      "translated_content": "无论对方是机械还是野兽，\n都只是在重复这些步骤。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "你们也颇有资质。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "其实接下来还要肢解猎物、鞣制皮革，\n不过在卡尔德尼亚就暂且省略吧。"
+    },
+    {
+      "speaker": "阿塔兰忒",
+      "translated_content": "好了，这是报酬卡尔德。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么各位，\n请在猎物前拍张纪念照吧！"
+    }
+  ]
+}

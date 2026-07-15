@@ -382,7 +382,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/api.js?v=20260517-war-fallback"></script>
+    <script src="js/api.js?v=20260715-bundled-translations"></script>
     <script src="js/translate.js"></script>
     <script>
     // ── Utilities ─────────────────────────────────────────────────────────────
@@ -444,6 +444,7 @@
             page: 'Page {page} / {total}',
             selectPhaseFirst: 'Please select a phase first.',
             noScriptsPhase: 'No scripts found for this phase',
+            noDialogueScriptsPhase: 'This phase contains only battle scripts and has no dialogue to translate.',
             foundScripts: 'Found {count} {scriptWord}',
             extractingScript: 'Extracting script {scriptId} ({current}/{total})...',
             fetchingAtlas: 'Fetching {label} translation...',
@@ -554,6 +555,7 @@
             page: '第 {page} / {total} 页',
             selectPhaseFirst: '请先选择阶段。',
             noScriptsPhase: '这个阶段没有找到脚本',
+            noDialogueScriptsPhase: '这个阶段只有战斗脚本，没有可翻译的剧情对白。',
             foundScripts: '找到 {count} 个{scriptWord}',
             extractingScript: '正在提取脚本 {scriptId}（{current}/{total}）...',
             fetchingAtlas: '正在获取 {label} 翻译...',
@@ -1220,6 +1222,14 @@
 
     async function _apiGetAtlasDialogues({ script_ids, target_region }) {
         return AA.getAtlasDialogues(script_ids, target_region);
+    }
+
+    async function _apiCheckBundledTranslations({ script_ids, target_language }) {
+        return AA.checkBundledTranslations(script_ids, target_language);
+    }
+
+    async function _apiGetBundledDialogues({ script_ids, target_language }) {
+        return AA.getBundledDialogues(script_ids, target_language);
     }
 
     async function _apiTranslate({ dialogues, target_language, translation_method }) {
@@ -2082,6 +2092,7 @@
         }
         const targetLangValue = document.getElementById('targetLanguage').value;
         const isAtlasMode = targetLangValue.startsWith('__atlas_');
+        const isBundledMode = targetLangValue === '__bundled_ZH_CN__';
         const atlasRegion = isAtlasMode ? targetLangValue.replace('__atlas_', '').replace('__', '') : '';
         const atlasLabelMap = {
             NA: 'English (Atlas / RayShift)',
@@ -2089,7 +2100,9 @@
             TW: 'Chinese Traditional (Atlas / TW)',
             KR: 'Korean (Atlas / KR)',
         };
-        const transHeader = isAtlasMode ? (atlasLabelMap[atlasRegion] || t('atlasTranslation')) : t('translation');
+        const transHeader = isBundledMode
+            ? '简体中文（项目预译 / Agent）'
+            : (isAtlasMode ? (atlasLabelMap[atlasRegion] || t('atlasTranslation')) : t('translation'));
         document.getElementById('progressSection').classList.remove('hidden');
         document.getElementById('scriptTabs').classList.remove('hidden');
         const progressBar = document.getElementById('progressBar');
@@ -2101,21 +2114,27 @@
         progressBar.style.width = '0%';
         await acquireTranslationWakeLock();
         try {
-            const scriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
-            if (scriptIds.length === 0) throw new Error(t('noScriptsPhase'));
-            progressText.textContent = t('foundScripts', { count: scriptIds.length, scriptWord: scriptWord(scriptIds.length) });
+            const candidateScriptIds = selectedPhaseScripts.map(s => s.scriptId).filter(id => id && id !== '0');
+            if (candidateScriptIds.length === 0) throw new Error(t('noScriptsPhase'));
+            progressText.textContent = t('foundScripts', { count: candidateScriptIds.length, scriptWord: scriptWord(candidateScriptIds.length) });
             animateProgressBar(20);
-            scriptIds.forEach((sid, i) => scriptTabsContainer.appendChild(createScriptTab(sid, i === 0)));
 
-            const allDialogues = [], scriptDialogueCounts = [];
-            for (let i = 0; i < scriptIds.length; i++) {
-                const scriptId = scriptIds[i];
-                progressText.textContent = t('extractingScript', { scriptId, current: i + 1, total: scriptIds.length });
-                animateProgressBar(20 + (i / scriptIds.length) * 35);
+            const scriptIds = [], allDialogues = [], scriptDialogueCounts = [];
+            for (let i = 0; i < candidateScriptIds.length; i++) {
+                const scriptId = candidateScriptIds[i];
+                progressText.textContent = t('extractingScript', { scriptId, current: i + 1, total: candidateScriptIds.length });
+                animateProgressBar(20 + (i / candidateScriptIds.length) * 35);
                 const extractData = await _apiExtractDialogues({ script_id: scriptId, region: currentQuestRegion });
                 const dialogues = extractData.dialogues || [];
+                if (dialogues.length === 0) {
+                    console.log('Skipping battle-only script with no dialogue:', scriptId);
+                    continue;
+                }
+                const isFirstScript = scriptIds.length === 0;
+                scriptIds.push(scriptId);
+                scriptTabsContainer.appendChild(createScriptTab(scriptId, isFirstScript));
                 const contentContainer = document.createElement('div');
-                contentContainer.className = `script-content ${i === 0 ? '' : 'hidden'}`;
+                contentContainer.className = `script-content ${isFirstScript ? '' : 'hidden'}`;
                 contentContainer.dataset.scriptId = scriptId;
                 contentContainer.innerHTML = `
                     <div class="mb-2 flex items-center justify-between gap-2">
@@ -2141,9 +2160,29 @@
                 scriptDialogueCounts.push(dialogues.length);
                 allDialogues.push(...dialogues);
             }
+            if (scriptIds.length === 0) throw new Error(t('noDialogueScriptsPhase'));
+            progressText.textContent = t('foundScripts', { count: scriptIds.length, scriptWord: scriptWord(scriptIds.length) });
 
             let translateData;
-            if (isAtlasMode) {
+            if (isBundledMode) {
+                progressText.textContent = '正在加载项目预译...';
+                animateProgressBar(60);
+                translateData = await _apiGetBundledDialogues({
+                    script_ids: scriptIds,
+                    target_language: 'zh-CN',
+                });
+                translateData.translated_dialogues = (translateData.translated_dialogues || []).map((item, index) => {
+                    const original = allDialogues[index] || {};
+                    const choiceEnding = /^Choice\s+(\d+)\s+Ending$/i.exec(original.content || '');
+                    if (original.speaker === 'System' && choiceEnding) {
+                        return {
+                            speaker: '\u7cfb\u7edf',
+                            translated_content: `\u9009\u9879 ${choiceEnding[1]} \u7ed3\u675f`,
+                        };
+                    }
+                    return item;
+                });
+            } else if (isAtlasMode) {
                 progressText.textContent = t('fetchingAtlas', { label: atlasLabelMap[atlasRegion] || 'Atlas' });
                 animateProgressBar(60);
                 translateData = await _apiGetAtlasDialogues({
@@ -2188,8 +2227,8 @@
                 dialogueIndex += count;
             }
             prepareGamingMode(scriptIds, allDialogues, translateData.translated_dialogues || [], scriptDialogueCounts, {
-                sourceRegion: isAtlasMode ? atlasRegion : null,
-                translationMethod: isAtlasMode ? 'Atlas' : document.getElementById('translationMethod').value,
+                sourceRegion: isAtlasMode ? atlasRegion : (isBundledMode ? currentQuestRegion : null),
+                translationMethod: isBundledMode ? 'Project Pre-translation (Agent)' : (isAtlasMode ? 'Atlas' : document.getElementById('translationMethod').value),
                 rayshift: translateData.rayshift || false,
             });
             let completionText = t('translationCompleted');
@@ -2458,7 +2497,8 @@
     function onTargetLanguageChange() {
         const val = document.getElementById('targetLanguage').value;
         const isAtlas = val.startsWith('__atlas_');
-        document.getElementById('engineRow').style.display = isAtlas ? 'none' : '';
+        const isBundled = val.startsWith('__bundled_');
+        document.getElementById('engineRow').style.display = (isAtlas || isBundled) ? 'none' : '';
     }
     async function checkAtlasAvailability() {
         const statusEl = document.getElementById('atlasStatus');
@@ -2481,7 +2521,11 @@
         }
 
         try {
-            const data = await _apiCheckAtlasTranslations({ quest_id: questId });
+            const scriptIds = selectedPhaseScripts.map(item => String(item.scriptId || '')).filter(Boolean);
+            const [data, bundledData] = await Promise.all([
+                _apiCheckAtlasTranslations({ quest_id: questId }),
+                _apiCheckBundledTranslations({ script_ids: scriptIds, target_language: 'zh-CN' }),
+            ]);
             if (requestId !== atlasAvailabilityRequestId || !selectedQuest || selectedQuest.id !== questId || !select.isConnected) return;
             if (data.error) {
                 if (statusEl) {
@@ -2492,6 +2536,7 @@
             }
 
             const atlasOptions = [];
+            if (bundledData.available) atlasOptions.push({ value: '__bundled_ZH_CN__', label: '简体中文（项目预译 / Agent）' });
             if (data.NA) atlasOptions.push({ value: '__atlas_NA__', label: data.rayshift ? 'English (Atlas / NA or RayShift)' : 'English (Atlas / NA)' });
             if (data.CN) atlasOptions.push({ value: '__atlas_CN__', label: 'Chinese Simplified (Atlas / CN)' });
             if (data.TW) atlasOptions.push({ value: '__atlas_TW__', label: 'Chinese Traditional (Atlas / TW)' });
@@ -2510,7 +2555,7 @@
                 select.appendChild(group);
                 if (statusEl) {
                     statusEl.className = 'text-xs text-emerald-600 mt-1.5';
-                    const regions = atlasOptions.map(o => o.value.replace('__atlas_', '').replace('__', '')).join(', ');
+                    const regions = atlasOptions.map(o => o.value === '__bundled_ZH_CN__' ? 'Agent zh-CN' : o.value.replace('__atlas_', '').replace('__', '')).join(', ');
                     statusEl.textContent = t('atlasAvailable', { regions });
                 }
             } else if (statusEl) {

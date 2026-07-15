@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010760",
+  "source_region": "JP",
+  "source_hash": "7fbe185341de1a8df0d7878c324c1ad53d8814cd8a033e3228e8359171c0cdcc",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 22,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "到现在应该已经下行一个小时了吧。\n我们本该中途稍作休息。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "唔。不过，我们似乎到了。能看到地面。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……是丛林！"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "接连来到这么有趣的地方。\n不过，既然是丛林。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "那么接下来出现的恐怕是……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "嗨，果然是恐龙啊。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这是……迪诺斯！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的！这是我们在米克特兰遭遇过的\n敌对迪诺斯。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "从它的样子来看，无法进行沟通。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "恐怕和吉尔伽美什王一样，\n也是作为象征被[#喚:よ]来的。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "看来只有将其打倒。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "不过，它们似乎与那位王不同，打算凭数量压制。\n…………。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……也罢。\n若有必要，我也可以出手相助……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……不，不用了！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……这样啊。不用了啊……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：对不起，拜托您了！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……好吧。但你要知道，战斗始终是一场试炼。\n所以，这次会被视为少许扣分。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（不由自主地把手放在脖子上）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    }
+  ]
+}

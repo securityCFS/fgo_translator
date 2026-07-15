@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800940",
+  "source_region": "JP",
+  "source_hash": "02870f8f697f6a9770caa9d8d6f9aa85d03ce7ea00d7f814ad5c3b3c7988a70f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 99,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "？？？",
+      "translated_content": "我不记得自己是如何诞生的。\n许多小神大概也都差不多吧。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "只不过，我最初的记忆，是一条[#黒い河]。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "那是神话中有时也被视作冥府本身、\n连接现世与冥府的阿刻戎河。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "我作为那位送走一切死者的\n[#河神:ポタモス]之子而诞生。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "或许，这并没有什么特别的意义。\n毕竟，以这种方式诞生的小神有很多。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "如泡沫般诞生，又如泡沫般消失。就是如此。\n偶然获得了意义的存在，才终于能被铭刻进历史。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "我深信自己也会如此。\n不过是作为众多小神之一，就此迎来终结。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "直到那一刻为止。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "即使不看，我也知道那位策马而来的人是王。\n因为他仿佛就是冥府本身凝结而成的存在。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "可是。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "那时夺走我目光的并非王，\n而是被王紧紧抱住的少女。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "只看了一眼。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "仅仅如此，\n我的胸口便被前所未有的感情撼动了。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "我第一次知道，世上存在着美丽之物。\n第一次知道，有些事物能美得令人难以置信。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "她被[#攫:さら]走时那楚楚可怜的神情，\n那只无力垂下的纤柔手掌，"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "更重要的是，那在冥界绝不可能感受到的生命律动，"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "化作一道永不消失的深深伤痕，\n烙印在我的心底。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "直到王与少女消失在视野中，\n大概不过短短数秒。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "可在那之后，经过了比这漫长数千倍的时间，\n我依然只是僵立在那里。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "唯有胸口，始终灼热。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "甚至让我想亲吻\n她的影子曾掠过的地面。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "……好温暖……"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——那一天，我被[#攫:さら]走了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#攫:さら]走我的，是冥府之王哈迪斯。\n主神宙斯的兄弟，大神中的大神。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "被那双有力的手臂抱进[#逞:たくま]的胸膛，\n我几乎无力抵抗，就这样被带去了冥界。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "啊啊，那呼吸，那双眼睛。\n还有来到这片土地后，他对我无微不至的关怀。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……明明我是被[#攫:さら]来的。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "……我却爱上了那个人。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "我不想离开他。\n我还想和他多待一会儿。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "可是，我也真的想和母亲在一起。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "而且，如果我不回去，\n母亲会毁掉这片大地。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "我究竟该怎么办才好？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "珀耳塞福涅……"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "请交给我吧。\n一定存在[#みんなが幸せになる方法]。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "让您久等了，珀耳塞福涅大人。\n请吃下这个。"
+    },
+    {
+      "speaker": "珀耳塞福涅",
+      "translated_content": "这是……[#柘榴:ザクロ]？"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "是的。只要吃下这个，珀耳塞福涅大人\n就会成为冥界的居民。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "但是，如果只吃几颗，就不必永远留在冥界。"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "所以……"
+    },
+    {
+      "speaker": "阿斯卡拉波斯",
+      "translated_content": "所以，请吃下这颗[#柘榴:ザクロ]吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 让所有人都幸福的方法……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道说，那就是……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正因如此，回到地面后的珀耳塞福涅\n每逢冬季都必须返回冥界。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "冬季死去，春季[#蘇:よみがえ]。\n她成了每年重复生与死的女神。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "对，原来是这样。\n不是她到了冬季就必须返回。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "而是让她[#冬には]，[#冥界に帰れるようにしたんだ]。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "从一开始，你的目的就是\n让她能够往返于地面和冥界吧。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……绝非神志正常之人所能做出的行为。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 等等！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 经营顾问！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "在神代，地上与冥府彼此相连。\n因此，往返确实可行。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "卡尔德亚的报告中，乌鲁克也曾出现同类事例。\n但那终究只代表『存在一条道路』。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "在两个截然不同的世界间，尤其是在死之国冥界\n与现世之间往返，会造成极大的精神负担。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这对珀耳塞福涅来说，不是非常痛苦吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当时……我以为没问题。\n我以为这样一来，所有人一定都能幸福。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "但那不过是\n我一厢情愿的想法。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "至少，这个特异点的得墨忒耳大人\n和厄里倪厄斯大人，看起来都不幸福。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不仅如此……她们的举止\n简直像是忘记了珀耳塞福涅。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "忘记了？明明她们两个\n都那么珍惜自己的孩子？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这么说来，两个人的确都没提起过她……\n不，可这太奇怪了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "提到珀耳塞福涅的故事，\n那正是得墨忒耳神格的核心。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不是神明本体的神灵，记忆或许会有缺损。\n但如果失去了故事的核心，其存在就无法成立。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "更何况，厄里倪厄斯这一侧面\n本应不可能在没有珀耳塞福涅的情况下现界。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 什么意思？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还不明白吗？得墨忒耳成为[#エリニュス:怒　り　の　女　神]，\n正是在她失去珀耳塞福涅、四处流浪的时期吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者虽然只是英灵某个侧面的截取，\n但每个侧面都有堪称其主题的核心。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，身为得墨忒耳·厄里倪厄斯，\n却忘记珀耳塞福涅，在逻辑上根本不可能。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔嗯，尽是谜团，完全无从下手啊……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾发现了一件非常重要的事！\n如果小阿斯说的是真的，那你看！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那个，那个！\n御主一定明白吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我明白"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是指什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 如果阿斯想保护Garbage"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 是出于这个理由"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 那我们就能成为阿斯的同伴"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "谢谢您……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚才那是什么？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "Garbage们在害怕？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "又有震动……！\n难道是亚瑟先生或阿尔托莉雅小姐……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，这是……！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "藤丸立香[&君:ちゃん]！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "卡尔德尼亚中心[line 2]得墨忒耳城堡\n正在释放出庞大的魔力！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 从得墨忒耳城堡传来的！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "格蕾？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "刚才……听见了哭声……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 哭声？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "得墨忒耳大人和厄里倪厄斯大人……\n在哭……"
+    }
+  ]
+}

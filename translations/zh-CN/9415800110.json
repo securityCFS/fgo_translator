@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800110",
+  "source_region": "JP",
+  "source_hash": "99ed54340e5b75f829b925caf54e7f35f7ee591905add7736f65038d9bd6c221",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 56,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这里是……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "有点……冷……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "简直像春天尚未来临的时候……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "按照我们的体感时间，\n现在应该已经快到夏天了才对……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇啊啊啊！　好厉害！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、这是什么啊。\n游乐园！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：招牌上写着的名字……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：卡尔德尼亚……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……这是在仿造迦勒底的名字？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔……\n这配色看起来确实很受小孩子欢迎……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "能再靠近一点吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好好。这样可以了吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……果然是游乐园吧。\n这个特异点是在瞧不起人吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦咦咦！　游乐园听起来很好玩啊！"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "后面，藤丸立香。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "呜哦！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这是什么！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然不知道是什么，但它们的敌意是真的！\n数量也不少！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（乍看之下，这种大小的敌人\n　应该能轻松轰飞……）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（可偏偏经营顾问正在看着，\n　要是力量再出了什么怪问题——）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不可以[&ですよ:だよ]，奥尔加玛丽所长"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：先观察一下情况吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可我们也不能就这样\n任由它们逼入绝境吧！？"
+    },
+    {
+      "speaker": "F：？？？",
+      "translated_content": "嘿呀！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "一群论堆卖的垃圾！\n你们的暴行，就由我来制止！"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "既然我已经赶到，\n就绝不会让卡尔德尼亚的客人受到半点伤害！"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "来吧，[#紳士淑女:しんししゅくじょ]的各位，请到我身后！"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "请各位准备好喝彩！\n红茶稍后由我奉上！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇啊啊啊！\n布偶装先生，好帅气！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是这种类型的表演……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：是这种类型的演员……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "那边那位是御主吧！\n来，与我缔结契约吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "居然说缔结契约，你这布偶装里面还是从者吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：我可能还是第一次和布偶装缔结契约！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香也稍微[#躊躇:ちゅうちょ]一下啊！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "非常感谢！　这下便有千人之力！\n来吧，垃圾们，吃我骄傲手杖的一击！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "哎……[cueSe SE_21 21_ade578][charaMoveEase F 50,-40 0.4 easeOutSine][wt 0.4][charaMoveEase F 30,-70 0.4 easeInSine][wt 0.5]哎……[cueSe SE_21 21_ade578][charaMoveEase F 15,-50 0.4 easeOutSine][wt 0.4][charaMoveEase F 0,-80 0.4 easeInSine][wt 0.5]哎……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，他绊倒了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "摔进了敌人的……正中央……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "哦……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：脖子！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "呜哇啊啊啊啊！\n经理托付给我的重要布偶装啊！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "等、等等等等！　我这就脱！\n我脱下来，所以等等！　Wait！　三秒规则！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "赶上了……！"
+    },
+    {
+      "speaker": "G：？？？",
+      "translated_content": "我是卡尔德尼亚的管家阿斯！　为了正确的未来与\n职业体验，我会保护各位客人！"
+    }
+  ]
+}

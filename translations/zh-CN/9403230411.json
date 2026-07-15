@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "script_id": "9403230411",
+  "source_region": "JP",
+  "source_hash": "ef47213964daa7c3e4dc678390b3a17aaa754612f0997e9a6ec17ff27fa38f38",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 24,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "……呼。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "哎呀呀，千钧一发呢。\n尽管迦勒底的弗格斯应该是位绅士。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "但他会变得如此不知所措，还是因为那张脸吧。\n呵呵。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "抱歉。\n另一个我啊。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "给你添麻烦了。唉。\n如果我老老实实再去泡一次温泉，也就不会发生这个问题了吧。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "你讨厌热水吗？"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "不。我喜欢沐浴，也喜欢温水浴。\n但是——"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "[#炙热的]不行。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "无法习惯。无论如何都无法习惯。\n尽管知道炎热的恐怖对我不起作用，"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "但无论如何都喜欢不起来……"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "……我讨厌……[#炙热的]……"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "唔。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "——那么，这样做如何？"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "哦，在这里在这里。\n喂～，小姑娘。"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "小姑娘你已经知道了吗？"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "据说一边泡炙热的温泉，\n一边吃冰淇淋是非常好吃的哦。"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "你也去试试看吧？\n还有那啥，记得转告那位法老小哥。"
+    },
+    {
+      "speaker": "尼托克丽丝",
+      "translated_content": "您……您太不客气了啦，阿拉什阁下！"
+    },
+    {
+      "speaker": "尼托克丽丝",
+      "translated_content": "但是好吧。\n这行为听起来似乎确实很有意思"
+    },
+    {
+      "speaker": "尼托克丽丝",
+      "translated_content": "我会转告法老奥斯曼狄斯的。\n……有机会的话也会转告山鲁佐德阁下。"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "好！"
+    },
+    {
+      "speaker": "尼托克丽丝",
+      "translated_content": "但是阿拉什阁下。\n您是从哪儿听来这种说法的呀？"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "就是刚才啦。\n从在那边走廊和我擦身而过的女王陛下那里听说的。"
+    },
+    {
+      "speaker": "阿拉什",
+      "translated_content": "不过，她说的时候，表情显得非常愉快——"
+    }
+  ]
+}

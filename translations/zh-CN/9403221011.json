@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221011",
+  "source_region": "JP",
+  "source_hash": "b029cef9f465db177f032f09bb204b7c2c5c9d8704cbe5588fbf0b56f46a7c35",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 20,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "二刀流，击破！"
+    },
+    {
+      "speaker": "恶鬼罗刹",
+      "translated_content": "呜哇啊啊啊啊！\n太可惜了，尽管很美但如果能再年轻6……呜！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这一瞬间……露出了真面目呢……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 真是个无与伦比的强敌呢……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "唔！？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "呜……大意了……\n不仅是我的铠甲，连我的灵基都被伤到了……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "二刀流的罗刹……互为……平手啊……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "没有我表现的余地呢……\n不过反正温泉也开放了，这件事就算了……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "成功了呢，前辈！\n是万众期待的温泉！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊……不，在那之前，\n得先把迪尔姆德先生送去休息室才行……！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "没关系……不用在意我的事，\n请两位在这里轻松地……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不，那可不行！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "玛修·基列莱特要火速将您送去休息室，\n请稍候片刻！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "哎呀——！？\n温泉居然开放了耶——！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "怎么怎么，是你们打败了那个\n堕落的仁王吗——！？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "真棒真棒，太美妙了！\n一起去喝一杯吧，戈尔德鲁夫亲！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "泡着温泉品尝的美酒可是别具一格的哦——！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这就是那啥，所谓的月下饮酒吧！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。这个暂且不论，\n为什么我会被这个蛇男缠上？"
+    }
+  ]
+}

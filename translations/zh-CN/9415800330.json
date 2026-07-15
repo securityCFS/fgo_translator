@@ -1,0 +1,655 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800330",
+  "source_region": "JP",
+  "source_hash": "5675b660117b4dafa117af0dad9b3a39807589e3cf55b5cf411e33e81ac55c2b",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 159,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：果然和卡尔德尼亚不一样"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：虽然刚才说这里是里卡尔德尼亚"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为一到这里就立刻进了[#施設:テアトルム]，所以没注意到，\n但这里的一切都完全不一样了呢。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，该怎么说呢？刚才的照片也是，\n感觉就只是相位稍微错开了一点……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这大概是……可被认知的焦点发生了偏移……？\n是只会出现在特异点的现象……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香，能和迦勒底通信吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：说起来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：从刚才开始就一直联系不上"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "迦勒底……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哼，如果通信没有接通的话……"
+    },
+    {
+      "speaker": "F：奥尔加玛丽",
+      "translated_content": "阿斯。你早就知道了吧？\n不如说，就是你把我们带到里卡尔德尼亚来的吧。"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "这个……"
+    },
+    {
+      "speaker": "F：奥尔加玛丽",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "对不起！我确实知道！\n请原谅我！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不过，我本来是打算好好说明的！\n只是还没来得及，我们就突然被传送到这里来了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "而且各位又进了[#施設:テアトルム]……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这么说来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：感觉这次本来是为奥尔加玛丽所长准备的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我确实认为，里卡尔德尼亚比表侧更适合奥尔加玛丽小姐，\n但相应的危险程度也不容忽视。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "原本的计划，是先请各位好好体验表侧，\n然后再来里侧，日程也已经这样安排好了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我也已经这样和这里的经理\n说明过了……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这里的经理？\n里卡尔德尼亚也有另一个经理吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……啊，说得也是。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说到底，光看得墨忒耳和你的关系就已经很奇怪了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：得墨忒耳和阿斯的关系？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：哪里奇怪？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原来连藤丸立香也没有察觉啊。\n那么，也该把事情彻底说清楚了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "小奥尔加，你们在说什么？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就是这个自称阿斯的家伙，其真实身份。"
+    },
+    {
+      "speaker": "F：奥尔加玛丽",
+      "translated_content": "你就是神话中被女神得墨忒耳诅咒的\n[#冥界の住人アスカラポス]吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：被得墨忒耳诅咒……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：冥界的居民？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就是字面上的意思。\n这在希腊神话中也是颇为著名的故事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "甚至可能是得墨忒耳的传说中最有名的一个。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "主神宙斯与得墨忒耳，\n有一个他们无比疼爱的女儿。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "她名为科瑞。\n后来被称作珀耳塞福涅的少女。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那是罗马神话中流传的\n春之女神的名字。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不过，正如芙萝拉小姐[#仰:おっしゃ]所说，她还有一段传说，\n『受到冥府之王爱慕，成为其王妃与女王』"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "『结果，她每年必须有一段时间留在冥府，\n　其余时间则在地上度过』"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这是一段十分著名的故事……或者说，\n她作为冥府女王的身份或许反而更加有名。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "既是祝福温暖大地与植物萌芽的\n春之女神，也是居于[#昏:くら]暗冥府的女神。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "她就是普洛塞庇娜……在希腊神话中，\n则是被称为珀耳塞福涅的女神！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：说起来，她那时候提到过……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "据说她是一位极其美丽的少女。\n求婚者接连不断地出现，而且个个都是声名显赫的神。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "太阳神阿波罗、传令神赫尔墨斯。[subRenderFadein #A 0.4 300,-102][subRenderMove #A 350,-102 5.0][charaMove O -300,-98 5.0][wt 1.2][subRenderFadeout #A 0.4]\n还有锻造神赫淮斯托斯，[subRenderFadein #B 0.4 -300,-102][subRenderMove #B -350,-102 5.0][charaMove P 300,-98 5.0][wt 0.4][charaFadeout I 0.1][charaPut K 0,0][charaFadeTime K 0 0.7][charaMove O -250,-98 0.1][wt 0.4]战神阿瑞斯。[subRenderFadein #A 0.4 300,-102][subRenderMove #A 350,-102 5.0][charaMove O -300,-98 5.0][wt 0.4][subRenderFadeout #B 0.4][wt 0.8][subRenderFadeout #A 0.4]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这些神里，也有我们过去旅途中见过的……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，我从报告中知道。\n不过他们全都被拒绝了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：认识不少……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我不是说了吗，都是些有名的神。\n不过他们全都被拒绝了。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，珀耳塞福涅后来被[#攫:さら]走了。\n偏偏还是被冥界之主哈迪斯掳走的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "按理说，她的父亲宙斯也该勃然大怒，\n前去夺回女儿才对。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，因为对方是自己的兄弟神哈迪斯，\n他很快就改了态度。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "他认为对象如此出色便无可挑剔，就这样准许了婚事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "取而代之，得墨忒耳发怒了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且绝不是一般程度的愤怒。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『没有你，春天便不会到来。\n　不，是我绝不会让春天到来。』"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为寻找女儿而走遍世界、形容憔悴的得墨忒耳，\n躲进自己的[#社殿:やしろ]，[#纏:まと]上了黑衣。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "受她诅咒影响，谷物尽数枯萎，无论向大地[#播:ま]下多少种子，\n都没有哪怕一粒能够发芽。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "众神轮番来到她面前，\n试图劝说她，"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但得墨忒耳深沉的愤怒、怨恨与诅咒，\n始终没有丝毫动摇。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "事已至此，就连宙斯也终于服软，\n劝说哈迪斯让珀耳塞福涅回来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是，珀耳塞福涅早已在冥府\n吃下了[#柘榴:ザクロ]的果实。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：石榴？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。冥府的食物具有非常重大的意义。\n日本神话里称之为黄泉户喫，对吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "一旦吃下冥府的食物，就再也无法返回。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可以说，会作为生活在那片土地上的存在扎下根来。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：冥府的食物，我记得……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哼，连你也多少知道一点？\n没错，一旦吃下冥府的食物，就再也无法返回。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可以说，会作为那片土地的存在扎下根来。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而将这件事告密的人，\n正是阿斯卡拉福斯。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正因如此，珀耳塞福涅回到地上之后，\n一到冬天就必须返回冥界。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "冬日死去，春日[#蘇:よみがえ]。\n她成了每年重复生与死的女神。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你不能一直沉默下去。\n到底如何？你就是阿斯卡拉福斯吧？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "一切正如您所推断。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我的真名是阿斯卡拉福斯。\n是以那则神话为原典的从者。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你不否认啊？\n我还以为你会再抵赖一阵呢。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我并不是想要隐瞒。\n只是……不希望让各位感到不快。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那不就是想要隐瞒吗。\n算了，不过既然如此，我还有个疑问。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "无论怎么想，你和得墨忒耳\n都不可能是什么亲密好友吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毕竟，她可爱的女儿会被束缚在冥界，\n毫无疑问就是你造成的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "传说中，得墨忒耳对此怀恨在心，\n把阿斯卡拉福斯变成了一只丑陋的鸟，"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还将冥界流淌的熔岩泼在他脸上。\n也有这样的说法。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "冥界的……熔岩……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那是……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请把这当作我的赎罪。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "因为我心中有愧，所以在偿还完毕之前，\n都会在卡尔德尼亚担任管家。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……为告密一事赎罪？\n嗯，倒也确实说得通。"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "格蕾小姐？"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "……那个？\n小阿斯，你当时不烫吗？"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "烫？"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "因为，那是熔岩吧？\n要是被那种东西淋到，格蕾说不定会哭出来。"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "啊……"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "没关系的。现在已经不烫了。"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "……真的吗？"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "真的。那已经是很久很久以前的事了。\n而且，那只不过是我自作自受……"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "格蕾小姐完全不需要\n为此伤心。"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "就算是以前的事，想起来也还是会想哭的。"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "小阿斯不会吗？"
+    },
+    {
+      "speaker": "G：阿斯",
+      "translated_content": "有时也会，但现在没关系。\n现在我更不愿看到格蕾小姐哭。"
+    },
+    {
+      "speaker": "N：格蕾",
+      "translated_content": "嗯，我知道了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "小奥尔加也不想\n和小阿斯吵架吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我倒没有……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不·[wt 0.5]想·[wt 0.5]吧·[wt 0.5]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "确、确实，他虽然隐瞒了真实身份，\n却也没有对我们做什么坏事……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好吧。总之这次我就既往不咎了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嘿嘿。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：没想到格蕾的气势还挺强……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：她原来是这种性格吗……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！从某种意义上说，她和以前一模一样！\n这家伙本来就有这一面！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "成长过程中经历了不少事，\n乍看之下才显得畏缩，"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "一旦露出本性，她就是这种家伙！\n在真正重要的地方，她从来不会让步！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这、这又没什么不好！\n大家和睦相处不是更好吗！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "而且小奥尔加什么都知道，好厉害！\n就像师父一样！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种东西，只要是魔术师就该具备的基础素养！\n至于想起那张古怪又顽固的脸……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……没什么。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "太好啦！\n格蕾最喜欢小奥尔加和师父了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "干嘛啊，藤丸立香。\n一脸奇怪的表情。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：没有，只是有点……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：因为所长真的非常可靠"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：我只是在想，如果我们曾一起踏上修复人理的旅程，会是什么样子"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "傻瓜。\n那种事是不可能发生的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我在那趟旅程刚开始时就已经跌倒，\n此后一直一直努力的，只有你们。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在那漫长得没有尽头的旅途中，我只在最后一瞬，\n稍微推了你们一把。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这就是无可动摇的事实。\n世界上不存在什么如果。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "尽管那些仍旧无法放弃的人与从者，\n正因为执着于如果，才创造出了许多特异点吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：但是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没关系。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……因为我最讨厌所谓的如果。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且，话还没有说完呢。阿斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是、是！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "表卡尔德尼亚的经理是得墨忒耳。\n这倒没问题，毕竟最开始我们也看过她的留言影像。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，这个里卡尔德尼亚的经理究竟是谁？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这个，那个……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "……唔唔唔？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德？怎么了？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "还能怎么了……！\n这反应是……喂，等等……难道说……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "原来你在这里，阿斯。\n看样子，你们刚好在谈论经理。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：经理？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：你是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "是的。经理感知到各位已经抵达，\n便派我前来迎接。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "……唔。那边的少女，那张脸是……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！不对，现在不是笑的时候！\n我觉得那就是张随处可见的普通脸！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "原来如此，随处可见的脸……或许的确如此……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "各位，失礼了。\n能请你们随我前往城堡吗？"
+    }
+  ]
+}

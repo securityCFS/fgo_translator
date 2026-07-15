@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801030",
+  "source_region": "JP",
+  "source_hash": "90026cd4266ec0b80ce9f9c78771567d918e31419f2bdf684b82a8415191ed23",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 80,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "……已完成对特异点的固着。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "……已识别对应状况。解析结束。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你是，什么——！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阻止了镰刀……？\n不，这并非德墨忒尔自己的意志……？"
+    },
+    {
+      "speaker": "I：德墨忒尔",
+      "translated_content": "为什么……你会……"
+    },
+    {
+      "speaker": "K：德墨忒尔？",
+      "translated_content": "检测到该终端的数据异常。\n将通过紧急线路开始正常化。"
+    },
+    {
+      "speaker": "I：德墨忒尔",
+      "translated_content": "你是……！"
+    },
+    {
+      "speaker": "亚瑟＆格蕾",
+      "translated_content": "噢噢噢噢噢噢！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "没、没能奏效！？\n明明亚瑟先生也一起出手了！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "灵基的强度与我们完全不同！\n这是……来自星球之外的……"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "识别为异常个体。\n在双方的武装中检测到星之因子。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "提高优先级。\n排除对应异常个体。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "等等！\n等等，只有那孩子不可以！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "——终端再次发生异常。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "终端的反馈数据发生显著变异。\n确认其与异常个体进行了超过规定值的交流。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "——向终端[image berserker_language_7]发问。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "你为何会如此[#劣化]？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "劣化……"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "删除对应数据。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "不、不要！　请住手！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "确认终端发生抵抗。作为异常状态删除。\n连续删除相关状态。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "啊、[wt 0.5][charaShake D 0.02 2 2 0.3]啊啊、[wt 0.8][charaShake D 0.02 3 3 0.4]啊啊啊……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德墨忒尔小姐！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "——删除完成。重新启动。[charaEffect G bit_talk_glowing_sphere_red -183,22][cueSe SE_24 24_ad1399][cueSeStop 24_ad1399 1.2]"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "报告最新状态。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "终端[image berserker_language_7]，重新启动。\n此后将服从管理个体。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德、德墨忒尔小姐……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，不只是德墨忒尔！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "以管理权限下令。\n生成终端。[charaEffect G bit_talk_glowing_sphere_red -183,22][cueSe SE_24 24_ad1399][cueSeStop 24_ad1399 1.2]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就连本该消失的德墨忒尔·厄里倪厄斯也出现了！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "终端们。\n命令你们排除异常个体。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "明白了。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "……好……的……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎、怎么会……\n她们两个都……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "怎么会……发生这种事……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 格蕾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 阿斯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "没办法了！\n……那么，就以剑相迎！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "……已完成对特异点的固着。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "……已识别对应状况。解析结束。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你是……什么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阻止了镰刀……？\n不，这并非厄里倪厄斯自己的意志……？"
+    },
+    {
+      "speaker": "J：德墨忒尔·厄里倪厄斯",
+      "translated_content": "为什么……你会……"
+    },
+    {
+      "speaker": "K：德墨忒尔？",
+      "translated_content": "检测到该终端的数据异常。\n将通过紧急线路开始正常化。"
+    },
+    {
+      "speaker": "J：德墨忒尔·厄里倪厄斯",
+      "translated_content": "你……是……！"
+    },
+    {
+      "speaker": "阿尔托莉雅＆格蕾",
+      "translated_content": "哈啊啊……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "没能奏效……！？\n明明阿尔托莉雅小姐……也一起出手了……！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "灵基强度与我们有着天壤之别——！\n这是，来自星球之外的……"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "识别为异常个体。\n在双方的武装中检测到与星球外表相关的因子。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "提高优先级。\n排除对应异常个体。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "住……手……\n那个孩子……只有那个孩子……不可以……"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "——终端再次发生异常。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "终端的反馈数据发生显著变异。\n确认其与异常个体进行了超过规定值的交流。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "——向终端[image berserker_language_8]发问。"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "你为何会如此[#劣化]？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "劣化……"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "删除对应数据。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "不要……别夺走……\n不要再……夺走任何东西……！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "确认终端发生抵抗。作为异常状态删除。\n连续删除相关状态。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "啊……[wt 0.5][charaShake E 0.02 2 2 0.3]啊啊……[wt 0.8][charaShake E 0.02 3 3 0.4]啊啊啊……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "厄里倪厄斯小姐……！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "[line 2]删除完成。重新启动。[charaEffect G bit_talk_glowing_sphere_red -183,22][cueSe SE_24 24_ad1399][cueSeStop 24_ad1399 1.2]"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "报告最新状态。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "终端[image berserker_language_8]重新启动。\n此后，服从管理个体。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "厄、厄里倪厄斯小姐……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不，不只是厄里倪厄斯！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "以管理权限下令。\n生成终端。[charaEffect G bit_talk_glowing_sphere_red -183,22][cueSe SE_24 24_ad1399][cueSeStop 24_ad1399 1.2]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就连本该消失的德墨忒尔也出现了！"
+    },
+    {
+      "speaker": "德墨忒尔？",
+      "translated_content": "终端们。\n命令你们排除异常个体。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "……好……的……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "明白了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎、怎么会……\n她们两个都……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "怎么会……发生这种事……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 格蕾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 阿斯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "那么！\n就以吾之圣枪，将其击退！"
+    }
+  ]
+}

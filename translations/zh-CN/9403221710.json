@@ -1,0 +1,755 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221710",
+  "source_region": "JP",
+  "source_hash": "728a2f01cee99e8196f15cc1df5fd21eee4951dfa36a284129884833d49c2b95",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 184,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "红阎魔",
+      "translated_content": "哎呀，只有你一个人啾？\n玛修和清姬……去打扫温泉了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "包括你在内，大家都是勤劳的好孩子啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "好乖好乖。\n藤丸立香，过来在这里坐一会儿啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "在大家回来之前，偶来给你泡茶啾。\n稍微休息一下啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "回过神来，[#閻魔亭:えんまてい]也已经变得这么大了啾。\n啊。不过，以前还要更大一些啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶可不是在逞强啾。就连内部装潢，在还有[#鶴:つる]之厅的时候，\n也曾经非常华丽啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那时有一位名叫阿[#夕:ゆう]的能工巧匠，\n是位精于[#機織:はたお]的织布名人啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "她嘀咕着什么“月光在呼唤我”，\n就把房间原样留下，径自飞走了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "真是的。难不成是[#雀:すずめ]们\n偷[#覗:のぞ]了阿夕工作的样子啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "请用，茶泡好了啾。\n还有珍藏的最中饼，也请一起享用啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：谢谢"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我开动了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "真是个悠闲的午后啾。\n如果这样的日子能永远持续下去就好了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "！　不对啾，\n刚才说的是偶自己的事情啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "虽然[#閻魔亭:えんまてい]很平静，但你的世界\n正处在非常严峻的状况中啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶又犯错了啾。偶不擅长体察[#他人:ひと]的\n心情，也不擅长[#推:お][#量:はか]啾……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：红阎魔是怎样的英灵？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "你问偶的事，啾？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我也经常失败"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是这样啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不，这可不是值得高兴的事啾。\n不过，偶明白你的这份体贴啾。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不同的世界，不同的价值观。\n你的世界、玛修的世界、玉藻她们的世界。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "世界看似只有一个，却被许多界线分隔开来啾。\n人类所说的“地狱”也是其中之一啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "依据各个社会的思想与道德来解析死后的世界，\n并将其构筑成制度，这就是地狱啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶诞生的“地狱”，\n和芬恩大人国度的“地狱”应该并不相同啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "面对终将到来的“死亡”，人类希望能在活着的时候，\n设法获得某种道理与理解啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "具体的礼法和法律因民族而异，"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "“恶人死后会受到惩罚”\n“善人死后会得到救赎”"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这两点大概是全世界共同的规矩啾。\n而这些，不过是活着之人的需要……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "是为了“让社会顺利运转”而产生的教诲，\n并不能说明地狱本身啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "只要正直地活着，死[#後:あと]也一定能获得幸福。\n所以要[#浄:きよ]洁而正直地活下去——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是从如此理所当然、理应如此的道德观中\n诞生的故事啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "人类的利害与善恶之[#秤:はかり]，\n本来都与地狱无关啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……不过，偶们的地狱对潮流十分敏感，\n所以也经常吸收人类的宗教观啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "听说在很久以前，地狱和现世甚至是连在一起的啾。\n以偶个人来看，那是个不得安宁的死亡之国啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "人类社会虽然无法战胜死亡，却逐渐转向了\n死亡并不特殊、死亡并不可怕——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这样的教诲啾。\n从那时起，地狱的存在方式也随之改变了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "直白地说，就是变成了“失去人气的幻想”\n啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "人类不再[#畏:おそ]惧地狱，也不再认为它有必要。\n不再向地狱这一存在寻求救赎。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "换言之，地狱已经是个落后于时代的世界啾。\n偶就是在那样的地狱中长大的英灵啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶在地狱修行，成为狱卒，\n又作为阎魔大王大人的[#名代:みょうだい]，受命管理[#閻魔亭:えんまてい]啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是无上的光荣啾！？　[#紅:べに]也是这么想的啾。\n所以，偶在能力所及的范围内努力了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶也曾有一次下到人类村落，\n被人类抓住过啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但如今就像你看到的，偶已经是堂堂[#閻魔亭:えんまてい]的老板娘了啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……不，不对啾。\n并称不上堂堂正正啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "…………其实。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "[#閻魔亭:えんまてい]本来早在很久以前，就打算将它[#畳:たた]起、关门歇业了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "人类已经不再误入此地。\n[#八百万:やおよろず]的神明们也不再到访。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "无论地狱还是旅馆，都已经不再是现世所需要的东西。\n进入近代时，[#閻魔亭:えんまてい]就已经完成了它的使命啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：…………"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：可是，[#閻魔亭:えんまてい]是个好地方啊"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不用顾虑偶啾。\n就算[#閻魔亭:えんまてい]消失，也不会有谁为此困扰啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "眼下的问题只有降在你们身上的天罚啾。\n照这个势头，应该也能平安解决啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "所以，[#閻魔亭:えんまてい]今年就要功成身退了啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "阎魔大王大人也已经对偶说，\n“可以回来了”啾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：……可是，你还想继续经营[&だろう:でしょう]吧？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这个……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：红阎魔为什么还在经营[#閻魔亭:えんまてい][&んだ:の]？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那是因为——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是很久很久以前，却又没有那么久远的故事。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "一名从[#遊郭:ゆうかく]逃出来的[#禿:かむろ]，\n上气不接下气地消失在了深山中。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她一定是拼了命地奔跑吧。\n[#禿:かむろ]误入了深雾笼罩的山中，一座气派的宅邸。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那里的一切，明明至今一直就在眼前，\n却是她从来无法触及的景象。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "温暖的被褥。丰盛的佳肴。\n没有大人厉声斥责的世界。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "宅邸中空无一人，独自寂寞着这件事\n虽然令她有些在意，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "但庭院里有许多[#雀:すずめ]嬉戏，\n所以宅邸应该也不会寂寞吧——她笑了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "如同置身梦境，[#禿:かむろ]屏住呼吸，\n摇摇晃晃地走过一间又一间客室。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#禿:かむろ]双手合十，感谢佛祖。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "“谢谢您在我死前，给了我一片屋檐。”\n“谢谢您在最后，让我看见如此美丽的事物。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#禿:かむろ]望着这座美丽宅邸的模样，眼含泪水，\n停止了呼吸。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她已经好几天没有吃东西了。\n身体也早已破败不堪。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她饿得快要死去了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "可是，在花街生活时，她的舌头被割去，\n喉咙也被毁坏了。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "所以，即使面前有许多佳肴，\n[#禿:かむろ]也无法将它们送入口中。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "当[#禿:かむろ]再次醒来，\n那里已是地狱的入口——[#賽:さい]之河原。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "或许是佛祖怜她太过[#不憫:ふびん]而赐下慈悲，\n又或许是因为她在宅邸里什么也没有吃。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#禿:かむろ]并未成为死者，而是作为[#雀:すずめ]之鬼，\n重生于久远以前的地狱。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "人们取她赤红发色之意，为[#雀:すずめ]赐名[#紅:べに]；\n她在[#賽:さい]之河原也一直勤恳工作。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "她认真履行职务，度过了[#幾星霜:いくせいそう]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#雀:すずめ]得到了阎魔大王的认可，并作为其[#名代:みょうだい]，\n受命管理地上的“迷途之家”。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "“迷途之家，正是曾经的你咽下最后一口气的地方。\n[f small]  [f -]庭院里的[#雀:すずめ]们也说，若是你，便愿意听从。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#雀:すずめ]遵照阎魔大王的吩咐，\n认真地将“迷途之家”经营得有声有色。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "然而……"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“偶想下山去看看啾。\n[f small]  [f -]想看看人类是怎样生活的啾。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "即使如今已经成了鬼，她或许仍残留着从前的影子。\n[#雀:すずめ]因思念人群而下到了村落。"
+    },
+    {
+      "speaker": "刻薄的老婆婆",
+      "translated_content": "“这可真稀奇，是只像火焰一样鲜红的[#雀:すずめ]啊！”\n“打它就会用人的声音啼叫，是举世罕见的[#雀:すずめ]啊！”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#雀:すずめ]惊慌失措，\n甚至忘了自己是鬼，害怕得缩成一团。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "这么说来。\n从前似乎也曾无数次发生这样的事。"
+    },
+    {
+      "speaker": "老爷爷",
+      "translated_content": "“哦哦，这确实十分稀奇。”\n“[#隣:となり]居啊，邻居啊。能把它[#譲:ゆず]给老夫吗？”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是一位在村子里不知为何总被人们\n敬而远之的老爷爷。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷之所以被村民疏远，\n是因为他是个连没有[#実益:いみ]的事情也会热心去做的怪人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "这一次的举动，也是其中之一。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "为了那只不停叫着“好寂寞、好寂寞”的[#雀:すずめ]，\n老爷爷拿出了自己多年积攒的大部分[#蓄:たくわ]。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“老爷爷为什么要救偶啾？”\n“人类不是不会做没有好处的事啾？”"
+    },
+    {
+      "speaker": "老爷爷",
+      "translated_content": "“老夫也不明白啊。”\n“只是，身边的人过得不幸，总归不是什么好事吧？”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷为受伤的[#雀:すずめ]处理好伤口后，\n便像做了件微不足道的小事一样，让它回到了山里。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "他笑着说：“可别再被抓住了哦。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "在那之后又过了一段时间。\n[#雀:すずめ]得知老爷爷遇到了困难。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "他交不起[#年貢:ねんぐ]，又得不到村民的帮助，\n正饥肠辘辘地等待死亡。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“欢迎光临，客人。”\n“这里是[#閻魔亭:えんまてい]，是招引善心的隐世乡里啾。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷原本想独自在山中走完最后一程，\n[#雀:すずめ]却将他请进了迷途之家。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷感谢[#雀:すずめ]，\n度过了一段快乐的时光。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "可是，[#雀:すずめ]其实更加快乐。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为当初得到救助时的喜悦，\n要远比这更加、更加巨大。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#雀:すずめ]本打算永远照顾老爷爷。\n可是，老爷爷却说要回到村里。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“您救过一只[#雀:すずめ]。\n[f small]  [f -]作为谢礼，请收下这只[#葛籠:つづら]吧。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[#雀:すずめ]依照迷途之家的规矩，\n仿[#倣:なら]照旧例准备了两只葛笼。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "一只大葛笼，一只小葛笼。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷推辞说自己得到的已经足够多了，\n[#雀:すずめ]却威胁他，不收下就不让他回去。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷满怀歉意地选了小葛笼，\n回到了自己的世界。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "在那之后。从旅馆带回来的葛笼中，\n每天都会涌出[#慎:つつ]朴分量的幸福，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷就这样平静而幸福地生活着。\n可喜可贺　可喜可贺"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "可是，那是谎言啾。\n其中没有一句是假话，却仍是个谎言啾。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "从旅馆回来的老爷爷，\n成了村里的热门话题。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "“那个几年前便消失的老头，\n　竟以当年一模一样的模样回来了。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "“而且打扮得还挺体面。\n　不如去问问他究竟遇到了什么吧。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "村民们一半出于好奇，\n一半出于羡慕，纷纷涌进老爷爷家中。"
+    },
+    {
+      "speaker": "老爷爷",
+      "translated_content": "“没什么，是山里地藏菩萨的指引啊。\n[f small]  [f -]祂说，今后若正直地活着，就会赐予我幸福。”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "聪明的老爷爷没有提起[#雀:すずめ]，\n却也没有将一切完全隐瞒。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "他向众人讲述了旅馆中的种种[#奇想天外:きそうてんがい]，\n以及那些快乐而有趣的经历。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "希望它们能成为人生的助力。\n成为艰辛日常中的某个[#伽噺:とぎばなし]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "许多村民双眼放光。\n许多村民也对老爷爷心生[#羨:うらや]慕。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有人去寻找老爷爷误入的旅馆。\n也有人祈愿失去之物能够归来。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有人开始正直地生活，\n也有人决定忠于自己的内心而活。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "正直地生活，却有时踏出正道。\n因嫉妒而蒙蔽双眼，却仍会擦干泪水。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "他们做起许多微小、任性而漫无目标，\n却能成为每日精神食粮的梦。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "尽管并非所有梦想都能实现，\n许多村民还是得到了回报。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "这也是理所当然的。\n因为老爷爷为了让他们的梦想成真，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "把葛笼中所有的幸福，\n都用在了他们身上。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "村庄繁荣起来。村民们富裕起来。\n那些曾因贫穷而彼此争吵的人，也变得和睦。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "村庄真的变成了一个无论是谁都很幸福的、\n温暖的世界。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "唯有一个人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "唯有那个始终被当成“怪人”\n而遭人疏远的老爷爷。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“太奇怪了啾。这实在太奇怪了啾！”"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“为什么不告诉大家啾！\n[f small]  [f -]大家能得到幸福，全都是老爷爷的功劳啾！”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不论村庄变得多么繁荣，\n老爷爷的生活依旧没有改变。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "在只有月光照亮的老爷爷家中，围炉背后，\n[#雀:すずめ]像从前那样鸣叫起来。"
+    },
+    {
+      "speaker": "老爷爷",
+      "translated_content": "“要是被人说，你们的幸福全都多亏了某个人，\n[f small]  [f -]大家也不会开心吧？”"
+    },
+    {
+      "speaker": "老爷爷",
+      "translated_content": "“只要一切顺利，不就很好吗？\n[f small]  [f -]就算老夫开口说出来，也不会让任何人更幸福啊。”"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“不是啾。正因为老爷爷保持沉默，\n[f small]  [f -]大家才能获得幸福啾！”"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "“可是，最重要的老爷爷自己\n[f small]  [f -]却没有得到幸福啾！”"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷把财宝全都用在了大家身上。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "他展示出“只要做好事就能幸福”的希望，\n并为了维持这份希望，不断说着谎言。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "许多虚构的故事。许多[#法螺:ほら]话。许多[#伽噺:とぎばなし]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "每当他将那些愉快的谎言化为现实，\n老爷爷就会愈发被现实抛在身后。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "回过神来，所有村民都已步入\n幸福人生的暮年。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "而老爷爷直到最后，仍只是个爱讲[#法螺:ほら]话的怪人，\n孤零零地活着。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "老爷爷孤身一人离开了人世。\n然而，他临终的神情却显得无比幸福。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "虽没有任何人守在他的[#間際:まぎわ]，\n他的送葬队伍却无比盛大。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "因为听到老爷爷的讣告后，\n许许多多村民都聚集而来。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "其中还有来自邻村，\n乃至更远一座村庄的人。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "倒也不是说，有谁察觉了老爷爷的[#善意:うそ]。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "只是，那些曾被老爷爷编造的故事拯救的人们，\n带着笑容前来向他道谢。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "世上还有比这更幸福的告别吗？\n每一个人都在感谢老爷爷。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "正如老爷爷所愿，\n没有任何人变得不幸。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "最圆满的临终。最晴朗的天空。\n明明没有任何值得悲伤的事——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "可是，偶还是很悲伤啾。非常、非常悲伤啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "没有任何人能够\n把幸福送给老爷爷啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "没有任何人，任何人，\n能够回报那张笑脸啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不论怎样的谎言，怎样编造的故事，\n都没有一个是为了他自己而编的——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "直到最后，他都没有留下名字，\n只是守望着无数人的幸福啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……根本就不该邀请人类\n来到[#雀:すずめ]的旅馆啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "到头来，[#紅:べに]只是让老爷爷\n变得不幸了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "所以……所以——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——所以，偶想要好好地报恩啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "[#閻魔亭:えんまてい]是连接过去与未来的异界……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "只要继续经营[#閻魔亭:えんまてい]，只要它仍作为迷途之家存在，\n或许有一天还能再见到他啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "[#閻魔亭:えんまてい]已经不再被任何人需要了啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "可是[#紅:べに]还想再见老爷爷一次啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "偶想再看看那温柔的笑容啾。\n想再听听那些有趣又温暖的故事啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "还想让他夸奖偶，\n说偶曾经那么不擅长的料理，也已经做得很好了啾——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……让你看到偶这么难为情的样子了啾。\n莫名其妙地哭起来，一定吓到你了啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "谢谢你一直关心[#閻魔亭:えんまてい]啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "虽然偶说过今年就要关门，\n但偶还没有自暴自弃到那种程度啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "所谓人生[#万事:ばんじ][#塞翁:さいおう]之[#馬:うま]。\n[#雀:すずめ]就按[#雀:すずめ]自己的方式努力下去啾。"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……虽然我们无从知晓其中的缘由……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但我们至少明白了，对红阎魔小姐而言，\n[#閻魔亭:えんまてい]是一个无比重要的地方。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主。让我们集齐五件宝物，\n为了能将它们归还给竹取翁而努力吧！"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ cache/
 *.pyd
 *.db
 *.json
+!translations/**/*.json
 *.log
 templates/gaming_ref.html
 templates/index.before_layout.html

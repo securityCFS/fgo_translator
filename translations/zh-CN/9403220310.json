@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220310",
+  "source_region": "JP",
+  "source_hash": "90b3450f14bd1f84b70f7a0ce712c80d46ee02273519d6806374b1ab67cce653",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 82,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 呼～～…………"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 稍微休息一会儿吧。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那我去泡茶了。\n大家也休息一下吧。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "谢谢你，玛修。\n那我就不客气了。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "又是捡柴火又是扫落叶的，\n这些不习惯的差事弄得我精疲力尽。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "但你看起来还挺高兴的呢。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "那是当然！\n毕竟是在温泉旅馆和御主一起工作！"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "对我来说，这就已经像是『蜜月』般的假日了♡"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "我也不觉得干活有什么辛苦。\n反倒对能帮上红老师的忙感到无比高兴。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "可是……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "清扫后山什么的完全没有积累“谢意”啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你想说的就是这个吧，巴！\n这也是我想说的！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "照这样下去我们肯定会变成猪的！\n我需要彻底的解决方案啊，各位！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "新所长言之有理。\n前辈，你有什么发现吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 阎魔亭虽然很气派，但好像没什么客人？"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "没错……没有客人也就没人会投钱。\n功德箱无论过多久都是空的。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "而且我们还中了供奉殿的诅咒，\n不能就这样返回迦勒底……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "如果在问题解决之前返回迦勒底的话，\n就只能干等天罚降临了呢……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯，说得没错！\n现在向迦勒底求助还为时尚早！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "何况通信装置的状态好像也不太好。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过只要有我在，根本不需要希翁他们的建议嘛。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 和迦勒底联络寻求帮助吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不。还没到时候。\n就算现在联络也解决不了任何问题。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们正处于所谓的被诅咒状态。\n想想如果现在返回迦勒底会发生什么吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "『好了，差不多该去下一个异闻带了。』\n『话说春节发生了什么？ ——啊。』"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "然后咚！　的一声之后，\n大家齐刷刷地变成动物了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我很熟悉这类因果报应啦！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "基于以上理由，在当前问题得到解决之前，\n禁止使用通讯装置！　我要动用所长权限！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "比起这个，还有更值得在意的事情吧！\n那就是这座旅馆没有客人，没有客人啊！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "确实。尽管这里有几个住客，\n但那些都是“长年住在阎魔亭”的人。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "尽管他们也会每天对阎魔亭表示“感谢”……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "说得对……“感谢”在日常化之后，\n必然会变得单薄……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "阎魔亭虽然是座豪华的旅馆，\n但似乎的确缺乏新客人。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "建筑物明明保养得非常好，\n整体上却显得十分冷清……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽说不知道为什么会变成这样……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。灵验的旅馆却萧条冷清，\n这确实十分奇怪——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但现在不是讨论这些的时候。\n这些放以后再说吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "毕竟关于目前该做的事情，\n我们早已得出答案了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 得出了！？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯，当然得出了。\n你们不是已经说出来了吗，御主。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 确实已经得出了呢。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯嗯。既然已经明白了问题，\n那就先从那里着手吧。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "御主刚才说“没有新客人到来”吧？\n那我们去招揽一些新客人不就好了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这里虽是人类无法到达的旅馆，\n但我们认识的非人类也数不胜数。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "只要分别把我们的缘引过来，\n就能顺藤摸瓜地招揽英灵们了吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你指的是，由我们来安排客人？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "但是，凭你们缘分招揽从者是有限度的吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对。假设彷徨海迦勒底基地的\n魔力生产量与旧迦勒底规模相同，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那预计能送入特异点的新从者数量\n少则一骑，多则两骑就是极限了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……而且，还必须符合与御主一起灵子转移的条件。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "现在我们无法返回迦勒底，\n自然无法从迦勒底召唤从者。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但不从迦勒底进行召唤的话，\n我们就只能直接从英灵座进行召唤了……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "而那样需要圣杯级的力量……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。[#所以]才要用这种方法啊，玛修。\n这座阎魔亭是御灵们的聚集地吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "所以这里打从一开始应该就是个『召唤场所』。\n否则那些灵是无法来这里的吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "如何挽回流失的客源呢？\n很简单。大肆宣传就行了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "美味的食物。\n美妙的风景。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "以及无微不至的服务。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "阎魔亭生意兴隆的话，\n就会有好奇的英灵闻风而至。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "好了。为了达到这个目的，\n我们该怎么做呢，御主？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 不断工作！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 让这里热闹起来！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈。御主说出了我难以启齿的话呢。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "慰劳旅行转身一变，成了振兴旅馆的劳动。\n哎呀真是的。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "既然御主这么说，\n那我们也没什么意见。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "但话说回来，这毕竟牵扯到阎魔亭。\n不管做什么都必须得到红老板娘的许可吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "修整庭院、帮忙做菜，\n从大扫除到空房装饰。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "毕竟这涉及旅馆的经营方针，\n已经不属于兼职的范畴了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "这方面的事我会和红老板娘谈的。\n我想想，首先……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "改造一间被封锁的客房如何？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "如果客人光临却没有足够客房的话，\n不就完全是本末倒置了嘛。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我觉得打好基础才是关键♡"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯，说得没错，玉藻前！\n哈哈哈，总觉得这个名字叫起来好顺口啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "该做什么已经定了。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "首先要让客房保持可用状态，\n藤丸立香。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这是劳动的一小步，\n却是拯救我的一大步。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "来吧，该认真工作了，[&小子:小丫头]！\n我也会尽全力为你们加油的！"
+    }
+  ]
+}

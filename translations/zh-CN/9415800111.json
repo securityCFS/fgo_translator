@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800111",
+  "source_region": "JP",
+  "source_hash": "5386fb44a09d90b8ae4f82c244d9a7ca548e54bda435cacfd6b75a63ec84e0fd",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 79,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "来吧！　老实点，垃圾们！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇哇哇，扔出了好多卡片和魔杖！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "他真的把它们叫作垃圾了……好厉害……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哼。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你刚才说自己是卡尔德尼亚的管家，\n还提到了什么职业体验吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是的。我叫阿斯，是卡尔德尼亚的管家。\n再次向各位问好！"
+    },
+    {
+      "speaker": "J：阿斯",
+      "translated_content": "二位是奥尔加玛丽小姐和格蕾小姐吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是的，我叫格蕾！　请多关照！\n这边是奥尔加和御主！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "感谢您如此郑重的问候。\n这是欢迎饮品柠檬茶。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇！　柠檬茶！！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "来，大小姐和御主也请用。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……算了。\n藤丸立香也有毒素耐性吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我开动了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：谢谢！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好喝！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "太好了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么，既然各位已经润过喉咙……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "呃……那个，经理托我向各位客人\n转达一则特别留言……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "留言？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请看这个。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：得墨忒耳小姐！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "迦勒底的各位，你们来啦！\n我真的非常开心！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。我不在的时候，你们竟然连得墨忒耳都契约了吗！\n不过，她刚才的说法……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：她不是迦勒底的得墨忒耳……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：可她又知道迦勒底……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……玛修。确认一下。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "迦勒底的得墨忒耳\n该不会已经联系不上了吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、是！\n正如奥尔加玛丽所长所说！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我刚刚进行了确认，灵基一览中的得墨忒耳小姐\n目前已无法观测！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "果然。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这是怎么回事？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概是迦勒底的得墨忒耳与特异点的得墨忒耳，\n两者的信息混在了一起。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "神灵从者往往具有浓厚的传承融合与分灵概念，\n彼此的信息和存在很容易混杂。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等这个特异点解决后，\n应该就会自然分离并恢复。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "你们看，你们不是……\n已经彻彻底底拯救过两次世界了吗？"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "既然如此，当然必须得到奖励！\n拯救世界却没有奖励，是绝对不可以的。"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "而且，只要你们还没打算退休去过[#悠々自適:ゆうゆうじてき]的生活，\n为了适应现代社会，职业体验也是——必需的吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：呜……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：就业服务中心……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "所以——我为你们\n创造了最棒的特异点！　它的名字就是卡尔德尼亚！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "把特异点"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "用来做职业体验！？"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "在卡尔德尼亚，\n各位可以体验许许多多的职业！"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "每种职业的负责人，都是我精挑细选的一流人才！\n我保证各位能得到最棒的职业体验与成果！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。真不愧是赫赫有名的大地母神之一。\n虽然做法乱七八糟，构想却很稳健……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是，真不愧是丰收女神得墨忒耳！\n只能用精彩绝伦来形容！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "丰富的职业体验会成为未来的财富！\n医生也这样说过！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊，是啊。神灵考虑事情时，\n规模通常都会变成这样。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（直到不久前我都很熟悉这种感觉，\n　反而让我产生了共感性羞耻……）"
+    },
+    {
+      "speaker": "得墨忒耳",
+      "translated_content": "尽情享受吧！　无论你想成为怎样的自己，\n我都会全力为你加油！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等一下！\n那我和格蕾为什么会变成这副模样……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "断掉了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "偏偏在关键的地方……不过，既然只是留言，\n本来也无法回答我们的问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那你呢！\n你也不知道我们为什么会变小吗？"
+    },
+    {
+      "speaker": "J：阿斯",
+      "translated_content": "呃，不，十分抱歉。\n关于这件事，我确实完全不知情……"
+    },
+    {
+      "speaker": "J：阿斯",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "大家好！　我不再是卡尔德尼亚的管家阿斯，\n而是卡尔德尼亚的吉祥物“空空君”！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：一定要穿那套布偶装吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，那个！\n工作时反而有许多不方便！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "但经理说这是在宣传卡尔德尼亚，\n所以工作期间尽量不要脱下来……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：你很喜欢那套布偶装吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，那个！\n里面又闷又热，行动也很不方便！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "但经理说这是在宣传卡尔德尼亚，\n所以工作期间尽量不要脱下来……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "职业精神很不错。虽然多少有点黑心企业的味道。\n一流的工作就该这样。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "里面很热……不会难受吗……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈，各位客人不必为我担心。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么，现在就由我带各位游览卡尔德尼亚！\n首先前往通向一切的入口——卡尔德尼亚广场！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n阿斯……阿斯啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "唉。这也太明显了。\n已经不是“背后另有隐情”这种程度了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个人是[#アスカラポス]……对吧。"
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220210",
+  "source_region": "JP",
+  "source_hash": "3411fcdb50f7e4f4cadcabb70ab1960c057fc6849a942397adf5c8a7ba5f4eff",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 75,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "麻雀",
+      "translated_content": "这里就是『雀之间』啾。\n请好好休息啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "这里是藤丸立香大人和玛修大人的双人房啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "休息时门会锁得牢牢的，\n所以请放心啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "只有成为恩爱夫妻后才能睡同一床被褥。\n这是红老板娘定下的规矩啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，好。\n其实我们，嗯，说得没错啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "左边的房间里有被褥，\n要休息时可以拿来铺开啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "畏寒的客人若需要汤婆子暖脚，\n可以吩咐我们去拿啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 话说回来——"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯，好美的风景啊，前辈！\n快看，从窗户能眺望整座山的全貌！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "[charaTalk C]\n你们好～！　我是住在隔壁『翡翠之间』的，\n过来向大家打个招呼♡"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是玉藻小姐她们呢。\n欢迎，请进！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "好～，打扰了～！\n哇哦。不愧是拐角房，景致果然不同呢！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "好像比我们的房间稍微大一点呢。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "本以为红阎魔老师会讨厌人类，\n实际上似乎并非如此吧？"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "……温泉旅馆……令人兴奋的食物……\n没什么事需要做的观光胜地……"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "不可能不发生些什么……\n呵呵呵……多么美妙啊……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "暂停一下，清姬。\n这次还是认真点对待吧？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "毕竟这不只是我们，\n也事关御主和玛修的贞操危机啊。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "[charaTalk F]\n这里是『雀之间』吧？\n是我，戈尔德鲁夫。我要进去了哦，各位。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦哦。这个房间也别有情趣。\n日本的旅馆有种温暖的感觉，真不错。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "太好了。大家都在这里。\n果然来这里是正确的选择呢，吾主。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "是啊。我本来想去传说中的日本温泉……\n但温泉似乎封锁起来了呢。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "于是我便重振精神过来参加作战会议了。\n这座旅馆里似乎隐藏着不为人知的内幕。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大家也都看过自己的房间了吧。\n呃，我记得带着……找到了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请享用，虽然只是粗茶。\n我用房间里的茶具为大家泡了茶。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 谢谢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 除了茶之外居然还有包子……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯，真是个懂事的亚从者。\n真希望我的那些女仆也向你学学。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不对，现在可不是优哉游哉的时候！\n大事不好了啊各位！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "怎么办！？　我们该怎么办才好啊！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "虽然我是个精明强干的司令官，但这里是异国他乡！\n更何况我还是第一次感受来温泉旅馆之喜悦！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "如何才能积攒“谢意”什么的，\n我完全想不出来啊！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 玉藻，你知道吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 巴，你知道吗？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "……我也完全不懂。\n玉藻，你有什么主意吗？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "是啊，在这方面我也是门外汉，\n我对此也很没有自信……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "但应该先按照红阎魔老师所说的，\n从杂务做起吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "毕竟我们既不是旅馆的专家，\n也不是专业的工匠。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "还是从我们曾经做过的，\n有自信能做好的工作开始做起吧。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "随后自然就能了解这座旅馆的构造和内幕了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "『我们能做什么』与『我们想做什么』，"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "自然就会明白这些了吧。\n综上所述，请穿上这件衣服吧，御主♡"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这是……魔术礼装？\n但好像和平常的有些不同……啊！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前前……前辈，这是浴衣！\n是我憧憬已久的温泉旅馆的制服！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "没错。我想这肯定用得上，\n就向红老师要来了阎魔亭的浴衣。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "尽管是赶制的，但也是包含了我的巫力、咒力、\n以及爱情，重新修补过的独一无二的珍品哦♡"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "啊，太狡猾了，玉藻！"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "我也要！\n我也要在其中加入我心意！"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "这件衣服就等同于我的鳞片了。只要穿上这件衣服，\n我们就能一心同体了，御主♡"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈，真可靠，有爱是件好事啊！\n看来您正在被深爱着呢，御主。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "那我也送上我的小礼物吧。\n实际上，刚才我们在走廊里遇到了几只小麻雀。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我询问他们『有没有工作可以做？』，\n结果听说了颇有意思的情报。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这座阎魔亭是由老板娘与九位麻雀伙计负责运营的。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但由于最近魔猿猖獗，人手似乎有些不足。\n具体来说，一共有3种工作。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "1『采集山珍、河味的工作。』"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "2『修补旅馆、砍柴等获取木材资源的工作。』"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "3『击退捣乱魔猿的工作。』"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "如何？\n在这些中，第3种工作现在就可以开始吧？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "这样比较好。\n击退那些魔猿属于我等战士们的工作。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "这次的困境也是我等背德之举所造成的。\n就算没有报酬，我也粉身碎骨在所不辞。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "没错——这才是真正的无穷试炼。\n我开玩笑的。"
+    },
+    {
+      "speaker": "全体",
+      "translated_content": "[charaTalk B]\n…………"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "……真丢脸。我迪尔姆德的口舌\n竟无法像巨大的愤怒般锋利……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "说话之道就是我的专长了。\n看来双剑的迪尔姆德有些得意忘形了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但是这种气魄值得称赞。\n击退魔猿可以在后面的树林里进行吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "御主，请尽情使唤迪尔姆德吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "当然也包括我。\n毕竟供奉殿的骚乱我也有责任。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好吧。野外的工作就交给你们了，\n藤丸立香。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我就负责在阎魔亭里转转并探查这里的内幕。\n我也有些在意的事。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "明白了。是分头行动吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那赶紧换上阎魔亭的工作服出发吧，御主！"
+    }
+  ]
+}

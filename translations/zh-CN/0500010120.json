@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010120",
+  "source_region": "JP",
+  "source_hash": "5cf89fd7de62207319e275dc3002197dbc28f9bd0d244c467e8bf4fffd8f2579",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 101,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好，辛苦啦！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "布狄卡！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: ……咦？布狄卡？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "嗨，玛修，还有御主。\n你们是来吃饭的吗？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "稍等一下哦。\n我这就准备！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，可是。让从者\n为我们准备饭菜什么的——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "毕竟，餐食方面也配备了烹饪机器。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "真是的，说什么呢。\n这是我自己喜欢才做的。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好了好了，快坐下吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈，怎么办？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 说得也是，那就拜托了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好！"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "你们刚回来，肚子饿了吧？\n想吃点管饱的吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 就交给你了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "御·[wt 0.6][cueSe SE_25 25_ade1144][charaMoveScale B 1.0 0.2][charaMove B 0,15 0.1][wt 0.1][charaMove B 0,0 0.1]主·[wt 0.6][cueSe SE_25 25_ade1144][charaMoveScale B 1.1 0.2][charaMove B 0,40 0.1][wt 0.1][charaMove B 0,20 0.1]大·[wt 0.6][se ad7][charaMoveScaleEase B 1.5 0.3 easeOutQuint][charaMoveEase B 0,85 0.3 easeOutQuint]人～♪[shake 0.03 4 3 0.7]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 吓了我一跳！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "是的。我就是想吓您一跳。\n我是您的清姬哦♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "恭喜您攻克第一特异点。\n身为从者，我深感骄傲！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "来、来、来。我来喂您“啊——”。\n请吧，请吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 先不说这个，你这身衣服是……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "对了。你是什么时候换上迦勒底制服的……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "啊，因为所长通知说，\n可以向有需要的人出借迦勒底制服……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "偶尔看看焕然一新的清姬也不错吧？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……[wt 0.4][charaFace B 8][charaMoveReturn B 0,4 0.3]不，我们相识应该\n还不到几天才对！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "但不知为何，我总有种与您相伴多年的感觉，\n所以清姬就试着换了个形象♪"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "好看吗，御主大人？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 当然。非常适合你"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "谢谢您。\n呵呵，简直有种升上天国般的幸福……！"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "豹气登场。\n恭喜第一特异点通关喵！"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "辛苦了。身体怎么样？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，对了，杰基尔先生是……！"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "哈哈，别看我这样，好歹也是医学博士。\n有什么事就来找我商量吧。"
+    },
+    {
+      "speaker": "G：大卫",
+      "translated_content": "嗨，各位，恭喜！\n嗯嗯，真是一顿令人愉快的饭啊。"
+    },
+    {
+      "speaker": "G：大卫",
+      "translated_content": "接下来若能和像你这样的美女共进晚餐，\n我想就完美了吧？"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "啊……下次有机会再说吧。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "真遗憾。被拒绝了。\n那我就和御主一起吃饭吧。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "布狄卡，我也能点一份套餐吗？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "真是的，明明是从者……\n材料很充足，再加一份倒是没问题啦。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "二位辛苦了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 贝狄威尔……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "贝狄威尔也……"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……啊，没什么。\n只是在想，您是什么时候来到迦勒底的。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "说得也是。\n仔细想来，我是什么时候被召唤的呢？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我记得您与我们是在同一时期\n被召唤的。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "好像……确实如此。\n没错，是这样。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "回想起来，感觉像是很漫长，\n又像是很短暂呢。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "不过，终于要正式攻略特异点了。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "如果我们也被选为适性从者，\n就得一起参加灵子转移。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "无论是否有适性，\n我都想和御主大人在一起。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哦，对了，杰罗尼莫呢？"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "啊，他好像有些在意的东西。\n说想再调查一段时间。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: （原来杰罗尼莫也在[&のか:んだ]……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好，久等啦！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "谢谢。那么，我们开动了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我开动了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所以前辈，接下来是学习时间！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 不要啊……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "因为这是今后必需的学习……。[wt 1.0][charaFace D 8]\n我、我会争取让课程变得有趣的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 学吧！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "真是充满了干劲[#溢:あふ]呢。\n就是这个气势！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么，关于学习……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 机会难得，要不要换个地方？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "换个地方吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我是没关系……\n但究竟要去哪里？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "——哎呀。您好，御主。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咦、咦？迦勒底里有这种地方吗……？\n而且您是从者……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "是的。我叫紫式部。\n目前担任这座图书馆的管理员。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原、原来如此……\n前辈居然很熟悉图书馆呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: （……为什么[&オレ:わたし]会知道这里呢）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那些文具是……\n啊，原来如此。莫非你们是来图书馆学习的？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。给您添麻烦了吗？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "不，怎么会。\n请随意使用那边的桌子。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "你们要学习什么领域的知识呢？\n我可以为你们取来一些参考书。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这个嘛……那么，如果有关于法国伟人\n和欧洲神话的书就好了。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "好的，请稍等。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 要学习了啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么就打起精神来学习吧，前辈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "玛修·基列莱特，\n会全力担任老师的……！"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "非常抱歉。\n可以稍微打扰一下吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "什么事？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "其实……\n图书馆深处出现了几本邪恶的书……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "我也会参战，如果可以的话——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 当然会帮忙"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。当然！"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "非常感谢。\n那么，就拜托二位了。"
+    }
+  ]
+}

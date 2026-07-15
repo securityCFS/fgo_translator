@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010751",
+  "source_region": "JP",
+  "source_hash": "fcd4d54cb807fba214249c8bc034caf0f0ab4d3ad785f581ac93450b47353cfc",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 58,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（他稍微手下留情了！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "到此为止。很好。\n继续回到更加[#旧:ふる]老的时代吧。"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "但要谨记。守候在前方的，\n是即将登临兽之座的女神。"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "你们应该明白吧？\n[#古今東西:ここんとうざい]，女神从来就没一个好东西。"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "在前方……不，在这片区域的[#下]方等待着的女神，\n当然也属于此类。"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "即使概念被赋予了人格，\n也[#永劫:えいごう]不可能理解人类本身。"
+    },
+    {
+      "speaker": "吉尔伽美什",
+      "translated_content": "去吧。让她不得不承认，\n所谓过去，终究不过是成长的养料！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：地、地震！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "托马林",
+      "translated_content": "乌鲁克城正在迅速崩解！\n这是地震……不，简直像是在被分解。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "有必要让所有人撤到安全地点吗！？"
+    },
+    {
+      "speaker": "川田",
+      "translated_content": "……不，看来没问题。\n一行人周围的环境没有明显变化！"
+    },
+    {
+      "speaker": "川田",
+      "translated_content": "不过，前方出现了一个巨大的洞……。\n开始使用示巴进行探测！"
+    },
+    {
+      "speaker": "川田",
+      "translated_content": "这是……[#螺旋:らせん]楼梯吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[#螺旋:らせん]楼梯啊。\n而且似乎是向下延伸的……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚才吉尔伽美什说过，\n她正在下面等着。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……藤丸立香，能下去吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没问题——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那就试着下去吧。\n乌尔德显然就在下面。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，请注意脚下。\n那么，我们出发吧。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "啊——，总觉得像是在坠入地狱。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "你是指它永无尽头吗？\n若是这个意思，确实没错。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哦？在你所知的地狱里，\n对罪人的惩罚也会永远持续吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "那里的环境与此相近。基本不存在救赎。\n罪人不会得到[#贖:あがな]罪的机会。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "一边哀叹，一边[#啜:すす]饮凝聚了世间一切苦涩、\n世间一切恶臭的一滴果汁。直至永远。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "——抱歉，别再聊地狱了。\n光是想象一下，我都要退场了。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "你们的地狱想必也大同小异。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "真是个不可思议的空间——。\n不冷也不热。话说，这里是不是根本没有空气？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，也就是说处于真空状态？不会有事吗？\n生命体征——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……依我看，这是[#時間が停止している]时间停止了。\n因此没有温度，空气也毫无波动。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香的生命体征\n似乎没有问题。玛修也没事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "能继续走就前进吧。\n如果呼吸困难，就暂时撤退。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "不过，这到底会延伸到哪里，\n完全看不出来啊。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "要不我试着掉下去看看？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "别说得那么轻松就想往下跳。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "藤丸立香，没事吧？\n会不会难受，或者害怕？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：倒是不难受，但有点害怕"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：没什么特别的感觉……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "这样啊，这样啊。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "没事，真有情况的话，姐姐会\n紧紧抱住你，带你一起下去。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "当然也包括玛修！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那、那就谢谢您了！"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "这可不好。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "在这种情况下感受不到恐惧，\n反而是件危险的事。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "……不必客气，尽管害怕吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……对不起，我很害怕！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "没事吧？要不要我抱着你下去？"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "原来如此。玛修呢？不害怕吗？\n我可以抱着你哦。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不、不用了。我没事。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哎呀，我倒是很害怕。\n抱着我吧，布狄卡。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好啦好啦。等我有心情再说。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "原来如此。\n也就是一辈子都不会有心情。"
+    }
+  ]
+}

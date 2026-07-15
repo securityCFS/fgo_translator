@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800410",
+  "source_region": "JP",
+  "source_hash": "b7f9d68e8c9afbdb8d660ba002e54594787958ccc1c9cc70691945f0552f3e28",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 113,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：是城堡……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这里便是里卡尔德尼亚引以为傲的\n缟玛瑙城堡。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位大驾光临，实乃无上荣幸。\n还请尽情领略里卡尔德尼亚之美。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：管家式微笑……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "能言善辩是件好事。这在城中也是重要职责，\n也是我无法胜任的工作。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈哈……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "不过，你不是接到过指示，抵达里卡尔德尼亚后，\n要第一时间造访这座城堡吗？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "你应该知道，我们的经理翘首以盼，\n一直在等待特邀贵宾来访吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这个嘛，发生了很多事……\n我们是在意想不到的时机入园的。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "很好。有关这一点的辩解，\n就请你直接向经理说明吧。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "（……喂喂喂。\n　那个真的是亚瑟王吧。）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：（虽然迦勒底也有……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：（但在特异点遇见时，气氛还是有些……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（……我也在报告中读到过。）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（第六特异点。试图以圣枪伦戈米尼亚德\n　保存仅存人类的狮子王。）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（……不过，那位狮子王只会在那个特异点中\n　出现，应该并非同一个存在……）"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "（无论如何，她手里拿着的东西是……）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（圣枪伦戈米尼亚德……\n　和你封印着的是同一柄枪吧，亚德。）"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "（嘻嘻嘻嘻！那当然会产生反应！\n　不过对方有没有注意到，我就不知道了！）"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……那位就是……王……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "接下来，各位将觐见经理。\n大家准备好了吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好的……！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "经理，我已将特邀贵宾带来。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "……你们来了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：（不是得墨忒耳……！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：（这个模样是……！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔·厄里倪厄斯……！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：（你认识她吗？）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（没时间详细解释了。\n　总之，先把她理解成得墨忒耳的一个侧面吧。）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（神明拥有许多不同侧面，\n　这点你也知道吧？）"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……是吗。\n你们就是……来到我的卡尔德尼亚的人……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：卡尔德尼亚？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：不是里卡尔德尼亚吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "嘘……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "（为了方便理解，我们把这里称为里侧，\n　但对她而言，这里才是表侧。）"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "（太好了。果然，因为格蕾小姐和\n　奥尔加玛丽小姐都在，她才能正常交谈。）"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你们……叫什么名字……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我是奥尔加玛丽。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我叫格蕾。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……奥尔加玛丽和格蕾……\n都是……很好听的名字……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "呐，你们两个……\n让我好好看看你们的脸……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊，格蕾……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这样可以吗，厄里倪厄斯大人？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "啊啊……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "啊啊……多么……\n多么惹人怜爱……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "仿佛……我翘首盼望已久的……\n温暖春风……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "来……也让我好好看看你的脸……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我、我就……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样……可以吗？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "谢谢你……你鼓起勇气了呢……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只是让你看了看脸，哪有那么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "准许……我准许你们……\n你们可以在我的国度里自由行走……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "听见了吗……？\n阿尔托莉雅……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "是，我确实听到了。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "太好了……只要你听见了……\n我就放心了……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "去游览这座卡尔德尼亚吧，\n用许许多多的照片，将护照填满。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "如果你们能把护照全部填满……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "我就把这座卡尔德尼亚，\n全部送给你们。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "呵呵……除此之外……似乎还有一样东西……\n现在就能送给格蕾……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "阿尔托莉雅……举起你的枪。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "这样吗？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "呜哦……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你的未来……我能够看见……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "所以，就让阿尔托莉雅的枪为你指引，\n稍微预支一点未来吧……？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "预支……未来？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你马上就会明白……\n会变成这样……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "伦戈米尼亚德……把你的力量借给我。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "唔——！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "星辰啊……光辉啊……\n为她注入生命的气息……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇、哇、哇……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦[messageShake 0.03 3 3 0.4]咦咦咦咦咦咦……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：格蕾她……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：突然长大了十岁左右"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那、那个……[#拙:せつ]究竟怎么了……\n大家突然都变小了……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "说[messageShake 0.03 2 2 0.6]反了！是你突然变大了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "话说连我都变了！这是什么情况！\n神明做起事来还真是乱来啊！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是啊……等你把护照全部填满……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "卡尔德尼亚和这份力量，\n都会真正属于你……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "不过，现在就特别地……连未来的尽头……\n也全部让你看见……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好热——！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "呜哦哦哦哦！明明才刚改变灵基，\n她居然还把灵基一路提升到了极限！？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "不……还可以继续……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "快住手！格蕾的灵基已经！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "还可以继续……我的权能……\n原本就是能够做到这种事的力量……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "季节轮转……\n命运也随之轮转……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "[#あなたがきたから]，[#はるがくる]……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊啊啊啊啊啊……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：魔力稳定下来了……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：魔力融入身体了……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "没、没事。\n已经不热了，也不会感到疼痛。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……那个……可是这已经……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "这样就完成了……完美无缺……\n不过，既然如此……我想确认一下效果……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "呐，阿斯，去陪她练练吧……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦，难、难道是我吗！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "因为你最……合适……\n拜托你了……？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "既然如此，就由我站在格蕾一边吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可以吗……！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "当然。由经理映照出的那柄枪，\n我也很想亲眼确认其力量。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "那么，阿斯。很抱歉，\n我会全力以赴。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不不不、不是吧！两位还请手下留情……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "[line 2]我要上了！"
+    }
+  ]
+}

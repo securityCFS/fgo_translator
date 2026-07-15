@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010220",
+  "source_region": "JP",
+  "source_hash": "77dbc7740de0a7693c4155a245f5a3383456c33eb29cae849368f75438962487",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 47,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……终于等到这一天了。\n终局特异点，时间神殿所罗门……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说实话，我相信一路走到这里的大家，\n一定会为我们带来胜利。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "御主·藤丸立香，\n冷静下来。务必认真听从我们的指示。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毕竟这里是与以往不同、一切未知的空间。\n不要擅自行动，也不要焦躁。明白吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "玛修·基列莱特。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、是！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我对你没有任何担忧。\n好好完成自己该做的事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "尽情发挥身为圣骑士的力量！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "明白！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也拜托各位从者了。\n幸好所有人都能适应时间神殿。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "最多七骑，毫无保留地全力出击！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还有其他工作人员。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然发生了很多事……多到\n我都记不清了……总之。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "现在，我完全信赖你们。\n所以从今天起，直到一切结束——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "都要不断发挥出最大的力量。以上！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "那么，我也说几句可以吗？\n主要是再说明一下实务事项。"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "我们终于锁定了魔术王的大本营，\n那个位于正常时间轴之外的特异点。"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "迦勒底将从现在开始与这个特异点接触。\n整座设施将直接驶入敌方领域。"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "我们会通过灵子转移侵入敌方特异点，\n但实际上相当于在相连的陆地上移动。"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "状况和此前的探索不同。迦勒底与\n敌方特异点之间，只能从接触面进行转移。"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "也就是说——"
+    },
+    {
+      "speaker": "L：Dr.罗曼",
+      "translated_content": "嗯，就是闪电战！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你真是乱来啊。[wt 0.8][charaFace A 2]\n不过，也只有这个办法了吧？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "正是如此！\n示巴的调查结果，正如刚才交给各位的报告所写。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "在这个化为概念宇宙的世界中，\n唯一的生命体，魔术王——"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "将其击败，并且务必返回。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……没错。平安归还才算完成最后的任务。\n如果做不到，就是零分。不及格。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是[&オレ:わたし]吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是我们，所有人！来吧，准备灵子转移！\n最终命令，攻略时间神殿！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那个……魔神柱呢？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……魔神柱？[wt 0.8][charaFace A 9]\n那是什么，我记得有这种敌人吗？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "记录里没有。咦，是某种魔兽？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不……没什么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "别突然说这种会让我们[#躓:つまず]栽跟头的话啊……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "魔神柱……。\n总觉得在哪里听过这个名字……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：玛修也听过？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。但我想不起那是什么。\n非常抱歉……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，别在意、别在意。[cueSe SE_21 21_ad1069][charaMoveReturn A 0,-3 0.2][wt 0.25][charaMoveReturn A 0,-3 0.2][wt 0.3]\n现在集中精力应对眼前的事！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（啊，时子小姐在挥手……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——好了，开始灵子转移！"
+    }
+  ]
+}

@@ -1,0 +1,847 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010620",
+  "source_region": "JP",
+  "source_hash": "6630d0095c889f851e565d9504d284733cbf987b8629d053526dfe55a68b39a7",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 207,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "有这些就没问题了。\n辛苦您了，御主P亲！"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "好了，趁还没被别人[#咎:とが]责！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦？你是——从者？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "！[messageShake 0.03 2 2 0.3]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这位是鹤小姐"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：是Caster职阶的从者哦"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "这样啊。[wt 0.6][charaFace B 4]唔，不知不觉间\n从者越来越多了啊……。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "（Dr.罗曼……似乎并不记得\n　我呢……）"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "（话说回来，御主P亲，现在的情况非常不妙。\n　就算用结界蒙混过去，也是有极限的！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（明白，快逃吧！）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "对了。我现在要去检查闸门的传感器，\n你们愿意的话，要一起吗？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不过得等暴风雪停下来，\n那样或许能暂时到基地外面去。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……虽然很想陪你去！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：对不起，我们先失陪了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "对、对不起，医生！"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "之前那件事，真的，\n真的非常感谢您呜呜呜！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "咦，我做过什么吗……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我、我们回来了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "欢迎回来，御主！\n看来素材顺利采集到了呢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我们这边也没问题。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没有发生任何异常，\n我的记忆似乎也没有受到影响。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "关于鹤小姐，\n我已经从头到尾向所长说明过了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，要是记忆真的被动过手脚，究竟能保证到什么程度\n我也说不好……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这里没有被发现的迹象，\n暂时看来应该没问题。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以，做出来要多久？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "给我一个小时即可。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这么快！？不过，快也是好事。\n那就拜托你了，鹤小姐。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "是！那么——[wt 0.7][charaFace A 1]\n啊，有件事必须先说清楚。"
+    },
+    {
+      "speaker": "三人",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "千万不可以偷看哦？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚才那是什么？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，我知道！\n这是《白鹤报恩》里的一句。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：要解释一下吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不用。\n你现在根本没有听这个的心情吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "真遗憾……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等、等有余裕的时候再说吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……有果干之类的吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "当然常备着。\n这可是珍贵物资，给我细细品尝。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "来，玛修也有。[charaMoveReturn D 0,-7 0.5]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "谢谢您。\n要是有茶就好了……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "房间外面倒是有饮水机。\n不过连去那里也不行吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只能等着了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……平白让人紧张起来了。\n要不要聊点什么？比如说……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你们两个究竟想起了多少？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我记得……修复特异点已经是结束过的事。\n还有一位名叫时子、不应存在的人。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "此外，戈尔德鲁夫先生……\n那个……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我记得他似乎是一位非常可靠、优秀的[#所長だったような]所长……\n不过这部分记忆还很[#朧気:おぼろげ]模糊……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——是、是吗？非常可靠？真的吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香，你呢？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：戈尔德鲁夫新所长……这个称呼在脑海中……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "新？是新所长吗？\n也就是说，是我的继任者？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……难道是被植入了虚假记忆？\n这么说来，岂不是显得我因公殉职了？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦，不会吧。怎么可能。\n不可能，绝对不可能。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说到底，我怎么可能因公殉职！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "算了。\n戈尔德鲁夫先生的事就说到这里。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：只记得修复过好几次特异点……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可是……那一带的事情，\n我不太记得了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总之，现在也只能相信这件事。\n有没有什么类似证据的东西？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "有。既然如此……我或许可以作为证据。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "正如所长所知，\n我过去的职阶是Shielder。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但现在已是这副模样！\n职阶，Shielder·Paladin！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "啊，对了。说起来确实如此。\n从灵基来看，简直强到了判若两人的程度。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……你在特异点的战斗中\n觉醒了……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……大概是这样……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我想，应该是出现了某个如同最强宿敌般的存在，\n然后我彻底战胜了对方。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你哪来这种奇怪的自信！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总之，我们必须打倒那个谜之女人……\n时子小……时子。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "她的术式……不，这种情况下该说是宝具吗。\n问题在于，那东西实在太棘手了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。虽然我也只能说是推测，\n但只要[#当たってしまえば全て忘れる]中招，就会忘掉一切。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "就是这种类型的东西。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不能用这面盾挡住吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我不知道……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但我觉得，那件宝具并不是\n能够从正面弹回去的东西。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "唔……针对宝具的对策……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "目前看来，除了用[#先制攻撃:せんせいこうげき]先制攻击设法解决以外，\n似乎没有别的办法。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "再不然……\n只能让其他从者来替我们挡下了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "别露出一副『那有点……』的表情。\n藤丸立香。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这一次，[&オレ:わたし]活下来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：似乎才是最重要的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没错。记忆保留得最完整的人，\n毫无疑问就是你。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "一个不慎，就会一直被困在这个[#過去]过去里。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但这样一来，就需要和迦勒底里的\n从者们协同行动了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真到了关键时刻，他们能迅速行动吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这点没问题"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：应该能行"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……既然你这么说，\n那也只能相信你了。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "做、做好了。\n就是这件！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "做好了啊！\n时间紧迫，我立刻换上。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，藤丸立香，转过身去！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……被人看着换衣服也很尴尬，\n你们两个都转过身去。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。[wt 0.7][charaFace L 13]\n……喂，我说。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：大、大总统——！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "鹤小姐，你是认真的吗！？\n不，这不对吧，你已经不正常了吧！"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "是的，神志正常的话，是不可能在一小时内做完衣服的，\n所以我现在略偏疯狂。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "居然直接承认了！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不对，穿这种衣服出去也太蠢了吧！\n太显眼了，一眼就会被怀疑吧！？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "不会。这是我精心编织的衣服，\n一般的小事绝不会轻易受到[#咎:とが]责。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "没问题，绝对没问题！\n连示巴的眼睛都能骗过！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……穿着这身衣服出去，总觉得会成为我一辈子的耻辱。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "请相信我。\n一定会顺利的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "呜呜呜……这究竟是什么品味啊……\n根本不正常……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：只要是所长就没问题！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "唯独现在，我一点都不想听这种鼓励！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：只要是大总统就没问题！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哈？我是所长，所长！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毫无来由地一下子升这么高的级别，怎么可能！\n小孩子的想法吗！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好，我去就是了。去还不行吗！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：能走吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "走了！[wt 1.0][charaFace D 11]\n听好了，示巴一旦停机，就会自动重启。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在那之前，全速冲刺\n把时……把[#彼女]她揍飞！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（不是吧，居然蒙混过去了！？）"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（不、不愧是从者缝制的衣服……。[wt 1.05][charaFace L 17]\n　这样应该就能直接过去了吧！）"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（……虽然难以置信，这身衣服倒也开始穿习惯了。\n　华丽奢侈，也不算坏。甚至开始有这种感觉了……）"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（好。正常走路就行，正常走路……）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（为什么偏偏今天会遇到这么多人擦肩而过啊！？）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（角太碍事了，每次错身都得侧过身体！）"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "……早上好。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "早！[wt 0.7][charaFace D 16]早、上好……。"
+    },
+    {
+      "speaker": "埃尔隆",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（对啊。至少我被识别出来了。\n　不是某种来历不明的东西）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（示巴也识别到了我的存在，\n　但同时只能将我看成无害之物吗）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（好，到管制室了）"
+    },
+    {
+      "speaker": "E：时子",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "E：时子",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（成功了！\n　接下来只要靠近示巴，输入停止代码……！）"
+    },
+    {
+      "speaker": "E：时子",
+      "translated_content": "等等，你。\n[#どうしてシバに近付いているのかしら]……为什么要接近示巴？"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "…[messageShake 0.03 3 3 0.3]…！"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（就算外表不可疑，\n　行动可疑也会暴露啊，这不是当然的吗！）"
+    },
+    {
+      "speaker": "L：奥尔加玛丽",
+      "translated_content": "（但已经太迟了！）"
+    },
+    {
+      "speaker": "N：奥尔加玛丽",
+      "translated_content": "『修正人理。——主啊，见证我的伟业吧』"
+    },
+    {
+      "speaker": "N：奥尔加玛丽",
+      "translated_content": "所长奥尔加玛丽命令你！\n示巴，紧急停机。重启！"
+    },
+    {
+      "speaker": "H：工作人员",
+      "translated_content": "咦……示、示巴紧急停机了！\n距离重启还有一小时！我这就拉响警报！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "！[messageShake 0.03 2 2 0.3]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "呵呵呵，啊哈哈哈哈！\n那么，我就全力逃跑了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "之后交给你们了！！\n藤丸立香！玛修！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好，走吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请鹤小姐留在这里待命。\n如果发生什么，我们或许会回到这里！"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "好，祝各位武运昌隆！"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "咦，藤丸立香！？\n喂，发生什么了……！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "哎呀，御主。\n这么着急是要去哪里——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：清姬、布狄卡！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……是。\n我愿随您同行！"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "明白！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "呵呵，真奇怪呢。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "不知为何，总觉得我和您之间\n仿佛有前世注定的宿缘。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "莫非您就是安珍大人？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：才不是哦——！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：但我觉得我们的确有缘！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "好，御主！\n目标是谁？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：敌人是时子小姐！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：疑似与时间有关的神灵！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "知道这些就足够了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "此外，对方极有可能正通过宝具\n操纵我们的精神！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "各位，请务必小心！"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "原来如此。也就是说要弑神。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "唔。精神操纵……不，是对过去的[#歪曲:わいきょく]扭曲吗。\n无论如何，都是个棘手的敌人。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "贝狄威尔，你的剑\n能够触及神明吗？"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "总之先试试看吧。\n这把圣剑，是为了御主而挥舞的！"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "也就是说，只能临场应变了喵！\n好啊，真是精准而冷静的判断力！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "您的脑子是Berserker吗？"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "居然被全[messageShake 0.03 3 3 0.5]身都是Berserker的人这么说！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大家真可靠呢，御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯，打赢她吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……真亏你们发现示巴是我的共犯。\n做得很好呢。真棒。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "我向这座示巴注入了相当多的魔力。\n甚至让它与我自身联动。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "即便只是暂时的，如今它已经停机，\n我确实陷入了有些棘手的状况……曾经。不，是现在。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——不过呢，藤丸立香。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "如果以为这种程度就能打倒我，\n那你们未免太天真了。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "汝等没有[#未来:さ　き]未来，也没有[#現在:い　ま]现在。\n正因如此，才赐予汝等在[#過去:こ　こ]过去中[#佇:たたず]驻留的权利。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "我的心意没能传达给你们吗。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "喵嘎——！你的爱是侵略行为！\n建议行使冷静期退货权！"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "……情况紧急。\n我们要在这里开战，可以吗？"
+    },
+    {
+      "speaker": "G：川田",
+      "translated_content": "介意！当然介意啊！可是！\n……看来阻止不了了！所有人撤退、撤退！"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，再自我介绍一次。\n吾名——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：是乌尔德[&だろ:かな]，对吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——呵呵，真是讨人嫌。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "正是。吾名乌尔德。\n乃命运三女神之一，司掌过去者！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "绝望吧。[wt 0.5][seStop ade297 0.3]\n明白凡人没有胜过神明的道理……！"
+    }
+  ]
+}

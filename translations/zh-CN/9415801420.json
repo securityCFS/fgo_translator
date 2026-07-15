@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801420",
+  "source_region": "JP",
+  "source_hash": "371b9c5884ae47f847f539dd41ddf1979b5c4863b0a384d5f39a97cd978cc970",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 66,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "千子村正",
+      "translated_content": "原来如此，两位亚瑟王\n正在那个大家伙体内争取时间啊……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "机神德墨忒尔·起源，这可真是不得了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "阿斯之前说过，这个特异点的圣杯一分为二，\n分别落到了德墨忒尔和厄里倪厄斯手中吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我原本，是这样认为的。\n可是，实际上——"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "没错。实际情况似乎稍有不同。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "机神德墨忒尔·起源。恐怕它才是\n[#この特異点におけるデメテルとエリニュスの本体]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那是说……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "虽然其中夹杂着推测，但最初得到圣杯的，\n会不会其实是那个德墨忒尔·起源呢？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "它为何会变成德墨忒尔与厄里倪厄斯，\n而德墨忒尔·起源至今又一直身在何处。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "以及机神德墨忒尔·起源究竟有什么目的，\n仍然充满了谜团。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，村正愿意[#匿:かくま]我们确实值得感谢，\n但这样不会算是背叛卡尔德尼亚吗？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "其他[#施設:テアトルム]应该也一样，雇用[#儂:オレ]的\n是那位经理，可不是那颗飘在空中的球。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "而且，阿斯也关照了我许多。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我吗？"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "你一直都在认真面对\n这座卡尔德尼亚，不是吗。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "包括[#儂:オレ]在内，每个[#施設:テアトルム]的负责人都只想着随心所欲，\n唯独你不一样。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "你倾听每个人的话，也会同经理据理力争，\n始终费心维持这里的正常运转。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "要让一个好集市运转起来，就需要一个好管事。\n在这里做过生意的家伙都明白这个道理。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "所以只要是为了这样的你，\n不管是谁都愿意出一把力吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……谢谢您。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "接下来就是这位小姑娘了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那个会说话的[#匣:はこ]坏了，\n从德墨忒尔大人那里借来的力量也消失了，是吧？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "大家……都不见了……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾的……[wt 1.0][charaFaceFade C 15 0.15][charaShake C 0.08 1 1 0.2]格蕾重要的……[wt 1.2][charaFaceFade C 3 0.3]\n朋友……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "朋友吗。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "[#儂:オレ]能做的，\n只有锻造武器。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "虽然刀以外的东西并非专长，\n但身为从者的[#儂:オレ]办得到。"
+    },
+    {
+      "speaker": "J：千子村正",
+      "translated_content": "你曾使用过的新圣剑与圣枪，\n凭卡尔德尼亚的锻造工房应该能够重现。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 也就是说……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 可是，那样的话……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "当然还需要材料，\n不过用作核心的东西似乎已经有了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "第一次见面时我就说过吧。\n你们就是最棒的[#玉鋼:たまはがね]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道，你是说……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "难[messageShake 0.05 2 3 0.3]道说，亚德能复活吗！？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "说是复活，\n那个[#にゅあんす]还是有些不一样的。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "能再让我看看那个会说话的[#匣:はこ]吗。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯、嗯……！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "原来如此，是这样损坏的啊……\n可真够惨的。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "但核心还在。\n否则它早就应该消失了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那、那么，村正先生……！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "听好了。刚才也说过，这并不算复活。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "所谓重新锻造，该怎么说呢，\n感觉上更接近重获新生。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "而且还需要其他材料。\n需要足以构成圣剑或圣枪外壳的庞大魔力。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "在这里，用卡尔德应该也可以……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概要多少？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这个嘛。一、二、三……[wt 1.1][charaFace E 21]\n粗略算来，大约一千万卡尔德吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "之、之前帮忙赚到的……\n那、那个……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 那可……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 完全不够……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如果卡尔德就可以，那我来全额支付。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你居然有那么多！？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "两位经理都会给我发工资。\n虽然我一直说不需要……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我想现在正是使用它们的时候。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "好！\n材料的问题解决了！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这样一来，稍作准备就能开工。[wt 1.2][charaFace E 0][bgmStop BGM_EVENT_113 1.5]\n不过在那之前，你们必须作出选择。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 选择？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "关于那姑娘的未来，\n卡尔德尼亚的经理应该已经让你们看过了吧。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "圣剑与圣枪。只要由[#儂:オレ]来，两种都能为她锻造。\n要选哪一种，由你们决定。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "但一旦选定，就[#二度とは戻れん]。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这次并不是像那位女神一样预支未来。\n而是那个孩子真正[#掴:つか]到的未来选择本身。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾的……未来……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "抱歉，时间不多了。\n必须趁那个机神还停止行动时作出决定。"
+    }
+  ]
+}

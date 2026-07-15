@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221810",
+  "source_region": "JP",
+  "source_hash": "dbef7b5341e0cb57a0c41f8a1f2e867e94cd4853ae4886a61aa8003ad3952039",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 64,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "巴御前",
+      "translated_content": "集齐了……\n伐竹翁的『五件宝物』。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "说实话，没想到我们能集齐全部。\n不愧是御主呢。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "虽说关于龙珠的入手途径，\n我今后必定会提出抗议。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "连阎魔亭的天守阁都被复原了。\n芬恩先生似乎特别重视[#复原:这里]。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。毕竟有必要将阎魔亭复原成和500年一模一样啊。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这就是所谓的现场勘验。\n外加这里还是眺望台。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这样一定能看清事物的全景。\n和迦勒底的模拟装置一样哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "只要重现500年前的事件，\n自然就能看清事情的脉络了吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "和过去完全相同的建筑状态。\n加上我那能看穿一切的千里眼。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "以及——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那是——\n芬恩先生开始舔大拇指了，御主！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "噢噢！　那正是多次救我们费奥纳骑士团于水火的\n芬恩·麦克库尔的宝具……！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "“[#啃啃拇指:Fintan][#智慧泉涌:Finegas]”！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "呃……那个……\n舔大拇指的动作……就是宝具吗……？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "西方有趣的英灵真多啊。\n比如黑胡子先生和杰基尔先生。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "那你就错了！\n我不是在舔，而是在啃啊，这位小姐！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 一边大喊一边发光了……！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 黑胡子和杰基尔可不会发光。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "原来如此，是芬恩·麦克库尔的睿智鲑鱼吧！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这是芬恩·麦克库尔拜名为\n范格斯的德鲁伊为师时发生的事。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "范格斯和芬恩·麦克库尔\n获得了一条据说能授予智慧的虹色鲑鱼。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "芬恩·麦克库尔为了让老师享用鲑鱼，\n便自己动手进行了烹饪，可是——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯。因为火力太强，\n从鲑鱼中飞出的油脂沾到了芬恩先生的大拇指上，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那独一无二的『智慧结晶』\n就在芬恩先生的大拇指上扎根了。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。如果是故意的，\n那芬恩·麦克库尔也太可怕了……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不……那真的只是偶然。\n那是我人生的糗事之一哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但老师却笑着对我说“这样就好”。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "睿智的鲑鱼是自然形成的，\n我的行为也是不带任何意图的自然产物。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "“既然如此，说明它本就该扎根在你身上。\n[f small]  [f -]但我将会同情你，这点请你谅解，金发的麦克库尔。”"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "“因为今后无论你遇到什么事，\n[f small]  [f -]都会啃咬大拇指吧？　世上还有比这更好笑的事吗！”"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "这……这个嘛……确实……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "当然，我是很开心的。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "因为即便范格斯耗尽毕生寻求的鲑鱼被我夺走了，\n他也只是笑着对我说，只要这对我有用就行了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "总之，我是个不缺故事的男人。\n你们难道不觉得我会成为伟大的骑士团长是理所当然的吗？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哎，完全不知道你是在自谦还是在骄傲啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "然后呢，你现在究竟在[#思考]什么！？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "当然是在确认事件的真相啦。\n了解过去的手段有很多。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "有使用魔眼或者水晶实际观察过去的方法。\n也有利用正确的信息限定过去状态的方法。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我用的当然是后者。从这眺望台上，\n我可以在『思考中』重现当时阎魔亭的情况。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 啊。那么，也能知道偷走宝物的犯人……？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不，那个问题早就很清楚了。\n我想知道的是『当时的房间』是什么样子的。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "只要算清这个问题，\n接下来只需动用我们全员的力量解决问题就行了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我们全员的……力量……？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。猜中这个事件的犯人并不难。\n难的是获得明确证据来定罪啊。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "事实上，就算集齐了五件宝物，\n也不能给对方造成致命一击。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "“没错，这里确实有五件宝物。”\n“但这并不是我丢的那五件啊。”"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "“就算是同样的东西，价值也会有所不同。”\n“我想让你们还给我的，是属于我的宝物。”"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "如果对方这么说，我们连反驳的余地都没有。\n而且伐竹翁毫无疑问会这么回复我们。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "伐竹翁并不想要宝物的赔偿。\n而是从一开始就打算夺取阎魔亭吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "恐怕是的。看起来像是正当手段，\n其实却是毒辣至极的欺诈。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那我们该怎么做呢？\n如果连集齐『五件宝物』都不行的话……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "魔高一尺，道高一丈。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "还差一步，我们就也能使出王炸了。\n这就是我召集大家的原因。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "话说清姬。\n听说你能看穿别人的谎言，这是真的吗？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "当然是真的啦。\n我清姬是绝对不会放过男人的谎言的。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯。那么红阎魔老板娘呢？\n她也是能看穿谎言的英灵吗？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "不，红阎魔老师没有这样的特殊技能。\n但她能制裁撒谎的人。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "阎雀拔刀术是阎魔大王亲传的招式。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "一旦有人撒谎，她就会进行处分，\n会当即把撒谎者的舌头切掉。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "太好了。那最后一着也准备妥当了。\n好了，各位请向这边靠拢。我来说明一下我们的计策。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "一言以蔽之就是[#信用欺诈:Con Game]……\n我们一起来演一出戏吧？"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "——芙？"
+    }
+  ]
+}

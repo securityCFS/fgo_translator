@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800320",
+  "source_region": "JP",
+  "source_hash": "5d259145a021df579eb9ed989f685ad1d6b757cff0b4e753228cfa8e6cea5250",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 80,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、是……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这里是……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：卡尔德尼亚……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主，你没事吧？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！你那张脸本来就够呆了，\n现在看起来更滑稽啦！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这里是新的剧场吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这、这里是……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，小阿斯是为了替纠结的格蕾做决定，\n才用魔术把我们带过来的吗！？好厉害！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那我们马上进去吧！[wait charaCrossFade B]"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请、请等一下，格蕾小姐……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：她跑掉了……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的，拿她没办法。\n又不能放着不管！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：得追上去……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的，拿她没办法！\n好了，快走吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "——哎呀，失礼了。\n是我靠得太近。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：居然是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：伯爵……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "欢迎各位大驾光临！\n这里正是由我卡利奥斯特罗看守的武器商人[#施設:テアトルム]！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "武器商人？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：同样都是武器……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：和村正的锻造工房给人的感觉差好多……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "嗯，怎么了吗？不过这里毕竟是里卡尔德尼亚，\n与表侧略有不同也是自然。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "你说里侧！？"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "哦，那只会说话的[#匣:はこ]真有意思！\n可以让我拿在手里瞧瞧吗！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不、不行！亚德是格蕾重要的朋友！"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "唔唔，真是遗憾。\n总之，里卡尔德尼亚正如其名。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "看各位现在的样子，应该是从表卡尔德尼亚来的，\n但里卡尔德尼亚的诸多情况都有所不同。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "不过，只要持有那本护照，\n依然可以自由进入所有[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，卡尔德尼亚护照……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：颜色变了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "呵呵呵，既然持有那本护照，\n就绝不会有错。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "喂喂，别摆出这处[#施設:テアトルム]是你独占的一样的嘴脸。\n这里也是我的[#施設:テアトルム]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你是……"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "嗯？看你这反应，\n是见过其他召唤中的我吗？"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "总之，和[#このアタシ]还是初次见面。\n我是武器商人德雷克。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "话说回来，既然阿斯也在，\n这些家伙就是传闻中的特别嘉宾吧。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "呃，大致就是这么回事……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "你们好！两位武器商人！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "哈，回答得真有精神！\n这小家伙会成为一个好商人的！"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "在这里，各位将体验武器商人\n卖得更多、卖得更贵的谈判技巧。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "判断谁更有钱、谁更可能发动战争，\n再把价格哄抬到荒唐地步的战斗！"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "来吧！各位准备好了吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：格蕾？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这里的武器，有点吓人……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "说起来，小时候的格蕾确实是这样！\n我都给忘得一干二净了！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "村正的刀蕴含着某种超越武器的东西，\n所以她才没有在意。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "但这里的每一件东西，毫无疑问都是为了\n杀伤他人而制造的。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "嗯。我们也经营作为艺术品的武器。\n但这里主要还是以实用为主。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "大量生产，大量消费。既然生命在不断增加，\n负责收割生命的东西自然也应该增加。"
+    },
+    {
+      "speaker": "L：格蕾",
+      "translated_content": "那、那个……这处剧场，\n格蕾可以不参加吗？"
+    },
+    {
+      "speaker": "M：卡利奥斯特罗",
+      "translated_content": "不，那可不行。"
+    },
+    {
+      "speaker": "L：格蕾",
+      "translated_content": "呀！"
+    },
+    {
+      "speaker": "M：卡利奥斯特罗",
+      "translated_content": "因为我们在[#施設:テアトルム]中进行的是职业体验。"
+    },
+    {
+      "speaker": "M：卡利奥斯特罗",
+      "translated_content": "而现实中的职业，\n[#なりたいものにつけるとは限らない]。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "没错没错。\n有些人的一生就是事事不如意。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "所以在这里，你们还要体验强买强卖\n和诈骗的手段。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "既然已经跨过[#施設:テアトルム]的大门，\n就别想逃了。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "既然上了海盗船，\n那就得把该做的事做到底。"
+    },
+    {
+      "speaker": "M：卡利奥斯特罗",
+      "translated_content": "嗯？"
+    },
+    {
+      "speaker": "L：格蕾",
+      "translated_content": "小奥尔加？"
+    },
+    {
+      "speaker": "K：奥尔加玛丽",
+      "translated_content": "既然这样……[wt 0.8][charaFace K 3]嗯，如果是这样的话，\n我来替她参加也可以。"
+    },
+    {
+      "speaker": "K：奥尔加玛丽",
+      "translated_content": "我很熟悉研究器材的用法。\n应该比格蕾更适合。"
+    },
+    {
+      "speaker": "M：卡利奥斯特罗",
+      "translated_content": "哦。这种情况该如何处理呢。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "卡尔德尼亚护照属于两位共同所有，\n无论以谁为主要参与者，应该都没有问题。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "既然管家这么说，那就是没有违反规定吧。\n我无所谓，谁来都行。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "原来如此。那么，没有问题。\n让我们立刻开始体验吧。"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "请各位把这里的武器\n卖给客人们！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇哇哇哇！"
+    },
+    {
+      "speaker": "G：客人A",
+      "translated_content": "给我武器……"
+    },
+    {
+      "speaker": "H：客人B",
+      "translated_content": "给我一大堆便宜货……"
+    },
+    {
+      "speaker": "I：客人C",
+      "translated_content": "贵一点也行，给我厉害的家伙……"
+    },
+    {
+      "speaker": "J：客人D",
+      "translated_content": "总之什么都好，卖给我吧啊啊啊……！"
+    },
+    {
+      "speaker": "卡利奥斯特罗",
+      "translated_content": "谈判就是战争！\n速度更快！价格更高！数量更多！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "把[#一切合切:いっさいがっさい]连同船底一起卖光吧！"
+    }
+  ]
+}

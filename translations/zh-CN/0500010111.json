@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010111",
+  "source_region": "JP",
+  "source_hash": "59206f3862eeecd3ef45981d829fb5235b93a301e7d80312a8aacb123197b07c",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 49,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "贞德Alter",
+      "translated_content": "……你、你们。究竟……是什么人……。\n到底是怎么来到这里的……。"
+    },
+    {
+      "speaker": "贞德Alter",
+      "translated_content": "真不甘心啊——"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……敌对反应沉默。\n已确认[#思:おぼ]似贞德的存在消灭。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "好，堪称完美。特异点也已经开始修复。\n这样一来，第一特异点就攻略完成了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总觉得有些[#呆気:あっけ]轻松啊！？\n修复特异点原来这么简单吗！？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "不不，这次只是运气好。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "灵子转移的落点正好位于敌阵中心，\n而且对方几乎都出动在外。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "身为敌方首领，并操纵邪龙的从者\n贞德恰好落单，这一点也很重要。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "把我们手头所有从者全都召唤出来，\n发动奇袭，就结束了。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哎呀，真是理想的结果。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……事情顺利过头，反而让不安从心头[#過:よぎ]掠过。[wt 1.2][charaFace D 16]\n没有漏掉什么东西吧？"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "特异点正在顺利修复。\n御主和玛修也已返回。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "目前正在灵子筐体内做最后调整。\n再过5分钟，两人就能出来了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没有问题吧……\n我们这边也没出什么状况吗？"
+    },
+    {
+      "speaker": "工作人员",
+      "translated_content": "没有任何异常……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说……没有问题。\n没有问题，对吧。嗯。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我们回来了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "辛苦了，藤丸立香。[wt 1.0][charaFace D 5]\n……你们两个，有没有遇到什么事？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "您说的“什么事”是指……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就是，那种感觉啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "比如有什么乌云压境的征兆，\n或是心里有什么放不下的事之类的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我倒没有什么特别的……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不过特异点的修复进展得极为顺利，\n甚至没在当地过夜，确实让我很惊讶。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 是不是顺利过头了……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对吧，就是顺利过头了！\n所以一定、绝对有什么问题！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "这正说明藤丸立香[&君:ちゃん]和玛修\n表现得很出色。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所长何不坦率地表扬他们呢？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "您刚才明明还兴奋地喊着\n“好厉害，很能干嘛！”"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、这和那是两码事。\n我只是多少有点觉得，这样真的好吗……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 什么事都没发生！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什么事都没发生？\n真的吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "事情顺利过头时，往往会在不知不觉中\n掉进陷阱哦？"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗯，所长，你是不是太过[#被害妄想:ひ が い も う そ う]了。\n而且这话听起来也太有亲身体会了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "吵死了，我说的只是一般情况！\n并不是在说我自己！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……不过，这是好事。\n那么，藤丸立香。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在第二特异点确定之前，\n原则上要[#勤:いそ]于休养和训练。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为了加深对从者的理解，学习也是必不可少的。[wt 1.3][charaFace D 6]\n别露出一脸不情愿的表情！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "玛修，我还是不放心，你负责监督。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "您、您说监督是指……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好好盯着藤丸立香，\n看是否有认真学习！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是、[wt 0.5][charaMoveReturn B 0,-5 0.3]是！[wt 1.0][charaFace B 33]\n……所以前辈，我们一起努力学习吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 欸————！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "所长，谢谢您。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "托您的福，藤丸立香[&君:ちゃん]的\n精神状态似乎也稳定下来了。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "学习是个好主意。\n[&彼:彼女]还是学生嘛。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哎？啊。是啊。[wt 1.0][charaFace D 16]\n当然，这正是我的目的。……当然了。"
+    }
+  ]
+}

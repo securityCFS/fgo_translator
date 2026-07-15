@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810310",
+  "source_region": "JP",
+  "source_hash": "8b04f68636726d7857354d04512225c6e72ef81378406f96d4dbf6a361c638c7",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 30,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "欢迎光临，第一批特别贵宾！\n欢迎造访我的[#施設:テアトルム]！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好、好像有很厉害的声音……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个果然是"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：机械工程师之类的工作吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "唔。仅凭所见还无法理解吗。\n那就由我来揭晓答案！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "这里正是汇聚我全部[#叡智:えいち]的，\n游戏开发者[#施設:テアトルム]！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "蒸汽机关的电子游戏——！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这、这种事还是第一次听说！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "欢迎光临！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没想到是巴小姐"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：也就是说……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "我以不适合此处气温的灵基来到这里……\n随后在此遇见巴贝奇阁下，彼此[#意気投合:い き と う ご う]！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "嗯。巴御前装备的[#機器:ぶいあーる]，\n实在、实在令我兴趣盎然！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "因此，我让人对这座[#施設:テアトルム]大加改造，\n使其也能用于制作游戏！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，这里原本是别的[#施設:テアトルム]，\n却被你们重新改造了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这实在是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：很有巴贝奇的风格……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈哈……"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "为了适配VR，我的蒸汽机关演算能力\n已经获得大幅提升！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "已经实装的游戏也达到了256款！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "既然你们来到这座[#施設:テアトルム]，\n我希望你们立刻开始[#修正:デバッグ]！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾知道除错！师父玩游戏时经常说，\n这个游戏是因为除错不足才会这样！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "就是指出游戏里不好的地方吧！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "正是！"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "你们要戴上与巴御前相同的设备，\n潜入游戏世界。"
+    },
+    {
+      "speaker": "巴贝奇",
+      "translated_content": "只消灭因程序错误而异常的对象，\n便是这次的工作。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "辅助工作就交给我吧！\n那么，游戏开始！"
+    }
+  ]
+}

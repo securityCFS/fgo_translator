@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220111",
+  "source_region": "JP",
+  "source_hash": "9ab6728c74cc472bea9a88a1da8f44c76b27430e9544494e406ff9556822a479",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 54,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "魔猴",
+      "translated_content": "唔叽！\n唔叽，唔叽！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "清姬亲大胜利♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "在我和御主的羁绊面前，\n这不过是些不值一提的捣乱分子罢了。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "谢谢你们啾！\n非常感谢啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "能把那群臭猴子击退，\n想必各位都是大名鼎鼎的神明大人啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "各位是来这座御山进行温泉疗养的出云神明啾？\n我能从那位狐狸贵客身上感受到这点啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾。难道是虎名主大人的朋友啾？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "会捕食比自己弱小的生物。\n狐狸大人身上散发着这种感觉啾。"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙。芙芙。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "真是只没礼貌的麻雀呢。我又不会吃了你。\n而且我根本不认识什么老虎和猴子。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "重要的是……刚才你问我们是不是来进行温泉疗养的吧？\n小麻雀你难不成是[#旅馆:Hotel]的员工？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "[#发热:Hoteru]……？\n大白天就温泉泡上头了啾？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "不，不是指那个[#发热:Hoteru]。\n我们是听说这里有旅馆才来的。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "果然是客人啾！\n一、二、三、四、五……"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "一共有五位新入住客人啾！　老板娘肯定会高兴啾！\n我也可以涨薪水赚大钱了啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啊。敢问各位客人是什么身份啾？\n咱们是不接待黑社会人士的啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "恕不接待以测试实力、搜集素材、\n蓄意破坏为目的入住的客人啾。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "测试实力……用RPG术语来说，\n就是做任务吧……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "话说，御主。这次的任务是慰劳旅行，\n而不是修正特异点吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 没错。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 没让我们修正。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯！　希翁小姐说过，\n这是一个『可以放任不管的特异点』！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这次我们只是纯粹来观光度假、游山玩水，\n所以我们是不会参与战斗的！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "嗯嗯，那就再好不过了。\n在旅途中动刀动枪未免太扫兴了。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "小麻雀。尽管我们都有过不光彩的过去，\n但现在都已经洗心革面了。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这里没有十恶不赦之人。\n放心带我们去旅馆吧。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾啾，既然如此，我很乐意给大家带路啾！\n作为各位帮助我的回报啾！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "看上去……像是麻雀的存在……\n飒爽地扑腾着翅膀飞走了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，但几乎是擦着地面漂浮，\n所以速度也不是很快呢……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "和我们步行的速度差不多，\n不用费什么力气就能跟上。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "……麻雀……麻雀伙计……\n我心里总有种梗着什么的感觉……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "现在可不是纠结这些的时候。\n总之先追上去吧。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "竟然救下了旅馆的工作人员，\n真是一个走运的好开端。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "顺利的话说不定还能通融一下，\n让我们住上漂亮的[#贵客之间:豪华套房]呢！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "唔……\n清姬这样的乐天派果然没感受到吗……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我的尾巴从刚才开始就感到一股刺骨的寒气呢……"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "就快到了啾。\n就快到了啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "接下来只需走出为林子设置的结界，\n视野就会一下子变得开阔啾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 还差——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 一点——！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……哇！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "哇！？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "哇啊啊！？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "哇啊啊啊啊啊！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好厉害，背靠着山居然有这么一座气派的建筑！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这就是日本温泉旅馆吧，前辈！\n我已经感慨得不知该说什么了！"
+    },
+    {
+      "speaker": "玉藻前＆巴御前＆清姬",
+      "translated_content": "啊[messageShake 0.07 6 3 0.6]哇哇……啊哇哇……\n啊哇哇哇哇哇哇哇！"
+    },
+    {
+      "speaker": "玉藻前＆巴御前＆清姬",
+      "translated_content": "这里……这里难不成是！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾啾，各位客人，欢迎光临！\n这里就是未登录的地狱之地，无论什么御灵都能获得放松的秘境温泉！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "人世所言之神隐、迷途之家传说之起源！\n红阎魔老板娘掌管的大饭馆『阎魔亭』啾！"
+    },
+    {
+      "speaker": "玉藻前＆巴御前＆清姬",
+      "translated_content": "呀[messageShake 0.07 8 5 0.8]啊——！！！！\n果然如此——！！！！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾？"
+    }
+  ]
+}

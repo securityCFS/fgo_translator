@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220810",
+  "source_region": "JP",
+  "source_hash": "6afbe9088185719ac5c8b8b8800b4d9744584793e1b4580d332ffa7c004272f5",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 50,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "I：麻雀",
+      "translated_content": "欢迎光临啾！\n欢迎光临啾！"
+    },
+    {
+      "speaker": "A：麻雀",
+      "translated_content": "来了好多客人啾！\n来了好多客人啾！"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙呜芙呜芙芙芙呜啾！\n芙呜芙呜芙芙芙呜啾！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "所有房间修缮完毕应该起到了很大的作用。\n这都是御主努力的成果啊♡"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呵，你这说的什么话。\n明明是多亏了我的动员宣传啊。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不管多好的服务，\n只要没客人就是白搭。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我给正在休息的麻雀们布置了大量宣传任务。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "『造访阎魔亭让人财运亨通！』\n『多亏了阎魔亭，我当上所长！』之类的。"
+    },
+    {
+      "speaker": "I：麻雀",
+      "translated_content": "我们被要求不断印刷[#瓦版:小广告]啾。\n制作也很有意思啾！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "瓦版……相当于秘境中的互联网吧？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "戈尔德鲁夫新所长，您是不是联系了迦勒底，\n并向从者们进行了宣传？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯，就是这么回事。\n迦勒底似乎也愿意帮忙。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "但是你们想，从者们那么忙，\n彷徨海的魔力储备也不知道够不够！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "所以啊，只要找既有余力，\n又闲得想死的从者来就够了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "就像发现我们陷入危机，\n对方自主决定是否派支援过来一样！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "——你愿意相信吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这哪是什么信不信的问题！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 真了不起，新所长！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呜……！\n善意将我逼得走投无路……！"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "哎呀。英灵们真是群华美的存在呢。\n也可以称之为时髦吧？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "造访阎魔亭的神明都是来养生的，\n因此大家都一幅弱不禁风的弱小状态……"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "而这些……是叫从者吧？\n都表现出一副光彩照人的样子。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "妙哉妙哉，真是太棒了！\n充满异域风情，真够国际化的！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "百花缭乱莫过于此，\n美男美女打包甩卖！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "打从来阎魔亭之后，\n我还没有像现在这样开心过！"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "呵呵呵。蛇庄屋的话虽然有些夸张，\n但我觉得未尝不可哦。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "只不过——"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "——！\n啾……啾啾 啾……！？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "来了啾！　来了啾！\n肆虐的龙种进攻阎魔亭啾！！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "不会吧！？　糟了糟了，我讨厌龙啦！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "像绳子一样黏糊糊的，还会唰！　地一下\n吐出舌头。从生理上无法接受！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "你们难道不这样认为吗，藤丸立香亲！？[wt 0.2][charaFace B 0][charaFadein B 0.4 288,0][charaMove B 256,0 0.4]"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我……我倒不会啦。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "没错♡\n刚才蛇庄屋先生所说的全都是魅力点哦♡"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 那……那不是龙而是蛇……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "不，是龙哦。\n御主您真爱开玩笑啦。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "各位，快来！\n那个龙种是个身无分文想来白吃白喝的暴徒！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "麻雀们正在外面抵挡，\n但它们不是那家伙的对手！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "啊，有时确实会出现这种情况呢。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "以住在阎魔亭就能夺回以前权势为借口，\n强行要求住进这里的恶灵。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "本来，没有资格的对象是无法跨过那座桥的，\n但如今阎魔亭的力量已经衰落了……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 明白了！　上吧，玛修！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我预感是个强大的敌人……！\n振作精神出发吧，御主！！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 赶走对手，清姬！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "交给我吧。这可是和御主一起工作，\n清姬十分乐意♡"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    }
+  ]
+}

@@ -1,0 +1,859 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221120",
+  "source_region": "JP",
+  "source_hash": "f5735a09f87ea725a14a4526462a7c3545aa54e5fc7a412e84d34f3d1eab64dd",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 210,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "巴御前",
+      "translated_content": "大家做到了呢！\n凤之间盛况空前！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "啊啊，好忙，好忙！\n在这里和厨房间来回奔波！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "嗯？　需要我表演吗？\n可我并不是京城的舞妓啊……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "但既然现场那么热闹，\n我也不好拒绝呢。既然如此，既然如此♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "接下来应客人们的要求……\n第一个节目，不是喷水表演而是喷火表演♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "取出一个小球，\n各位肯定以为我要把它放在扇子上滚吧……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "然而！\n这其实是个可爱的指间火龙！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "哦，舞妓表演只要是如此勇猛就行了吗！\n那我也可以上了！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "拿出我的爱剑，巨大的愤怒和微小的愤怒。\n然后再在脚下放五根萝卜！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "将萝卜一根根地扔出去后，\n在保证萝卜不落地的同时表演剑舞！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "七刀流，尽情观赏！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "这就是用刀玩丢沙包吧！？\n巴也不能认输！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "可恨的武藏某人[line 2]！\n武藏某人在这里吗[line 2]！？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "藏起来也没用，\n我知道你在这里哦[line 2]！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "把你那招人厌的爱刀爱枪借给我吧！\n我想将它们叠在一起，然后表演徒手劈开！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "徒手一击究竟能劈开多少把刀剑呢，\n应该会非常有看头哦！"
+    },
+    {
+      "speaker": "胤舜",
+      "translated_content": "不，这可不行啊，巴阁下！\n这根本不是什么舞妓表演，而是武技表演！"
+    },
+    {
+      "speaker": "胤舜",
+      "translated_content": "确实会非常有看头，\n但并不适合在这喜庆宴席上表演！"
+    },
+    {
+      "speaker": "胤舜",
+      "translated_content": "幸运的是弁庆阁下似乎并不在场。\n唔，没有其他与源氏有关的人在场了吧？"
+    },
+    {
+      "speaker": "胤舜",
+      "translated_content": "那就让出手阻止的贫僧\n代替巴阁下表演一个节目吧。"
+    },
+    {
+      "speaker": "胤舜",
+      "translated_content": "就让你们见识一下这能让人从酒醉中清醒的枪之寒光吧！\n来吧，巴阁下，请把这个蜜柑顶在头上站好！"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "……………………"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "那里好热闹啊。\n哎呀呀，我能理解他们的心情。"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "喜庆的房间布置、精美华丽的菜肴……\n还有说不定明天就会成为敌人的同伴们……"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "即便我不太吃东西，\n但这凉拌山菜应该也能……"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "真是[#极品:好吃]！"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "…[se ade409][seVolume ade409 0 0.3]…………………"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "（啊！？　初代大人的背后\n　竟然散发出些许斗气！？）"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "（难道这是……\n　难道这是……！？）"
+    },
+    {
+      "speaker": "齐格鲁德",
+      "translated_content": "报告。[#单体笑击:个人小品]，结束。\n确信已掌握九成会场的人心。心满意足。"
+    },
+    {
+      "speaker": "齐格鲁德",
+      "translated_content": "本考虑连续表演，但舞台必须大家轮流登场。\nAssassin职阶的各位，下一个节目，由你们来如何？"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "（把会场的气氛弄得像北欧雪原一样冰冷之后，\n　将烂摊子丢给我们！？　这情况下谁会上场啊，蠢货！）"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "嗯。我就是刚才被介绍的Assassin。\n山中老人，哈桑·萨巴赫。"
+    },
+    {
+      "speaker": "百貌哈桑",
+      "translated_content": "呀啊[messageShake 0.04 6 3 0.5][line 5]！？"
+    },
+    {
+      "speaker": "静谧哈桑",
+      "translated_content": "（初……初代大人什么时候站上舞台的！？\n　这……绝对不会错……！）"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "尽管教义不同，但祝愿新年如意的心情是相同的。\n我将代表全体山中老人表演一个节目。"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "那么——"
+    },
+    {
+      "speaker": "山中老人",
+      "translated_content": "[f large]——咒腕，交出首级吧……！"
+    },
+    {
+      "speaker": "咒腕哈桑",
+      "translated_content": "果然干劲十足吗[line 2]！\n可那样做是无法逗笑大家的啊初代大人——！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "真是一场大宴会呢。\n从者们都高兴就好。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "本来还在担心事态会如何发展，\n但看到眼前这个样子，我就彻底放心了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "怎么样，要不要喝一杯？\n当然是指无酒精的♡"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 那我就不客气了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 玉藻不吃吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我只是在这儿喘口气而已。\n还得马上赶回厨房呢。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "毕竟那个自命Berserker的家伙完全不知疲倦呢。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "我必须看着她，\n以防她一时兴起把明天的食材也用完了。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "原来你在这里啾。藤丸立香。\n张罗到这个份上，真是辛苦了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "之后的事就交给我和麻雀们，\n你和玛修一起回去当客人啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是阎魔亭迄今为止最丰盛的宴席啾。\n希望二位能慢慢享用啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 多谢款待。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "呵呵。多吃一点啾。\n后面还有很多菜啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我们做了很多，所以请尽情吃啾。\n这也是我们麻雀的荣幸啾。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "啊呀。我差不多也该回厨房了。\n红老师，能教我怎么用松茸吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "那是我收到的礼物，\n但不知道该怎么使用。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "都说松茸的关键是香味，\n所以最好的做法是土瓶蒸吧？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这取决于松茸的大小啾。\n个头大的松茸还是用炭火烤最有迫力，"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "啾，普通家庭罕有这么大的啾。\n所以还是做成汤比较现实啾……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 老板娘不休息一下吗？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "在大家都休息之后我才能休息啾。\n不用担心我啾。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "那么我们就先回厨房了。\n好好享受宴会吧，御主。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "呵呵。客人突然变多了，\n登记簿上写得密密麻麻时吓了我一跳啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "谢谢你啾，藤丸立香。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "再次开放凤之间，\n是我做梦都想做的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "热闹非凡、华丽至极——\n仿佛回到了过去，真的很开心啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……其实我还想再看一会儿啾，\n但那太奢侈了。老板娘我就先告辞了啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙[charaFace C 13][charaMoveReturn C 0,10 0.2]呜？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "喂，别突然乱叫啦，你这小动物！\n我……我又没做什么亏心事！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "只是觉得很难开口搭话，就像戏剧到了高潮般，\n只能屏住呼吸观察情况！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（[charaMoveReturn D 128,-10 0.5]我是边用戈尔德鲁夫新所长的身体为盾，\n　边同样在一旁注视的玛修·基列莱特！）"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不过嘛，我也没有什么要事。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "红老板娘喜笑颜开，客人们心满意足，\n我们也终于可以大快朵颐了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们的诅咒已经算解除了吗？\n供奉殿中的谢意应该已经攒够了。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "那可不好说。\n搞不好要从头来过哦？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯，你又来蹭我的酒的吗蛇庄屋！\n刚才的话是什么意思！？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "仅凭这么点“供奉”是无法填满那个无底桶的。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "……是啊。\n时间差不多了吧。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "那家伙差不多要来了吧。\n不，说不定已经来了？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "要不要去大堂看看？\n可以看到一出有趣的悲剧哦。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: ……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 悲剧……？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "唔？　你在那里做什么啦，蛇。\n别缠着客人了。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "被老板娘骂了我可管不着哦。\n毕竟和我不同，你只是个额外的食客。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "要是惹老板娘不高兴，\n下次可是真的会被赶出去哦。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "好啦好啦，我知道啦～。\n真是个啰嗦的猴子，真是的。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "那我先告辞了。\n再见，戈尔德鲁夫亲～。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……刚才蛇庄屋先生的话，令人有些在意呢。\n你觉得呢，前辈？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 偷偷去大堂看看吧。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好！　虽说对宴会有些依依不舍，\n但毕竟老板娘做的菜随时都能吃到！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那是……老板娘和一个没见过的客人呢……\n是哪里的英灵呢……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "走上前搭个话吧。[wt 0.5][charaFace D 14]\n请问——！？"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………不准，打扰……\n…………事情，会复杂化……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………赶快，躲起来。\n…………胆敢反抗，杀了你……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………偷听程度，还能接受……\n…………在这里，好好，看着……"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "你好。\n今年也到约定的时间了。"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "要还的钱准备好了吗？\n今年和往年似乎有所不同呢。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那个……今年暂时还没有啾。\n希望您能等几天再打开功德箱啾。"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "也就是说……\n今年连利息也付不了？"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "这样的话，就只能说声对不起了……"
+    },
+    {
+      "speaker": "I：？？？",
+      "translated_content": "我只能卖了这座作为抵押的阎魔亭用来还债了。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不，不可以啾！\n我会好好还钱啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "伐竹翁大人！\n请再宽限几日啾！"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "…………………………那好吧。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "我再给你七天时间。\n我其实也不想让这座阎魔亭消失。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "那我七日之后再来。\n到那时请将借的钱都还清哦。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "…………这根本做不到啾。\n今年怕是连利息都还不了啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "把这件从阎魔大人那里得到的衣服拿去典当，\n同时我也去卖身，这样说不定能……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不，现在不是自我安慰的时候啾。\n再说我又不值什么钱啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "现在应该把注意力放在\n帮助迦勒底的各位积攒“谢意”上啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "除此以外多余的部分就还给伐竹翁。\n如果还不够，到时候再……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "到时候再……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "…………啾。\n红应该怎么办呢，老爷爷……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……前辈。\n刚才的对话难道是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 是债务人与债权人的对话……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 是欠钱的人和借钱的人的对话……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，芙呜……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这究竟是怎么回事啊，虎名主大人！？\n难道阎魔亭向那个人借钱了吗？"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: ……『500年前的事件』？"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………你们，知道啊。\n…………多嘴的，麻雀们。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………没错。\n…………500年前，发生了，这么一件事。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "来人，快来人啊！\n小偷，有小偷！"
+    },
+    {
+      "speaker": "B：麻雀",
+      "translated_content": "大[charaMoveReturn B -60,0 0.3]事不好啾！[wait charaMove]　大[charaMoveReturn B 60,0 0.3]事不好啾！[wait charaMove]\n集[charaMoveReturn B 0,20 0.3]合啾，[wait charaMove]集[charaMoveReturn B 0,20 0.3]合啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "别慌啾，我现在就封锁阎魔亭啾！\n伐竹翁大人，您能否详细说明一下情况啾？"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "有什么可详细的，我也一头雾水啊……\n我家的传家宝共有五个……"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "『佛前的石钵』、『蓬莱玉枝』、\n『火鼠裘』、『龙首珠』、『燕之子安贝』。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "每一个都是世间独一无二的孤品。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "我把装着宝贝的荷包放在房间里，\n然后就像这样……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "空……空了！？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "太过分了……如此耀眼夺目的宝物\n竟然一个都不剩了……"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "不……不是我干的哦！？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "就算我再怎么缺钱，也不会去动别人的东西！\n你们可以随便调查！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "当然，尽管有失礼数，\n但我们要对所有客人搜身并搜查房间啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "没有小偷进入的迹象啾。\n犯人一定在阎魔亭内啾！"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "真靠谱。\n无论如何都要帮我把宝贝找回来。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "可是——你说找不到窃贼进入的痕迹。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "那如果找不到犯人，\n就不得不考虑内部人员犯案了。"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "进入过这个房间的只有我和麻雀伙计。\n如你们所见，我什么也没有——"
+    },
+    {
+      "speaker": "伐竹翁",
+      "translated_content": "所以阎魔亭必须承担全责。\n这样没问题吧……剪舌麻雀红阎魔阁下？"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……然后，犯人，并没有被找到。\n……伐竹翁，要求，赔偿。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……金额高到，无法偿还。\n……阎魔亭，背上了债务。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……被扣上偷盗帽子的阎魔亭，\n……失去了客源……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……不知从什么时候开始，连偿还利息，\n……也变成了一件，费力的事。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……供奉殿的神气，本来是用作，身为『迷途之家』的……\n……这座阎魔亭的，灵基成长用的……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……但是……神气被用于偿还债务，\n……阎魔亭越发……变得冷清了……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……光是为了，支付伐竹翁的利息，就已经令阎魔亭，\n……陷入了，濒临破产的，境地……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……原来发生过这样的事啊……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "大家明明那么努力，阎魔亭却还处于荒废状态，\n就是因为这件事啊……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……没错。\n……阎魔亭的收益都被伐竹翁拿走了……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……你们随意插嘴，会有麻烦。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……惹伐竹翁不高兴的话，小红……\n……老板娘的立场，会变得尴尬……"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "……情况，都明白了吧。\n……那么，快乖乖，回客房吧。"
+    },
+    {
+      "speaker": "虎名主",
+      "translated_content": "…………我能说的，只有这些。\n…………之后，就取决于，你们，了。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "竟然会有如此荒谬的故事——！\n为什么不叫我啊，为什么不叫我！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "旅馆需要负偷盗责任什么的，\n这都是什么年代的事了啊！？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "这里还遵守着神代的规则哦。\n毕竟是秘境嘛。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不会吧，这也太恐怖了吧！\n不过算了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "难怪我觉得奇怪！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我看过账本了，\n这里的经营情况很好，可每年都是赤字！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "每年大年初一的那笔莫名其妙的支出，\n竟然是偿还借款的利息！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "红老板娘……一直在对我们保密，\n在我们面前还是表现得若无其事呢……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "……但情况有些不妙啊。\n再这样下去，阎魔亭就会被伐竹翁卖掉的。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "如此一来，我们也就无法偿还在供奉殿犯下的罪了！\n或许我们就要一起变成猪了。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "那真令人不寒而栗……\n再这样下去也太让人坐立不安了。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "芬恩·麦克库尔。为了红老板娘和阎魔亭，\n我们能做些什么？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那还用问，当然是还钱啦！\n不对，这样根本解决不了问题。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "丢失的是五件宝物吧？\n那只能把宝物找回来了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你们是从者，是英灵！\n从小偷那儿把宝物夺回来不至于做不到吧！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "这……如果是刚发生的事还好说，\n可这是500年前的盗窃事件……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不。这不是挺好的嘛。\n简直是提案中的美男子啊。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "听好了哦？　欠款恐怕是还不上的。\n无论我们赚取多少黄金都不行。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这五个宝物号称是独一无二的孤品吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "所以价值必然无法标明。\n那金额只是伐竹翁的『坐地起价』罢了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "用金额对抗这种东西未免太蠢了。\n还不如找到[#相同的东西]更简单。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 收集……相同的东西？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 难道说……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "没错。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "被偷走的五件宝物。\n我们知道分别是什么吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "那我们只要得到相同的东西就可以了。\n幸好这里是阎魔亭，是英灵误入的旅馆。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "客人中或许有恰好携带珍宝的英灵。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "比如说第一个宝物是叫『佛前之石钵』吧？\n虽然我没听说过……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但你一定会灵光一现！\n立刻想到对应的从者吧，藤丸立香？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "——！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "说得对。\n各位从者说不定拥有相同的宝物！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "只要造访阎魔亭的客人继续增加，\n说不定——！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 可以集齐『五件宝物』……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 首先是德高望重的法师大人！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙[se adm21][charaMoveReturn E 0,50 0.5]，芙呜！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "对了，阎魔亭的修缮也不能松懈呢。\n对我来说这点更重要。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "[FFFFFF]？[-]　芬恩·麦克库尔，\n阎魔亭的娱乐设施已经够用了吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈。别这么说啦，迪尔姆德。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "猎场越多越好。\n尤其是这种历史悠久的名胜更包含着力量。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "听说全盛期的阎魔亭还有一座宏伟的天守阁哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "我很想见识一下那个啊。\n不对，应该是想从那里俯瞰阎魔亭。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "——原来如此。\n你是指全盛期的阎魔亭吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "既然你已经考虑得如此长远，\n那我也不必说什么了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "目标是获得『五件宝物』。\n该做的事依然未变，但新的方针已经确定了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "嗯嗯。倘若神佛确实存在，\n那必然不会漏看各位的功德。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "一定会赐予我们奇妙的缘分——"
+    }
+  ]
+}

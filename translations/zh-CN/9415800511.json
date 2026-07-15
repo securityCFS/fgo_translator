@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800511",
+  "source_region": "JP",
+  "source_hash": "d4e7dc60787dafe4c033ce95fa00843fef8d08032d6adb322d8ebba6682dc381",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 63,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "亚瑟",
+      "translated_content": "誓约胜利之剑·逻各斯……！\n是我不曾知晓的圣剑吗！"
+    },
+    {
+      "speaker": "H：格蕾",
+      "translated_content": "还差……最后一把力……！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "挺能干的嘛，地球人类！\n但你这最后一把力，真能突破我吗？"
+    },
+    {
+      "speaker": "阿斯卡拉福斯",
+      "translated_content": "宝具相持不下，城堡要——！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊啊啊啊啊啊！"
+    },
+    {
+      "speaker": "异星之神",
+      "translated_content": "什么，这座城竟会因为这种程度就倒塌！？\n唔，立足点、魔力、精神的平衡都……！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "好了，到此为止！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "又、变回来了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——啊！？\n我刚才都做了什么！？　陷入错乱状态了吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……（就当什么也没看见吧……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：也就是说……异星奥尔加……！"
+    },
+    {
+      "speaker": "J：奥尔加玛丽",
+      "translated_content": "你为什么能一脸严肃地说出这种话？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "抱歉，监视器总算恢复了。\n似乎发生了什么问题，不过看来已经解决了？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的，应该已经解决了，达·芬奇亲！\n对吧，御主！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "世间一切太平无事，\n奥尔加玛丽所长也一如往常！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不，这怎么看都肯定发生了什么吧。\n城堡到处都坏掉了不是吗。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你不这么想吗，担任经营顾问的死神先——"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "——。"
+    },
+    {
+      "speaker": "L：戈尔德鲁夫",
+      "translated_content": "（这气氛明显是心情差到极点了吧！？）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个嘛，该怎么说"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：模拟战非常精彩"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原、原来如此……\n空间中的魔力密度确实达到了异常值。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不过，是德墨忒尔小姐阻止了大家……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "呵呵，这里毕竟是我的城堡。\n我还是拥有这点特权的。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "不过奥尔加玛丽的情况，\n或许稍微有些出乎意料……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什么意思！　话说回来，我们究竟为什么\n会变成小孩子！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀？　你们原本不就是这样的吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（也就是说……我们变成小孩子，\n　并不是因为这个特异点的德墨忒尔？）"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "总觉得……刚才好像快要弄明白了……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "现在又搞不懂了……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀哎呀哎呀！　别哭！\n没关系，只是还不稳定而已。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "至少格蕾的话，\n只在短时间内变成那副模样，应该不会有问题。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "等你们填满护照时，\n一切就会完全随你们的心意变化。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "女神德墨忒尔向你们保证！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "真的吗？[wt 1.0][charaFace G 1]\n谢谢！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那个……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "怎么了？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "德墨忒尔大人……不痛吗？"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "为什么这么问？　我看起来很痛苦吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不是。可是……总觉得德墨忒尔大人的魔力，\n给人这样的感觉。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "哎呀，真是个温柔的孩子。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "不过，没关系。\n我一点都不痛。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "毕竟我还挺强的。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我说，奥尔加玛丽。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "什、什么。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你也……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "你也愿意和格蕾一起，\n享受这座卡尔德尼亚吗……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我有在享受啊。还算享受。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然不合我的兴趣，\n但我知道你为我们做了很多安排。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "太好了！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "真的……让我非常开心……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "那么，这次的故事到此结束。\n接下来也请尽情享受卡尔德尼亚吧！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "那么，就由我送各位到城外吧。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "我说，阿斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "是、是！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "垃圾的情况怎么样？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没有问题！\n我们正在逐一清除！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "谢谢。一定要认真处理。\n因为我的卡尔德尼亚必须完美无缺。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "请交给我！　我可是卡尔德尼亚的管家！"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "没错，我的卡尔德尼亚完美无缺。\n绝对如此。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "要是不够完美……\n就无法结束了……"
+    }
+  ]
+}

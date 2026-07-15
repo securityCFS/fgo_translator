@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801430",
+  "source_region": "JP",
+  "source_hash": "8dd730ac6055267b48d577234b502ba998f3a726febf94c8559ce5b7a1d9c5d3",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 106,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "无论从哪里……都能看到德墨忒尔·起源小姐呢……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾已经决定了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "要让御主来替格蕾决定。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 由[&オレ:わたし]来决定真的好吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "已经没有其他人可以托付了嘛！\n只要是御主的决定，格蕾就绝对不会后悔！"
+    },
+    {
+      "speaker": "K：戈尔德鲁夫",
+      "translated_content": "责任重大啊，藤丸立香。"
+    },
+    {
+      "speaker": "K：戈尔德鲁夫",
+      "translated_content": "不过，既然孩子将此托付给你，\n你就必须好好接下这份托付。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我明白了"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 我会认真决定的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我明白了。\n那么，我也会尽全力提供协助。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "算了，既然你们都觉得这样好，\n那就这样吧……"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "太好了，你们在这里！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 岸波小姐！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: Garbage的调查结束了吗"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "嗯。好久没这么集中精力，已经累得筋疲力尽了。\n不过很有意义，两相抵消就是零啦。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "达·芬奇也向我说明了\n目前为止的情况。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "在了解这些的基础上，我有一项发现要报告……"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "阿斯，你才是正确的。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "您指什么？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "就是Garbage的事啊。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "当同伴被杀等过度压力施加在Garbage身上时，\n它们会融合成一种危险形态。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "而且已经确认，这种形态会在侵蚀卡尔德尼亚空间的同时，\n发出一种特殊信号。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 信号？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 难道，那是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "大概就和你想的一样。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "那是为了唤醒\n如今漂浮在卡尔德尼亚上空的机神而发出的信号。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "为了把信号传达给潜藏在空间夹缝中的机神，\n它们必须先侵蚀卡尔德尼亚的空间。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "这次的事件，恐怕也是亚瑟王与阿尔托莉雅\n驱逐Garbage所引发的[#思:おぼ]。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "如果阿斯没有阻止他们，亚瑟王和阿尔托莉雅\n恐怕连争取时间都做不到。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "你一直设法不让Garbage被杀，\n所以应该说，你的做法才是正确的吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 明明你才是正确的"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 你好像并不高兴"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我的做法正确，只不过是偶然罢了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我一意孤行地相信自己的臆断，\n让身边的人陷入了不幸。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这次虽然并非如此，\n但也真的只是偶然没有酿成那种结果。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "所以，珀耳塞福涅和两位经理也……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主。\n您不会害怕吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "您是否也曾为了帮助某个人，\n却反而因此令对方陷入不幸？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我想，曾经有过"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 我一直都很害怕"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "即便如此，您还是会一次次试着帮助别人吗？\n哪怕那样做的自己或许才是错的？"
+    },
+    {
+      "speaker": "I：奥尔加玛丽",
+      "translated_content": "[#そうよ]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "有时候，什么都不做才是正确的吧。\n也有越是努力，事情反而变得越糟的情况。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这不是一句时机不巧就能了结的。\n毕竟真的会有许多人因此陷入不幸。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "奥尔加……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果只有本人遭遇灾难倒还罢了，\n一旦牵连别人，就再也找不到借口。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，所以我其实并不讨厌里卡尔德尼亚。\n那里拥有思考失败之后该怎么办的理念。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你要如何回答这个问题？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: ……即便如此"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 因为想要帮助别人的心意并没有错"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "想要帮助别人的心意并没有错……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 虽然失败过很多次"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 虽然并非所有事都顺利解决了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 但唯独最初的那份心意，绝不能忘记"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾好像，明白了。\n所谓开始，一定就是这样。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "即使一定会失败很多次，可如果没有最初那股\n『上吧！』的冲劲，一切都无从开始。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "我也可以说几句吗？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "关于刚才提到的Garbage数据，\n还有另一项发现。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "可以把你持有的\n卡尔德尼亚护照给我看看吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 可以是可以……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 是这个吧？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "果然……！\n与从Garbage身上采集到的数据完全一致。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "这是机神的[line 2]恐怕就是\n那个[#デメテル]·[#オリジンのマスターキー]。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "你说什么！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔、唔唔唔？　这是什么意思，达·芬奇？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "说起来，德墨忒尔原本应该是星际航行船团的\n物资生产工厂舰。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "如果卡尔德尼亚与里卡尔德尼亚\n都是利用其能力建造出的场所，"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那么，用于往来各处[#施設:テアトルム]的护照……\n确实称得上是万能钥匙。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 既然如此……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 如果能妥善利用它……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "嗯。我们或许能够战胜那个机神。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "但这把万能钥匙还不完整。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "看来只有贴上所有[#施設:テアトルム]的纪念照片，\n权限才会完全解放。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那不是已经没办法了吗……！\n除了锻造工房以外，所有[#施設:テアトルム]都被摧毁了啊！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 难道德墨忒尔·起源"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 突然将所有[#施設:テアトルム]一并摧毁是因为……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "如果是为了阻止卡尔德尼亚护照完成，\n一切就说得通了。明明只差一点就能完成。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不得不承认，我们一直都被对方抢先了一步。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，这无疑是我们终于获得的重要情报。\n我想进一步深入调查。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "岸波小姐，能请你帮忙吗？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "当然！[wt 0.75][charaFace E 1]　那么，藤丸立香君\n还有什么正在烦恼的事吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 其实……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 是关于格蕾的事……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "原来如此，要在圣剑与圣枪之间作出选择啊。\n这确实是必须由你烦恼的问题。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "因为格蕾说过，\n只要是你的选择，她就不会后悔吧？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "那么，只要你还是御主，\n就必须对从者的选择负起责任。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "对于格蕾选择将决定托付给你这件事，\n你必须承担起责任。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 嗯"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我决定了——！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    }
+  ]
+}

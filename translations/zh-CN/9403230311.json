@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "script_id": "9403230311",
+  "source_region": "JP",
+  "source_hash": "72e1a3a58c4ed57cc6633877dbba13f8c9ca765a7718a99565b88aa9634797d8",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 29,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "红阎魔",
+      "translated_content": "哦。是因为这种原因，\n才会将客房化作一片焦土啾。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 最终还是发展成宝具对轰了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 尽管我努力试图阻止了……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "既然已经做了，那也没办法啾。\n毕竟在阎魔亭里，神明间的纷争是家常便饭啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是，即便如此，还是要接受惩罚啾。\n否则无法给其他人做榜样啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "首先去清扫温泉啾。\n当然，是引起骚动的全员啾？"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "呜呜……为什么超级尾张大名的我必须清扫澡堂不可啊。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "这是我的台词啦！"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "如果信没有提出要打枕头大战，\n根本不会发展到这个地步！"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "来，土方先生也好好训斥她啦！"
+    },
+    {
+      "speaker": "土方",
+      "translated_content": "……什么嘛，女浴室一个人也没有啊。"
+    },
+    {
+      "speaker": "冲田",
+      "translated_content": "这副长没救了，得赶快想办法才行。"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "居然让没拿过比筷子还重东西的\n茶茶清扫浴室，简直是疯了！"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "那茶茶大人就骑在我的肩膀上吧。"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "别看我这样，魔小姐还是挺擅长清扫浴室的。\n我在迦勒底也会偶尔帮忙。"
+    },
+    {
+      "speaker": "冲田Alter",
+      "translated_content": "报酬就用冰淇淋代替，很好吃，美味。"
+    },
+    {
+      "speaker": "茶茶",
+      "translated_content": "茶茶知道哦。\n这就是有价值的榨取吧！"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "哎呀，在温泉喝咖啡牛奶果然格外不同。\n哎？　不准喝，快打扫？"
+    },
+    {
+      "speaker": "女主角X",
+      "translated_content": "扫荡Saber脸的工作倒是可以随时交给我哦！"
+    },
+    {
+      "speaker": "信",
+      "translated_content": "唔……？　这么说来，\n为什么没见到田～冈啊？"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "咦？　这么说来以藏先生怎么了。\n宴会的时候也不在，是跑哪儿喝去了吗？"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "阿龙小姐，你去邀请过以藏先生了吧？"
+    },
+    {
+      "speaker": "阿龙小姐",
+      "translated_content": "唔？　阿龙小姐不知道哦。\n难道不是龙马去邀请他的吗？"
+    },
+    {
+      "speaker": "龙马",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "以藏",
+      "translated_content": "居然撇下我一个人去泡温泉……"
+    },
+    {
+      "speaker": "以藏",
+      "translated_content": "[f large]你这是什么意思，[wt 0.4][messageShake 0.05 3 3 0.3]龙马[line 4]！！"
+    },
+    {
+      "speaker": "A：旁白",
+      "translated_content": "※那之后，以藏先生被不情不愿的阿龙小姐\n回收到旅馆，充分享受到温泉了。"
+    }
+  ]
+}

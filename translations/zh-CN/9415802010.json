@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802010",
+  "source_region": "JP",
+  "source_hash": "0e19e72a0778ffb9499e1e1bc1d5c1deb01f7ec860d93bf0022f637bfab92f7f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 149,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "……你说什么？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "没听见吗？\n我说，是吗。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我和大家都不会消灭。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而且刚才那一下让我确信了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然敢在内部使用宝具，\n那你就不是[#本来の機神デメテル]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你恐怕是泛人类史中遭到破坏的\n机神德墨忒尔的一部分。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那一部分在这个特异点经历漫长岁月，\n获得了足以复原[#真体:アリスィア]的魔力。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "并非赝品，却也很难说是真品。\n就像用正品材料制造出的[#模造品:レ プ リ カ]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "或许该称你为拟机神德墨忒尔·起源。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "正是如此。但这又有什么意义？\n既然已经构筑出[#真体:アリスィア]，[#私]与[#元の私]便没有区别。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是啊。忒修斯之船的问题，对你而言没有意义。\n即使更换全部零件，也能保持同一性吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但这次我提起它，是因为确实有意义。\n关键在于[#前か]，还是[#後か]。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你在说什么？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我是说，\n在知晓珀耳塞福涅之前，还是之后。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那也就是说……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "若是泛人类史的机神德墨忒尔，\n应该不会知道珀耳塞福涅。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "珀耳塞福涅并非奥林波斯十二神。\n也就是说，那是机神降临地球之后才产生的神话。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "失去机神的形态，成为地球的[#自然霊:か　　み]之后，\n德墨忒尔才疼爱起名为珀耳塞福涅的女儿。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然顺序如此，\n机神德墨忒尔就没有理由知道珀耳塞福涅。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但[#一度壊れた後の機神なら話は違う]。\n那就会产生能够导入地球时期记忆的[#時系列:す　 き　 ま]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果把你视为降临地球后，经过漫长时间逐渐修复的\n德墨忒尔·起源，不就能理解了吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "在此期间，她作为[#自然霊:か　　み]疼爱女儿的记忆，\n无论如何都会反馈到机神一侧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就算是脑子不灵光的你，也明白这意味着什么吧。\n藤丸立香？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当时……我以为这样就好。\n我以为那样一来，大家一定都会得到幸福。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "可是，那只是\n我一厢情愿的想法。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "至少这个特异点的德墨忒尔大人和\n厄里倪厄斯大人，看起来都不幸福。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不仅如此……她们的举止，简直像是\n忘记了珀耳塞福涅。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还不明白吗？德墨忒尔会成为[#エリニュス:怒　り　の　女　神]，\n正是在失去珀耳塞福涅、四处流浪的时期。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者不过是英灵某一侧面的切片，\n但每个侧面都存在堪称主题的核心。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，身为德墨忒尔·厄里倪厄斯，\n却忘了珀耳塞福涅，在逻辑上根本不可能。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "关于德墨忒尔和厄里倪厄斯，\n阿斯说过她们忘记了[#ペルセポネ:娘]吧。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "而德墨忒尔·起源从一开始就\n不知道女儿的存在。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "你应该明白这里存在矛盾吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 无法承受[#ペルセポネ:娘]不在身边的——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 既不是德墨忒尔，也不是厄里倪厄斯"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 而是你。德墨忒尔·起源"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你在……[wt 0.7]说……什么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "德墨忒尔即使因女儿不在而愤怒，\n也能够承受下去。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "厄里倪厄斯或许会向四周散[#撒:ま]诅咒，\n但那本身就是她接受事实的方式。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毕竟两者都拥有那样的历史。\n我们可以想象她们会如何面对女儿的缺席。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "可身为机神的你不同。\n你们不具备承受强烈情感的能力。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[#強烈な感情を持ち合わせることがなかったのだから]，\n[#どう対応していいかがわからない]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以你才\n[#物理的にペルセポネの記憶を切り離した]，对吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 那就是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: Garbage……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "所以我才把珀耳塞福涅……\n交给了Garbage们……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "应该就是这么回事。\n德墨忒尔·起源的做法，我也不是不能理解。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要将记录分离出去，\n问题便会迎刃而解，你是这么想的吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "毕竟是机器，实在[#簡単:イージー]。\n把相关记录丢弃掉就结束了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但如果分离出那么庞大的部分，\n本体也不可能毫发无伤。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "恐怕正因如此，\n你才会陷入深沉的睡眠。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "并把后续交给了召唤为从者的\n德墨忒尔与厄里倪厄斯。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "所以……德墨忒尔小姐她们才会？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "所以……德墨忒尔小姐她们才会……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 德墨忒尔与厄里倪厄斯"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 会忘记珀耳塞福涅，也是因为"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "大概是因为作为拟机神的本体\n分离了珀耳塞福涅的记录。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "既然那些记忆会从终端反馈回来，\n自然不能让她们保有女儿的记忆。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "德墨忒尔最初声称创造这个特异点\n是为了进行职业体验，"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "恐怕也是为了合理化那一带记忆的缺失。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "但即便将记录分离出去，\n也不代表它会彻底消失。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "即便删除计算机中的记录，\n痕迹也会保留很久吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "更何况它是机神的一部分，\n其生命力自然毋庸置疑。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "正因为是被分离的记录，\n德墨忒尔和厄里倪厄斯才无法忽视Garbage。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但无论她们怎么驱逐，\nGarbage仍会在这个特异点一再出现。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为Garbage本身\n就是拟机神德墨忒尔·起源的一部分。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "它们会增殖并试图融合，\n也是源于想要重归一体的本能吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "身为机神一部分的你都能像这样构筑出[#真体:アリスィア]，\n所以这也没什么好奇怪的。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "而那些被消灭的Garbage，\n不断发出信号，试图唤醒作为本体的你。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "信号强烈到足以扭曲\n卡尔德尼亚和里卡尔德尼亚的相位。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就像消失的[#娘:ペルセポネ]在呼喊，\n向母亲求救一样。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "开什么玩笑……"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你是说，就像终端发生劣化一样，\n我也承受不住与区区[#後継機:ペ ル セ ポ ネ]之间的记录……？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "才不是所谓的[#たかが]……[wt 0.7]区区……！"
+    },
+    {
+      "speaker": "T：德墨忒尔·起源",
+      "translated_content": "你……"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "才不是区区。[wt 0.7][messageShake 0.03 3 3 0.5]\n绝对！　绝对不是区区！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "因为……卡尔德尼亚真的很快乐！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "就算德墨忒尔小姐和厄里倪厄斯小姐\n忘记了珀耳塞福涅小姐，"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "想让珀耳塞福涅小姐开心的心意，\n依然充满了卡尔德尼亚与里卡尔德尼亚！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "阿斯姐姐带我游览了那样的卡尔德尼亚，\n每一处、每一刻都让我开心得不得了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "才不是所谓的[#たかが]……[wt 0.7]区区……！"
+    },
+    {
+      "speaker": "T：德墨忒尔·起源",
+      "translated_content": "你……"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "才不是区区。[wt 0.7][messageShake 0.03 3 3 0.5]\n绝对！　绝对不是区区！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "因为，卡尔德尼亚真的很快乐！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "就算德墨忒尔小姐和厄里倪厄斯小姐\n忘记了珀耳塞福涅小姐，"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "想让珀耳塞福涅小姐开心的心意，\n依然充满了卡尔德尼亚与里卡尔德尼亚！"
+    },
+    {
+      "speaker": "K：格蕾",
+      "translated_content": "阿斯小姐带我游览了那样的卡尔德尼亚，\n每一处、每一刻都让我开心得不得了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "格蕾……小姐……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……是啊。\n那并不是区区小事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "因为变年轻而忘记了，但确实如此。\n怎么可能只是区区小事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯，你觉得你的父亲为什么\n要把冥府之水交给德墨忒尔？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那是因为……他憎恨成为罪人的我吧……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "换成[#マリスビリー:わ　　た　　し　　の　　父]，绝不会这么做。\n为无用的孩子付出成本，岂不是更加浪费。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果没能在冬木得到圣杯，\n父亲一定会把我弃之不顾吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "如果是莱妮丝，\n或许认识那个世界的我。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那为什么……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "阿斯、格蕾，\n还有我各自背负的东西，从一开始就截然不同。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "对阿斯来说，那是悔恨，\n对格蕾来说，那是空白的未来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "但是啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我只是有那么一点留恋。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概只是想任性地闹一次别扭。\n想向某个人撒一次娇吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "偶尔稍微喜欢一下『如果』这个词，\n也没什么不好。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 所长……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你到底在啰啰嗦嗦说些什么！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "什么——！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所长竟然正面挡下了\n德墨忒尔·起源的镰刀……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，[bgm BGM_BATTLE_298 0.1]接下来就来谈谈[#現在:い　ま]吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "罪人？　很好，我求之不得。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从世界手中夺走了丰饶女神的女儿？\n原来如此，的确罪孽深重。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那又怎样！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我可是差点把整个地球都毁灭了！\n要是以为那点程度能胜过我，就尽管放马过来！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你[messageShake 0.04 5 5 0.5]说什么————！！！！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "确认奥尔加玛丽所长的灵基完成修复！\n不，不仅如此！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "这是[#未来の姿]！\n虽然只是假设，但这是她作为人类平安长大、"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "继承阿尼姆斯菲亚家，\n并成为[#君主:ロード]之后，假想未来中的姿态！"
+    },
+    {
+      "speaker": "[51d4ff]广播[-]",
+      "translated_content": "[51d4ff]灵子核验通过。魔术回路参数一致。[-]\n[51d4ff]识别为迦勒底所长，奥尔加玛丽·阿尼姆斯菲亚。[-]"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "一直处于黑箱状态的\n所长权限链接也解除了……！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我和莱妮丝都尝试攻击过，却每次都被弹开，\n甚至连正规链接目标都完全不明，就是那个权限！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你说这是那个小丫头成就大业后的姿态！？\n不可能！　那种、那种——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "就连时钟塔的[#君主:ロード]们也无法令她相形见绌！\n飞黄腾达、东山再起也该有个限度！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我呢，我可是啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好不容易才回到法政科，\n连[#城:うち]都还没能修好！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来如此！　等迦勒底的异常解决后，\n我们一定会去帮忙！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "（不，可这样也很危险……！\n　如此庞大的魔力量，绝非人类所能拥有！）"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "（简直等于在宣告，她拥有恒星级魔术炉心——\n　与Beast同等级别的东西！）"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "我想，这是神灵德墨忒尔造成的特异点中\n才会出现的极端特殊状况……"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "刚以为她变成了孩子，接下来又成了大人，\n不，是变成了未来的姿态，实在令人惊讶。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "『人类的可能性没有极限』。\n这惊人的成长，足以令人如此感叹。原来是[#大器晩成:たいきばんせい]型吗。"
+    },
+    {
+      "speaker": "M：达·芬奇",
+      "translated_content": "（他在默默鼓掌！？\n　以阿兹莱尔的标准，那个奥尔加玛丽是『正确』的吗！）"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……话虽如此。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "这终究只是一种假设。\n那样的未来并不存在。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "至少在这一刻，让我们[#讃:たた]美并为之欣喜吧。\n作为聚集在这个迦勒底的同志。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "灵基稳定。完成与迦勒底的连接。灵子核验通过！[wt 1.2][charaEffectEdgeBlur I fdff87 fdff87 4 5][cueSe Servants_4000100 m66763 0 0.6]\n原子炉，励起！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "站起来，格蕾、阿斯！\n现在已经能站起来了吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯、嗯！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是、是的！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "真的……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "现在攻击应该也能奏效了。\n准备好了吗？　藤丸立香。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 当然！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 早就等着这一刻了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我以人理存续保障机构迦勒底所长，\n奥尔加玛丽·阿尼姆斯菲亚之名下令！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "即刻起，击败个体名德墨忒尔·起源，\n修复特异点！"
+    }
+  ]
+}

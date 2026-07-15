@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010910",
+  "source_region": "JP",
+  "source_hash": "d9e230e4c2fe9004acfb7c75cf350e0ff694855a5ac170618263af6e795f6f1a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 66,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "所、所长！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：医生呢！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：果然已经……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "嗨，你们两个辛苦了！"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "你们从灵子转移中回来，似乎意外地还要一段时间，\n所以我正想准备些咖啡……。"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "哇啊啊，怎么突然这样！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "还没消失，您还没消失呢！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好，医生先别消失！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "这要求也太强人所难了！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "咖啡吗。不错呢，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "只要尽可能摄取咖啡因，凭借它的提神作用，\n应该就能保持清醒！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咖啡再来一杯！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "Dr.罗曼",
+      "translated_content": "真是伤脑筋。我其实想做的是\n心理疏导……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，就去藤丸立香的房间\n进行心理疏导吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "反正这边也没什么可做的，\n就允许你们稍微偷懒一会儿。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "所长……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你们两个都是什么表情。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，快去吧。\n再磨磨蹭蹭，我就踹你们的背了！"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "大卫阁下。\n您不去吗？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "嗯，我？\n哈哈哈，你是指什么？"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "没什么。我只是以为，\n您或许有些话应该和他谈谈……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "哦，没什么好谈的。\n完全没有，一点也没有。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "毕竟我和那家伙都是没出息的人。\n要是聊得太久，恐怕会被彼此看穿这一点。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "而且，想做的事我已经做完了。\n那就辛苦各位啦。我先走一步——！"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "杰罗尼莫阁下，您认为这样就好吗？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "啊。我也曾与他处在同样的立场。\n所以很明白他的心情。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "这样就好。\n再说下去，大卫大概也会觉得难为情。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "啊——……我好像也有点明白。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这是什么意思？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "为人父母，\n总想让孩子看到自己值得骄傲的背影。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "可若要与孩子正面相对——\n反而会觉得有些[#面映:お も は]难为情。"
+    },
+    {
+      "speaker": "J：Dr.罗曼",
+      "translated_content": "好，那就开始心理疏导吧。\n不过，太拘谨也不合我的性格。"
+    },
+    {
+      "speaker": "J：Dr.罗曼",
+      "translated_content": "所以，换个方式来问吧。\n这次又经历了怎样的冒险？"
+    },
+    {
+      "speaker": "R：玛修",
+      "translated_content": "……好的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个嘛，首先是从近代城市出发……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我们和医生聊了很久很久。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "漫长、漫长，极其漫长的闲聊。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是一段甚至会忘记5分钟前聊过什么的\n闲谈时光。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "那是一段即便想记住，\n也无法尽数记住的谈笑时光。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我们大口灌下咖啡，\n头脑愈发清醒，情绪愈发高涨，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "没有察觉话题在兜圈子，\n即使察觉了，也任由它继续兜圈子。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有时捧腹大笑，\n有时一同露出厌烦的表情，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "有时沉浸于乡愁，\n就这样一直聊着，"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "回过神来时，\n医生，罗玛尼·阿其曼，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……嗯"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "留下还没喝完的咖啡，\n不知何时已经消失了。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然直到最后也没能向他告别。\n但是……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这样就好，对吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "不必将一切都留在记忆中。\n也不必将一切都放手。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "与你共度的时光令我快乐。\n能和你待在一起令我欣喜。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我想，那就是幸福。\n我想，那是一段珍贵的时光。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——这样便已足够。\n重要的是，那段时光确实存在过。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "于是，我和前辈\n收拾好了咖啡杯。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "谢谢你，Dr.罗曼。\n再见了，罗玛尼·阿其曼。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "我没有说出再见，\n而是怀抱着那段愉快交谈的过去——"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "迈过那一秒，继续前行。"
+    }
+  ]
+}

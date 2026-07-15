@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221411",
+  "source_region": "JP",
+  "source_hash": "3ce57d59a681f6e0c4fb9bd8755d1004c020f01e40e8a414e160c1f0ee9bc505",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 20,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "喂喂——！\n你们想干嘛啦，竟敢打扰我的演唱会——！"
+    },
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "我只是因为活动室竣工了，\n才被叫来活跃气氛的！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "抱……抱歉！\n但这样下去这里会被彻底破坏的……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "看。警卫也来阻止了！"
+    },
+    {
+      "speaker": "警卫",
+      "translated_content": "………………"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 尽管唱得非常美妙……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 但伊丽亲的力量在这大厅中犹如火焰公主……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯。所以如果可能的话，\n能否去野外舞台继续表演？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "在那边的话，我们也能一起观赏了……"
+    },
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "野外舞台！\t还有那种东西吗！？\n就是那个，会放烟雾的那种吧！"
+    },
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "真不错，在略感寒冷的演唱会中，\n让心灵与身体快速到达最高潮！"
+    },
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "那再见了，[&小狗崽:小鹿崽]！\n2020年新年快乐！"
+    },
+    {
+      "speaker": "伊丽莎白",
+      "translated_content": "那再见了，[&小狗崽:小鹿崽]！\n2021年新年快乐！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯。\n真是个雷鸣般的小丫头呢。唔？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好像落下了什么东西……\n这是她的灵衣碎片吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好，好吧，反正火蜥蜴和火鼠差不了多少。\n就把这当作『火鼠裘』吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 得到『火鼠裘』啦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 赶快去[#温泉:野外]舞台吧！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    }
+  ]
+}

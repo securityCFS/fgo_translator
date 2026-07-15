@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810611",
+  "source_region": "JP",
+  "source_hash": "8ad2635de74a660e94d93846091ad094bdcd35f620d7584f493c8227380a5540",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 19,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（藤丸立香，\n　你没等我介入就擅自出手了吧！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：对、对不起……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：一不小心太较真了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（唉……算了。只要能赢就没问题）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（完美！配合得很好，\n　藤丸立香！）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：总算努力撑住了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：坚持到底了……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这……是我们赢了吧！"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "原来如此，看来你们至少还能做到最低限度的自保。\n不坏。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "况且我这边也准备不足。要是像踩死蚂蚁一样取胜，\n可算不上尽到[#施設:テアトルム]负责人的职责。"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "那么，请收下这个。\n这不是工资……而是你们赢下的金额。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "谢谢你！BB迪拜酱！"
+    },
+    {
+      "speaker": "BB迪拜",
+      "translated_content": "酱……！？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么，这次职业体验就算顺利结束！\n接下来拍摄纪念照吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主，麻烦按下快门！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：来，茄子！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    }
+  ]
+}

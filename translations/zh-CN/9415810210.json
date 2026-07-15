@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "script_id": "9415810210",
+  "source_region": "JP",
+  "source_hash": "5390bc86a430bf77f4389f635daa4a34f89253ecb8a2fd10bd6ac8b8c40f1adf",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 40,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "芭万·希",
+      "translated_content": "什么啊，原来是你们。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊，芭万酱！"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "哈？芭万酱？\n这是从哪冒出来的叫法。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "别、别用那副模样跟我这么亲近，很难把你推开吧！\n这个[#娘:こ]到底怎么回事！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：难道是迦勒底的芭万·希？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "不用猜也知道是我。\n不然你觉得还能是谁。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "我莫名有点在意，就拜托母亲大人让我观测这里，\n结果被吸了进来。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "没办法，我只好在这里消磨时间，\n一直等到你们过来。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "迦勒底这种放任从者不管的作风，\n看来还有改善空间！"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "正好有份很合我胃口的工作嘛。\n外观和里面全都被我改成了喜欢的样子。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "干嘛露出那种奇怪表情。你没提升工作能力，\n反而把平时那张傻脸进化了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：总觉得"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：你好像心情很好"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "面对[#芸術品:ア　ー　ト]，怎么可能摆出阴沉的脸。\n不过你刚才那副得意的表情倒是让我很火大。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "算了，让你们帮鞋店的忙也行。\n这里的规矩就是这样。"
+    },
+    {
+      "speaker": "E：芭万·希",
+      "translated_content": "但鞋子必须小心翼翼、轻拿轻放。\n就像对待公主一样，懂吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯！格蕾要做什么？"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "代替我接待客人……就这么办吧。我至少会先示范给你看。[bgmStop BGM_KAZURA_1 1.5]\n瞧，说着“客人”就来了。"
+    },
+    {
+      "speaker": "C：女性",
+      "translated_content": "请问，这双高跟鞋有其他颜色吗？"
+    },
+    {
+      "speaker": "D：女性",
+      "translated_content": "我想要只大一号的，\n能帮我拿来吗？"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "哈？独一件的东西哪会有不同尺码，混账。\n尺码本来就是设计的一部分。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "既然对这双鞋一见钟情，就该让自己的脚去配合它。\n穿不下，就说明你们没有缘分。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "也不是说你被甩了。\n只是它还有更适合自己的公主。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "以“客人”的风格来看……我想想。\n这双鞋怎么样？"
+    },
+    {
+      "speaker": "D：女性",
+      "translated_content": "！真漂亮！我要这双！\n店员小姐的眼光果然厉害！"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "——哼。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "喂，你们也别发呆！\n赶紧做好接待客人的准备！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：咦，现在就要！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：直接实战！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "没错。首先把店里所有鞋子都记下来。\n不只要看，还要亲手触摸，确认质感和重量。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "鞋子的好，不是看产品目录就能明白的。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "要用手指触摸、品味，并[#想像:イメージ]穿上它的人\n想要完成怎样的“变身”。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "就算表达得[#拙:つたな]也没关系。把你感受到的“公主”\n所拥有的魅力一五一十地说出来。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "漂亮、可爱、帅气。\n只是走在大街上，就能迷倒周围所有人。"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "可别让鞋子反过来妥协，\n觉得“穿我的人选这家伙也行吧……”哦？"
+    },
+    {
+      "speaker": "芭万·希",
+      "translated_content": "要是敢把难得的艺术品贬成普通商品，\n我就给你塞进恋足癖的诅咒，明白吗？"
+    }
+  ]
+}

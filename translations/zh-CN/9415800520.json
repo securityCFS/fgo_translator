@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800520",
+  "source_region": "JP",
+  "source_hash": "d79ac71ced70b3a134342ae1064bef32ab7a09d46566f9c19c4d2e23fc2638b0",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 76,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好紧张啊……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不管是德墨忒尔·厄里倪厄斯，还是德墨忒尔，\n都不是该接连遇上的对手啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "像我们这样的人类，\n灵魂反而会先被[#拉:ひし]垮。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "就算迦勒底里有不少神灵，\n那种存在也不是能习惯的。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：直到中途，互动几乎都一模一样……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "确实让人深刻体会到，\n她们是同一个德墨忒尔的不同侧面。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "性格与性质虽然不同，\n但反应的本质没有改变。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者的[#異霊:オルタ]与不同侧面的区别，\n或许也体现在这一点上吧。"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位辛苦了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "呐！　接下来去哪里！？　去哪里！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：格蕾精神真好……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "精神确实会受到肉体影响呢。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说实话，我也有点\n蠢蠢欲动了……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　既然这样，\n就干脆逛遍卡尔德尼亚吧！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "反正无论表里，\n护照都得填满才行！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "向导工作就请交给这位管家吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "我也会做好安排，让大家在里卡尔德尼亚\n同样能与迦勒底通信！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……在那之前，能先问件事吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "格蕾……除了伦戈米尼亚德之外，\n还和亚瑟王有关吧？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "呃，这个……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "啊——看格蕾这状态，还是由我来说比较好。\n反正在迦勒底，这也算是人尽皆知的事。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "格蕾原本就是[#アーサー王の器]。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "她是被作为容器培养的，好承接未来可能现身的亚瑟王的\n精神与灵魂。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "要细说起来既沉重又漫长，\n就容我跳过吧。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "不过，这在我们这行也算挺常见的。\n只是状况和对象稍微棘手了点。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "为了成为那样……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "原来如此……[wt 0.8][charaFaceFade L 11 0.1]什么嘛，原来你也是这样。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样一来……格蕾变小的原因，\n或许和那两个人有关。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：德墨忒尔和厄里倪厄斯"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：守护着她们的两个人？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "是的。在众多从者中选中了那两人的结果，\n或许让与她们有缘的[#相手:グレイ]受到了强烈影响。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "大概会对『活在当下的[#人類:ヒ　ト]』产生影响。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "哦，这个着眼点很有意思啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者原则上都是过去的死者，\n但迦勒底式召唤中存在极少数例外。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "格蕾就是其中之一。以活人之身从者化，\n并登记进迦勒底灵基图谱的案例。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然还没能彻底弄清返老还童的本质……\n但我想，这一带肯定与之有关。"
+    },
+    {
+      "speaker": "P：戈尔德鲁夫",
+      "translated_content": "唔。不愧是前前任所长兼现任所长。\n对从者的见解如此深刻……"
+    },
+    {
+      "speaker": "O：奥尔加玛丽",
+      "translated_content": "你接触过的特异点和从者明明比我多得多，\n你也该好好学习。"
+    },
+    {
+      "speaker": "O：奥尔加玛丽",
+      "translated_content": "研究与学习。挫折与克服。[#誤謬:ごびゅう]与修正。\n这永无止境的积累，才是魔术师的本分吧？"
+    },
+    {
+      "speaker": "P：戈尔德鲁夫",
+      "translated_content": "唔，和不该拿自己作比较的英灵不同，\n这份来自同为现代魔术师且与我相仿之人的压力……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：双所长……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "总觉得好开心。\n两位能像这样聚在一起。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：总觉得，非常[line 2]"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……那么，各位。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "谈完之后，\n要不要继续体验卡尔德尼亚呢！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也是。这种地方不宜久留！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "尽管只能维持一小会儿，格蕾也能使用力量了，\n阿斯应该也能派上些用场。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我……虽然多少有点麻烦，\n但能在知识方面提供支援。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯，奥尔加姐姐，真可靠！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：就拜托您了，所长！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "很好。尽管依靠我吧！\n无论表里，都痛快地填满吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "赞成——！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "想太多也没个尽头。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "看起来没那么危险，\n这里就拿出勇往直前、哪怕粉身碎骨的精神吧！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不，不过真碎了可就麻烦了哦？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那么，御主，从哪里开始？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：呃……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：那么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "呐，亚瑟……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "嗯。怎么了，管理人。"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "如果，我是说如果……"
+    },
+    {
+      "speaker": "德墨忒尔",
+      "translated_content": "如果那些孩子\n能填满护照……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "呐，阿尔托莉雅……"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "什么事，管理人。"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "如果……我是说如果……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "如果那些孩子，\n能填满护照……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯／德墨忒尔",
+      "translated_content": "这座卡尔德尼亚将会\n迎来春／春天。"
+    }
+  ]
+}

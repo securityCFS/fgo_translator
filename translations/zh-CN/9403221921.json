@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221921",
+  "source_region": "JP",
+  "source_hash": "eaf9bd7d681b32048d3c0273ed614c40486661540e9a265bd60f7095afefcb9a",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 45,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "猿面怪",
+      "translated_content": "[messageShake 0.04 5 5 0.7]\n[image berserker_language_2]——！！！！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "这是怎么回事，你……你们——"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "蛇面！　虎面！\n你们为什么纷纷来拖我的后腿！？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "没有名字、没有去处、也没有干劲！\n你们这种下三滥货色都是多亏了谁的吞噬才有了今天啊！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "不准妨碍我，不准反抗我！\n究竟是怎么回事，你们这群蠢货！？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "——灵基反应，分裂——\n不，这是……在……自我破坏……？"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………不对。我没有，反抗。\n…………我只是个，没有头的，身体。"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………对于拥有智慧的你……\n…………我只能，顺从。"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………因此……\n…………我无法，帮助小红。"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………我，还是我……\n…………之所以失败，是因为你实力不足……"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………让我最后再说一句。\n…………尽管我确实没有[#头:脑]……"
+    },
+    {
+      "speaker": "A：虎面怪",
+      "translated_content": "…………但你，则是彻头彻尾的[#无能之辈]。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "混蛋，不过是区区野狗……！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "不过算了，反正我也不指望从你那里得到什么。\n我就知道是你会绊手绊脚的！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "但是蛇面，你是怎么回事啊！？\n你没理由站在麻雀一边吧，喂！？"
+    },
+    {
+      "speaker": "A：蛇面怪",
+      "translated_content": "是啊。我没理由站在红阎魔亲一边呢。\n但是——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "噢哇哇哇哇……\n不好了，不好了，大事不好！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们肯定被诅咒了！\n我们好像犯下了什么不得了的大错！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "啊哇哇哇哇……\n不好了，不好了，大事不好！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "竟然会发生这种事！　我会被猿长老杀掉的！\n不，在那之前就会被从阎魔亭赶出去的！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "不要啊，我可是既没钱又没去处的啊！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "一旦离开阎魔亭，像我这样的杂灵，\n不消一日就会烟消云散了吧！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "刚[messageShake 0.05 8 6 0.8]刚刚……刚才那可不是我的错啊！？\n那可是你们擅自做的好事！？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "对吧，是这样吧！？　求求你们，别把我的事说出去！\n否则我会被赶出这里而消失的！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯。尽管我不知道发生了什么……\n但我能理解被逼到绝路的人的心情。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "明白了，你走吧。\n就当这里除了我们之外没有其他人。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "哎？　真的吗？　可以吗？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哎，你快点，不然警报就要响了吧！\n毕竟你也没有什么恶意吧！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那不就行了吗！　这件事的责任八成在于对自己的\n魔术知识缺乏自信，不多加考虑就打开盖子的我！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "但你也别指望我！　如果被严厉地追究责任，\n我也对自己是否会讲义气毫无自信！"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "——"
+    },
+    {
+      "speaker": "A：蛇面怪",
+      "translated_content": "我也无法嘲笑虎名主呢。\n结果我们都敌不过一时的恩情呢。"
+    },
+    {
+      "speaker": "A：蛇面怪",
+      "translated_content": "开玩笑的，我[#这辈子已经活够了]。\n反正最后大饱了眼福——"
+    },
+    {
+      "speaker": "A：蛇面怪",
+      "translated_content": "也怀着真正快乐的心情，愉快地喝了酒。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "[FFFFFF]？[-]"
+    },
+    {
+      "speaker": "A：蛇面怪",
+      "translated_content": "再见了。我也受够你的阴险，猿。\n而且我并不喜欢当尾巴的部分。"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "呜，呜啊啊啊啊啊啊……！\n这算什么……这算什么啊！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "明明都是些离开了[#头:我]就什么都做不到的下三滥货色，\n竟然全都赶在我之前升天了！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "可恶，回来，快回来，快回来啊，你们这群垃圾！"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "我可是头！？\n是你们的头儿啊！？"
+    },
+    {
+      "speaker": "猿面怪",
+      "translated_content": "啊啊可恶！　就算我是个天才，\n[#离开了身体和尾巴也什么都做不了啊]！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "满意了啾。\n这就是你的穷途末路啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "为了一己私利与私欲而撒谎，\n嫉妒他人幸福之人注定会失道寡助啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "阎魔判决，至此休庭！\n去地狱的底层好好反省啾！"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800411",
+  "source_region": "JP",
+  "source_hash": "c9ae281afac422f0584d9df95ac59f860746df3463e1e67bc865d3a4b87b910d",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 32,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿斯",
+      "translated_content": "呜[messageShake 0.03 3 3 0.5]哇啊啊啊啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这是什么，他也太弱了吧！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：圣枪装在里面"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：亚德也装在里面"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……原来如此……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "我把许多魔力资源\n都灌注进去了……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "因为……可爱的东西无论多少都不嫌多……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻嘻！\n不过，这和我平常的朗戈米尼亚德完全不一样啊！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "『[#最果てにて礎なる夢の塔:ロ　ン　ゴ　ミ　ニ　ア　ド　・　ミ　ュ　ト　ス]』这个名字倒还刻在上面，\n可怎么看都是一套配合这副身体的新家伙吧！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "确实，在同为朗戈米尼亚德的同时……\n又与我的圣枪截然不同。"
+    },
+    {
+      "speaker": "G：格蕾",
+      "translated_content": "刚才的宝具……\n[#拙:せつ]究竟是怎么做到的……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：恢复原样了……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "感觉像是突然从梦中醒来……\n变得什么也不明白了……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "不会消失的……因为很快就会变成真正的未来……\n现在只不过是……提前借来的……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "真正的力量……要等你填满护照之后……好吗……？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（她果然非常看重护照。）"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你也是哦……小奥尔加玛丽……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我也要？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "把护照填满，一定会对你有所帮助……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "因为你的卡尔德尼亚……\n似乎就是那样的地方……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "你……也很可爱……\n为什么要把美丽的姿态隐藏起来？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没、没有完全隐藏！只是应格蕾小姐的要求，\n现在暂时保持着这个样子……"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……格蕾喜欢的样子就好……\n不过，请尽快……好吗……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好的！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "那么……伤势怎么样了……？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "每次来看时都在稳步痊愈！"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "是吗……\n那就继续努力……好吗……？"
+    },
+    {
+      "speaker": "德墨忒尔·厄里倪厄斯",
+      "translated_content": "快点……尽快恢复吧……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "好的……！"
+    }
+  ]
+}

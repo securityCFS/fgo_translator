@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010420",
+  "source_region": "JP",
+  "source_hash": "6b25b0368b49073a0a7f8d4c41a3361f78331cb11dd4e52178c6b89e6f9b3e04",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 104,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "紫式部",
+      "translated_content": "原来如此。所以才来图书馆……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "不好意思，紫式部小姐。\n可以借用一下桌子吗？"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "呵呵，当然可以。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "今天图书馆也很安静，除了时子大人以外，\n没有其他客人……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时子小姐在哪里？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "有人叫我……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "啊，时子小姐！\n今天在找什么书呢？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵……我最近正在学习那个叫SF？的电影。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "光是理解就很费劲……"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "这本是关于量子力学的书……\n确实是与科幻颇有渊源的学科……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不如从更容易亲近的书开始？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "什么样的书比较好呢……？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这个嘛，简单来说，可以找电影的资料特刊……\n或者干脆找介绍CG技术的书……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来如此。那一种或许更好。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "那么，由我来带路吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我也一起去"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……说得也是。\n机会难得，我们也一起去吧。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "时子小姐，我们也来一起找书。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀，那真是。\n谢谢你们了。谢谢。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（……看起来是个普通人）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（但是，普通才是不可能的。这里是迦勒底）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（这里既是修复人理的最前线，\n　也是位于星球最南端的基地）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（既不是职员，也不是签订契约的从者，\n　时子小姐会出现在这里，本身就不合常理）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（这位究竟为什么会在这里呢……）"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "就是这里。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "一直以来都谢谢您。"
+    },
+    {
+      "speaker": "紫式部",
+      "translated_content": "哪里哪里。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "那么，愿意和我一起找书吗？"
+    },
+    {
+      "speaker": "D：时子",
+      "translated_content": "接下来终于要去第七特异点了呢。"
+    },
+    {
+      "speaker": "E：玛修",
+      "translated_content": "是的。因为也是最后一个特异点，我很紧张。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：确实……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "D：时子",
+      "translated_content": "没关系的，玛修小姐。\n藤丸立香。"
+    },
+    {
+      "speaker": "D：时子",
+      "translated_content": "两位只要像至今为止那样，做自己力所能及的事就好。\n过去的积累会拯救你们。"
+    },
+    {
+      "speaker": "E：玛修",
+      "translated_content": "好、好的。谢谢您。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——怎么了？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：…………不，没什么"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是吗？那么，请帮忙找书吧。\n那个……CG、CG……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……CG是什么……？\n计算机图形学……？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……计算机……？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "谢谢你们。\n那么，我要在这里读一会儿书。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "你们是要学习吧？\n不用管我，请便请便。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那么……开始学习吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：嗯，就这么办"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "通讯中断确实让人吃了一惊。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：毕竟会无法传达这边的情况"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。虽然还不清楚第七特异点所处的时代，\n但我们应该考虑到时代更加[#旧:ふる]久远的可能性再行动。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "可能导致通讯中断的环境和状况……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：遇到强敌的时候"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。能干扰通讯的，应该是等级相当高的\n从者，或者……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "有很大可能是\n受到圣杯支援的从者。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "除此以外……严酷的环境也可能造成通讯障碍。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：严酷的环境"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "从者干扰通讯也是一种可能，\n但我想环境果然才是最大的阻碍。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "古代的地球环境在魔术层面上\n与现代有很大差异……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "第六特异点是沙尘暴。\n第四特异点则是在雷云出现时发生过短暂故障。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "也就是说……恶劣天气会扰乱通讯，\n这点毫无疑问。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：在模拟器里进行恶劣天气特训？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。需要多进行几次……\n之后和职员们商量一下吧。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀，通讯受到了干扰吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……是的。在沙漠被卷入沙尘暴的时候。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "原来如此。[#旧:ふる]老时代的魔力蕴含在沙粒中，\n因此扰乱了通讯吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：无法通讯总觉得不安啊"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "哎呀，呵呵呵。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "如果是你，\n无论身处什么情况，都曾[#逞:たくま]顽强地向前迈进。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "——我想看到的正是这一点。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "想看到……吗？"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "是的，呵呵呵。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：时子小姐，你……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "嗯。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：到底是什么人啊——"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "——！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（御主，在这里直接追问不会有危险吗！？）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（不过……照对话的走向来看，或许也很自然。\n　而且前辈还是以开玩笑的语气问的）"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "（时子小姐会做出怎样的反应呢）"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵。我并不是职员。\n但也不是从者——[#仕える者:め  し  つ  か  い]。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "我就是我，是你为我取了名字吧。\n时之子，[#ときこ]。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "呵呵。你为何会把我与时间联系起来，\n我也不明白……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "这个名字本来应该被遗忘才是。\n可不知为何，却被铭刻下来了呢。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……是不是说得有些太多了。\n忘记……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "算了，也好。\n总而言之，我是一位来历不明、神秘、美丽又迷人的大姐姐。"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "你这样认为就好。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：而且还不食人间烟火……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "时子",
+      "translated_content": "才没有那回事哟——？\n我可是走在潮流最前沿的大姐姐哟——？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前辈。刚才那是……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：虽然时子小姐有些令人在意……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：总之先继续学习吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "好、好的！"
+    }
+  ]
+}

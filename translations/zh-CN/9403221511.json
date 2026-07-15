@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221511",
+  "source_region": "JP",
+  "source_hash": "420ecc03c8e1727b5483c2485139402ecf9862950dc8129daed4de2582bfc930",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 16,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "美杜莎",
+      "translated_content": "……这里是……阎魔亭的后山吧？\n刚才我确实被清姬从后面咬了……"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "为什么我要遭那种罪……\n她一边跳踢一边变成蛇把我卷起来……"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "传说原来是真的啊……\n难怪安珍的逃跑速度超过了音速……"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "戈耳工阁下是精彩动作电影中会出现的蛇身……\n清姬阁下是悬疑恐怖电影中会出现的蛇身……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "失踪的葱者们似乎也都被释放了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "很抱歉怀疑了你啾，清姬。\n这次我倒是很同情你啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是啾，为什么巴大人要做这种事啾？\n她好像提到了什么龙珠啾……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "那……那是因为巴小姐也是妙龄少女嘛！\n她也想要不输给别人的雕工首饰吧！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那个巴御前会这么做啾……\n果然只有义仲大人那样的才可与之交往啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "算了啾，收拾残局就由我来负责啾。\n你们可以回去了啾，清姬、藤丸立香。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "为了对之前的冤假错案进行赔罪，\n稍后我会泡茶给你们送过去啾。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……唉。不管过程如何，\n总算是得到了五件宝物之一。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我可不想让红阎魔老师过分担心……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "在宝物收集完成之前，\n要对老板娘保密哦，御主♡"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 得到『龙首珠』啦！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    }
+  ]
+}

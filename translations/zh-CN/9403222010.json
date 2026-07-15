@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "script_id": "9403222010",
+  "source_region": "JP",
+  "source_hash": "f67e613eaee09db640b05bee2995b041fe862051c3b222443630d698b6c219c2",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 131,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呵。诅咒完全解除了。\n可以说这全是我的功劳吧？"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，芙。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "而且……呵呵呵。\n“将补偿这种行为本身作为供奉。”"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不仅把我们的所作所为说得那么伟大，\n还把我们赚取的魔力换成了圣杯……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哇哈哈哈，对于吝啬的东方神明而言！\n这真是太慷慨啦！"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "哎呀哎呀。如果您继续说神明的坏话，\n阎魔大人难得的好意可就要不算数了哦。"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "还有，撒谎可不好哦？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "阎魔亭的样子也不一样了呢。\n整栋建筑仿佛充满了神气。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "因为从债务中脱身后，\n“谢意”也可以全部拿来供奉了嘛。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "『迷途之家』一定是夺回了原本的力量吧。\n可喜可贺，可喜可贺。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这都多亏了各位。\n玉藻、清姫、巴、芬恩、迪尔姆德、"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "戈尔德鲁夫、玛修，\n还有藤丸立香。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "谢谢你们啾。\n我代表阎魔亭向你们表示感谢啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "应该照顾各位的我们\n却受到了各位的照顾啾——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "各位给予我的关心和照顾，\n让我受益匪浅啾！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我们也学到了很多东西。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 还好天罚没有降临！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯，尽管这是一趟意外的慰劳旅行，\n但这个新年我们过得很有意义！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "接下来只需联络迦勒底基地，\n进行灵子转移就可以了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呜[charaMoveReturn A 0,10 0.2]噗！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不，关于这个啊，玛修，\n还有藤丸立香。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "既然我们已经在这里拼命工作了那么久，\n干嘛不如再在阎魔亭好好休息1天——"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[charaTalk G]\n喂喂，喂喂～！\n刚才我好像听到了戈尔德鲁夫氏的声音！"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "[charaTalk G]\n这里是来自彷徨海迦勒底基地的\n希翁·艾尔特纳姆·索卡里斯！"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "[charaTalk G]\n听见了吗——！\n我就要按下强制返回的按钮了哦～！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "刚才是希翁小姐的……！？\n但为什么小麻雀身上会传来通讯的声音……？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "噢噢噢噢噢……！　麻雀，刚才那个莫非是……！？\n哎，就是那个！　把你翅膀拿着的东西给我！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾？\n是这个啾？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "是我在后山捡到的啾。\n每天都嘎嘎叫，烦死了啾。"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "这是客人您掉的东西啾？\n您早点提交寻物启事不就好了啾？"
+    },
+    {
+      "speaker": "雀",
+      "translated_content": "而且您年纪也不小了啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我……我竟然在29岁的冬天被麻雀说教……！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "什么……戈尔德鲁夫阁下弄丢了通信装置吗……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "我还以为您是无论陷入什么困境\n都不会向迦勒底求助的[#勇敢:凯尔特式]司令官呢……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "藤丸立香早就发现了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 嗯，算是吧……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 完全没有发现哦（棒读）。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈哈哈，不是挺好的嘛，\n毕竟事情圆满收场了！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "达·芬奇女士，不对，应该是达·芬奇亲，\n以及福尔摩斯和希翁。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "若有他们来出主意的话，\n供奉殿的问题恐怕几天就能解决了。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "但是，也仅此而已。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "偶尔绕个远路也不错嘛。\n瞧，这不是解决了更大的问题吗？"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "[charaTalk G]\n喂喂～！　我知道你们听得到，\n快集合到1个地方啦～！"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "[charaTalk G]\n魔力消耗量超过了规定值，\n存在证明也开始出现了数值误差啦，"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "[charaTalk G]\n所以现在即将执行集体返回！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "灵子转移返回开始了……！\n前辈，起码最后……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 我明白……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 感谢你让我们度过了一个快乐的新年！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 明年我们还会再来的！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "呵呵。\n这的确是无与伦比的告别啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "葱者……不，是叫从者啾。\n我会好好练习发音啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "阎魔亭不会忘记受过的恩情啾。\n和迦勒底的缘也已经结下啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "今后我也会毫不犹豫地为帮上各位的忙而战斗啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不过这必须得到阎魔大王的允许啾。\n毕竟爹爹大人固执得很啾……说服他会有些困难啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "话虽如此，阎魔亭还是随时接受预约啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "为了让[#那份幸运:那个时刻]早日到来，\n我也会好好积德啾！"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "啊呀，终于到必须告别的时候了吗？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "那么红阎魔老师，下次再见。\n我会期待您的下次指导♡"
+    },
+    {
+      "speaker": "清姫",
+      "translated_content": "我也就此告辞了……\n感谢您的关照，红老师♡"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "（这二位的社交话术真出色……\n　善始善终，完美的撤退！）"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "我……我也告辞了，老师！\n下次我一定会从初级班毕业的！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯，我表现得还不错吧？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不仅我在迦勒底的声望有所上升，\n也在阎魔亭中心满意足地休息了一番。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "对我来说可谓一次赚翻了的休假呢……\n不过……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "你怎么样，迪尔姆德？\n据我所知，你好像没有很大的收获啊？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "您在说什么呢，吾主啊。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "我在费奥纳骑士团团长身边亲眼见证了他的高光时刻。\n难道还有比这更美妙的奖励吗？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "是吗？　哈哈哈，没错没错，这就够了。\n嗯嗯，说实在的——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "你真是很个优秀的[#武士:男人]哦，迪尔姆德。\n跟着如此善变的我，实在是委屈你了。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "好啦好啦。\n你们几个，各位客人要启程了啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾啾！　列队啾，列队啾！\n摆出送别的队形啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——咳咳。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "感谢各位惠顾本旅馆。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "祝愿新的一年能为各位带来好的转机。\n也祝愿各位能平安地迎接下一年。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "请各位归程注意安全啾。\n我会和麻雀们一起期待各位的再次到访啾！"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "……难以置信。简直难以置信。"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "明明是值得纪念的第1次灵子转移实验，\n居然发生了通信器丢失的事，简直难以置信！"
+    },
+    {
+      "speaker": "希翁",
+      "translated_content": "今后通信器应该交给玛修小姐，\n而不是戈尔德鲁夫氏吧？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "各位～～，欢迎回来～～！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "在灵子转移的目的地究竟发生了什么！\n如果发生了什么好玩的事，就快说给我听听！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "嗯。我们回来了，达·芬奇亲。\n这次的特异点是一个叫做阎魔亭的温泉旅馆……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "而且哦！\n老板娘竟是一位十分出色的麻雀老板娘！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但是，那里有一个从500年前起\n就在缜密策划着的可怕阴谋……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "是什么啊，开场就那么吊胃口！\n大家去食堂吧，去食堂！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "藤丸立香也是，\n还有戈尔德鲁夫氏，赶紧赶紧！"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "真好啊～，真羡慕啊～！\n只有大叔去享受，太不讲理啦～！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呵。羡慕我是应该的，\n你还是放弃吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "毕竟灵子转移是被选中之人才被允许的，\n令人陶醉的奇妙……体验……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不，什么狗屁奇妙体验，差点遇难，\n又差点变成猪什么的，真是倒大霉了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "灵子转移压根不是什么正经玩意儿！\n我再也不想进行灵子转移了！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "唔，戈尔德鲁夫氏开溜了啊，\n明明证言越多越好啊。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，这次也不能怪他。\n毕竟他刚经历了人生的第一次灵子转移嘛。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "虽然戈尔德鲁夫新所长嘴上那么说，\n但我觉得他的适应能力还是非常优秀的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "就算说这次的事件是多亏了戈尔德鲁夫新所长\n才得以解决的，也一点都不为过。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是吧？　我说的没错吧，前辈？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 当然。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "关键角色不只有他一个。\n你也是不可或缺的要素哦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "多亏了你，才消除了几乎所有违和感。\n不过——"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: ……不过，还是有一件令我在意的事……"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "没错！\n还有一件令人在意的事！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "没错吧，御主？\n我明白，我非常明白。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "所以最后“那究竟是什么？”的问题，\n就让我们在食堂探讨吧。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "嗯，当然要准备好温热的绿茶。\n这个嘛，我觉得还算是件好事。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "……好了，盛大地送别了各位，\n到目前为止还算不错啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "毕竟阎魔亭已经恢复到过去的样子啾，\n所以我们也要忙碌起来了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "人手光靠麻雀们是不够的啾。\n尽管不太情愿，但或许只能求助于娘亲大人了啾？"
+    },
+    {
+      "speaker": "A：麻雀",
+      "translated_content": "会死啾。那个鬼婆婆来的话我们会死啾。\n我们会拼命工作啾，请不要杀了我们啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "不准说这种蠢话啾。\n我是不会允许那种事发生的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "适度工作、适度休息才是阎魔亭的宗旨啾。\n我一定会增加人手啾。"
+    },
+    {
+      "speaker": "G：麻雀",
+      "translated_content": "啾？　那雇佣魔猿如何啾？\n那些家伙很能干啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——这意见真大胆啾。\n不过，确实……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "魔猿们不再干坏事了啾。\n它们的捣乱是不是出于某种理由啾……？"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "噢噢，这里就是传说中的旅馆啊。总算到了。"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "请问，小姑娘。\n你刚才提到了猴子们吧？"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "如果是的话，请原谅它们的所作所为。\n因为害它们受罚的原因在我啊。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "[line 9]"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "其实啦，坊间传闻，\n『有一只本性纯良的麻雀遇到麻烦了』。"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "我想自己是否能帮点忙，\n就让猴子们将我家有用的东西送去了。"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "但不知为何，它们总会在途中忘了自己的目的……"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "但回来时也没将东西带回来，\n应该是把东西放在哪里了吧……"
+    },
+    {
+      "speaker": "长瘤的老人",
+      "translated_content": "东西都送到了吗？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "啾。啾——[wt 0.5][charaFadeout A 0.7][charaFadeout G 0.7][charaMove A -300,0 0.4][charaMove G 300,0 0.4]啾啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "嗯——都送到了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "送来了很多很多东西啾！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "呜呜，哇哇，呜哇哇哇哇哇哇！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "欢迎光临，这位客人……！\n我一直……一直在等您啾——！"
+    }
+  ]
+}

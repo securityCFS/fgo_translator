@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "script_id": "9403230410",
+  "source_region": "JP",
+  "source_hash": "9313896d29cb010d29f3198ded4153500e0b0ed77ed38a225431304db679ca5c",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 73,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "——不，嗯。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "我已经够了。\n我已经够了哦？"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "我已经够了，所以你们去就行了。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "我会在这客房里好好休息。\n嗯，我也很想试穿一下那种叫浴衣的服饰。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "不错。\n这就是远东地区的气候吧……"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "唔。"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "这位大姐……\n不对，公主这么说。该怎么办呢？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "什么叫该怎么办啊！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "听好了？\n难得来一次温泉，该做的事只有一件！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "泡温泉！　去美容！　泡温泉！\n喝酒！　去美容！　喝酒！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "和拥有的勇士、勇者们卿卿我我的！\n寻找本地的俊美勇士！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "品尝美味的食物，运动，恢复体重！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "最后，对玩了整整一天的自己送上赞美，\n『我干得太漂亮了！』并去泡温泉！"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "（要做的事好多啊……）"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "应该这样才对吧！\n为啥一副想舒适结束一天的样子啦。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "这也太无聊了。\n对吧，斯卡哈？"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "不。\n已经够了。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "呃，那个，那个啦。\n你招待我喝的酒让[#灵基:身体]莫名有些发热。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "啊，真是的，\n北欧又不是没有酒吧？"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "…………确实。克瓦希尔之血，蜂蜜酒的话，"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "[#我们北欧]确实存在。\n如果是在神代的话。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "唔？"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "不，没有。没事。\n这种情况下不该说这种话，忘了吧。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "更重要的是。\n所谓的温泉，那个，怎么说呢——"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "不……不，算了。没什么。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "现在，呃，那个，没错！\n冰淇淋！"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "我想要冰淇淋！　我决定了！\n那边的男人。把冰淇淋拿来！"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "！！！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "啊。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "弗格斯，弗格斯！\n就算你因为这种反差萌而着迷也不行啦，弗格斯！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "居然当着我的面！\n你刚才是不是差点觉得斯卡哈很可爱！"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "嗯。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "直率！　诚实！　没有谎言犹如子弹列车一直线！\n讨厌啦弗格斯你这家伙不愧是无限勇士！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "但还是不行。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "这个和平时的斯卡哈不一样的斯卡哈的\n这种令人莫名其妙的奇怪感觉必须由我来研究！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "为了不让外人打扰，\n弗格斯你负责去守着房——"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "——你们也太磨蹭了吧。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "到底在干什么。\n好了，再去泡一次温泉吧。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "呵呵，接下来要求来个滚烫的好了。\n你们都准备好了吗？"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "噢！"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "哎呀，混浴啊。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "不是啦！　不是什么混浴啦！"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "……………………不是吗？"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "梅芙，根据你的性格，\n我还以为第一次你会忍，但从第二次开始就会解禁混浴，"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "并放纵自己任性妄为。[wt 0.6][charaFace D 1]\n这，呵呵。究竟发生什么了。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "……\n……"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "……没……没有啊。没什么哦？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "因为这个斯卡哈……你看，\n对很多事情都不怎么习惯吧？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "我只是觉得刺激过强的行为有点那啥？\n只是稍稍这么觉得，并没有特别在意哦？"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "哦。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "再——再说了！\n为什么你会和我们在一起啦！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "我只邀请了斯卡哈，说如果你愿意的话愿不愿意一起去温泉而已！\n而你凭什么一脸理所当然地……"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "斯卡哈。"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "斯卡哈？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "…………………………啊，咳咳。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "总之。再去泡一次温泉啦，斯卡哈！"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "那当然啊？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "反……反正就算不说你也会跟来吧！\n不是这个意思啦！"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "我……我就不用了。\n我都说了不用了——"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "哈哈。怎么。"
+    },
+    {
+      "speaker": "斯卡哈",
+      "translated_content": "你[#该不会想说自己害怕热的东西吧]？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "原——"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "原来如此，是这样啊。\n你难道害怕热的？　是这样吗？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "讨厌啦——你居然有害怕的东西！？\n骗人的吧……"
+    },
+    {
+      "speaker": "斯卡哈·斯卡蒂",
+      "translated_content": "………………………………[wt 0.5][charaFace A 3]我不喜欢[#炙热的]。"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "！！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "怎……怎么回事，讨厌啦，真让人搞不懂……\n明明是斯卡哈，居然那么可爱……莫名其妙……"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "啊！　弗格斯！\n你该不会是超负荷了吧！？"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "也……也是，确实，我能理解你的心情！\n但是要忍耐啦，弗格斯，我的，只属于我的勇士！"
+    },
+    {
+      "speaker": "弗格斯",
+      "translated_content": "[f large]噢[messageShake 0.05 5 5 0.5]噢噢噢噢噢噢噢噢噢噢噢噢噢！！"
+    },
+    {
+      "speaker": "梅芙",
+      "translated_content": "啊～，不行了，这下失控了！！"
+    }
+  ]
+}

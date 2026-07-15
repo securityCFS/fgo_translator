@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801920",
+  "source_region": "JP",
+  "source_hash": "c82f6cd314b1b61a57ff34f8aa7a19a9d9a643707b4824625b36a3caae1560d5",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 77,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "德雷克",
+      "translated_content": "船已经靠上去了！\n你们几个，赶紧出发！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "在事情全部结束前，我会尽量在附近航行，\n但能不能接回你们可就很难说了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：谢谢！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我们出发了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么御主！　请拿出卡尔德尼亚护照！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：格蕾，拜托你了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "明白，御主！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "明白了，御主！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：所长，拜托了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真拿你没办法！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦哦，入口打开了……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从那里进去就行了吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "走吧！　御主！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我们走吧，御主！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "总算回来了……！"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　这里的阴沉魔力，\n比上次来时浓郁了不少！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "御主，你有没有听见什么声音？"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！　这里的阴沉魔力，\n比上次来时浓郁了不少！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "你们有没有听见……某种坚硬的声响……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：声音？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "听见了！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好像是从那边传来的！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：难道……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "快走吧！　御主！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我们快过去吧，御主！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么会……！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "你们几位……"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "怎么，你们来得相当快嘛。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "我们本来还可以继续战斗。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "……虽然想这么说，但的确已有几分疲惫。\n格蕾，原来你选择以那种方式稳定下来了吗。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯！　我选择了圣剑！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "呵呵，果然还是Excalibur更趁手吧。\n看来我的课程也没有白费。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "……这话可不能当作没听见。\n听起来，仿佛我的指导有所不足。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "不过，既然这是你的选择。\n你能一路坚持到这里，做得很好。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是。我选择了圣枪。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "你原本就使用Rhongomyniad，\n再加上导师优秀。可以说是明智的选择。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这意思是……\n我的指导有问题吗……？"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "咳。算了，那是另一回事。\n你认真做出了选择，也顺利回到了这里。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "阿斯似乎也有些[#面変:おもがわ]不同了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "有、有什么不同？"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "没有自觉就算了。\n我更欣赏现在的你。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "真是的，再打下去果然没完没了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：德墨忒尔·起源呢？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "哦，你们给她取了这个名字啊。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "她把我们交给垃圾们对付，\n自己躲进了最深处。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "看她那副样子，恐怕正在\n策划某种大规模的机关。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "遗憾的是，只凭我们\n无法突破这里的隔墙。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "卡尔德尼亚发生什么异常了吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：被黑水淹没了"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：据说那是冥界之河的水"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "阿刻戎河的水……\n原来如此。她的确可能这么做。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "藤丸立香。格蕾。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是、是！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "可以的话，我本想陪你们走到最后，\n但以现在的状态，反倒会成为累[#纏:まと]赘。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "所以，我们的两位经理，\n就交给你们了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：当然！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我们本来就是这么打算的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "M：阿尔托莉雅",
+      "translated_content": "那么，我们该做的事只剩下一件。\n没有异议吧？"
+    },
+    {
+      "speaker": "N：亚瑟",
+      "translated_content": "当然，我也正有此意。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：拜托二位了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "M：阿尔托莉雅",
+      "translated_content": "回答得很好。作为战士，你仍需继续修行，\n但作为御主，你已不再需要他人指导。"
+    },
+    {
+      "speaker": "M：阿尔托莉雅",
+      "translated_content": "决战时，不要理会那个管理终端。\n你们只需贯穿[#躯体:くたい]的核心。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "格蕾。"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "这大概是我最后一次教你了——\n睁大眼睛看清楚吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是！"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "还有，格蕾。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "这恐怕也是我最后一次\n向你展示教诲。"
+    },
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "——好好将这一幕烙印在眼中。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "是……！"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801410",
+  "source_region": "JP",
+  "source_hash": "f6602a5b128cf882d46499086417f151afc35629f3494110beccfab7500552c6",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 70,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 这里是！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 德墨忒尔城堡外面！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "[#わたしたちが排出された]！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎么办……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "怎么办、怎么办、怎么办……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德、醒不过来了……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "怎么会……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "快看！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那是什么啊……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 德墨忒尔城堡消失了……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 取而代之的是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "终于接通了！\n听得到吗，藤丸立香[&君:ちゃん]！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 达·芬奇亲！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "与你们的通信刚一中断，那个球体便向这里\n射出了漆黑的魔力刃。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "而且卡尔德尼亚与里卡尔德尼亚两边都遭到攻击。\n结果几乎所有[#施設:テアトルム]都被摧毁了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "摧毁……！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "所幸魔力刃从生成到命中之间有一段时间，\n里面的从者似乎都成功逃出来了。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "你们那边发生了什么？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 德墨忒尔她……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 厄里倪厄斯她……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "德墨忒尔和厄里倪厄斯都被击败，\n然后出现了新的德墨忒尔——！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "什什什什么！\n那、那么，那个又是怎么回事！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那个姿态，我似乎也有一点印象！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的，那个姿态是……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "……无论从者德墨忒尔，\n还是德墨忒尔·厄里倪厄斯，都有一个共同的原型。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那是我们也认识，\n并且曾经交战过的原型……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "也就是说……机神德墨忒尔……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 可是，那个应该在异闻带里……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "没错。[#あの]机神德墨忒尔\n终究只是存在于异闻带的个体。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那座奥林波斯和那片亚特兰蒂斯，\n应该也都只存在于异闻带。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过呢。……这当然是理所应当的，\n原本就存在于泛人类史的事物依然存在。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，那个是……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那是[#汎人類史に存在した機神デメテルです]！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "原、原来如此。因为机神抵达这颗行星的事实，\n在异闻带和泛人类史中都是共通的！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过毕竟这里发生了特异点，\n它究竟在多大程度上忠于我们的历史，还不得而知。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "即使结合藤丸立香[&君:ちゃん]提供的情报，\n这一点也并不明朗。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "姑且先为它取个称呼，\n就叫机神德墨忒尔·起源吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "但我们已经没有\n黑枪管了啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "能够对抗机神的装备已经……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "请、请冷静。\n现在德墨忒尔·起源没有任何动静……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "……唔。"
+    },
+    {
+      "speaker": "J：戈尔德鲁夫",
+      "translated_content": "的确，安静得有些反常……"
+    },
+    {
+      "speaker": "I：达·芬奇",
+      "translated_content": "根据藤丸立香[&君:ちゃん]的报告推测，\n魔力刃是在德墨忒尔·起源刚苏醒时发射的。"
+    },
+    {
+      "speaker": "I：达·芬奇",
+      "translated_content": "之后它便与亚瑟和阿尔托莉雅展开战斗，\n机神随即停止了行动。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 亚瑟和阿尔托莉雅还在"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 那里面战斗……？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那就趁现在赶快藏起来！[wt 0.9][charaFace B 8]\n阿斯，有合适的地方吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我马上带你们过去！[wt 0.9][charaFace A 12]\n格蕾小姐……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德……亚德……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "亚德他……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾……格蕾要是\n没有亚德……"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "哟。打扰了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "有人需要铁匠吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "村正先生！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "啊啊，听说这里出了怪事，我便过来看看，\n原来是那个会说话的[#匣:はこ]坏掉了吗。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "亚德……亚德为了保护格蕾……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "好，详细情况稍后再说。\n你们先到[#儂:オレ]的工房来。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 村正的工房没事吗！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那道魔力刃被我斩断了。\n不过也害得我损失了珍藏的一把刀。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "如今别说魔力耗尽，连骨头都快空了，\n但一个没有锻造场的铁匠才是真的毫无意义。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "赶紧走吧。要是那个大家伙又醒过来，\n把工房砸了可叫人受不了。"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801921",
+  "source_region": "JP",
+  "source_hash": "b0ff8a99192418d1436426b153ccd7b89c090e21d598590ddfdc1a9cae6a86fb",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 7,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "阿尔托莉雅",
+      "translated_content": "噢噢噢！"
+    },
+    {
+      "speaker": "亚瑟",
+      "translated_content": "就是现在，前进吧！\n[#風王鉄槌:ストライク・エア]！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "就是现在！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "你们两个，绝对不要出事！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要走了，格蕾！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "两位，请务必平安……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要走了，格蕾！"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "script_id": "9415801911",
+  "source_region": "JP",
+  "source_hash": "38599ad26d7e083bf423383eb2b7989a767783f0bcebfda06f685256fc9bb9b4",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 50,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "成功了！　把它们赶跑了！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "总、总算把它们赶跑了……！"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "你进步得可真大！\n看来我果然该在一开始就招揽你！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这种时候也改不了海盗本性啊。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "黑色的水……"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "阿斯，你是不是\n对这片水有什么头绪？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "我从刚才起一直在检查数据，\n它莫名有许多地方与你的参数相似。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……是的。\n我想，彼此相似也是理所当然。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这片水……是阿刻戎河的河水。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "也就是说，它来自你的父亲，\n那位[#河神:ポタモス]阿刻戎？"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "神话中的阿刻戎河连接现世与冥界，\n有时甚至被视为冥界本身。"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "而自己，正是作为那位送走一切死者的\n[#河神:ポタモス]之子诞生的。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "有观点认为，阿刻戎作为神的传承\n甚至比冥王哈迪斯更为古老。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不是因为存在冥界，才诞生了阿刻戎河；\n而是因为存在阿刻戎河，才诞生了冥界这一概念。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：说起来"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：在与但丁会合前渡过的那条河"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "那是仿照但丁的《神曲》构建的，\n可以说是对阿刻戎河的二次创作吧。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "不过，它无疑也是一则广为[#膾炙:かいしゃ]的传说。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "某种意义上，在人类认知中的希腊神话体系里，\n它或许可以称为最古老的冥界。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "可是，德墨忒尔·起源为什么要用阿刻戎河的水\n淹没卡尔德尼亚？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……父亲竟如此憎恨我吗。\n甚至不惜借出阿刻戎河的权能。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "你们几个，已经快靠近那个大家伙了！\n能靠舷的时间有限，趁现在做好准备！[charaFace E 12]"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "那么，我就送到这里了。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "咦！　送到这里是指！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "您不能和我们一起去吗……！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "很遗憾，\n我的王牌还没有准备好。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "我加入的话，应该也能算不错的战力，\n但这方面拜托其他人就好了吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嗯！　我会试试的！[wt 0.7][se ad7][charaFace C 9][charaMoveEase C -200,0 0.2 easeOutCubic][wt 0.2][charaFace E 29][charaShake E 0.05 2 3 0.3]\n小奥尔加也一样哦！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "我会……努力试试……！[wt 0.7][se ad7][charaFace C 9][charaMoveEase C -160,0 0.2 easeOutCubic][wt 0.2][charaFace E 29][charaShake E 0.05 2 3 0.3]\n啊，奥尔加小姐也要一起！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你就算变成这副模样，态度还是那么强硬啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……好啦，我知道了。\n都已经来到这里，我当然不会说不帮忙。[charaFace C 12]"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "呵呵，真是可靠。\n阿斯，你也没意见吧？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "该道谢的是我。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "好，那么我要向藤丸立香同学\n提出最后一个问题。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "关于德墨忒尔和厄里倪厄斯，\n阿斯曾说，她们忘记了[#ペルセポネ:娘]吧。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "而德墨忒尔·起源\n从一开始就不知道女儿的存在。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "你应该明白，这里面存在矛盾吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：因为是不同的存在……不是吗？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "嗯。如果是分别召唤的从者，\n彼此之间确实不会相互影响，但"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "这个特异点的德墨忒尔与厄里倪厄斯，\n就像是德墨忒尔·起源的分身。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "正常来说，她们之间不该产生[#齟齬:そ　ご]。\n或者该说，过去并不存在这种差异。"
+    },
+    {
+      "speaker": "J：岸波白野",
+      "translated_content": "你知道其中的原因吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：……虽然只是模糊的猜测"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：……我觉得自己明白了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "嗯，很好！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "学姐会准备一张特别的王牌，\n一路顺风，藤丸立香同学。"
+    }
+  ]
+}

@@ -1,0 +1,859 @@
+{
+  "schema_version": 1,
+  "script_id": "9403220130",
+  "source_region": "JP",
+  "source_hash": "5fe7a243a0fbcb9d49e062ebc01123b06aeb9773dcf9fb31601191c9bca14b66",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 210,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "红阎魔",
+      "translated_content": "原来如此。修复了那个叫人理的东西之后，\n地球变成了白茫茫一片啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管喧闹不休是世间的常态，\n但这状况还真是不得了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "没想到来自『迦勒底』的各位\n打算解决如此重大的事件。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "年纪轻轻就从事如此伟大的工作啾。\n真值得钦佩啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这座阎魔亭是因八百万神明大人而繁盛的地方。\n鲜有人类长期逗留。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但各位是迷路之人。\n既然如此，就不能怠慢了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "虽说我无法离开阎魔亭啾，\n但我会尽可能安排，让各位享受一次愉快的慰劳旅行。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "请享用新鲜的鰤鱼活造啾。\n再来点鰆鱼柚庵烧如何啾？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 看上去好好吃！　我不客气了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 非常感谢！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "上菜了……上了好多菜……\n原来这就是在大宴会厅中吃饭的感觉……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "被建筑物的历史和传统包围，\n品尝精致的食物……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这简直是浦岛太郎级的感动！\n我可以断言，这就是食物的玉手箱！"
+    },
+    {
+      "speaker": "芙芙",
+      "translated_content": "芙，芙芙。"
+    },
+    {
+      "speaker": "E：？？？",
+      "translated_content": "嗯，嗯。\n阎魔亭的大宴会厅已经多少年没使用过了啊。"
+    },
+    {
+      "speaker": "E：？？？",
+      "translated_content": "结果居然不是为了落魄神明，也不是为了自称神明的妖怪，\n而是为了货真价实的现代人类访客而开放。"
+    },
+    {
+      "speaker": "E：？？？",
+      "translated_content": "嚯嚯嚯。活这么久也是值了。\n老板娘好久没露出如此开心的笑容了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "哇，你是谁啊，怎么突然冒出来了！？\n啊，居然对别人的饭菜动筷子，真粗鲁！"
+    },
+    {
+      "speaker": "E：？？？",
+      "translated_content": "玩笑。只是玩笑而已。\n在下名为猿长老。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "我来这座阎魔亭温泉疗养已经有500年了。\n因为住得太舒服就长期住了下来，结果发生了不可思议的事。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "我竟忘记了返回[#老家:国家]的路，\n于是便将错就错成了赖在阎魔亭的怪人。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "总而言之，我和各位一样都是住客哦。\n仅限在我花完所有钱之前。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "话要看怎么说了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "猿长老大人说了句『再也不想工作了』，\n就用手头所有的财产缴纳了500年的住宿费啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "他这不叫忘记了回老家的路，\n应该叫缺乏责任地开始了隐居生活。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "嚯嚯嚯。\n照顾猴子们也是很辛苦的哦？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "那帮家伙不仅只做自己想做的事，\n还把所有琐事都推给别人。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "我可是受够了。\n因此我决定在阎魔亭悠闲地过完余生。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "好了，事情就是这样。\n让我也加入你们吧。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "这位鬼小姐，要来点酒吗？\n这是阎魔亭的特产酒，铭酒雀舞。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "一大杯一口闷。\n嚯嚯，快活似神仙吧？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "不了，我还在工作。何况我酒量不好。\n比起这个，你刚才说那些猴子是你在照顾吧？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "我们在山里遇到了袭击麻雀的魔猿，\n莫非那些就是……"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "啊啊，那些家伙！　别这么说啦，\n在下和那些魔猿毫无关系！"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "那些家伙是最近才出现的，\n它们在阎魔亭到处为非作歹，真是一群猴畜生。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "窃取厨房食材，偷窃值钱财物，\n袭击进山的麻雀，简直无法无天。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "其实呢，我仗着自己训猴的名声，\n曾试图阻止过它们，但结果完全没用。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "它们根本不听我的话。\n真是太失败了。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "猿长老大人。现在是欢迎酒席啾，\n这种话还是不要说了啾。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "哎呀，不好，不好。\n嚯嚯，你看我居然犯下这样的错。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "可如果我不说的话，老板娘就会一直闭口不提。\n因此明知这样做不识趣，但还是不小心说了出来。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "毕竟这些客人看起来很厉害啊。\n想必各位也善于在旅途中助人为乐吧？"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "我说的对吗，狐狸太夫？\n您一定是位有名的神明吧？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "请别这么说。我只是个与粗暴战事无缘的女主角，\n只是个可爱的巫女狐罢了。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "旅馆的问题应该请旅馆工作人员处理。\n我们这次的目的仅仅是慰劳旅行而已。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "战斗什么的早就受够了。\n毕竟我们并不想修正这个特异点嘛。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "呵呵。看似在开玩笑，实际上很有道理，\n在这点上你一点也没变啾，玉藻。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "猿长老大人，玉藻说得没错啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那群魔猿就由我抽空去教训吧，\n请大家暂时忍耐一阵子啾。"
+    },
+    {
+      "speaker": "猿长老",
+      "translated_content": "这样啊……\n我本想让过于拼命的老板娘减轻一些负担……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我并没有过于拼命啾。因为有麻雀们在啾。\n红每一天都很开心啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "好了，不说这个了，要不要再来一碗啾。\n藤丸立香大人、玛修大人。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "能来阎魔亭也是种缘分。\n我还想听你们多说一些外面的事——"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "老板娘——！\n老板娘[line 4]！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "什么事啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "不好了啾老板娘！　供奉殿有强盗啾！\n强盗三人组在供奉殿里胡作非为啾！"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "是自称『来自迦勒底』的迷之不法之徒啾——！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "噢噢……被醇厚的香气吸引至此，\n快看啊，各位！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "堆积如山的鱼料理和肉料理，\n美酒与水果，以及完全看不懂的器物！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "怎么看这都是为招待我们而设的酒宴吧？\n你怎么看，迪尔姆德？　我们应该怎么做？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "嗯，嗯……（咀嚼咀嚼。）\n这鱼很不错，相当不错。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "咸淡刚刚好，鱼肉也很肥美。\n我想喝点东西。（咕嘟咕嘟。）"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "（竟然已经在吃了……！？\n　这个迪尔姆德真是充满活力……！）"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不不不不。\n等一下。你们给我等一下！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "灵子转移之后，我们在山中徘徊了三天。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "（希翁交给我的通讯装置也弄丢了，）\n我们正面临着身心俱疲，魔力即将枯竭的大危机。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "在这种时候，如果眼前出现了一座建筑物，\n肯定会争先恐后地进去吧。这心情我也能理解。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "毕竟无论怎么打招呼也没有任何反应，\n而且后门还敞开着。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "一进来就发现堆积如山的美食。\n其实我也想飞扑上去。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "然而！　然而话说回来！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这些食物是不能吃的那种吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "是那种美味到让人停不下叉子，\n等回过神来发现自己已经变成猪的那种吧？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "哈哈哈，这太好吃了！　手完全停不下来！\n芬恩·麦克库尔，请尝尝这个！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "这是加了炖猪肉的汤面！　我是在迦勒底得知的！\n然后这是猪肉炒蔬菜！　这个我也在迦勒底吃过！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "唔、嗯？　我有点提不起劲啊……\n我并不是在效仿戈尔德鲁夫先生的小心谨慎……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "哈哈哈。您在犹豫些什么呢，\n您可是费奥纳骑士团的团长啊！"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "没错。猪肉营养好、易消化，\n与其他食材容易搭配，简直就是属性全B级的食材啊。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "来，快吃吧。（咀嚼咀嚼。）\n赶紧吃吧。（吞咽吞咽。）"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "面对如此美味，根本不会去考虑复杂的事。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "身为臣下的我时常思考，\n芬恩·麦克库尔平时总会将事情想得过于复杂。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "应该把[#世界:凯尔特]想得更简单一些。\n来吧，多吃一点。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "唔，嗯。把盘子这样硬塞给我，\n搞得我都无法拒绝了。我会吃啦，我会吃啦。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "——唔？\n唔唔唔？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "噢噢噢，这是何等玄妙的调味，\n这是何等香醇的食材……！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "这下糟了。太好吃了，手根本停不下来。\n大拇指在用疼痛向我传递危险的信号，但我就是停不下来！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "毫不夸张地说，这是甚至能感受到神气的味道！\n既然如此，这就不会是什么坏东西！"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "迪尔姆德，我对那个喜庆料理有点兴趣。\n没错，就是那个翅膀完全张开的烤全鸟。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "那是不死鸟吗？　表面烤得香脆焦黄，看起来很好吃。\n能帮我拿一点吗？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "当然！　这座美食之山，\n越挖掘越能发现珍奇的佳肴！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我已经可以预见天罚降临的[#未来:Vision]了……！\n原来灵子转移是这么危险的东西吗！？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不，不行，身为司令官，\n更应该在危机关头冷静行动。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "作为魔术师，我得好好研究这栋建筑物，\n弄清楚我们当下的处境才行。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "首先是这座美食之山，\n和那个散发着圣杯级力量的箱子……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这怎么看都是献给神明的贡品，\n以及足以称作这座建筑物心脏的圣遗物……！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "随着那两个人的大吃特吃，\n不断有不详的魔力向那个箱子流去。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "再这样下去，那个箱子就要爆炸了吧？\n我和这种[#机器故障:Machine Trouble]可是相当有缘的啊！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我说，二位。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这样下去可不行。快住手。\n最重要的是这样会危及我的生命。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "给，我把自己藏起来\n用作最终手段的[#保存食物:风干牛肉]送给你们。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "所以不要再去吃那些东西了。\n暂时就靠这个来满足食欲吧。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "不行，完全[#野生:凯尔特]化了！\n那个[&小子:小姑娘]竟然能控制得了这些家伙！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "没办法了，我得离开这里！\n天不救人人自救……！"
+    },
+    {
+      "speaker": "J：？？？",
+      "translated_content": "哎呀哎呀？\n怎么被新面孔捷足先登了？"
+    },
+    {
+      "speaker": "J：？？？",
+      "translated_content": "而且还是人类和英灵的组合，\n这未免太稀奇了吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呜[charaMoveReturn E 0,-40 0.3]哇！？\n你你……究竟是何人！？　什么时候跑到我身后的！？"
+    },
+    {
+      "speaker": "J：？？？",
+      "translated_content": "问我是谁？　我是蛇庄屋亲哦。\n难道你不知道这阎魔亭的名人，三食客吗？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "不知道就算了。\n毕竟我也是偷偷来借点东西……"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "光是看着那二位的盛世美颜就够我下酒的了。\n真是大饱眼福啊。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "你要不要来点？　虽说你从刚才起就没有碰那些菜，\n但酒总能喝点吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯？\n这些菜可以吃吗？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "里面没有神罚、诅咒、毒药之类的东西吗？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "没有那种东西啦。\n重要的只有“供奉上了”这一事实。"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "无论什么料理，只要过了一天肯定都能吃了吧？\n啊啊，但是……"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "功德箱的状态有些奇怪呢？\n咦，照这样下去或许会出问题？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "好像有些不好的东西正在积蓄。\n如果发生爆炸的话，那二位会受伤吧？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。我也这么觉得。\n所以叫蛇庄屋的，我们该怎么办才好啊！？"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "呃。我只是一个耍蛇的，\n对这个不熟悉呀……"
+    },
+    {
+      "speaker": "蛇庄屋",
+      "translated_content": "既然快要涨破了，\n那只要把盖子打开不就行了？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "竟然是这样。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "（那类东西本应保持关闭状态才对，[bgmStop BGM_EVENT_48 1.5]\n　而在日本却要先打开缓解压力吗？　学到了。）"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "好，这件事就交给我了。\n只要打开盖子就行了吧？　嘿！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "司令官，华丽着陆！　[wt 1.0]接下来是打开盖子！[charaFace E 2][cueSe ResidentSE ar3]\n呼哈哈，这样就万事大吉了！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这下我就能毫无顾虑地潜入这座美食之山了！\n等着吧[#枪兵:Lancer]，那不死鸟形的烤鸟是属于我的——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呃，箱子怎么发光了——！\n果然要遭[#天罚:猪化]了吗——！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 这是……什么……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 戈尔德鲁夫新所长……！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哦，哦？　你是藤丸立香……\n还有玛修·基列莱特。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这样啊……原来你们也没事。\n不对，这个问题嘛，我早就预料到了……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "各位，稍后再互相确认彼此是否平安吧。\n这里到底发生了什么？"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "散落一地的料理盘。\n屋内的神气正不断流失。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "擅自闯入阎魔亭的强盗就是你们吗？"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "哈……！？　不好，像我这样的人，\n竟会在这炫目的光辉中迷失了自我……"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "刚才的光芒简直就是充满生命力的上古诅咒之力。\n差不多是这样的东西。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "一旦被那光芒笼罩，即使是从者也无法全身而退……\n你怎么样，迪尔姆德？"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "是。除了还有些头晕目眩以外没有别的异常。\n但不知为何充满了饱腹感，身心也变得十分充实。"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "……可是，真丢脸。\n我明明听到了戈尔德鲁夫阁下的忠告……"
+    },
+    {
+      "speaker": "迪尔姆德",
+      "translated_content": "但是食物……太好吃了……\n当箱子发光时，鱼还卡在喉咙里……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: ……原来如此。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 我大致明白了。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "各位，难道你们擅自闯入旅馆，\n然后偷吃了放在这里的食物！？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "而且似乎还犯下了擅自触碰功德箱的罪行。"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "不，那是因为——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "哼。也罢，从结果来看的确如此。\n没错。是我打开了那个箱子。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "那玩意儿是叫功德箱吧？\n总觉得那散发着邪恶气息。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "为了保护这2骑从者，\n也为了我的个人安全，我才打开盖子放了气。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这有什么问题吗？　我们现在平安无事。\n也没有因天罚而变成动物。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "啊啊，我当然会为偷吃食物一事道歉。\n就以我的[#可接受范围内:零花钱]进行补偿如何？"
+    },
+    {
+      "speaker": "麻雀",
+      "translated_content": "老板娘，老板娘。\n可以吗啾？　这样可以吗啾？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "——当然不可以啾。\n这不是赔礼道歉可以解决的问题啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我说你们。\n已经犯下了无法挽回的错误了啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔，嗯？　是什么啊，这位小姐。\n话说这种迫力与我家的女仆长如出一辙呢。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "藤丸立香，\n这位小姐究竟是……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 她是这座旅馆的老板娘。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "什么，小不点老板娘！\n居然是真实存在的吗！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我的事就不用说了啾。\n现在必须先谈谈供奉殿的事。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "听好了啾。这里是阎魔亭的中心，供奉殿。\n是供奉、慰劳八百万神明的祭器啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "造访阎魔亭的客人们在离开时，\n会把与满意度相匹配的“谢意”……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "投入供奉殿的功德箱中，\n这已经成为一种习俗了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "明白了啾？\n那个功德箱中有去年一整年的“感谢”啾。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "谢意……吗？\n那个，具体是指……"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "清姬，[#安静:嘘]！\n是[#QP:钱]啦，QP！　别让我说得那么直白！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "尽管客人们的心情因人而异啾，\n但基本上和玉藻说的一样啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我们习惯在新年伊始，\n将这些“谢意”转换为祷文，"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "供奉给出云的神明们，\n以求保佑今年一整年的平安……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "既然迦勒底的各位打开了它，\n那我就不能让你们就此回去了啾。这是因为——"
+    },
+    {
+      "speaker": "芬恩·麦克库尔",
+      "translated_content": "唔，这是因为？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "这是因为，如果你们现在就回去，\n是会遭报应的啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "距离供奉日还有两周。如果在那之前不将\n缺失的部分填补回来，大家都会变成猪啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "呜！　结果还是变成猪吗！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……事态发展得太快，思路有些跟不上……"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "预计在两周后供奉给神明大人的魔力\n被戈尔德鲁夫氏解放了，"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "必须从现在开始重新收集\n去年一整年份的“谢意”才行，对吧？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "就是这样啾。\n我也知道我在强人所难啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是啾，这不是我可以决定或更改的事啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "只能选择彻底放弃并变成猪，\n或再一次填满功德箱啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "嗯。原来如此，原来如此。\n需要在两周内填满去年一整年份的功德箱。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "这怎么可能？\n这是不是已经超过了我的[#可接受范围:零花钱]？"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "再说了，究竟该怎么塞满功德箱啊！？\n难道要每天早上怀着感恩的心情擦箱子吗！？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "该怎么解决就是各位的工作了啾。\n我能给的建议只有一条。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "[f large][se ad186]那就是『工作』啾。[bgm BGM_EVENT_7 0.1]"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "“谢意”是每天从住在阎魔亭的\n所有生命体那里收集而来的。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "只要各位在阎魔亭工作，\n或许就可以提高客人们的满意度。"
+    },
+    {
+      "speaker": "玉藻前",
+      "translated_content": "请问～……红阎魔老师？\n难道我们也被计算在内了？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "那当然啾。\n毕竟要变成猪的是『来自迦勒底的人』啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "包括藤丸立香，包括玛修，\n还有狐狸、鬼与龙，大家都会亲密无间地变成猪啾。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "前……前辈也会变成猪吗……！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 猪……猪——！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 玛修也会哦[line 4]！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我也很痛苦啾。\n没想到这种灾难居然会降临到久违的新客人身上。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是啾，同情是填不饱肚子的啾。\n作为地狱的狱卒，我得狠下心肠化作鬼啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "都市，带各位去客房啾。\n至少房间得住得好一些。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "还剩两周。是以客人的身份度过，\n还是以工作人员的身份度过，就看各位的选择了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "我还需要照顾其他客人，\n先告辞了啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "想工作的话和麻雀商量就行了啾。\n劈柴之类的事玉藻她们应该也能做啾。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔。大过年的就遇上麻烦事了呢，\n藤丸立香。"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "但是我们是一个团队。我提议，\n让我们携手同心共渡难关吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: ——"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "唔！　视线为何要躲闪，\n藤丸立香！"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "你那好像在说“为什么大过年的还要打工啊“的表情，\n以及明显鼓起来的腮帮子是想发表什么意见吗！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: （尽管有很多话想说，）玛修觉得这样可以吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然啦。经过姑且不论，\n但这会是次十分难得的经验。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "毕竟是在温泉旅馆和前辈一起打工呢！\n没有比这更令人开心的事了！"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 2 Ending"
+    }
+  ]
+}

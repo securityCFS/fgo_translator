@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010761",
+  "source_region": "JP",
+  "source_hash": "3e6a137880e26333db5c4fa493d31926ca0d4650acb48de7c8861935ec214f9a",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 5,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "大卫",
+      "translated_content": "呼。真是的。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "唔。我们先打倒了[#現在:い　ま]现在，\n再打倒了骑士这一过去，又打倒了骑士以前的人类，"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "然后在刚才，打倒了人类之前的存在。\n那么，剩下的就是……这颗星球一切的开端。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "具体来说是？"
+    },
+    {
+      "speaker": "E：杰罗尼莫",
+      "translated_content": "当然，就是我们称之为神的存在。"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "script_id": "9415802020",
+  "source_region": "JP",
+  "source_hash": "04d27aede78bd6004955fa218b8281975526768cfc88e1a8fccab8d2b051bed0",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 61,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "德雷克",
+      "translated_content": "刚才那阵冲击是怎么回事——！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "看来藤丸立香同学他们\n也成功接触到德墨忒尔·起源了。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "我倒想夸他们一句干得漂亮！？\n可我们这里的敌人一波接一波，根本没完啊！？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "没事。只差一点了，再坚持一下，船长。\n换成其他海盗或许是强人所难，但你肯定没问题。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "你很喜欢[#絶体絶命:ぜったいぜつめい]的绝境吧？\n这次也请平安活着返回港口。"
+    },
+    {
+      "speaker": "德雷克",
+      "translated_content": "——啧。真是个能说会道的御主。\n都被你这么说了，我哪能不加把劲！"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "我一直在调查Garbage的性质，\n终于找到了答案。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "它们为什么会产生。\n拥有怎样的本能。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "为何在遭遇危险时融合。\n为何被消灭时会释放信号。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "……还有，为什么德墨忒尔和厄里倪厄斯\n会觉得它们如此碍眼。"
+    },
+    {
+      "speaker": "M：岸波白野",
+      "translated_content": "该你上场了，Moon Cell！\n稍微借我一点运算能力吧！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你们……这些人……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "复活了！？　不，好像有点不一样！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "复活……？　不，这是完整的重新构筑……！？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那副身体终究只是管理终端。\n枪阶阿尔托莉雅不是也说过，要贯穿核心吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要这个拟机神的[#真体:アリスィア]还在，\n她应该就能一次次重新构筑身体。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "…………。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "啊啊……唯独你是我无法理解的异物。\n为什么会有你这样的存在……？"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "这个特异点为什么会招来\n你这样的异物……？"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "并不是我……却与我相同——\n不具理性的机械神灵——"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "你们究竟……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 逃走了！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 黑水涌过来了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "难道她连[#真体:アリスィア]一起潜进水里了！？"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "拟机神应该也会受到影响，\n但这水对我们更为致命！"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "为了排除持有万能钥匙的我们，\n她已经开始不择手段了！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "格蕾！　趁现在破坏核心！\n用那把圣剑一定能做到！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "明白！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[charaTalk B]\n『何其悲哀。何其悲哀』"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[charaTalk B]\n『悲哀的是死亡。悲哀的是终结』"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这是，又要来了吗！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "格蕾！　趁现在破坏核心！\n用那把圣枪一定能做到！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "明白了！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[charaTalk B]\n『何其悲哀。何其悲哀』"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[charaTalk B]\n『悲哀的是死亡。悲哀的是终结』"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这是……难道又要……！"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "[charaTalk B]\n『粉碎吧』"
+    },
+    {
+      "speaker": "E：格蕾",
+      "translated_content": "不是朝着[#拙:せつ]们来的？"
+    },
+    {
+      "speaker": "E：格蕾",
+      "translated_content": "不是朝着[#拙:せつ]们来的？"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "『破坏[#真体:アリスィア]』"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 难道！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 怎么会！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "怎么会！\n她主动破坏了[#真体:アリスィア]的隔壁！？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这、这样不行！　身体要被冲走了……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不、不行……！\n身体要被水压卷走了……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 如果整个人都浸入这水中"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 就算是从者也会停止活动……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "御主！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真是的！　一个个都不让人省心！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你……！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "唯独你……\n唯独你……必须留在这里。"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "只要你不在，\n就再也没有人能阻止我……"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "而若只剩你一人，\n便无法破坏我的核心……！"
+    },
+    {
+      "speaker": "德墨忒尔·起源",
+      "translated_content": "其他家伙都给我消失！"
+    },
+    {
+      "speaker": "E：格蕾",
+      "translated_content": "奥尔加！"
+    },
+    {
+      "speaker": "E：格蕾",
+      "translated_content": "奥尔加……小姐……！"
+    },
+    {
+      "speaker": "L：阿斯",
+      "translated_content": "奥尔加玛丽小姐……！[charaMove A -300,0 0.5][wt 0.2][charaFadeout A 0.3]"
+    }
+  ]
+}

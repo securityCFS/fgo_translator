@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010730",
+  "source_region": "JP",
+  "source_hash": "7e3eaba3c02ddf896824ac924272dfe64a2d571a1f57620c7a904b551c984b9f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 13,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这里是……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "根据年代测定，这里似乎是20世纪90年代的城市。\n但具体地点无法确定。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既像欧洲，又像远东，\n还像美国或澳大利亚……。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "也就是说，完全搞不清楚。\n感觉这里好像只有一层名为城市的外壳。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "确认敌对反应。\n是之前曾出现在[#カルデア:こ　　ち　　ら]的敌人！"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "原来如此。确实是与时间之主乌尔德相称的生物。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "还有其他的……这些是新宿记录里出现过的家伙。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然长着人类的模样，但也只是人造物。\n放心把他们轰飞吧。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：分散应对！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "明白。那么，我们去处理那边。\n玛修，请和御主一起行动。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是。\n御主，现在开始战斗行动！"
+    }
+  ]
+}

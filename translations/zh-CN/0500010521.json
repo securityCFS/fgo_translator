@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010521",
+  "source_region": "JP",
+  "source_hash": "f87426788a09e33ec0ffc53c64ce4cf470266856dfd36c86c1850ccc23e2f632",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 13,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "哈啊、哈啊、哈啊……！"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "——很好。你们果然不愧是\n拯救过世界的人。"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "……正因如此，我才会想不通，才会悲叹。\n你们为什么要舍弃那段奇迹般的旅程呢。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那是早就已经决定好的事"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "乌尔德",
+      "translated_content": "是吗。可是，[#私は嫌です]我不愿意。\n正因为不愿意，我才要在这里阻止你们。"
+    },
+    {
+      "speaker": "C：乌尔德",
+      "translated_content": "宝具展开。来吧，诸位。\n让我们回到过去。舍弃一切。"
+    },
+    {
+      "speaker": "C：乌尔德",
+      "translated_content": "这并非捏造。\n而是确实发生过的事。"
+    },
+    {
+      "speaker": "C：乌尔德",
+      "translated_content": "这并非虚假。\n而是或许曾经存在过的、另一种可能的过去。"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——来吧，让我们重新来过。\n没关系，各位的人理修复一定会顺利成功。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：（……下一次……）"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "旁白",
+      "translated_content": "——来吧，让我们重新来过。\n没关系，你的人理修复一定会顺利成功。"
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010610",
+  "source_region": "JP",
+  "source_hash": "ab9e4e8fc92376b6374a01be19d537fde3d981b1ad04e913f18aa57288fc438f",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 100,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "——好了。那么问题来了。\n要怎样才能破坏示巴？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这个嘛……\n用我的宝具，砰地一下！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "没问题。我会让您见识到，我的宝具\n可不只能用来守护！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没错，毕竟是玛修的宝具"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "藤丸立香，\n别摆出那副得意的表情。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这个暂且不提。\n你觉得只要解决示巴，就能打倒时子小姐吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：这个……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "是的。即便撇开示巴不谈，\n时子小姐的力量也极为强大。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "即便能够解决示巴，\n也不得不说，与时子小姐交战本身就十分困难。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……但是，我们只能动手了。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只要让示巴停止运作，支配它的时子小姐\n也必然会受到某种影响。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，就算我们现在立刻起身，\n径直去停止示巴……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我也不认为能顺利办到。\n时子小姐应该也在监视我们。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这种时候就用我的宝具，轰地一下！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这、这样啊。火力拉得很高呢……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……不过，玛修。\n你觉得对方知道你的宝具吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "这个……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：我想……她知道"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然如此，她自然应该会预测到\n我们可能从远距离发动攻击。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你不觉得她也会准备好相应的应对手段吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……我觉得会。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了好了。玛修，别垂头丧气的。\n既然对方有应对手段，就想办法破解它。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……简而言之，远距离不行，那就近距离。\n靠近之后发动奇袭。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说起来，这倒让我想起一件事。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我持有示巴的停止代码。\n只要靠近后念出来，就能暂时让示巴停止运作。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "居然还有这种东西……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "本来是用于维护的功能。\n是雷夫告诉我的，说只有所长可以知道。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "重新启动需要一个小时。\n我们必须在那之前打倒时子小姐。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……明明是敌人，却不知为何还是会加上“小姐”。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "但示巴应该监视着整个迦勒底。\n想要接近的话……[bgmStop BGM_MAP_57 1.0]"
+    },
+    {
+      "speaker": "三人",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：刚才是不是有什么……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "？？？",
+      "translated_content": "芙[messageShake 0.08 2 5 0.1]、芙呜……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "原来是芙芙啊。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……不对，这明显不是芙芙吧！\n什么人，出来！"
+    },
+    {
+      "speaker": "E：鹤小姐",
+      "translated_content": "呀！对不起，对不起！\n我马上出去，请饶了我吧……！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "从者……？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：鹤小姐！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "是、是的。我是鹤。\n好久不见，各位。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "……咦？我们是好久不见来着吗？\n初次见面……不，也不对……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……认识的人？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：说来话长……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那就之后再听。\n总之，她[#大丈夫]是没问题的吧？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：没问题"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "那个……鹤小姐为什么会在这里？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "就算您这么问，我也是回过神来才发现\n自己已经在这里了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，鹤。\n不好意思，接下来你反而得暂时留在这个房间里。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "明白了。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "那个，是这样的。\n我刚才一直在听各位谈话……"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "你们想靠近后发动奇袭，\n但首先就没办法靠近……是这样吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "嗯，大致就是这样。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你们就当自己踏出这个房间一步的瞬间，\n就会受到严密监视。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "所以无论身在何处，\n我们的意图都会被对方看得一清二楚。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "既然……如此，\n变装怎么样？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "变装？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "是的。只要改变服装、容貌，\n再改变所有其他显眼特征……"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "或许连近未来观测镜片·示巴也会陷入混乱吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……话是这么说……[wt 0.8][charaFace A 9]\n但你做得到吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "服装上也会施加魔术吧？\n如果有，能彻底骗过示巴吗？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "只需要撑到接近示巴，由我让它停止运作就好。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "可以。不过材料不够。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "御主P，可以请您陪我去模拟装置\n采集材料吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好，要先收集什么？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "这个嘛……"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "首先，只要有虹之线球和原初之产毛，\n应该就能制作服装。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "其他材料只需要少量，\n库存里还有。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "御主，我也一起去。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：不了，玛修留在这里陪所长吧"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……您说得对。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "既然所长知道停止代码，\n我会优先留在这里保护她。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这样好吗？"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "当然。\n您或许会感到不安……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "怎么会。守备就交给玛修了。\n无论敌人多么强大，我都能放心。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "谢谢您！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我们就这样守在[#此処:こ　こ]吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，要是不尽快回来，\n可不知道会发生什么哦？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：明白，我马上回来！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "虽然只是权宜之计，但我会在这里设下结界。"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "我不擅长直接施展术式，所以这道结界只能做到\n只要你们不做可疑举动，就不会引起注意……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：那就快走吧！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "咦。既然如此，由那个结界保护我同行\n不是更好吗……？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "……[charaShake C 0.05 2 2 0.3][wt 0.8][charaFace C 1]\n……来，我们出发吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "等一下！？你该不会只是想做服装吧！？\n不会只有这个目的吧！？"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "这、这个术式似乎确实很难对御主以外的人\n生效……非常抱歉！"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "所以，请让我打起十二分精神制作服装吧！"
+    },
+    {
+      "speaker": "F：穆尼尔",
+      "translated_content": "[FFFFFF]？[-]\n刚才好像有谁在……是错觉吗。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好，抵达战斗模拟装置了"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "鹤小姐",
+      "translated_content": "那么，马上开始战斗吧。"
+    }
+  ]
+}

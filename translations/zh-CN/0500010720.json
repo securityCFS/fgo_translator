@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010720",
+  "source_region": "JP",
+  "source_hash": "fb683dbcbe09aff82bc9b121d2c2ae50b929558cc952e84f20c0b01dbe89f30e",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 63,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "玛修",
+      "translated_content": "藤丸立香以及玛修·基列莱特，\n灵子转移准备全部完成。"
+    },
+    {
+      "speaker": "达·芬奇",
+      "translated_content": "抱歉——，虽然已经到最后关头了，还是请稍等一下。\n筛选适性从者还需要一点时间。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "灵子转移适性从者，\n筛选完成。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "符合条件的从者共计七骑。\n玛修·基列莱特确定参加。"
+    },
+    {
+      "speaker": "穆尼尔",
+      "translated_content": "剩下六骑，可从目前已被召唤的从者中\n进行选拔。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "这么多？一般来说，两骑或三骑就是极限了……。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "恐怕是因为目标有身为Beast的嫌疑。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "模拟决战魔术……\n理应已经可以由七骑共同展开行动。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "Shielder自不必说，\n第二骑当然由我前往。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "但我不会参加战斗。\n只是为了监察你们的战斗。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "那这次就由我退出吧。\n毕竟同为Assassin职阶……。"
+    },
+    {
+      "speaker": "杰基尔",
+      "translated_content": "更何况，我不认为和上次相同的攻击还能奏效。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说得对。杰基尔恐怕很难再发动奇袭。\n对方肯定也会有所防备。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "然后，要替换玛修退出的人是……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我认为大卫大人很合适。\n上一场战斗中，他也若无其事地休息了。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……话说回来，他现在根本不在这里……。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：大卫——！？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那个从者真是的，没办法……。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "嗨，抱歉抱歉。我来晚了。\n哦，是在挑选参加灵子转移的人选吧？"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "我想参加，可以吗？\n当然可以，好，就这么定了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：……咦？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "咦什么？别看我这样，\n真到了该出手的时候，我也是会出手的从者哦。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "一位一直偷懒的人突然跑来这么说。\n我实在无法接受。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "这点还请你忍一忍。我也反省过了。\n偷懒显然是错误的选择。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "我好歹也是常胜之王哦？\n如果是必须取胜的战斗，我自然会参加。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……。\n……。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "啊、啊——……清姬？\n大卫嘛，他就是这种人——"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "我知道可能很难，\n不过你就别太生他的气了。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "……不。我没有任何\n应该说的话。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "咦？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "既然必须有一骑退出，\n那就由我退出吧。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "……真的可以吗？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "是的。不能与御主并肩作战，\n我真的非常难过……。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "但除了燃烧之外一无是处的我，\n恐怕很难战胜乌尔德。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "所以这次就让我退下吧。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "那么，大卫大人。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "嗯。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "御主就拜托您了。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "当然。\n既然是美丽少女的请求，我自然不会推辞。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那么，成员就是——"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "玛修、[wt 0.5]阿兹莱尔、[subRenderFadein #B 0.2 280,-310][subRenderMove #B 280,-270 0.3][wt 1.2][subRenderMove #A -280,-300 0.3][subRenderFadeout #A 0.2][subRenderMove #B 280,-230 0.3][subRenderFadeout #B 0.2][wt 0.2][charaFadeout A 0][charaFadeout E 0]\n贝狄威尔、[charaFadein K 0 0,270][subRenderFadeinFSL #A 0.2 -320,-230][subRenderMoveFSL #A -320,-270 0.3][wt 0.5]大卫、[charaFadein H 0 30,270][subRenderFadein #C 0.2 0,-310][subRenderMove #C 0,-270 0.3][wt 0.5]豹人。[charaFadein L 0 10,270][subRenderFadeinFSR #B 0.2 320,-230][subRenderMoveFSR #B 320,-270 0.3][wt 0.3]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "杰罗尼莫和布狄卡。[wt 1.4][subRenderMove #A -280,-310 0.3][subRenderMove #B 280,-230 0.3][subRenderFadeout #A 0.2][subRenderFadeout #B 0.2][wt 0.3][fadeout black 0][wait fade][charaFace D 4][charaFadein D 0 1][scene 278700][wt 0.1][fadein black 0.3][wait fade]\n以上七骑。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "等等。对手是带有Beast气息的神灵。\n我也要提出一个条件。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "条件……吗？"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "召唤在迦勒底获得冠位的英灵……\n也就是冠位从者。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "虽然不要求同行参加灵子转移的从者\n必须具有冠位，"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "但战斗时必须\n召唤冠位从者。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "你做好这个准备了吗，藤丸立香？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：当然！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "……很好。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "既然她以Beast自居，\n即便身为女神，也不值得尊敬。"
+    },
+    {
+      "speaker": "阿兹莱尔",
+      "translated_content": "用你所拥有的最高战力，将她彻底斩杀吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "说得对。\n对手是拥有Beast灵基、司掌过去的女神乌尔德。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "即使上次取得了胜利，\n这次也未必能有相同的结果。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "最重要的是，一旦吃下她的宝具就全完了。\n优先考虑如何防住宝具。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "适性从者立刻灵体化。\n御主和玛修进入灵子筐！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "灵子转移目的地是『过去』。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "虽然不知道那里有什么、会发生什么，\n但这支队伍应该足以应对任何状况。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好了，出发！"
+    }
+  ]
+}

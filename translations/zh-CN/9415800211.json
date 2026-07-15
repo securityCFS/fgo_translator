@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800211",
+  "source_region": "JP",
+  "source_hash": "212da7d533da638ddb54bb0e9c598e088d2587d0315a859b8b84cced7ee7d06c",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 105,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "这个真的好烫呀！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "好，已经够了。\n接下来，让那边的小姑娘也试试吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你、你是说我？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这里还有别人吗。来，握住这把[#槌:つち]。\n不然，这项[#施設:テアトルム]体验可没法结束。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……呜呜呜……知道了啦……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "比、比想象中还要重呢……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "喝啊！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不错不错。不过小姑娘你这边，\n魔力是不是暴动得有些过头了？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "没事。牢牢握住[#槌:つち]，\n慢慢呼吸，自然就会平静下来。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "来，试试看。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "深、深呼吸？[wt 0.7][charaFace E 0][charaMove E 0,6 0.7]\n……吸……[wt 0.7][charaMove E 0,0 0.7]呼……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "对，做得很好。\n[#槌:つち]的晃动已经越来越小了。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "能感受到眼前的魔力吧？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……嗯。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那之后就什么也别想。\n用尽全力砸下去。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "很好，就是这样。\n小姑娘，你也接着重复。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "真拿你没办法。\n我会奉陪到底的！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "哈啊……哈啊……哈啊……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇！都出汗啦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：这可真是……！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：相当繁重的……劳动……！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "这场锻炼还不错。虽然之后还有不少工序，\n但这就是锻刀最基础的基础。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "接下来还要折返锻造、锤打成形、火造、淬火、\n锻冶押和[#茎仕立:なかごじた]，到这里才总算完成一把刀……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不过作为初步体验，做到这里也差不多了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位都口渴了吧。\n我准备了冰镇柠檬茶，请用。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：果然很好喝！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：时机完美！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "掌握各位的身体状况并提供协助，\n也是管家的职责。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "感觉怎么样？\n格蕾小姐也没有累着吧？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "格蕾完全没问题！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "村正先生！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "嗯，怎么了？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "锻造工房真的真的特别有趣！\n谢谢您！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……出乎意料，感觉倒也不坏。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "哦，随时欢迎再来。\n就算收你们当徒弟也未尝不可。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "刚才那句话，该不会已经是\n村正先生最高规格的称赞了吧……！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "成为徒弟以后，\n格蕾也能当刀匠吗？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "哈哈，只要你真的想当。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "想当想当！\n因为村正先生特别帅气！"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "哈哈，帅气啊。\n在[#儂:オレ]那个时代，压根就没有这种选择。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "……不过，确实是[#刀:これ]迷住了我。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "无论身处哪个时代，无论转生多少次，\n[#儂:オレ]大概都绝不会离开刀剑。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "但你们想成为什么都行。\n想尝试什么都可以，想放弃什么也可以。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "卡尔德尼亚就是这样的地方吧？\n阿斯。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没错，正如您所说！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：村正和阿斯"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：关系还挺好？"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "他帮了我不少忙。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "刚才的[#火床:ほ　ど]也是，经理原本说既然是体验，\n就该把安全放在第一位，但那样我可提不起劲。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "所以我让阿斯替我去和经理交涉，\n请人调成了[#儂:オレ]喜欢的样子。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "让每位负责人发挥出最佳水准，\n正是我这个卡尔德尼亚管家的职责。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "不只是这样吧。\n明明一直盼着特别嘉宾到来。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "盼着？\n盼着格蕾他们来吗？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "那当然。别看这家伙穿着玩偶服，自称什么管家。\n之前可是一直为各种事烦恼个不停。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "一会儿担心会不会是自己不够格当管家，\n所以特别嘉宾才不肯来，"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "一会儿又想，要是真有人来了，\n欢迎饮品该端什么才好，"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "还有该按什么路线、带人体验哪些[#施設:テアトルム]，\n才能让客人玩得最开心，"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "无论去哪个[#施設:テアトルム]开会，都要为这些事纠结个没完。\n如今已经是卡尔德尼亚名副其实的招牌管家了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "等、等一下，村正先生！这种事不能说吧！\n我只是在履行卡尔德尼亚管家的职责——"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "承认自己很期待能当管家，\n又不会遭报应吧？"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "再说了，你都制订了那么详细的计划，\n在那边遇见[#儂:オレ]也不可能只是偶然……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "好了不许说！不许不许，千子先生！\n说了不许就是不许！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "[#閑話休題:かんわきゅうだい]。让我们回到工作上……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么各位，第一项[#施設:テアトルム]体验到此结束！\n这是报酬，请收下卡尔德！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "卡尔德？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "这是只能在卡尔德尼亚使用的货币！\n即便只是体验，劳动也理应得到合理的报酬。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：合理的……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：真的是职业体验啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "呵呵，也希望各位能相应地感受到责任。\n因为所谓工作，正是责任与报酬缺一不可。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "专用商店里备有一流的商品，\n请务必带上卡尔德去看看。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么最后，包括村正先生在内，\n让我们为大家拍一张纪念照吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "相机由我们准备，按快门的任务\n就交给藤丸立香先生了。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "毕竟，从者最出色的一面，\n应该由御主看得最清楚！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：责任重大啊"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：请交给我"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "…………"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "格蕾小姐，怎么了吗？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "……那个呀。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "小阿斯也一起拍照，好不好？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "呃，是说我吗？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如果是吉祥物空空君，\n之后的见面活动也可以和它合影。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不要玩偶服，格蕾想和小阿斯一起！\n因为你带我们玩得这么开心呀！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "这些参观路线都是小阿斯想出来的吧。\n那格蕾也想和小阿斯一起拍！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "而且，格蕾还想请小阿斯\n继续带我们参观卡尔德尼亚！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "不，可是那样……"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "有什么不好，你不是专属向导吗？\n小孩子的请求，多少也该答应一下吧。"
+    },
+    {
+      "speaker": "千子村正",
+      "translated_content": "再说，人家都说到这份上了，你还有什么不满足的，\n[#唐変木:とうへんぼく]。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "既然说是纪念照，\n把当时陪在身边的人一起拍进去确实更好。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……我明白了。经理吩咐过，要尽可能满足\n特别嘉宾的愿望。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "太好啦！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "那么各位，请以格蕾小姐和奥尔加玛丽小姐为中心\n聚到一起。"
+    },
+    {
+      "speaker": "I：阿斯",
+      "translated_content": "来，请按下快门吧。御主！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "拍得真不错！\n接下来请把这张照片贴到护照上！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "贴上去？\n那就由你来贴吧。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可以让格蕾贴吗！？\n嗯，格蕾来格蕾来！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：发光了！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项1结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "刚才一瞬间还感受到了强烈的魔力……已经消失了？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "照片已经贴好了！\n那么各位，我们先回卡尔德尼亚广场吧！"
+    }
+  ]
+}

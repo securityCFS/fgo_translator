@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800920",
+  "source_region": "JP",
+  "source_hash": "4ee32104d706c6f868fb92340fd3f10e8de11aea4f64af9b2383ad97159832fb",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 42,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "岸波白野",
+      "translated_content": "谢谢你，Caster！"
+    },
+    {
+      "speaker": "巫女装束的Caster",
+      "translated_content": "哪里，哪里！\n无论何时，都请尽管依靠这位贤妻吧☆"
+    },
+    {
+      "speaker": "巫女装束的Caster",
+      "translated_content": "话虽如此，若是浪费了御主的魔力，\n可就是[#本末転倒:ほんまつてんとう]、家计簿大起火了。"
+    },
+    {
+      "speaker": "巫女装束的Caster",
+      "translated_content": "虽遗憾至极，暂且就此告退……！\n请多多创造机会，巫女一声把我[#喚:よ]来哦！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 你那边的玉藻，原来是这种感觉啊"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "嗯。她非常聪明，总是光彩照人，\n是能让再沉重的气氛也轻松起来的最佳搭档。"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "即使我认识的她与你认识的她并不是同一个，\n两边也都是同样的玉藻。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 我也这么觉得"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 玉藻就是玉藻嘛"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "小阿斯……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 用玉藻的术式和魔术礼装……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 虽然勉强封住了表面……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "各位……"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "哈哈……谢谢大家……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "不行啊，小阿斯！\n你还在痛吧！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "因为……我和奥尔加玛丽小姐约好了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "我的确说过！\n可谁想得到真有笨蛋会做到那种地步啊！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "好吧。我来帮你救出Garbage。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过，我有一个条件。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "条件？"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "凭你一个人，拦住那位亚瑟王\n和Lancer阿尔托莉雅两个人。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "但是，因为我们约好了……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "你该明白，那只是我为了观察你的情况\n随口找的借口吧！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "要是正面应付那两个人，\n你会死的，那样约定不就无法成立了吗！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "再说了，就算你做到这种地步履行了约定，\n我也不一定会信守承诺吧？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "咦？为什么？"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "奥尔加玛丽小姐一定会遵守约定。\n您不就是这样的人吗。[bgmStop BGM_GOGH_1 1.5]"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "别、别信口开河啊！\n不要擅自摆出一副很了解我的样子！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "唉……"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "不过……我明白你是真心这么认为的了。\n[#あのガベージたちがペルセポネだって]。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "……是。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那个……格蕾完全不明白这种说法……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "得墨忒耳大人的孩子有那么多吗？\n大家都是珀耳塞福涅吗？"
+    },
+    {
+      "speaker": "岸波白野",
+      "translated_content": "事情变得相当复杂了呢。\n但看来我们必须认真听一听。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "为了说明清楚，可以请各位陪我去一下吗？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1: 去哪里？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2: 你还不能走路吧……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 2 结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "没问题。就在附近。"
+    }
+  ]
+}

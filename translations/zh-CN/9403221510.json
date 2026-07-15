@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "script_id": "9403221510",
+  "source_region": "JP",
+  "source_hash": "727e9fcda00f25872226b3af1c0244e64285d6eb4ed7173498f265ed6fd54682",
+  "target_language": "zh-CN",
+  "provider": "atlas-cn",
+  "model": "official-sync",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 63,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "美杜莎",
+      "translated_content": "日本的温泉旅馆……虽然是第一次来，但有种似曾相识的感觉呢。\n不由得想起了[#花札:纸牌游戏]。"
+    },
+    {
+      "speaker": "美杜莎",
+      "translated_content": "我偶尔也该放下照顾姐姐们的工作，\n来这种有情趣的旅馆悠闲地读读书……"
+    },
+    {
+      "speaker": "美杜莎",
+      "translated_content": "读书……咦？"
+    },
+    {
+      "speaker": "美杜莎",
+      "translated_content": "我那本想要刻意留到特别的日子才阅读的\n宝贵的妖怪堂系列最新刊怎么烧起来了[line 2]！？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "呵呵呵。来旅馆看书\n可不是美女该有的慵懒状态哦，美杜莎小姐♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "适合蛇纹的美女是不会读书的啦。\n和我一起去把搭讪男们大卸八块吧♡"
+    },
+    {
+      "speaker": "美杜莎",
+      "translated_content": "[FFFFFF]？[-]　你应该是清……[wt 0.5][charaFace A 2]\n呀[messageShake 0.05 8 3 0.4]啊啊啊啊啊[line 11]！？"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "这里是阎魔亭……我是被志度内介绍来的，\n没想到这里居然是个如此美妙的地方……！"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "在这里应该可以尽情放松了。"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "虽然对不起大姐大人和二姐大人，\n但我还是在这里逗留一阵吧。"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "我一直很想认真学习编织。\n做一个可爱的蕾丝花束送给姐姐大人们……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "哎呀……年纪轻轻就如此楚楚可怜。\n多么爱护姐妹啊，美杜莎小姐。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "如此直接的可爱行为，\n清姬可不喜欢♡"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "因为这样显得我多没面子啊。\n蛇就该有蛇的样子，执着地逼迫男人们吧？"
+    },
+    {
+      "speaker": "少女美杜莎",
+      "translated_content": "呃……你应该是清……[wt 0.5]\n呀[messageShake 0.05 8 3 0.4]啊啊啊啊啊[line 11]！？"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "来了来了大蛇来了～……"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "呵呵，收集了这么多野菜，\n足够红阎魔阁下使用了吧。"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "当知道阎魔亭的住宿费超过预算时，\n我差点难过到想跳楼……"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "幸好红阎魔阁下是位善解人意的老板娘。\n允许我用忍者的劳动抵住宿费并住在阁楼。"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "我千代女是不会忘了这一宿一饭之恩的。"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "为了报答，我打算将山上的野菜全都献给老板娘，\n直到这里变成一座秃山……咦？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "唔……\n作为蛇怪而言有些不伦不类的，不过凑活啦。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "开场白太麻烦了，直接一口吞了吧？\n来，啊～♡"
+    },
+    {
+      "speaker": "望月千代女",
+      "translated_content": "什么……为什么是您爬出来清……[wt 0.6][charaFace D 2]\n不[messageShake 0.05 8 3 0.4]要啊啊啊啊[line 11]！？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "综上所述，我收到了这样的告状啾。\n有什么要辩解的吗，清姬？"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "没有的话，我就要开始判决了啾。\n做好判处100年监禁的觉悟啾。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我不要去地狱厨房——！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "不对，更何况我完全不记得发生过这种事啊！\n我向神佛起誓，绝对没做过这种事！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "…………竟然能自发引起记忆障碍啾？\n前途不堪设想啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "但是证据确凿啾。\n因为麻雀们勘察了现场啾。"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "还是说难道你想这么辩解啾？\n说有两个清姬啾？　你难道还能分身啾？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "这……我实在难以……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "哼。看来进展十分顺利。\n和巴计划的一样！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "巴小姐。你的朋友刚被扣上了莫须有的罪名，\n为什么你还如此得意洋洋。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "难道刚才那些话令你想到什么？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "没错。该如何获得『龙首珠』。\n经过诸多思考——"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "我认为还是直接从龙身上找比较快。\n于是巴心生一计，清姬小姐的……您看……"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "是叫影从者吧？\n只要做一个那样的复制品不就解决了吗？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "…………详细说来听听。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "所谓的影从者，\n是英灵在灵基遭破坏消失之际，"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "未能完全回到英灵之座的灵基残渣\n与周围的魔力、怨念结合从而形成的产物。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "只要利用这点，将清姬小姐散发的暗黑面集中于一点，\n然后使用神话符号骤然将其钓出来，"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "或许就能创造出清姬小姐的复制品（只有黑暗面）了。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "具体来说，就是先造一座撞钟堂，\n然后每晚安排宝藏院阁下和美女进入其中。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "钟下有精悍的美少年和女性对谈……\n在这种情况下，清姬小姐是不可能不变成龙的。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "最终将如我所愿创造出清姬小姐2号。"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "然后只需打倒她就可以获得龙珠了哦，各位。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 原来如此，真是天才。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 2: 巴小姐还挺不择手段的呢。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "也就是说，现在在阎魔亭捣乱的清姬是\n由清姬而生的安珍·清姬传说中的100%清姬啾！"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "我哪有什么100%或是1000%啦！\n还有，我要和巴小姐暂时绝交！"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "哎……怎么能这样，为什么啊，清姬小姐！？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "这一切都是为了在不伤害\n清姬小姐的前提下拿到龙珠啊！？"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "确实没有伤害我的身体，\n但我的权威和内心被践踏得支离破碎！"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "巴看上去虽然比清姬和玉藻更重礼数，\n但实际上还是个在战争中磨练出来的武者啾……"
+    },
+    {
+      "speaker": "红阎魔",
+      "translated_content": "为[#达成目的:获得胜利]，会使用一些合理\n而冷血的手段，这也算是她的坏习惯啾？"
+    },
+    {
+      "speaker": "巴御前",
+      "translated_content": "！　……这么说来确实如此……\n我要去瀑布下冲刷自我反省……"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "不，不必去瀑布了，\n只你帮我擦掉我负责的那部分玻璃，这件事就这么算了。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "而我们接下来得去阻止影清姬才行！\n红阎魔老师、御主，赶紧去撞钟堂吧。"
+    },
+    {
+      "speaker": "清姬",
+      "translated_content": "必须在我的复制品做出更多丑态之前，\n将其完全抹消！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "Choice 1: 也是哦。"
+    },
+    {
+      "speaker": "System",
+      "translated_content": "Choice 1 Ending"
+    }
+  ]
+}

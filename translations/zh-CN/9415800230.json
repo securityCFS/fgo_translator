@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "script_id": "9415800230",
+  "source_region": "JP",
+  "source_hash": "1527af95269fb852b9cb78831de70d94fe1ef93d68a626e5038bb0423a113504",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 28,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "格蕾",
+      "translated_content": "纠、纠结得好厉害呀……"
+    },
+    {
+      "speaker": "戈尔德鲁夫",
+      "translated_content": "我们至今见识过各种各样的特异点，\n但购买股票倒是一种少见的体验。"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！没想到花了那么久！\n那么，下一项体验是什么！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如果可以谈谈我的个人意见，\n接下来推荐体验音乐家或猎人。"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "音乐家和猎人？\n咦咦咦！格蕾两个都想去！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "当然，两边都可以去。\n距离也差不多，想先去哪一个呢？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "哇哇，又要纠结好久了……\n怎么办怎么办怎么办……"
+    },
+    {
+      "speaker": "亚德",
+      "translated_content": "嘻嘻嘻！\n这种事光是纠结都在浪费时间吧！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "可、可是！\n因为卡尔德尼亚实在太好玩了嘛！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "刚才的股票交易也让格蕾好兴奋！\n还有村正先生工房的股票呢！"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "只要是村正先生打造的刀，大家肯定\n都想要！"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "眼光不错。要判断哪支股票更有潜力，\n亲身体验确实是一条捷径。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "只要企业或职业本身足够有魅力，\n其股票今后自然也会继续上涨。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：设计得真周到……"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：不只是为了钱啊……"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "如果把社会比作一具人体，\n职业便是手脚、肺脏和肝脏等器官。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "而股票与金钱，\n则是驱动这具人体的血液。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "[#僭越:せんえつ]，卡尔德尼亚一直致力于\n让各位切身体会到这种运行机制。"
+    },
+    {
+      "speaker": "阿斯",
+      "translated_content": "话说回来，格蕾小姐如果烦恼下一站去哪里，\n不妨先想想自己想成为什么吧？"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "唔唔唔唔……格蕾想当音乐家，\n也想当猎人……"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "那就让御主决定先去哪里吧！"
+    },
+    {
+      "speaker": "C：戈尔德鲁夫",
+      "translated_content": "这可是责任重大的任务。\n就看御主的本事了。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项1：别摆出那种理想父亲般的表情！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项2：我会尽力的"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项2结束"
+    },
+    {
+      "speaker": "格蕾",
+      "translated_content": "嘿嘿，好期待呀！"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "…………"
+    }
+  ]
+}

@@ -425,9 +425,29 @@ const AA = (() => {
 
             let hiddenNoScriptCount = 0;
             const tasks = [];
+            const dialoguePresence = new Map();
+            const hasDialogueContent = async quest => {
+                let uncertain = false;
+                for (const scriptId of quest.scriptIds || []) {
+                    if (!dialoguePresence.has(scriptId)) {
+                        try {
+                            const result = await extractDialogues(scriptId, region);
+                            dialoguePresence.set(scriptId, (result.dialogues || []).length > 0);
+                        } catch (e) {
+                            console.warn('latestTasks script inspection failed:', scriptId, e);
+                            dialoguePresence.set(scriptId, null);
+                        }
+                    }
+                    if (dialoguePresence.get(scriptId) === true) return true;
+                    if (dialoguePresence.get(scriptId) === null) uncertain = true;
+                }
+                // Preserve tasks on transient fetch failures. Translation has its
+                // own parsed-dialogue guard before any provider is called.
+                return uncertain;
+            };
             for (const row of uniqueRows) {
                 const quest = warQuestById.get(String(row.id));
-                if (!quest || !quest.hasDialogueScript) {
+                if (!quest || !quest.hasDialogueScript || !await hasDialogueContent(quest)) {
                     hiddenNoScriptCount += 1;
                     continue;
                 }
@@ -438,6 +458,7 @@ const AA = (() => {
                     latestOpenedAt: row.openedAt,
                     openedAt: quest.openedAt || row.openedAt,
                 });
+                if (tasks.length >= limit) break;
             }
 
             if (tasks.length < limit) {
@@ -447,14 +468,18 @@ const AA = (() => {
                     if (tasks.length >= limit) break;
                     try {
                         const { quests } = await getWarQuests(war.id, region);
-                        quests
+                        const candidates = quests
                             .filter(q => q.hasDialogueScript && !seen.has(String(q.id)))
-                            .sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0))
-                            .forEach(q => {
-                                if (tasks.length >= limit) return;
-                                seen.add(String(q.id));
-                                tasks.push({ ...q, itemKind: 'task' });
-                            });
+                            .sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0));
+                        for (const quest of candidates) {
+                            if (tasks.length >= limit) break;
+                            if (!await hasDialogueContent(quest)) {
+                                hiddenNoScriptCount += 1;
+                                continue;
+                            }
+                            seen.add(String(quest.id));
+                            tasks.push({ ...quest, itemKind: 'task' });
+                        }
                     } catch (e) { console.warn('latestTasks fill failed:', war.id, e); }
                 }
             }
@@ -768,6 +793,58 @@ const AA = (() => {
         };
     }
 
+    const _bundledTranslations = new Map();
+
+    async function loadBundledTranslation(scriptId, targetLanguage = 'zh-CN') {
+        scriptId = String(scriptId || '');
+        if (!/^\d+$/.test(scriptId) || targetLanguage !== 'zh-CN') return null;
+        const key = `${targetLanguage}:${scriptId}`;
+        if (_bundledTranslations.has(key)) return _bundledTranslations.get(key);
+        try {
+            const response = await fetch(`translations/${targetLanguage}/${scriptId}.json`);
+            if (!response.ok) return null;
+            const data = await response.json();
+            if (!data || data.script_id !== scriptId || data.target_language !== targetLanguage) return null;
+            if (!Array.isArray(data.translations) || data.translations.length !== Number(data.dialogue_count)) return null;
+            _bundledTranslations.set(key, data);
+            return data;
+        } catch {
+            return null;
+        }
+    }
+
+    async function checkBundledTranslations(scriptIds = [], targetLanguage = 'zh-CN') {
+        const ids = scriptIds.map(String).filter(Boolean);
+        const loaded = await Promise.all(ids.map(id => loadBundledTranslation(id, targetLanguage)));
+        return {
+            available: ids.length > 0 && loaded.every(Boolean),
+            missing: ids.filter((id, index) => !loaded[index]),
+            target_language: targetLanguage,
+        };
+    }
+
+    async function getBundledDialogues(scriptIds = [], targetLanguage = 'zh-CN') {
+        const ids = scriptIds.map(String).filter(Boolean);
+        const translated = [];
+        const providers = new Set();
+        for (const scriptId of ids) {
+            const data = await loadBundledTranslation(scriptId, targetLanguage);
+            if (!data) throw new Error(`Bundled translation not found for script ${scriptId}`);
+            translated.push(...data.translations.map(item => ({
+                speaker: String(item.speaker || ''),
+                translated_content: String(item.translated_content || ''),
+            })));
+            providers.add(String(data.provider || 'codex-agent'));
+        }
+        return {
+            translated_dialogues: translated,
+            source_region: 'JP',
+            target_language: targetLanguage,
+            providers: [...providers],
+            bundled: true,
+        };
+    }
+
     /**
      * Parse raw script text into dialogue lines (plain extraction, no visual framing).
      * IMPORTANT: This must produce the same number of entries that
@@ -781,8 +858,8 @@ const AA = (() => {
         const lines = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
         const dialogues = [];
         const SPEAKER_RE = /^＠(.*)/;          // allow empty speaker
-        const CHOICE_RE  = /^？(\d+)：(.+)/;
-        const END_RE     = /^？！/;
+        const CHOICE_RE  = /^[？?](\d+)[：:](.+)/;
+        const END_RE     = /^(?:？！|\?!)/;
         let lastChoiceNum = null;
         let i = 0;
         while (i < lines.length) {
@@ -848,7 +925,7 @@ const AA = (() => {
 
         let text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
         text = text.replace(/\[\s*\n\s*/g, '[');
-        text = text.replace(/\n\s*(?=[^\[＠？\n])/g, ' ');
+        text = text.replace(/\n\s*(?=[^\[＠？?\n])/g, ' ');
         text = text.replace(/\[%1\]/g, '藤丸立香').replace(/\[r\]/g, '\n');
         // NOTE: do NOT pre-replace [line N] here; gaming.html renders it.
         const lines = text.split('\n');
@@ -928,7 +1005,7 @@ const AA = (() => {
                     j = consumedK ? j + 1 : jj;
                     continue;
                 }
-                const cm = /^？(\d+)：(.+)/.exec(ln);
+                const cm = /^[？?](\d+)[：:](.+)/.exec(ln);
                 if (cm) {
                     const txt = cm[2].trim().replace(/\[r\]/g, '\n');
                     if (cur === null) cur = { firstLine: j, choices: [], endDialogueIdx: null, endLine: null };
@@ -943,7 +1020,7 @@ const AA = (() => {
                     j++;
                     continue;
                 }
-                if (ln.startsWith('？！')) {
+                if (/^(?:？！|\?!)/.test(ln)) {
                     if (cur !== null) {
                         cur.endDialogueIdx = idx;
                         cur.endLine = j;
@@ -969,7 +1046,10 @@ const AA = (() => {
         let currentGroup = null;
         let currentBranch = null;
 
-        const state = { bg: '', sprites: {}, subLayers: {}, talker: null, cameraFilter: null, bgm: null };
+        const state = {
+            bg: '', sprites: {}, subLayers: {}, talkers: new Set(),
+            talkHighlightEnabled: true, cameraFilter: null, bgm: null,
+        };
         const frames = [], entityIds = new Set();
         let dialogueIdx = 0, pendingEffects = [];
 
@@ -984,7 +1064,25 @@ const AA = (() => {
         function setSpriteVisible(slot, visible) {
             if (!state.sprites[slot]) return;
             state.sprites[slot].visible = visible;
-            if (!visible && state.talker === slot) state.talker = null;
+            if (!visible) state.talkers.delete(slot);
+        }
+        function parsePositionToken(token) {
+            token = String(token || '').trim();
+            if (!token) return null;
+            if (token.includes(',')) {
+                const [rawX, rawY] = token.split(',', 2);
+                const x = Number(rawX), y = Number(rawY);
+                return Number.isFinite(x) && Number.isFinite(y) ? { x, y } : null;
+            }
+            const preset = Number(token);
+            if (!Number.isFinite(preset)) return null;
+            return { x: ({ 0: -256, 1: 0, 2: 256 })[preset] ?? preset, y: 0 };
+        }
+        function setSpritePosition(slot, token) {
+            const position = parsePositionToken(token);
+            if (!state.sprites[slot] || !position) return;
+            state.sprites[slot].x = position.x;
+            state.sprites[slot].y = position.y;
         }
         function hideSubLayer(layerId) {
             for (const slot of state.subLayers[layerId] || []) setSpriteVisible(slot, false);
@@ -996,7 +1094,10 @@ const AA = (() => {
                 .map(([slot, sp]) => ({
                     slot, entityId: sp.entityId, name: sp.name || '',
                     face: sp.face || 1, url: FIG_BASE(sp.entityId),
-                    talking: slot === state.talker,
+                    talking: !state.talkHighlightEnabled || state.talkers.has(slot),
+                    x: sp.x, y: sp.y,
+                    scale: sp.scale ?? 1,
+                    depth: sp.depth ?? 0,
                 }));
         }
 
@@ -1019,23 +1120,59 @@ const AA = (() => {
                     face: parseInt(m[3]),
                     visible: false,
                     renderable: isRenderableSprite(m[2], name),
+                    x: null,
+                    y: null,
+                    scale: 1,
+                    depth: 0,
                 };
                 entityIds.add(m[2]); continue;
             }
-            if (m = /^\[charaFace\s+(\w)\s+(\d+)\]/.exec(line)) {
+            if (m = /^\[charaFace(?:Fade)?\s+(\w)\s+(\d+)/.exec(line)) {
                 if (state.sprites[m[1]]) state.sprites[m[1]].face = parseInt(m[2]); continue;
             }
-            if (m = /^\[charaTalk\s+(\w+)\]/.exec(line)) {
-                state.talker = ['off', 'depthOff', 'on'].includes(m[1]) ? null : m[1]; continue;
+            if (m = /^\[charaTalk\s+([^\]]+)\]/.exec(line)) {
+                const rawTalkers = m[1].trim();
+                if (rawTalkers === 'off') {
+                    state.talkHighlightEnabled = false;
+                    state.talkers = new Set();
+                } else if (rawTalkers === 'on') {
+                    state.talkHighlightEnabled = true;
+                    state.talkers = new Set();
+                } else if (!['depthOff', 'depthOn'].includes(rawTalkers)) {
+                    state.talkHighlightEnabled = true;
+                    state.talkers = new Set(rawTalkers.split(',').filter(slot => state.sprites[slot]));
+                }
+                continue;
             }
-            if (m = /^\[charaFadein\w*\s+(\w)/.exec(line)) {
-                setSpriteVisible(m[1], true); continue;
+            if (m = /^\[(charaFadein\w*)\s+(\w+)\s+([^\]]+)\]/.exec(line)) {
+                const args = m[3].trim().split(/\s+/);
+                if (args.length >= 2) setSpritePosition(m[2], args[1]);
+                setSpriteVisible(m[2], true); continue;
             }
             if (m = /^\[charaFadeout\w*\s+(\w)/.exec(line)) {
                 setSpriteVisible(m[1], false); continue;
             }
-            if (m = /^\[charaPut\w*\s+(\w)\s+([01])/.exec(line)) {
-                setSpriteVisible(m[1], m[2] !== '0'); continue;
+            if (m = /^\[charaPut\w*\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
+                setSpritePosition(m[1], m[2]);
+                setSpriteVisible(m[1], true); continue;
+            }
+            if (m = /^\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)/.exec(line)) {
+                setSpriteVisible(m[1], Number(m[2]) > 0); continue;
+            }
+            if (m = /^\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)/.exec(line)) {
+                if (state.sprites[m[1]]) state.sprites[m[1]].scale = Number(m[2]);
+                continue;
+            }
+            if (m = /^\[(charaMove(?!Return|Scale)\w*)\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
+                setSpritePosition(m[2], m[3]); continue;
+            }
+            if (m = /^\[charaScale\s+(\w+)\s+([\d.]+)/.exec(line)) {
+                if (state.sprites[m[1]]) state.sprites[m[1]].scale = Number(m[2]);
+                continue;
+            }
+            if (m = /^\[charaDepth\s+(\w+)\s+(-?\d+)/.exec(line)) {
+                if (state.sprites[m[1]]) state.sprites[m[1]].depth = Number(m[2]);
+                continue;
             }
             if (m = /^\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])/.exec(line)) {
                 const slot = m[1], layer = m[2];
@@ -1043,14 +1180,15 @@ const AA = (() => {
                 state.subLayers[layer].add(slot);
                 continue;
             }
-            if (m = /^\[charaLayer\s+(\w)\s+main/.exec(line)) {
+            if (m = /^\[charaLayer\s+(\w)\s+(?:main|normal)/.exec(line)) {
                 const slot = m[1];
                 Object.values(state.subLayers).forEach(slots => slots.delete(slot));
                 continue;
             }
-            if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)/.exec(line)) {
+            if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)/.exec(line)) {
                 if (state.sprites[m[1]]) {
                     state.sprites[m[1]].entityId = m[2];
+                    state.sprites[m[1]].face = Number(m[3]);
                     state.sprites[m[1]].renderable = isRenderableSprite(m[2], state.sprites[m[1]].name);
                     entityIds.add(m[2]);
                 }
@@ -1085,7 +1223,10 @@ const AA = (() => {
                     if (slotPrefix) {
                         const speakerSlot = slotPrefix[1];
                         speaker = slotPrefix[2].trim();
-                        if (state.sprites[speakerSlot]) state.talker = speakerSlot;
+                        if (state.sprites[speakerSlot] && !state.talkers.has(speakerSlot)) {
+                            state.talkHighlightEnabled = true;
+                            state.talkers = new Set([speakerSlot]);
+                        }
                     } else {
                         speaker = speakerRaw;
                     }
@@ -1140,7 +1281,7 @@ const AA = (() => {
                 continue;
             }
 
-            if (m = /^？(\d+)：(.+)/.exec(line)) {
+            if (m = /^[？?](\d+)[：:](.+)/.exec(line)) {
                 const num = parseInt(m[1], 10);
                 const txt = m[2].trim().replace(/\[r\]/g, '\n');
                 if (currentGroup === null) {
@@ -1168,7 +1309,7 @@ const AA = (() => {
                 continue;
             }
 
-            if (line.startsWith('？！')) {
+            if (/^(?:？！|\?!)/.test(line)) {
                 currentGroup = null;
                 currentBranch = null;
                 dialogueIdx++; // always consumes one slot ("Choice N Ending")
@@ -1242,6 +1383,7 @@ const AA = (() => {
         getWarQuests, getEventQuests,
         getQuestScripts, extractDialogues, parseDialogues,
         checkAtlasTranslations, getAtlasDialogues,
+        checkBundledTranslations, getBundledDialogues,
         parseScriptVisual, fetchSvtScripts,
         CDN,
     };

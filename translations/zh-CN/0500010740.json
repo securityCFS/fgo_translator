@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "script_id": "0500010740",
+  "source_region": "JP",
+  "source_hash": "fc0631b315aea83c4d0b81d7eb21cb5e4ff84a9b70a2db02c73123e16f134652",
+  "target_language": "zh-CN",
+  "provider": "codex-agent",
+  "model": "agent-translation",
+  "prompt_version": "fgo-agent-v1",
+  "dialogue_count": 56,
+  "trusted_generation": true,
+  "generator": {
+    "app": "fgo_translator",
+    "branch_mode": "bundled",
+    "generated_at": "2026-07-15T00:00:00Z"
+  },
+  "translations": [
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "御主！这边已经全部解决了！"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "解决掉了喵！"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "情况不错！虽然乌尔德的反应相当遥远，\n但我们至少知道方向。"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "就这样一直笔直前进。"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：好，出发吧！"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "（你倒是问问有多远啊，真是的。\n　不过，就算问了我也很难回答……）"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：你说很远，究竟有多远？"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "……非——常——远！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（虽说还不到宇宙尽头，\n　但测定距离超过了10光年……）"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "（这应该不是物理距离，而是概念上的。\n　只要我们前进，距离应该就会随之急剧缩短）"
+    },
+    {
+      "speaker": "川田",
+      "translated_content": "与乌尔德的距离已经缩短到9光年左右。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "那就没问题了。"
+    },
+    {
+      "speaker": "川田",
+      "translated_content": "另外，建筑也发生了变化。\n不再是高楼，这里……大概是近代早期的欧洲吧。"
+    },
+    {
+      "speaker": "奥尔加玛丽",
+      "translated_content": "……也就是说，我们正向过去前进。\n至少可以确定方向没错。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "……这是……。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "我能说句话吗喵？\n——不知怎么的，我突然很想回去了。"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "你突然说什么呢！？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "豹人的话倒也不全是胡言乱语。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "若非肩负身为从者的使命，\n我也会立刻掉头返回。"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "怎么连杰罗尼莫也……！？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "没什么。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "——眼前明明有猛烈旋转的龙卷风。\n应该没有多少人还会想继续前进吧？"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "也就是说，前方有着与之相当的存在。"
+    },
+    {
+      "speaker": "大卫",
+      "translated_content": "不过，我们也不能不继续前进。\n还是赶快走吧。"
+    },
+    {
+      "speaker": "布狄卡",
+      "translated_content": "很有干劲嘛——。\n唔，说得也是。好，继续前进！"
+    },
+    {
+      "speaker": "托马林",
+      "translated_content": "在藤丸立香前方\n确认敌对反应。是从者！"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "藤丸立香，\n确认到敌对反应，小心！"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "有人能看到对方吗！？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：看、看是看到了！"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 2：那里有个非常不妙的家伙！"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "不妙！？\n说得再具体一点！"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "我、我们也确认到了从者的身影。\n那是……那是……。"
+    },
+    {
+      "speaker": "玛修",
+      "translated_content": "曾出现在第六特异点卡美洛的\n尽头之主，狮子王……！"
+    },
+    {
+      "speaker": "P：奥尔加玛丽",
+      "translated_content": "那是什么啊——！！"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "不，请各位冷静。\n那位既是狮子王，又不是狮子王。"
+    },
+    {
+      "speaker": "豹人",
+      "translated_content": "那是什么禅问答？"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "正如你所洞察的，骑士贝狄威尔。\n我的确是狮子王……。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "但我[#ではない]并非曾败在你们手中的\n特异点卡美洛之王。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "在这个特异点中，\n我是挡在骑士时代终结之处的守门人。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "——手握利剑，向贵妇起誓。\n——守护弱者，对敌挥刃。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "无比华美的骑士道将作为过去的遗物，\n随时代一同消逝。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "……和身在此处的我一起。"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "也就是说，王承担了标示『过去』明确终点的\n坐标作用吗。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "正是。\n因此，我对卿并无任何特殊想法。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "卿也不必有所顾忌。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "骑士的终结、时代的终结——\n让我亲自接受这一切吧。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "前提是，你们要继续前进。"
+    },
+    {
+      "speaker": "杰罗尼莫",
+      "translated_content": "这话似乎另有深意。\n您是说，我们也可以回去？"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "将我[#喚:よ]来的女神，要我如此转告你们。\n——那么，你们如何选择？"
+    },
+    {
+      "speaker": "藤丸立香",
+      "translated_content": "选项 1：当然要继续前进"
+    },
+    {
+      "speaker": "系统",
+      "translated_content": "选项 1 结束"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "我想也是。\n——那么，彼此都无需留情。"
+    },
+    {
+      "speaker": "狮子王",
+      "translated_content": "尽情挥舞那件[#得物:け　ん]武器吧。\n上了！"
+    },
+    {
+      "speaker": "贝狄威尔",
+      "translated_content": "请做好觉悟……！"
+    }
+  ]
+}
