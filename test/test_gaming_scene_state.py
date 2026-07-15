@@ -84,6 +84,39 @@ Ensemble scene
         self.assertEqual(by_slot["A"]["face"], 4)
         self.assertEqual(by_slot["B"]["face"], 3)
 
+    def test_parser_composes_sub_render_position_scale_and_visibility(self):
+        raw = """
+[charaSet E 1049000 1 Muramasa]
+[charaLayer E sub #A]
+[charaFadeinFSR E 0 0,250]
+[subRenderScale #A 0.8]
+[subRenderDepth #A 6]
+[subRenderFadeinFSR #A 0.3 400,-280]
+＠E：Muramasa
+First
+[k]
+[subRenderMoveEaseFSR #A 350,-280 0.4 easeOutSine]
+＠E：Muramasa
+Second
+[k]
+[subRenderFadeout #A 0.2]
+＠Narrator
+Hidden
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogues = [frame for frame in frames if frame.get("type") == "dialogue"]
+
+        first_sprite = dialogues[0]["sprites"][0]
+        self.assertEqual(first_sprite["x"], 400)
+        self.assertEqual(first_sprite["y"], -80)
+        self.assertEqual(first_sprite["scale"], 0.8)
+        self.assertEqual(first_sprite["depth"], 6)
+        self.assertEqual(dialogues[1]["sprites"][0]["x"], 350)
+        self.assertEqual(dialogues[1]["sprites"][0]["y"], -80)
+        self.assertEqual(dialogues[2]["sprites"], [])
+
 
 class RegionalDialogueSyntaxTests(unittest.TestCase):
     def test_korean_ascii_choice_markers_are_counted_in_order(self):

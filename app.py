@@ -483,6 +483,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         'bg': '',
         'sprites': {},   # slot -> {entityId, name, face, visible}
         'subLayers': {},
+        'subRenders': {},
         'talkers': set(),
         'talkHighlightEnabled': True,
         'cameraFilter': None,  # active color tint
@@ -595,15 +596,41 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             return
         state['sprites'][slot]['x'], state['sprites'][slot]['y'] = position
 
-    def hide_sub_layer(layer_id):
-        for slot in state['subLayers'].get(layer_id, set()):
-            set_sprite_visible(slot, False)
+    def get_sub_render(layer_id):
+        return state['subRenders'].setdefault(layer_id, {
+            'visible': False,
+            'x': 0.0,
+            'y': 0.0,
+            'scale': 1.0,
+            'depth': None,
+        })
+
+    def sub_layer_for_slot(slot):
+        for layer_id, slots in state['subLayers'].items():
+            if slot in slots:
+                return layer_id
+        return None
 
     def snapshot_sprites():
         result = []
         for slot, sp in state['sprites'].items():
             if sp.get('visible') and sp.get('entityId') and sp.get('renderable') is not False:
+                layer_id = sub_layer_for_slot(slot)
+                sub_render = get_sub_render(layer_id) if layer_id else None
+                if sub_render and not sub_render['visible']:
+                    continue
                 eid = sp['entityId']
+                x = sp.get('x')
+                y = sp.get('y')
+                scale = sp.get('scale', 1.0)
+                depth = sp.get('depth', 0)
+                if sub_render:
+                    render_scale = sub_render.get('scale', 1.0)
+                    x = sub_render.get('x', 0.0) + (x or 0.0) * render_scale
+                    y = sub_render.get('y', 0.0) + (y or 0.0) * render_scale
+                    scale *= render_scale
+                    if sub_render.get('depth') is not None:
+                        depth = sub_render['depth']
                 result.append({
                     'slot': slot,
                     'entityId': eid,
@@ -614,10 +641,10 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                         not state['talkHighlightEnabled']
                         or slot in state['talkers']
                     ),
-                    'x': sp.get('x'),
-                    'y': sp.get('y'),
-                    'scale': sp.get('scale', 1.0),
-                    'depth': sp.get('depth', 0),
+                    'x': x,
+                    'y': y,
+                    'scale': scale,
+                    'depth': depth,
                 })
         return result
 
@@ -750,6 +777,33 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 slots.discard(slot)
             continue
 
+        m = re.match(r'\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)', line)
+        if m:
+            get_sub_render(m.group(1))['depth'] = int(m.group(2))
+            continue
+
+        m = re.match(r'\[subRenderFadein\w*\s+(#[A-Z])\s+[^\s\]]+\s+([^\s\]]+)', line)
+        if m:
+            render = get_sub_render(m.group(1))
+            position = parse_position_token(m.group(2))
+            if position is not None:
+                render['x'], render['y'] = position
+            render['visible'] = True
+            continue
+
+        m = re.match(r'\[subRender(?:MoveScale(?:Ease)?|Scale)\s+(#[A-Z])\s+([\d.]+)', line)
+        if m:
+            get_sub_render(m.group(1))['scale'] = float(m.group(2))
+            continue
+
+        m = re.match(r'\[subRenderMove(?!Scale)\w*\s+(#[A-Z])\s+([^\s\]]+)', line)
+        if m:
+            render = get_sub_render(m.group(1))
+            position = parse_position_token(m.group(2))
+            if position is not None:
+                render['x'], render['y'] = position
+            continue
+
         m = re.match(r'\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)', line)
         if m:
             slot, eid, face = m.group(1), m.group(2), int(m.group(3))
@@ -765,7 +819,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
 
         m = re.match(r'\[subRenderFadeout\w*\s+(#[A-Z])', line)
         if m:
-            hide_sub_layer(m.group(1))
+            get_sub_render(m.group(1))['visible'] = False
             continue
 
         if line.startswith('＠'):
