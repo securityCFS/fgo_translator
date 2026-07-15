@@ -1047,7 +1047,7 @@ const AA = (() => {
         let currentBranch = null;
 
         const state = {
-            bg: '', sprites: {}, subLayers: {}, talkers: new Set(),
+            bg: '', sprites: {}, subLayers: {}, subRenders: {}, talkers: new Set(),
             talkHighlightEnabled: true, cameraFilter: null, bgm: null,
         };
         const frames = [], entityIds = new Set();
@@ -1084,21 +1084,40 @@ const AA = (() => {
             state.sprites[slot].x = position.x;
             state.sprites[slot].y = position.y;
         }
-        function hideSubLayer(layerId) {
-            for (const slot of state.subLayers[layerId] || []) setSpriteVisible(slot, false);
+        function getSubRender(layerId) {
+            if (!state.subRenders[layerId]) {
+                state.subRenders[layerId] = {
+                    visible: false, x: 0, y: 0, scale: 1, depth: null,
+                };
+            }
+            return state.subRenders[layerId];
+        }
+        function subLayerForSlot(slot) {
+            for (const [layerId, slots] of Object.entries(state.subLayers)) {
+                if (slots.has(slot)) return layerId;
+            }
+            return null;
         }
 
         function snapshotSprites() {
             return Object.entries(state.sprites)
                 .filter(([, sp]) => sp.visible && sp.entityId && sp.renderable !== false)
-                .map(([slot, sp]) => ({
-                    slot, entityId: sp.entityId, name: sp.name || '',
-                    face: sp.face || 1, url: FIG_BASE(sp.entityId),
-                    talking: !state.talkHighlightEnabled || state.talkers.has(slot),
-                    x: sp.x, y: sp.y,
-                    scale: sp.scale ?? 1,
-                    depth: sp.depth ?? 0,
-                }));
+                .map(([slot, sp]) => {
+                    const layerId = subLayerForSlot(slot);
+                    const subRender = layerId ? getSubRender(layerId) : null;
+                    if (subRender && !subRender.visible) return null;
+                    const renderScale = subRender ? subRender.scale : 1;
+                    return {
+                        slot, entityId: sp.entityId, name: sp.name || '',
+                        face: sp.face || 1, url: FIG_BASE(sp.entityId),
+                        talking: !state.talkHighlightEnabled || state.talkers.has(slot),
+                        x: subRender ? subRender.x + (sp.x || 0) * renderScale : sp.x,
+                        y: subRender ? subRender.y + (sp.y || 0) * renderScale : sp.y,
+                        scale: (sp.scale ?? 1) * renderScale,
+                        depth: subRender && subRender.depth !== null ? subRender.depth : (sp.depth ?? 0),
+                    };
+                })
+                .filter(Boolean);
         }
 
         let i = 0;
@@ -1185,6 +1204,24 @@ const AA = (() => {
                 Object.values(state.subLayers).forEach(slots => slots.delete(slot));
                 continue;
             }
+            if (m = /^\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)/.exec(line)) {
+                getSubRender(m[1]).depth = Number(m[2]); continue;
+            }
+            if (m = /^\[subRenderFadein\w*\s+(#[A-Z])\s+[^\s\]]+\s+([^\s\]]+)/.exec(line)) {
+                const render = getSubRender(m[1]);
+                const position = parsePositionToken(m[2]);
+                if (position) { render.x = position.x; render.y = position.y; }
+                render.visible = true; continue;
+            }
+            if (m = /^\[subRender(?:MoveScale(?:Ease)?|Scale)\s+(#[A-Z])\s+([\d.]+)/.exec(line)) {
+                getSubRender(m[1]).scale = Number(m[2]); continue;
+            }
+            if (m = /^\[subRenderMove(?!Scale)\w*\s+(#[A-Z])\s+([^\s\]]+)/.exec(line)) {
+                const render = getSubRender(m[1]);
+                const position = parsePositionToken(m[2]);
+                if (position) { render.x = position.x; render.y = position.y; }
+                continue;
+            }
             if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)/.exec(line)) {
                 if (state.sprites[m[1]]) {
                     state.sprites[m[1]].entityId = m[2];
@@ -1195,7 +1232,7 @@ const AA = (() => {
                 continue;
             }
             if (m = /^\[subRenderFadeout\w*\s+(#[A-Z])/.exec(line)) {
-                hideSubLayer(m[1]); continue;
+                getSubRender(m[1]).visible = false; continue;
             }
 
             if (line.startsWith('＠')) {
