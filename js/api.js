@@ -1127,7 +1127,7 @@ const AA = (() => {
             if (!line) continue;
 
             let m;
-            if (m = /^\[scene\s+(\d+)\]/.exec(line)) { state.bg = BG_BASE(m[1]); continue; }
+            if (m = /^\[scene\s+(\d+)(?:\s+[^\]]+)?\]/.exec(line)) { state.bg = BG_BASE(m[1]); continue; }
             if (m = /^\[bScene\s+(\d+)/.exec(line)) { if (!state.bg) state.bg = BG_BASE(m[1]); continue; }
             if (m = /^\[imageSet\s+\w\s+back(\d+)/.exec(line)) { if (!state.bg) state.bg = BG_BASE(m[1]); continue; }
 

@@ -638,11 +638,11 @@ const FACE_DEFAULT = 256;
 const FIGURE_DEFAULT_H = 1024;
 const FIGURE_PAGE_W = 1024;
 const FIGURE_PAGE_H = 1024;
-const BODY_VH = 100;  /* % of scene container height — sprite fills full scene height (top to bottom) */
 const BODY_MAX_PX = 99999;
 const BODY_UNIT = 'cqh'; /* container-query height units, relative to #sceneWrap */
 const SCENE_LOGICAL_WIDTH = 1024;
 const SCENE_LOGICAL_HEIGHT = 576;
+const DEFAULT_FIGURE_BODY_HEIGHT = 768;
 
 function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
     const rawX = Number(sp && sp.x);
@@ -651,12 +651,35 @@ function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
         && sp.y !== null && sp.y !== undefined
         && Number.isFinite(rawX) && Number.isFinite(rawY);
     const rawScale = Number(sp && sp.scale);
+    const scriptScale = Number.isFinite(rawScale) && rawScale > 0 ? Math.min(rawScale, 4) : 1;
     const rawDepth = Number(sp && sp.depth);
+    const entityId = String((sp && sp.entityId) || '');
+    const meta = SVT[entityId] || {};
+    const measured = IMG_SIZE[entityId] || {};
+    const declaredHeight = Number((meta.extendData || {}).figureHeight);
+    const measuredHeight = Number(measured.height);
+    const bodyHeight = Number.isFinite(measuredHeight) && measuredHeight > 0
+        ? measuredHeight
+        : Number.isFinite(declaredHeight) && declaredHeight > 0
+            ? declaredHeight
+            : DEFAULT_FIGURE_BODY_HEIGHT;
+    const offsetX = Number(meta.offsetX) || 0;
+    const offsetY = Number(meta.offsetY) || 0;
+    const x = (explicit ? rawX : 0) + offsetX * scriptScale;
+    const y = explicit ? rawY : 0;
+    const heightCqh = bodyHeight * scriptScale / SCENE_LOGICAL_HEIGHT * 100;
+    const bottomCqh = (
+        SCENE_LOGICAL_HEIGHT
+        + y
+        + offsetY * scriptScale
+        - bodyHeight * scriptScale
+    ) / SCENE_LOGICAL_HEIGHT * 100;
     return {
         key: String((sp && sp.slot) || `${sp && sp.entityId}:${index}`),
-        leftPercent: explicit ? 50 + (rawX / SCENE_LOGICAL_WIDTH * 100) : fallbackLeftPercent,
-        bottomCqh: explicit ? rawY / SCENE_LOGICAL_HEIGHT * 100 : 0,
-        scale: Number.isFinite(rawScale) && rawScale > 0 ? Math.min(rawScale, 4) : 1,
+        leftPercent: (explicit ? 50 : fallbackLeftPercent) + (x / SCENE_LOGICAL_WIDTH * 100),
+        bottomCqh,
+        heightCqh,
+        scale: scriptScale,
         depth: Number.isFinite(rawDepth) ? rawDepth : index,
         explicit,
     };
@@ -1097,6 +1120,7 @@ async function compositeSprite(sp) {
     const bodyW = atlasW;
     let bodyH = ext.figureHeight ? ext.figureHeight : (atlasH - fh);
     if (bodyH <= 0 || bodyH > atlasH) bodyH = Math.max(1, atlasH - fh);
+    IMG_SIZE[String(sp.entityId)] = { width: bodyW, height: bodyH };
 
     const canvas = document.createElement('canvas');
     canvas.width = bodyW; canvas.height = bodyH;
@@ -1250,6 +1274,13 @@ function renderSprites(sprites) {
     const wantedKeys = new Set(layouts.map(layout => layout.key));
     const myFrameIdx = IDX;
 
+    const applyLayout = (node, layout) => {
+        node.wrap.style.left = `${layout.leftPercent}%`;
+        node.wrap.style.bottom = `${layout.bottomCqh}cqh`;
+        node.wrap.style.zIndex = String(3 + layout.depth);
+        node.img.style.height = `min(${layout.heightCqh}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
+    };
+
     // 1. Remove sprites that are no longer present (animate out, then drop)
     for (const [slotKey, node] of Array.from(SPRITE_NODES.entries())) {
         if (!wantedKeys.has(slotKey)) {
@@ -1269,12 +1300,8 @@ function renderSprites(sprites) {
         if (!node) {
             const wrap = document.createElement('div');
             wrap.className = 'sprite-wrap' + (sp.talking ? '' : ' dimmed');
-            wrap.style.left = `${layout.leftPercent}%`;
-            wrap.style.bottom = `${layout.bottomCqh}cqh`;
-            wrap.style.zIndex = String(3 + layout.depth);
             const img = document.createElement('img');
             img.className = 'sprite-img';
-            img.style.height = `min(${BODY_VH * layout.scale}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
             wrap.appendChild(img);
             stage.appendChild(wrap);
             node = { wrap, img, sp: null, lastCompositeKey: null };
@@ -1282,10 +1309,7 @@ function renderSprites(sprites) {
         }
 
         // Update position / talking state (smooth transitions via CSS)
-        node.wrap.style.left = `${layout.leftPercent}%`;
-        node.wrap.style.bottom = `${layout.bottomCqh}cqh`;
-        node.wrap.style.zIndex = String(3 + layout.depth);
-        node.img.style.height = `min(${BODY_VH * layout.scale}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
+        applyLayout(node, layout);
         node.wrap.classList.toggle('dimmed', !sp.talking);
 
         const key = `${sp.entityId}:${sp.face || 0}`;
@@ -1294,6 +1318,13 @@ function renderSprites(sprites) {
             compositeSprite(sp).then(dataUrl => {
                 if (IDX !== myFrameIdx) return;
                 if (SPRITE_NODES.get(slotKey) !== node) return;
+                // Figure sheets can use different body dimensions. Apply the
+                // measured body size before revealing the image.
+                applyLayout(node, computeSpriteLayout(
+                    sp,
+                    parseFloat(fallbackPositions[idx] || '50'),
+                    idx,
+                ));
                 // Cross-fade the image without blanking the wrapper
                 if (node.img.src && node.img.complete) {
                     // Brief fade on the img element only (wrapper stays visible)
