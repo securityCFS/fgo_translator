@@ -58,6 +58,36 @@ Narration
         dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
         self.assertEqual(dialogue["sprites"], [])
 
+    def test_parser_preserves_partial_opacity_and_silhouette_filter(self):
+        raw = """
+[charaSet A 1001001 1 Hero]
+[charaPut A 1]
+[charaFadeTime A 0.4 0.6]
+[charaFilter A silhouette 00000080]
+＠Hero
+Shadow
+[k]
+[charaFilter A normal]
+[charaFadeTime A 0.2 1]
+＠Hero
+Normal
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogues = [frame for frame in frames if frame.get("type") == "dialogue"]
+
+        shadow = dialogues[0]["sprites"][0]
+        self.assertEqual(shadow["opacity"], 0.6)
+        self.assertEqual(shadow["filter"], "silhouette")
+        self.assertEqual(shadow["filterColor"], "#000000")
+        self.assertAlmostEqual(shadow["filterAlpha"], 128 / 255)
+
+        normal = dialogues[1]["sprites"][0]
+        self.assertEqual(normal["opacity"], 1.0)
+        self.assertEqual(normal["filter"], "normal")
+        self.assertEqual(normal["filterAlpha"], 1.0)
+
     def test_parser_preserves_ensemble_brightness_and_visual_updates(self):
         raw = """
 [charaSet A 1001001 1 Hero]
@@ -89,6 +119,7 @@ Ensemble scene
 [charaSet E 1049000 1 Muramasa]
 [charaLayer E sub #A]
 [charaFadeinFSR E 0 0,250]
+[subCameraFilter #A maskEdge cut359_mask16 4 255,255,255,255 0]
 [subRenderScale #A 0.8]
 [subRenderDepth #A 6]
 [subRenderFadeinFSR #A 0.3 400,-280]
@@ -113,6 +144,7 @@ Hidden
         self.assertEqual(first_sprite["y"], -80)
         self.assertEqual(first_sprite["scale"], 0.8)
         self.assertEqual(first_sprite["depth"], 6)
+        self.assertEqual(first_sprite["subCameraMask"], "cut359_mask16")
         self.assertEqual(dialogues[1]["sprites"][0]["x"], 350)
         self.assertEqual(dialogues[1]["sprites"][0]["y"], -80)
         self.assertEqual(dialogues[2]["sprites"], [])

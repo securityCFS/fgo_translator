@@ -39,7 +39,8 @@ const context = {
 vm.createContext(context);
 vm.runInContext(
   `${extractFunction('escapeHtml')}\n${extractFunction('formatScriptText')}\n${extractFunction('formatSpeakerName')}\n`
-    + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576; const DEFAULT_FIGURE_BODY_HEIGHT = 768;\n${extractFunction('computeSpriteLayout')}`,
+    + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576; const DEFAULT_FIGURE_BODY_HEIGHT = 768;\n`
+    + `${extractFunction('computeSpriteLayout')}\n${extractFunction('applySpriteVisualState')}`,
   context
 );
 
@@ -99,5 +100,34 @@ const subRenderFigureLayout = context.computeSpriteLayout({
 assert.ok(Math.abs(subRenderFigureLayout.leftPercent - 84.27734375) < 1e-8);
 assert.ok(Math.abs(subRenderFigureLayout.bottomCqh - (-13.0208333333)) < 1e-8);
 assert.ok(Math.abs(subRenderFigureLayout.heightCqh - 133.3333333333) < 1e-8);
+
+const maskedSubRenderLayout = context.computeSpriteLayout({
+  slot: 'E', entityId: '1049000', x: 350, y: -30, scale: 1, depth: 2,
+  subCameraMask: 'cut359_mask16',
+}, 50, 0);
+assert.ok(Math.abs(maskedSubRenderLayout.heightCqh - 100) < 1e-8);
+assert.equal(maskedSubRenderLayout.maskedSubCamera, true);
+assert.ok(maskedSubRenderLayout.leftPercent <= 92);
+
+const visualVars = new Map();
+const visualClasses = new Map();
+const visualNode = {
+  wrap: {
+    style: {
+      setProperty: (key, value) => visualVars.set(key, value),
+      removeProperty: key => visualVars.delete(key),
+    },
+    classList: {
+      toggle: (key, value) => visualClasses.set(key, value),
+    },
+  },
+};
+context.applySpriteVisualState(visualNode, {
+  opacity: 0.6, filter: 'silhouette', filterColor: '#000000', filterAlpha: 128 / 255,
+  talking: true,
+}, maskedSubRenderLayout);
+assert.ok(Math.abs(Number(visualVars.get('--sprite-opacity')) - (0.6 * 128 / 255)) < 1e-8);
+assert.equal(visualClasses.get('silhouette'), true);
+assert.equal(visualClasses.get('masked-sub-camera'), true);
 
 console.log('gaming formatting tests passed');

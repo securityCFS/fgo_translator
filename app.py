@@ -574,6 +574,21 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             if not visible:
                 state['talkers'].discard(slot)
 
+    def set_sprite_opacity(slot, opacity):
+        if slot not in state['sprites']:
+            return
+        opacity = max(0.0, min(1.0, float(opacity)))
+        state['sprites'][slot]['opacity'] = opacity
+        set_sprite_visible(slot, opacity > 0)
+
+    def parse_filter_color(raw):
+        value = str(raw or '000000FF').strip().lstrip('#')
+        if not re.fullmatch(r'[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?', value):
+            return '#000000', 1.0
+        color = f'#{value[:6]}'
+        alpha = int(value[6:8], 16) / 255 if len(value) == 8 else 1.0
+        return color, alpha
+
     def parse_position_token(token):
         token = str(token or '').strip()
         if not token:
@@ -603,6 +618,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             'y': 0.0,
             'scale': 1.0,
             'depth': None,
+            'mask': None,
         })
 
     def sub_layer_for_slot(slot):
@@ -645,6 +661,11 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     'y': y,
                     'scale': scale,
                     'depth': depth,
+                    'opacity': sp.get('opacity', 1.0),
+                    'filter': sp.get('filter', 'normal'),
+                    'filterColor': sp.get('filterColor', '#000000'),
+                    'filterAlpha': sp.get('filterAlpha', 1.0),
+                    'subCameraMask': sub_render.get('mask') if sub_render else None,
                 })
         return result
 
@@ -690,6 +711,10 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 'y': None,
                 'scale': 1.0,
                 'depth': 0,
+                'opacity': 1.0,
+                'filter': 'normal',
+                'filterColor': '#000000',
+                'filterAlpha': 1.0,
             }
             entity_ids.add(eid)
             continue
@@ -723,6 +748,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot = m.group(2)
             if len(args) >= 2:
                 set_sprite_position(slot, args[1])
+            if slot in state['sprites']:
+                state['sprites'][slot]['opacity'] = 1.0
             set_sprite_visible(slot, True)
             continue
 
@@ -734,12 +761,28 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         m = re.match(r'\[charaPut\w*\s+(\w+)\s+([^\s\]]+)', line)
         if m:
             set_sprite_position(m.group(1), m.group(2))
+            if m.group(1) in state['sprites']:
+                state['sprites'][m.group(1)]['opacity'] = 1.0
             set_sprite_visible(m.group(1), True)
             continue
 
         m = re.match(r'\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)', line)
         if m:
-            set_sprite_visible(m.group(1), float(m.group(2)) > 0)
+            set_sprite_opacity(m.group(1), m.group(2))
+            continue
+
+        m = re.match(r'\[charaFilter\s+(\w+)\s+(\w+)(?:\s+([^\s\]]+))?', line)
+        if m:
+            slot, mode = m.group(1), m.group(2).lower()
+            if slot in state['sprites']:
+                state['sprites'][slot]['filter'] = mode
+                if mode == 'silhouette':
+                    color, alpha = parse_filter_color(m.group(3))
+                    state['sprites'][slot]['filterColor'] = color
+                    state['sprites'][slot]['filterAlpha'] = alpha
+                else:
+                    state['sprites'][slot]['filterColor'] = '#000000'
+                    state['sprites'][slot]['filterAlpha'] = 1.0
             continue
 
         m = re.match(r'\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)', line)
@@ -775,6 +818,11 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot = m.group(1)
             for slots in state['subLayers'].values():
                 slots.discard(slot)
+            continue
+
+        m = re.match(r'\[subCameraFilter(?:\s+(#[A-Z]))?\s+maskEdge\s+([^\s\]]+)', line)
+        if m:
+            get_sub_render(m.group(1) or '#A')['mask'] = m.group(2)
             continue
 
         m = re.match(r'\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)', line)
