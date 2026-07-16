@@ -60,10 +60,11 @@
             will-change: opacity, filter; opacity: 0;
         }
         .sprite-wrap.dimmed { filter: brightness(0.55) saturate(0.7); }
-        .sprite-wrap.in { opacity: 1; }
-        .sprite-wrap.dimmed.in { opacity: 0.85; }
+        .sprite-wrap.in { opacity: var(--sprite-opacity, 1); }
+        .sprite-wrap.dimmed.in { opacity: var(--sprite-dim-opacity, 0.85); }
         .sprite-wrap.out { opacity: 0 !important; transform: translateX(-50%) translateY(30px); }
         .sprite-img { display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); user-select: none; -webkit-user-drag: none; transition: opacity 0.3s, height 0.6s cubic-bezier(.4,.2,.2,1); }
+        .sprite-wrap.silhouette .sprite-img { filter: var(--silhouette-filter, brightness(0)); }
         
         /* Fade Layer (color-aware: black/white) */
         #fadeLayer { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.5s ease, background-color 0.2s; z-index: 80; }
@@ -663,25 +664,36 @@ function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
         : Number.isFinite(declaredHeight) && declaredHeight > 0
             ? declaredHeight
             : DEFAULT_FIGURE_BODY_HEIGHT;
+    const maskedSubCamera = Boolean(sp && sp.subCameraMask);
+    // maskEdge assets are not part of Atlas' public figure bundle. Keep their
+    // sub-camera fallback inside one stage height so the uncropped source does
+    // not become a full-screen close-up.
+    const visualScale = maskedSubCamera
+        ? Math.min(scriptScale, SCENE_LOGICAL_HEIGHT / bodyHeight)
+        : scriptScale;
     const offsetX = Number(meta.offsetX) || 0;
     const offsetY = Number(meta.offsetY) || 0;
-    const x = (explicit ? rawX : 0) + offsetX * scriptScale;
+    const x = (explicit ? rawX : 0) + offsetX * visualScale;
     const y = explicit ? rawY : 0;
-    const heightCqh = bodyHeight * scriptScale / SCENE_LOGICAL_HEIGHT * 100;
+    const heightCqh = bodyHeight * visualScale / SCENE_LOGICAL_HEIGHT * 100;
     const bottomCqh = (
         SCENE_LOGICAL_HEIGHT
         + y
-        + offsetY * scriptScale
-        - bodyHeight * scriptScale
+        + offsetY * visualScale
+        - bodyHeight * visualScale
     ) / SCENE_LOGICAL_HEIGHT * 100;
+    const rawLeftPercent = (explicit ? 50 : fallbackLeftPercent) + (x / SCENE_LOGICAL_WIDTH * 100);
     return {
         key: String((sp && sp.slot) || `${sp && sp.entityId}:${index}`),
-        leftPercent: (explicit ? 50 : fallbackLeftPercent) + (x / SCENE_LOGICAL_WIDTH * 100),
+        leftPercent: maskedSubCamera
+            ? Math.max(8, Math.min(92, rawLeftPercent))
+            : rawLeftPercent,
         bottomCqh,
         heightCqh,
         scale: scriptScale,
         depth: Number.isFinite(rawDepth) ? rawDepth : index,
         explicit,
+        maskedSubCamera,
     };
 }
 
@@ -1247,6 +1259,37 @@ function renderFrame() {
 // out characters that left the scene and fade in genuinely new ones.
 // Existing characters get their face/talking/position updated in place.
 const SPRITE_NODES = new Map(); // script slot -> { wrap, img, sp, lastCompositeKey }
+const RETIRING_SPRITE_NODES = new Set();
+
+function removeSpriteNode(node) {
+    RETIRING_SPRITE_NODES.delete(node);
+    if (node && node.wrap && node.wrap.parentNode) {
+        node.wrap.parentNode.removeChild(node.wrap);
+    }
+}
+
+function applySpriteVisualState(node, sp, layout) {
+    const baseOpacity = Math.max(0, Math.min(1, Number(sp.opacity ?? 1)));
+    const silhouette = String(sp.filter || '').toLowerCase() === 'silhouette';
+    const filterAlpha = silhouette
+        ? Math.max(0, Math.min(1, Number(sp.filterAlpha ?? 1)))
+        : 1;
+    const opacity = baseOpacity * filterAlpha;
+    node.wrap.style.setProperty('--sprite-opacity', String(opacity));
+    node.wrap.style.setProperty('--sprite-dim-opacity', String(opacity * 0.85));
+    node.wrap.classList.toggle('dimmed', !sp.talking);
+    node.wrap.classList.toggle('silhouette', silhouette);
+    node.wrap.classList.toggle('masked-sub-camera', Boolean(layout.maskedSubCamera));
+    if (silhouette) {
+        const color = String(sp.filterColor || '#000000').toLowerCase();
+        node.wrap.style.setProperty(
+            '--silhouette-filter',
+            color === '#ffffff' ? 'brightness(0) invert(1)' : 'brightness(0)',
+        );
+    } else {
+        node.wrap.style.removeProperty('--silhouette-filter');
+    }
+}
 
 function renderSprites(sprites) {
     const stage = document.getElementById('spriteStage');
@@ -1272,6 +1315,7 @@ function renderSprites(sprites) {
     ));
 
     const wantedKeys = new Set(layouts.map(layout => layout.key));
+    const wantedEntities = new Set(unique.map(sp => String(sp.entityId || '')));
     const myFrameIdx = IDX;
 
     const applyLayout = (node, layout) => {
@@ -1285,10 +1329,17 @@ function renderSprites(sprites) {
     for (const [slotKey, node] of Array.from(SPRITE_NODES.entries())) {
         if (!wantedKeys.has(slotKey)) {
             const w = node.wrap;
-            w.classList.remove('in');
-            w.classList.add('out');
             SPRITE_NODES.delete(slotKey);
-            setTimeout(() => { if (w.parentNode) w.parentNode.removeChild(w); }, 480);
+            if (wantedEntities.has(String((node.sp && node.sp.entityId) || ''))) {
+                // The same character moved to a different script slot. Keeping
+                // the old slot through its fade creates a visible double image.
+                removeSpriteNode(node);
+            } else {
+                w.classList.remove('in');
+                w.classList.add('out');
+                RETIRING_SPRITE_NODES.add(node);
+                setTimeout(() => removeSpriteNode(node), 480);
+            }
         }
     }
 
@@ -1298,19 +1349,25 @@ function renderSprites(sprites) {
         const slotKey = layout.key;
         let node = SPRITE_NODES.get(slotKey);
         if (!node) {
+            for (const retiring of Array.from(RETIRING_SPRITE_NODES)) {
+                if (retiring.slotKey === slotKey
+                    || String((retiring.sp && retiring.sp.entityId) || '') === String(sp.entityId || '')) {
+                    removeSpriteNode(retiring);
+                }
+            }
             const wrap = document.createElement('div');
             wrap.className = 'sprite-wrap' + (sp.talking ? '' : ' dimmed');
             const img = document.createElement('img');
             img.className = 'sprite-img';
             wrap.appendChild(img);
             stage.appendChild(wrap);
-            node = { wrap, img, sp: null, lastCompositeKey: null };
+            node = { wrap, img, sp: null, lastCompositeKey: null, slotKey };
             SPRITE_NODES.set(slotKey, node);
         }
 
         // Update position / talking state (smooth transitions via CSS)
         applyLayout(node, layout);
-        node.wrap.classList.toggle('dimmed', !sp.talking);
+        applySpriteVisualState(node, sp, layout);
 
         const key = `${sp.entityId}:${sp.face || 0}`;
         if (node.lastCompositeKey !== key) {

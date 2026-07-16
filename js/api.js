@@ -1066,6 +1066,22 @@ const AA = (() => {
             state.sprites[slot].visible = visible;
             if (!visible) state.talkers.delete(slot);
         }
+        function setSpriteOpacity(slot, opacity) {
+            if (!state.sprites[slot]) return;
+            opacity = Math.max(0, Math.min(1, Number(opacity)));
+            state.sprites[slot].opacity = opacity;
+            setSpriteVisible(slot, opacity > 0);
+        }
+        function parseFilterColor(raw) {
+            const value = String(raw || '000000FF').trim().replace(/^#/, '');
+            if (!/^[0-9a-f]{6}(?:[0-9a-f]{2})?$/i.test(value)) {
+                return { color: '#000000', alpha: 1 };
+            }
+            return {
+                color: `#${value.slice(0, 6)}`,
+                alpha: value.length === 8 ? parseInt(value.slice(6), 16) / 255 : 1,
+            };
+        }
         function parsePositionToken(token) {
             token = String(token || '').trim();
             if (!token) return null;
@@ -1087,7 +1103,7 @@ const AA = (() => {
         function getSubRender(layerId) {
             if (!state.subRenders[layerId]) {
                 state.subRenders[layerId] = {
-                    visible: false, x: 0, y: 0, scale: 1, depth: null,
+                    visible: false, x: 0, y: 0, scale: 1, depth: null, mask: null,
                 };
             }
             return state.subRenders[layerId];
@@ -1115,6 +1131,11 @@ const AA = (() => {
                         y: subRender ? subRender.y + (sp.y || 0) * renderScale : sp.y,
                         scale: (sp.scale ?? 1) * renderScale,
                         depth: subRender && subRender.depth !== null ? subRender.depth : (sp.depth ?? 0),
+                        opacity: sp.opacity ?? 1,
+                        filter: sp.filter || 'normal',
+                        filterColor: sp.filterColor || '#000000',
+                        filterAlpha: sp.filterAlpha ?? 1,
+                        subCameraMask: subRender ? subRender.mask : null,
                     };
                 })
                 .filter(Boolean);
@@ -1143,6 +1164,10 @@ const AA = (() => {
                     y: null,
                     scale: 1,
                     depth: 0,
+                    opacity: 1,
+                    filter: 'normal',
+                    filterColor: '#000000',
+                    filterAlpha: 1,
                 };
                 entityIds.add(m[2]); continue;
             }
@@ -1166,6 +1191,7 @@ const AA = (() => {
             if (m = /^\[(charaFadein\w*)\s+(\w+)\s+([^\]]+)\]/.exec(line)) {
                 const args = m[3].trim().split(/\s+/);
                 if (args.length >= 2) setSpritePosition(m[2], args[1]);
+                if (state.sprites[m[2]]) state.sprites[m[2]].opacity = 1;
                 setSpriteVisible(m[2], true); continue;
             }
             if (m = /^\[charaFadeout\w*\s+(\w)/.exec(line)) {
@@ -1173,10 +1199,26 @@ const AA = (() => {
             }
             if (m = /^\[charaPut\w*\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
                 setSpritePosition(m[1], m[2]);
+                if (state.sprites[m[1]]) state.sprites[m[1]].opacity = 1;
                 setSpriteVisible(m[1], true); continue;
             }
             if (m = /^\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)/.exec(line)) {
-                setSpriteVisible(m[1], Number(m[2]) > 0); continue;
+                setSpriteOpacity(m[1], m[2]); continue;
+            }
+            if (m = /^\[charaFilter\s+(\w+)\s+(\w+)(?:\s+([^\s\]]+))?/.exec(line)) {
+                const slot = m[1], mode = m[2].toLowerCase();
+                if (state.sprites[slot]) {
+                    state.sprites[slot].filter = mode;
+                    if (mode === 'silhouette') {
+                        const parsed = parseFilterColor(m[3]);
+                        state.sprites[slot].filterColor = parsed.color;
+                        state.sprites[slot].filterAlpha = parsed.alpha;
+                    } else {
+                        state.sprites[slot].filterColor = '#000000';
+                        state.sprites[slot].filterAlpha = 1;
+                    }
+                }
+                continue;
             }
             if (m = /^\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)/.exec(line)) {
                 if (state.sprites[m[1]]) state.sprites[m[1]].scale = Number(m[2]);
@@ -1203,6 +1245,9 @@ const AA = (() => {
                 const slot = m[1];
                 Object.values(state.subLayers).forEach(slots => slots.delete(slot));
                 continue;
+            }
+            if (m = /^\[subCameraFilter(?:\s+(#[A-Z]))?\s+maskEdge\s+([^\s\]]+)/.exec(line)) {
+                getSubRender(m[1] || '#A').mask = m[2]; continue;
             }
             if (m = /^\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)/.exec(line)) {
                 getSubRender(m[1]).depth = Number(m[2]); continue;
