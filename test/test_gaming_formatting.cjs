@@ -25,11 +25,21 @@ function extractFunction(name) {
 const context = {
   window: { DATA: { region: 'JP' } },
   console,
+  SVT: {
+    '1098123000': { offsetX: 3, offsetY: 143, extendData: {} },
+    '1098330800': { offsetX: -16, offsetY: 126, extendData: {} },
+    '1049000': { offsetX: 1, offsetY: 147, extendData: {} },
+  },
+  IMG_SIZE: {
+    '1098123000': { width: 1024, height: 768 },
+    '1098330800': { width: 2048, height: 768 },
+    '1049000': { width: 1024, height: 768 },
+  },
 };
 vm.createContext(context);
 vm.runInContext(
   `${extractFunction('escapeHtml')}\n${extractFunction('formatScriptText')}\n${extractFunction('formatSpeakerName')}\n`
-    + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576;\n${extractFunction('computeSpriteLayout')}`,
+    + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576; const DEFAULT_FIGURE_BODY_HEIGHT = 768;\n${extractFunction('computeSpriteLayout')}`,
   context
 );
 
@@ -54,7 +64,8 @@ const explicitLayout = context.computeSpriteLayout({
 }, 50, 0);
 assert.equal(explicitLayout.key, 'A');
 assert.equal(explicitLayout.leftPercent, 25);
-assert.equal(explicitLayout.bottomCqh, 12.5);
+assert.ok(Math.abs(explicitLayout.bottomCqh - (-54.1666666667)) < 1e-8);
+assert.ok(Math.abs(explicitLayout.heightCqh - 166.6666666667) < 1e-8);
 assert.equal(explicitLayout.scale, 1.25);
 assert.equal(explicitLayout.depth, 7);
 assert.equal(explicitLayout.explicit, true);
@@ -64,7 +75,29 @@ const fallbackLayout = context.computeSpriteLayout({
 }, 68, 1);
 assert.equal(fallbackLayout.key, '1002:1');
 assert.equal(fallbackLayout.leftPercent, 68);
-assert.equal(fallbackLayout.bottomCqh, 0);
+assert.ok(Math.abs(fallbackLayout.bottomCqh - (-33.3333333333)) < 1e-8);
+assert.ok(Math.abs(fallbackLayout.heightCqh - 133.3333333333) < 1e-8);
 assert.equal(fallbackLayout.explicit, false);
+
+const standardFigureLayout = context.computeSpriteLayout({
+  slot: 'A', entityId: '1098123000', x: 0, y: 0, scale: 1, depth: 0,
+}, 50, 0);
+assert.ok(Math.abs(standardFigureLayout.leftPercent - 50.29296875) < 1e-8);
+assert.ok(Math.abs(standardFigureLayout.bottomCqh - (-8.5069444444)) < 1e-8);
+assert.ok(Math.abs(standardFigureLayout.heightCqh - 133.3333333333) < 1e-8);
+
+const highResolutionLayout = context.computeSpriteLayout({
+  slot: 'H', entityId: '1098330800', x: 0, y: 0, scale: 1, depth: 0,
+}, 50, 0);
+assert.ok(Math.abs(highResolutionLayout.leftPercent - 48.4375) < 1e-8);
+assert.ok(Math.abs(highResolutionLayout.bottomCqh - (-11.4583333333)) < 1e-8);
+assert.ok(Math.abs(highResolutionLayout.heightCqh - 133.3333333333) < 1e-8);
+
+const subRenderFigureLayout = context.computeSpriteLayout({
+  slot: 'E', entityId: '1049000', x: 350, y: -30, scale: 1, depth: 5,
+}, 50, 0);
+assert.ok(Math.abs(subRenderFigureLayout.leftPercent - 84.27734375) < 1e-8);
+assert.ok(Math.abs(subRenderFigureLayout.bottomCqh - (-13.0208333333)) < 1e-8);
+assert.ok(Math.abs(subRenderFigureLayout.heightCqh - 133.3333333333) < 1e-8);
 
 console.log('gaming formatting tests passed');

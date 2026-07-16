@@ -656,7 +656,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             continue
 
         # Background commands
-        m = re.match(r'\[scene\s+(\d+)\]', line)
+        m = re.match(r'\[scene\s+(\d+)(?:\s+[^\]]+)?\]', line)
         if m:
             state['bg'] = BG_BASE.format(id=m.group(1))
             continue

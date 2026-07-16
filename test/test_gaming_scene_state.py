@@ -117,6 +117,20 @@ Hidden
         self.assertEqual(dialogues[1]["sprites"][0]["y"], -80)
         self.assertEqual(dialogues[2]["sprites"], [])
 
+    def test_parser_accepts_scene_transition_arguments(self):
+        raw = """
+[scene 292601 0.7]
+[fadeout black 0.5]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        transition = next(frame for frame in frames if frame.get("type") == "transition")
+
+        self.assertEqual(
+            transition["bg"],
+            "https://static.atlasacademy.io/JP/Back/back292601.png",
+        )
+
 
 class RegionalDialogueSyntaxTests(unittest.TestCase):
     def test_korean_ascii_choice_markers_are_counted_in_order(self):
