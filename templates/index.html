@@ -2582,7 +2582,7 @@
             const origBtnHtml = btn ? btn.innerHTML : '';
             if (btn) { btn.disabled = true; btn.innerHTML = t('preparingScene'); }
             try {
-                const gamingUrl = '/gaming';
+                const gamingUrl = `/gaming?v=${Date.now()}`;
                 const isMobileGaming = window.matchMedia('(pointer: coarse), (max-width: 767px)').matches;
                 if (isMobileGaming) {
                     _gmWindow = window.open('', 'fgoGamingMobile');

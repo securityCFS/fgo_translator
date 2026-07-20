@@ -437,10 +437,9 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
     import re
 
     CDN = 'https://static.atlasacademy.io'
-    BG_BASE = f'{CDN}/{region}/Back/back{{id}}.png'
-    # Raw atlas: body at top + face strip below. Frontend crops body and overlays
-    # the requested face cell using svtScript metadata (faceX/faceY/faceSize).
-    FIG_BASE = f'{CDN}/{region}/CharaFigure/{{eid}}/{{eid}}.png'
+    # The merged figure contains the body plus face pages. The frontend also
+    # loads the plain figure to obtain the exact body dimensions.
+    FIG_BASE = f'{CDN}/{region}/CharaFigure/{{eid}}/{{eid}}_merged.png'
 
     text = raw_text.replace('\r\n', '\n').replace('\r', '\n')
     text = re.sub(r'\[\s*\n\s*', '[', text)
@@ -488,11 +487,14 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         'talkHighlightEnabled': True,
         'cameraFilter': None,  # active color tint
         'bgm': None,           # active BGM name
+        'fullScreen': False,
+        'activitySeq': 0,
     }
     frames = []
     dialogue_idx = 0
     pending_effects = []
     entity_ids = set()
+    visual_dirty = False
 
     # Pre-scan choice groups so we can emit the choice popup BEFORE any branch
     # response dialogues, and tag branch dialogues with their branchId.
@@ -559,6 +561,10 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         pending_effects = []
         return e
 
+    def mark_visual_dirty():
+        nonlocal visual_dirty
+        visual_dirty = True
+
     def is_renderable_sprite(entity_id, name=''):
         label = str(name or '')
         entity_id = str(entity_id or '')
@@ -567,6 +573,23 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             and 'エフェクト用' not in label
             and '初期化用ダミー' not in label
         )
+
+    def background_url(background_id):
+        suffix = '_1344_626' if state['fullScreen'] else ''
+        return f'{CDN}/{region}/Back/back{background_id}{suffix}.png'
+
+    def image_url(image_name):
+        return f'{CDN}/{region}/Image/{image_name}/{image_name}.png'
+
+    def is_variant_sprite(name=''):
+        label = str(name or '').lower()
+        return any(marker in label for marker in ('演出用', 'シルエット', 'silhouette'))
+
+    def touch_sprite(slot):
+        if slot not in state['sprites']:
+            return
+        state['activitySeq'] += 1
+        state['sprites'][slot]['activity'] = state['activitySeq']
 
     def set_sprite_visible(slot, visible):
         if slot in state['sprites']:
@@ -580,6 +603,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         opacity = max(0.0, min(1.0, float(opacity)))
         state['sprites'][slot]['opacity'] = opacity
         set_sprite_visible(slot, opacity > 0)
+        if opacity > 0:
+            touch_sprite(slot)
 
     def parse_filter_color(raw):
         value = str(raw or '000000FF').strip().lstrip('#')
@@ -627,7 +652,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 return layer_id
         return None
 
-    def snapshot_sprites():
+    def visible_sprite_entries():
         result = []
         for slot, sp in state['sprites'].items():
             if sp.get('visible') and sp.get('entityId') and sp.get('renderable') is not False:
@@ -636,38 +661,120 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 if sub_render and not sub_render['visible']:
                     continue
                 eid = sp['entityId']
-                x = sp.get('x')
-                y = sp.get('y')
-                scale = sp.get('scale', 1.0)
-                depth = sp.get('depth', 0)
-                if sub_render:
-                    render_scale = sub_render.get('scale', 1.0)
-                    x = sub_render.get('x', 0.0) + (x or 0.0) * render_scale
-                    y = sub_render.get('y', 0.0) + (y or 0.0) * render_scale
-                    scale *= render_scale
-                    if sub_render.get('depth') is not None:
-                        depth = sub_render['depth']
+                asset_type = sp.get('assetType', 'chara')
                 result.append({
                     'slot': slot,
                     'entityId': eid,
+                    'assetType': asset_type,
                     'name': sp.get('name', ''),
                     'face': sp.get('face', 1),
-                    'url': FIG_BASE.format(eid=eid),
+                    'url': sp.get('url') or FIG_BASE.format(eid=eid),
                     'talking': (
-                        not state['talkHighlightEnabled']
+                        asset_type != 'chara'
+                        or not state['talkHighlightEnabled']
                         or slot in state['talkers']
                     ),
-                    'x': x,
-                    'y': y,
-                    'scale': scale,
-                    'depth': depth,
+                    'x': sp.get('x'),
+                    'y': sp.get('y'),
+                    'scale': sp.get('scale', 1.0),
+                    'depth': sp.get('depth', 0),
                     'opacity': sp.get('opacity', 1.0),
                     'filter': sp.get('filter', 'normal'),
                     'filterColor': sp.get('filterColor', '#000000'),
                     'filterAlpha': sp.get('filterAlpha', 1.0),
-                    'subCameraMask': sub_render.get('mask') if sub_render else None,
+                    'subRender': layer_id,
+                    '_activity': sp.get('activity', 0),
+                    '_variant': asset_type == 'chara' and is_variant_sprite(sp.get('name', '')),
                 })
         return result
+
+    def snapshot_sprites():
+        candidates = visible_sprite_entries()
+        by_entity = {}
+        for sprite in candidates:
+            by_entity.setdefault(sprite['entityId'], []).append(sprite)
+
+        suppressed_slots = set()
+        for same_entity in by_entity.values():
+            # FGO frequently preloads a normal, silhouette, and cinematic
+            # variant of the same graph in parallel. Only the most recently
+            # operated variant is visible; older variants remain available and
+            # can become visible again after the active slot fades out.
+            if len(same_entity) > 1 and any(sprite['_variant'] for sprite in same_entity):
+                active = max(same_entity, key=lambda sprite: sprite['_activity'])
+                suppressed_slots.update(sprite['slot'] for sprite in same_entity if sprite is not active)
+
+        result = []
+        for sprite in candidates:
+            if sprite['slot'] in suppressed_slots:
+                continue
+            sprite.pop('_activity', None)
+            sprite.pop('_variant', None)
+            result.append(sprite)
+        return result
+
+    def snapshot_sub_renders():
+        return {
+            layer_id: {
+                'visible': bool(render.get('visible')),
+                'x': render.get('x', 0.0),
+                'y': render.get('y', 0.0),
+                'scale': render.get('scale', 1.0),
+                'depth': render.get('depth'),
+                'mask': render.get('mask'),
+            }
+            for layer_id, render in state['subRenders'].items()
+        }
+
+    def append_frame(frame):
+        nonlocal visual_dirty
+        frame.setdefault('branchId', current_branch)
+        frame.setdefault('subRenders', snapshot_sub_renders())
+        frames.append(frame)
+        visual_dirty = False
+
+    def emit_visual_wait(duration):
+        if not visual_dirty:
+            return
+        append_frame({
+            'type': 'stage',
+            'bg': state['bg'],
+            'sprites': snapshot_sprites(),
+            'duration': max(0.0, float(duration)),
+            'effects': take_effects(),
+            'cameraFilter': state['cameraFilter'],
+            'bgm': state['bgm'],
+        })
+
+    def normalize_speaker_label(value):
+        label = clean_text(str(value or '')).strip()
+        label = re.sub(r'[_＿](?:演出用|シルエット).*$', '', label)
+        return re.sub(r'\s+', '', label).casefold()
+
+    def infer_talker_from_speaker(speaker):
+        if not state['talkHighlightEnabled']:
+            return
+        visible = visible_sprite_entries()
+        normalized_speaker = normalize_speaker_label(speaker)
+        matches = []
+        if normalized_speaker:
+            matches = [
+                sprite for sprite in visible
+                if normalize_speaker_label(sprite.get('name', '')) == normalized_speaker
+            ]
+        if matches:
+            matching_slots = {sprite['slot'] for sprite in matches}
+            if state['talkers'] & matching_slots:
+                return
+            active = max(matches, key=lambda sprite: sprite.get('_activity', 0))
+            state['talkers'] = {active['slot']}
+            return
+
+        visible_slots = {sprite['slot'] for sprite in visible}
+        if state['talkers'] & visible_slots:
+            return
+        if len(visible) == 1 and normalized_speaker:
+            state['talkers'] = {visible[0]['slot']}
 
     i = 0
     while i < len(lines):
@@ -676,10 +783,15 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         if not line:
             continue
 
+        if line.startswith('[enableFullScreen'):
+            state['fullScreen'] = True
+            continue
+
         # Background commands
         m = re.match(r'\[scene\s+(\d+)(?:\s+[^\]]+)?\]', line)
         if m:
-            state['bg'] = BG_BASE.format(id=m.group(1))
+            state['bg'] = background_url(m.group(1))
+            mark_visual_dirty()
             continue
 
         # bScene: multi-layer bg, take first id (it's the base background)
@@ -688,14 +800,55 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         if m:
             # Only set if not yet set (don't overwrite a real scene)
             if not state['bg']:
-                state['bg'] = BG_BASE.format(id=m.group(1))
+                state['bg'] = background_url(m.group(1))
+                mark_visual_dirty()
             continue
 
-        # imageSet I back10000 — slot I gets a "back" image; treat as bg fallback
-        m = re.match(r'\[imageSet\s+\w\s+back(\d+)', line)
+        # sceneSet/imageSet declare reusable stage layers; fade commands reveal them.
+        m = re.match(r'\[sceneSet\s+(\w+)\s+(\d+)\s*(\d+)?', line)
         if m:
-            if not state['bg']:
-                state['bg'] = BG_BASE.format(id=m.group(1))
+            slot, scene_id = m.group(1), m.group(2)
+            state['sprites'][slot] = {
+                'entityId': f'scene:{scene_id}',
+                'assetType': 'scene',
+                'url': background_url(scene_id),
+                'name': f'back{scene_id}',
+                'face': 0,
+                'visible': False,
+                'renderable': True,
+                'x': None,
+                'y': None,
+                'scale': 1.0,
+                'depth': 0,
+                'opacity': 1.0,
+                'filter': 'normal',
+                'filterColor': '#000000',
+                'filterAlpha': 1.0,
+                'activity': 0,
+            }
+            continue
+
+        m = re.match(r'\[(?:imageSet|verticalImageSet|horizontalImageSet)\s+(\w+)\s+([^\s\]]+)', line)
+        if m:
+            slot, image_name = m.group(1), m.group(2)
+            state['sprites'][slot] = {
+                'entityId': f'image:{image_name}',
+                'assetType': 'image',
+                'url': image_url(image_name),
+                'name': image_name,
+                'face': 0,
+                'visible': False,
+                'renderable': True,
+                'x': None,
+                'y': None,
+                'scale': 1.0,
+                'depth': 0,
+                'opacity': 1.0,
+                'filter': 'normal',
+                'filterColor': '#000000',
+                'filterAlpha': 1.0,
+                'activity': 0,
+            }
             continue
 
         m = re.match(r'\[charaSet\s+(\w)\s+(\d+)\s+(\d+)\s*(.*?)\]', line)
@@ -703,6 +856,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot, eid, face, name = m.group(1), m.group(2), int(m.group(3)), m.group(4).strip()
             state['sprites'][slot] = {
                 'entityId': eid,
+                'assetType': 'chara',
+                'url': FIG_BASE.format(eid=eid),
                 'name': name,
                 'face': face,
                 'visible': False,
@@ -715,6 +870,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 'filter': 'normal',
                 'filterColor': '#000000',
                 'filterAlpha': 1.0,
+                'activity': 0,
             }
             entity_ids.add(eid)
             continue
@@ -724,6 +880,9 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot, face = m.group(1), int(m.group(2))
             if slot in state['sprites']:
                 state['sprites'][slot]['face'] = face
+                touch_sprite(slot)
+                if state['sprites'][slot].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaTalk\s+([^\]]+)\]', line)
@@ -742,7 +901,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 state['talkers'] = {slot for slot in raw_talkers.split(',') if slot in state['sprites']}
             continue
 
-        m = re.match(r'\[(charaFadein\w*)\s+(\w+)\s+([^\]]+)\]', line)
+        m = re.match(r'\[(charaFadein\w*|overlayFadein)\s+(\w+)\s+([^\]]+)\]', line)
         if m:
             args = m.group(3).split()
             slot = m.group(2)
@@ -751,24 +910,30 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             if slot in state['sprites']:
                 state['sprites'][slot]['opacity'] = 1.0
             set_sprite_visible(slot, True)
+            touch_sprite(slot)
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaFadeout\w*\s+(\w)', line)
         if m:
             set_sprite_visible(m.group(1), False)
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaPut\w*\s+(\w+)\s+([^\s\]]+)', line)
         if m:
             set_sprite_position(m.group(1), m.group(2))
-            if m.group(1) in state['sprites']:
-                state['sprites'][m.group(1)]['opacity'] = 1.0
-            set_sprite_visible(m.group(1), True)
+            # charaPut places a preloaded layer but does not change its alpha.
+            # A following charaFadeTime/charaFadein is what reveals it.
+            if m.group(1) in state['sprites'] and state['sprites'][m.group(1)].get('visible'):
+                touch_sprite(m.group(1))
+                mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)', line)
         if m:
             set_sprite_opacity(m.group(1), m.group(2))
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaFilter\s+(\w+)\s+(\w+)(?:\s+([^\s\]]+))?', line)
@@ -783,34 +948,48 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                 else:
                     state['sprites'][slot]['filterColor'] = '#000000'
                     state['sprites'][slot]['filterAlpha'] = 1.0
+                if state['sprites'][slot].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)', line)
         if m:
             if m.group(1) in state['sprites']:
                 state['sprites'][m.group(1)]['scale'] = float(m.group(2))
+                touch_sprite(m.group(1))
+                if state['sprites'][m.group(1)].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[(charaMove(?!Return|Scale)\w*)\s+(\w+)\s+([^\s\]]+)', line)
         if m:
             set_sprite_position(m.group(2), m.group(3))
+            touch_sprite(m.group(2))
+            if m.group(2) in state['sprites'] and state['sprites'][m.group(2)].get('visible'):
+                mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaScale\s+(\w+)\s+([\d.]+)', line)
         if m:
             if m.group(1) in state['sprites']:
                 state['sprites'][m.group(1)]['scale'] = float(m.group(2))
+                touch_sprite(m.group(1))
+                if state['sprites'][m.group(1)].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaDepth\s+(\w+)\s+(-?\d+)', line)
         if m:
             if m.group(1) in state['sprites']:
                 state['sprites'][m.group(1)]['depth'] = int(m.group(2))
+                if state['sprites'][m.group(1)].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])', line)
         if m:
             state['subLayers'].setdefault(m.group(2), set()).add(m.group(1))
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaLayer\s+(\w)\s+(?:main|normal)', line)
@@ -818,16 +997,19 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot = m.group(1)
             for slots in state['subLayers'].values():
                 slots.discard(slot)
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[subCameraFilter(?:\s+(#[A-Z]))?\s+maskEdge\s+([^\s\]]+)', line)
         if m:
             get_sub_render(m.group(1) or '#A')['mask'] = m.group(2)
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)', line)
         if m:
             get_sub_render(m.group(1))['depth'] = int(m.group(2))
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[subRenderFadein\w*\s+(#[A-Z])\s+[^\s\]]+\s+([^\s\]]+)', line)
@@ -837,11 +1019,13 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             if position is not None:
                 render['x'], render['y'] = position
             render['visible'] = True
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[subRender(?:MoveScale(?:Ease)?|Scale)\s+(#[A-Z])\s+([\d.]+)', line)
         if m:
             get_sub_render(m.group(1))['scale'] = float(m.group(2))
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[subRenderMove(?!Scale)\w*\s+(#[A-Z])\s+([^\s\]]+)', line)
@@ -850,6 +1034,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             position = parse_position_token(m.group(2))
             if position is not None:
                 render['x'], render['y'] = position
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)', line)
@@ -857,17 +1042,27 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             slot, eid, face = m.group(1), m.group(2), int(m.group(3))
             if slot in state['sprites']:
                 state['sprites'][slot]['entityId'] = eid
+                state['sprites'][slot]['url'] = FIG_BASE.format(eid=eid)
                 state['sprites'][slot]['face'] = face
                 state['sprites'][slot]['renderable'] = is_renderable_sprite(
                     eid,
                     state['sprites'][slot].get('name', '')
                 )
+                touch_sprite(slot)
                 entity_ids.add(eid)
+                if state['sprites'][slot].get('visible'):
+                    mark_visual_dirty()
             continue
 
         m = re.match(r'\[subRenderFadeout\w*\s+(#[A-Z])', line)
         if m:
             get_sub_render(m.group(1))['visible'] = False
+            mark_visual_dirty()
+            continue
+
+        m = re.match(r'\[wt\s+([\d.]+)\s*\]', line)
+        if m:
+            emit_visual_wait(m.group(1))
             continue
 
         if line.startswith('＠'):
@@ -912,7 +1107,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                     content = '\n'.join(content_parts).strip()
                     content = clean_text(content)
                     if content:
-                        frames.append({
+                        infer_talker_from_speaker(speaker)
+                        append_frame({
                             'type': 'dialogue',
                             'bg': state['bg'],
                             'sprites': snapshot_sprites(),
@@ -940,7 +1136,8 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             content = '\n'.join(content_parts).strip()
             content = clean_text(content)
             if content:
-                frames.append({
+                infer_talker_from_speaker(speaker)
+                append_frame({
                     'type': 'dialogue',
                     'bg': state['bg'],
                     'sprites': snapshot_sprites(),
@@ -976,7 +1173,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
                             break
                 if grp is not None:
                     current_group = grp
-                    frames.append({
+                    append_frame({
                         'type': 'choice',
                         'bg': state['bg'],
                         'sprites': snapshot_sprites(),
@@ -1002,7 +1199,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         if m:
             for slot in list(state['sprites'].keys()):
                 set_sprite_visible(slot, False)
-            frames.append({
+            append_frame({
                 'type': 'movie',
                 'bg': state['bg'],
                 'sprites': [],
@@ -1020,7 +1217,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         if m:
             color, dur = m.group(1), float(m.group(2) or 1.0)
             pending_effects.append({'type': 'fadeOut', 'color': color, 'dur': dur})
-            frames.append({
+            append_frame({
                 'type': 'transition',
                 'bg': state['bg'],
                 'sprites': snapshot_sprites(),
@@ -1034,17 +1231,20 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
         if m:
             color, dur = m.group(1), float(m.group(2) or 1.0)
             pending_effects.append({'type': 'fadeIn', 'color': color, 'dur': dur})
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[cameraFilter\s+(\w+)\s*\]', line)
         if m:
             state['cameraFilter'] = m.group(1)
             pending_effects.append({'type': 'cameraFilter', 'color': m.group(1)})
+            mark_visual_dirty()
             continue
 
         if re.match(r'\[cameraFilter(Off|Stop)?\s*\]', line):
             state['cameraFilter'] = None
             pending_effects.append({'type': 'cameraFilter', 'color': None})
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[effect\s+(\w+)\s*\]', line)
@@ -1052,6 +1252,7 @@ def _parse_fgo_script(raw_text: str, region: str = 'JP'):
             name = m.group(1).lower()
             kind = 'shake' if 'shake' in name else ('flash' if 'flash' in name else 'effect')
             pending_effects.append({'type': kind, 'name': m.group(1)})
+            mark_visual_dirty()
             continue
 
         m = re.match(r'\[bgm\s+(\w+)', line)

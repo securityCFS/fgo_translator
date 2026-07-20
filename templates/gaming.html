@@ -32,6 +32,23 @@
         #bgImg { position:absolute; inset:0; width:100%; height:100%; object-fit: cover; object-position: center; transition: opacity 0.6s ease; }
         #bgImg.fading { opacity: 0; }
         #spriteStage { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+        .sub-render-group {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transform-origin: 50% 100%;
+            transition: transform 0.6s cubic-bezier(.4,.2,.2,1), opacity 0.3s ease;
+            will-change: transform;
+        }
+        .sub-render-group.masked {
+            mask-repeat: no-repeat;
+            mask-position: 0 0;
+            mask-size: 100% auto;
+            mask-mode: luminance;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: 0 0;
+            -webkit-mask-size: 100% auto;
+        }
 
         /* Camera filter overlay (e.g. cameraFilter darkred) */
         #cameraTint { position:absolute; inset:0; pointer-events:none; opacity:0; transition: opacity 0.6s ease, background 0.6s ease; z-index: 70; mix-blend-mode: multiply; }
@@ -61,9 +78,22 @@
         }
         .sprite-wrap.dimmed { filter: brightness(0.55) saturate(0.7); }
         .sprite-wrap.in { opacity: var(--sprite-opacity, 1); }
-        .sprite-wrap.dimmed.in { opacity: var(--sprite-dim-opacity, 0.85); }
+        .sprite-wrap.dimmed.in { opacity: var(--sprite-dim-opacity, 1); }
         .sprite-wrap.out { opacity: 0 !important; transform: translateX(-50%) translateY(30px); }
         .sprite-img { display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); user-select: none; -webkit-user-drag: none; transition: opacity 0.3s, height 0.6s cubic-bezier(.4,.2,.2,1); }
+        .sprite-wrap.stage-scene-layer {
+            inset: 0;
+            transform: none;
+            transition: opacity 0.45s ease;
+        }
+        .sprite-wrap.stage-scene-layer.out { transform: none; }
+        .sprite-wrap.stage-scene-layer .sprite-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: none;
+        }
         .sprite-wrap.silhouette .sprite-img { filter: var(--silhouette-filter, brightness(0)); }
         
         /* Fade Layer (color-aware: black/white) */
@@ -289,6 +319,7 @@
         .loading-content { display: flex; flex-direction: column; align-items: flex-end; }
         .fou-gif { width: 140px; height: auto; image-rendering: auto; margin-bottom: 6px; margin-right: 4px; filter: drop-shadow(0 0 12px rgba(255,255,255,0.25)); }
         .loading-text { font-family: 'Arial', sans-serif; color: #fff; font-style: italic; font-weight: 900; font-size: 18px; letter-spacing: 2px; }
+        .loading-progress { color: rgba(255,255,255,0.72); font: 600 12px/1.4 Arial, sans-serif; margin-top: 4px; }
         .loading-text .dots::after { content: '...'; animation: dotsBlink 1.5s infinite steps(4, end); }
         @keyframes dotsBlink { 0% { clip-path: inset(0 100% 0 0); } 100% { clip-path: inset(0 0 0 0); } }
 
@@ -575,6 +606,7 @@
         <div class="loading-content">
             <img class="fou-gif" src="https://media.tenor.com/8COMw5dtF9YAAAAj/fou-fgo.gif" alt="Fou">
             <div class="loading-text">Now Loading<span class="dots"></span></div>
+            <div id="loadingProgress" class="loading-progress"></div>
         </div>
     </div><!-- /sceneWrap -->
 
@@ -592,6 +624,7 @@ let IDX = 0;
 let AUTO = false;
 let AUTO_TIMER = null;
 let IS_TRANSITIONING = false;
+let FRAME_TIMER = null;
 let SELECTED_BRANCH = null;  // active choice branch number (e.g. 1, 2) — frames with branchId !== this are skipped
 const COLOR_TINT = {
     darkred: 'rgba(170, 30, 30, 1)',
@@ -655,22 +688,34 @@ function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
     const scriptScale = Number.isFinite(rawScale) && rawScale > 0 ? Math.min(rawScale, 4) : 1;
     const rawDepth = Number(sp && sp.depth);
     const entityId = String((sp && sp.entityId) || '');
+    const assetType = String((sp && sp.assetType) || 'chara');
+    if (assetType === 'scene') {
+        return {
+            key: String((sp && sp.slot) || `${sp && sp.entityId}:${index}`),
+            leftPercent: 0,
+            bottomCqh: 0,
+            heightCqh: 100,
+            widthCqw: 100,
+            scale: 1,
+            depth: Number.isFinite(rawDepth) ? rawDepth : index,
+            explicit,
+            assetType,
+            fullStage: true,
+        };
+    }
     const meta = SVT[entityId] || {};
     const measured = IMG_SIZE[entityId] || {};
     const declaredHeight = Number((meta.extendData || {}).figureHeight);
     const measuredHeight = Number(measured.height);
+    const measuredWidth = Number(measured.width);
+    const assetPixelRatio = assetType === 'image'
+        && measuredWidth >= 1536 && measuredHeight >= 1536 ? 2 : 1;
     const bodyHeight = Number.isFinite(measuredHeight) && measuredHeight > 0
-        ? measuredHeight
+        ? measuredHeight / assetPixelRatio
         : Number.isFinite(declaredHeight) && declaredHeight > 0
             ? declaredHeight
             : DEFAULT_FIGURE_BODY_HEIGHT;
-    const maskedSubCamera = Boolean(sp && sp.subCameraMask);
-    // maskEdge assets are not part of Atlas' public figure bundle. Keep their
-    // sub-camera fallback inside one stage height so the uncropped source does
-    // not become a full-screen close-up.
-    const visualScale = maskedSubCamera
-        ? Math.min(scriptScale, SCENE_LOGICAL_HEIGHT / bodyHeight)
-        : scriptScale;
+    const visualScale = scriptScale;
     const offsetX = Number(meta.offsetX) || 0;
     const offsetY = Number(meta.offsetY) || 0;
     const x = (explicit ? rawX : 0) + offsetX * visualScale;
@@ -685,16 +730,42 @@ function computeSpriteLayout(sp, fallbackLeftPercent, index = 0) {
     const rawLeftPercent = (explicit ? 50 : fallbackLeftPercent) + (x / SCENE_LOGICAL_WIDTH * 100);
     return {
         key: String((sp && sp.slot) || `${sp && sp.entityId}:${index}`),
-        leftPercent: maskedSubCamera
-            ? Math.max(8, Math.min(92, rawLeftPercent))
-            : rawLeftPercent,
+        leftPercent: rawLeftPercent,
         bottomCqh,
         heightCqh,
+        widthCqw: Number.isFinite(measuredWidth) && measuredWidth > 0
+            ? measuredWidth / assetPixelRatio * visualScale / SCENE_LOGICAL_WIDTH * 100
+            : null,
         scale: scriptScale,
         depth: Number.isFinite(rawDepth) ? rawDepth : index,
         explicit,
-        maskedSubCamera,
+        assetType,
+        fullStage: false,
     };
+}
+
+function getSubRenderMaskUrl(mask, region = 'JP') {
+    if (!mask) return '';
+    return `https://static.atlasacademy.io/${region}/Image/${mask}/${mask}.png`;
+}
+
+function computeSubRenderLayout(render, region = 'JP') {
+    const x = Number(render && render.x) || 0;
+    const y = Number(render && render.y) || 0;
+    const rawScale = Number(render && render.scale);
+    const scale = Number.isFinite(rawScale) && rawScale > 0 ? rawScale : 1;
+    const rawDepth = Number(render && render.depth);
+    return {
+        transform: `translate(${x / SCENE_LOGICAL_WIDTH * 100}cqw, ${-y / SCENE_LOGICAL_HEIGHT * 100}cqh) scale(${scale})`,
+        zIndex: 3 + (Number.isFinite(rawDepth) ? rawDepth : 0),
+        maskUrl: getSubRenderMaskUrl(render && render.mask, region),
+    };
+}
+
+function getFrameAutoAdvanceDelay(frame) {
+    if (!frame || frame.type !== 'stage') return null;
+    const duration = Number(frame.duration);
+    return Math.max(0, Math.min(30000, (Number.isFinite(duration) ? duration : 0) * 1000));
 }
 
 function escapeHtml(s) {
@@ -897,6 +968,7 @@ async function requestLandscapeMode() {
 }
 
 async function init() {
+    const loadingStartedAt = Date.now();
     updateViewportVars();
     DATA = loadData();
     if (!DATA || !DATA.frames || DATA.frames.length === 0) {
@@ -909,6 +981,14 @@ async function init() {
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
     document.getElementById('scriptLabel').textContent = (DATA.scriptIds || []).join(', ');
     applyGameGuideLabels();
+    const preloadPromise = preloadAllSceneAssets(
+        FRAMES,
+        DATA.region || 'JP',
+        (completed, total, failed) => {
+            const progress = document.getElementById('loadingProgress');
+            if (progress) progress.textContent = `${completed} / ${total}${failed ? `  (${failed} failed)` : ''}`;
+        },
+    );
 
     // Apply user-configured fonts (set in /settings).
     try {
@@ -925,16 +1005,17 @@ async function init() {
     requestLandscapeMode();
     document.addEventListener('pointerdown', requestLandscapeMode, { once: true });
 
-    // Fou-loading flourish before first frame
-    setTimeout(() => {
-        const loader = document.getElementById('loadingScreen');
-        loader.classList.add('hide');
-        setTimeout(() => {
-            loader.style.display = 'none';
-            renderFrame();
-            window.setTimeout(() => startGameGuide(false), 350);
-        }, 500);
-    }, 900);
+    await preloadPromise;
+    const remainingLoadingTime = Math.max(0, 900 - (Date.now() - loadingStartedAt));
+    if (remainingLoadingTime) {
+        await new Promise(resolve => setTimeout(resolve, remainingLoadingTime));
+    }
+    const loader = document.getElementById('loadingScreen');
+    loader.classList.add('hide');
+    await new Promise(resolve => setTimeout(resolve, 500));
+    loader.style.display = 'none';
+    renderFrame();
+    window.setTimeout(() => startGameGuide(false), 350);
 
     document.getElementById('clickOverlay').addEventListener('click', advanceClick);
     document.getElementById('dialogueSystem').addEventListener('click', (e) => {
@@ -1105,50 +1186,189 @@ function advanceClick() {
 }
 
 const ATLAS_CACHE = {};
+const FIGURE_BODY_CACHE = {};
 function loadAtlas(eid, url) {
     if (ATLAS_CACHE[eid]) return ATLAS_CACHE[eid];
     ATLAS_CACHE[eid] = new Promise((resolve, reject) => {
         const img = new Image(); img.crossOrigin = 'anonymous';
-        img.onload = () => resolve(img); img.onerror = () => reject(new Error('atlas load failed')); img.src = url;
+        img.onload = () => resolve(img);
+        img.onerror = () => {
+            delete ATLAS_CACHE[eid];
+            reject(new Error('atlas load failed'));
+        };
+        img.src = url;
     });
     return ATLAS_CACHE[eid];
+}
+function getFigureBodyUrl(url) {
+    return String(url || '').replace(/_merged\.png(?=\?|$)/, '.png');
+}
+function loadFigureBody(eid, mergedUrl) {
+    if (FIGURE_BODY_CACHE[eid]) return FIGURE_BODY_CACHE[eid];
+    FIGURE_BODY_CACHE[eid] = new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => {
+            delete FIGURE_BODY_CACHE[eid];
+            reject(new Error('figure body load failed'));
+        };
+        img.src = getFigureBodyUrl(mergedUrl);
+    });
+    return FIGURE_BODY_CACHE[eid];
+}
+function getFaceCrop(faceNumber, faceWidth, faceHeight, bodyHeight) {
+    const face = Math.max(0, Number(faceNumber || 1) - 1);
+    const perRow = Math.max(1, Math.floor(FIGURE_PAGE_W / faceWidth));
+    const rowsPerPage = Math.max(1, Math.floor(FIGURE_PAGE_H / faceHeight));
+    const col = face % perRow;
+    const row = Math.floor(face / perRow);
+    const page = Math.floor(row / rowsPerPage);
+    const rowInPage = row % rowsPerPage;
+    const srcY = faceHeight === FACE_DEFAULT && bodyHeight === FIGURE_DEFAULT_H
+        ? FIGURE_DEFAULT_H - FACE_DEFAULT + FACE_DEFAULT * row
+        : bodyHeight + FIGURE_PAGE_H * page + rowInPage * faceHeight;
+    return { srcX: col * faceWidth, srcY };
+}
+
+function getFigureViewport(bodyWidth, bodyHeight, offsetY) {
+    const width = Math.min(bodyWidth, SCENE_LOGICAL_WIDTH);
+    const cropX = Math.max(0, (bodyWidth - width) / 2);
+    const visibleHeight = SCENE_LOGICAL_HEIGHT + (Number(offsetY) || 0);
+    const height = Math.max(1, Math.min(bodyHeight, visibleHeight));
+    return { cropX, width, height };
+}
+
+function collectSceneAssetRequests(frames, region = 'JP') {
+    const requests = new Map();
+    const add = request => {
+        const key = request.key || request.url;
+        if (request.url && !requests.has(key)) requests.set(key, request);
+    };
+    (frames || []).forEach(frame => {
+        add({ kind: 'image', url: frame.bg });
+        (frame.sprites || []).forEach(sp => {
+            if (!sp || !sp.entityId || !sp.url) return;
+            const assetType = sp.assetType || 'chara';
+            if (assetType === 'chara') {
+                add({ kind: 'body', key: `body:${getFigureBodyUrl(sp.url)}`, entityId: sp.entityId, url: sp.url });
+                if (Number(sp.face) > 0) {
+                    add({ kind: 'atlas', key: `atlas:${sp.url}`, entityId: sp.entityId, url: sp.url });
+                }
+            } else {
+                add({ kind: 'atlas', entityId: sp.entityId, url: sp.url });
+            }
+        });
+        Object.values(frame.subRenders || {}).forEach(render => {
+            add({ kind: 'image', url: getSubRenderMaskUrl(render && render.mask, region) });
+        });
+    });
+    return Array.from(requests.values());
+}
+
+function preloadImageUrl(url) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('image preload failed'));
+        img.src = url;
+    });
+}
+
+async function preloadSceneAsset(request) {
+    if (request.kind === 'body') {
+        return loadFigureBody(request.entityId, request.url);
+    }
+    if (request.kind === 'atlas') {
+        return loadAtlas(request.entityId, request.url);
+    }
+    return preloadImageUrl(request.url);
+}
+
+async function preloadAllSceneAssets(frames, region = 'JP', onProgress = null) {
+    const requests = collectSceneAssetRequests(frames, region);
+    let cursor = 0;
+    let completed = 0;
+    let failed = 0;
+    if (onProgress) onProgress(0, requests.length, 0);
+
+    async function worker() {
+        while (cursor < requests.length) {
+            const request = requests[cursor++];
+            let loaded = false;
+            for (let attempt = 0; attempt < 2 && !loaded; attempt += 1) {
+                try {
+                    await preloadSceneAsset(request);
+                    loaded = true;
+                } catch (error) {
+                    if (attempt === 1) failed += 1;
+                }
+            }
+            completed += 1;
+            if (onProgress) onProgress(completed, requests.length, failed);
+        }
+    }
+
+    const concurrency = Math.min(6, requests.length);
+    await Promise.all(Array.from({ length: concurrency }, () => worker()));
+    return { total: requests.length, completed, failed };
 }
 
 const COMPOSITE_CACHE = {};
 async function compositeSprite(sp) {
-    const key = `${sp.entityId}:${sp.face || 0}`;
+    const assetType = sp.assetType || 'chara';
+    const key = `${assetType}:${sp.entityId}:${sp.face || 0}:${sp.url || ''}`;
     if (COMPOSITE_CACHE[key]) return COMPOSITE_CACHE[key];
 
-    const img = await loadAtlas(sp.entityId, sp.url);
+    if (assetType !== 'chara') {
+        const image = await loadAtlas(sp.entityId, sp.url);
+        IMG_SIZE[String(sp.entityId)] = {
+            width: image.naturalWidth,
+            height: image.naturalHeight,
+        };
+        COMPOSITE_CACHE[key] = sp.url;
+        return sp.url;
+    }
+
+    const body = await loadFigureBody(sp.entityId, sp.url);
+    // Face 0 uses the base figure and does not need the much larger merged
+    // expression atlas. This matters in short montage frames where waiting for
+    // an unused sheet can leave the character blank until the next frame.
+    const img = sp.face && sp.face > 0
+        ? await loadAtlas(sp.entityId, sp.url)
+        : null;
     const meta = SVT[String(sp.entityId)] || {};
     const ext = meta.extendData || {};
-    const atlasW = img.naturalWidth, atlasH = img.naturalHeight;
+    const atlasW = img ? img.naturalWidth : 0;
+    const atlasH = img ? img.naturalHeight : 0;
     const fw = ext.faceSizeRect ? ext.faceSizeRect[0] : (ext.faceSize || FACE_DEFAULT);
     const fh = ext.faceSizeRect ? ext.faceSizeRect[1] : (ext.faceSize || FACE_DEFAULT);
 
-    // Standard FGO charaFigure layout: body occupies the top region
-    // (full atlas width × figureHeight), face strip rows underneath.
-    // Atlas may be tall, square, or wider-than-tall — body is always on top.
-    const bodyW = atlasW;
-    let bodyH = ext.figureHeight ? ext.figureHeight : (atlasH - fh);
-    if (bodyH <= 0 || bodyH > atlasH) bodyH = Math.max(1, atlasH - fh);
-    IMG_SIZE[String(sp.entityId)] = { width: bodyW, height: bodyH };
+    // The merged atlas can contain several 1024px face pages, so its total
+    // height is not a valid body-height estimate. Atlas publishes the plain
+    // body alongside it; use that file as both the size source and body layer.
+    const bodyW = body.naturalWidth;
+    const bodyH = body.naturalHeight;
+    const viewport = getFigureViewport(bodyW, bodyH, meta.offsetY);
+    IMG_SIZE[String(sp.entityId)] = { width: viewport.width, height: viewport.height };
 
     const canvas = document.createElement('canvas');
-    canvas.width = bodyW; canvas.height = bodyH;
+    canvas.width = viewport.width; canvas.height = viewport.height;
     const ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0, bodyW, bodyH, 0, 0, bodyW, bodyH);
+    ctx.drawImage(
+        body,
+        viewport.cropX, 0, viewport.width, viewport.height,
+        0, 0, viewport.width, viewport.height,
+    );
 
-    if (sp.face && sp.face > 0) {
-        const face = sp.face - 1;
-        // Face strip is laid out as rows of cells starting at y=bodyH.
-        // Row width is the atlas width; column count = floor(atlasW / fw).
-        const perRow = Math.max(1, Math.floor(atlasW / fw));
-        const col = face % perRow, row = Math.floor(face / perRow);
-        const srcX = col * fw;
-        const srcY = bodyH + row * fh;
+    if (img && sp.face && sp.face > 0) {
+        const { srcX, srcY } = getFaceCrop(sp.face, fw, fh, bodyH);
         if (srcX >= 0 && srcY >= 0 && srcX + fw <= atlasW && srcY + fh <= atlasH) {
-            ctx.drawImage(img, srcX, srcY, fw, fh, meta.faceX || 0, meta.faceY || 0, fw, fh);
+            ctx.drawImage(
+                img, srcX, srcY, fw, fh,
+                (meta.faceX || 0) - viewport.cropX, meta.faceY || 0, fw, fh,
+            );
         }
     }
 
@@ -1194,8 +1414,54 @@ function processEffects(effects) {
     }
 }
 
+let DESIRED_BG_URL = '';
+let BG_PENDING_URL = '';
+let BG_LOAD_TOKEN = 0;
+
+function syncBackground(bg, requestedUrl) {
+    if (!requestedUrl) return;
+    DESIRED_BG_URL = requestedUrl;
+    if (bg.src === requestedUrl) {
+        if (BG_PENDING_URL) {
+            BG_LOAD_TOKEN += 1;
+            BG_PENDING_URL = '';
+        }
+        bg.classList.remove('fading');
+        return;
+    }
+    if (BG_PENDING_URL === requestedUrl) return;
+
+    const requestToken = ++BG_LOAD_TOKEN;
+    BG_PENDING_URL = requestedUrl;
+    bg.classList.add('fading');
+    const tmp = new Image();
+    tmp.onload = () => {
+        if (requestToken !== BG_LOAD_TOKEN || DESIRED_BG_URL !== requestedUrl) return;
+        bg.src = requestedUrl;
+        BG_PENDING_URL = '';
+        bg.classList.remove('fading');
+    };
+    tmp.onerror = () => {
+        if (requestToken !== BG_LOAD_TOKEN) return;
+        BG_PENDING_URL = '';
+        bg.classList.remove('fading');
+    };
+    tmp.src = requestedUrl;
+}
+
+function shouldRenderStageSprite(sp, backgroundUrl) {
+    // A sceneSet can intentionally repeat the base background at a higher
+    // depth to occlude the outgoing character group during a montage.
+    return Boolean(sp);
+}
+
 function renderFrame() {
     if (FRAMES.length === 0) return;
+    if (FRAME_TIMER) {
+        clearTimeout(FRAME_TIMER);
+        FRAME_TIMER = null;
+    }
+    IS_TRANSITIONING = false;
     const f = FRAMES[IDX];
     document.getElementById('frameProgress').textContent = `${IDX+1}/${FRAMES.length}`;
 
@@ -1223,19 +1489,26 @@ function renderFrame() {
     }
 
     const bg = document.getElementById('bgImg');
-    if (f.bg && bg.src !== f.bg) {
-        bg.classList.add('fading');
-        const tmp = new Image();
-        tmp.onload = () => { bg.src = f.bg; bg.classList.remove('fading'); };
-        tmp.src = f.bg;
-    }
+    syncBackground(bg, f.bg);
 
-    renderSprites(f.sprites || []);
+    renderSprites(
+        (f.sprites || []).filter(sp => shouldRenderStageSprite(sp, f.bg)),
+        f.subRenders || {},
+    );
 
     if (f.type === 'dialogue') {
         showDialogue(f); hideChoices();
     } else if (f.type === 'choice') {
         hideDialogue(); showChoices(f);
+    } else if (f.type === 'stage') {
+        IS_TRANSITIONING = true;
+        hideDialogue(); hideChoices();
+        const delay = getFrameAutoAdvanceDelay(f);
+        FRAME_TIMER = setTimeout(() => {
+            FRAME_TIMER = null;
+            IS_TRANSITIONING = false;
+            if (FRAMES[IDX] === f) nextFrame();
+        }, Math.max(16, delay || 0));
     } else if (f.type === 'transition' || f.type === 'movie') {
         IS_TRANSITIONING = true;
         hideDialogue(); hideChoices();
@@ -1246,8 +1519,9 @@ function renderFrame() {
         fade.classList.toggle('white', color === 'white');
         fade.style.transition = `opacity ${Math.max(0.2, Math.min(2, dur))}s ease`;
         fade.classList.add('show');
-        const total = f.type === 'movie' ? 1200 : Math.max(400, Math.min(1500, dur * 700));
-        setTimeout(() => {
+        const total = f.type === 'movie' ? 1200 : Math.max(200, Math.min(4000, dur * 1000));
+        FRAME_TIMER = setTimeout(() => {
+            FRAME_TIMER = null;
             IS_TRANSITIONING = false;
             fade.style.transition = '';
             if (FRAMES[IDX] === f) nextFrame();
@@ -1260,6 +1534,7 @@ function renderFrame() {
 // Existing characters get their face/talking/position updated in place.
 const SPRITE_NODES = new Map(); // script slot -> { wrap, img, sp, lastCompositeKey }
 const RETIRING_SPRITE_NODES = new Set();
+const SUB_RENDER_NODES = new Map();
 
 function removeSpriteNode(node) {
     RETIRING_SPRITE_NODES.delete(node);
@@ -1276,7 +1551,7 @@ function applySpriteVisualState(node, sp, layout) {
         : 1;
     const opacity = baseOpacity * filterAlpha;
     node.wrap.style.setProperty('--sprite-opacity', String(opacity));
-    node.wrap.style.setProperty('--sprite-dim-opacity', String(opacity * 0.85));
+    node.wrap.style.setProperty('--sprite-dim-opacity', String(opacity));
     node.wrap.classList.toggle('dimmed', !sp.talking);
     node.wrap.classList.toggle('silhouette', silhouette);
     node.wrap.classList.toggle('masked-sub-camera', Boolean(layout.maskedSubCamera));
@@ -1291,9 +1566,42 @@ function applySpriteVisualState(node, sp, layout) {
     }
 }
 
-function renderSprites(sprites) {
+function syncSubRenderGroups(stage, subRenders, sprites) {
+    const region = (DATA && DATA.region) || 'JP';
+    const needed = new Set(
+        (sprites || []).map(sp => sp.subRender).filter(Boolean),
+    );
+    for (const layerId of needed) {
+        const render = subRenders[layerId] || {};
+        let group = SUB_RENDER_NODES.get(layerId);
+        if (!group) {
+            group = document.createElement('div');
+            group.className = 'sub-render-group';
+            group.dataset.layer = layerId;
+            stage.appendChild(group);
+            SUB_RENDER_NODES.set(layerId, group);
+        }
+        const layout = computeSubRenderLayout(render, region);
+        group.style.transform = layout.transform;
+        group.style.zIndex = String(layout.zIndex);
+        group.style.opacity = render.visible === false ? '0' : '1';
+        group.classList.toggle('masked', Boolean(layout.maskUrl));
+        if (layout.maskUrl) {
+            const maskImage = `url("${layout.maskUrl}")`;
+            group.style.maskImage = maskImage;
+            group.style.webkitMaskImage = maskImage;
+        } else {
+            group.style.removeProperty('mask-image');
+            group.style.removeProperty('-webkit-mask-image');
+        }
+    }
+    return needed;
+}
+
+function renderSprites(sprites, subRenders = {}) {
     const stage = document.getElementById('spriteStage');
     sprites = sprites || [];
+    const neededSubRenders = syncSubRenderGroups(stage, subRenders, sprites);
 
     // Script slots are stable across movement/face changes. The same entity can
     // legitimately appear in more than one slot, especially in sub-render scenes.
@@ -1316,13 +1624,20 @@ function renderSprites(sprites) {
 
     const wantedKeys = new Set(layouts.map(layout => layout.key));
     const wantedEntities = new Set(unique.map(sp => String(sp.entityId || '')));
-    const myFrameIdx = IDX;
-
     const applyLayout = (node, layout) => {
-        node.wrap.style.left = `${layout.leftPercent}%`;
-        node.wrap.style.bottom = `${layout.bottomCqh}cqh`;
+        node.wrap.classList.toggle('stage-scene-layer', Boolean(layout.fullStage));
+        node.wrap.style.left = layout.fullStage ? '0' : `${layout.leftPercent}%`;
+        node.wrap.style.bottom = layout.fullStage ? '0' : `${layout.bottomCqh}cqh`;
+        node.wrap.style.width = layout.fullStage
+            ? '100%'
+            : (layout.widthCqw ? `${layout.widthCqw}cqw` : '');
+        node.wrap.style.height = layout.fullStage ? '100%' : '';
         node.wrap.style.zIndex = String(3 + layout.depth);
-        node.img.style.height = `min(${layout.heightCqh}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
+        node.img.style.width = layout.fullStage ? '100%' : '';
+        node.img.style.height = layout.fullStage
+            ? '100%'
+            : `min(${layout.heightCqh}${BODY_UNIT}, ${BODY_MAX_PX}px)`;
+        node.img.style.objectFit = layout.fullStage ? 'cover' : '';
     };
 
     // 1. Remove sprites that are no longer present (animate out, then drop)
@@ -1348,6 +1663,9 @@ function renderSprites(sprites) {
         const layout = layouts[idx];
         const slotKey = layout.key;
         let node = SPRITE_NODES.get(slotKey);
+        const parent = sp.subRender && SUB_RENDER_NODES.get(sp.subRender)
+            ? SUB_RENDER_NODES.get(sp.subRender)
+            : stage;
         if (!node) {
             for (const retiring of Array.from(RETIRING_SPRITE_NODES)) {
                 if (retiring.slotKey === slotKey
@@ -1360,21 +1678,23 @@ function renderSprites(sprites) {
             const img = document.createElement('img');
             img.className = 'sprite-img';
             wrap.appendChild(img);
-            stage.appendChild(wrap);
+            parent.appendChild(wrap);
             node = { wrap, img, sp: null, lastCompositeKey: null, slotKey };
             SPRITE_NODES.set(slotKey, node);
+        } else if (node.wrap.parentNode !== parent) {
+            parent.appendChild(node.wrap);
         }
 
         // Update position / talking state (smooth transitions via CSS)
         applyLayout(node, layout);
         applySpriteVisualState(node, sp, layout);
 
-        const key = `${sp.entityId}:${sp.face || 0}`;
+        const key = `${sp.assetType || 'chara'}:${sp.entityId}:${sp.face || 0}:${sp.url || ''}`;
         if (node.lastCompositeKey !== key) {
             node.lastCompositeKey = key;
             compositeSprite(sp).then(dataUrl => {
-                if (IDX !== myFrameIdx) return;
                 if (SPRITE_NODES.get(slotKey) !== node) return;
+                if (node.lastCompositeKey !== key) return;
                 // Figure sheets can use different body dimensions. Apply the
                 // measured body size before revealing the image.
                 applyLayout(node, computeSpriteLayout(
@@ -1382,24 +1702,32 @@ function renderSprites(sprites) {
                     parseFloat(fallbackPositions[idx] || '50'),
                     idx,
                 ));
-                // Cross-fade the image without blanking the wrapper
+                // Preload and swap atomically. Lowering the current image's
+                // opacity while fast stage frames advance can leave a stale,
+                // translucent figure on screen.
                 if (node.img.src && node.img.complete) {
-                    // Brief fade on the img element only (wrapper stays visible)
-                    node.img.style.opacity = '0.7';
                     const fresh = new Image();
                     fresh.onload = () => {
+                        if (SPRITE_NODES.get(slotKey) !== node) return;
+                        if (node.lastCompositeKey !== key) return;
                         node.img.src = dataUrl;
                         node.img.style.opacity = '1';
+                    };
+                    fresh.onerror = () => {
+                        if (node.lastCompositeKey === key) node.img.style.opacity = '1';
                     };
                     fresh.src = dataUrl;
                 } else {
                     node.img.onload = () => {
+                        if (node.lastCompositeKey !== key) return;
                         node.img.style.opacity = '1';
                         requestAnimationFrame(() => node.wrap.classList.add('in'));
                     };
                     node.img.src = dataUrl;
                 }
             }).catch(() => {
+                if (SPRITE_NODES.get(slotKey) !== node) return;
+                if (node.lastCompositeKey !== key) return;
                 node.img.src = sp.url;
                 node.img.style.opacity = '1';
                 requestAnimationFrame(() => node.wrap.classList.add('in'));
@@ -1412,6 +1740,12 @@ function renderSprites(sprites) {
 
         node.sp = sp;
     });
+
+    for (const [layerId, group] of Array.from(SUB_RENDER_NODES.entries())) {
+        if (neededSubRenders.has(layerId)) continue;
+        if (group.parentNode) group.parentNode.removeChild(group);
+        SUB_RENDER_NODES.delete(layerId);
+    }
 }
 
 // =========================================================================

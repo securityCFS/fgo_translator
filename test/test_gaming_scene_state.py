@@ -103,7 +103,7 @@ Ensemble scene
 [k]
 """.strip()
 
-        frames, _ = _parse_fgo_script(raw, "JP")
+        frames, entity_ids = _parse_fgo_script(raw, "JP")
         dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
         by_slot = {sprite["slot"]: sprite for sprite in dialogue["sprites"]}
 
@@ -111,10 +111,12 @@ Ensemble scene
         self.assertTrue(by_slot["B"]["talking"])
         self.assertEqual(by_slot["A"]["scale"], 1.2)
         self.assertEqual(by_slot["A"]["entityId"], "1003001")
+        self.assertIn("/1003001/1003001_merged.png", by_slot["A"]["url"])
+        self.assertIn("1003001", entity_ids)
         self.assertEqual(by_slot["A"]["face"], 4)
         self.assertEqual(by_slot["B"]["face"], 3)
 
-    def test_parser_composes_sub_render_position_scale_and_visibility(self):
+    def test_parser_preserves_sub_render_group_and_local_sprite_coordinates(self):
         raw = """
 [charaSet E 1049000 1 Muramasa]
 [charaLayer E sub #A]
@@ -140,14 +142,62 @@ Hidden
         dialogues = [frame for frame in frames if frame.get("type") == "dialogue"]
 
         first_sprite = dialogues[0]["sprites"][0]
-        self.assertEqual(first_sprite["x"], 400)
-        self.assertEqual(first_sprite["y"], -80)
-        self.assertEqual(first_sprite["scale"], 0.8)
-        self.assertEqual(first_sprite["depth"], 6)
-        self.assertEqual(first_sprite["subCameraMask"], "cut359_mask16")
-        self.assertEqual(dialogues[1]["sprites"][0]["x"], 350)
-        self.assertEqual(dialogues[1]["sprites"][0]["y"], -80)
+        self.assertEqual(first_sprite["x"], 0)
+        self.assertEqual(first_sprite["y"], 250)
+        self.assertEqual(first_sprite["scale"], 1)
+        self.assertEqual(first_sprite["subRender"], "#A")
+        self.assertEqual(
+            dialogues[0]["subRenders"]["#A"],
+            {
+                "visible": True,
+                "x": 400,
+                "y": -280,
+                "scale": 0.8,
+                "depth": 6,
+                "mask": "cut359_mask16",
+            },
+        )
+        self.assertEqual(dialogues[1]["sprites"][0]["x"], 0)
+        self.assertEqual(dialogues[1]["sprites"][0]["y"], 250)
+        self.assertEqual(dialogues[1]["subRenders"]["#A"]["x"], 350)
         self.assertEqual(dialogues[2]["sprites"], [])
+
+    def test_parser_emits_visual_wait_frame_before_dialogue(self):
+        raw = """
+[scene 245000]
+[charaSet A 1001001 1 Hero]
+[charaFadein A 0.2 1]
+[wt 0.6]
+＠Hero
+Hello
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+
+        self.assertEqual(frames[0]["type"], "stage")
+        self.assertEqual(frames[0]["duration"], 0.6)
+        self.assertEqual(frames[0]["sprites"][0]["slot"], "A")
+        self.assertEqual(frames[1]["type"], "dialogue")
+
+    def test_parser_prefers_matching_speaker_over_stale_explicit_talker(self):
+        raw = """
+[charaSet A 1001001 1 Hero]
+[charaSet B 1002001 1 Partner]
+[charaFadein A 0.1 0]
+[charaFadein B 0.1 2]
+[charaTalk A]
+＠Partner
+Take over the line
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
+        by_slot = {sprite["slot"]: sprite for sprite in dialogue["sprites"]}
+
+        self.assertFalse(by_slot["A"]["talking"])
+        self.assertTrue(by_slot["B"]["talking"])
 
     def test_parser_accepts_scene_transition_arguments(self):
         raw = """
@@ -162,6 +212,117 @@ Hidden
             transition["bg"],
             "https://static.atlasacademy.io/JP/Back/back292601.png",
         )
+
+    def test_parser_uses_widescreen_assets_and_merged_figures(self):
+        raw = """
+[enableFullScreen]
+[scene 105500]
+[charaSet A 1098360800 1 グレイ]
+[charaFadein A 0.1 1]
+＠グレイ
+Hello
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
+
+        self.assertTrue(dialogue["bg"].endswith("back105500_1344_626.png"))
+        self.assertTrue(dialogue["sprites"][0]["url"].endswith("1098360800_merged.png"))
+
+    def test_parser_keeps_scene_and_image_sets_as_stage_layers(self):
+        raw = """
+[enableFullScreen]
+[sceneSet A 292600 1]
+[imageSet B back292604 1]
+[scene 245000]
+[charaFadein A 0.1 1]
+[charaFadein B 0.1 2]
+＠Narrator
+Layered scene
+[k]
+""".strip()
+
+        frames, entity_ids = _parse_fgo_script(raw, "JP")
+        dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
+        by_slot = {sprite["slot"]: sprite for sprite in dialogue["sprites"]}
+
+        self.assertTrue(dialogue["bg"].endswith("back245000_1344_626.png"))
+        self.assertEqual(by_slot["A"]["assetType"], "scene")
+        self.assertTrue(by_slot["A"]["url"].endswith("back292600_1344_626.png"))
+        self.assertEqual(by_slot["B"]["assetType"], "image")
+        self.assertTrue(by_slot["B"]["url"].endswith("/Image/back292604/back292604.png"))
+        self.assertTrue(by_slot["A"]["talking"])
+        self.assertTrue(by_slot["B"]["talking"])
+        self.assertEqual(entity_ids, [])
+
+    def test_parser_infers_speaker_after_talk_mode_is_reenabled(self):
+        raw = """
+[charaSet A 1001001 1 Hero]
+[charaSet B 1002001 1 Partner]
+[charaFadein A 0.1 0]
+[charaFadein B 0.1 2]
+[charaTalk off]
+[charaTalk on]
+＠Partner
+Focused line
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogue = next(frame for frame in frames if frame.get("type") == "dialogue")
+        by_slot = {sprite["slot"]: sprite for sprite in dialogue["sprites"]}
+
+        self.assertFalse(by_slot["A"]["talking"])
+        self.assertTrue(by_slot["B"]["talking"])
+
+    def test_parser_switches_preloaded_variants_without_double_rendering(self):
+        raw = """
+[charaSet A 1001001 1 Hero]
+[charaSet B 1001001 1 Hero_演出用]
+[charaFadein B 0.1 1]
+[charaFace B 3]
+＠Hero
+Cinematic
+[k]
+[charaFadein A 0.1 0]
+[charaMove A -200,0 0.2]
+[charaTalk A]
+＠Hero
+Normal
+[k]
+[charaFadeout A 0.1]
+[charaTalk off]
+＠Hero
+Cinematic again
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogues = [frame for frame in frames if frame.get("type") == "dialogue"]
+
+        self.assertEqual([sprite["slot"] for sprite in dialogues[0]["sprites"]], ["B"])
+        self.assertEqual([sprite["slot"] for sprite in dialogues[1]["sprites"]], ["A"])
+        self.assertEqual([sprite["slot"] for sprite in dialogues[2]["sprites"]], ["B"])
+
+    def test_chara_put_does_not_reveal_a_preloaded_sprite(self):
+        raw = """
+[charaSet A 1001001 1 Hero]
+[charaPut A 1]
+＠Narrator
+Still hidden
+[k]
+[charaFadeTime A 0.2 0.6]
+＠Hero
+Now visible
+[k]
+""".strip()
+
+        frames, _ = _parse_fgo_script(raw, "JP")
+        dialogues = [frame for frame in frames if frame.get("type") == "dialogue"]
+
+        self.assertEqual(dialogues[0]["sprites"], [])
+        self.assertEqual(dialogues[1]["sprites"][0]["opacity"], 0.6)
 
 
 class RegionalDialogueSyntaxTests(unittest.TestCase):

@@ -25,6 +25,7 @@ function extractFunction(name) {
 const context = {
   window: { DATA: { region: 'JP' } },
   console,
+  pendingImages: [],
   SVT: {
     '1098123000': { offsetX: 3, offsetY: 143, extendData: {} },
     '1098330800': { offsetX: -16, offsetY: 126, extendData: {} },
@@ -36,11 +37,19 @@ const context = {
     '1049000': { width: 1024, height: 768 },
   },
 };
+context.Image = class FakeImage {
+  set src(value) {
+    this.requestedUrl = value;
+    context.pendingImages.push(this);
+  }
+};
 vm.createContext(context);
 vm.runInContext(
   `${extractFunction('escapeHtml')}\n${extractFunction('formatScriptText')}\n${extractFunction('formatSpeakerName')}\n`
     + `const SCENE_LOGICAL_WIDTH = 1024; const SCENE_LOGICAL_HEIGHT = 576; const DEFAULT_FIGURE_BODY_HEIGHT = 768;\n`
-    + `${extractFunction('computeSpriteLayout')}\n${extractFunction('applySpriteVisualState')}`,
+    + `const FACE_DEFAULT = 256; const FIGURE_DEFAULT_H = 1024; const FIGURE_PAGE_W = 1024; const FIGURE_PAGE_H = 1024;\n`
+    + `${extractFunction('computeSpriteLayout')}\n${extractFunction('getSubRenderMaskUrl')}\n${extractFunction('computeSubRenderLayout')}\n${extractFunction('getFrameAutoAdvanceDelay')}\n${extractFunction('getFigureBodyUrl')}\n${extractFunction('getFaceCrop')}\n${extractFunction('getFigureViewport')}\n${extractFunction('applySpriteVisualState')}\n${extractFunction('shouldRenderStageSprite')}\n`
+    + `let DESIRED_BG_URL = ''; let BG_PENDING_URL = ''; let BG_LOAD_TOKEN = 0;\n${extractFunction('syncBackground')}`,
   context
 );
 
@@ -102,12 +111,24 @@ assert.ok(Math.abs(subRenderFigureLayout.bottomCqh - (-13.0208333333)) < 1e-8);
 assert.ok(Math.abs(subRenderFigureLayout.heightCqh - 133.3333333333) < 1e-8);
 
 const maskedSubRenderLayout = context.computeSpriteLayout({
-  slot: 'E', entityId: '1049000', x: 350, y: -30, scale: 1, depth: 2,
-  subCameraMask: 'cut359_mask16',
+  slot: 'E', entityId: '1049000', x: 600, y: -30, scale: 1, depth: 2,
 }, 50, 0);
-assert.ok(Math.abs(maskedSubRenderLayout.heightCqh - 100) < 1e-8);
-assert.equal(maskedSubRenderLayout.maskedSubCamera, true);
-assert.ok(maskedSubRenderLayout.leftPercent <= 92);
+assert.ok(Math.abs(maskedSubRenderLayout.heightCqh - 133.3333333333) < 1e-8);
+assert.equal(maskedSubRenderLayout.leftPercent > 92, true);
+
+const subRenderLayout = context.computeSubRenderLayout({
+  visible: true, x: 400, y: -280, scale: 0.8, depth: 6, mask: 'cut359_mask16',
+}, 'JP');
+assert.equal(
+  subRenderLayout.transform,
+  'translate(39.0625cqw, 48.61111111111111cqh) scale(0.8)',
+);
+assert.equal(subRenderLayout.zIndex, 9);
+assert.equal(
+  subRenderLayout.maskUrl,
+  'https://static.atlasacademy.io/JP/Image/cut359_mask16/cut359_mask16.png',
+);
+assert.equal(context.getFrameAutoAdvanceDelay({ type: 'stage', duration: 0.6 }), 600);
 
 const visualVars = new Map();
 const visualClasses = new Map();
@@ -125,9 +146,119 @@ const visualNode = {
 context.applySpriteVisualState(visualNode, {
   opacity: 0.6, filter: 'silhouette', filterColor: '#000000', filterAlpha: 128 / 255,
   talking: true,
-}, maskedSubRenderLayout);
+}, subRenderFigureLayout);
 assert.ok(Math.abs(Number(visualVars.get('--sprite-opacity')) - (0.6 * 128 / 255)) < 1e-8);
 assert.equal(visualClasses.get('silhouette'), true);
-assert.equal(visualClasses.get('masked-sub-camera'), true);
+
+context.applySpriteVisualState(visualNode, {
+  opacity: 0.6, filter: 'normal', talking: false,
+}, maskedSubRenderLayout);
+assert.equal(visualVars.get('--sprite-opacity'), '0.6');
+assert.equal(visualVars.get('--sprite-dim-opacity'), '0.6');
+assert.equal(visualClasses.get('dimmed'), true);
+
+assert.equal(
+  context.getFigureBodyUrl('https://static.atlasacademy.io/JP/CharaFigure/1/1_merged.png'),
+  'https://static.atlasacademy.io/JP/CharaFigure/1/1.png',
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFaceCrop(1, 256, 256, 1024))),
+  { srcX: 0, srcY: 768 },
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFaceCrop(18, 256, 447, 1024))),
+  { srcX: 256, srcY: 3072 },
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFaceCrop(9, 256, 447, 1024))),
+  { srcX: 0, srcY: 2048 },
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFaceCrop(16, 256, 447, 1024))),
+  { srcX: 768, srcY: 2495 },
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFigureViewport(2048, 1024, 126))),
+  { cropX: 512, width: 1024, height: 702 },
+);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(context.getFigureViewport(1024, 768, 143))),
+  { cropX: 0, width: 1024, height: 719 },
+);
+assert.match(html, /if \(assetType !== 'chara'\)/);
+assert.match(html, /COMPOSITE_CACHE\[key\] = sp\.url/);
+
+const bgClasses = new Set();
+const bg = {
+  src: 'https://example.test/A.png',
+  classList: {
+    add: value => bgClasses.add(value),
+    remove: value => bgClasses.delete(value),
+  },
+};
+context.syncBackground(bg, 'https://example.test/B.png');
+assert.equal(bgClasses.has('fading'), true);
+const staleRequest = context.pendingImages.shift();
+context.syncBackground(bg, 'https://example.test/A.png');
+assert.equal(bgClasses.has('fading'), false);
+staleRequest.onload();
+assert.equal(bg.src, 'https://example.test/A.png');
+assert.equal(bgClasses.has('fading'), false);
+
+const mainBackground = 'https://static.atlasacademy.io/JP/Back/back105500_1344_626.png';
+assert.equal(context.shouldRenderStageSprite({ assetType: 'scene', url: mainBackground }, mainBackground), true);
+assert.equal(context.shouldRenderStageSprite({ assetType: 'scene', url: 'https://example.test/other.png' }, mainBackground), true);
+assert.equal(context.shouldRenderStageSprite({ assetType: 'image', url: mainBackground }, mainBackground), true);
+
+const sceneLayerLayout = context.computeSpriteLayout({
+  slot: 'V', entityId: 'scene:105500', assetType: 'scene',
+  x: -50, y: -270, scale: 1.2, depth: 12,
+}, 50, 0);
+assert.equal(sceneLayerLayout.fullStage, true);
+assert.equal(sceneLayerLayout.leftPercent, 0);
+assert.equal(sceneLayerLayout.bottomCqh, 0);
+assert.equal(sceneLayerLayout.heightCqh, 100);
+assert.equal(sceneLayerLayout.widthCqw, 100);
+assert.match(html, /node\.lastCompositeKey !== key/);
+assert.doesNotMatch(html, /IDX !== myFrameIdx/);
+assert.doesNotMatch(html, /node\.img\.style\.opacity = '0\.7'/);
+
+const preloadContext = {
+  FRAMES: [
+    {
+      bg: 'background.png',
+      sprites: [{ entityId: '1098348500', url: 'figure-merged.png', assetType: 'chara', face: 0 }],
+      subRenders: { '#A': { mask: 'cut359_mask16' } },
+    },
+    { sprites: [{ entityId: '1098348500', url: 'figure-merged.png', assetType: 'chara', face: 3 }] },
+    { sprites: [{ entityId: 'scene:105500', url: 'background.png', assetType: 'scene', face: 0 }] },
+  ],
+};
+vm.createContext(preloadContext);
+vm.runInContext(
+  `${extractFunction('getFigureBodyUrl')}\n${extractFunction('getSubRenderMaskUrl')}\n${extractFunction('collectSceneAssetRequests')}`,
+  preloadContext,
+);
+const preloadRequests = JSON.parse(JSON.stringify(
+  preloadContext.collectSceneAssetRequests(preloadContext.FRAMES, 'JP'),
+));
+assert.deepEqual(preloadRequests, [
+  { kind: 'image', url: 'background.png' },
+  {
+    kind: 'body', key: 'body:figure-merged.png',
+    entityId: '1098348500', url: 'figure-merged.png',
+  },
+  {
+    kind: 'image',
+    url: 'https://static.atlasacademy.io/JP/Image/cut359_mask16/cut359_mask16.png',
+  },
+  {
+    kind: 'atlas', key: 'atlas:figure-merged.png',
+    entityId: '1098348500', url: 'figure-merged.png',
+  },
+]);
+assert.match(html, /const preloadPromise = preloadAllSceneAssets/);
+assert.match(html, /await preloadPromise;[\s\S]{0,600}renderFrame\(\);/);
+assert.doesNotMatch(html, /preloadUpcomingSpriteAssets/);
 
 console.log('gaming formatting tests passed');
