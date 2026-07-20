@@ -920,8 +920,7 @@ const AA = (() => {
      */
     function parseScriptVisual(raw, region = 'JP') {
         region = norm(region);
-        const BG_BASE = id => `${CDN}/${region}/Back/back${id}.png`;
-        const FIG_BASE = eid => `${CDN}/${region}/CharaFigure/${eid}/${eid}.png`;
+        const FIG_BASE = eid => `${CDN}/${region}/CharaFigure/${eid}/${eid}_merged.png`;
 
         let text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
         text = text.replace(/\[\s*\n\s*/g, '[');
@@ -1049,17 +1048,35 @@ const AA = (() => {
         const state = {
             bg: '', sprites: {}, subLayers: {}, subRenders: {}, talkers: new Set(),
             talkHighlightEnabled: true, cameraFilter: null, bgm: null,
+            fullScreen: false, activitySeq: 0,
         };
         const frames = [], entityIds = new Set();
-        let dialogueIdx = 0, pendingEffects = [];
+        let dialogueIdx = 0, pendingEffects = [], visualDirty = false;
 
         function takeEffects() { const e = pendingEffects; pendingEffects = []; return e; }
+        function markVisualDirty() { visualDirty = true; }
         function isRenderableSprite(entityId, name = '') {
             const label = String(name || '');
             const id = String(entityId || '');
             return id !== '98115000'
                 && !label.includes('エフェクト用')
                 && !label.includes('初期化用ダミー');
+        }
+        function backgroundUrl(id) {
+            const suffix = state.fullScreen ? '_1344_626' : '';
+            return `${CDN}/${region}/Back/back${id}${suffix}.png`;
+        }
+        function imageUrl(name) {
+            return `${CDN}/${region}/Image/${name}/${name}.png`;
+        }
+        function isVariantSprite(name = '') {
+            const label = String(name || '').toLowerCase();
+            return ['演出用', 'シルエット', 'silhouette'].some(marker => label.includes(marker));
+        }
+        function touchSprite(slot) {
+            if (!state.sprites[slot]) return;
+            state.activitySeq += 1;
+            state.sprites[slot].activity = state.activitySeq;
         }
         function setSpriteVisible(slot, visible) {
             if (!state.sprites[slot]) return;
@@ -1071,6 +1088,7 @@ const AA = (() => {
             opacity = Math.max(0, Math.min(1, Number(opacity)));
             state.sprites[slot].opacity = opacity;
             setSpriteVisible(slot, opacity > 0);
+            if (opacity > 0) touchSprite(slot);
         }
         function parseFilterColor(raw) {
             const value = String(raw || '000000FF').trim().replace(/^#/, '');
@@ -1115,30 +1133,110 @@ const AA = (() => {
             return null;
         }
 
-        function snapshotSprites() {
+        function visibleSpriteEntries() {
             return Object.entries(state.sprites)
                 .filter(([, sp]) => sp.visible && sp.entityId && sp.renderable !== false)
                 .map(([slot, sp]) => {
                     const layerId = subLayerForSlot(slot);
                     const subRender = layerId ? getSubRender(layerId) : null;
                     if (subRender && !subRender.visible) return null;
-                    const renderScale = subRender ? subRender.scale : 1;
+                    const assetType = sp.assetType || 'chara';
                     return {
-                        slot, entityId: sp.entityId, name: sp.name || '',
-                        face: sp.face || 1, url: FIG_BASE(sp.entityId),
-                        talking: !state.talkHighlightEnabled || state.talkers.has(slot),
-                        x: subRender ? subRender.x + (sp.x || 0) * renderScale : sp.x,
-                        y: subRender ? subRender.y + (sp.y || 0) * renderScale : sp.y,
-                        scale: (sp.scale ?? 1) * renderScale,
-                        depth: subRender && subRender.depth !== null ? subRender.depth : (sp.depth ?? 0),
+                        slot, entityId: sp.entityId, assetType, name: sp.name || '',
+                        face: sp.face ?? 1, url: sp.url || FIG_BASE(sp.entityId),
+                        talking: assetType !== 'chara' || !state.talkHighlightEnabled || state.talkers.has(slot),
+                        x: sp.x,
+                        y: sp.y,
+                        scale: sp.scale ?? 1,
+                        depth: sp.depth ?? 0,
                         opacity: sp.opacity ?? 1,
                         filter: sp.filter || 'normal',
                         filterColor: sp.filterColor || '#000000',
                         filterAlpha: sp.filterAlpha ?? 1,
-                        subCameraMask: subRender ? subRender.mask : null,
+                        subRender: layerId,
+                        _activity: sp.activity || 0,
+                        _variant: assetType === 'chara' && isVariantSprite(sp.name),
                     };
                 })
                 .filter(Boolean);
+        }
+        function snapshotSprites() {
+            const candidates = visibleSpriteEntries();
+            const byEntity = new Map();
+            candidates.forEach(sprite => {
+                const sameEntity = byEntity.get(sprite.entityId) || [];
+                sameEntity.push(sprite);
+                byEntity.set(sprite.entityId, sameEntity);
+            });
+            const suppressed = new Set();
+            byEntity.forEach(sameEntity => {
+                if (sameEntity.length <= 1 || !sameEntity.some(sprite => sprite._variant)) return;
+                const active = sameEntity.reduce((best, sprite) =>
+                    sprite._activity > best._activity ? sprite : best);
+                sameEntity.forEach(sprite => {
+                    if (sprite !== active) suppressed.add(sprite.slot);
+                });
+            });
+            return candidates
+                .filter(sprite => !suppressed.has(sprite.slot))
+                .map(sprite => {
+                    delete sprite._activity;
+                    delete sprite._variant;
+                    return sprite;
+                });
+        }
+        function snapshotSubRenders() {
+            return Object.fromEntries(Object.entries(state.subRenders).map(([layerId, render]) => [
+                layerId,
+                {
+                    visible: Boolean(render.visible),
+                    x: render.x ?? 0,
+                    y: render.y ?? 0,
+                    scale: render.scale ?? 1,
+                    depth: render.depth ?? null,
+                    mask: render.mask ?? null,
+                },
+            ]));
+        }
+        function appendFrame(frame) {
+            if (frame.branchId === undefined) frame.branchId = currentBranch;
+            if (frame.subRenders === undefined) frame.subRenders = snapshotSubRenders();
+            frames.push(frame);
+            visualDirty = false;
+        }
+        function emitVisualWait(duration) {
+            if (!visualDirty) return;
+            appendFrame({
+                type: 'stage', bg: state.bg, sprites: snapshotSprites(),
+                duration: Math.max(0, Number(duration) || 0), effects: takeEffects(),
+                cameraFilter: state.cameraFilter, bgm: state.bgm,
+            });
+        }
+        function normalizeSpeakerLabel(value) {
+            return cleanText(String(value || ''))
+                .trim()
+                .replace(/[_＿](?:演出用|シルエット).*$/, '')
+                .replace(/\s+/g, '')
+                .toLocaleLowerCase();
+        }
+        function inferTalkerFromSpeaker(speaker) {
+            if (!state.talkHighlightEnabled) return;
+            const visible = visibleSpriteEntries();
+            const normalizedSpeaker = normalizeSpeakerLabel(speaker);
+            let matches = normalizedSpeaker
+                ? visible.filter(sprite => normalizeSpeakerLabel(sprite.name) === normalizedSpeaker)
+                : [];
+            if (matches.length) {
+                const matchingSlots = new Set(matches.map(sprite => sprite.slot));
+                if ([...state.talkers].some(slot => matchingSlots.has(slot))) return;
+                const active = matches.reduce((best, sprite) =>
+                    sprite._activity > best._activity ? sprite : best);
+                state.talkers = new Set([active.slot]);
+                return;
+            }
+            const visibleSlots = new Set(visible.map(sprite => sprite.slot));
+            if ([...state.talkers].some(slot => visibleSlots.has(slot))) return;
+            if (visible.length === 1 && normalizedSpeaker) state.talkers = new Set([visible[0].slot]);
         }
 
         let i = 0;
@@ -1148,14 +1246,41 @@ const AA = (() => {
             if (!line) continue;
 
             let m;
-            if (m = /^\[scene\s+(\d+)(?:\s+[^\]]+)?\]/.exec(line)) { state.bg = BG_BASE(m[1]); continue; }
-            if (m = /^\[bScene\s+(\d+)/.exec(line)) { if (!state.bg) state.bg = BG_BASE(m[1]); continue; }
-            if (m = /^\[imageSet\s+\w\s+back(\d+)/.exec(line)) { if (!state.bg) state.bg = BG_BASE(m[1]); continue; }
+            if (line.startsWith('[enableFullScreen')) { state.fullScreen = true; continue; }
+            if (m = /^\[scene\s+(\d+)(?:\s+[^\]]+)?\]/.exec(line)) {
+                state.bg = backgroundUrl(m[1]); markVisualDirty(); continue;
+            }
+            if (m = /^\[bScene\s+(\d+)/.exec(line)) {
+                if (!state.bg) { state.bg = backgroundUrl(m[1]); markVisualDirty(); }
+                continue;
+            }
+            if (m = /^\[sceneSet\s+(\w+)\s+(\d+)\s*(\d+)?/.exec(line)) {
+                const slot = m[1], sceneId = m[2];
+                state.sprites[slot] = {
+                    entityId: `scene:${sceneId}`, assetType: 'scene', url: backgroundUrl(sceneId),
+                    name: `back${sceneId}`, face: 0, visible: false, renderable: true,
+                    x: null, y: null, scale: 1, depth: 0, opacity: 1,
+                    filter: 'normal', filterColor: '#000000', filterAlpha: 1, activity: 0,
+                };
+                continue;
+            }
+            if (m = /^\[(?:imageSet|verticalImageSet|horizontalImageSet)\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
+                const slot = m[1], imageName = m[2];
+                state.sprites[slot] = {
+                    entityId: `image:${imageName}`, assetType: 'image', url: imageUrl(imageName),
+                    name: imageName, face: 0, visible: false, renderable: true,
+                    x: null, y: null, scale: 1, depth: 0, opacity: 1,
+                    filter: 'normal', filterColor: '#000000', filterAlpha: 1, activity: 0,
+                };
+                continue;
+            }
 
             if (m = /^\[charaSet\s+(\w)\s+(\d+)\s+(\d+)\s*(.*?)\]/.exec(line)) {
                 const name = m[4].trim();
                 state.sprites[m[1]] = {
                     entityId: m[2],
+                    assetType: 'chara',
+                    url: FIG_BASE(m[2]),
                     name,
                     face: parseInt(m[3]),
                     visible: false,
@@ -1168,11 +1293,17 @@ const AA = (() => {
                     filter: 'normal',
                     filterColor: '#000000',
                     filterAlpha: 1,
+                    activity: 0,
                 };
                 entityIds.add(m[2]); continue;
             }
             if (m = /^\[charaFace(?:Fade)?\s+(\w)\s+(\d+)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].face = parseInt(m[2]); continue;
+                if (state.sprites[m[1]]) {
+                    state.sprites[m[1]].face = parseInt(m[2]);
+                    touchSprite(m[1]);
+                    if (state.sprites[m[1]].visible) markVisualDirty();
+                }
+                continue;
             }
             if (m = /^\[charaTalk\s+([^\]]+)\]/.exec(line)) {
                 const rawTalkers = m[1].trim();
@@ -1188,22 +1319,27 @@ const AA = (() => {
                 }
                 continue;
             }
-            if (m = /^\[(charaFadein\w*)\s+(\w+)\s+([^\]]+)\]/.exec(line)) {
+            if (m = /^\[(charaFadein\w*|overlayFadein)\s+(\w+)\s+([^\]]+)\]/.exec(line)) {
                 const args = m[3].trim().split(/\s+/);
                 if (args.length >= 2) setSpritePosition(m[2], args[1]);
                 if (state.sprites[m[2]]) state.sprites[m[2]].opacity = 1;
-                setSpriteVisible(m[2], true); continue;
+                setSpriteVisible(m[2], true);
+                touchSprite(m[2]);
+                markVisualDirty();
+                continue;
             }
             if (m = /^\[charaFadeout\w*\s+(\w)/.exec(line)) {
-                setSpriteVisible(m[1], false); continue;
+                setSpriteVisible(m[1], false); markVisualDirty(); continue;
             }
             if (m = /^\[charaPut\w*\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
                 setSpritePosition(m[1], m[2]);
-                if (state.sprites[m[1]]) state.sprites[m[1]].opacity = 1;
-                setSpriteVisible(m[1], true); continue;
+                if (state.sprites[m[1]] && state.sprites[m[1]].visible) {
+                    touchSprite(m[1]); markVisualDirty();
+                }
+                continue;
             }
             if (m = /^\[charaFadeTime\w*\s+(\w+)\s+[^\s\]]+\s+([\d.]+)/.exec(line)) {
-                setSpriteOpacity(m[1], m[2]); continue;
+                setSpriteOpacity(m[1], m[2]); markVisualDirty(); continue;
             }
             if (m = /^\[charaFilter\s+(\w+)\s+(\w+)(?:\s+([^\s\]]+))?/.exec(line)) {
                 const slot = m[1], mode = m[2].toLowerCase();
@@ -1217,67 +1353,91 @@ const AA = (() => {
                         state.sprites[slot].filterColor = '#000000';
                         state.sprites[slot].filterAlpha = 1;
                     }
+                    if (state.sprites[slot].visible) markVisualDirty();
                 }
                 continue;
             }
             if (m = /^\[charaMoveScale(?:Ease)?\s+(\w+)\s+([\d.]+)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].scale = Number(m[2]);
+                if (state.sprites[m[1]]) {
+                    state.sprites[m[1]].scale = Number(m[2]);
+                    touchSprite(m[1]);
+                    if (state.sprites[m[1]].visible) markVisualDirty();
+                }
                 continue;
             }
             if (m = /^\[(charaMove(?!Return|Scale)\w*)\s+(\w+)\s+([^\s\]]+)/.exec(line)) {
-                setSpritePosition(m[2], m[3]); continue;
+                setSpritePosition(m[2], m[3]);
+                touchSprite(m[2]);
+                if (state.sprites[m[2]] && state.sprites[m[2]].visible) markVisualDirty();
+                continue;
             }
             if (m = /^\[charaScale\s+(\w+)\s+([\d.]+)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].scale = Number(m[2]);
+                if (state.sprites[m[1]]) {
+                    state.sprites[m[1]].scale = Number(m[2]);
+                    touchSprite(m[1]);
+                    if (state.sprites[m[1]].visible) markVisualDirty();
+                }
                 continue;
             }
             if (m = /^\[charaDepth\s+(\w+)\s+(-?\d+)/.exec(line)) {
-                if (state.sprites[m[1]]) state.sprites[m[1]].depth = Number(m[2]);
+                if (state.sprites[m[1]]) {
+                    state.sprites[m[1]].depth = Number(m[2]);
+                    if (state.sprites[m[1]].visible) markVisualDirty();
+                }
                 continue;
             }
             if (m = /^\[charaLayer\s+(\w)\s+sub\s+(#[A-Z])/.exec(line)) {
                 const slot = m[1], layer = m[2];
                 if (!state.subLayers[layer]) state.subLayers[layer] = new Set();
                 state.subLayers[layer].add(slot);
+                markVisualDirty();
                 continue;
             }
             if (m = /^\[charaLayer\s+(\w)\s+(?:main|normal)/.exec(line)) {
                 const slot = m[1];
                 Object.values(state.subLayers).forEach(slots => slots.delete(slot));
+                markVisualDirty();
                 continue;
             }
             if (m = /^\[subCameraFilter(?:\s+(#[A-Z]))?\s+maskEdge\s+([^\s\]]+)/.exec(line)) {
-                getSubRender(m[1] || '#A').mask = m[2]; continue;
+                getSubRender(m[1] || '#A').mask = m[2]; markVisualDirty(); continue;
             }
             if (m = /^\[subRenderDepth\s+(#[A-Z])\s+(-?\d+)/.exec(line)) {
-                getSubRender(m[1]).depth = Number(m[2]); continue;
+                getSubRender(m[1]).depth = Number(m[2]); markVisualDirty(); continue;
             }
             if (m = /^\[subRenderFadein\w*\s+(#[A-Z])\s+[^\s\]]+\s+([^\s\]]+)/.exec(line)) {
                 const render = getSubRender(m[1]);
                 const position = parsePositionToken(m[2]);
                 if (position) { render.x = position.x; render.y = position.y; }
-                render.visible = true; continue;
+                render.visible = true; markVisualDirty(); continue;
             }
             if (m = /^\[subRender(?:MoveScale(?:Ease)?|Scale)\s+(#[A-Z])\s+([\d.]+)/.exec(line)) {
-                getSubRender(m[1]).scale = Number(m[2]); continue;
+                getSubRender(m[1]).scale = Number(m[2]); markVisualDirty(); continue;
             }
             if (m = /^\[subRenderMove(?!Scale)\w*\s+(#[A-Z])\s+([^\s\]]+)/.exec(line)) {
                 const render = getSubRender(m[1]);
                 const position = parsePositionToken(m[2]);
                 if (position) { render.x = position.x; render.y = position.y; }
+                markVisualDirty();
                 continue;
             }
             if (m = /^\[charaCrossFade\s+(\w)\s+(\d+)\s+(\d+)/.exec(line)) {
                 if (state.sprites[m[1]]) {
                     state.sprites[m[1]].entityId = m[2];
+                    state.sprites[m[1]].url = FIG_BASE(m[2]);
                     state.sprites[m[1]].face = Number(m[3]);
                     state.sprites[m[1]].renderable = isRenderableSprite(m[2], state.sprites[m[1]].name);
+                    touchSprite(m[1]);
                     entityIds.add(m[2]);
+                    if (state.sprites[m[1]].visible) markVisualDirty();
                 }
                 continue;
             }
             if (m = /^\[subRenderFadeout\w*\s+(#[A-Z])/.exec(line)) {
-                getSubRender(m[1]).visible = false; continue;
+                getSubRender(m[1]).visible = false; markVisualDirty(); continue;
+            }
+            if (m = /^\[wt\s+([\d.]+)\s*\]/.exec(line)) {
+                emitVisualWait(m[1]); continue;
             }
 
             if (line.startsWith('＠')) {
@@ -1324,7 +1484,8 @@ const AA = (() => {
                         if (rawNonEmpty(rawJoined)) {
                             const content = cleanText(rawJoined);
                             if (content) {
-                                frames.push({
+                                inferTalkerFromSpeaker(speaker);
+                                appendFrame({
                                     type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
                                     speaker, text: content, dialogueIdx, branchId: currentBranch,
                                     effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
@@ -1352,7 +1513,8 @@ const AA = (() => {
                 if (rawNonEmpty(rawJoined)) {
                     const content = cleanText(rawJoined);
                     if (content) {
-                        frames.push({
+                        inferTalkerFromSpeaker(speaker);
+                        appendFrame({
                             type: 'dialogue', bg: state.bg, sprites: snapshotSprites(),
                             speaker, text: content, dialogueIdx, branchId: currentBranch,
                             effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm,
@@ -1377,7 +1539,7 @@ const AA = (() => {
                     }
                     if (grp) {
                         currentGroup = grp;
-                        frames.push({
+                        appendFrame({
                             type: 'choice', bg: state.bg, sprites: snapshotSprites(),
                             choices: grp.choices.map(c => ({ ...c })),
                             dialogueIdx: grp.choices.length ? grp.choices[0].dialogueIdx : dialogueIdx,
@@ -1401,7 +1563,7 @@ const AA = (() => {
             // Effects
             if (m = /^\[criMovie\s+([^\s\]]+)/.exec(line)) {
                 Object.keys(state.sprites).forEach(slot => setSpriteVisible(slot, false));
-                frames.push({
+                appendFrame({
                     type: 'movie', bg: state.bg, sprites: [], movie: m[1],
                     effects: [{ type: 'fadeOut', color: 'black', dur: 0.35 }, { type: 'movie', name: m[1] }],
                     cameraFilter: state.cameraFilter, bgm: state.bgm,
@@ -1410,22 +1572,26 @@ const AA = (() => {
             }
             if (m = /^\[fadeout\s+(\w+)(?:\s+([\d.]+))?\s*\]/.exec(line)) {
                 pendingEffects.push({ type: 'fadeOut', color: m[1], dur: parseFloat(m[2] || 1) });
-                frames.push({ type: 'transition', bg: state.bg, sprites: snapshotSprites(),
+                appendFrame({ type: 'transition', bg: state.bg, sprites: snapshotSprites(),
                     effects: takeEffects(), cameraFilter: state.cameraFilter, bgm: state.bgm });
                 continue;
             }
             if (m = /^\[fadein\s+(\w+)(?:\s+([\d.]+))?\s*\]/.exec(line)) {
-                pendingEffects.push({ type: 'fadeIn', color: m[1], dur: parseFloat(m[2] || 1) }); continue;
+                pendingEffects.push({ type: 'fadeIn', color: m[1], dur: parseFloat(m[2] || 1) });
+                markVisualDirty(); continue;
             }
             if (m = /^\[cameraFilter\s+(\w+)\s*\]/.exec(line)) {
-                state.cameraFilter = m[1]; pendingEffects.push({ type: 'cameraFilter', color: m[1] }); continue;
+                state.cameraFilter = m[1]; pendingEffects.push({ type: 'cameraFilter', color: m[1] });
+                markVisualDirty(); continue;
             }
             if (/^\[cameraFilter(Off|Stop)?\s*\]/.test(line)) {
-                state.cameraFilter = null; pendingEffects.push({ type: 'cameraFilter', color: null }); continue;
+                state.cameraFilter = null; pendingEffects.push({ type: 'cameraFilter', color: null });
+                markVisualDirty(); continue;
             }
             if (m = /^\[effect\s+(\w+)\s*\]/.exec(line)) {
                 const nm = m[1].toLowerCase();
-                pendingEffects.push({ type: nm.includes('shake') ? 'shake' : nm.includes('flash') ? 'flash' : 'effect', name: m[1] }); continue;
+                pendingEffects.push({ type: nm.includes('shake') ? 'shake' : nm.includes('flash') ? 'flash' : 'effect', name: m[1] });
+                markVisualDirty(); continue;
             }
             if (m = /^\[bgm\s+(\w+)/.exec(line)) { state.bgm = m[1]; continue; }
             if (/^\[bgmStop\b/.test(line)) { state.bgm = null; continue; }

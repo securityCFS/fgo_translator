@@ -382,7 +382,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/api.js?v=20260715-bundled-translations"></script>
+    <script src="js/api.js?v=20260720-scene-renderer"></script>
     <script src="js/translate.js"></script>
     <script>
     // ── Utilities ─────────────────────────────────────────────────────────────
@@ -2298,7 +2298,7 @@
         const origHtml = btn ? btn.innerHTML : '';
         if (btn) { btn.disabled = true; btn.innerHTML = t('preparingScene'); }
         try {
-            const gamingUrl = 'gaming.html';
+            const gamingUrl = `gaming.html?v=${Date.now()}`;
             const isMobileGaming = window.matchMedia('(pointer: coarse), (max-width: 767px)').matches;
             if (isMobileGaming) {
                 _gmWindow = window.open('', 'fgoGamingMobile');
